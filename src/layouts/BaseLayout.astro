@@ -1,0 +1,161 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+  keywords?: string
+  ogImage?: string
+  canonicalUrl?: string
+}
+
+const { 
+  title = 'Jraft Creative | Marketing Agency Singapore | Digital Marketing & Branding',
+  description = 'Jraft Creative is a full-service marketing agency in Singapore specializing in digital marketing, branding strategy, social media marketing, and sales training. Transform your business growth today.',
+  keywords = 'marketing agency singapore, digital marketing singapore, branding agency, social media marketing, sales training, marketing consultant singapore',
+  ogImage = '/og-image.jpg',
+  canonicalUrl = Astro.url.href
+} = Astro.props
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "name": "Jraft Creative",
+  "description": description,
+  "url": "https://www.jraftcreative.com",
+  "logo": "https://www.jraftcreative.com/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Singapore",
+    "addressCountry": "SG"
+  },
+  "priceRange": "$$",
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 1.3521,
+      "longitude": 103.8198
+    },
+    "geoRadius": "50000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Marketing Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Digital Marketing",
+          "description": "Data-driven digital marketing strategies that reach the right people and drive results."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Branding & Strategy",
+          "description": "Shape your brand's voice, message, and identity into marketing that resonates."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Social Media Marketing",
+          "description": "Social media strategies that build community, drive engagement, and amplify your voice."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Sales Training",
+          "description": "Proven sales training to boost trust, handle objections, and close with confidence."
+        }
+      }
+    ]
+  }
+}
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Jraft Creative" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:site_name" content="Jraft Creative" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="SG" />
+    <meta name="geo.placename" content="Singapore" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#42BB97" />
+  </head>
+  <body class="bg-white text-dark-800 min-h-screen antialiased overflow-x-hidden">
+    <slot />
+    
+    <!-- Scroll Animation Script -->
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            const animation = entry.target.dataset.animate;
+            if (animation) {
+              entry.target.classList.add(animation);
+            }
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('[data-animate]').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

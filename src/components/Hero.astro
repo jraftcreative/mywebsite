@@ -1,0 +1,135 @@
+---
+const stats = [
+  { value: '150+', label: 'Clients Served' },
+  { value: '3x', label: 'Avg. Growth Rate' },
+  { value: '98%', label: 'Client Retention' },
+]
+---
+
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <!-- Animated Background -->
+  <div class="absolute inset-0 -z-10">
+    <div class="blob w-[600px] h-[600px] bg-primary-200 top-[-200px] right-[-200px]"></div>
+    <div class="blob w-[400px] h-[400px] bg-primary-100 bottom-[10%] left-[-100px]"></div>
+    <div class="blob w-[300px] h-[300px] bg-accent-100 top-[40%] right-[10%]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-12 lg:py-20 w-full">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Content -->
+      <div class="order-2 lg:order-1">
+        <!-- Badge -->
+        <div 
+          class="inline-flex items-center gap-2 bg-primary-50 text-primary-600 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up"
+        >
+          <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+          Singapore's Growth-Focused Agency
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-dark-800 leading-tight mb-6 animate-fade-in-up delay-100">
+          Transform Your
+          <span class="gradient-text block">Drafts Into Reality</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-lg text-dark-500 mb-8 max-w-xl animate-fade-in-up delay-200">
+          We're not just another marketing agency. We're your growth partners, 
+          turning creative ideas into profitable campaigns that make your brand unforgettable.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up delay-300">
+          <a href="#contact" class="btn-primary text-base justify-center">
+            Start Your Growth Journey
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="#services" class="btn-secondary text-base justify-center">
+            Explore Services
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 animate-fade-in-up delay-400">
+          {stats.map((stat) => (
+            <div class="text-center sm:text-left">
+              <div class="text-2xl sm:text-3xl font-display font-bold text-dark-800">{stat.value}</div>
+              <div class="text-sm text-dark-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right Content - Animated Illustration -->
+      <div class="order-1 lg:order-2 relative">
+        <div class="relative animate-fade-in delay-200">
+          <!-- Main visual card -->
+          <div class="relative bg-white rounded-3xl shadow-2xl p-8 animate-float">
+            <!-- Floating elements -->
+            <div class="absolute -top-4 -left-4 bg-primary-400 text-white p-4 rounded-2xl shadow-lg animate-pulse-glow">
+              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            
+            <div class="absolute -bottom-6 -right-6 bg-accent-500 text-white p-3 rounded-xl shadow-lg">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+
+            <!-- Chart mockup -->
+            <div class="space-y-4">
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-sm font-medium text-dark-500">Growth Analytics</span>
+                <span class="text-xs text-primary-500 font-medium bg-primary-50 px-2 py-1 rounded-full">+127%</span>
+              </div>
+              
+              <div class="flex items-end gap-2 h-32">
+                <div class="flex-1 bg-dark-100 rounded-t-lg" style="height: 30%"></div>
+                <div class="flex-1 bg-dark-100 rounded-t-lg" style="height: 45%"></div>
+                <div class="flex-1 bg-dark-100 rounded-t-lg" style="height: 35%"></div>
+                <div class="flex-1 bg-primary-200 rounded-t-lg" style="height: 60%"></div>
+                <div class="flex-1 bg-primary-300 rounded-t-lg" style="height: 75%"></div>
+                <div class="flex-1 bg-primary-400 rounded-t-lg" style="height: 90%"></div>
+                <div class="flex-1 bg-primary-500 rounded-t-lg" style="height: 100%"></div>
+              </div>
+              
+              <div class="pt-4 border-t border-dark-100">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-xs text-dark-400">Monthly Revenue</p>
+                    <p class="text-xl font-bold text-dark-800">$124,500</p>
+                  </div>
+                  <div class="flex items-center gap-1 text-primary-500 text-sm font-medium">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
+                    23.5%
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative elements -->
+          <div class="absolute top-1/2 -left-8 w-16 h-16 bg-primary-100 rounded-full -z-10"></div>
+          <div class="absolute bottom-1/4 -right-4 w-8 h-8 bg-accent-200 rounded-full -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
+    <a href="#services" class="flex flex-col items-center gap-2 text-dark-400 hover:text-primary-500 transition-colors">
+      <span class="text-xs font-medium">Scroll to explore</span>
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
+  </div>
+</section>

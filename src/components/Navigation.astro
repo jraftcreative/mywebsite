@@ -1,0 +1,134 @@
+---
+const navLinks = [
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#process', label: 'Process' },
+  { href: '#results', label: 'Results' },
+  { href: '#contact', label: 'Contact' },
+]
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform">
+        <span class="text-white font-bold text-lg">J</span>
+      </div>
+      <span class="font-display font-bold text-xl text-dark-800 group-hover:text-primary-500 transition-colors">
+        Jraft<span class="text-primary-500">.</span>
+      </span>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="text-dark-600 hover:text-primary-500 font-medium transition-colors relative group"
+        >
+          {link.label}
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
+        </a>
+      ))}
+      <a 
+        href="#contact" 
+        class="btn-primary text-sm"
+      >
+        Get Started
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-btn" 
+      class="md:hidden p-2 text-dark-600 hover:text-primary-500 hover:bg-primary-50 rounded-lg transition-colors"
+      aria-label="Toggle menu"
+    >
+      <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-lg border-t border-dark-100 shadow-xl">
+    <div class="flex flex-col p-4 gap-2">
+      {navLinks.map(link => (
+        <a 
+          href={link.href} 
+          class="mobile-nav-link px-4 py-3 text-dark-600 hover:text-primary-500 hover:bg-primary-50 rounded-xl font-medium transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a 
+        href="#contact" 
+        class="mt-2 btn-primary justify-center"
+      >
+        Get Started
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > 50) {
+      navbar?.classList.add('bg-white/95', 'backdrop-blur-lg', 'shadow-sm');
+    } else {
+      navbar?.classList.remove('bg-white/95', 'backdrop-blur-lg', 'shadow-sm');
+    }
+    
+    lastScroll = currentScroll;
+  });
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMobileMenu() {
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  }
+
+  mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+
+  // Close menu when clicking a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node;
+    if (!mobileMenuBtn?.contains(target) && !mobileMenu?.contains(target)) {
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
+  });
+</script>
