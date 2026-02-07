@@ -4,48 +4,41 @@ const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#process', label: 'Process' },
   { href: '#results', label: 'Results' },
-  { href: '#contact', label: 'Contact' },
 ]
 ---
 
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
     <!-- Logo -->
-    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-center gap-2 group">
-      <div class="w-10 h-10 bg-gradient-to-br from-primary-400 to-primary-600 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform">
-        <span class="text-white font-bold text-lg">J</span>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform glow-green">
+        <span class="text-white font-bold text-xl">J</span>
       </div>
-      <span id="logo-text" class="font-display font-bold text-xl text-white group-hover:text-primary-400 transition-colors">
+      <span class="font-display font-bold text-xl text-white">
         Jraft<span class="text-primary-400">.</span>
       </span>
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-1">
       {navLinks.map(link => (
         <a 
           href={link.href} 
-          class="nav-link text-white/80 hover:text-primary-400 font-medium transition-colors relative group"
+          class="px-4 py-2 text-dark-300 hover:text-white font-medium transition-colors relative group"
         >
           {link.label}
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 group-hover:w-full transition-all duration-300"></span>
+          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-500 group-hover:w-1/2 transition-all duration-300 rounded-full"></span>
         </a>
       ))}
-      <a 
-        href="#contact" 
-        class="btn-primary text-sm"
-      >
-        Get Started
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+      <a href="#contact" class="ml-4 btn-primary text-sm py-2.5 px-5">
+        Let's Talk
       </a>
     </div>
 
     <!-- Mobile Menu Button -->
     <button 
       id="mobile-menu-btn" 
-      class="md:hidden p-2 text-white hover:text-primary-400 hover:bg-white/10 rounded-lg transition-colors"
+      class="md:hidden p-2 text-white hover:text-primary-400 transition-colors"
       aria-label="Toggle menu"
     >
       <svg id="menu-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,110 +51,51 @@ const navLinks = [
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 bg-dark-800/95 backdrop-blur-lg border-t border-dark-700 shadow-xl">
-    <div class="flex flex-col p-4 gap-2">
+  <div id="mobile-menu" class="md:hidden hidden absolute top-full left-0 right-0 glass-card border-t border-dark-800">
+    <div class="flex flex-col p-4 gap-1">
       {navLinks.map(link => (
         <a 
           href={link.href} 
-          class="mobile-nav-link px-4 py-3 text-white/80 hover:text-primary-400 hover:bg-white/5 rounded-xl font-medium transition-colors"
+          class="mobile-nav-link px-4 py-3 text-dark-300 hover:text-white hover:bg-white/5 rounded-lg font-medium transition-all"
         >
           {link.label}
         </a>
       ))}
-      <a 
-        href="#contact" 
-        class="mt-2 btn-primary justify-center"
-      >
-        Get Started
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+      <a href="#contact" class="mt-2 btn-primary justify-center">
+        Let's Talk
       </a>
     </div>
   </div>
 </header>
 
 <script>
-  // Navbar scroll effect
   const navbar = document.getElementById('navbar');
-  const logoText = document.getElementById('logo-text');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  let lastScroll = 0;
-  
-  function updateNavbarStyle(scrolled: boolean) {
-    if (scrolled) {
-      navbar?.classList.add('bg-white/95', 'backdrop-blur-lg', 'shadow-sm');
-      logoText?.classList.remove('text-white');
-      logoText?.classList.add('text-dark-800');
-      navLinks.forEach(link => {
-        link.classList.remove('text-white/80');
-        link.classList.add('text-dark-600');
-      });
-      mobileMenuBtn?.classList.remove('text-white', 'hover:bg-white/10');
-      mobileMenuBtn?.classList.add('text-dark-600', 'hover:bg-primary-50');
-      mobileMenu?.classList.remove('bg-dark-800/95', 'border-dark-700');
-      mobileMenu?.classList.add('bg-white/95', 'border-dark-100');
-      document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.classList.remove('text-white/80', 'hover:bg-white/5');
-        link.classList.add('text-dark-600', 'hover:bg-primary-50');
-      });
-    } else {
-      navbar?.classList.remove('bg-white/95', 'backdrop-blur-lg', 'shadow-sm');
-      logoText?.classList.remove('text-dark-800');
-      logoText?.classList.add('text-white');
-      navLinks.forEach(link => {
-        link.classList.remove('text-dark-600');
-        link.classList.add('text-white/80');
-      });
-      mobileMenuBtn?.classList.remove('text-dark-600', 'hover:bg-primary-50');
-      mobileMenuBtn?.classList.add('text-white', 'hover:bg-white/10');
-      mobileMenu?.classList.remove('bg-white/95', 'border-dark-100');
-      mobileMenu?.classList.add('bg-dark-800/95', 'border-dark-700');
-      document.querySelectorAll('.mobile-nav-link').forEach(link => {
-        link.classList.remove('text-dark-600', 'hover:bg-primary-50');
-        link.classList.add('text-white/80', 'hover:bg-white/5');
-      });
-    }
-  }
   
   window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    updateNavbarStyle(currentScroll > 50);
-    lastScroll = currentScroll;
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-dark-950/80', 'backdrop-blur-xl', 'border-b', 'border-dark-800/50');
+      navbar?.classList.remove('py-5');
+    } else {
+      navbar?.classList.remove('bg-dark-950/80', 'backdrop-blur-xl', 'border-b', 'border-dark-800/50');
+    }
   });
 
-  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');
   const closeIcon = document.getElementById('close-icon');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-  function toggleMobileMenu() {
+  mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
-  }
+  });
 
-  mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
-
-  // Close menu when clicking a link
-  mobileNavLinks.forEach(link => {
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');
       menuIcon?.classList.remove('hidden');
       closeIcon?.classList.add('hidden');
     });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    const target = e.target as Node;
-    if (!mobileMenuBtn?.contains(target) && !mobileMenu?.contains(target)) {
-      mobileMenu?.classList.add('hidden');
-      menuIcon?.classList.remove('hidden');
-      closeIcon?.classList.add('hidden');
-    }
   });
 </script>

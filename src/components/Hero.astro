@@ -1,135 +1,72 @@
 ---
-const stats = [
-  { value: '150+', label: 'Clients Served' },
-  { value: '3x', label: 'Avg. Growth Rate' },
-  { value: '98%', label: 'Client Retention' },
-]
+const clients = ['TechFlow', 'Urban Eats', 'PropVest', 'FinEdge', 'Nomad']
 ---
 
-<section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark-800">
-  <!-- Animated Background -->
-  <div class="absolute inset-0 -z-10">
-    <div class="blob w-[600px] h-[600px] bg-primary-600/20 top-[-200px] right-[-200px]"></div>
-    <div class="blob w-[400px] h-[400px] bg-primary-500/15 bottom-[10%] left-[-100px]"></div>
-    <div class="blob w-[300px] h-[300px] bg-dark-600 top-[40%] right-[10%]"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 py-12 lg:py-20 w-full">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+<section class="min-h-screen flex items-center relative overflow-hidden gradient-bg">
+  <!-- Grid pattern -->
+  <div class="absolute inset-0 grid-pattern"></div>
+  
+  <!-- Gradient orbs -->
+  <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary-500/20 rounded-full blur-[128px]"></div>
+  <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary-600/15 rounded-full blur-[128px]"></div>
+  
+  <div class="max-w-7xl mx-auto px-6 py-20 w-full relative">
+    <div class="max-w-4xl mx-auto text-center">
       
-      <!-- Left Content -->
-      <div class="order-2 lg:order-1">
-        <!-- Badge -->
-        <div 
-          class="inline-flex items-center gap-2 bg-dark-700 text-primary-400 px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fade-in-up border border-dark-600"
-        >
-          <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
-          Singapore's Growth-Focused Agency
-        </div>
-
-        <!-- Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white leading-tight mb-6 animate-fade-in-up delay-100">
-          Transform Your
-          <span class="text-primary-400 block">Drafts Into Reality</span>
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-lg text-dark-300 mb-8 max-w-xl animate-fade-in-up delay-200">
-          We're not just another marketing agency. We're your growth partners, 
-          turning creative ideas into profitable campaigns that make your brand unforgettable.
-        </p>
-
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up delay-300">
-          <a href="#contact" class="btn-primary text-base justify-center">
-            Start Your Growth Journey
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="#services" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold border-2 border-dark-600 text-white hover:border-primary-400 hover:text-primary-400 transition-all duration-300 text-base justify-center">
-            Explore Services
-          </a>
-        </div>
-
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-6 animate-fade-in-up delay-400">
-          {stats.map((stat) => (
-            <div class="text-center sm:text-left">
-              <div class="text-2xl sm:text-3xl font-display font-bold text-white">{stat.value}</div>
-              <div class="text-sm text-dark-400">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+      <!-- Trust badge -->
+      <div class="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-8 animate-fade-in-up">
+        <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+        <span class="text-sm text-dark-300">Trusted by 150+ brands in Singapore</span>
       </div>
 
-      <!-- Right Content - Animated Illustration -->
-      <div class="order-1 lg:order-2 relative">
-        <div class="relative animate-fade-in delay-200">
-          <!-- Main visual card -->
-          <div class="relative bg-dark-700 rounded-3xl shadow-2xl p-8 animate-float border border-dark-600">
-            <!-- Floating elements -->
-            <div class="absolute -top-4 -left-4 bg-primary-500 text-white p-4 rounded-2xl shadow-lg animate-pulse-glow">
-              <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            
-            <div class="absolute -bottom-6 -right-6 bg-accent-500 text-white p-3 rounded-xl shadow-lg">
-              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
+      <!-- Main headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white leading-[1.1] mb-6 animate-fade-in-up delay-100">
+        We Turn Marketing Into
+        <span class="gradient-text block mt-2">Measurable Growth</span>
+      </h1>
 
-            <!-- Chart mockup -->
-            <div class="space-y-4">
-              <div class="flex items-center justify-between mb-6">
-                <span class="text-sm font-medium text-dark-300">Growth Analytics</span>
-                <span class="text-xs text-primary-400 font-medium bg-primary-500/20 px-2 py-1 rounded-full">+127%</span>
-              </div>
-              
-              <div class="flex items-end gap-2 h-32">
-                <div class="flex-1 bg-dark-600 rounded-t-lg" style="height: 30%"></div>
-                <div class="flex-1 bg-dark-600 rounded-t-lg" style="height: 45%"></div>
-                <div class="flex-1 bg-dark-600 rounded-t-lg" style="height: 35%"></div>
-                <div class="flex-1 bg-primary-600/50 rounded-t-lg" style="height: 60%"></div>
-                <div class="flex-1 bg-primary-500/60 rounded-t-lg" style="height: 75%"></div>
-                <div class="flex-1 bg-primary-400 rounded-t-lg" style="height: 90%"></div>
-                <div class="flex-1 bg-primary-400 rounded-t-lg" style="height: 100%"></div>
-              </div>
-              
-              <div class="pt-4 border-t border-dark-600">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <p class="text-xs text-dark-400">Monthly Revenue</p>
-                    <p class="text-xl font-bold text-white">$124,500</p>
-                  </div>
-                  <div class="flex items-center gap-1 text-primary-400 text-sm font-medium">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                    </svg>
-                    23.5%
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <!-- Subheadline -->
+      <p class="text-lg lg:text-xl text-dark-300 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
+        Singapore's data-driven marketing agency. We craft strategies that 
+        don't just look good—they drive revenue and scale your business.
+      </p>
 
-          <!-- Decorative elements -->
-          <div class="absolute top-1/2 -left-8 w-16 h-16 bg-primary-500/20 rounded-full -z-10"></div>
-          <div class="absolute bottom-1/4 -right-4 w-8 h-8 bg-dark-600 rounded-full -z-10"></div>
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in-up delay-300">
+        <a href="#contact" class="btn-primary text-base">
+          Start Growing Today
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a href="#results" class="btn-secondary text-base">
+          See Our Results
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto animate-fade-in-up delay-400">
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-display font-bold text-white">3x</div>
+          <div class="text-sm text-dark-400 mt-1">Avg. ROI</div>
+        </div>
+        <div class="text-center border-x border-dark-700">
+          <div class="text-3xl lg:text-4xl font-display font-bold text-white">98%</div>
+          <div class="text-sm text-dark-400 mt-1">Retention</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl lg:text-4xl font-display font-bold text-white">$2M+</div>
+          <div class="text-sm text-dark-400 mt-1">Generated</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-    <a href="#services" class="flex flex-col items-center gap-2 text-dark-400 hover:text-primary-400 transition-colors">
-      <span class="text-xs font-medium">Scroll to explore</span>
-      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </a>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-dark-500 animate-bounce">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
   </div>
 </section>

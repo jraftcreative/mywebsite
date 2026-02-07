@@ -1,79 +1,54 @@
 ---
 const steps = [
-  {
-    number: '01',
-    title: 'Discovery',
-    description: 'Deep dive into your business, audience, and goals.',
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    </svg>`
-  },
-  {
-    number: '02',
-    title: 'Strategy',
-    description: 'Custom roadmap tailored to your objectives.',
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>`
-  },
-  {
-    number: '03',
-    title: 'Execute',
-    description: 'Bring strategy to life with precision and creativity.',
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>`
-  },
-  {
-    number: '04',
-    title: 'Optimize',
-    description: 'Continuously refine to maximize your ROI.',
-    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-    </svg>`
-  }
+  { number: '01', title: 'Discovery', description: 'Deep-dive into your goals, audience, and competition.' },
+  { number: '02', title: 'Strategy', description: 'Custom roadmap designed for maximum impact.' },
+  { number: '03', title: 'Execute', description: 'Launch campaigns with precision and creativity.' },
+  { number: '04', title: 'Optimize', description: 'Continuous refinement to maximize ROI.' }
 ]
 ---
 
-<section id="process" class="min-h-screen flex items-center py-12 px-6 bg-white relative overflow-hidden">
+<section id="process" class="min-h-screen flex items-center py-20 px-6 bg-dark-950 relative">
+  <div class="absolute inset-0 grid-pattern opacity-30"></div>
+  
   <div class="max-w-7xl mx-auto w-full relative">
-    <!-- Section Header -->
-    <div class="text-center mb-8" data-animate="animate-fade-in-up">
-      <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-2">
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3 block">
         Our Process
       </span>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark-800 mb-3">
-        How We Deliver <span class="gradient-text">Results</span>
+      <h2 class="text-3xl lg:text-5xl font-display font-bold text-white mb-4">
+        Simple. Effective. <span class="text-dark-400">Proven.</span>
       </h2>
-      <p class="text-dark-500 max-w-2xl mx-auto">
-        A proven framework that transforms your marketing into a predictable growth engine.
+      <p class="text-dark-400">
+        A battle-tested framework that delivers results, every time.
       </p>
     </div>
 
-    <!-- Process Steps - Horizontal -->
-    <div class="relative mb-8">
-      <!-- Connection line (desktop) -->
-      <div class="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200"></div>
+    <!-- Process timeline -->
+    <div class="relative">
+      <!-- Line connecting steps (desktop) -->
+      <div class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent"></div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
         {steps.map((step, index) => (
           <div 
-            class="relative text-center"
+            class="relative text-center lg:text-center"
             data-animate="animate-fade-in-up"
-            style={`animation-delay: ${index * 0.1}s`}
+            style={`animation-delay: ${index * 0.15}s`}
           >
-            <!-- Number badge -->
-            <div class="relative inline-flex mb-4">
-              <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg mx-auto">
-                {step.number}
+            <!-- Number circle -->
+            <div class="relative inline-flex mb-6">
+              <div class="w-16 h-16 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center relative z-10">
+                <span class="text-2xl font-display font-bold text-primary-400">{step.number}</span>
               </div>
+              <!-- Glow effect on hover -->
+              <div class="absolute inset-0 rounded-full bg-primary-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
 
-            <!-- Content -->
-            <h3 class="text-lg font-display font-bold text-dark-800 mb-2">
+            <h3 class="text-xl font-display font-semibold text-white mb-2">
               {step.title}
             </h3>
-            <p class="text-dark-500 text-sm">
+            <p class="text-dark-400 text-sm">
               {step.description}
             </p>
           </div>
@@ -82,9 +57,9 @@ const steps = [
     </div>
 
     <!-- CTA -->
-    <div class="text-center" data-animate="animate-fade-in-up">
+    <div class="text-center mt-16">
       <a href="#contact" class="btn-primary">
-        Book Your Free Strategy Call
+        Start Your Project
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>

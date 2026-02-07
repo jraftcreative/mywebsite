@@ -4,102 +4,88 @@ const services = [
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
     </svg>`,
-    title: 'Branding & Strategy',
-    description: 'Shape your brand\'s voice and identity into marketing that resonates.',
-    features: ['Brand Identity', 'Market Positioning', 'Messaging', 'Analysis'],
-    color: 'primary'
+    title: 'Brand Strategy',
+    description: 'Position your brand to stand out and connect with the right audience.',
+    link: '#contact'
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
     </svg>`,
     title: 'Digital Marketing',
-    description: 'Data-driven strategies that cut through the noise and deliver results.',
-    features: ['SEO & SEM', 'Paid Ads', 'Content', 'Analytics'],
-    color: 'accent'
+    description: 'Data-driven campaigns across SEO, SEM, and paid media that convert.',
+    link: '#contact'
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>`,
     title: 'Social Media',
-    description: 'Build community, drive engagement, and amplify your brand\'s voice.',
-    features: ['Strategy', 'Community', 'Influencers', 'Tracking'],
-    color: 'primary'
+    description: 'Build community and drive engagement across all platforms.',
+    link: '#contact'
   },
   {
     icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
     </svg>`,
     title: 'Sales Training',
-    description: 'Proven methodologies to handle objections and close more deals.',
-    features: ['Playbooks', 'Objections', 'Closing', 'Workshops'],
-    color: 'accent'
+    description: 'Equip your team to close more deals with proven methodologies.',
+    link: '#contact'
   }
 ]
 ---
 
-<section id="services" class="min-h-screen flex items-center py-12 px-6 bg-white">
-  <div class="max-w-7xl mx-auto w-full">
-    <!-- Section Header -->
-    <div class="text-center mb-8" data-animate="animate-fade-in-up">
-      <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-2">
-        What We Do
-      </span>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark-800 mb-3">
-        Services That Drive 
-        <span class="gradient-text">Real Growth</span>
-      </h2>
-      <p class="text-dark-500 max-w-2xl mx-auto">
-        End-to-end marketing solutions tailored to your unique business needs.
+<section id="services" class="min-h-screen flex items-center py-20 px-6 bg-dark-950 relative">
+  <div class="absolute inset-0 grid-pattern opacity-50"></div>
+  
+  <div class="max-w-7xl mx-auto w-full relative">
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="text-primary-400 font-semibold text-sm uppercase tracking-wider mb-3 block">
+          What We Do
+        </span>
+        <h2 class="text-3xl lg:text-5xl font-display font-bold text-white leading-tight">
+          Full-Stack Marketing
+          <span class="text-dark-400">Solutions</span>
+        </h2>
+      </div>
+      <p class="text-dark-400 lg:max-w-md lg:text-right">
+        From strategy to execution, we provide everything you need to dominate your market.
       </p>
     </div>
 
-    <!-- Services Grid - 2x2 compact -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
       {services.map((service, index) => (
-        <div 
-          class="group relative bg-white rounded-xl p-5 card-hover border border-dark-100"
+        <a 
+          href={service.link}
+          class="group glass-card-light rounded-2xl p-6 hover:bg-white/5 transition-all duration-500 hover:border-primary-500/30 hover:glow-green"
           data-animate="animate-fade-in-up"
           style={`animation-delay: ${index * 0.1}s`}
         >
           <!-- Icon -->
-          <div class={`inline-flex items-center justify-center w-10 h-10 rounded-lg mb-4 ${
-            service.color === 'primary' 
-              ? 'bg-primary-100 text-primary-600 group-hover:bg-primary-500 group-hover:text-white' 
-              : 'bg-accent-100 text-accent-600 group-hover:bg-accent-500 group-hover:text-white'
-          } transition-all duration-300`}>
+          <div class="w-12 h-12 rounded-xl bg-primary-500/10 text-primary-400 flex items-center justify-center mb-5 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
             <Fragment set:html={service.icon} />
           </div>
 
           <!-- Content -->
-          <h3 class="text-base font-display font-bold text-dark-800 mb-2 group-hover:text-primary-600 transition-colors">
+          <h3 class="text-lg font-display font-semibold text-white mb-2 group-hover:text-primary-400 transition-colors">
             {service.title}
           </h3>
-          <p class="text-dark-500 text-sm mb-4 leading-relaxed">
+          <p class="text-dark-400 text-sm leading-relaxed mb-4">
             {service.description}
           </p>
 
-          <!-- Features -->
-          <div class="flex flex-wrap gap-1.5">
-            {service.features.map(feature => (
-              <span class="text-xs font-medium text-dark-400 bg-dark-50 px-2 py-1 rounded-full">
-                {feature}
-              </span>
-            ))}
+          <!-- Arrow -->
+          <div class="flex items-center gap-2 text-primary-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn more
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </div>
-        </div>
+        </a>
       ))}
-    </div>
-
-    <!-- CTA -->
-    <div class="text-center mt-8" data-animate="animate-fade-in-up">
-      <a href="#contact" class="btn-primary">
-        Get a Free Consultation
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
     </div>
   </div>
 </section>
