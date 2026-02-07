@@ -1,15 +1,15 @@
 ---
 const testimonials = [
   {
-    quote: "Jraft Creative transformed our online presence completely. Within 3 months, our leads increased by 180% and our cost per acquisition dropped by half.",
+    quote: "Within 3 months, our leads increased by 180% and cost per acquisition dropped by half.",
     author: "Sarah Chen",
     role: "CEO, TechFlow Solutions",
     avatar: "SC",
     metric: "+180%",
-    metricLabel: "Lead Growth"
+    metricLabel: "Leads"
   },
   {
-    quote: "Working with Jraft was a game-changer. Their strategic approach to our social media doubled our engagement and directly impacted our bottom line.",
+    quote: "Their strategic approach doubled our engagement and directly impacted our bottom line.",
     author: "Marcus Tan",
     role: "Founder, Urban Eats",
     avatar: "MT",
@@ -17,7 +17,7 @@ const testimonials = [
     metricLabel: "Engagement"
   },
   {
-    quote: "The sales training program was exactly what our team needed. Our close rate jumped from 15% to 42% in just two quarters. Incredible ROI.",
+    quote: "Our close rate jumped from 15% to 42% in just two quarters. Incredible ROI.",
     author: "Jessica Lim",
     role: "Sales Director, PropVest",
     avatar: "JL",
@@ -26,39 +26,47 @@ const testimonials = [
   }
 ]
 
-const logos = [
-  'Tech Startup', 'Finance Corp', 'Retail Brand', 'Healthcare Plus', 'Education Hub', 'Travel Co'
+const stats = [
+  { value: '$2M+', label: 'Revenue Generated' },
+  { value: '150+', label: 'Happy Clients' },
+  { value: '3x', label: 'Avg. ROI' },
+  { value: '98%', label: 'Client Retention' }
 ]
 ---
 
-<section id="results" class="min-h-screen flex items-center py-16 px-6 bg-dark-800 text-white">
+<section id="results" class="min-h-screen flex items-center py-12 px-6 bg-dark-800 text-white">
   <div class="max-w-7xl mx-auto w-full">
     <!-- Section Header -->
-    <div class="text-center mb-16" data-animate="animate-fade-in-up">
-      <span class="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4">
+    <div class="text-center mb-8" data-animate="animate-fade-in-up">
+      <span class="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-2">
         Proven Results
       </span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
-        Success Stories That 
-        <span class="text-primary-400">Speak For Themselves</span>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-3">
+        Success Stories That <span class="text-primary-400">Speak For Themselves</span>
       </h2>
-      <p class="text-lg text-dark-300 max-w-2xl mx-auto">
-        Don't just take our word for it. Here's what our clients have achieved 
-        working with Jraft Creative.
-      </p>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="grid grid-cols-4 gap-4 mb-8" data-animate="animate-fade-in-up">
+      {stats.map(stat => (
+        <div class="text-center">
+          <div class="text-2xl lg:text-3xl font-display font-bold text-primary-400">{stat.value}</div>
+          <div class="text-xs lg:text-sm text-dark-300">{stat.label}</div>
+        </div>
+      ))}
     </div>
 
     <!-- Testimonials -->
-    <div class="grid md:grid-cols-3 gap-6 mb-16">
+    <div class="grid md:grid-cols-3 gap-4">
       {testimonials.map((testimonial, index) => (
         <div 
-          class="bg-dark-700/50 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-600 hover:border-primary-500 transition-all duration-300"
+          class="bg-dark-700/50 backdrop-blur-sm rounded-xl p-5 border border-dark-600 hover:border-primary-500 transition-all duration-300"
           data-animate="animate-fade-in-up"
           style={`animation-delay: ${index * 0.1}s`}
         >
-          <!-- Metric highlight -->
-          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-dark-600">
-            <div class="text-3xl font-display font-bold text-primary-400">
+          <!-- Metric -->
+          <div class="flex items-center gap-3 mb-4 pb-4 border-b border-dark-600">
+            <div class="text-2xl font-display font-bold text-primary-400">
               {testimonial.metric}
             </div>
             <div class="text-sm text-dark-300">
@@ -67,61 +75,22 @@ const logos = [
           </div>
 
           <!-- Quote -->
-          <div class="mb-6">
-            <svg class="w-8 h-8 text-primary-500/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
-            </svg>
-            <p class="text-dark-200 leading-relaxed">
-              {testimonial.quote}
-            </p>
-          </div>
+          <p class="text-dark-200 text-sm leading-relaxed mb-4">
+            "{testimonial.quote}"
+          </p>
 
           <!-- Author -->
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-semibold">
+            <div class="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-semibold text-sm">
               {testimonial.avatar}
             </div>
             <div>
-              <div class="font-semibold text-white">{testimonial.author}</div>
-              <div class="text-sm text-dark-300">{testimonial.role}</div>
+              <div class="font-semibold text-white text-sm">{testimonial.author}</div>
+              <div class="text-xs text-dark-400">{testimonial.role}</div>
             </div>
           </div>
         </div>
       ))}
-    </div>
-
-    <!-- Trust indicators -->
-    <div class="text-center" data-animate="animate-fade-in-up">
-      <p class="text-sm text-dark-300 mb-8">Trusted by leading brands across industries</p>
-      
-      <!-- Logo cloud -->
-      <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12 opacity-50">
-        {logos.map(logo => (
-          <div class="text-dark-300 font-semibold text-lg">
-            {logo}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Big stats -->
-    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8" data-animate="animate-fade-in-up">
-      <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">$2M+</div>
-        <div class="text-dark-300">Revenue Generated</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">150+</div>
-        <div class="text-dark-300">Happy Clients</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">3x</div>
-        <div class="text-dark-300">Avg. ROI</div>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">98%</div>
-        <div class="text-dark-300">Client Retention</div>
-      </div>
     </div>
   </div>
 </section>

@@ -3,107 +3,86 @@ const steps = [
   {
     number: '01',
     title: 'Discovery',
-    description: 'We dive deep into your business, audience, and goals. Understanding your unique challenges is the foundation of every successful campaign.',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    description: 'Deep dive into your business, audience, and goals.',
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
     </svg>`
   },
   {
     number: '02',
     title: 'Strategy',
-    description: 'We craft a custom roadmap tailored to your objectives. Every tactic is chosen with purpose, aligned to drive measurable outcomes.',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    description: 'Custom roadmap tailored to your objectives.',
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>`
   },
   {
     number: '03',
     title: 'Execute',
-    description: 'We bring your strategy to life with precision and creativity. From content to campaigns, we handle the heavy lifting so you can focus on your business.',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    description: 'Bring strategy to life with precision and creativity.',
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
     </svg>`
   },
   {
     number: '04',
     title: 'Optimize',
-    description: 'Marketing is never "set and forget." We continuously analyze, test, and refine to maximize your ROI and keep you ahead of the competition.',
-    icon: `<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    description: 'Continuously refine to maximize your ROI.',
+    icon: `<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
     </svg>`
   }
 ]
 ---
 
-<section id="process" class="min-h-screen flex items-center py-16 px-6 bg-white relative overflow-hidden">
-  <!-- Background pattern -->
-  <div class="absolute inset-0 opacity-5">
-    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23231f20%22 fill-opacity=%221%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-  </div>
-
-  <!-- Gradient overlay -->
-  <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary-100/30 to-transparent -z-10"></div>
-
+<section id="process" class="min-h-screen flex items-center py-12 px-6 bg-white relative overflow-hidden">
   <div class="max-w-7xl mx-auto w-full relative">
     <!-- Section Header -->
-    <div class="text-center mb-16" data-animate="animate-fade-in-up">
-      <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-4">
+    <div class="text-center mb-8" data-animate="animate-fade-in-up">
+      <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-2">
         Our Process
       </span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-dark-800 mb-6">
-        How We Deliver 
-        <span class="gradient-text">Results</span>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-dark-800 mb-3">
+        How We Deliver <span class="gradient-text">Results</span>
       </h2>
-      <p class="text-lg text-dark-500 max-w-2xl mx-auto">
-        A proven framework that transforms your marketing from guesswork into 
-        a predictable growth engine.
+      <p class="text-dark-500 max-w-2xl mx-auto">
+        A proven framework that transforms your marketing into a predictable growth engine.
       </p>
     </div>
 
-    <!-- Process Steps -->
-    <div class="relative">
+    <!-- Process Steps - Horizontal -->
+    <div class="relative mb-8">
       <!-- Connection line (desktop) -->
-      <div class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200"></div>
+      <div class="hidden lg:block absolute top-16 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200"></div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {steps.map((step, index) => (
           <div 
-            class="relative"
+            class="relative text-center"
             data-animate="animate-fade-in-up"
-            style={`animation-delay: ${index * 0.15}s`}
+            style={`animation-delay: ${index * 0.1}s`}
           >
-            <!-- Step card -->
-            <div class="bg-white rounded-2xl p-6 border border-dark-100 hover:border-primary-300 hover:shadow-lg transition-all duration-300 group h-full">
-              <!-- Number badge -->
-              <div class="relative mb-6">
-                <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg group-hover:scale-110 transition-transform">
-                  {step.number}
-                </div>
-                <!-- Connector dot (desktop) -->
-                <div class="hidden lg:block absolute -top-[3.25rem] left-1/2 -translate-x-1/2 w-4 h-4 bg-primary-400 rounded-full border-4 border-white"></div>
+            <!-- Number badge -->
+            <div class="relative inline-flex mb-4">
+              <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center text-white font-display font-bold text-lg mx-auto">
+                {step.number}
               </div>
-
-              <!-- Icon -->
-              <div class="w-10 h-10 bg-primary-50 text-primary-500 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
-                <Fragment set:html={step.icon} />
-              </div>
-
-              <!-- Content -->
-              <h3 class="text-xl font-display font-bold text-dark-800 mb-3">
-                {step.title}
-              </h3>
-              <p class="text-dark-500 text-sm leading-relaxed">
-                {step.description}
-              </p>
             </div>
+
+            <!-- Content -->
+            <h3 class="text-lg font-display font-bold text-dark-800 mb-2">
+              {step.title}
+            </h3>
+            <p class="text-dark-500 text-sm">
+              {step.description}
+            </p>
           </div>
         ))}
       </div>
     </div>
 
     <!-- CTA -->
-    <div class="text-center mt-16" data-animate="animate-fade-in-up">
-      <p class="text-dark-500 mb-4">Ready to start your growth journey?</p>
+    <div class="text-center" data-animate="animate-fade-in-up">
       <a href="#contact" class="btn-primary">
         Book Your Free Strategy Call
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
