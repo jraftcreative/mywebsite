@@ -31,41 +31,41 @@ const reasons = [
 ]
 ---
 
-<section id="about" class="section-padding relative overflow-hidden">
+<section id="about" class="section-padding bg-dark-800 text-white relative overflow-hidden">
   <!-- Background decorations -->
-  <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-50 to-transparent -z-10"></div>
+  <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-dark-700 to-transparent -z-10"></div>
   
   <div class="max-w-7xl mx-auto">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       
       <!-- Left - Content -->
       <div data-animate="animate-slide-in-left">
-        <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-4">
+        <span class="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4">
           Why Jraft Creative
         </span>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-dark-800 mb-6">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
           Marketing Made
-          <span class="gradient-text block">Easy & Profitable</span>
+          <span class="text-primary-400 block">Easy & Profitable</span>
         </h2>
-        <p class="text-lg text-dark-500 mb-8 leading-relaxed">
+        <p class="text-lg text-dark-300 mb-8 leading-relaxed">
           Your brand isn't just what you sell — it's how people see you. We help you get recognised, 
           spark genuine connections, and fuel sustainable growth. Let's shape a brand that speaks 
           for itself and sticks in your audience's mind.
         </p>
 
         <!-- Stats row -->
-        <div class="flex gap-8 mb-8 pb-8 border-b border-dark-100">
+        <div class="flex gap-8 mb-8 pb-8 border-b border-dark-600">
           <div>
-            <div class="text-3xl font-display font-bold text-primary-500">10+</div>
-            <div class="text-sm text-dark-500">Years Experience</div>
+            <div class="text-3xl font-display font-bold text-primary-400">10+</div>
+            <div class="text-sm text-dark-300">Years Experience</div>
           </div>
           <div>
-            <div class="text-3xl font-display font-bold text-primary-500">500+</div>
-            <div class="text-sm text-dark-500">Projects Delivered</div>
+            <div class="text-3xl font-display font-bold text-primary-400">500+</div>
+            <div class="text-sm text-dark-300">Projects Delivered</div>
           </div>
           <div>
-            <div class="text-3xl font-display font-bold text-primary-500">50+</div>
-            <div class="text-sm text-dark-500">Industries Served</div>
+            <div class="text-3xl font-display font-bold text-primary-400">50+</div>
+            <div class="text-sm text-dark-300">Industries Served</div>
           </div>
         </div>
 
@@ -81,16 +81,16 @@ const reasons = [
       <div class="grid sm:grid-cols-2 gap-4" data-animate="animate-slide-in-right">
         {reasons.map((reason, index) => (
           <div 
-            class="bg-white rounded-2xl p-6 border border-dark-100 hover:border-primary-200 hover:shadow-lg transition-all duration-300 group"
+            class="bg-dark-700/50 backdrop-blur-sm rounded-2xl p-6 border border-dark-600 hover:border-primary-500 hover:shadow-lg transition-all duration-300 group"
             style={`animation-delay: ${index * 0.1}s`}
           >
-            <div class="w-12 h-12 bg-primary-50 text-primary-500 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
+            <div class="w-12 h-12 bg-dark-600 text-primary-400 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
               <Fragment set:html={reason.icon} />
             </div>
-            <h3 class="text-lg font-display font-bold text-dark-800 mb-2">
+            <h3 class="text-lg font-display font-bold text-white mb-2">
               {reason.title}
             </h3>
-            <p class="text-sm text-dark-500 leading-relaxed">
+            <p class="text-sm text-dark-300 leading-relaxed">
               {reason.description}
             </p>
           </div>

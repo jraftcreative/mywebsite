@@ -31,18 +31,18 @@ const logos = [
 ]
 ---
 
-<section id="results" class="section-padding bg-primary-50/30">
+<section id="results" class="section-padding bg-dark-800 text-white">
   <div class="max-w-7xl mx-auto">
     <!-- Section Header -->
     <div class="text-center mb-16" data-animate="animate-fade-in-up">
-      <span class="inline-block text-primary-500 font-semibold text-sm uppercase tracking-wider mb-4">
+      <span class="inline-block text-primary-400 font-semibold text-sm uppercase tracking-wider mb-4">
         Proven Results
       </span>
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-dark-800 mb-6">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-6">
         Success Stories That 
-        <span class="gradient-text">Speak For Themselves</span>
+        <span class="text-primary-400">Speak For Themselves</span>
       </h2>
-      <p class="text-lg text-dark-500 max-w-2xl mx-auto">
+      <p class="text-lg text-dark-300 max-w-2xl mx-auto">
         Don't just take our word for it. Here's what our clients have achieved 
         working with Jraft Creative.
       </p>
@@ -52,38 +52,38 @@ const logos = [
     <div class="grid md:grid-cols-3 gap-6 mb-16">
       {testimonials.map((testimonial, index) => (
         <div 
-          class="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-dark-100 hover:shadow-xl hover:border-primary-200 transition-all duration-300"
+          class="bg-dark-700/50 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-dark-600 hover:border-primary-500 transition-all duration-300"
           data-animate="animate-fade-in-up"
           style={`animation-delay: ${index * 0.1}s`}
         >
           <!-- Metric highlight -->
-          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-dark-100">
-            <div class="text-3xl font-display font-bold text-primary-500">
+          <div class="flex items-center gap-4 mb-6 pb-6 border-b border-dark-600">
+            <div class="text-3xl font-display font-bold text-primary-400">
               {testimonial.metric}
             </div>
-            <div class="text-sm text-dark-400">
+            <div class="text-sm text-dark-300">
               {testimonial.metricLabel}
             </div>
           </div>
 
           <!-- Quote -->
           <div class="mb-6">
-            <svg class="w-8 h-8 text-primary-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 text-primary-500/30 mb-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
             </svg>
-            <p class="text-dark-600 leading-relaxed">
+            <p class="text-dark-200 leading-relaxed">
               {testimonial.quote}
             </p>
           </div>
 
           <!-- Author -->
           <div class="flex items-center gap-3">
-            <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center font-semibold">
+            <div class="w-12 h-12 bg-primary-500 text-white rounded-full flex items-center justify-center font-semibold">
               {testimonial.avatar}
             </div>
             <div>
-              <div class="font-semibold text-dark-800">{testimonial.author}</div>
-              <div class="text-sm text-dark-400">{testimonial.role}</div>
+              <div class="font-semibold text-white">{testimonial.author}</div>
+              <div class="text-sm text-dark-300">{testimonial.role}</div>
             </div>
           </div>
         </div>
@@ -92,12 +92,12 @@ const logos = [
 
     <!-- Trust indicators -->
     <div class="text-center" data-animate="animate-fade-in-up">
-      <p class="text-sm text-dark-400 mb-8">Trusted by leading brands across industries</p>
+      <p class="text-sm text-dark-300 mb-8">Trusted by leading brands across industries</p>
       
       <!-- Logo cloud -->
       <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-12 opacity-50">
         {logos.map(logo => (
-          <div class="text-dark-400 font-semibold text-lg">
+          <div class="text-dark-300 font-semibold text-lg">
             {logo}
           </div>
         ))}
@@ -107,20 +107,20 @@ const logos = [
     <!-- Big stats -->
     <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8" data-animate="animate-fade-in-up">
       <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-500 mb-2">$2M+</div>
-        <div class="text-dark-500">Revenue Generated</div>
+        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">$2M+</div>
+        <div class="text-dark-300">Revenue Generated</div>
       </div>
       <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-500 mb-2">150+</div>
-        <div class="text-dark-500">Happy Clients</div>
+        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">150+</div>
+        <div class="text-dark-300">Happy Clients</div>
       </div>
       <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-500 mb-2">3x</div>
-        <div class="text-dark-500">Avg. ROI</div>
+        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">3x</div>
+        <div class="text-dark-300">Avg. ROI</div>
       </div>
       <div class="text-center">
-        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-500 mb-2">98%</div>
-        <div class="text-dark-500">Client Retention</div>
+        <div class="text-4xl lg:text-5xl font-display font-bold text-primary-400 mb-2">98%</div>
+        <div class="text-dark-300">Client Retention</div>
       </div>
     </div>
   </div>
