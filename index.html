@@ -79,39 +79,67 @@
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Services</p>
-        <h2>What We Build</h2>
-        <p>End-to-end web solutions tailored to your business needs.</p>
+        <h2>What We Do</h2>
+        <p>End-to-end digital solutions tailored to your business needs.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal reveal-d1">
-          <div class="service-icon">🎨</div>
-          <h3>Business Websites</h3>
-          <p>Custom-designed, mobile-responsive websites that showcase your brand and convert visitors into customers.</p>
-        </div>
-        <div class="service-card reveal reveal-d2">
-          <div class="service-icon">🛒</div>
-          <h3>Ecommerce Stores</h3>
-          <p>Online stores with product catalogs, secure checkout, payment integration, and inventory management.</p>
-        </div>
-        <div class="service-card reveal reveal-d3">
-          <div class="service-icon">⚡</div>
-          <h3>Web Applications</h3>
-          <p>Booking systems, client portals, dashboards, and custom tools that streamline your operations.</p>
-        </div>
-        <div class="service-card reveal reveal-d1">
-          <div class="service-icon">📱</div>
-          <h3>Landing Pages</h3>
-          <p>High-converting campaign pages for promotions, launches, and lead generation. Fast turnaround.</p>
+      <div class="services-grid services-grid-4">
+        <div class="service-card service-expandable reveal reveal-d1" id="serviceWebDev">
+          <div class="service-icon">💻</div>
+          <h3>Website Development</h3>
+          <p>Custom websites, stores, and web apps — designed to convert and built to scale.</p>
+          <span class="service-expand-hint">Click to explore →</span>
+          <div class="service-sub-list">
+            <div class="service-sub-item">
+              <span class="service-sub-icon">🎨</span>
+              <div>
+                <strong>Business Websites</strong>
+                <p>Custom-designed, mobile-responsive sites that showcase your brand and convert visitors.</p>
+              </div>
+            </div>
+            <div class="service-sub-item">
+              <span class="service-sub-icon">🛒</span>
+              <div>
+                <strong>Ecommerce Stores</strong>
+                <p>Online stores with product catalogs, secure checkout, and inventory management.</p>
+              </div>
+            </div>
+            <div class="service-sub-item">
+              <span class="service-sub-icon">⚡</span>
+              <div>
+                <strong>Web Applications</strong>
+                <p>Booking systems, client portals, dashboards, and custom operational tools.</p>
+              </div>
+            </div>
+            <div class="service-sub-item">
+              <span class="service-sub-icon">📱</span>
+              <div>
+                <strong>Landing Pages</strong>
+                <p>High-converting campaign pages for promotions and lead generation.</p>
+              </div>
+            </div>
+            <div class="service-sub-item">
+              <span class="service-sub-icon">🤖</span>
+              <div>
+                <strong>AI Integration</strong>
+                <p>Chatbots, automated workflows, and AI-powered features for smarter business.</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="service-card reveal reveal-d2">
           <div class="service-icon">🔍</div>
           <h3>SEO & Performance</h3>
-          <p>Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility.</p>
+          <p>Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility and rankings.</p>
         </div>
         <div class="service-card reveal reveal-d3">
-          <div class="service-icon">🤖</div>
-          <h3>AI Integration</h3>
-          <p>Chatbots, automated workflows, and AI-powered features to help your business work smarter.</p>
+          <div class="service-icon">📈</div>
+          <h3>Paid Performance Marketing</h3>
+          <p>Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI and qualified leads.</p>
+        </div>
+        <div class="service-card reveal reveal-d4">
+          <div class="service-icon">📸</div>
+          <h3>Social Media Content Creation</h3>
+          <p>Scroll-stopping visuals, reels, and copy for Instagram, TikTok, Facebook, and LinkedIn that build your brand.</p>
         </div>
       </div>
     </div>
@@ -423,6 +451,13 @@
 
     document.querySelectorAll('.reveal').forEach(function (el) {
       revealObserver.observe(el);
+    });
+
+    // Service card expand
+    document.querySelectorAll('.service-expandable').forEach(function (card) {
+      card.addEventListener('click', function () {
+        card.classList.toggle('expanded');
+      });
     });
   </script>
 

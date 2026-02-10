@@ -423,6 +423,99 @@ img {
   line-height: 1.65;
 }
 
+/* 4-column services grid */
+.services-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Expandable card */
+.service-expandable {
+  cursor: pointer;
+  position: relative;
+}
+
+.service-expand-hint {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+.service-expandable.expanded .service-expand-hint {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.service-sub-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin 0.3s ease;
+  margin-top: 0;
+}
+
+.service-expandable.expanded .service-sub-list {
+  max-height: 600px;
+  margin-top: 20px;
+}
+
+.service-sub-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+}
+
+.service-sub-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.service-sub-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.service-sub-item strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.service-sub-item p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* When expanded, span full width */
+.service-expandable.expanded {
+  grid-column: 1 / -1;
+}
+
+.service-expandable.expanded .service-sub-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 28px;
+}
+
+.service-expandable.expanded .service-sub-item {
+  border-top: none;
+  padding: 14px 0;
+}
+
+.service-expandable.expanded .service-sub-item:nth-child(n+4) {
+  border-top: 1px solid var(--border);
+}
+
 /* --- Portfolio --- */
 #work {
   background: var(--bg);
@@ -1021,6 +1114,14 @@ img {
     font-size: 3.2rem;
   }
 
+  .services-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-expandable.expanded .service-sub-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .portfolio-featured .portfolio-card {
     grid-template-columns: 1fr;
   }
@@ -1037,6 +1138,26 @@ img {
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .services-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .service-expandable.expanded .service-sub-list {
+    grid-template-columns: 1fr;
+  }
+
+  .service-expandable.expanded .service-sub-item:nth-child(n+4) {
+    border-top: none;
+  }
+
+  .service-sub-item {
+    border-top: 1px solid var(--border) !important;
+  }
+
+  .service-sub-item:first-child {
+    border-top: none !important;
   }
 
   .portfolio-grid {
