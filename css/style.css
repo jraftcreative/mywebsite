@@ -842,6 +842,7 @@ img {
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   opacity: 0;
   transition: opacity var(--transition);
+  z-index: 3;
 }
 
 .industry-card:hover {
@@ -854,12 +855,6 @@ img {
   opacity: 1;
 }
 
-.industry-card .industry-icon {
-  font-size: 2.4rem;
-  margin-bottom: 16px;
-  display: block;
-}
-
 .industry-card h3 {
   font-size: 1.02rem;
   font-weight: 700;
@@ -870,6 +865,61 @@ img {
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.55;
+}
+
+/* Image overlay industry cards */
+.industry-img-card {
+  padding: 0;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: transparent;
+  text-align: left;
+}
+
+.industry-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.industry-card-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(5, 5, 8, 0.88) 0%, rgba(5, 5, 8, 0.45) 50%, rgba(5, 5, 8, 0.2) 100%);
+  transition: background var(--transition);
+}
+
+.industry-img-card:hover .industry-card-bg {
+  transform: scale(1.06);
+}
+
+.industry-img-card:hover .industry-card-bg::after {
+  background: linear-gradient(0deg, rgba(5, 5, 8, 0.92) 0%, rgba(5, 5, 8, 0.5) 50%, rgba(5, 5, 8, 0.25) 100%);
+}
+
+.industry-img-card:hover {
+  background: transparent;
+}
+
+.industry-card-content {
+  position: relative;
+  z-index: 2;
+  padding: 24px;
+}
+
+.industry-img-card h3 {
+  color: var(--text);
+}
+
+.industry-img-card p {
+  color: rgba(255, 255, 255, 0.65);
 }
 
 /* --- Process --- */
