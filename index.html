@@ -733,7 +733,7 @@
             </div>
           </div>
         </div>
-        <form class="contact-form reveal reveal-d2" onsubmit="event.preventDefault(); this.querySelector('.form-success').style.display='flex'; this.querySelector('.form-fields').style.display='none';">
+        <form class="contact-form reveal reveal-d2" id="contactForm">
           <div class="form-fields">
             <div class="form-row">
               <div class="form-group">
@@ -763,12 +763,13 @@
               <label for="message">Tell Us About Your Project <span class="required">*</span></label>
               <textarea id="message" name="message" rows="4" placeholder="What are you looking to build? Any specific goals or timeline?" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary form-submit">Send Enquiry</button>
+            <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send Enquiry</button>
           </div>
           <div class="form-success">
             <span class="form-success-icon">✓</span>
             <h3>Thank you!</h3>
             <p>We've received your enquiry and will be in touch within 24 hours.</p>
+            <a href="#" id="whatsappFollowUp" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 16px; background: #25D366;">Continue on WhatsApp</a>
           </div>
         </form>
       </div>
@@ -810,14 +811,14 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 Jraft Creative. All rights reserved.</p>
+        <p>&copy; 2026 Jraft Creative. All rights reserved.</p>
         <p>Designed & built in Singapore</p>
       </div>
     </div>
   </footer>
 
   <!-- ========== WHATSAPP BUTTON ========== -->
-  <a href="https://wa.me/6581234567?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20services." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-2.276 2.106-3.156 2.17-.796.058-1.78.082-2.872-.278a26.3 26.3 0 0 1-2.6-1.074c-4.576-2.186-7.566-6.826-7.796-7.142-.222-.316-1.836-2.478-1.836-4.726 0-2.248 1.162-3.356 1.574-3.814.39-.434.858-.542 1.144-.542.286 0 .572.004.82.014.264.012.618-.1.966.738.39.938 1.294 3.224 1.408 3.458.112.234.19.508.038.82-.15.316-.226.512-.448.79-.222.278-.468.62-.668.832-.222.234-.454.49-.196.962.26.47 1.154 1.906 2.478 3.088 1.702 1.52 3.136 1.99 3.582 2.214.448.222.708.19.968-.114.26-.306 1.118-1.302 1.416-1.75.298-.448.596-.37.998-.222.404.148 2.566 1.21 3.006 1.432.44.222.734.334.844.518.112.186.112 1.074-.278 2.174z"/></svg>
   </a>
 
@@ -879,6 +880,44 @@
           document.getElementById('pricing').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 350);
       });
+    });
+
+    // Contact form submission
+    var APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var form = this;
+      var btn = document.getElementById('submitBtn');
+      var name = document.getElementById('name').value;
+      var company = document.getElementById('company').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var date = document.getElementById('date').value;
+      var message = document.getElementById('message').value;
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      var data = { name: name, company: company, email: email, phone: phone, date: date, message: message };
+
+      // Set up WhatsApp follow-up link
+      var waText = 'Hi Jraft Creative, I just submitted an enquiry on your website.\n\nName: ' + name + '\nCompany: ' + company + '\nProject: ' + message;
+      document.getElementById('whatsappFollowUp').href = 'https://wa.me/6582234578?text=' + encodeURIComponent(waText);
+
+      // Send to Google Apps Script (Sheets + Email)
+      if (APPS_SCRIPT_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        }).catch(function () {});
+      }
+
+      // Show success
+      form.querySelector('.form-fields').style.display = 'none';
+      form.querySelector('.form-success').style.display = 'flex';
     });
   </script>
 
