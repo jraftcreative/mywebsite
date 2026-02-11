@@ -1356,6 +1356,7 @@ img {
   justify-content: center;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
   transition: transform var(--transition), box-shadow var(--transition);
+  overflow: visible;
 }
 
 .whatsapp-btn:hover {
@@ -1365,10 +1366,14 @@ img {
 
 .whatsapp-tooltip {
   position: absolute;
-  right: 64px;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 10px;
   background: #1a1a1a;
   color: #e0e0e0;
   font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
   padding: 6px 12px;
   border-radius: 6px;
   white-space: nowrap;
