@@ -33,6 +33,10 @@
   <link rel="icon" type="image/png" href="../images/logo.png">
   <link rel="apple-touch-icon" href="../images/logo.png">
 
+  <!-- Preload critical assets -->
+  <link rel="preload" href="../css/style.css" as="style">
+  <link rel="preload" href="../images/service-social.jpg" as="image">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +44,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKBH0EWB5L"></script>
@@ -107,7 +114,7 @@
   <!-- ========== NAV ========== -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="Jraft Creative"></a>
+      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="Jraft Creative" width="72" height="72"></a>
       <ul class="nav-links" id="navLinks">
         <li class="nav-dropdown-wrap">
           <a href="/#services" class="nav-dropdown-toggle">Services <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></a>
@@ -132,7 +139,7 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero service-hero">
-    <div class="hero-bg" style="background-image: url('../images/service-social.jpg');"></div>
+    <div class="hero-bg"><img src="../images/service-social.jpg" alt="" fetchpriority="high" decoding="async" class="hero-bg-img"></div>
     <div class="container">
       <span class="hero-label">Social Media Marketing Singapore</span>
       <h1>Social Media Content Creation &amp; <span class="highlight">Marketing in Singapore</span></h1>
@@ -156,31 +163,31 @@
         <p>From content calendars and copywriting to graphic design and performance analytics, we handle the day-to-day so you can focus on running your business while your social channels thrive.</p>
       </div>
       <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" style="background-image: url('../images/detail-content-strategy.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="../images/detail-content-strategy.jpg">
           <div class="service-detail-card__content">
             <h3>Content Strategy &amp; Planning</h3>
             <p>Monthly content calendars, pillar themes, and platform-specific strategies aligned to your business goals and audience behaviour.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" style="background-image: url('../images/detail-graphic-design.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="../images/detail-graphic-design.jpg">
           <div class="service-detail-card__content">
             <h3>Graphic Design &amp; Visuals</h3>
             <p>Branded carousels, infographics, quote cards, and on-brand static posts designed to stand out in the feed across all platforms.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" style="background-image: url('../images/detail-reels-video.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="../images/detail-reels-video.jpg">
           <div class="service-detail-card__content">
             <h3>Reels &amp; Short-form Video</h3>
             <p>Trending-format vertical videos for Instagram Reels, TikTok, and YouTube Shorts that capture attention and drive engagement.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" style="background-image: url('../images/detail-copywriting.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="../images/detail-copywriting.jpg">
           <div class="service-detail-card__content">
             <h3>Copywriting &amp; Captions</h3>
             <p>Engaging captions, hashtag strategy, and platform-optimised copy that drives interaction, saves, and shares.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" style="background-image: url('../images/detail-community-mgmt.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="../images/detail-community-mgmt.jpg">
           <div class="service-detail-card__content">
             <h3>Community Management</h3>
             <p>Comment moderation, DM responses, engagement tracking, and audience growth tactics to build a loyal community around your brand.</p>
@@ -266,7 +273,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo"><img src="../images/logo.png" alt="Jraft Creative"></a>
+          <a href="/" class="logo"><img src="../images/logo.png" alt="Jraft Creative" width="60" height="60"></a>
           <p>Full-service marketing agency in Singapore — web design, SEO, paid ads, and social media content creation for brands that want to grow.</p>
         </div>
         <nav class="footer-nav">
@@ -313,6 +320,19 @@
   </a>
 
   <!-- ========== JS ========== -->
+  <script>
+    // Lazy-load background images
+    var bgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.backgroundImage = 'url(' + entry.target.dataset.bg + ')';
+          bgObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('[data-bg]').forEach(function(el) { bgObserver.observe(el); });
+  </script>
+
   <script>
     // Mobile nav toggle
     var navToggle = document.getElementById('navToggle');

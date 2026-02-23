@@ -33,6 +33,10 @@
   <link rel="icon" type="image/png" href="../images/logo.png">
   <link rel="apple-touch-icon" href="../images/logo.png">
 
+  <!-- Preload critical assets -->
+  <link rel="preload" href="../css/style.css" as="style">
+  <link rel="preload" href="../images/service-seo.jpg" as="image">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +44,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="../css/style.css">
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKBH0EWB5L"></script>
@@ -107,7 +114,7 @@
   <!-- ========== NAV ========== -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="Jraft Creative"></a>
+      <a href="/" class="nav-logo"><img src="../images/logo.png" alt="Jraft Creative" width="72" height="72"></a>
       <ul class="nav-links" id="navLinks">
         <li class="nav-dropdown-wrap">
           <a href="/#services" class="nav-dropdown-toggle">Services <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></a>
@@ -132,7 +139,7 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero service-hero">
-    <div class="hero-bg" style="background-image: url('../images/service-seo.jpg');"></div>
+    <div class="hero-bg"><img src="../images/service-seo.jpg" alt="" fetchpriority="high" decoding="async" class="hero-bg-img"></div>
     <div class="container">
       <span class="hero-label">SEO Agency Singapore</span>
       <h1>SEO &amp; Performance Optimisation <span class="highlight">Services in Singapore</span></h1>
@@ -156,31 +163,31 @@
         <p>From keyword research and content strategy to site speed and Core Web Vitals, our data-driven approach ensures your website performs at its best across every search engine results page.</p>
       </div>
       <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" style="background-image: url('../images/detail-seo-audit.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="../images/detail-seo-audit.jpg">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
             <p>Comprehensive site crawl, indexing fixes, schema markup, and site architecture improvements to ensure search engines can find and rank your content.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" style="background-image: url('../images/detail-onpage-seo.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="../images/detail-onpage-seo.jpg">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
             <p>Keyword research, meta tags, content optimisation, and internal linking strategy to maximise relevance for your target search terms.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" style="background-image: url('../images/detail-speed-vitals.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="../images/detail-speed-vitals.jpg">
           <div class="service-detail-card__content">
             <h3>Speed &amp; Core Web Vitals</h3>
             <p>Page speed optimisation, image compression, caching, and performance monitoring to meet Google's Core Web Vitals benchmarks.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" style="background-image: url('../images/detail-analytics-reporting.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="../images/detail-analytics-reporting.jpg">
           <div class="service-detail-card__content">
             <h3>Analytics &amp; Reporting</h3>
             <p>Google Analytics 4 setup, Search Console configuration, conversion tracking, and monthly performance reports with actionable insights.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" style="background-image: url('../images/detail-local-seo.jpg');">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="../images/detail-local-seo.jpg">
           <div class="service-detail-card__content">
             <h3>Local SEO</h3>
             <p>Google Business Profile optimisation, local citations, review management, and map pack rankings to capture local search traffic in Singapore.</p>
@@ -266,7 +273,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="/" class="logo"><img src="../images/logo.png" alt="Jraft Creative"></a>
+          <a href="/" class="logo"><img src="../images/logo.png" alt="Jraft Creative" width="60" height="60"></a>
           <p>Full-service marketing agency in Singapore — web design, SEO, paid ads, and social media content creation for brands that want to grow.</p>
         </div>
         <nav class="footer-nav">
@@ -313,6 +320,19 @@
   </a>
 
   <!-- ========== JS ========== -->
+  <script>
+    // Lazy-load background images
+    var bgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.backgroundImage = 'url(' + entry.target.dataset.bg + ')';
+          bgObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('[data-bg]').forEach(function(el) { bgObserver.observe(el); });
+  </script>
+
   <script>
     // Mobile nav toggle
     var navToggle = document.getElementById('navToggle');
