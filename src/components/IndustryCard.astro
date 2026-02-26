@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  backgroundImage: string;
+  revealClass?: string;
+}
+
+const { title, description, backgroundImage, revealClass = '' } = Astro.props;
+---
+<div class={`industry-card industry-img-card reveal ${revealClass}`}>
+  <div class="industry-card-bg" data-bg={backgroundImage}></div>
+  <div class="industry-card-content">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>

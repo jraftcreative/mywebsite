@@ -1,0 +1,60 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  link: string;
+  type: string;
+  gradClass: string;
+  tags: string[];
+  revealClass?: string;
+  featured?: boolean;
+  badge?: string;
+}
+
+const { title, description, image, imageAlt, link, type, gradClass, tags, revealClass = '', featured = false, badge } = Astro.props;
+---
+{featured ? (
+  <div class="portfolio-featured reveal">
+    <a href={link} class="portfolio-card" target="_blank" rel="noopener">
+      <div class="portfolio-thumb-wrap">
+        <div class={`portfolio-thumbnail ${gradClass}`}>
+          <img src={image} alt={imageAlt} class="portfolio-preview-img" loading="lazy" width="600" height="400">
+          {badge && <span class="portfolio-badge">{badge}</span>}
+          <span class="portfolio-view">View Project</span>
+        </div>
+      </div>
+      <div class="portfolio-info">
+        <div class="portfolio-meta">
+          <span class="portfolio-type">{type}</span>
+        </div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+        <div class="portfolio-tags">
+          {tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </div>
+    </a>
+  </div>
+) : (
+  <a href={link} class={`portfolio-card reveal ${revealClass}`} target="_blank" rel="noopener">
+    <div class="portfolio-thumb-wrap">
+      <div class={`portfolio-thumbnail ${gradClass}`}>
+        <img src={image} alt={imageAlt} class="portfolio-preview-img" loading="lazy" width="600" height="400">
+        {badge && <span class="portfolio-badge">{badge}</span>}
+        <span class="portfolio-view">View Project</span>
+      </div>
+    </div>
+    <div class="portfolio-info">
+      <div class="portfolio-meta">
+        <span class="portfolio-type">{type}</span>
+      </div>
+      <h3>{title}</h3>
+      <p>{description}</p>
+      <div class="portfolio-tags">
+        {tags.map(tag => <span class="tag">{tag}</span>)}
+      </div>
+    </div>
+  </a>
+)}

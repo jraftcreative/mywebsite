@@ -1,0 +1,165 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Website Development",
+  "description": "Professional website development services in Singapore including custom business websites, ecommerce stores, web applications, landing pages, and AI integration.",
+  "provider": {
+    "@type": "MarketingAgency",
+    "name": "Jraft Creative",
+    "url": "https://jraftcreative.com/",
+    "logo": "https://jraftcreative.com/images/logo.png",
+    "telephone": "+6582234578",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+      "postalCode": "409051",
+      "addressLocality": "Singapore",
+      "addressCountry": "SG"
+    }
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Singapore"
+  },
+  "serviceType": "Website Development",
+  "offers": [
+    { "@type": "Offer", "name": "Starter Website", "price": "2500", "priceCurrency": "SGD", "description": "Up to 5 pages, mobile responsive design, contact form, basic SEO setup" },
+    { "@type": "Offer", "name": "Business Website", "price": "5500", "priceCurrency": "SGD", "description": "Up to 12 pages, custom design & animations, CMS / blog integration, booking or enquiry system" },
+    { "@type": "Offer", "name": "Premium Website", "price": "10000", "priceCurrency": "SGD", "description": "Unlimited pages, ecommerce / web app, payment integration, user accounts & dashboards" }
+  ]
+};
+---
+
+<ServiceLayout
+  title="Website Development Singapore | Custom Web Design Agency — Jraft Creative"
+  description="Professional website development in Singapore. Custom business websites, ecommerce stores, web applications, landing pages, and AI integration. Starting from $2,500 SGD."
+  canonical="https://jraftcreative.com/services/website-development"
+  ogTitle="Website Development Singapore — Jraft Creative"
+  ogDescription="Custom websites, ecommerce stores, and web applications designed to convert and built to scale. Starting from $2,500 SGD."
+  keywords="website development singapore, web design agency singapore, custom website singapore, ecommerce development, web application, landing page design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Website Development Singapore"
+  heroTitle='Custom Website Development &amp; <span class="highlight">Web Design in Singapore</span>'
+  heroSubtitle="From business websites to full ecommerce stores and web applications — we design and build digital experiences that convert visitors into customers."
+  heroImage="/images/service-webdev.webp"
+  heroButtons={[
+    { text: "Start Your Project", href: "/#contact", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to enquire about your website development services."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Let's Build Your Website"
+  ctaDescription="Book a free consultation and tell us about your project. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Start Your Project", href: "/#contact", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20website%20development%20services.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>Our <span class="highlight">Website Development</span> Services</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Everything you need to establish a powerful online presence. As a website development agency in Singapore, we build custom websites that are fast, mobile-friendly, and designed to convert. From corporate sites and ecommerce stores to web applications, every project is crafted around user experience and business growth.</p>
+        <p>Our web design approach pairs responsive design with SEO-ready structure and conversion-focused layouts — so your site looks great on every device and drives real results for your online presence.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Business Websites</h3>
+            <p>Custom-designed, mobile-responsive sites that showcase your brand and convert visitors into leads and customers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ecommerce.webp">
+          <div class="service-detail-card__content">
+            <h3>Ecommerce Stores</h3>
+            <p>Online stores with product catalogs, secure checkout, inventory management, and seamless payment integration.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-web-app.webp">
+          <div class="service-detail-card__content">
+            <h3>Web Applications</h3>
+            <p>Booking systems, client portals, dashboards, and custom operational tools tailored to your business workflows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Landing Pages</h3>
+            <p>High-converting campaign pages optimised for promotions, product launches, and lead generation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ai.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Integration</h3>
+            <p>Chatbots, automated workflows, and AI-powered features that make your business smarter and more efficient.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" style="background: var(--bg-alt);">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Transparent Website Pricing</h2>
+        <p>No hidden fees. Choose the package that fits your needs.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">Perfect for small businesses needing a professional online presence.</p>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>Mobile responsive design</li>
+              <li>Contact form</li>
+              <li>Basic SEO setup</li>
+              <li>2 rounds of revisions</li>
+              <li>1 month support</li>
+            </ul>
+            <a href="/#contact" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$5,500 <span>SGD</span></div>
+            <p class="pricing-desc">For growing businesses that need more functionality and polish.</p>
+            <ul class="pricing-features">
+              <li>Up to 12 pages</li>
+              <li>Custom design &amp; animations</li>
+              <li>CMS / blog integration</li>
+              <li>Booking or enquiry system</li>
+              <li>Advanced SEO &amp; analytics</li>
+              <li>3 months support</li>
+            </ul>
+            <a href="/#contact" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">Full ecommerce, web apps, and complex custom builds.</p>
+            <ul class="pricing-features">
+              <li>Unlimited pages</li>
+              <li>Ecommerce / web app</li>
+              <li>Payment integration</li>
+              <li>User accounts &amp; dashboards</li>
+              <li>API integrations</li>
+              <li>6 months support</li>
+            </ul>
+            <a href="/#contact" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

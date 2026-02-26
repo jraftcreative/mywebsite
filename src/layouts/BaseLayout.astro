@@ -1,0 +1,175 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  schemaData?: object | object[];
+  keywords?: string;
+  preloadImage?: string;
+  noindex?: boolean;
+  hreflang?: { lang: string; href: string }[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle,
+  ogDescription,
+  ogImage = 'https://jraftcreative.com/images/og-image.jpg',
+  schemaData,
+  keywords,
+  preloadImage,
+  noindex = false,
+  hreflang = [],
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {keywords && <meta name="keywords" content={keywords}>}
+  <meta name="author" content="Jraft Creative">
+  <link rel="canonical" href={canonical}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content={ogTitle || title}>
+  <meta property="og:description" content={ogDescription || description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:site_name" content="Jraft Creative">
+  <meta property="og:image" content={ogImage}>
+  <meta property="og:locale" content="en_SG">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={ogTitle || title}>
+  <meta name="twitter:description" content={ogDescription || description}>
+  <meta name="twitter:image" content={ogImage}>
+
+  <!-- Geo targeting -->
+  <meta name="geo.region" content="SG">
+  <meta name="geo.placename" content="Singapore">
+  {noindex ? <meta name="robots" content="noindex, nofollow"> : <meta name="robots" content="index, follow">}
+  {hreflang.map(h => <link rel="alternate" hreflang={h.lang} href={h.href} />)}
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <link rel="apple-touch-icon" href="/images/logo.png">
+
+  <!-- Preload critical assets -->
+  {preloadImage && <link rel="preload" href={preloadImage} as="image">}
+
+  <!-- Font preload -->
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKBH0EWB5L"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HKBH0EWB5L');
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  {schemaData && (
+    Array.isArray(schemaData)
+      ? schemaData.map(s => <script type="application/ld+json" set:html={JSON.stringify(s)} />)
+      : <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  )}
+</head>
+<body>
+  <Nav />
+
+  <slot />
+
+  <Footer />
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <slot name="after-footer" />
+
+  <!-- Common JS -->
+  <script is:inline>
+    // Lazy-load background images
+    var bgObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.backgroundImage = 'url(' + entry.target.dataset.bg + ')';
+          bgObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+    document.querySelectorAll('[data-bg]').forEach(function(el) { bgObserver.observe(el); });
+
+    // Mobile nav toggle
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', function () {
+      navLinks.classList.toggle('active');
+    });
+
+    // Dropdown toggle on mobile
+    var dropdownWrap = document.querySelector('.nav-dropdown-wrap');
+    var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 640) {
+          e.preventDefault();
+          dropdownWrap.classList.toggle('open');
+        }
+      });
+    }
+
+    document.querySelectorAll('.nav-links a:not(.nav-dropdown-toggle)').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinks.classList.remove('active');
+        if (dropdownWrap) dropdownWrap.classList.remove('open');
+      });
+    });
+
+    // Navbar scroll effect + back to top visibility
+    var nav = document.getElementById('nav');
+    var backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function () {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    });
+
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll reveal
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

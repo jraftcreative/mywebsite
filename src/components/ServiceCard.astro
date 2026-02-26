@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  backgroundImage: string;
+  id?: string;
+  revealClass?: string;
+  expandable?: boolean;
+  subItems?: { title: string; description: string }[];
+  pricing?: {
+    title: string;
+    description: string;
+    id?: string;
+    cards: {
+      name: string;
+      price: string;
+      unit: string;
+      description: string;
+      features: string[];
+      cta: string;
+      ctaHref: string;
+      ctaClass: string;
+      featured?: boolean;
+    }[];
+  };
+}
+
+const { title, description, backgroundImage, id, revealClass = '', expandable = false, subItems = [], pricing } = Astro.props;
+const cardClasses = `service-card service-img-card${expandable ? ' service-expandable' : ''} reveal ${revealClass}`;
+---
+<div class={cardClasses} id={id} data-bg={backgroundImage}>
+  <div class="service-card-bg" data-bg={backgroundImage}></div>
+  <div class="service-card-content">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {expandable && <span class="service-expand-hint">Click to explore &rarr;</span>}
+  </div>
+  {expandable && subItems.length > 0 && (
+    <div class="service-sub-list">
+      <div class="service-sub-services">
+        {subItems.map(item => (
+          <div class="service-sub-item">
+            <div>
+              <strong>{item.title}</strong>
+              <p>{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {pricing && (
+        <div class="service-pricing" id={pricing.id}>
+          <h3 class="service-pricing-title">{pricing.title}</h3>
+          <p class="service-pricing-desc">{pricing.description}</p>
+          <div class="pricing-grid">
+            {pricing.cards.map(card => (
+              <div class={`pricing-card${card.featured ? ' featured' : ''}`}>
+                <h3>{card.name}</h3>
+                <div class="price">{card.price} <span>{card.unit}</span></div>
+                <p class="pricing-desc">{card.description}</p>
+                <ul class="pricing-features">
+                  {card.features.map(f => <li>{f}</li>)}
+                </ul>
+                <a href={card.ctaHref} class={card.ctaClass}>{card.cta}</a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )}
+</div>
