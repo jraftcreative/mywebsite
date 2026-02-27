@@ -372,6 +372,7 @@ img {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  aspect-ratio: 1920 / 1280;
 }
 
 .hero-bg::after {
@@ -1872,4 +1873,15 @@ img {
   .contact-form {
     padding: 28px;
   }
+}
+
+/* --- Performance: content-visibility for off-screen sections --- */
+#services,
+#work,
+#industries,
+#process,
+.contact-section,
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }

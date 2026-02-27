@@ -68,21 +68,22 @@ const {
   <link rel="apple-touch-icon" href="/images/logo.png">
 
   <!-- Preload critical assets -->
-  {preloadImage && <link rel="preload" href={preloadImage} as="image">}
+  {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high">}
 
   <!-- Font preload -->
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- DNS Prefetch -->
   <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HKBH0EWB5L"></script>
+  <!-- Google Analytics (GA4) — deferred to avoid blocking render -->
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-HKBH0EWB5L');
+    (function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-HKBH0EWB5L';document.head.appendChild(s);})();
   </script>
 
   <!-- Schema.org Structured Data -->
