@@ -1,41 +1,46 @@
 ---
 ---
-<form class="contact-form reveal reveal-d2" id="contactForm">
+<form class="contact-form reveal reveal-d2" id="contactForm" novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="form-group">
         <label for="name">Name <span class="required">*</span></label>
-        <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true">
+        <span class="form-error" id="nameError" role="alert" aria-live="polite"></span>
       </div>
       <div class="form-group">
-        <label for="company">Company Name <span class="required">*</span></label>
-        <input type="text" id="company" name="company" placeholder="Your company" required>
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="you@company.com" required autocomplete="email" aria-required="true">
+        <span class="form-error" id="emailError" role="alert" aria-live="polite"></span>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label for="email">Email Address <span class="required">*</span></label>
-        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+65 XXXX XXXX" autocomplete="tel">
       </div>
       <div class="form-group">
-        <label for="phone">Contact Number <span class="required">*</span></label>
-        <input type="tel" id="phone" name="phone" placeholder="+65 XXXX XXXX" required>
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" placeholder="Your company" autocomplete="organization">
       </div>
-    </div>
-    <div class="form-group">
-      <label for="date">Preferred Consultation Date</label>
-      <input type="date" id="date" name="date">
     </div>
     <div class="form-group">
       <label for="message">Tell Us About Your Project <span class="required">*</span></label>
-      <textarea id="message" name="message" rows="4" placeholder="What are you looking to build? Any specific goals or timeline?" required></textarea>
+      <textarea id="message" name="message" rows="4" placeholder="What are you looking to build? Any specific goals or timeline?" required aria-required="true"></textarea>
+      <span class="form-error" id="messageError" role="alert" aria-live="polite"></span>
     </div>
-    <button type="submit" class="btn btn-primary form-submit" id="submitBtn">Send Enquiry</button>
+    <button type="submit" class="btn btn-primary form-submit" id="submitBtn" aria-label="Send your message to Jraft Creative">Send Your Message</button>
   </div>
-  <div class="form-success">
-    <span class="form-success-icon">&#10003;</span>
+  <div class="form-success" role="status" aria-live="polite">
+    <span class="form-success-icon" aria-hidden="true">&#10003;</span>
     <h3>Thank you!</h3>
-    <p>We've received your enquiry and will be in touch within 24 hours.</p>
-    <a href="#" id="whatsappFollowUp" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 16px; background: #25D366;">Continue on WhatsApp</a>
+    <p>We've received your enquiry and will get back to you within 24 hours.</p>
+    <a href="#" id="whatsappFollowUp" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 16px; background: #25D366;" aria-label="Continue conversation on WhatsApp">Continue on WhatsApp</a>
+  </div>
+  <div class="form-error-state" role="alert" aria-live="polite">
+    <span class="form-error-icon" aria-hidden="true">!</span>
+    <h3>Something went wrong</h3>
+    <p>We couldn't send your message. Please try again or email us directly at <a href="mailto:contact@jraftcreative.com">contact@jraftcreative.com</a>.</p>
+    <button type="button" class="btn btn-primary form-retry" style="margin-top: 16px;" aria-label="Try sending your message again">Try Again</button>
   </div>
 </form>

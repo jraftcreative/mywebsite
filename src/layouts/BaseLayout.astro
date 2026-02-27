@@ -30,6 +30,8 @@ const {
   noindex = false,
   hreflang = [],
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 <!doctype html>
 <html lang="en">
@@ -94,15 +96,20 @@ const {
   )}
 </head>
 <body>
-  <Nav />
+  <!-- Skip to content link for keyboard/screen reader users -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <slot />
+  <Nav currentPath={currentPath} />
+
+  <main id="main-content">
+    <slot />
+  </main>
 
   <Footer />
 
   <!-- Back to Top -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
   <slot name="after-footer" />
@@ -120,22 +127,25 @@ const {
     }, { rootMargin: '200px' });
     document.querySelectorAll('[data-bg]').forEach(function(el) { bgObserver.observe(el); });
 
-    // Mobile nav toggle
+    // Mobile nav toggle with accessibility
     var navToggle = document.getElementById('navToggle');
     var navLinks = document.getElementById('navLinks');
 
     navToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('active');
+      var isActive = navLinks.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', isActive ? 'Close navigation menu' : 'Open navigation menu');
     });
 
-    // Dropdown toggle on mobile
+    // Dropdown toggle on mobile with accessibility
     var dropdownWrap = document.querySelector('.nav-dropdown-wrap');
     var dropdownToggle = document.querySelector('.nav-dropdown-toggle');
     if (dropdownToggle) {
       dropdownToggle.addEventListener('click', function(e) {
         if (window.innerWidth <= 640) {
           e.preventDefault();
-          dropdownWrap.classList.toggle('open');
+          var isOpen = dropdownWrap.classList.toggle('open');
+          dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         }
       });
     }
@@ -143,7 +153,12 @@ const {
     document.querySelectorAll('.nav-links a:not(.nav-dropdown-toggle)').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('active');
-        if (dropdownWrap) dropdownWrap.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open navigation menu');
+        if (dropdownWrap) {
+          dropdownWrap.classList.remove('open');
+          if (dropdownToggle) dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
       });
     });
 

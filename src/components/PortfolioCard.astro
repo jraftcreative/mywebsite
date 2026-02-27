@@ -17,12 +17,12 @@ const { title, description, image, imageAlt, link, type, gradClass, tags, reveal
 ---
 {featured ? (
   <div class="portfolio-featured reveal">
-    <a href={link} class="portfolio-card" target="_blank" rel="noopener">
+    <a href={link} class="portfolio-card" target="_blank" rel="noopener" aria-label={`View project: ${title}`}>
       <div class="portfolio-thumb-wrap">
         <div class={`portfolio-thumbnail ${gradClass}`}>
           <img src={image} alt={imageAlt} class="portfolio-preview-img" loading="lazy" width="600" height="400">
           {badge && <span class="portfolio-badge">{badge}</span>}
-          <span class="portfolio-view">View Project</span>
+          <span class="portfolio-view" aria-hidden="true">View Project</span>
         </div>
       </div>
       <div class="portfolio-info">
@@ -38,12 +38,12 @@ const { title, description, image, imageAlt, link, type, gradClass, tags, reveal
     </a>
   </div>
 ) : (
-  <a href={link} class={`portfolio-card reveal ${revealClass}`} target="_blank" rel="noopener">
+  <a href={link} class={`portfolio-card reveal ${revealClass}`} target="_blank" rel="noopener" aria-label={`View project: ${title}`}>
     <div class="portfolio-thumb-wrap">
       <div class={`portfolio-thumbnail ${gradClass}`}>
         <img src={image} alt={imageAlt} class="portfolio-preview-img" loading="lazy" width="600" height="400">
         {badge && <span class="portfolio-badge">{badge}</span>}
-        <span class="portfolio-view">View Project</span>
+        <span class="portfolio-view" aria-hidden="true">View Project</span>
       </div>
     </div>
     <div class="portfolio-info">
