@@ -10,8 +10,8 @@ interface Props {
 
 const { title, subtitle, backgroundImage, heroLabel, heroClass = '', buttons = [] } = Astro.props;
 ---
-<section class={`hero ${heroClass}`}>
-  <div class="hero-bg"><img src={backgroundImage} alt="" fetchpriority="high" decoding="async" class="hero-bg-img"></div>
+<section class={`hero ${heroClass}`} aria-label="Page introduction">
+  <div class="hero-bg" aria-hidden="true"><img src={backgroundImage} alt="" fetchpriority="high" decoding="async" class="hero-bg-img"></div>
   <div class="container">
     {heroLabel && <span class="hero-label">{heroLabel}</span>}
     <h1 set:html={title} />

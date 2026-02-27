@@ -1,25 +1,44 @@
 ---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+
+const isServicePage = currentPath.startsWith('/services/');
+const isHome = currentPath === '/';
+
+function isActive(href: string): boolean {
+  if (href === '/' && isHome) return true;
+  if (href.startsWith('/#')) return isHome;
+  if (href.startsWith('/services/') && currentPath === href) return true;
+  return false;
+}
+
+function isServicesActive(): boolean {
+  return isServicePage;
+}
 ---
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <div class="container">
-    <a href="/" class="nav-logo"><img src="/images/logo.webp" alt="Jraft Creative" width="72" height="72"></a>
-    <ul class="nav-links" id="navLinks">
-      <li class="nav-dropdown-wrap">
-        <a href="/#services" class="nav-dropdown-toggle">Services <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg></a>
-        <ul class="nav-dropdown">
-          <li><a href="/services/website-development">Website Development</a></li>
-          <li><a href="/services/seo-performance">SEO &amp; Performance</a></li>
-          <li><a href="/services/paid-ads">Paid Ads</a></li>
-          <li><a href="/services/social-media">Social Media</a></li>
+    <a href="/" class="nav-logo" aria-label="Jraft Creative home"><img src="/images/logo.webp" alt="Jraft Creative" width="72" height="72"></a>
+    <ul class="nav-links" id="navLinks" role="menubar">
+      <li class="nav-dropdown-wrap" role="none">
+        <a href="/#services" class={`nav-dropdown-toggle${isServicesActive() ? ' nav-active' : ''}`} role="menuitem" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg></a>
+        <ul class="nav-dropdown" role="menu" aria-label="Services submenu">
+          <li role="none"><a href="/services/website-development" role="menuitem" class={isActive('/services/website-development') ? 'nav-active' : ''}>Website Development</a></li>
+          <li role="none"><a href="/services/seo-performance" role="menuitem" class={isActive('/services/seo-performance') ? 'nav-active' : ''}>SEO &amp; Performance</a></li>
+          <li role="none"><a href="/services/paid-ads" role="menuitem" class={isActive('/services/paid-ads') ? 'nav-active' : ''}>Paid Ads</a></li>
+          <li role="none"><a href="/services/social-media" role="menuitem" class={isActive('/services/social-media') ? 'nav-active' : ''}>Social Media</a></li>
         </ul>
       </li>
-      <li><a href="/#work">Work</a></li>
-      <li><a href="/#industries">Industries</a></li>
-      <li><a href="/#process">Process</a></li>
-      <li><a href="/#pricing">Pricing</a></li>
-      <li><a href="/#contact" class="nav-cta">Get a Quote</a></li>
+      <li role="none"><a href="/#work" role="menuitem">Work</a></li>
+      <li role="none"><a href="/#industries" role="menuitem">Industries</a></li>
+      <li role="none"><a href="/#process" role="menuitem">Process</a></li>
+      <li role="none"><a href="/#pricing" role="menuitem">Pricing</a></li>
+      <li role="none"><a href="/#contact" class="nav-cta" role="menuitem">Get a Free Quote</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>

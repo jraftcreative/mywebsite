@@ -28,12 +28,12 @@ interface Props {
 const { title, description, backgroundImage, id, revealClass = '', expandable = false, subItems = [], pricing } = Astro.props;
 const cardClasses = `service-card service-img-card${expandable ? ' service-expandable' : ''} reveal ${revealClass}`;
 ---
-<div class={cardClasses} id={id} data-bg={backgroundImage}>
-  <div class="service-card-bg" data-bg={backgroundImage}></div>
+<div class={cardClasses} id={id} data-bg={backgroundImage} role={expandable ? 'button' : undefined} tabindex={expandable ? 0 : undefined} aria-expanded={expandable ? 'false' : undefined} aria-label={expandable ? `${title} — click to explore details` : undefined}>
+  <div class="service-card-bg" data-bg={backgroundImage} aria-hidden="true"></div>
   <div class="service-card-content">
     <h3>{title}</h3>
     <p>{description}</p>
-    {expandable && <span class="service-expand-hint">Click to explore &rarr;</span>}
+    {expandable && <span class="service-expand-hint" aria-hidden="true">Click to explore &rarr;</span>}
   </div>
   {expandable && subItems.length > 0 && (
     <div class="service-sub-list">
