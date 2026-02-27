@@ -24,19 +24,16 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: mywebsite/package-lock.json
       - name: Install dependencies
         run: npm ci
-        working-directory: mywebsite
       - name: Build Astro
         run: npm run build
-        working-directory: mywebsite
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: mywebsite/dist
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
