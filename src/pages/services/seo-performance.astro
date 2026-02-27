@@ -1,39 +1,50 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "SEO & Performance Optimisation",
-  "description": "Professional SEO services in Singapore including technical SEO audits, on-page optimisation, speed and Core Web Vitals, analytics and reporting, and local SEO.",
-  "provider": {
-    "@type": "MarketingAgency",
-    "name": "Jraft Creative",
-    "url": "https://jraftcreative.com/",
-    "logo": "https://jraftcreative.com/images/logo.png",
-    "telephone": "+6582234578",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
-      "postalCode": "409051",
-      "addressLocality": "Singapore",
-      "addressCountry": "SG"
-    }
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO & Performance Optimisation",
+    "description": "Professional SEO services in Singapore including technical SEO audits, on-page optimisation, speed and Core Web Vitals, analytics and reporting, and local SEO.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Search Engine Optimisation",
+    "offers": [
+      { "@type": "Offer", "name": "Essential SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation (10 pages), Google Analytics & Search Console, monthly reporting" },
+      { "@type": "Offer", "name": "Growth SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus content strategy, link building, competitor analysis, local SEO" },
+      { "@type": "Offer", "name": "Enterprise SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, advanced link building, content creation, Core Web Vitals optimisation" }
+    ]
   },
-  "areaServed": { "@type": "Country", "name": "Singapore" },
-  "serviceType": "Search Engine Optimisation",
-  "offers": [
-    { "@type": "Offer", "name": "Essential SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation (10 pages), Google Analytics & Search Console, monthly reporting" },
-    { "@type": "Offer", "name": "Growth SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus content strategy, link building, competitor analysis, local SEO" },
-    { "@type": "Offer", "name": "Enterprise SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, advanced link building, content creation, Core Web Vitals optimisation" }
-  ]
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Services" },
+      { "@type": "ListItem", "position": 3, "name": "SEO & Performance", "item": "https://jraftcreative.com/services/seo-performance/" }
+    ]
+  }
+];
 ---
 
 <ServiceLayout
-  title="SEO Services Singapore | SEO Agency &amp; Performance Optimisation — Jraft Creative"
-  description="Professional SEO services in Singapore. Technical SEO audits, on-page optimisation, local SEO, speed optimisation, and monthly reporting. Plans from $800 SGD/month."
-  canonical="https://jraftcreative.com/services/seo-performance"
+  title="SEO Singapore | Performance Optimisation - Jraft Creative"
+  description="Professional SEO agency in Singapore. Technical audits, on-page optimisation, local SEO, Core Web Vitals, and monthly reporting. Plans from $800 SGD/month."
+  canonical="https://jraftcreative.com/services/seo-performance/"
   ogTitle="SEO Services Singapore — Jraft Creative"
   ogDescription="Technical SEO, on-page optimisation, local SEO, and performance monitoring. Results-driven SEO plans from $800 SGD/month."
   keywords="SEO agency singapore, SEO services singapore, technical SEO, on-page optimisation, local SEO, Google Business Profile, search engine optimisation, Jraft Creative"
@@ -66,6 +77,7 @@ const schemaData = {
       <div class="section-content reveal">
         <p>Comprehensive search engine optimisation to grow your organic traffic. As an SEO agency in Singapore, we help businesses rank higher on Google through technical audits, on-page optimisation, and strategic link building — driving qualified organic traffic that converts.</p>
         <p>From keyword research and content strategy to site speed and Core Web Vitals, our data-driven approach ensures your website performs at its best across every search engine results page.</p>
+        <p>Need a fast, SEO-ready website? Explore our <a href="/services/website-development">website development</a> services. Amplify your reach with <a href="/services/paid-ads">paid ads</a> or build brand awareness through <a href="/services/social-media">social media marketing</a>.</p>
       </div>
       <div class="service-details-grid">
         <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
