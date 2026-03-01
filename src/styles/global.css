@@ -332,6 +332,48 @@ img {
   line-height: 1.65;
 }
 
+/* --- Challenge Grid --- */
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.challenge-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.challenge-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.challenge-icon {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.challenge-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.challenge-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
 /* Mobile nav toggle */
 .nav-toggle {
   display: none;
@@ -1671,6 +1713,10 @@ img {
 }
 
 @media (max-width: 900px) {
+  .challenge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .service-details-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1843,6 +1889,10 @@ img {
 
   .nav-dropdown-wrap.open .nav-dropdown-toggle svg {
     transform: rotate(180deg);
+  }
+
+  .challenge-grid {
+    grid-template-columns: 1fr;
   }
 
   .service-details-grid {
