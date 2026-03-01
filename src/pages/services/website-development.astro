@@ -143,16 +143,70 @@ const schemaData = [
     </div>
   </section>
 
-  <!-- ========== PROOF ========== -->
-  <section class="section" id="proof" style="background: var(--bg-alt);" aria-label="Results and proof">
+  <!-- ========== PORTFOLIO CAROUSEL ========== -->
+  <section class="section" id="portfolio" style="background: var(--bg-alt);" aria-label="Our portfolio">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Results</p>
+        <p class="section-label">Portfolio</p>
         <h2>Real Websites, Real Results</h2>
+        <p>15+ websites delivered for businesses across Singapore.</p>
       </div>
-      <div class="section-content reveal">
-        <p>We have delivered 15+ websites for businesses across music, F&B, education, retail, and more. Our clients see faster load times, higher engagement, and more enquiries within weeks of launch.</p>
-        <p>From portfolio sites for piano teachers to full ecommerce stores, every project is built with conversion in mind. <a href="/#work" class="inline-link">View our portfolio</a> to see the results for yourself.</p>
+    </div>
+    <div class="carousel-wrapper reveal">
+      <div class="carousel-track" id="portfolioCarousel">
+        <a href="https://www.musicwithpat.com" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-music.webp" alt="Music with Pat" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">Music &middot; Website</span>
+            <h3>Music with Pat</h3>
+            <p>Portfolio and booking website for a piano teacher with consultation calendar and lead capture.</p>
+          </div>
+        </a>
+        <a href="https://kairos-advisorygroup.com/" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-kairos.webp" alt="Kairos Advisory Group" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">Finance &middot; Website Revamp</span>
+            <h3>Kairos Advisory Group</h3>
+            <p>Website revamp for a financial advisory firm with service pages and team profiles.</p>
+          </div>
+        </a>
+        <a href="https://jraftcreative.github.io/portfolio-restaurant/" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-restaurant.webp" alt="Sakura Kitchen" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">F&amp;B &middot; Website</span>
+            <h3>Sakura Kitchen</h3>
+            <p>Modern restaurant website with online menu, reservation system, and gallery.</p>
+          </div>
+        </a>
+        <a href="https://jraftcreative.github.io/portfolio-tutor/" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-tutor.webp" alt="BrightPath Tutors" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">Education &middot; Platform</span>
+            <h3>BrightPath Tutors</h3>
+            <p>Tutor discovery and booking platform with subject filtering and enquiry flow.</p>
+          </div>
+        </a>
+        <a href="https://jraftcreative.github.io/portfolio-ecommerce/" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-ecommerce.webp" alt="MŌDA Fashion &amp; Lifestyle" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">Retail &middot; Ecommerce</span>
+            <h3>MŌDA</h3>
+            <p>Premium ecommerce storefront with product collections and editorial layouts.</p>
+          </div>
+        </a>
+        <a href="https://jraftcreative.github.io/pawhaus/" class="carousel-slide" target="_blank" rel="noopener">
+          <div class="carousel-image"><img src="/images/preview-pawhaus.webp" alt="PawHaus Pet Store" width="600" height="400" loading="lazy"></div>
+          <div class="carousel-info">
+            <span class="carousel-type">Pets &middot; Ecommerce</span>
+            <h3>PawHaus</h3>
+            <p>Pet supplies ecommerce store with Snipcart checkout and product pages.</p>
+          </div>
+        </a>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous project"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next project"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
     </div>
   </section>
@@ -245,5 +299,62 @@ const schemaData = [
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (function() {
+      var track = document.getElementById('portfolioCarousel');
+      var slides = track.querySelectorAll('.carousel-slide');
+      var prevBtn = document.getElementById('carouselPrev');
+      var nextBtn = document.getElementById('carouselNext');
+      var dotsWrap = document.getElementById('carouselDots');
+      var current = 0;
+      var total = slides.length;
+      var interval;
+
+      // Create dots
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        dot.dataset.index = i;
+        dotsWrap.appendChild(dot);
+      }
+      var dots = dotsWrap.querySelectorAll('.carousel-dot');
+
+      function goTo(index) {
+        current = ((index % total) + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, j) { d.classList.toggle('active', j === current); });
+      }
+
+      prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+      nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+      dotsWrap.addEventListener('click', function(e) {
+        if (e.target.classList.contains('carousel-dot')) {
+          goTo(parseInt(e.target.dataset.index));
+          resetAuto();
+        }
+      });
+
+      function startAuto() { interval = setInterval(function() { goTo(current + 1); }, 4000); }
+      function resetAuto() { clearInterval(interval); startAuto(); }
+
+      // Pause on hover
+      var wrapper = track.parentElement;
+      wrapper.addEventListener('mouseenter', function() { clearInterval(interval); });
+      wrapper.addEventListener('mouseleave', function() { startAuto(); });
+
+      // Touch swipe
+      var startX = 0;
+      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; clearInterval(interval); }, { passive: true });
+      track.addEventListener('touchend', function(e) {
+        var diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); }
+        startAuto();
+      });
+
+      startAuto();
+    })();
+  </script>
 
 </ServiceLayout>

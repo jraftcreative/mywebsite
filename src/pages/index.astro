@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import PortfolioCard from '../components/PortfolioCard.astro';
 import IndustryCard from '../components/IndustryCard.astro';
 import BlogCard from '../components/BlogCard.astro';
 import { getCollection } from 'astro:content';
@@ -190,7 +189,7 @@ const socialSubItems = [
     heroLabel="Full-Service Creative & Marketing Agency in Singapore"
     buttons={[
       { text: "Start Your Project", href: "/contact/", class: "btn btn-primary" },
-      { text: "View Our Work", href: "#work", class: "btn btn-secondary" }
+      { text: "View Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
     ]}
   />
 
@@ -305,88 +304,6 @@ const socialSubItems = [
               { name: "Full-Service", price: "$5,000+", unit: "SGD/mo", description: "End-to-end social media management for serious brands.", features: ["30+ posts per month", "All platforms", "8+ Reels & video production", "Full community management", "Influencer coordination", "Monthly analytics & strategy review"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
             ]
           }}
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PORTFOLIO ========== -->
-  <section class="section" id="work" aria-label="Our portfolio">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Portfolio</p>
-        <h2>Selected Work</h2>
-        <p>Real projects we've designed and built for clients across industries.</p>
-      </div>
-
-      <PortfolioCard
-        title="Music with Pat"
-        description="Portfolio and booking website for a piano teacher in Singapore. Features an interactive consultation calendar, automated lead capture via Google Sheets, testimonial carousel, and mobile-first design with bottom navigation."
-        image="/images/preview-music.webp"
-        imageAlt="Music with Pat"
-        link="https://www.musicwithpat.com"
-        type="Music &middot; Website"
-        gradClass="grad-music"
-        tags={["Astro", "Tailwind CSS", "Lead Generation", "Cloudflare"]}
-        featured={true}
-        badge="Featured"
-      />
-
-      <div class="portfolio-grid">
-        <PortfolioCard
-          title="Kairos Advisory Group"
-          description="Website revamp for an independent financial advisory firm in Singapore. Features service pages, team profiles, WhatsApp integration, and a professional design that builds trust and credibility."
-          image="/images/preview-kairos.webp"
-          imageAlt="Kairos Advisory Group"
-          link="https://kairos-advisorygroup.com/"
-          type="Finance &middot; Website Revamp"
-          gradClass="grad-finance"
-          tags={["Web Design", "Finance", "Astro"]}
-          revealClass="reveal-d1"
-        />
-        <PortfolioCard
-          title="Sakura Kitchen"
-          description="Modern restaurant website with online menu, reservation system, and gallery. Warm, inviting design that captures the dining experience."
-          image="/images/preview-restaurant.webp"
-          imageAlt="Sakura Kitchen"
-          link="https://jraftcreative.github.io/portfolio-restaurant/"
-          type="F&B &middot; Website"
-          gradClass="grad-restaurant"
-          tags={["Web Design", "F&B", "Responsive"]}
-          revealClass="reveal-d1"
-        />
-        <PortfolioCard
-          title="BrightPath Tutors"
-          description="Tutor discovery and booking platform with subject filtering, tutor profiles, testimonials, and a streamlined enquiry flow."
-          image="/images/preview-tutor.webp"
-          imageAlt="BrightPath Tutors"
-          link="https://jraftcreative.github.io/portfolio-tutor/"
-          type="Education &middot; Platform"
-          gradClass="grad-tutor"
-          tags={["Web App", "Education", "Booking"]}
-          revealClass="reveal-d2"
-        />
-        <PortfolioCard
-          title="MŌDA — Fashion & Lifestyle"
-          description="Premium ecommerce storefront with product collections, editorial layouts, category browsing, and a curated shopping experience."
-          image="/images/preview-ecommerce.webp"
-          imageAlt="MŌDA Fashion & Lifestyle"
-          link="https://jraftcreative.github.io/portfolio-ecommerce/"
-          type="Retail &middot; Ecommerce"
-          gradClass="grad-ecommerce"
-          tags={["Ecommerce", "Retail", "UI/UX"]}
-          revealClass="reveal-d1"
-        />
-        <PortfolioCard
-          title="PawHaus"
-          description="Pet supplies ecommerce store with product pages for dogs and cats, Snipcart checkout, FAQ section, and a clean, modern storefront design."
-          image="/images/preview-pawhaus.webp"
-          imageAlt="PawHaus Pet Store"
-          link="https://jraftcreative.github.io/pawhaus/"
-          type="Pets &middot; Ecommerce"
-          gradClass="grad-ecommerce"
-          tags={["Astro", "Ecommerce", "Snipcart"]}
-          revealClass="reveal-d2"
         />
       </div>
     </div>

@@ -2532,6 +2532,135 @@ html, body {
   color: var(--accent-hover);
 }
 
+/* --- Portfolio Carousel --- */
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 0 0 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: flex;
+  gap: 40px;
+  padding: 0 max(24px, calc((100% - 1100px) / 2));
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.carousel-image {
+  flex: 0 0 55%;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide:hover .carousel-image img {
+  transform: scale(1.03);
+}
+
+.carousel-info {
+  flex: 1;
+}
+
+.carousel-type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.carousel-info h3 {
+  font-size: 1.5rem;
+  margin: 8px 0 12px;
+  color: var(--text-primary);
+}
+
+.carousel-info p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.carousel-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 24px;
+  }
+
+  .carousel-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .carousel-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
 /* --- FAQ Accordion --- */
 .faq-section {
   background: var(--bg-alt);
