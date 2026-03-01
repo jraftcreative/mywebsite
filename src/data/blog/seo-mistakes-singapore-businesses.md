@@ -40,7 +40,7 @@ Many Singapore businesses optimise for generic keywords like "web design" or "be
 
 Google has used page speed as a ranking factor since 2018, and Core Web Vitals became a ranking signal in 2021. Despite this, many Singapore business websites still load in 5–10+ seconds.
 
-According to Google, **53% of mobile visitors leave a site that takes longer than 3 seconds to load**. That's over half your potential customers gone before they even see your content.
+According to Google, **53% of mobile visitors leave a site that takes longer than 3 seconds to load**. That's over half your potential customers gone before they even see your content. Speed is also one of the [7 things Singapore customers expect from a business website](/blog/good-business-website-singapore/).
 
 **Common causes of slow sites:**
 - Unoptimised images (uploading 5MB photos straight from a camera)
@@ -92,7 +92,7 @@ Google's helpful content system rewards pages that provide genuine value to user
 - Aim for at least 500–800 words on service pages, answering the questions your customers actually ask.
 - Write unique product descriptions that highlight benefits specific to your Singapore audience.
 - Consolidate similar pages. If you have three pages about "web design," "website design," and "website development" with similar content, merge them into one comprehensive page.
-- Add genuine value: case studies, local data, pricing information, comparison tables, and FAQs.
+- Add genuine value: case studies, local data, pricing information, comparison tables, and FAQs. For an example of comprehensive content, see our breakdown of [website costs in Singapore](/blog/website-cost-singapore-2026/).
 
 ## Mistake 5: Not Tracking or Measuring Anything
 
@@ -133,4 +133,4 @@ Use this as a starting point for your SEO audit:
 
 ## Need Help With Your SEO?
 
-These mistakes are fixable — and fixing them can dramatically improve your visibility on Google. If you'd rather have experts handle it, [talk to our SEO team](/#contact). We offer SEO audits and ongoing optimisation for Singapore businesses.
+These mistakes are fixable — and fixing them can dramatically improve your visibility on Google. If you'd rather have experts handle it, [talk to our SEO team](/#contact). Learn more about our [SEO and performance services](/services/seo-performance).

@@ -25,7 +25,7 @@ In a market where diners research restaurants online before visiting, not having
 
 This is the most common objection we hear from F&B owners. And while social media is important, it has significant limitations as your primary online presence:
 
-**You don't own your social media pages.** Meta can change algorithms, restrict your reach, or even suspend your account. In 2023, Facebook pages saw organic reach drop to an average of just 5.2% of followers — meaning for every 1,000 followers, only about 52 people see your posts without paid promotion.
+**You don't own your social media pages.** Meta can change algorithms, restrict your reach, or even suspend your account. In 2023, Facebook pages saw organic reach drop to an average of just 5.2% of followers — meaning for every 1,000 followers, only about 52 people see your posts without paid promotion. That said, social media still has its place — read our [practical guide to social media marketing for Singapore SMEs](/blog/social-media-marketing-singapore/).
 
 **Social media doesn't rank on Google.** When someone searches "best pasta restaurant Tanjong Pagar" or "cafe near Bugis," Google shows websites, Google Maps listings, and review sites — rarely Instagram profiles.
 
@@ -43,7 +43,7 @@ A website with proper local SEO helps you rank for searches like:
 - "birthday dinner restaurant Singapore"
 - "halal restaurant Bugis"
 
-Without a website, you're invisible to these high-intent searchers who are ready to dine.
+Without a website, you're invisible to these high-intent searchers who are ready to dine. Make sure you're not falling into the common traps outlined in our guide to [SEO mistakes Singapore businesses make](/blog/seo-mistakes-singapore-businesses/).
 
 ### 2. Showcase Your Menu Properly
 
@@ -134,10 +134,10 @@ A professional restaurant website in Singapore typically costs:
 | With reservation system | $2,000 – $4,000 |
 | Full-featured (ordering + reservations + blog) | $5,000 – $10,000 |
 
-The ROI calculation is simple: if your website brings in even 5 additional covers per week at an average spend of S$40, that's S$10,400 per year in additional revenue — from a one-time investment.
+For a more detailed breakdown of website pricing across all industries, see our guide on [how much a website costs in Singapore](/blog/website-cost-singapore-2026/). The ROI calculation is simple: if your website brings in even 5 additional covers per week at an average spend of S$40, that's S$10,400 per year in additional revenue — from a one-time investment.
 
 ## Getting Started
 
 Your F&B website doesn't need to be complicated. Start with the essentials — menu, location, hours, and a way to contact you — and build from there.
 
-If you want help creating a website that actually brings diners through your door, [get in touch with us](/#contact). We've built websites for restaurants, cafes, and catering businesses across Singapore.
+If you want help creating a website that actually brings diners through your door, [get in touch with us](/#contact). We specialise in [website development](/services/website-development) for restaurants, cafes, and catering businesses across Singapore.

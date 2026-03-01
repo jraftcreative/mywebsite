@@ -36,7 +36,7 @@ Singapore has one of the fastest average internet speeds in the world, with mobi
 - Minimise JavaScript and avoid heavy frameworks if your site is mostly informational
 - Target a Google PageSpeed Insights mobile score of 80+
 
-A 1-second delay in page load time can reduce conversions by 7%. For a business getting 1,000 visitors per month converting at 3%, that's 2 lost customers every month — just from being slow.
+A 1-second delay in page load time can reduce conversions by 7%. For a business getting 1,000 visitors per month converting at 3%, that's 2 lost customers every month — just from being slow. Speed is also a critical SEO factor — learn more in our guide to [SEO mistakes Singapore businesses make](/blog/seo-mistakes-singapore-businesses/).
 
 ## 2. Mobile-First Design
 
@@ -95,7 +95,7 @@ Singapore consumers are careful buyers. Before engaging with a business, they lo
 
 This is where many Singapore businesses lose potential customers. The fear of price comparison leads many businesses to hide pricing entirely, forcing visitors to "contact us for a quote."
 
-While custom services genuinely require personalised quotes, providing at least a pricing range or starting price significantly increases enquiry quality and conversion rates.
+While custom services genuinely require personalised quotes, providing at least a pricing range or starting price significantly increases enquiry quality and conversion rates. For reference, see our [breakdown of website costs in Singapore](/blog/website-cost-singapore-2026/).
 
 **What customers expect:**
 - Starting prices or price ranges (e.g., "from S$1,500")
@@ -173,4 +173,4 @@ Use this to audit your current website:
 
 Think of your website as a salesperson who works 24/7, never takes leave, and can handle unlimited visitors simultaneously. Investing in making that salesperson professional, knowledgeable, and approachable pays dividends.
 
-If your current website isn't meeting these 7 expectations, it's likely costing you customers. [Let's talk about upgrading it](/#contact) — we build websites that Singapore customers trust and engage with.
+If your current website isn't meeting these 7 expectations, it's likely costing you customers. [Let's talk about upgrading it](/#contact) — explore our [website development services](/services/website-development) to see how we build websites that Singapore customers trust and engage with.

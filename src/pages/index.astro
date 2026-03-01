@@ -5,6 +5,12 @@ import ServiceCard from '../components/ServiceCard.astro';
 import PortfolioCard from '../components/PortfolioCard.astro';
 import IndustryCard from '../components/IndustryCard.astro';
 import ContactForm from '../components/ContactForm.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 const schemaData = [
   {
@@ -395,6 +401,34 @@ const socialSubItems = [
           <h3>Launch</h3>
           <p>We deploy, set up analytics, and provide a handover with training and support.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BLOG ========== -->
+  <section class="section" id="blog" aria-label="Latest from the blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Blog</p>
+        <h2>Latest Insights & Guides</h2>
+        <p>Tips on web design, SEO, and digital marketing for Singapore businesses.</p>
+      </div>
+      <div class="blog-grid" style="margin-bottom: 40px;">
+        {latestPosts.map((post, i) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            imageAlt={post.data.imageAlt}
+            date={post.data.date}
+            category={post.data.category}
+            slug={post.id}
+            revealClass={i === 0 ? '' : i === 1 ? 'reveal-d1' : 'reveal-d2'}
+          />
+        ))}
+      </div>
+      <div style="text-align: center;" class="reveal reveal-d3">
+        <a href="/blog/" class="btn btn-secondary">View All Posts</a>
       </div>
     </div>
   </section>

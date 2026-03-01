@@ -79,7 +79,7 @@ A website that ranks on Google costs more than one that just "looks nice." Prope
 - Mobile responsiveness
 - XML sitemap and robots.txt
 
-Budget an additional S$500–S$2,000 for SEO foundations, or ongoing monthly retainers of S$500–S$3,000 for continued SEO work.
+Budget an additional S$500–S$2,000 for SEO foundations, or ongoing monthly retainers of S$500–S$3,000 for continued SEO work. Not sure where to start? Read our guide on the [5 SEO mistakes Singapore businesses make](/blog/seo-mistakes-singapore-businesses/).
 
 ### 6. Copywriting and Photography
 
@@ -114,7 +114,7 @@ Your website isn't a one-time expense. Factor in these annual costs:
 
 3. **Check portfolios and reviews.** Look at past work that matches your industry. Ask for references from Singapore-based clients.
 
-4. **Don't choose based on price alone.** The cheapest website often costs more in the long run through lost customers, poor SEO, and expensive redesigns.
+4. **Don't choose based on price alone.** The cheapest website often costs more in the long run through lost customers, poor SEO, and expensive redesigns. Read our guide on [what makes a good business website](/blog/good-business-website-singapore/) to understand what you should be getting.
 
 5. **Plan for growth.** Choose a platform and developer that can scale with your business. Migrating a website later is expensive and disruptive.
 
@@ -122,4 +122,4 @@ Your website isn't a one-time expense. Factor in these annual costs:
 
 For most Singapore small businesses, a professional website costs between **S$2,000 and S$6,000** — and it's one of the highest-ROI investments you can make. A well-designed site builds credibility, attracts organic traffic, and converts visitors into customers 24/7.
 
-If you're ready to discuss your project, [get a free quote from Jraft Creative](/#contact). We build fast, SEO-optimised websites for Singapore businesses starting from S$1,500.
+If you're ready to discuss your project, [get a free quote from Jraft Creative](/#contact). We build fast, SEO-optimised websites for Singapore businesses starting from S$1,500. Learn more about our [website development services](/services/website-development).

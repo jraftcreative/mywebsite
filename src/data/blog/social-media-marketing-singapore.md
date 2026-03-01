@@ -27,7 +27,7 @@ The biggest mistake SMEs make is trying to be everywhere. Choose 2–3 platforms
 
 ### Instagram
 
-**Best for:** F&B, retail, beauty, fitness, lifestyle brands, creative services
+**Best for:** F&B, retail, beauty, fitness, lifestyle brands, creative services (if you're in F&B, also read [why every F&B business in Singapore needs a website](/blog/fnb-business-singapore-website/))
 
 Instagram remains one of the strongest platforms for Singapore businesses with visual products or services. Reels now account for over 50% of the time people spend on Instagram, making short-form video content essential.
 
@@ -141,7 +141,7 @@ Followers and likes feel good but don't pay rent. Focus on metrics that connect 
 
 **Reach and impressions:** How many unique people are seeing your content. Track whether this is growing month-over-month.
 
-**Website clicks:** How many people click through to your website from social media. This is the bridge between social media activity and business results.
+**Website clicks:** How many people click through to your website from social media. This is the bridge between social media activity and business results. Make sure your site is ready to convert those visitors — see [what makes a good business website](/blog/good-business-website-singapore/).
 
 **Enquiries and conversions:** Track how many DMs, WhatsApp messages, or form submissions come from social media traffic. This is the metric that actually matters.
 
@@ -193,4 +193,4 @@ Consistency beats perfection. Start simple, measure what works, and iterate.
 
 ## Need Help With Social Media?
 
-If you'd rather focus on running your business while professionals handle your social media, [talk to our team](/#contact). We offer social media management and content creation for Singapore businesses.
+If you'd rather focus on running your business while professionals handle your social media, [talk to our team](/#contact). Learn more about our [social media services](/services/social-media) or explore how [paid ads](/services/paid-ads) can amplify your results.
