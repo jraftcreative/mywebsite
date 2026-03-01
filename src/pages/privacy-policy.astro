@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://jraftcreative.com/privacy-policy/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Privacy Policy | Jraft Creative"
+  description="Jraft Creative's privacy policy — how we collect, use, and protect your personal data in compliance with Singapore's PDPA."
+  canonical="https://jraftcreative.com/privacy-policy/"
+  ogTitle="Privacy Policy — Jraft Creative"
+  ogDescription="How we collect, use, and protect your personal data."
+  keywords="privacy policy, data protection, PDPA, Jraft Creative"
+  schemaData={schemaData}
+>
+  <section class="section legal-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Privacy Policy</span>
+      </nav>
+
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: 1 March 2026</p>
+
+      <div class="legal-content">
+        <h2>1. Introduction</h2>
+        <p>Jraft Creative ("we", "our", or "us") is committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at jraftcreative.com or engage our services.</p>
+        <p>We comply with Singapore's Personal Data Protection Act 2012 (PDPA) and its amendments.</p>
+
+        <h2>2. Information We Collect</h2>
+        <p>We may collect the following personal data:</p>
+        <ul>
+          <li><strong>Contact information:</strong> Name, email address, phone number, and company name — provided when you submit our contact form, send us a WhatsApp message, or email us directly.</li>
+          <li><strong>Website usage data:</strong> Pages visited, time spent on pages, referral source, browser type, device type, and IP address — collected automatically through Google Analytics 4.</li>
+          <li><strong>Communication records:</strong> Records of enquiries, project discussions, and correspondence.</li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use your personal data to:</p>
+        <ul>
+          <li>Respond to your enquiries and provide quotes</li>
+          <li>Deliver our services (web design, SEO, paid ads, social media)</li>
+          <li>Send project updates and invoices</li>
+          <li>Improve our website and services based on usage patterns</li>
+          <li>Comply with legal obligations</li>
+        </ul>
+        <p>We do not sell, rent, or trade your personal data to third parties for marketing purposes.</p>
+
+        <h2>4. Cookies and Analytics</h2>
+        <p>Our website uses Google Analytics 4 to understand how visitors interact with our site. This service uses cookies — small text files stored on your device — to collect anonymous usage data.</p>
+        <p>You can disable cookies through your browser settings. Disabling cookies will not affect the core functionality of our website.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>We may share your data with the following third-party services solely to deliver our services:</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — website analytics</li>
+          <li><strong>Cloudflare</strong> — website hosting and CDN</li>
+          <li><strong>WhatsApp (Meta)</strong> — messaging communication</li>
+        </ul>
+        <p>Each third-party service has its own privacy policy governing the use of your data.</p>
+
+        <h2>6. Data Retention</h2>
+        <p>We retain your personal data only for as long as necessary to fulfil the purposes outlined in this policy or as required by law. Contact form submissions and project records are retained for up to 3 years after the last interaction.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. Our website uses SSL/TLS encryption (HTTPS) for all data transmission.</p>
+
+        <h2>8. Your Rights Under PDPA</h2>
+        <p>Under Singapore's PDPA, you have the right to:</p>
+        <ul>
+          <li>Access your personal data that we hold</li>
+          <li>Request correction of inaccurate personal data</li>
+          <li>Withdraw consent for the collection, use, or disclosure of your data</li>
+          <li>Request deletion of your personal data (subject to legal requirements)</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:hello@jraftcreative.com">hello@jraftcreative.com</a>.</p>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.</p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have questions about this Privacy Policy or our data practices, contact us at:</p>
+        <p>
+          <strong>Jraft Creative</strong><br>
+          60 Paya Lebar Road, Paya Lebar Square<br>
+          Singapore 409051<br>
+          Email: <a href="mailto:hello@jraftcreative.com">hello@jraftcreative.com</a><br>
+          Phone: <a href="tel:+6582234578">+65 8223 4578</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

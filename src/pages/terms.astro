@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://jraftcreative.com/terms/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Terms of Service | Jraft Creative"
+  description="Terms of service for Jraft Creative's web design, SEO, paid ads, and social media services in Singapore."
+  canonical="https://jraftcreative.com/terms/"
+  ogTitle="Terms of Service — Jraft Creative"
+  ogDescription="Terms and conditions for engaging Jraft Creative's services."
+  keywords="terms of service, terms and conditions, Jraft Creative"
+  schemaData={schemaData}
+>
+  <section class="section legal-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <span>Terms of Service</span>
+      </nav>
+
+      <h1>Terms of Service</h1>
+      <p class="legal-updated">Last updated: 1 March 2026</p>
+
+      <div class="legal-content">
+        <h2>1. Agreement</h2>
+        <p>By accessing or using the website at jraftcreative.com or engaging our services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our website or services.</p>
+
+        <h2>2. Services</h2>
+        <p>Jraft Creative provides website development, SEO and performance optimisation, paid advertising management, and social media content creation services. The specific scope, deliverables, timeline, and pricing for each project are outlined in a separate project proposal or agreement provided before work begins.</p>
+
+        <h2>3. Quotations and Payment</h2>
+        <ul>
+          <li>All prices are quoted in Singapore Dollars (SGD) unless stated otherwise.</li>
+          <li>Quotations are valid for 30 days from the date of issue.</li>
+          <li>A deposit (typically 50%) is required before project work begins.</li>
+          <li>Final payment is due upon project completion and before handover or launch.</li>
+          <li>Monthly retainer services (SEO, ads, social media) are invoiced at the beginning of each month and due within 14 days.</li>
+        </ul>
+
+        <h2>4. Project Timeline</h2>
+        <p>We provide estimated timelines for all projects. Timelines depend on timely feedback and content from the client. Delays caused by late feedback, content, or approvals may extend the project timeline accordingly.</p>
+
+        <h2>5. Client Responsibilities</h2>
+        <p>Clients are responsible for:</p>
+        <ul>
+          <li>Providing content, images, brand assets, and login credentials as required</li>
+          <li>Providing timely feedback during the review and revision process</li>
+          <li>Ensuring all content provided is accurate and does not infringe on third-party rights</li>
+          <li>Maintaining hosting, domain registration, and third-party service subscriptions after project handover</li>
+        </ul>
+
+        <h2>6. Revisions</h2>
+        <p>Each project package includes a specified number of revision rounds (outlined in your project proposal). Additional revisions beyond the included rounds will be quoted separately. A revision is defined as a set of changes submitted together — not individual change requests sent across multiple communications.</p>
+
+        <h2>7. Intellectual Property</h2>
+        <ul>
+          <li>Upon full payment, the client owns the final deliverables (website code, designs, content created for the client).</li>
+          <li>Jraft Creative retains the right to display completed work in our portfolio and marketing materials unless otherwise agreed in writing.</li>
+          <li>Third-party assets (stock photos, fonts, plugins) remain subject to their respective licences.</li>
+          <li>Jraft Creative retains ownership of proprietary tools, templates, and processes used in delivering services.</li>
+        </ul>
+
+        <h2>8. Confidentiality</h2>
+        <p>Both parties agree to keep confidential any proprietary or sensitive information shared during the course of the project. This includes business strategies, login credentials, financial information, and unpublished content.</p>
+
+        <h2>9. Limitation of Liability</h2>
+        <p>Jraft Creative shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services or website. Our total liability for any claim related to our services shall not exceed the total fees paid by the client for the specific service in question.</p>
+
+        <h2>10. Cancellation and Refunds</h2>
+        <ul>
+          <li>Project deposits are non-refundable once work has commenced.</li>
+          <li>Monthly retainer services can be cancelled with 30 days' written notice.</li>
+          <li>If Jraft Creative cancels a project, any unused portion of the deposit will be refunded.</li>
+        </ul>
+
+        <h2>11. Website Disclaimer</h2>
+        <p>The content on this website is provided for general informational purposes. While we strive to keep information accurate and up to date, we make no warranties about the completeness, reliability, or accuracy of the information on this site.</p>
+
+        <h2>12. Governing Law</h2>
+        <p>These Terms of Service are governed by the laws of the Republic of Singapore. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of Singapore.</p>
+
+        <h2>13. Changes to These Terms</h2>
+        <p>We may update these Terms of Service from time to time. Changes will be posted on this page with an updated revision date. Continued use of our website or services after changes constitutes acceptance of the updated terms.</p>
+
+        <h2>14. Contact Us</h2>
+        <p>If you have questions about these Terms of Service, contact us at:</p>
+        <p>
+          <strong>Jraft Creative</strong><br>
+          60 Paya Lebar Road, Paya Lebar Square<br>
+          Singapore 409051<br>
+          Email: <a href="mailto:hello@jraftcreative.com">hello@jraftcreative.com</a><br>
+          Phone: <a href="tel:+6582234578">+65 8223 4578</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
