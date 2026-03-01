@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  date: Date;
+  category: string;
+  slug: string;
+  revealClass?: string;
+}
+
+const { title, description, image, imageAlt, date, category, slug, revealClass = '' } = Astro.props;
+const formattedDate = date.toLocaleDateString('en-SG', { year: 'numeric', month: 'short', day: 'numeric' });
+---
+<a href={`/blog/${slug}/`} class={`blog-card reveal ${revealClass}`} aria-label={`Read: ${title}`}>
+  <div class="blog-card-image">
+    <img src={image} alt={imageAlt} loading="lazy" width="600" height="340" decoding="async">
+  </div>
+  <div class="blog-card-body">
+    <div class="blog-card-meta">
+      <span class="blog-card-category">{category}</span>
+      <time datetime={date.toISOString()}>{formattedDate}</time>
+    </div>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="blog-card-link">Read article <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="1" y1="8" x2="13" y2="8"/><polyline points="9 4 13 8 9 12"/></svg></span>
+  </div>
+</a>

@@ -13,6 +13,7 @@ interface Props {
   schemaData?: object | object[];
   keywords?: string;
   preloadImage?: string;
+  ogType?: string;
   noindex?: boolean;
   hreflang?: { lang: string; href: string }[];
 }
@@ -27,6 +28,7 @@ const {
   schemaData,
   keywords,
   preloadImage,
+  ogType = 'website',
   noindex = false,
   hreflang = [],
 } = Astro.props;
@@ -45,7 +47,7 @@ const currentPath = Astro.url.pathname;
   <link rel="canonical" href={canonical}>
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content={ogType}>
   <meta property="og:title" content={ogTitle || title}>
   <meta property="og:description" content={ogDescription || description}>
   <meta property="og:url" content={canonical}>

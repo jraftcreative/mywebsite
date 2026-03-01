@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const blogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Jraft Creative Blog',
+  description: 'Tips, guides, and insights on web design, SEO, and digital marketing for Singapore businesses.',
+  url: 'https://jraftcreative.com/blog/',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Jraft Creative',
+    url: 'https://jraftcreative.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://jraftcreative.com/images/logo.png',
+    },
+  },
+  blogPost: posts.map(post => ({
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    datePublished: post.data.date.toISOString(),
+    url: `https://jraftcreative.com/blog/${post.id}/`,
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jraftcreative.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://jraftcreative.com/blog/' },
+  ],
+};
+
+const delayClasses = ['', 'reveal-d1', 'reveal-d2', 'reveal-d3', 'reveal-d4', 'reveal-d5'];
+---
+
+<BaseLayout
+  title="Blog — Web Design, SEO & Marketing Tips | Jraft Creative"
+  description="Tips, guides, and insights on web design, SEO, and digital marketing for Singapore businesses. Learn how to grow your online presence."
+  canonical="https://jraftcreative.com/blog/"
+  ogTitle="Jraft Creative Blog"
+  ogDescription="Tips, guides, and insights on web design, SEO, and digital marketing for Singapore businesses."
+  keywords="web design blog Singapore, SEO tips Singapore, digital marketing guide, Singapore business website"
+  schemaData={[blogSchema, breadcrumbSchema]}
+>
+  <Hero
+    title="Blog"
+    subtitle="Tips, guides, and insights on web design, SEO, and digital marketing for Singapore businesses."
+    backgroundImage="/images/blog/blog-hero.webp"
+    heroLabel="Insights & Guides"
+    heroClass="blog-hero"
+  />
+
+  <section class="section blog-listing" aria-label="Blog posts">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map((post, i) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            image={post.data.image}
+            imageAlt={post.data.imageAlt}
+            date={post.data.date}
+            category={post.data.category}
+            slug={post.id}
+            revealClass={delayClasses[i] || ''}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section service-cta-section" aria-label="Call to action">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <p class="section-label">Need Help?</p>
+        <h2>Ready to Grow Your Business Online?</h2>
+        <p>Get a free consultation and discover how we can help your Singapore business succeed online.</p>
+        <div class="hero-buttons" style="margin-top: 32px;">
+          <a href="/#contact" class="btn btn-primary">Get a Free Quote</a>
+          <a href="/#services" class="btn btn-secondary">Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
