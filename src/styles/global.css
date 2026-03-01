@@ -344,8 +344,7 @@ img {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 32px 24px;
-  text-align: center;
+  overflow: hidden;
   transition: all var(--transition);
 }
 
@@ -355,22 +354,42 @@ img {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
-.challenge-icon {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
-  line-height: 1;
+.challenge-card--overlay {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 220px;
+  padding: 0;
+}
+
+.challenge-card--overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 8, 13, 0.4) 0%, rgba(8, 8, 13, 0.85) 100%);
+  z-index: 1;
+}
+
+.challenge-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 220px;
 }
 
 .challenge-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--text);
+  color: #fff;
 }
 
 .challenge-card p {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.65;
 }
 
