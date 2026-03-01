@@ -133,4 +133,4 @@ Use this as a starting point for your SEO audit:
 
 ## Need Help With Your SEO?
 
-These mistakes are fixable — and fixing them can dramatically improve your visibility on Google. If you'd rather have experts handle it, [talk to our SEO team](/#contact). Learn more about our [SEO and performance services](/services/seo-performance).
+These mistakes are fixable — and fixing them can dramatically improve your visibility on Google. If you'd rather have experts handle it, [talk to our SEO team](/contact/). Learn more about our [SEO and performance services](/services/seo-performance).

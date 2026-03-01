@@ -140,4 +140,4 @@ For a more detailed breakdown of website pricing across all industries, see our 
 
 Your F&B website doesn't need to be complicated. Start with the essentials — menu, location, hours, and a way to contact you — and build from there.
 
-If you want help creating a website that actually brings diners through your door, [get in touch with us](/#contact). We specialise in [website development](/services/website-development) for restaurants, cafes, and catering businesses across Singapore.
+If you want help creating a website that actually brings diners through your door, [get in touch with us](/contact/). We specialise in [website development](/services/website-development) for restaurants, cafes, and catering businesses across Singapore.

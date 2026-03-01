@@ -173,4 +173,4 @@ Use this to audit your current website:
 
 Think of your website as a salesperson who works 24/7, never takes leave, and can handle unlimited visitors simultaneously. Investing in making that salesperson professional, knowledgeable, and approachable pays dividends.
 
-If your current website isn't meeting these 7 expectations, it's likely costing you customers. [Let's talk about upgrading it](/#contact) — explore our [website development services](/services/website-development) to see how we build websites that Singapore customers trust and engage with.
+If your current website isn't meeting these 7 expectations, it's likely costing you customers. [Let's talk about upgrading it](/contact/) — explore our [website development services](/services/website-development) to see how we build websites that Singapore customers trust and engage with.

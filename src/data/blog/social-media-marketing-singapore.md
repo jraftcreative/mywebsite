@@ -193,4 +193,4 @@ Consistency beats perfection. Start simple, measure what works, and iterate.
 
 ## Need Help With Social Media?
 
-If you'd rather focus on running your business while professionals handle your social media, [talk to our team](/#contact). Learn more about our [social media services](/services/social-media) or explore how [paid ads](/services/paid-ads) can amplify your results.
+If you'd rather focus on running your business while professionals handle your social media, [talk to our team](/contact/). Learn more about our [social media services](/services/social-media) or explore how [paid ads](/services/paid-ads) can amplify your results.
