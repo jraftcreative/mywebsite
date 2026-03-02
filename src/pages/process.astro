@@ -1,0 +1,382 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How Jraft Creative Works — Our Process",
+    "description": "From discovery to launch, our 4-step process delivers professional websites and marketing solutions for businesses in Singapore.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Discovery", "text": "We learn about your business, goals, target audience, and competitors to define the full project scope and strategy." },
+      { "@type": "HowToStep", "position": 2, "name": "Design", "text": "We create wireframes and mockups tailored to your brand, iterating based on your feedback until every detail is right." },
+      { "@type": "HowToStep", "position": 3, "name": "Build", "text": "We develop your site with clean, performance-optimised code, test across all devices, and integrate analytics and tracking." },
+      { "@type": "HowToStep", "position": 4, "name": "Launch & Support", "text": "We deploy your site, configure hosting and DNS, provide training, and offer ongoing support to keep everything running smoothly." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Our Process", "item": "https://jraftcreative.com/process/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Our Process | Jraft Creative"
+  description="From discovery to launch in as fast as 2 weeks. Learn how Jraft Creative delivers websites, SEO, and marketing for Singapore businesses."
+  canonical="https://jraftcreative.com/process/"
+  ogTitle="How We Work — Jraft Creative"
+  ogDescription="A simple, transparent 4-step process: Discovery, Design, Build, Launch. From first call to live site in as fast as 2 weeks."
+  keywords="web design process, website development process, how we work, Jraft Creative process, Singapore web agency"
+  schemaData={schemaData}
+>
+
+  <!-- ========== HERO ========== -->
+  <section class="process-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span> <span>Our Process</span>
+      </nav>
+      <div class="process-hero__content reveal">
+        <p class="section-label">How We Work</p>
+        <h1>A Simple, <span class="highlight">Transparent Process</span></h1>
+        <p class="process-hero__subtitle">From first call to launch in as fast as 2 weeks. No surprises, no jargon — just clear communication and quality work at every step.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS STEPS ========== -->
+  <section class="section" id="steps" aria-label="Our 4-step process">
+    <div class="container">
+
+      <!-- Step 1: Discovery -->
+      <div class="process-detail reveal">
+        <div class="process-detail__number">01</div>
+        <div class="process-detail__content">
+          <h2>Discovery</h2>
+          <p class="process-detail__lead">Every great project starts with understanding your business inside and out.</p>
+          <p>We start with a free consultation to learn about your business, goals, target audience, and competitors. This is where we ask the right questions — what does success look like for you? Who are your customers? What's not working with your current setup?</p>
+          <p>By the end of this phase, we'll have a clear project scope, timeline, and strategy tailored specifically to your business. No cookie-cutter templates — every project is built from the ground up.</p>
+          <div class="process-detail__deliverables">
+            <h3>What you get</h3>
+            <ul>
+              <li>Free 30-minute strategy consultation</li>
+              <li>Competitor and market analysis</li>
+              <li>Project scope and timeline</li>
+              <li>Transparent quote with no hidden fees</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Design -->
+      <div class="process-detail reveal">
+        <div class="process-detail__number">02</div>
+        <div class="process-detail__content">
+          <h2>Design</h2>
+          <p class="process-detail__lead">Your brand deserves more than a template. We design something uniquely yours.</p>
+          <p>We create wireframes and high-fidelity mockups tailored to your brand identity, your audience, and your business goals. You'll see how your site looks and feels before a single line of code is written.</p>
+          <p>We work with you to refine every detail — layout, typography, colours, imagery — until you're completely satisfied. Most clients approve designs within 1–2 rounds of revisions.</p>
+          <div class="process-detail__deliverables">
+            <h3>What you get</h3>
+            <ul>
+              <li>Custom wireframes and page layouts</li>
+              <li>High-fidelity design mockups (desktop + mobile)</li>
+              <li>Brand-aligned colour palette and typography</li>
+              <li>Up to 2 rounds of revisions included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Build -->
+      <div class="process-detail reveal">
+        <div class="process-detail__number">03</div>
+        <div class="process-detail__content">
+          <h2>Build</h2>
+          <p class="process-detail__lead">Clean code, blazing performance, and pixel-perfect execution.</p>
+          <p>Once designs are approved, we bring everything to life with hand-written, performance-optimised code. Every site we build is mobile-responsive, SEO-ready, and tested across all major browsers and devices.</p>
+          <p>We don't use bloated page builders or generic WordPress themes. Our sites are built lean and fast — typically scoring 90+ on Google PageSpeed Insights right out of the box.</p>
+          <div class="process-detail__deliverables">
+            <h3>What you get</h3>
+            <ul>
+              <li>Fully responsive website (mobile, tablet, desktop)</li>
+              <li>SEO-optimised structure and metadata</li>
+              <li>Google Analytics and Search Console setup</li>
+              <li>Performance optimisation (90+ PageSpeed score)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Launch & Support -->
+      <div class="process-detail reveal">
+        <div class="process-detail__number">04</div>
+        <div class="process-detail__content">
+          <h2>Launch &amp; Support</h2>
+          <p class="process-detail__lead">Go live with confidence. We handle everything so you don't have to.</p>
+          <p>We deploy your site to fast, reliable hosting, configure your domain and SSL, and run final checks across all devices. You'll get a walkthrough of how to manage your content, plus documentation for anything you need.</p>
+          <p>After launch, we don't disappear. Every project includes 30 days of free support for bug fixes and minor adjustments. Need ongoing maintenance or marketing? We offer monthly plans to keep your site performing at its best.</p>
+          <div class="process-detail__deliverables">
+            <h3>What you get</h3>
+            <ul>
+              <li>Domain and hosting setup</li>
+              <li>SSL certificate and security configuration</li>
+              <li>Content management training and documentation</li>
+              <li>30 days of free post-launch support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" style="background: var(--bg-alt);" aria-label="Why work with us">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>What Makes Us <span class="highlight">Different</span></h2>
+      </div>
+      <div class="process-why-grid">
+        <div class="process-why-card reveal reveal-d1">
+          <h3>No Lock-in Contracts</h3>
+          <p>We earn your business every month. No long-term contracts, no cancellation fees. Stay because you want to, not because you have to.</p>
+        </div>
+        <div class="process-why-card reveal reveal-d2">
+          <h3>Fast Turnaround</h3>
+          <p>Most websites launch within 2–4 weeks. We move quickly without cutting corners, keeping you updated at every stage.</p>
+        </div>
+        <div class="process-why-card reveal reveal-d3">
+          <h3>Transparent Pricing</h3>
+          <p>You'll know exactly what you're paying for before we start. No surprise invoices, no scope creep charges. The price we quote is the price you pay.</p>
+        </div>
+        <div class="process-why-card reveal reveal-d1">
+          <h3>Full-Service Team</h3>
+          <p>Design, development, SEO, ads, and social media — all under one roof. One team, one point of contact, zero coordination headaches.</p>
+        </div>
+        <div class="process-why-card reveal reveal-d2">
+          <h3>Singapore-Focused</h3>
+          <p>We understand the local market, consumer behaviour, and business landscape. Your project is handled by people who know Singapore.</p>
+        </div>
+        <div class="process-why-card reveal reveal-d3">
+          <h3>Results-Driven</h3>
+          <p>We don't just build pretty websites — we build websites that convert. Every decision is guided by data, performance, and your business goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="section cta-section" aria-label="Get started">
+    <div class="container">
+      <div class="cta-box reveal">
+        <p class="section-label">Ready to Get Started?</p>
+        <h2>Let's Build Something Great Together</h2>
+        <p>Book a free consultation and tell us about your project. We'll get back to you within 24 hours.</p>
+        <div class="cta-buttons">
+          <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+          <a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20process." class="btn btn-secondary">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .process-hero {
+    padding: 160px 0 60px;
+    background: var(--bg);
+  }
+
+  .process-hero .breadcrumb {
+    margin-bottom: 32px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .process-hero .breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .process-hero .breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .process-hero .breadcrumb span {
+    margin: 0 8px;
+  }
+
+  .process-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .process-hero__subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 640px;
+  }
+
+  /* --- Process Detail Steps --- */
+  .process-detail {
+    display: flex;
+    gap: 48px;
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .process-detail:last-child {
+    border-bottom: none;
+  }
+
+  .process-detail__number {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    flex-shrink: 0;
+    width: 100px;
+  }
+
+  .process-detail__content h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .process-detail__lead {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .process-detail__content p {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 12px;
+  }
+
+  .process-detail__deliverables {
+    margin-top: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 24px;
+  }
+
+  .process-detail__deliverables h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .process-detail__deliverables ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .process-detail__deliverables li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .process-detail__deliverables li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* --- Why Us Grid --- */
+  .process-why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .process-why-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    transition: all var(--transition);
+  }
+
+  .process-why-card:hover {
+    border-color: var(--border-accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .process-why-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .process-why-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 900px) {
+    .process-detail {
+      flex-direction: column;
+      gap: 16px;
+      padding: 48px 0;
+    }
+
+    .process-detail__number {
+      font-size: 3rem;
+      width: auto;
+    }
+
+    .process-detail__deliverables ul {
+      grid-template-columns: 1fr;
+    }
+
+    .process-why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .process-hero {
+      padding: 140px 0 40px;
+    }
+
+    .process-detail {
+      padding: 36px 0;
+    }
+
+    .process-why-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
