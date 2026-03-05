@@ -35,6 +35,14 @@ const schemaData = [
   schemaData={schemaData}
 >
 
+  <!-- ========== ANIMATED BACKGROUND ========== -->
+  <div class="process-bg" aria-hidden="true">
+    <div class="process-bg__orb process-bg__orb--1"></div>
+    <div class="process-bg__orb process-bg__orb--2"></div>
+    <div class="process-bg__orb process-bg__orb--3"></div>
+    <div class="process-bg__grid"></div>
+  </div>
+
   <!-- ========== HERO ========== -->
   <section class="process-hero">
     <div class="container">
@@ -137,7 +145,7 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" style="background: var(--bg-alt);" aria-label="Why work with us">
+  <section class="section" style="background: rgba(13, 13, 20, 0.6); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);" aria-label="Why work with us">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
@@ -190,9 +198,92 @@ const schemaData = [
 </BaseLayout>
 
 <style>
+  /* --- Animated Background --- */
+  .process-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .process-bg__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    will-change: transform;
+  }
+
+  .process-bg__orb--1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+    top: -10%;
+    right: -5%;
+    animation: orb-drift-1 20s ease-in-out infinite;
+  }
+
+  .process-bg__orb--2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+    bottom: 20%;
+    left: -10%;
+    animation: orb-drift-2 25s ease-in-out infinite;
+  }
+
+  .process-bg__orb--3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+    top: 50%;
+    right: 20%;
+    animation: orb-drift-3 18s ease-in-out infinite;
+  }
+
+  .process-bg__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
+  }
+
+  @keyframes orb-drift-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(-80px, 60px) scale(1.1); }
+    50% { transform: translate(-40px, 120px) scale(0.95); }
+    75% { transform: translate(60px, 40px) scale(1.05); }
+  }
+
+  @keyframes orb-drift-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(100px, -40px) scale(1.15); }
+    50% { transform: translate(60px, -100px) scale(0.9); }
+    75% { transform: translate(-40px, -60px) scale(1.1); }
+  }
+
+  @keyframes orb-drift-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-60px, -80px) scale(1.1); }
+    66% { transform: translate(80px, 40px) scale(0.95); }
+  }
+
+  /* All page content needs to sit above the background */
+  .process-hero,
+  .section,
+  .cta-section {
+    position: relative;
+    z-index: 1;
+  }
+
   .process-hero {
     padding: 160px 0 60px;
-    background: var(--bg);
+    background: transparent;
   }
 
   .process-hero .breadcrumb {
@@ -342,6 +433,15 @@ const schemaData = [
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.65;
+  }
+
+  /* --- Reduced motion --- */
+  @media (prefers-reduced-motion: reduce) {
+    .process-bg__orb--1,
+    .process-bg__orb--2,
+    .process-bg__orb--3 {
+      animation: none;
+    }
   }
 
   /* --- Responsive --- */
