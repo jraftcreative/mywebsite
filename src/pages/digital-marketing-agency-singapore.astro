@@ -1,0 +1,224 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digital Marketing Services",
+    "description": "Full-service digital marketing agency in Singapore — web design, SEO, Google Ads, and social media marketing. Grow your business with a single agency partner.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Custom Digital Marketing", "price": "2500", "priceCurrency": "SGD", "description": "Full-service digital marketing packages tailored to your business — starting from $2,500 SGD" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does a digital marketing agency do?", "acceptedAnswer": { "@type": "Answer", "text": "A digital marketing agency handles all aspects of your online presence — from building and maintaining your website, to ranking it on Google through SEO, driving traffic with paid ads, and growing your brand on social media. Instead of hiring separate specialists or freelancers, a full-service agency like Jraft Creative manages everything under one roof." } },
+      { "@type": "Question", "name": "How much does digital marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Digital marketing costs in Singapore vary depending on the services you need. Website design starts from $2,500 SGD, SEO plans from $800/month, Google Ads management from $1,000/month, and social media marketing from $2,500/month. Most businesses combine two or more services for the best results." } },
+      { "@type": "Question", "name": "Do I need all digital marketing services at once?", "acceptedAnswer": { "@type": "Answer", "text": "No. We recommend starting with the services that will have the biggest impact on your business right now. For most Singapore businesses, that means a solid website and either SEO or paid ads. You can add social media or other services as your business grows." } },
+      { "@type": "Question", "name": "How do you measure digital marketing results?", "acceptedAnswer": { "@type": "Answer", "text": "We track real business metrics — website traffic, keyword rankings, lead volume, cost per lead, ad spend efficiency, and social media engagement. Every client receives regular reports with clear data showing what's working and where we're investing your budget." } },
+      { "@type": "Question", "name": "How is Jraft Creative different from other digital marketing agencies in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "We're a genuinely full-service agency — web design, SEO, paid ads, and social media all handled in-house by one team. No outsourcing, no subcontractors. That means consistent branding, faster turnarounds, and a unified strategy across every channel. We also operate on transparent pricing with no lock-in contracts." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Digital Marketing Agency Singapore", "item": "https://jraftcreative.com/digital-marketing-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Digital Marketing Agency Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing agency in Singapore — web design, SEO, Google Ads, and social media marketing. Grow your business with a single agency partner."
+  canonical="https://jraftcreative.com/digital-marketing-agency-singapore/"
+  ogTitle="Digital Marketing Agency Singapore — Jraft Creative"
+  ogDescription="Full-service digital marketing in Singapore — web design, SEO, Google Ads, and social media. One agency, one strategy, real results."
+  ogImage="https://jraftcreative.com/images/og-home.jpg"
+  keywords="digital marketing agency singapore, digital marketing company singapore, marketing agency singapore, online marketing singapore, digital marketing services singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Digital Marketing Agency Singapore"
+  heroTitle='Full-Service <span class="highlight">Digital Marketing Agency in Singapore</span>'
+  heroSubtitle="Web design, SEO, Google Ads, and social media marketing — all managed by one team. Stop juggling agencies and freelancers. Get a unified strategy that actually grows your business."
+  heroImage="/images/hero-home.webp"
+  heroButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Explore Our Services", href: "/#services", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'm looking for a digital marketing agency in Singapore."
+  ctaLabel="Ready to Grow?"
+  ctaTitle="Grow Your Business with One Agency Partner"
+  ctaDescription="Book a free consultation and tell us where you want to take your business. We'll put together a tailored digital marketing strategy — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27m%20looking%20for%20a%20digital%20marketing%20agency%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Challenges of managing multiple marketing vendors">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Juggling Multiple Agencies and Freelancers?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most businesses in Singapore end up working with a different vendor for every channel — one freelancer for the website, another agency for SEO, a separate team for ads, and yet another for social media. The result? Fragmented marketing that wastes time, money, and momentum.</p>
+        <p>Without a unified strategy, your branding is inconsistent across channels, campaigns contradict each other, and nobody takes ownership of the bigger picture. You're left coordinating between vendors instead of focusing on running your business — and your marketing budget suffers for it.</p>
+        <p>A full-service digital marketing agency solves this by putting one team in charge of your entire online presence. One strategy. One point of contact. Every channel working together toward the same business goals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="services" aria-label="Digital marketing services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything You Need to Grow Online</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of digital marketing in-house — from building your website to driving traffic and converting visitors into customers. No outsourcing, no subcontractors. Just one team working across every channel with a shared strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-responsive-web.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>Custom-built, mobile-responsive websites designed for speed, SEO, and conversions. Your website is the foundation of every digital marketing campaign — we make sure it performs. <a href="/web-design-singapore/">View web design services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Performance</h3>
+            <p>Technical audits, on-page optimisation, local SEO, and link building to get your business found on Google organically. Sustainable traffic that compounds over time. <a href="/seo-services-singapore/">View SEO services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Paid Ads &amp; PPC</h3>
+            <p>Google Ads, display campaigns, and remarketing managed for maximum ROI. Get qualified leads from day one while your organic strategy builds momentum. <a href="/google-ads-agency-singapore/">View paid ads services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-content-strategy.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media Marketing</h3>
+            <p>Content creation, scheduling, community management, and paid social across Instagram, Facebook, LinkedIn, and TikTok. Build brand awareness and engage your audience where they spend their time. <a href="/social-media-marketing-singapore/">View social media services</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your digital marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One Agency. Every Channel. Real Results.</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We built Jraft Creative to be the kind of agency we'd want to hire ourselves — transparent, accountable, and genuinely full-service. Here's what sets us apart from other digital marketing agencies in Singapore:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Services</h3>
+            <p>Web design, SEO, paid ads, and social media — all handled by one team with a unified strategy. No more coordinating between vendors or dealing with finger-pointing when things go wrong.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Singapore-Focused</h3>
+            <p>We understand the local market, consumer behaviour, and competitive landscape. Our strategies are built specifically for Singapore businesses targeting local and regional audiences.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; No Lock-ins</h3>
+            <p>Clear pricing on every service. Month-to-month plans where applicable. You stay because the results justify it, not because of a 12-month contract.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Fast Turnaround</h3>
+            <p>Websites delivered in 2 weeks. Ad campaigns live within days. SEO audits completed in the first week. We move fast because we know your business can't wait.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INDUSTRIES ========== -->
+  <section class="section" id="industries" aria-label="Industries we serve in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Industries We Serve</p>
+        <h2>Digital Marketing for Every Industry in Singapore</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with businesses across Singapore's key industries — from F&amp;B restaurants and cafes to retail shops, ecommerce brands, education providers, property agencies, insurance firms, and early-stage startups. Every industry has its own audience, competitive dynamics, and marketing challenges, and we tailor our approach accordingly.</p>
+        <p>Whether you're a hawker stall looking for a simple website or an ecommerce brand scaling paid ads across Southeast Asia, we have the experience to help. Explore our <a href="/#industries">industry specialisations</a> or check out our dedicated landing pages:</p>
+        <ul style="margin-top: 1rem; list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;">
+          <li><a href="/fnb-website-design-singapore/">F&amp;B Website Design</a></li>
+          <li><a href="/ecommerce-website-singapore/">Ecommerce Websites</a></li>
+          <li><a href="/small-business-website-singapore/">Small Business Websites</a></li>
+          <li><a href="/startup-website-singapore/">Startup Websites</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about digital marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Digital Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does a digital marketing agency do?</summary>
+          <div class="faq-answer"><p>A digital marketing agency handles all aspects of your online presence — from building and maintaining your website, to ranking it on Google through SEO, driving traffic with paid ads, and growing your brand on social media. Instead of hiring separate specialists or freelancers, a full-service agency like Jraft Creative manages everything under one roof.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How much does digital marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Digital marketing costs in Singapore vary depending on the services you need. <a href="/web-design-singapore/">Website design</a> starts from $2,500 SGD, <a href="/seo-services-singapore/">SEO plans</a> from $800/month, <a href="/google-ads-agency-singapore/">Google Ads management</a> from $1,000/month, and <a href="/social-media-marketing-singapore/">social media marketing</a> from $2,500/month. Most businesses combine two or more services for the best results.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do I need all digital marketing services at once?</summary>
+          <div class="faq-answer"><p>No. We recommend starting with the services that will have the biggest impact on your business right now. For most Singapore businesses, that means a solid website and either SEO or paid ads. You can add social media or other services as your business grows — there's no pressure to sign up for everything at once.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure digital marketing results?</summary>
+          <div class="faq-answer"><p>We track real business metrics — website traffic, keyword rankings, lead volume, cost per lead, ad spend efficiency, and social media engagement. Every client receives regular reports with clear data showing what's working and where we're investing your budget. No vanity metrics, no fluff.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is Jraft Creative different from other agencies in Singapore?</summary>
+          <div class="faq-answer"><p>We're a genuinely full-service agency — <a href="/web-design-singapore/">web design</a>, <a href="/seo-services-singapore/">SEO</a>, <a href="/google-ads-agency-singapore/">paid ads</a>, and <a href="/social-media-marketing-singapore/">social media</a> all handled in-house by one team. No outsourcing, no subcontractors. That means consistent branding, faster turnarounds, and a unified strategy across every channel. We also operate on transparent pricing with no lock-in contracts.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

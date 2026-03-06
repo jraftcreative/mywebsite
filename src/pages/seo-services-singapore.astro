@@ -1,0 +1,272 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO Services Singapore",
+    "description": "Professional SEO services in Singapore — technical audits, on-page optimisation, local SEO, link building, and performance monitoring for businesses that want to rank higher on Google.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Search Engine Optimisation",
+    "offers": [
+      { "@type": "Offer", "name": "Essential SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Analytics and Search Console setup, monthly reporting" },
+      { "@type": "Offer", "name": "Growth SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus content strategy, link building, competitor analysis, local SEO, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, advanced link building, content creation, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much do SEO services cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "SEO services in Singapore typically range from $800 to $3,000+ per month depending on scope. Our Essential plan starts at $800 SGD/month for small businesses, while Growth and Enterprise plans offer more comprehensive strategies for competitive industries." } },
+      { "@type": "Question", "name": "How long before I see results from SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Most businesses start seeing measurable improvements in organic traffic within 3–6 months. Quick wins like fixing technical issues can show results in weeks. SEO is a long-term investment — the results compound over time and continue delivering value long after the initial work." } },
+      { "@type": "Question", "name": "What's the difference between SEO and paid ads?", "acceptedAnswer": { "@type": "Answer", "text": "SEO builds free organic traffic that grows over time — once you rank, you continue getting clicks without paying per visit. Paid ads deliver immediate results but stop the moment you pause spending. Most Singapore businesses benefit from combining both strategies." } },
+      { "@type": "Question", "name": "Do you guarantee first page rankings on Google?", "acceptedAnswer": { "@type": "Answer", "text": "No reputable SEO agency can guarantee specific rankings — Google's algorithm uses hundreds of signals. What we guarantee is a transparent, data-driven approach with monthly reporting so you can see exactly how your SEO investment is performing." } },
+      { "@type": "Question", "name": "Can you do SEO for my existing website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can optimise most existing websites. Our process starts with a comprehensive technical audit to identify issues and opportunities. If your site has fundamental performance or design problems, we may recommend improvements first — our web development team can handle that too." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "SEO Services Singapore", "item": "https://jraftcreative.com/seo-services-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="SEO Services Singapore — Professional SEO Agency | Jraft Creative"
+  description="Results-driven SEO services in Singapore — technical audits, on-page optimisation, local SEO, and link building. Monthly plans from S$800. Free SEO audit available."
+  canonical="https://jraftcreative.com/seo-services-singapore/"
+  ogTitle="SEO Services Singapore — Jraft Creative"
+  ogDescription="Professional SEO agency in Singapore. Technical SEO, on-page optimisation, local SEO, and link building. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="seo services singapore, seo agency singapore, seo company singapore, search engine optimisation singapore, local seo singapore, seo consultant singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="SEO Agency Singapore"
+  heroTitle='SEO Services <span class="highlight">in Singapore</span>'
+  heroSubtitle="Data-driven SEO strategies that get your business found on Google. Technical audits, on-page optimisation, local SEO, and link building — delivering measurable results for Singapore businesses."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'm interested in your SEO services in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Free SEO Audit Today"
+  ctaDescription="Book a free consultation and we'll audit your website's SEO performance. We'll get back to you within 24 hours with actionable insights."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27m%20interested%20in%20your%20SEO%20services%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>If You're Not on Page One, You're Losing Customers</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>97% of consumers search online before making a purchase decision. If your business doesn't appear on the first page of Google for relevant keywords, those customers are going to your competitors instead. In Singapore's crowded digital landscape, organic search visibility is the difference between thriving and surviving.</p>
+        <p>Many businesses invest in a website but neglect the SEO foundations needed to rank. Missing meta data, slow page speeds, poor mobile experience, and thin content are common issues that keep Singapore businesses invisible on Google — costing them leads and revenue every day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services we offer">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>Comprehensive SEO for Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>As an SEO agency in Singapore, we take a holistic approach to search engine optimisation. From fixing technical foundations to building authority through quality content and backlinks, every action is guided by data and focused on driving qualified organic traffic to your website.</p>
+        <p>Our SEO services cover on-page optimisation, technical audits, local SEO for Google Maps and Business Profile, content strategy, and link building — everything your business needs to climb the search rankings and stay there.</p>
+        <p>Combine SEO with a professionally built <a href="/services/website-development/">website</a>, <a href="/services/paid-ads/">Google Ads</a> for immediate visibility, or <a href="/services/social-media/">social media marketing</a> for a complete digital presence.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Full site crawl, indexing analysis, schema markup, site architecture improvements, and Core Web Vitals assessment to ensure search engines can find and rank your pages.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>On-Page Optimisation</h3>
+            <p>Keyword research, meta tags, heading structure, content optimisation, and internal linking strategy to maximise relevance for your target search terms in Singapore.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO</h3>
+            <p>Google Business Profile optimisation, local citations, review management, and map pack strategy to capture local search traffic across Singapore.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Link Building</h3>
+            <p>White-hat link acquisition from relevant, authoritative Singapore and industry websites to build domain authority and improve rankings.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Analytics &amp; Reporting</h3>
+            <p>Google Analytics 4 setup, Search Console monitoring, keyword tracking, and transparent monthly reports with actionable recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Delivers Results</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We don't hide behind jargon or vanity metrics. Our SEO approach is built on transparency, data, and measurable outcomes. Here's why Singapore businesses trust us with their search visibility:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month SEO plans. Stay because the results speak for themselves, not because you're locked into a 12-month agreement.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Transparent Reporting</h3>
+            <p>Monthly reports showing keyword rankings, traffic growth, and ROI. You always know exactly what we're doing and why it matters.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Singapore Market Expertise</h3>
+            <p>We understand local search behaviour, Singapore-specific keywords, and what it takes to compete in this market across industries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Capability</h3>
+            <p>SEO works best alongside great web design and content. We handle it all in-house — no finger-pointing between agencies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">SEO Pricing</p>
+        <h2>SEO Plans for Every Stage of Growth</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For small businesses building organic visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly keyword tracking</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate search rankings.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Content strategy &amp; blog SEO</li>
+              <li>Link building (5 links/mo)</li>
+              <li>Competitor analysis</li>
+              <li>Local SEO &amp; Google Business</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service SEO for competitive industries.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Advanced link building (15+/mo)</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Core Web Vitals optimisation</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about SEO services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>SEO Services — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much do SEO services cost in Singapore?</summary>
+          <div class="faq-answer"><p>SEO services in Singapore typically range from $800 to $3,000+ per month depending on scope. Our Essential plan starts at $800 SGD/month for small businesses, while Growth and Enterprise plans offer more comprehensive strategies for competitive industries.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before I see results from SEO?</summary>
+          <div class="faq-answer"><p>Most businesses start seeing measurable improvements in organic traffic within 3–6 months. Quick wins like fixing technical issues can show results in weeks. SEO is a long-term investment — the results compound over time and continue delivering value long after the initial work.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What's the difference between SEO and paid ads?</summary>
+          <div class="faq-answer"><p>SEO builds free organic traffic that grows over time — once you rank, you continue getting clicks without paying per visit. Paid ads deliver immediate results but stop the moment you pause spending. Most Singapore businesses benefit from combining both strategies.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you guarantee first page rankings on Google?</summary>
+          <div class="faq-answer"><p>No reputable SEO agency can guarantee specific rankings — Google's algorithm uses hundreds of signals. What we guarantee is a transparent, data-driven approach with monthly reporting so you can see exactly how your SEO investment is performing.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you do SEO for my existing website?</summary>
+          <div class="faq-answer"><p>Yes. We can optimise most existing websites. Our process starts with a comprehensive technical audit to identify issues and opportunities. If your site has fundamental performance or design problems, we may recommend improvements first — our <a href="/services/website-development/">web development</a> team can handle that too.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,272 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Web Design Singapore",
+    "description": "Professional web design services in Singapore. Custom website design, responsive development, and SEO-ready builds for businesses of all sizes.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Web Design",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Website", "price": "2500", "priceCurrency": "SGD", "description": "5-page responsive website with mobile-first design, contact form, and basic SEO setup" },
+      { "@type": "Offer", "name": "Business Website", "price": "5500", "priceCurrency": "SGD", "description": "10-page website with custom design, CMS, blog, advanced SEO, and performance optimisation" },
+      { "@type": "Offer", "name": "Premium Website", "price": "10000", "priceCurrency": "SGD", "description": "Fully custom website with advanced features, integrations, ecommerce capability, and priority support" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does web design cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Professional web design in Singapore typically ranges from $2,500 to $10,000+ depending on complexity. Our Starter package begins at $2,500 SGD for a 5-page responsive website, while our Business and Premium packages include more pages, custom features, and advanced SEO." } },
+      { "@type": "Question", "name": "How long does it take to design a website in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A typical website takes 2–4 weeks from kickoff to launch. Simpler sites can be ready in 2 weeks, while more complex projects with custom features or ecommerce may take 4–6 weeks. We provide a clear timeline during the discovery phase." } },
+      { "@type": "Question", "name": "Do you design mobile-responsive websites?", "acceptedAnswer": { "@type": "Answer", "text": "Every website we build is mobile-first and fully responsive. With over 70% of Singapore's web traffic coming from mobile devices, responsive design is essential — not optional. All our sites are tested across devices and browsers." } },
+      { "@type": "Question", "name": "Will my website be optimised for Google?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every website includes on-page SEO fundamentals — proper heading structure, meta tags, image optimisation, fast loading speeds, and schema markup. For ongoing SEO, we offer dedicated SEO plans starting from $800/month." } },
+      { "@type": "Question", "name": "Can I update the website myself after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our Business and Premium packages include a content management system (CMS) so you can update text, images, and blog posts without any coding knowledge. We also provide training and documentation." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Web Design Singapore", "item": "https://jraftcreative.com/web-design-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Web Design Singapore — Professional Website Design | Jraft Creative"
+  description="Professional web design in Singapore — custom responsive websites built for speed, SEO, and conversions. From S$2,500. Free consultation available."
+  canonical="https://jraftcreative.com/web-design-singapore/"
+  ogTitle="Web Design Singapore — Jraft Creative"
+  ogDescription="Custom website design for Singapore businesses. Mobile-first, SEO-ready, fast-loading sites from $2,500 SGD."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="web design singapore, website design singapore, web designer singapore, website designer singapore, website development singapore, professional web design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Web Design Singapore"
+  heroTitle='Professional <span class="highlight">Web Design in Singapore</span>'
+  heroSubtitle="Custom-built websites that look great, load fast, and rank on Google. From responsive landing pages to full business websites — designed to convert visitors into customers."
+  heroImage="/images/service-web-dev.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'm looking for web design services in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Get a Website That Works for Your Business"
+  ctaDescription="Book a free consultation and tell us about your project. We'll get back to you within 24 hours with a tailored proposal."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27m%20looking%20for%20web%20design%20services%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== WHY WEB DESIGN MATTERS ========== -->
+  <section class="section" id="challenge" aria-label="Why web design matters for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Website Is Your First Impression in Singapore</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>In Singapore's competitive market, your website is often the first touchpoint a potential customer has with your brand. An outdated or poorly designed website doesn't just look unprofessional — it actively drives customers to your competitors.</p>
+        <p>Slow loading speeds, clunky mobile experiences, and confusing navigation cost Singapore businesses thousands in lost revenue every month. Over 70% of users in Singapore browse on mobile, and most will leave a site that takes more than 3 seconds to load.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section class="section" id="sub-services" aria-label="Web design services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>Web Design Services Tailored to Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We design and build websites that serve a clear business purpose — whether that's generating leads, showcasing your portfolio, selling products, or establishing credibility. Every site we deliver is mobile-responsive, SEO-optimised, and built for performance.</p>
+        <p>Our web design process covers everything from initial wireframes and visual design to development, testing, and launch. We work closely with you at every stage to make sure the result matches your brand and business goals.</p>
+        <p>Looking for more than just web design? Pair your new website with our <a href="/services/seo-performance/">SEO services</a> to rank on Google, <a href="/services/paid-ads/">paid advertising</a> to drive immediate traffic, or <a href="/services/social-media/">social media marketing</a> to grow your audience.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-responsive-web.webp">
+          <div class="service-detail-card__content">
+            <h3>Responsive Website Design</h3>
+            <p>Mobile-first design that adapts seamlessly across smartphones, tablets, and desktops — giving every visitor a flawless experience.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ui-ux.webp">
+          <div class="service-detail-card__content">
+            <h3>UI/UX Design</h3>
+            <p>Intuitive layouts, clear navigation, and conversion-focused design that guides visitors toward your business goals.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Speed &amp; Performance</h3>
+            <p>Lightweight, fast-loading websites optimised for Core Web Vitals — because every second of delay costs conversions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO-Ready Build</h3>
+            <p>Proper heading structure, meta tags, schema markup, and crawlable architecture baked into every website from day one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Management</h3>
+            <p>Easy-to-use CMS integration so you can update text, images, and blog posts yourself — no developer needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY JRAFT ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for web design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>What Sets Our Web Design Apart</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We're not a faceless agency churning out template websites. Every project gets a dedicated team that understands your industry and business objectives. Here's what Singapore businesses value about working with us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>You own your website and all its code from day one. No monthly hosting fees that keep you tied down — just a clean handover.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>2-Week Turnaround</h3>
+            <p>Most sites go live within 2 weeks of kickoff. We move fast without cutting corners on quality or testing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing</h3>
+            <p>Fixed-price packages with no hidden fees. You know exactly what you're getting and what it costs before we start.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore-Focused</h3>
+            <p>We understand the local market, design for SGD payments, optimise for local SEO, and build sites that resonate with Singapore audiences.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Web design pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Web Design Pricing</p>
+        <h2>Website Packages for Every Budget</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new businesses and personal brands.</p>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>Mobile-responsive design</li>
+              <li>Contact form</li>
+              <li>Basic SEO setup</li>
+              <li>2-week delivery</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$5,500 <span>SGD</span></div>
+            <p class="pricing-desc">For growing businesses that need more.</p>
+            <ul class="pricing-features">
+              <li>Up to 10 pages</li>
+              <li>Custom design &amp; branding</li>
+              <li>CMS / blog integration</li>
+              <li>Advanced SEO &amp; schema</li>
+              <li>Google Analytics setup</li>
+              <li>Speed optimisation</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For businesses with advanced requirements.</p>
+            <ul class="pricing-features">
+              <li>Unlimited pages</li>
+              <li>Fully custom design</li>
+              <li>Ecommerce / booking systems</li>
+              <li>Third-party integrations</li>
+              <li>Priority support</li>
+              <li>Performance monitoring</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/services/website-development/" class="inline-link">website development</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about web design in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Web Design Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does web design cost in Singapore?</summary>
+          <div class="faq-answer"><p>Professional web design in Singapore typically ranges from $2,500 to $10,000+ depending on complexity. Our Starter package begins at $2,500 SGD for a 5-page responsive website, while our Business and Premium packages include more pages, custom features, and advanced SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take to design a website?</summary>
+          <div class="faq-answer"><p>A typical website takes 2–4 weeks from kickoff to launch. Simpler sites can be ready in 2 weeks, while more complex projects with custom features or ecommerce may take 4–6 weeks. We provide a clear timeline during the discovery phase.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you design mobile-responsive websites?</summary>
+          <div class="faq-answer"><p>Every website we build is mobile-first and fully responsive. With over 70% of Singapore's web traffic coming from mobile devices, responsive design is essential — not optional. All our sites are tested across devices and browsers.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will my website be optimised for Google?</summary>
+          <div class="faq-answer"><p>Yes. Every website includes on-page SEO fundamentals — proper heading structure, meta tags, image optimisation, fast loading speeds, and schema markup. For ongoing SEO, we offer dedicated <a href="/services/seo-performance/">SEO plans</a> starting from $800/month.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can I update the website myself after launch?</summary>
+          <div class="faq-answer"><p>Absolutely. Our Business and Premium packages include a content management system (CMS) so you can update text, images, and blog posts without any coding knowledge. We also provide training and documentation.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
