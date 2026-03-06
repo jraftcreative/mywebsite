@@ -12,12 +12,13 @@ const { title, subtitle, backgroundImage, heroLabel, heroClass = '', buttons = [
 ---
 <section class={`hero ${heroClass}`} aria-label="Page introduction">
   <div class="hero-bg" aria-hidden="true"><img src={backgroundImage} alt="" fetchpriority="high" decoding="async" class="hero-bg-img" width="1920" height="1280"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
-    {heroLabel && <span class="hero-label">{heroLabel}</span>}
-    <h1 set:html={title} />
-    <p>{subtitle}</p>
+    {heroLabel && <span class="hero-label hero-anim hero-anim-1">{heroLabel}</span>}
+    <h1 class="hero-anim hero-anim-2" set:html={title} />
+    <p class="hero-anim hero-anim-3">{subtitle}</p>
     {buttons.length > 0 && (
-      <div class="hero-buttons">
+      <div class="hero-buttons hero-anim hero-anim-4">
         {buttons.map(btn => (
           <a href={btn.href} class={btn.class}>{btn.text}</a>
         ))}
