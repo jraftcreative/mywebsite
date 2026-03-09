@@ -1,0 +1,262 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Branding Services Singapore",
+    "description": "Professional branding agency in Singapore — logo design, brand identity, brand guidelines, and visual identity systems. Build a brand that stands out and earns trust.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Branding Services",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Branding", "price": "2500", "priceCurrency": "SGD", "description": "Logo design, basic brand guidelines, and colour palette for new businesses and startups" },
+      { "@type": "Offer", "name": "Business Branding", "price": "5500", "priceCurrency": "SGD", "description": "Full brand identity system with logo suite, brand guidelines, typography, and collateral templates" },
+      { "@type": "Offer", "name": "Premium Branding", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive brand strategy, positioning, full visual identity system, and branded collateral design" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Professional branding in Singapore typically ranges from $2,500 to $10,000+ depending on the scope. A basic logo and brand guidelines package starts at $2,500 SGD, while a full brand identity system with strategy and collateral design starts from $5,500 SGD." } },
+      { "@type": "Question", "name": "What is included in a brand identity package?", "acceptedAnswer": { "@type": "Answer", "text": "A brand identity package typically includes a custom logo (with variations for different formats), a defined colour palette, typography selections, brand guidelines document, and usage rules for consistent application across all touchpoints. More comprehensive packages add brand strategy, messaging frameworks, and collateral design." } },
+      { "@type": "Question", "name": "How long does the branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "A typical branding project takes 3 to 6 weeks from discovery to final delivery. Simpler packages with logo and basic guidelines can be completed in 2 to 3 weeks. More comprehensive projects involving brand strategy, multiple collateral items, and stakeholder reviews may take 6 to 8 weeks." } },
+      { "@type": "Question", "name": "Do I need branding before I build my website?", "acceptedAnswer": { "@type": "Answer", "text": "Ideally, yes. Your brand identity — logo, colours, typography, and visual style — directly informs your website design. Starting with branding ensures your website, social media, and all marketing materials are visually consistent from day one. However, we can also run branding and web design in parallel to save time." } },
+      { "@type": "Question", "name": "Can you rebrand an existing business?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We work with established businesses that have outgrown their original branding or need to reposition in the market. A rebrand can include a refreshed logo, updated brand guidelines, new visual identity, and a rollout plan to update all existing touchpoints — from your website to business cards and social media profiles." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Branding Agency Singapore — Logo &amp; Brand Identity Design | Jraft Creative"
+  description="Professional branding agency in Singapore — logo design, brand identity, brand guidelines, and visual identity systems. Build a brand that stands out from $2,500 SGD."
+  canonical="https://jraftcreative.com/branding-agency-singapore/"
+  ogTitle="Branding Agency Singapore — Jraft Creative"
+  ogDescription="Logo design, brand identity, and brand guidelines for Singapore businesses. Build a brand that stands out and earns trust."
+  ogImage="https://jraftcreative.com/images/og-home.jpg"
+  keywords="branding agency singapore, brand identity singapore, logo design singapore, brand guidelines singapore, branding company singapore, visual identity design, brand strategy singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Branding Agency Singapore"
+  heroTitle='Professional <span class="highlight">Branding Agency in Singapore</span>'
+  heroSubtitle="Logo design, brand identity systems, and brand guidelines that give your business a clear, consistent, and professional presence. Stop blending in with your competitors."
+  heroImage="/images/service-branding.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Services", href: "/#services", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my business in Singapore."
+  ctaLabel="Ready to Build Your Brand?"
+  ctaTitle="Get a Brand That Stands Out in Singapore"
+  ctaDescription="Book a free consultation and tell us about your business. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Is Your Brand Holding Your Business Back?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Too many businesses in Singapore operate without a defined brand identity. The logo was made on Canva. The colours change depending on who creates the next post. There are no brand guidelines, so every piece of marketing looks different from the last. The result is a brand that feels inconsistent, forgettable, and unprofessional.</p>
+        <p>Without a cohesive visual identity, your business struggles to stand out in a crowded market. Customers can not recognise you across channels. Your marketing materials clash with each other. And every time you hire a new designer or agency, they start from scratch because there is no system to follow.</p>
+        <p>Professional branding solves this by giving your business a clear visual foundation — a logo that works everywhere, a defined colour palette, consistent typography, and a brand guidelines document that keeps everything aligned. It is the difference between looking like a side project and looking like an established business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Branding Services for Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of brand identity — from strategy and logo design through to complete brand guidelines and collateral. Whether you are launching a new business or rebranding an existing one, we deliver a visual identity system that is consistent, scalable, and built to last.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity Design</h3>
+            <p>Custom logo design with full variations — primary, secondary, icon, and monochrome versions. Designed to work across digital, print, signage, and social media at any size.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-content-strategy.webp">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines &amp; Style Guide</h3>
+            <p>A comprehensive brand guidelines document covering logo usage, colour palette, typography, spacing rules, do's and don'ts, and application examples. Your single source of truth for all future design work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Brand Strategy &amp; Positioning</h3>
+            <p>Define your brand's core messaging, target audience, competitive positioning, and value proposition. We help you articulate who you are, what you stand for, and why customers should choose you over the competition.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Collateral Design &amp; Templates</h3>
+            <p>Business cards, letterheads, presentation decks, social media templates, and marketing collateral — all designed to match your brand identity and ready for immediate use.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>What Sets Our Branding Apart</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We approach branding as a strategic investment, not a cosmetic exercise. Every brand identity we create is built to work across every touchpoint — from your website and social media to printed materials and signage. Here is what Singapore businesses value about working with us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Strategy-Led Design</h3>
+            <p>We start with your business goals, target audience, and competitive landscape — not just colour preferences. Every design decision is anchored in strategy so your brand resonates with the right people.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Capability</h3>
+            <p>Branding, web design, SEO, and marketing — all under one roof. Your brand identity flows seamlessly into your <a href="/web-design-singapore/">website</a>, <a href="/social-media-marketing-singapore/">social media</a>, and <a href="/google-ads-agency-singapore/">ad campaigns</a> without miscommunication between vendors.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; No Lock-ins</h3>
+            <p>Fixed-price packages with no hidden fees. You know exactly what you are getting and what it costs before we start. No retainers, no lock-in contracts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore-Focused</h3>
+            <p>We understand the local market and design brands that connect with Singapore audiences. Our branding is informed by the cultural nuances, industry trends, and competitive dynamics specific to this market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>Branding Packages for Every Stage</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new businesses and startups.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$5,500 <span>SGD</span></div>
+            <p class="pricing-desc">For growing brands that need a full identity.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Colour, typography &amp; iconography system</li>
+              <li>Business card &amp; letterhead design</li>
+              <li>Social media profile templates</li>
+              <li>Presentation deck template</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For businesses that need end-to-end branding.</p>
+            <ul class="pricing-features">
+              <li>Brand strategy &amp; positioning</li>
+              <li>Full visual identity system</li>
+              <li>Comprehensive brand guidelines</li>
+              <li>Complete collateral suite</li>
+              <li>Packaging &amp; signage design</li>
+              <li>Brand rollout support</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Branding Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does branding cost in Singapore?</summary>
+          <div class="faq-answer"><p>Professional branding in Singapore typically ranges from $2,500 to $10,000+ depending on the scope. A basic logo and brand guidelines package starts at $2,500 SGD, while a full brand identity system with strategy and collateral design starts from $5,500 SGD. Our Premium package covers end-to-end branding including strategy, positioning, and rollout support.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What is included in a brand identity package?</summary>
+          <div class="faq-answer"><p>A brand identity package typically includes a custom logo (with variations for different formats), a defined colour palette, typography selections, a brand guidelines document, and usage rules for consistent application across all touchpoints. More comprehensive packages add brand strategy, messaging frameworks, business card and stationery design, social media templates, and presentation decks.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does the branding process take?</summary>
+          <div class="faq-answer"><p>A typical branding project takes 3 to 6 weeks from discovery to final delivery. Simpler packages with logo and basic guidelines can be completed in 2 to 3 weeks. More comprehensive projects involving brand strategy, multiple collateral items, and stakeholder reviews may take 6 to 8 weeks. We provide a clear timeline during the discovery phase.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do I need branding before I build my website?</summary>
+          <div class="faq-answer"><p>Ideally, yes. Your brand identity — logo, colours, typography, and visual style — directly informs your <a href="/web-design-singapore/">website design</a>. Starting with branding ensures your website, social media, and all marketing materials are visually consistent from day one. However, we can also run branding and web design in parallel to save time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you rebrand an existing business?</summary>
+          <div class="faq-answer"><p>Absolutely. We work with established businesses that have outgrown their original branding or need to reposition in the market. A rebrand can include a refreshed logo, updated brand guidelines, a new visual identity, and a rollout plan to update all existing touchpoints — from your website to business cards and social media profiles.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "TikTok Marketing Agency Singapore",
+    "description": "TikTok marketing agency in Singapore — content creation, TikTok Ads management, influencer partnerships, short-form video strategy, and TikTok Shop integration. Monthly plans from S$1,500.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "TikTok Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Starter TikTok Marketing", "price": "1500", "priceCurrency": "SGD", "description": "Content strategy, 8 TikTok videos per month, hashtag research, trend monitoring, monthly reporting" },
+      { "@type": "Offer", "name": "Growth TikTok Marketing", "price": "3000", "priceCurrency": "SGD", "description": "12 TikTok videos per month, TikTok Ads management, creator partnerships, A/B testing, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Scale TikTok Marketing", "price": "5000", "priceCurrency": "SGD", "description": "20+ TikTok videos per month, full TikTok Ads and TikTok Shop management, influencer campaigns, dedicated strategist, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does TikTok marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "TikTok marketing in Singapore typically costs between $1,500 and $5,000+ per month depending on content volume, ad spend management, and influencer partnerships. Our Starter plan begins at $1,500 SGD/month for 8 videos and strategy, while our Growth and Scale plans add TikTok Ads management, creator collaborations, and TikTok Shop integration." } },
+      { "@type": "Question", "name": "Can I repurpose my Instagram content for TikTok?", "acceptedAnswer": { "@type": "Answer", "text": "While some content concepts can translate, directly reposting Instagram Reels to TikTok rarely performs well. TikTok's algorithm rewards native content that follows platform-specific trends, sounds, and editing styles. We create TikTok-first content designed around the platform's culture and discovery mechanics to maximise reach and engagement." } },
+      { "@type": "Question", "name": "How long does it take to grow a TikTok account in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "TikTok's algorithm can surface content to large audiences quickly, so individual videos can gain traction within days. Building a consistent, engaged following typically takes 2-3 months of regular posting with a clear content strategy. We focus on content pillars, trending formats, and audience engagement to accelerate growth from the start." } },
+      { "@type": "Question", "name": "Do you manage TikTok Ads as well as organic content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Growth and Scale plans include TikTok Ads management through TikTok Ads Manager. We run In-Feed Ads, Spark Ads, and TopView campaigns with full audience targeting, conversion tracking, and performance optimisation. Ad spend is billed separately by TikTok and is not included in our management fees." } },
+      { "@type": "Question", "name": "Can you help set up and manage TikTok Shop for my business?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Scale plan includes TikTok Shop integration and management. We handle product listing optimisation, shoppable video content, live shopping strategy, and affiliate programme setup. TikTok Shop is a growing sales channel in Singapore and Southeast Asia, and we help businesses take advantage of it from day one." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "TikTok Marketing Agency Singapore", "item": "https://jraftcreative.com/tiktok-marketing-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="TikTok Marketing Agency Singapore — TikTok Ads & Content | Jraft Creative"
+  description="TikTok marketing agency in Singapore — content creation, TikTok Ads, influencer partnerships, short-form video strategy, and TikTok Shop. Monthly plans from S$1,500. Free strategy session."
+  canonical="https://jraftcreative.com/tiktok-marketing-agency-singapore/"
+  ogTitle="TikTok Marketing Agency Singapore — Jraft Creative"
+  ogDescription="TikTok marketing agency in Singapore. Content creation, TikTok Ads management, influencer partnerships, and TikTok Shop. Plans from $1,500 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-social.jpg"
+  keywords="tiktok marketing agency singapore, tiktok ads singapore, tiktok content creation singapore, tiktok influencer marketing singapore, tiktok shop singapore, tiktok advertising agency singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="TikTok Marketing Agency Singapore"
+  heroTitle='TikTok Marketing &amp; Ads <span class="highlight">in Singapore</span>'
+  heroSubtitle="Stop repurposing Instagram content and wondering why it flops. We create native TikTok content, manage TikTok Ads, and build influencer partnerships that put your brand in front of Singapore's most engaged audience."
+  heroImage="/images/service-tiktok.webp"
+  heroButtons={[
+    { text: "Get a Free TikTok Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need help with TikTok marketing for my business in Singapore."
+  ctaLabel="Grow on TikTok"
+  ctaTitle="Get a Free TikTok Marketing Strategy Session"
+  ctaDescription="Book a free consultation and we'll audit your current TikTok presence, identify content opportunities, and outline a growth plan tailored to your business. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free TikTok Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20help%20with%20TikTok%20marketing%20for%20my%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="TikTok marketing challenges for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Missing the TikTok Opportunity While Your Competitors Move In?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>TikTok is not just another social media platform — it is the fastest-growing discovery engine in Southeast Asia. Singapore consumers use TikTok to find restaurants, compare products, research services, and make purchase decisions. Brands that are not on TikTok are invisible to an audience that spends more time there than on any other app.</p>
+        <p>Repurposing Instagram Reels or Facebook content and posting it to TikTok does not work. The algorithm rewards native content built around trending sounds, platform-specific editing styles, and authentic storytelling. Without a TikTok-first strategy, your content gets buried, your ad budget underperforms, and your brand misses a channel that your competitors are already using to win customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="TikTok marketing services we offer">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our TikTok Marketing Services</p>
+        <h2>Full-Service TikTok Marketing for Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>As a TikTok marketing agency in Singapore, we handle everything from content strategy and video production to paid ads and influencer partnerships. Every campaign is built around your brand, your audience, and TikTok's unique algorithm — so your content reaches the right people and drives real business results.</p>
+        <p>Whether you need organic growth, paid reach through TikTok Ads, or a complete TikTok Shop setup, we deliver end-to-end management that turns views into customers.</p>
+        <p>Pair your TikTok marketing with <a href="/social-media-marketing-singapore/">full social media management</a>, <a href="/services/website-development/">a conversion-optimised website</a>, or <a href="/services/seo-performance/">SEO for long-term organic traffic</a> for a complete digital strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Strategy &amp; Scripting</h3>
+            <p>TikTok-first content plans built around trending formats, sounds, and hooks. We research what works in your niche, script every video, and plan a posting calendar that keeps your brand consistently visible on the For You Page.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>TikTok Ads Management</h3>
+            <p>Full-funnel advertising through TikTok Ads Manager — In-Feed Ads, Spark Ads, and TopView placements. Audience targeting, conversion tracking, and ongoing optimisation to maximise your return on ad spend.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Creator &amp; Influencer Partnerships</h3>
+            <p>We identify, vet, and manage TikTok creators and influencers in Singapore who align with your brand. From micro-influencer collaborations to large-scale campaigns, we handle outreach, briefing, content approval, and performance tracking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>TikTok Shop Integration</h3>
+            <p>End-to-end TikTok Shop setup and management — product listings, shoppable video content, live shopping strategy, and affiliate programme configuration. Turn your TikTok presence into a direct sales channel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for TikTok marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A TikTok Marketing Agency That Delivers Results</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We do not recycle generic social media strategies for TikTok. Our team lives on the platform, understands the algorithm, and creates content that performs. Here is why Singapore businesses trust us with their TikTok marketing:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>TikTok-Native Approach</h3>
+            <p>We create content specifically for TikTok — not repurposed Instagram Reels with watermarks. Every video is built around trending sounds, native editing styles, and the storytelling formats that TikTok's algorithm rewards with reach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Singapore Market Focus</h3>
+            <p>We understand what resonates with Singapore audiences on TikTok — local trends, cultural context, and the content styles that drive engagement in this market. No offshore teams guessing at what works here.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Reporting</h3>
+            <p>Every plan includes clear reporting on views, engagement, follower growth, ad performance, and conversions. We focus on metrics that matter to your business, not vanity numbers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month plans with no long-term commitments. Stay because the content performs and the results grow your business, not because you are locked into a 12-month agreement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="TikTok marketing pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">TikTok Marketing Pricing</p>
+        <h2>TikTok Marketing Plans for Every Stage</h2>
+        <p>Monthly management fees. No lock-in contracts. Ad spend billed separately by TikTok.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses building a TikTok presence from scratch.</p>
+            <ul class="pricing-features">
+              <li>8 TikTok videos per month</li>
+              <li>Content strategy &amp; scripting</li>
+              <li>Hashtag research &amp; trend monitoring</li>
+              <li>Profile optimisation</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to scale with ads and creator partnerships.</p>
+            <ul class="pricing-features">
+              <li>12 TikTok videos per month</li>
+              <li>TikTok Ads management (In-Feed &amp; Spark Ads)</li>
+              <li>Creator &amp; influencer partnerships</li>
+              <li>A/B testing &amp; content optimisation</li>
+              <li>Audience targeting &amp; retargeting</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Scale</h3>
+            <div class="price">$5,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses maximising TikTok as a full sales and marketing channel.</p>
+            <ul class="pricing-features">
+              <li>20+ TikTok videos per month</li>
+              <li>Full TikTok Ads suite &amp; TopView</li>
+              <li>TikTok Shop setup &amp; management</li>
+              <li>Influencer campaign management</li>
+              <li>Dedicated account strategist</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See our full social media services on the <a href="/social-media-marketing-singapore/" class="inline-link">Social Media Marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about TikTok marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>TikTok Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does TikTok marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>TikTok marketing in Singapore typically costs between $1,500 and $5,000+ per month depending on content volume, ad spend management, and influencer partnerships. Our Starter plan begins at $1,500 SGD/month for 8 videos and strategy, while our Growth and Scale plans add TikTok Ads management, creator collaborations, and TikTok Shop integration.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can I repurpose my Instagram content for TikTok?</summary>
+          <div class="faq-answer"><p>While some content concepts can translate, directly reposting Instagram Reels to TikTok rarely performs well. TikTok's algorithm rewards native content that follows platform-specific trends, sounds, and editing styles. We create TikTok-first content designed around the platform's culture and discovery mechanics to maximise reach and engagement.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does it take to grow a TikTok account in Singapore?</summary>
+          <div class="faq-answer"><p>TikTok's algorithm can surface content to large audiences quickly, so individual videos can gain traction within days. Building a consistent, engaged following typically takes 2-3 months of regular posting with a clear content strategy. We focus on content pillars, trending formats, and audience engagement to accelerate growth from the start.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you manage TikTok Ads as well as organic content?</summary>
+          <div class="faq-answer"><p>Yes. Our Growth and Scale plans include TikTok Ads management through TikTok Ads Manager. We run In-Feed Ads, Spark Ads, and TopView campaigns with full audience targeting, conversion tracking, and performance optimisation. Ad spend is billed separately by TikTok and is not included in our management fees.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help set up and manage TikTok Shop for my business?</summary>
+          <div class="faq-answer"><p>Yes. Our Scale plan includes TikTok Shop integration and management. We handle product listing optimisation, shoppable video content, live shopping strategy, and affiliate programme setup. TikTok Shop is a growing sales channel in Singapore and Southeast Asia, and we help businesses take advantage of it from day one.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

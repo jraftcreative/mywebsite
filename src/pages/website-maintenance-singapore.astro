@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Website Maintenance Singapore",
+    "description": "Reliable website maintenance services in Singapore. Ongoing security updates, backups, uptime monitoring, content changes, and performance tuning. Monthly plans from S$300/mo.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Website Maintenance",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Maintenance", "price": "300", "priceCurrency": "SGD", "description": "Monthly security updates, weekly backups, uptime monitoring, 1 hour of content changes per month, and monthly health report" },
+      { "@type": "Offer", "name": "Business Maintenance", "price": "600", "priceCurrency": "SGD", "description": "Everything in Starter plus daily backups, 3 hours of content changes per month, performance tuning, plugin and dependency updates, and priority response" },
+      { "@type": "Offer", "name": "Premium Maintenance", "price": "1200", "priceCurrency": "SGD", "description": "Full-service maintenance with unlimited content updates, real-time monitoring, staging environment, Core Web Vitals optimisation, dedicated account manager, and same-day emergency fixes" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does website maintenance cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Website maintenance in Singapore typically ranges from $300 to $1,200+ per month depending on the scope of work. Our Starter plan begins at $300 SGD/month for basic security updates and backups, while our Business and Premium plans include more frequent updates, performance tuning, and priority support." } },
+      { "@type": "Question", "name": "What happens if my website goes down outside business hours?", "acceptedAnswer": { "@type": "Answer", "text": "All our maintenance plans include 24/7 uptime monitoring with automated alerts. If your site goes down, we are notified immediately and begin troubleshooting — even outside office hours. Business and Premium clients receive priority response with faster resolution times." } },
+      { "@type": "Question", "name": "Can I cancel my maintenance plan at any time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All our maintenance plans are month-to-month with no long-term contracts. You can cancel anytime with 30 days notice. We believe in earning your business every month, not locking you into agreements." } },
+      { "@type": "Question", "name": "Do you maintain websites built by other agencies?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We maintain websites built on most platforms and frameworks — WordPress, Shopify, Wix, custom-coded sites, and more. We start with a full audit to understand your tech stack, then set up monitoring and maintenance workflows tailored to your site." } },
+      { "@type": "Question", "name": "What is included in a monthly maintenance report?", "acceptedAnswer": { "@type": "Answer", "text": "Every maintenance report covers uptime statistics, security scan results, backup status, any updates applied, performance metrics including page speed and Core Web Vitals, and a summary of content changes made during the month. Business and Premium clients also receive recommendations for ongoing improvements." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Website Maintenance Singapore", "item": "https://jraftcreative.com/website-maintenance-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Website Maintenance Singapore — Reliable Support &amp; Updates | Jraft Creative"
+  description="Professional website maintenance in Singapore — security updates, backups, uptime monitoring, content changes, and performance tuning. Monthly plans from S$300/mo. Cancel anytime."
+  canonical="https://jraftcreative.com/website-maintenance-singapore/"
+  ogTitle="Website Maintenance Singapore — Jraft Creative"
+  ogDescription="Keep your website secure, fast, and up to date with reliable monthly maintenance. Security patches, backups, content updates, and performance monitoring. From $300 SGD/mo."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="website maintenance singapore, website support singapore, website updates singapore, website security singapore, website backup singapore, site maintenance, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Website Maintenance Singapore"
+  heroTitle='Reliable <span class="highlight">Website Maintenance in Singapore</span>'
+  heroSubtitle="Your website never stops working — and neither should the team behind it. We handle security updates, backups, content changes, and performance monitoring so you can focus on running your business."
+  heroImage="/images/service-maintenance.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need website maintenance support in Singapore."
+  ctaLabel="Ready to Start?"
+  ctaTitle="Keep Your Website Running at Its Best"
+  ctaDescription="Book a free consultation and we will audit your current site, identify maintenance priorities, and set up a plan that keeps your business online and growing."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20website%20maintenance%20support%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why Singapore businesses need website maintenance">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>A Neglected Website Is a Ticking Time Bomb</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most business owners launch their website and never think about it again — until something breaks. Outdated plugins get exploited by hackers. Expired SSL certificates trigger browser warnings that scare visitors away. Broken links and stale content quietly tank your Google rankings while you focus on everything else.</p>
+        <p>In Singapore, cyber threats targeting small and medium businesses are rising every year. A single security breach can expose customer data, destroy trust, and cost thousands in recovery. And even without a breach, a slow or glitchy website silently bleeds revenue as visitors bounce to competitors with faster, more reliable sites.</p>
+        <p>Website maintenance is not optional — it is the ongoing work that keeps your site secure, fast, and visible on Google. Without it, your website degrades from a business asset into a business liability. The businesses that treat maintenance as a priority are the ones that stay ahead.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Website maintenance services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Cover</p>
+        <h2>Website Maintenance Services for Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We don't just fix things when they break — we prevent them from breaking in the first place. Every maintenance plan includes proactive monitoring, regular updates, and hands-on support so your website stays secure, current, and performing at its best.</p>
+        <p>Need more than maintenance? Pair your plan with our <a href="/services/seo-performance/">SEO services</a> to improve rankings, <a href="/services/website-development/">web development</a> for new features and pages, or <a href="/services/social-media/">social media marketing</a> to keep your online presence consistently active.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Security Updates &amp; Patching</h3>
+            <p>We apply CMS, plugin, and framework security patches as soon as they are released — closing vulnerabilities before attackers can exploit them. Your site stays protected around the clock.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Backups &amp; Disaster Recovery</h3>
+            <p>Automated backups stored off-site with one-click restoration. If anything goes wrong — a bad update, a hack, or accidental deletion — we restore your site quickly with minimal downtime.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Updates &amp; Changes</h3>
+            <p>Need to update pricing, swap out images, add a new team member, or publish a blog post? We handle all content changes so your website always reflects your latest offerings and information.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Performance Monitoring &amp; Reporting</h3>
+            <p>24/7 uptime monitoring, page speed tracking, and Core Web Vitals analysis. You receive a monthly report with clear metrics so you always know how your site is performing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY JRAFT ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for website maintenance">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>What Sets Our Maintenance Apart</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Plenty of agencies offer maintenance. Few treat it with the same rigour as building the site in the first place. Here is why Singapore businesses trust us to keep their websites running smoothly:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Proactive, Not Reactive</h3>
+            <p>We don't wait for things to break. Automated monitoring, scheduled updates, and regular security scans mean issues are caught and resolved before they affect your visitors.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Every plan is month-to-month. Cancel anytime with 30 days notice. We earn your business every month through results, not fine print.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Reporting</h3>
+            <p>You receive a detailed monthly report covering uptime, security, performance, and every change we made. No black boxes — you always know what you are paying for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore-Based Support</h3>
+            <p>We are based in Singapore and operate in your time zone. When something urgent comes up, you get a real person responding — not a ticket queue in another country.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Website maintenance pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Maintenance Pricing</p>
+        <h2>Website Maintenance Plans</h2>
+        <p>Monthly retainer. Cancel anytime.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$300 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For small sites that need the essentials covered.</p>
+            <ul class="pricing-features">
+              <li>Monthly security updates</li>
+              <li>Weekly backups</li>
+              <li>24/7 uptime monitoring</li>
+              <li>1 hour of content changes/mo</li>
+              <li>Monthly health report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$600 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses that rely on their website daily.</p>
+            <ul class="pricing-features">
+              <li>Everything in Starter</li>
+              <li>Daily backups</li>
+              <li>3 hours of content changes/mo</li>
+              <li>Performance tuning</li>
+              <li>Plugin &amp; dependency updates</li>
+              <li>Priority response</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$1,200+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service maintenance for mission-critical sites.</p>
+            <ul class="pricing-features">
+              <li>Everything in Business</li>
+              <li>Unlimited content updates</li>
+              <li>Real-time monitoring &amp; alerts</li>
+              <li>Staging environment</li>
+              <li>Core Web Vitals optimisation</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Need a new website first? See our <a href="/services/website-development/" class="inline-link">website development</a> packages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about website maintenance in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Website Maintenance Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does website maintenance cost in Singapore?</summary>
+          <div class="faq-answer"><p>Website maintenance in Singapore typically ranges from $300 to $1,200+ per month depending on the scope of work. Our Starter plan begins at $300 SGD/month for basic security updates and backups, while our Business and Premium plans include more frequent updates, performance tuning, and priority support.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What happens if my website goes down outside business hours?</summary>
+          <div class="faq-answer"><p>All our maintenance plans include 24/7 uptime monitoring with automated alerts. If your site goes down, we are notified immediately and begin troubleshooting — even outside office hours. Business and Premium clients receive priority response with faster resolution times.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can I cancel my maintenance plan at any time?</summary>
+          <div class="faq-answer"><p>Yes. All our maintenance plans are month-to-month with no long-term contracts. You can cancel anytime with 30 days notice. We believe in earning your business every month, not locking you into agreements.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you maintain websites built by other agencies?</summary>
+          <div class="faq-answer"><p>Yes. We maintain websites built on most platforms and frameworks — WordPress, Shopify, Wix, custom-coded sites, and more. We start with a full audit to understand your tech stack, then set up monitoring and maintenance workflows tailored to your site.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What is included in a monthly maintenance report?</summary>
+          <div class="faq-answer"><p>Every maintenance report covers uptime statistics, security scan results, backup status, any updates applied, performance metrics including page speed and Core Web Vitals, and a summary of content changes made during the month. Business and Premium clients also receive recommendations for ongoing improvements.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,264 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Email Marketing Singapore",
+    "description": "Professional email marketing services in Singapore — campaign strategy, automation, newsletter design, and PDPA-compliant list management. Plans from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Email Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Email Marketing", "price": "800", "priceCurrency": "SGD", "description": "Template design, 4 campaigns/month, basic automation, list setup, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Email Marketing", "price": "1500", "priceCurrency": "SGD", "description": "Custom templates, 8 campaigns/month, drip sequences, A/B testing, segmentation, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Email Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Full-service email marketing, unlimited campaigns, advanced automation, dedicated strategist, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which email marketing platforms do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work with all major platforms including Mailchimp, Klaviyo, ActiveCampaign, HubSpot, and Brevo (formerly Sendinblue). We recommend the best platform based on your business size, budget, and automation needs. If you already use a platform, we can work within your existing setup." } },
+      { "@type": "Question", "name": "How do you ensure emails are PDPA compliant in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Every campaign we send follows Singapore's Personal Data Protection Act. We implement proper consent collection mechanisms, maintain Do Not Call registry compliance, include mandatory unsubscribe links, and keep auditable opt-in records. We also advise on data retention policies and help you build compliant sign-up forms." } },
+      { "@type": "Question", "name": "What kind of open rates can I expect?", "acceptedAnswer": { "@type": "Answer", "text": "Average open rates depend on your industry, but most of our clients see rates between 25% and 45% — well above the global average of 21%. We achieve this through proper list hygiene, segmentation, personalised subject lines, and send-time optimisation tailored to Singapore audiences." } },
+      { "@type": "Question", "name": "How often should I send marketing emails?", "acceptedAnswer": { "@type": "Answer", "text": "Frequency depends on your audience and content type. Most Singapore businesses see the best engagement with 1–2 emails per week. We monitor engagement metrics closely and adjust frequency to avoid subscriber fatigue while keeping your brand top of mind." } },
+      { "@type": "Question", "name": "Can you help grow my email subscriber list?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design opt-in forms, landing pages, lead magnets, and pop-ups that convert website visitors into subscribers. Combined with proper segmentation from day one, this ensures your list grows with engaged contacts who are genuinely interested in your offerings." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Email Marketing Singapore", "item": "https://jraftcreative.com/email-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Email Marketing Singapore — Campaigns & Automation | Jraft Creative"
+  description="Professional email marketing services in Singapore — campaign strategy, automation, newsletter design, and PDPA-compliant list management. Plans from S$800/month."
+  canonical="https://jraftcreative.com/email-marketing-singapore/"
+  ogTitle="Email Marketing Singapore — Jraft Creative"
+  ogDescription="Email campaigns, automation, and newsletter design for Singapore businesses. Mailchimp, Klaviyo, drip sequences, and PDPA compliance. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/service-email.webp"
+  keywords="email marketing singapore, email campaigns singapore, email automation singapore, newsletter design singapore, mailchimp singapore, klaviyo singapore, email marketing agency singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Email Marketing Singapore"
+  heroTitle='Email Marketing &amp; Automation <span class="highlight">in Singapore</span>'
+  heroSubtitle="Turn your subscriber list into a revenue channel. We design, automate, and optimise email campaigns that land in inboxes — not spam folders — and drive real results for Singapore businesses."
+  heroImage="/images/service-email.webp"
+  heroButtons={[
+    { text: "Get a Free Email Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need help with email marketing for my business in Singapore."
+  ctaLabel="Start Growing with Email"
+  ctaTitle="Get a Free Email Marketing Audit"
+  ctaDescription="Book a free consultation and we'll review your current email performance, list health, and automation opportunities. We'll get back to you within 24 hours with a tailored strategy."
+  ctaButtons={[
+    { text: "Get a Free Email Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20help%20with%20email%20marketing%20for%20my%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Email marketing challenges for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Low Open Rates &amp; Emails Landing in Spam?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most Singapore businesses struggle with email marketing that underperforms — low open rates, minimal click-throughs, and campaigns that end up in spam folders instead of inboxes. Without proper segmentation, every subscriber gets the same generic message regardless of their interests or where they are in the buying journey.</p>
+        <p>On top of that, PDPA compliance adds another layer of complexity. Sending emails without proper consent mechanisms, missing unsubscribe links, or failing to maintain auditable opt-in records can result in fines of up to $1 million. Meanwhile, your competitors with well-segmented lists and automated drip sequences are converting subscribers into paying customers on autopilot.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Email marketing services we offer">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Email Marketing Services</p>
+        <h2>Full-Service Email Marketing for Singapore Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>As an email marketing agency in Singapore, we handle every aspect of your email strategy — from campaign design and copywriting to automation workflows and deliverability optimisation. Every campaign is built around your business goals, whether that's nurturing leads, driving repeat purchases, or re-engaging dormant subscribers.</p>
+        <p>We work with platforms like Mailchimp, Klaviyo, ActiveCampaign, and HubSpot to build systems that run on autopilot while you focus on running your business.</p>
+        <p>Pair your email marketing with a conversion-optimised <a href="/services/website-development/">website</a>, <a href="/services/seo-performance/">SEO for long-term organic growth</a>, or <a href="/services/social-media/">social media marketing</a> for a complete digital strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-content-strategy.webp">
+          <div class="service-detail-card__content">
+            <h3>Campaign Strategy &amp; Design</h3>
+            <p>Custom email templates, compelling copy, and send-time optimisation tailored to Singapore audiences. Every campaign is designed to drive opens, clicks, and conversions — not just fill inboxes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ai.webp">
+          <div class="service-detail-card__content">
+            <h3>Marketing Automation &amp; Drip Sequences</h3>
+            <p>Welcome series, abandoned cart flows, post-purchase follow-ups, and re-engagement sequences that nurture leads and drive revenue around the clock without manual effort.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>List Segmentation &amp; Personalisation</h3>
+            <p>Segment your subscribers by behaviour, purchase history, demographics, and engagement level. Deliver the right message to the right person at the right time for higher conversions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>PDPA Compliance &amp; Deliverability</h3>
+            <p>Proper consent collection, Do Not Call registry compliance, unsubscribe management, and sender reputation monitoring to keep your emails out of spam and your business out of trouble.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for email marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An Email Marketing Agency That Delivers Results</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We don't just send emails — we build revenue-generating email systems. No vanity metrics, no inflated subscriber counts, and no campaigns that end up in spam. Here's why Singapore businesses choose us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Platform Experts</h3>
+            <p>Certified across Mailchimp, Klaviyo, ActiveCampaign, and HubSpot. We recommend and configure the right platform for your business size, budget, and automation needs.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>PDPA-First Approach</h3>
+            <p>Every campaign, form, and automation we build is fully compliant with Singapore's Personal Data Protection Act — so you can grow your list with confidence and zero legal risk.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Data-Driven Optimisation</h3>
+            <p>A/B testing on subject lines, send times, and content. We track opens, clicks, conversions, and revenue attribution to continuously improve your email performance.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month plans with no long-term commitments. Stay because your email revenue keeps growing, not because you're locked into an annual agreement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Email marketing pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Email Marketing Pricing</p>
+        <h2>Email Marketing Plans for Every Business</h2>
+        <p>Monthly management fees. No lock-in contracts. Platform subscription billed separately.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses getting started with email marketing.</p>
+            <ul class="pricing-features">
+              <li>Template design &amp; setup</li>
+              <li>4 email campaigns per month</li>
+              <li>Basic welcome automation</li>
+              <li>List setup &amp; import</li>
+              <li>PDPA compliance setup</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses scaling their email revenue.</p>
+            <ul class="pricing-features">
+              <li>Custom template design</li>
+              <li>8 email campaigns per month</li>
+              <li>Drip sequences &amp; automation flows</li>
+              <li>A/B testing &amp; optimisation</li>
+              <li>List segmentation &amp; personalisation</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses maximising email as a revenue channel.</p>
+            <ul class="pricing-features">
+              <li>Unlimited email campaigns</li>
+              <li>Advanced automation &amp; workflows</li>
+              <li>Dedicated email strategist</li>
+              <li>Revenue attribution tracking</li>
+              <li>Deliverability monitoring &amp; optimisation</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about email marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Email Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which email marketing platforms do you work with?</summary>
+          <div class="faq-answer"><p>We work with all major platforms including Mailchimp, Klaviyo, ActiveCampaign, HubSpot, and Brevo (formerly Sendinblue). We recommend the best platform based on your business size, budget, and automation needs. If you already use a platform, we can work within your existing setup.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you ensure emails are PDPA compliant in Singapore?</summary>
+          <div class="faq-answer"><p>Every campaign we send follows Singapore's Personal Data Protection Act. We implement proper consent collection mechanisms, maintain Do Not Call registry compliance, include mandatory unsubscribe links, and keep auditable opt-in records. We also advise on data retention policies and help you build compliant sign-up forms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What kind of open rates can I expect?</summary>
+          <div class="faq-answer"><p>Average open rates depend on your industry, but most of our clients see rates between 25% and 45% — well above the global average of 21%. We achieve this through proper list hygiene, segmentation, personalised subject lines, and send-time optimisation tailored to Singapore audiences.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How often should I send marketing emails?</summary>
+          <div class="faq-answer"><p>Frequency depends on your audience and content type. Most Singapore businesses see the best engagement with 1–2 emails per week. We monitor engagement metrics closely and adjust frequency to avoid subscriber fatigue while keeping your brand top of mind.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help grow my email subscriber list?</summary>
+          <div class="faq-answer"><p>Yes. We design opt-in forms, landing pages, lead magnets, and pop-ups that convert website visitors into subscribers. Combined with proper segmentation from day one, this ensures your list grows with engaged contacts who are genuinely interested in your offerings.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
