@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Yoga Studio Marketing Singapore",
+    "description": "Full-service digital marketing for yoga studios in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow memberships from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Yoga Studio Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for yoga studios" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, class-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-location campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a yoga studio spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most yoga studios in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your studio's size, number of locations, and membership targets. Our Essential plan at $3,000/month is a strong starting point for single-location studios." } },
+      { "@type": "Question", "name": "How long before marketing generates new members for my yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads and social media ads can generate trial class bookings within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds brand awareness over 2–3 months. Most yoga studio clients see a meaningful increase in trial class sign-ups within the first 60 days of a full-service campaign." } },
+      { "@type": "Question", "name": "What marketing channels work best for yoga studios in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the dominant platform for yoga studios — it is visual, community-driven, and aligns perfectly with the yoga aesthetic. Google Search captures high-intent traffic from people actively searching for yoga classes. Facebook Ads work well for targeting specific demographics and locations. A well-designed website ties everything together as your booking hub." } },
+      { "@type": "Question", "name": "Do you work with all types of yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with hot yoga studios, vinyasa studios, hatha and yin yoga spaces, aerial yoga studios, prenatal yoga providers, and multi-discipline wellness centres that include yoga. Each style has its own audience, search behaviour, and marketing approach. We tailor every strategy to your studio's specific offerings and target clientele." } },
+      { "@type": "Question", "name": "Can you help fill off-peak classes and workshops?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Filling off-peak time slots is a common challenge for yoga studios. We address this through targeted promotions — Google Ads campaigns for lunchtime classes targeting CBD office workers, social media ads for weekday morning sessions targeting stay-at-home parents, and email campaigns for weekend workshops. Seasonal campaigns around New Year resolutions, post-holiday fitness, and corporate wellness trends also help fill capacity." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Yoga Studio Marketing Singapore", "item": "https://jraftcreative.com/yoga-studio-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Yoga Studio Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for yoga studios in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow memberships from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/yoga-studio-marketing-singapore/"
+  ogTitle="Yoga Studio Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for yoga studios in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more memberships."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="yoga studio marketing singapore, yoga marketing agency, yoga studio advertising singapore, yoga digital marketing, yoga studio promotion singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Yoga Studio Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Yoga Studios in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your classes. Stop juggling freelancers and start running a unified membership growth strategy."
+  heroImage="/images/service-yoga.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my yoga studio in Singapore."
+  ctaLabel="Ready to Fill Your Classes?"
+  ctaTitle="Get Your Free Yoga Studio Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your studio's membership goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why yoga studios need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Beautiful Classes Are Not Enough to Fill Your Studio</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has over 300 yoga studios, ranging from boutique hot yoga spaces in Tanjong Pagar to large multi-discipline wellness centres in the suburbs. Add ClassPass, freelance instructors, and online yoga platforms to the mix, and the competition for members is intense. A stunning studio with skilled instructors means nothing if potential students cannot find you when they search "yoga classes near me" or "hot yoga Singapore."</p>
+        <p>Many yoga studios rely on Instagram alone for marketing. While Instagram is important for the yoga community, it does not capture high-intent search traffic. Someone searching Google for "beginner yoga class Bukit Timah" is ready to book — but if your studio does not rank, that booking goes to a competitor. Meanwhile, studios without a professional website lose credibility with potential members who expect online class schedules, pricing transparency, and easy booking.</p>
+        <p>Full-service marketing solves this by building visibility across every channel your potential members use — a professional website with integrated booking, SEO that captures search traffic for your class types and location, ads that drive immediate trial bookings, and social content that builds community and keeps your studio top-of-mind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for yoga studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your Yoga Studio Needs to Grow</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your yoga studio's marketing in-house — from designing a website that converts visitors into trial bookings, to ranking your studio on Google, running targeted ads to fill off-peak classes, and creating social media content that builds your community. No outsourcing, no subcontractors. One team, one strategy, measurable membership growth.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A professional, mobile-responsive website that showcases your studio's atmosphere, class schedule, instructor profiles, and pricing. Integrated with your booking system, designed for how Singapore yoga students evaluate studios — visual, fast, and easy to navigate from mobile.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for the yoga styles and locations your studio covers — "hot yoga Orchard Road," "vinyasa yoga classes Singapore," "prenatal yoga Toa Payoh." Google Business Profile optimisation, local citations, and keyword-targeted content that drives organic trial bookings month after month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Social</h3>
+            <p>Targeted ad campaigns on Google, Instagram, and Facebook that put your studio in front of people actively searching for yoga classes. We build campaigns around high-intent keywords, target by location and demographics, and manage budgets to maximise cost-per-trial-booking across peak and off-peak periods.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content Marketing</h3>
+            <p>Instagram, Facebook, and TikTok content that captures your studio's energy — class highlights, instructor stories, student transformations, wellness tips, and community events. We create content that builds the engaged following yoga studios need while driving trial bookings and membership renewals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands Yoga Studios</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with yoga studios, fitness businesses, and wellness brands across Singapore. We understand the membership model, seasonal patterns, and the unique community-driven nature of yoga studio marketing:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Wellness Industry Expertise</h3>
+            <p>We know the Singapore yoga and wellness market — class formats, pricing expectations, seasonal trends like New Year rushes and post-holiday fitness surges, and how students discover and evaluate studios. Your marketing strategy is built on industry knowledge, not generic templates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same message, targeting the same audience with a unified brand presence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Membership-Focused Reporting</h3>
+            <p>We do not report on vanity metrics. You get clear data on trial bookings, membership sign-ups, cost per lead, and channel performance — the numbers that directly impact your studio's occupancy and revenue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for yoga studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Yoga Studios</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location studios building a marketing foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For studios ready to scale memberships across channels.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Instagram &amp; Facebook Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Class-focused content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-location yoga studios.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-location campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Workshop &amp; retreat promotions</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Yoga Studio Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a yoga studio spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most yoga studios in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your studio's size, number of locations, and membership targets. Our Essential plan at $3,000/month is a strong starting point for single-location studios building a solid marketing foundation.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new members for my yoga studio?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads and Instagram Ads can generate trial class bookings within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds community and brand awareness over 2–3 months. Most yoga studio clients see a meaningful increase in trial class sign-ups within the first 60 days of a full-service campaign.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What marketing channels work best for yoga studios in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram is the dominant platform for yoga studios — it is visual, community-driven, and aligns with the yoga lifestyle aesthetic. Google Search captures high-intent traffic from people actively searching for yoga classes. Facebook Ads work well for targeting specific demographics and neighbourhoods. A well-designed website ties everything together as your central booking hub.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with all types of yoga studios?</summary>
+          <div class="faq-answer"><p>Yes. We work with hot yoga studios, vinyasa studios, hatha and yin yoga spaces, aerial yoga studios, prenatal yoga providers, and multi-discipline wellness centres that include yoga. Each style has its own audience, search behaviour, and marketing approach. We tailor every strategy to your studio's specific offerings and target clientele.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help fill off-peak classes and workshops?</summary>
+          <div class="faq-answer"><p>Yes. Filling off-peak time slots is a common challenge for yoga studios. We address this through targeted promotions — Google Ads campaigns for lunchtime classes targeting CBD office workers, social media ads for weekday morning sessions targeting stay-at-home parents, and email campaigns for weekend workshops. Seasonal campaigns around New Year resolutions, post-holiday fitness, and corporate wellness trends also help fill capacity.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wellness SEO Singapore",
+    "description": "SEO services for wellness businesses in Singapore — spas, yoga studios, pilates, gyms, physiotherapy, TCM clinics, and holistic health providers. Multi-service keyword strategy, local SEO, and content marketing — from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Wellness Business SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Wellness SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, Google Analytics and Search Console configuration, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Wellness SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus multi-service content strategy, local citation building, review generation strategy, competitor monitoring, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Wellness SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location SEO, content creation and publishing, advanced link building, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does SEO cost for a wellness business in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add multi-service content strategy, link building, and multi-location local SEO for wellness brands with multiple outlets." } },
+      { "@type": "Question", "name": "How long does it take for wellness SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness businesses see measurable ranking improvements within 3 to 5 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Service-specific keywords like 'massage near Orchard' or 'wellness centre Bugis' often rank faster than broad competitive terms." } },
+      { "@type": "Question", "name": "What types of wellness businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work across the entire wellness spectrum — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM clinics, spas, massage centres, chiropractic clinics, mental health practices, nutrition consultancies, and holistic health providers. Our SEO strategies are tailored to each sub-sector's unique search patterns and customer behaviour." } },
+      { "@type": "Question", "name": "Can SEO help my wellness business rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO is critical for wellness businesses because clients search by location and convenience. We optimise your Google Business Profile, build local citations, manage reviews, and create location-specific content so your business appears in the Maps 3-pack for relevant 'near me' searches in your area." } },
+      { "@type": "Question", "name": "Do you handle SEO for wellness businesses with multiple services or locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-service and multi-location SEO is a core capability. We create dedicated, optimised landing pages for each service you offer and each location you operate, ensuring your business ranks independently for every service-location combination rather than cannibalising itself with a single generic page." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Wellness SEO Singapore", "item": "https://jraftcreative.com/wellness-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Wellness SEO Singapore — SEO for Spas, Studios & Clinics | Jraft Creative"
+  description="SEO services for wellness businesses in Singapore — yoga, pilates, gyms, physio, TCM, spas, and holistic health. Local SEO, multi-service keyword strategy, and Google Maps ranking — from S$800/month."
+  canonical="https://jraftcreative.com/wellness-seo-singapore/"
+  ogTitle="Wellness SEO Singapore — Jraft Creative"
+  ogDescription="SEO for wellness businesses in Singapore. Yoga, pilates, gyms, physiotherapy, TCM, spas, and holistic health. Local search and multi-service SEO. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="wellness seo singapore, seo for wellness businesses, spa seo singapore, holistic health seo, wellness marketing singapore, health and wellness seo, wellness google ranking, wellness local seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Wellness SEO"
+  heroTitle='SEO for <span class="highlight">Wellness Businesses in Singapore</span>'
+  heroSubtitle="Singapore's health and wellness industry spans yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, spas, and holistic health providers. Whether you offer a single service or run a multi-discipline wellness centre, the clients you need are searching on Google right now. We help wellness businesses across every sub-sector rank higher and turn search visibility into booked appointments."
+  heroImage="/images/service-wellness.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my wellness business in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Wellness Business Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your wellness business stands in local search compared to nearby competitors. We'll respond within 24 hours with a tailored action plan."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for wellness businesses in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>A Booming Wellness Industry — But Can Clients Find Your Business?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's wellness industry has grown into a multi-billion dollar sector encompassing everything from boutique yoga studios and reformer pilates spaces to physiotherapy clinics, TCM practices, spas, chiropractic centres, and holistic health providers. Consumer demand for wellness services has surged — but so has competition. In nearly every neighbourhood, multiple wellness businesses now compete for the same pool of health-conscious clients who start their search on Google.</p>
+        <p>"Yoga near me", "spa Singapore", "physiotherapy near MRT", "wellness centre Bugis", "TCM clinic near me" — these searches happen tens of thousands of times each month across the wellness spectrum. The businesses appearing in the top three Google results and the Maps 3-pack capture the overwhelming majority of new client bookings. Everyone else is invisible to the people actively searching for the exact services they provide.</p>
+        <p>Wellness businesses face a unique SEO challenge: many offer multiple services that each require their own keyword strategy. A wellness centre offering yoga, pilates, and massage needs to rank independently for all three — not compete against itself with a single "services" page. Add the hyper-local nature of wellness searches (clients rarely travel more than 15 minutes), and the SEO challenge becomes both wide and deep. Without a structured, multi-service keyword strategy built around local search, most wellness businesses leave thousands of potential bookings on the table every month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for wellness businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Strategies Built for the Wellness Industry</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Wellness SEO isn't one-size-fits-all. A yoga studio, a physiotherapy clinic, and a day spa each have different client search patterns, different competitive landscapes, and different conversion triggers. We build SEO strategies tailored to each wellness sub-sector — and for multi-service businesses, we create structured keyword architectures that let every service rank independently without cannibalising itself.</p>
+        <p>From technical foundations to service-specific landing pages and Google Maps dominance, every element of our approach is designed to drive qualified bookings from clients actively searching for wellness services near them.</p>
+        <p>Pair SEO with a professionally designed <a href="/services/website-development/">wellness website</a>, <a href="/services/social-media/">social media marketing</a> to build community and trust, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak demand periods like January, post-holidays, and major wellness awareness months.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Complete crawl of your wellness website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your business for high-intent searches across every service you offer, in every neighbourhood you serve.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>On-Page Optimisation</h3>
+            <p>Keyword-optimised landing pages for every service your wellness business offers — whether that's yoga, pilates, massage, physiotherapy, TCM, nutrition counselling, or mental health services. Meta titles, descriptions, heading structures, and internal links targeting the specific searches your ideal clients use in your area.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Google Business Profile optimisation with correct wellness categories, service details, facility photos, client review management, and local citation building across Singapore directories. Designed to get your business into the Google Maps 3-pack for every "near me" search relevant to your services and location.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Multi-Service Content Strategy</h3>
+            <p>Blog articles and guides answering the questions potential clients search — "best wellness centres in Singapore", "yoga vs pilates for beginners", "how often should you get a massage". Content that positions your brand as an authority across the wellness space, earns organic backlinks, and captures clients during their research and decision-making phase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Understands the Wellness Industry</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with wellness businesses across Singapore — from single-service studios to multi-discipline wellness centres. We understand how clients search for different wellness services, seasonal demand patterns, and which search terms actually convert browsers into long-term paying clients.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cross-Sector Wellness Expertise</h3>
+            <p>We've worked with yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, spas, and holistic health providers. We understand the unique search behaviour and conversion patterns for each sub-sector — and for multi-service businesses, we know how to structure SEO so every service ranks without competing against itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood-Level Local SEO</h3>
+            <p>Wellness is hyper-local. Clients want a provider near their home or office — typically within a 10-to-15 minute journey. We optimise for neighbourhood-level searches across Singapore so your business ranks exactly where your potential clients live and work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Clear Monthly Reporting</h3>
+            <p>Every month you receive a report showing keyword rankings across all your services, organic traffic, Google Business Profile insights, and booking trends. We show you the numbers that matter — not vanity metrics, but data tied directly to client discovery and appointment bookings.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Presence Under One Roof</h3>
+            <p>SEO is one piece of the puzzle. We also handle wellness website design, social media content, and paid ads — so your entire digital marketing works together as a single system to grow your client base across every service you offer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Wellness SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Wellness SEO Pricing</p>
+        <h2>SEO Plans for Wellness Businesses</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location wellness businesses building visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For wellness businesses ready to dominate local search.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Multi-service content strategy</li>
+              <li>Local citation building</li>
+              <li>Review generation strategy</li>
+              <li>Competitor monitoring</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location wellness operators.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Multi-location local SEO</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Advanced link building</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Wellness SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does SEO cost for a wellness business in Singapore?</summary>
+          <div class="faq-answer"><p>Wellness SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add multi-service content strategy, link building, and multi-location local SEO for wellness brands with multiple outlets.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take for wellness SEO to show results?</summary>
+          <div class="faq-answer"><p>Most wellness businesses see measurable ranking improvements within 3 to 5 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Service-specific and location-specific keywords like "massage near Orchard" or "wellness centre Bugis" often rank faster than broad competitive terms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What types of wellness businesses do you work with?</summary>
+          <div class="faq-answer"><p>We work across the entire wellness spectrum — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM clinics, spas, massage centres, chiropractic clinics, mental health practices, nutrition consultancies, and holistic health providers. Our SEO strategies are tailored to each sub-sector's unique search patterns and client acquisition behaviour.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can SEO help my wellness business rank in Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Local SEO is critical for wellness businesses because clients search by location and convenience. We optimise your Google Business Profile, build local citations, manage reviews, and create location-specific content so your business appears in the Maps 3-pack for relevant "near me" searches in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle SEO for wellness businesses with multiple services or locations?</summary>
+          <div class="faq-answer"><p>Yes. Multi-service and multi-location SEO is a core capability. We create dedicated, optimised landing pages for each service you offer and each location you operate, ensuring your business ranks independently for every service-location combination rather than diluting your SEO with a single generic page.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

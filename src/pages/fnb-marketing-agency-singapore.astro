@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "F&B Marketing Agency Singapore",
+    "description": "Full-service marketing agency for F&B businesses in Singapore. Website, SEO, paid ads, social media, branding, and content — all under one roof. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "F&B Marketing Agency",
+    "offers": [
+      { "@type": "Offer", "name": "Essential F&B Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Local SEO, Google Business Profile management, basic social media, review management, and monthly reporting" },
+      { "@type": "Offer", "name": "Growth F&B Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service marketing with SEO, Google Ads, social media, content, email marketing, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise F&B Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive multi-channel marketing with dedicated strategist, multi-location campaigns, influencer partnerships, and weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does an F&B marketing agency charge in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B marketing agency fees in Singapore start at $3,000 SGD per month for essential digital marketing. Growth retainers at $5,500/month include full-service marketing across SEO, ads, and social media. Enterprise retainers at $10,000+/month cover multi-location campaigns with a dedicated strategist." } },
+      { "@type": "Question", "name": "What services does an F&B marketing agency provide?", "acceptedAnswer": { "@type": "Answer", "text": "As a full-service F&B marketing agency, we provide website design and development, SEO and local search optimisation, Google Ads and Meta Ads management, social media content and management, branding and identity design, content marketing, email marketing, and review management — all tailored specifically for food and beverage businesses." } },
+      { "@type": "Question", "name": "Why hire a specialist F&B marketing agency instead of a general agency?", "acceptedAnswer": { "@type": "Answer", "text": "F&B marketing has unique requirements: food photography, menu-driven SEO, review management, delivery platform competition, and seasonal promotions. A specialist agency already understands these challenges, knows what works in Singapore's F&B market, and doesn't need months to learn your industry." } },
+      { "@type": "Question", "name": "How do you measure success for F&B marketing?", "acceptedAnswer": { "@type": "Answer", "text": "We track metrics that directly impact your revenue: reservations, online orders, foot traffic trends, Google Maps actions (calls, directions, website visits), cost per acquisition, and marketing ROI. Every metric is reported clearly in regular performance reports — no vanity numbers." } },
+      { "@type": "Question", "name": "Can you handle marketing for F&B franchises and multi-outlet groups?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet and franchise F&B marketing is a core strength. We create brand-consistent marketing across all locations while adapting strategy for each outlet's neighbourhood and audience. Each location gets its own Google Business Profile, localised ads, and location-specific content." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "F&B Marketing Agency Singapore", "item": "https://jraftcreative.com/fnb-marketing-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="F&B Marketing Agency Singapore — Full-Service Food & Beverage Marketing | Jraft Creative"
+  description="Full-service marketing agency for F&B businesses in Singapore. Website, SEO, paid ads, social media, branding, and content — all under one roof. From S$3,000/month."
+  canonical="https://jraftcreative.com/fnb-marketing-agency-singapore/"
+  ogTitle="F&B Marketing Agency Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for F&B businesses in Singapore. Website, SEO, ads, social media, branding — from $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="fnb marketing agency singapore, f&b marketing company, food and beverage marketing, restaurant marketing agency, cafe marketing agency, fnb digital marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="F&B Marketing Agency"
+  heroTitle='Marketing Agency for <span class="highlight">F&amp;B Businesses in Singapore</span>'
+  heroSubtitle="From single-outlet cafes to multi-location restaurant groups, we're the marketing agency Singapore's food and beverage industry trusts. Website, SEO, paid ads, social media, branding, and content — everything your F&B business needs to grow, under one roof."
+  heroImage="/images/service-fnb.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a marketing agency for my F&B business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Your F&amp;B Marketing Partner"
+  ctaDescription="Book a free consultation and tell us about your F&B business. We'll get back to you within 24 hours with a tailored marketing strategy."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20marketing%20agency%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why F&B businesses need a specialist marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Running a Food Business Is Hard — Marketing Shouldn't Be</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's F&B industry is worth over $12 billion, but competition has never been fiercer. New restaurants, cafes, and food brands launch every week, all fighting for the same customers. The ones that survive long-term aren't just the best cooks — they're the best marketers.</p>
+        <p>Most F&B business owners are stretched thin. Between managing kitchen operations, staff, suppliers, and food costs, there's no bandwidth to also run Google Ads, post on Instagram, write blog content, manage reviews, and optimise for SEO. Hiring one freelancer for social media and another for ads creates disjointed marketing with no coherent strategy.</p>
+        <p>That's why F&B businesses increasingly turn to specialist marketing agencies. A single partner who understands the food industry, manages every digital channel, and ensures everything works together as one system — from the first Google search to the fifth visit. That's what we do.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="F&B marketing agency services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Full-Service F&amp;B Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We provide every marketing service an F&B business needs — from building your website and brand to driving customers through the door with SEO, ads, social media, and content. Everything is managed as one coordinated system.</p>
+        <p>Whether you need a <a href="/fnb-website-design-singapore/">new website</a>, a <a href="/fnb-branding-singapore/">brand overhaul</a>, or a full-service marketing retainer, we have the capability to handle it all in-house.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website &amp; SEO</h3>
+            <p>F&B website design, local SEO, Google Business Profile management, and technical optimisation. Get found when customers search for restaurants, cafes, and food businesses in your neighbourhood.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Paid Ads &amp; Promotions</h3>
+            <p>Google Ads, Meta Ads, and targeted campaigns for reservations, delivery orders, events, and seasonal promotions. Every dollar tracked with clear cost-per-customer metrics.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content</h3>
+            <p>Instagram, TikTok, and Facebook management with food photography, Reels, and engaging content. Blog articles, email newsletters, and brand storytelling that build a loyal following.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Analytics &amp; Strategy</h3>
+            <p>Comprehensive reporting across all channels with clear ROI metrics. Regular strategy sessions to adjust campaigns based on performance data, seasonal trends, and business goals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your F&B marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Singapore's F&amp;B Marketing Specialists</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We focus on food and beverage marketing because we believe specialist agencies deliver better results than generalists. We know the industry, we know the customers, and we know what works in Singapore.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>F&amp;B Industry Specialists</h3>
+            <p>We understand food costs, seasonal promotions, delivery platform dynamics, and dining trends. Your marketing is built by people who know the business — not generic marketers guessing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Everything Under One Roof</h3>
+            <p>Website, branding, SEO, ads, social media, content — one agency, one strategy. No miscommunication between vendors, no inconsistent branding, no gaps in your marketing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Results You Can Measure</h3>
+            <p>We track reservations, orders, foot traffic, and revenue impact — not impressions. Every report shows clear ROI so you know exactly what your marketing investment delivers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In Contracts</h3>
+            <p>We earn your business every month. Cancel anytime if we're not delivering results. Most F&B clients stay with us for years because the numbers speak for themselves.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="F&B marketing agency pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Marketing Pricing</p>
+        <h2>Marketing Packages for F&amp;B Businesses</h2>
+        <p>Monthly retainer. Cancel any time.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-outlet F&B businesses getting started.</p>
+            <ul class="pricing-features">
+              <li>Local SEO optimisation</li>
+              <li>Google Business Profile management</li>
+              <li>Basic social media content</li>
+              <li>Review management</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For F&B businesses scaling their marketing.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Full social media management</li>
+              <li>Content creation &amp; blog</li>
+              <li>Email marketing</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For F&B groups and multi-outlet operators.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated account strategist</li>
+              <li>Multi-location marketing</li>
+              <li>Influencer partnerships</li>
+              <li>Video content production</li>
+              <li>Weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/service-page/digital-marketing/" class="inline-link">digital marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about F&B marketing agencies in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>F&amp;B Marketing Agency Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does an F&amp;B marketing agency charge in Singapore?</summary>
+          <div class="faq-answer"><p>F&B marketing agency fees in Singapore start at $3,000 SGD per month for essential digital marketing. Growth retainers at $5,500/month include full-service marketing across SEO, ads, and social media. Enterprise retainers at $10,000+/month cover multi-location campaigns with a dedicated strategist.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What services does an F&amp;B marketing agency provide?</summary>
+          <div class="faq-answer"><p>As a full-service F&B marketing agency, we provide website design and development, SEO and local search optimisation, Google Ads and Meta Ads management, social media content and management, branding and identity design, content marketing, email marketing, and review management — all tailored specifically for food and beverage businesses.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Why hire a specialist F&amp;B marketing agency instead of a general agency?</summary>
+          <div class="faq-answer"><p>F&B marketing has unique requirements: food photography, menu-driven SEO, review management, delivery platform competition, and seasonal promotions. A specialist agency already understands these challenges, knows what works in Singapore's F&B market, and doesn't need months to learn your industry.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure success for F&amp;B marketing?</summary>
+          <div class="faq-answer"><p>We track metrics that directly impact your revenue: reservations, online orders, foot traffic trends, Google Maps actions (calls, directions, website visits), cost per acquisition, and marketing ROI. Every metric is reported clearly in regular performance reports — no vanity numbers.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you handle marketing for F&amp;B franchises and multi-outlet groups?</summary>
+          <div class="faq-answer"><p>Yes. Multi-outlet and franchise F&B marketing is a core strength. We create brand-consistent marketing across all locations while adapting strategy for each outlet's neighbourhood and audience. Each location gets its own Google Business Profile, localised ads, and location-specific content.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

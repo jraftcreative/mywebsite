@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Mental Health Marketing Singapore",
+    "description": "Full-service digital marketing for mental health practices in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow client bookings from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Mental Health Practice Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for mental health practices" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, client-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-location campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a mental health practice spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most mental health practices in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your practice's size, number of practitioners, and client acquisition targets. Our Essential plan at $3,000/month is a strong starting point for solo practitioners and small group practices." } },
+      { "@type": "Question", "name": "How long before marketing generates new clients for my mental health practice?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads can generate client enquiries within the first week — people searching for therapy or counselling often have immediate needs. SEO typically takes 3–6 months to build sustainable organic traffic. Content marketing builds authority and trust over 2–3 months. Most mental health practice clients see a meaningful increase in appointment bookings within the first 60 to 90 days." } },
+      { "@type": "Question", "name": "Is marketing appropriate for mental health professionals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Ethical marketing helps connect people who need support with qualified professionals who can help them. Many Singaporeans struggle to find the right therapist or counsellor because practices are invisible online. Marketing your practice is not about selling therapy — it is about making your services accessible to people who are actively searching for help. We ensure all marketing is sensitive, ethical, and aligned with professional standards." } },
+      { "@type": "Question", "name": "What marketing channels work best for mental health practices in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search is the highest-intent channel — people searching for 'psychologist Singapore' or 'anxiety counselling near me' are ready to book. Content marketing through educational blog posts builds trust and organic traffic over time. Social media (particularly Instagram and LinkedIn) raises awareness and reduces stigma around seeking help. A professional, warm website ties everything together as your conversion hub." } },
+      { "@type": "Question", "name": "Can you handle the sensitive nature of mental health marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We understand that mental health marketing requires a different tone and approach. We avoid sensationalism, respect client confidentiality absolutely, use person-first and non-stigmatising language, and ensure all content is empathetic and informative. We work closely with your practitioners to ensure messaging aligns with ethical guidelines and your practice's therapeutic philosophy." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Mental Health Marketing Singapore", "item": "https://jraftcreative.com/mental-health-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Mental Health Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for mental health practices in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow client bookings from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/mental-health-marketing-singapore/"
+  ogTitle="Mental Health Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for mental health practices in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more clients."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="mental health marketing singapore, therapy practice marketing, counselling marketing agency, psychologist marketing singapore, mental health digital marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Mental Health Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Mental Health Practices in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency that understands the sensitivity and ethics mental health marketing demands. Help more people find the support they need."
+  heroImage="/images/service-mentalhealth.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my mental health practice in Singapore."
+  ctaLabel="Ready to Help More People Find You?"
+  ctaTitle="Get Your Free Mental Health Practice Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy that helps more people in Singapore find the support your practice provides. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20mental%20health%20practice%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why mental health practices need marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>People Need Your Help But Cannot Find You</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Mental health awareness in Singapore has grown significantly in recent years, but a persistent gap remains between people who need support and practitioners who can provide it. Studies show that while one in seven Singaporeans has experienced a mental health condition, many delay seeking help because they do not know where to start or which practitioner is right for them. They turn to Google — searching for "psychologist Singapore," "anxiety counselling near me," or "therapist for depression."</p>
+        <p>Many mental health practitioners rely on directory listings, insurance panel referrals, and word-of-mouth. While these channels produce some clients, they are limited and inconsistent. A person searching Google at midnight for help with anxiety is not going to browse a directory — they are going to click the first practitioner or practice that appears with a professional website, clear service descriptions, and an easy way to book an initial consultation.</p>
+        <p>Ethical, sensitive marketing solves this by making your practice visible to people who are actively seeking help. A warm, professional website that explains your approach and services. SEO that ensures your practice appears when someone searches for help with their specific concern. Content that educates, reduces stigma, and builds trust. Ads that reach people in need at the exact moment they decide to seek support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for mental health practices">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your Practice Needs to Reach More People</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your mental health practice's marketing in-house — from designing a website that feels safe and welcoming, to ranking your practice on Google for the concerns your clients search for, running sensitive ad campaigns, and creating content that educates and destigmatises. No outsourcing, no subcontractors. One team with the sensitivity your practice requires.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A warm, professional, mobile-responsive website that communicates safety and competence. Practitioner profiles, service descriptions, therapy approach explainers, fee transparency, and easy appointment booking — designed for people who may be visiting a mental health practice website for the first time and need reassurance at every step.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for the concerns and services people search for — "anxiety counselling Singapore," "couples therapy Novena," "child psychologist near me," "ADHD assessment Singapore." Google Business Profile optimisation, local citations, and condition-specific content that helps people find your practice when they need it most.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Search</h3>
+            <p>Carefully crafted Google Ads campaigns that reach people searching for mental health support. We write ad copy that is empathetic and non-clinical, target condition-specific and service-specific keywords, and manage budgets to maximise cost-per-consultation while maintaining the sensitive tone your practice demands.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Marketing &amp; Social Media</h3>
+            <p>Educational content that raises awareness, reduces stigma, and positions your practitioners as trusted experts — articles on managing anxiety, understanding therapy types, navigating workplace burnout, and supporting children's mental health. Instagram and LinkedIn content that normalises seeking help and keeps your practice visible to the community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for mental health marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Respects Your Profession</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with mental health practices, healthcare providers, and wellness businesses across Singapore. We understand that marketing mental health services requires a fundamentally different approach — one built on sensitivity, ethics, and genuine care:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Sensitive, Ethical Marketing</h3>
+            <p>We understand that mental health marketing cannot follow standard playbooks. We use person-first language, avoid sensationalism, respect confidentiality absolutely, and ensure every piece of content is empathetic and aligned with your professional ethics. Marketing should help people find help — never exploit vulnerability.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, content, and social media all managed by one team that understands the nuances of mental health marketing. No coordinating between vendors who may not have the sensitivity required. Every channel maintains the same warm, professional tone.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Client Acquisition Reporting</h3>
+            <p>We provide clear data on consultation bookings, enquiries, cost per new client, and channel performance — while maintaining strict privacy standards. You see the numbers that matter for your practice's growth without compromising client confidentiality.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your trust every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for mental health practices">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Mental Health Practices</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For solo practitioners and small practices.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For group practices scaling client acquisition.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Instagram &amp; LinkedIn Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Mental health content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-location practices.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-location campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Corporate wellness outreach</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about mental health practice marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Mental Health Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a mental health practice spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most mental health practices in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your practice's size, number of practitioners, and client acquisition targets. Our Essential plan at $3,000/month is a strong starting point for solo practitioners and small group practices.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new clients for my mental health practice?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads can generate client enquiries within the first week — people searching for therapy or counselling often have immediate needs. SEO typically takes 3–6 months to build sustainable organic traffic. Content marketing builds authority and trust over 2–3 months. Most mental health practice clients see a meaningful increase in appointment bookings within the first 60 to 90 days.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Is marketing appropriate for mental health professionals?</summary>
+          <div class="faq-answer"><p>Yes. Ethical marketing helps connect people who need support with qualified professionals who can help them. Many Singaporeans struggle to find the right therapist or counsellor because practices are invisible online. Marketing your practice is not about selling therapy — it is about making your services accessible to people who are actively searching for help. We ensure all marketing is sensitive, ethical, and aligned with professional standards.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What marketing channels work best for mental health practices in Singapore?</summary>
+          <div class="faq-answer"><p>Google Search is the highest-intent channel — people searching for "psychologist Singapore" or "anxiety counselling near me" are ready to book. Content marketing through educational blog posts builds trust and organic traffic over time. Social media, particularly Instagram and LinkedIn, raises awareness and reduces stigma around seeking help. A professional, warm website ties everything together as your booking hub.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you handle the sensitive nature of mental health marketing?</summary>
+          <div class="faq-answer"><p>Yes. We understand that mental health marketing requires a different tone and approach. We avoid sensationalism, respect client confidentiality absolutely, use person-first and non-stigmatising language, and ensure all content is empathetic and informative. We work closely with your practitioners to ensure messaging aligns with ethical guidelines and your practice's therapeutic philosophy.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

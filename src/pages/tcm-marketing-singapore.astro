@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "TCM Marketing Singapore",
+    "description": "Full-service digital marketing for TCM clinics in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow patient bookings from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "TCM Clinic Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for TCM clinics" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, patient-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-branch campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a TCM clinic spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most TCM clinics in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your clinic's size, number of branches, and patient acquisition targets. Our Essential plan at $3,000/month is a strong starting point for single-location TCM clinics." } },
+      { "@type": "Question", "name": "How long before marketing generates new patients for my TCM clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads can generate patient enquiries within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media and content marketing build credibility over 2–3 months. Most TCM clinic clients see a meaningful increase in appointment bookings within the first 60 days of a full-service campaign." } },
+      { "@type": "Question", "name": "What marketing channels work best for TCM clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search is highly effective — patients searching for 'TCM clinic near me' or 'acupuncture Singapore' have high booking intent. Google Business Profile is critical for local visibility and reviews. Content marketing educates patients about TCM treatments and builds long-term organic traffic. Social media, particularly Facebook and Instagram, reaches both younger professionals exploring TCM and older demographics seeking traditional treatments." } },
+      { "@type": "Question", "name": "Can you market TCM to younger Singaporeans who are new to traditional medicine?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A growing number of Singaporeans in their 20s and 30s are turning to TCM for stress management, fertility support, skin conditions, and sports recovery. We create marketing campaigns that speak to this audience — demystifying treatments like acupuncture and cupping through educational content, modern website design, and social media that presents TCM as accessible and evidence-informed rather than outdated." } },
+      { "@type": "Question", "name": "Do you handle marketing for all TCM services including acupuncture and tuina?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create targeted campaigns for every TCM service — acupuncture, tuina massage, cupping, herbal medicine, moxibustion, fertility support, pain management, and wellness consultations. Each treatment attracts a different patient profile and has unique search behaviour. We build dedicated landing pages, ad campaigns, and content for each service line to maximise patient bookings across your full range of offerings." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "TCM Marketing Singapore", "item": "https://jraftcreative.com/tcm-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="TCM Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for TCM clinics in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow patient bookings from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/tcm-marketing-singapore/"
+  ogTitle="TCM Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for TCM clinics in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more patients."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="TCM marketing singapore, TCM clinic marketing agency, traditional chinese medicine advertising, TCM digital marketing, acupuncture marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="TCM Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">TCM Clinics in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your appointment book. Stop relying on walk-ins and referrals alone. Start building a patient acquisition engine."
+  heroImage="/images/service-tcm.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my TCM clinic in Singapore."
+  ctaLabel="Ready to Grow Your Patient Base?"
+  ctaTitle="Get Your Free TCM Clinic Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your clinic's patient acquisition goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20TCM%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why TCM clinics need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Walk-ins and Referrals Cannot Scale Your Practice</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has over 2,500 registered TCM practitioners and hundreds of clinics — from neighbourhood shophouse practices to modern wellness-integrated TCM centres in Orchard and Marina Bay. Competition is intense, and the traditional model of relying on neighbourhood foot traffic and word-of-mouth is no longer sufficient for clinics that want to grow.</p>
+        <p>A growing segment of Singapore's population is discovering TCM for the first time — younger professionals seeking acupuncture for stress, couples exploring fertility support, athletes using cupping for recovery. These patients search Google before they walk in. "Acupuncture for back pain Singapore," "TCM fertility treatment review," "cupping therapy near me" — if your clinic does not appear in these search results, these new patients are booking with competitors who have invested in their online presence.</p>
+        <p>Full-service marketing solves this by building visibility across every channel your patients use — a modern website that presents TCM as accessible and professional, SEO that ranks your clinic for treatment-specific and location-based searches, ads that capture patients ready to book, and content that educates and builds trust with both traditional and new-to-TCM audiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for TCM clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your TCM Clinic Needs to Grow</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your TCM clinic's marketing in-house — from designing a modern website that appeals to both traditional and new patients, to ranking your clinic on Google for every treatment you offer, running targeted ads that capture patients searching for TCM, and creating content that educates and builds authority. No outsourcing, no subcontractors. One team, one strategy, measurable patient growth.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A modern, mobile-responsive website that presents your TCM clinic as professional and approachable. Treatment pages for acupuncture, tuina, cupping, herbal medicine, and specialised services. Practitioner profiles, patient testimonials, and online booking — designed for both traditional patients and younger Singaporeans exploring TCM for the first time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for the treatments and locations your clinic covers — "acupuncture Ang Mo Kio," "TCM fertility treatment Singapore," "cupping therapy near me." Google Business Profile optimisation with review management, local citations, and treatment-specific content that drives organic patient bookings month after month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Search</h3>
+            <p>Targeted Google Ads campaigns that capture patients actively searching for TCM treatments in Singapore. We build campaigns around condition-specific and treatment-specific keywords, manage budgets to maximise cost-per-booking, and run seasonal campaigns during peak periods like post-Chinese New Year wellness resets and pre-winter tonic seasons.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Marketing &amp; Social Media</h3>
+            <p>Educational content that demystifies TCM — treatment explainers, wellness tips based on TCM principles, seasonal health guides, and practitioner insights. Instagram, Facebook, and Xiaohongshu content that reaches both English-speaking and Chinese-speaking audiences in Singapore, building trust and positioning your clinic as a modern TCM authority.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for TCM marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands TCM</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with TCM clinics, healthcare practices, and wellness businesses across Singapore. We understand the unique challenges of marketing traditional medicine to a modern audience — bridging heritage with accessibility:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Healthcare &amp; TCM Expertise</h3>
+            <p>We understand Singapore's TCM market — the bilingual patient base, the mix of traditional and new-to-TCM audiences, treatment-specific search behaviour, and the credibility signals that matter. Your marketing is built on genuine understanding of how patients discover and choose TCM clinics.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, content, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same brand — modern, professional, and trustworthy — targeting the right patients with a cohesive message.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Patient Acquisition Reporting</h3>
+            <p>We do not report on vanity metrics. You get clear data on appointment bookings, patient enquiries, cost per lead by treatment, and channel performance — the numbers that directly impact your clinic's patient volume and revenue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for TCM clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for TCM Clinics</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location clinics building a marketing foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For clinics ready to scale patient acquisition across channels.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Facebook &amp; Instagram Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Patient education content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-branch TCM groups.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-branch campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Bilingual (EN/CN) content</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about TCM marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>TCM Clinic Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a TCM clinic spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most TCM clinics in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your clinic's size, number of branches, and patient acquisition targets. Our Essential plan at $3,000/month is a strong starting point for single-location TCM clinics.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new patients for my TCM clinic?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads can generate patient enquiries within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media and content marketing build credibility over 2–3 months. Most TCM clinic clients see a meaningful increase in appointment bookings within the first 60 days of a full-service campaign.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What marketing channels work best for TCM clinics in Singapore?</summary>
+          <div class="faq-answer"><p>Google Search is highly effective — patients searching for "TCM clinic near me" or "acupuncture Singapore" have high booking intent. Google Business Profile is critical for local visibility and reviews. Content marketing educates patients about TCM treatments and builds long-term organic traffic. Social media, particularly Facebook and Instagram, reaches both younger professionals exploring TCM and older demographics seeking traditional treatments.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you market TCM to younger Singaporeans who are new to traditional medicine?</summary>
+          <div class="faq-answer"><p>Yes. A growing number of Singaporeans in their 20s and 30s are turning to TCM for stress management, fertility support, skin conditions, and sports recovery. We create marketing campaigns that speak to this audience — demystifying treatments like acupuncture and cupping through educational content, modern website design, and social media that presents TCM as accessible and evidence-informed rather than outdated.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle marketing for all TCM services including acupuncture and tuina?</summary>
+          <div class="faq-answer"><p>Yes. We create targeted campaigns for every TCM service — acupuncture, tuina massage, cupping, herbal medicine, moxibustion, fertility support, pain management, and wellness consultations. Each treatment attracts a different patient profile and has unique search behaviour. We build dedicated landing pages, ad campaigns, and content for each service line to maximise patient bookings across your full range of offerings.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

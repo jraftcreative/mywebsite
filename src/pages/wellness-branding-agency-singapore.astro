@@ -1,0 +1,262 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wellness Branding Agency Singapore",
+    "description": "Professional branding for wellness businesses in Singapore — logo design, brand identity, marketing materials, and visual systems for yoga studios, gyms, clinics, and health brands. From $3,500 SGD.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Wellness Branding",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Wellness Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography, and basic brand guidelines for new wellness businesses" },
+      { "@type": "Offer", "name": "Business Wellness Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full brand identity system with logo suite, brand guidelines, marketing collateral, signage templates, and client-facing materials" },
+      { "@type": "Offer", "name": "Premium Wellness Branding", "price": "15000", "priceCurrency": "SGD", "description": "End-to-end brand strategy, visual identity, complete collateral suite, interior branding, merchandise design, and multi-location rollout" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does wellness branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with marketing collateral, signage, and client materials starts from $7,500. Premium branding with full strategy, interior design, merchandise, and multi-location rollout starts from $15,000." } },
+      { "@type": "Question", "name": "What types of wellness businesses do you brand?", "acceptedAnswer": { "@type": "Answer", "text": "We brand the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry requires a different visual approach, and we tailor our branding process to match the specific audience and competitive landscape of your niche." } },
+      { "@type": "Question", "name": "What makes wellness branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness branding must build trust and emotional connection in ways that other industries do not require. People choosing a healthcare provider, fitness studio, or mental health professional are making deeply personal decisions. The brand must project competence and credibility while feeling approachable, warm, and human. Generic branding agencies often miss these nuances because they do not understand the specific trust dynamics of wellness markets." } },
+      { "@type": "Question", "name": "How long does the wellness branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and marketing materials take 4 to 6 weeks. We can align deliverables with your business launch, renovation, or rebrand timeline." } },
+      { "@type": "Question", "name": "Can you help with both branding and ongoing marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Branding is often the starting point for a longer relationship. Once your brand identity is established, we can implement it across your website, social media, SEO, and paid advertising — all managed by the same team that built your brand. This ensures complete consistency across every channel and eliminates the miscommunication that happens when multiple agencies are involved." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
+      { "@type": "ListItem", "position": 3, "name": "Wellness Branding", "item": "https://jraftcreative.com/wellness-branding-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Wellness Branding Agency Singapore &mdash; Logo &amp; Brand Identity | Jraft Creative"
+  description="Professional branding for wellness businesses in Singapore — logo design, brand identity, and marketing materials for yoga studios, gyms, clinics, and health brands. From $3,500 SGD."
+  canonical="https://jraftcreative.com/wellness-branding-agency-singapore/"
+  ogTitle="Wellness Branding Agency Singapore — Jraft Creative"
+  ogDescription="Logo design, brand identity, and visual systems for wellness businesses in Singapore. Build a brand that clients trust and competitors envy."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="wellness branding singapore, health and wellness branding, wellness brand identity, fitness branding singapore, healthcare branding agency, yoga studio branding, gym branding singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Wellness Branding Agency"
+  heroTitle='Professional <span class="highlight">Branding for Wellness Businesses</span> in Singapore'
+  heroSubtitle="From yoga studios and gyms to clinics and therapists, wellness businesses need brands that build trust at first glance. We create visual identities that capture the expertise, warmth, and credibility behind your practice — and make you the obvious choice in a crowded market."
+  heroImage="/images/service-wellness.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my wellness business in Singapore."
+  ctaLabel="Ready to Build Your Wellness Brand?"
+  ctaTitle="Get a Brand That Builds Trust"
+  ctaDescription="Book a free consultation and tell us about your wellness business. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for wellness businesses in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>In Wellness, Your Brand Is the First Treatment Your Client Experiences</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Whether someone is searching for a yoga studio in Tanjong Pagar, a physiotherapist in Novena, a mental health counsellor in the CBD, or a gym in Jurong East — they are making a deeply personal decision about their body, mind, or health. They are not choosing a commodity. They are choosing someone to trust. And that evaluation starts long before they walk through your door. It starts with your brand.</p>
+        <p>Singapore's wellness industry is growing rapidly, but so is the competition. Every neighbourhood has multiple options for nearly every wellness service. When a potential client compares you to the three other providers they have shortlisted, your brand identity often determines whether they book with you or move on. A clinic with a cohesive, professional brand looks more established and trustworthy. A studio with a distinctive visual presence is more memorable. A gym with a strong brand identity creates the sense of community that turns casual members into loyal advocates. Your brand is not decoration — it is the first signal of the quality, care, and professionalism that clients will experience when they work with you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Wellness branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Branding Services for Wellness Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We create brand identities for the full spectrum of wellness businesses in Singapore. Whether you run a <a href="/yoga-studio-branding-singapore/" class="inline-link">yoga studio</a>, a <a href="/gym-branding-singapore/" class="inline-link">gym</a>, a <a href="/physiotherapy-branding-singapore/" class="inline-link">physiotherapy clinic</a>, or a <a href="/veterinary-clinic-branding-singapore/" class="inline-link">veterinary clinic</a>, our team builds visual systems that project the trust, warmth, and expertise your clients expect — across every touchpoint from your shopfront to your social feed.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A custom logo designed specifically for your wellness niche — capturing the energy of a gym, the calm of a yoga studio, the credibility of a healthcare clinic, or the warmth of a veterinary practice. Includes full logo suite, colour palette, typography, and brand guidelines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Space &amp; Signage Design</h3>
+            <p>Exterior signage, reception area branding, treatment room or studio signage, and environmental graphics — designed to create a cohesive physical brand experience that clients feel the moment they arrive at your location.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Client-Facing Materials</h3>
+            <p>Brochures, welcome packs, appointment cards, treatment guides, class schedule cards, and referral materials — professionally designed collateral that reinforces your brand at every client interaction and sets you apart from competitors using basic printouts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Merchandise &amp; Professional Collateral</h3>
+            <p>Branded uniforms, merchandise, business cards, presentation decks, and partnership materials — extending your brand into every professional interaction and turning your team and clients into brand ambassadors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Singapore's Wellness Branding Specialists</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We specialise in branding for health and wellness businesses. We understand the unique trust dynamics, the regulatory considerations, and the emotional decision-making processes that define how people choose wellness providers in Singapore.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Wellness Industry Focus</h3>
+            <p>We work extensively with wellness businesses in Singapore. This focus means we understand the competitive landscape, the audience psychology, and the visual language that builds trust across different wellness sub-industries — from high-energy fitness to calming therapeutic environments.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Integration</h3>
+            <p>Branding, <a href="/web-design-singapore/" class="inline-link">website design</a>, <a href="/wellness-social-media-marketing-singapore/" class="inline-link">social media marketing</a>, and <a href="/seo-services-singapore/" class="inline-link">SEO</a> — all handled by one team. Your brand identity is implemented consistently across every channel from day one, with no delays from vendor coordination.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; Full Ownership</h3>
+            <p>Fixed-price packages with no hidden fees. You own every asset we create — logos, guidelines, templates, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Local Market Expertise</h3>
+            <p>We know what Singapore wellness consumers respond to. Every brand we create is informed by local market research — your area, your competitors, and your target demographic. No cookie-cutter templates or generic designs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Wellness branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>Wellness Branding Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$3,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new wellness businesses establishing their brand.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$7,500 <span>SGD</span></div>
+            <p class="pricing-desc">For businesses ready for a complete brand system.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Client-facing material templates</li>
+              <li>Marketing collateral design</li>
+              <li>Social media profile templates</li>
+              <li>Signage design</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$15,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For multi-service or multi-location businesses.</p>
+            <ul class="pricing-features">
+              <li>Brand strategy &amp; market positioning</li>
+              <li>Full visual identity system</li>
+              <li>Complete collateral suite</li>
+              <li>Interior &amp; environmental branding</li>
+              <li>Merchandise &amp; uniform design</li>
+              <li>Multi-location brand rollout</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Wellness Branding — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does wellness branding cost in Singapore?</summary>
+          <div class="faq-answer"><p>Wellness branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with marketing collateral, signage, and client materials starts from $7,500. Premium branding with full strategy, interior design, merchandise, and multi-location rollout starts from $15,000.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What types of wellness businesses do you brand?</summary>
+          <div class="faq-answer"><p>We brand the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry requires a different visual approach, and we tailor our branding process to match the specific audience and competitive landscape of your niche.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What makes wellness branding different from regular branding?</summary>
+          <div class="faq-answer"><p>Wellness branding must build trust and emotional connection in ways that other industries do not require. People choosing a healthcare provider, fitness studio, or mental health professional are making deeply personal decisions. The brand must project competence and credibility while feeling approachable, warm, and human. Generic branding agencies often miss these nuances because they do not understand the specific trust dynamics of wellness markets.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does the wellness branding process take?</summary>
+          <div class="faq-answer"><p>Most wellness branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and marketing materials take 4 to 6 weeks. We can align deliverables with your business launch, renovation, or rebrand timeline.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help with both branding and ongoing marketing?</summary>
+          <div class="faq-answer"><p>Yes. Branding is often the starting point for a longer relationship. Once your brand identity is established, we can implement it across your website, social media, SEO, and paid advertising — all managed by the same team that built your brand. This ensures complete consistency across every channel and eliminates the miscommunication that happens when multiple agencies are involved.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cafe Marketing Singapore",
+    "description": "Digital marketing for cafes and coffee shops in Singapore. SEO, Google Ads, social media, and content strategy to grow foot traffic — from S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Cafe Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Cafe Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Local SEO, Google Business Profile management, basic social media content, and monthly reporting" },
+      { "@type": "Offer", "name": "Growth Cafe Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service marketing with SEO, Google Ads, social media management, content creation, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Cafe Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive marketing with dedicated strategist, multi-location campaigns, influencer partnerships, and weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does cafe marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Cafe digital marketing in Singapore starts at $3,000 SGD per month for essential services including local SEO and basic social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist and influencer partnerships." } },
+      { "@type": "Question", "name": "What marketing channels work best for cafes?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective channels for cafes are local SEO (ranking for 'cafe near me' searches), Instagram and TikTok (visual platforms perfect for food and cafe aesthetics), Google Ads (capturing high-intent searchers), and content marketing (food guides and cafe reviews that drive organic traffic)." } },
+      { "@type": "Question", "name": "How can marketing help my cafe stand out from competitors?", "acceptedAnswer": { "@type": "Answer", "text": "A comprehensive marketing strategy builds your cafe's visibility across every channel where customers discover new cafes. Local SEO ensures you appear in Google searches, social media showcases your cafe's atmosphere and food, and content marketing positions you as a go-to destination in your neighbourhood." } },
+      { "@type": "Question", "name": "Do you handle Instagram marketing for cafes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Instagram is one of the most powerful channels for cafes. We create and manage visual content — food photography, Reels, Stories, and carousels — that showcases your cafe's aesthetic and drives foot traffic. Social media management is included in all our marketing packages." } },
+      { "@type": "Question", "name": "Can you market multiple cafe locations?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Multi-location cafe marketing is a core capability. We create location-specific strategies, manage individual Google Business Profiles, run geo-targeted campaigns for each outlet, and maintain consistent branding while adapting content for each neighbourhood's audience." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Cafe Marketing Singapore", "item": "https://jraftcreative.com/cafe-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Cafe Marketing Singapore — Digital Marketing for Cafes | Jraft Creative"
+  description="Digital marketing for cafes and coffee shops in Singapore. SEO, Google Ads, social media, and content strategy to grow foot traffic — from S$3,000/month."
+  canonical="https://jraftcreative.com/cafe-marketing-singapore/"
+  ogTitle="Cafe Marketing Singapore — Jraft Creative"
+  ogDescription="Digital marketing for cafes in Singapore. SEO, social media, Google Ads, content strategy — from $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="cafe marketing singapore, cafe digital marketing, coffee shop marketing, cafe advertising singapore, cafe promotion, cafe marketing agency, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Cafe Marketing"
+  heroTitle='Digital Marketing for <span class="highlight">Cafes in Singapore</span>'
+  heroSubtitle="Between opening hours, roasting schedules, and perfecting your menu, who has time for marketing? We handle your cafe's entire digital presence — from Google rankings to Instagram content — so you can focus on crafting the perfect cup."
+  heroImage="/images/service-cafe.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need digital marketing for my cafe in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Cafe with Smart Marketing"
+  ctaDescription="Book a free consultation and tell us about your cafe. We'll get back to you within 24 hours with a tailored marketing strategy."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20cafe%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why cafes need digital marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>A Great Flat White Isn't Enough to Fill Tables</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's cafe scene is booming — specialty coffee shops, brunch spots, and aesthetic cafes open every month. But that also means more competition for the same pool of coffee lovers and brunch-goers. If your cafe doesn't show up when someone searches "cafe near me" or "best brunch in Singapore", you're losing customers to the competitor who does.</p>
+        <p>Most cafe owners know they need marketing but don't have the time or expertise to manage SEO, social media, ads, and content alongside running a cafe. Posting occasionally on Instagram and hoping for the best isn't a strategy — it's a gamble.</p>
+        <p>A coordinated marketing approach means every channel works together: Google search drives first-time visitors, Instagram builds your aesthetic brand, content marketing captures "best cafe" searches, and paid ads fill quiet weekday mornings. That's the difference between a cafe that struggles for foot traffic and one with a queue out the door.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="Cafe marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Full-Service Cafe Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We combine every digital marketing channel into one coordinated strategy for your cafe. From getting found on Google to building a loyal Instagram following, we manage it all so your cafe grows consistently.</p>
+        <p>Need a new website first? We also offer <a href="/cafe-website-design-singapore/">cafe website design</a> and <a href="/fnb-branding-singapore/">F&B branding</a> to build a strong foundation for your marketing.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Maps</h3>
+            <p>Rank for "cafe near me", "brunch cafe Singapore", and neighbourhood-specific searches. Google Business Profile management, local citations, and review strategy to dominate local search results.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media Marketing</h3>
+            <p>Instagram, TikTok, and Facebook content that showcases your cafe's aesthetic, food, and atmosphere. Professional food photography, Reels, Stories, and community engagement that builds a loyal following.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Media</h3>
+            <p>Targeted ads that reach coffee lovers and brunch-goers in your area. Location-based campaigns, event promotion, and seasonal specials advertised to the right audience at the right time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Content &amp; Brand Building</h3>
+            <p>Blog content targeting food guides and cafe lists, email marketing for regulars, and brand storytelling that sets your cafe apart. Build a content engine that drives organic traffic month after month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for cafe marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Agency That Gets Cafe Culture</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand Singapore's cafe scene — the aesthetics, the coffee culture, the brunch crowds, and the work-from-cafe community. Our marketing strategies are built around how real people discover, visit, and return to cafes.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cafe Industry Knowledge</h3>
+            <p>We know the difference between specialty coffee enthusiasts, weekend brunch crowds, and remote workers seeking WiFi. Your marketing targets the specific audience your cafe serves.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Visual-First Approach</h3>
+            <p>Cafes sell on aesthetics. Our content team creates scroll-stopping visual content that captures your cafe's vibe — from latte art close-ups to cosy interior shots that make people want to visit.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measurable Results</h3>
+            <p>We track foot traffic trends, Google Maps actions, social media growth, and ad performance. Every report shows real business metrics — not vanity numbers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>All Channels, One Agency</h3>
+            <p>SEO, social media, ads, content, and website — all managed by one team. No miscommunication between agencies. Every channel amplifies the others.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Cafe marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Marketing Pricing</p>
+        <h2>Digital Marketing Packages for Cafes</h2>
+        <p>Monthly retainer. Cancel any time.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location cafes building their presence.</p>
+            <ul class="pricing-features">
+              <li>Local SEO optimisation</li>
+              <li>Google Business Profile management</li>
+              <li>Basic social media content</li>
+              <li>Review management</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For cafes ready to scale foot traffic.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Full social media management</li>
+              <li>Content creation &amp; blog</li>
+              <li>Email marketing</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For cafe chains and multi-outlet brands.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated account strategist</li>
+              <li>Multi-location marketing</li>
+              <li>Influencer partnerships</li>
+              <li>Video content production</li>
+              <li>Weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/service-page/digital-marketing/" class="inline-link">digital marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about cafe marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Cafe Marketing Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does cafe marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Cafe digital marketing in Singapore starts at $3,000 SGD per month for essential services including local SEO and basic social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist and influencer partnerships.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What marketing channels work best for cafes?</summary>
+          <div class="faq-answer"><p>The most effective channels for cafes are local SEO (ranking for "cafe near me" searches), Instagram and TikTok (visual platforms perfect for food and cafe aesthetics), Google Ads (capturing high-intent searchers), and content marketing (food guides and cafe reviews that drive organic traffic).</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How can marketing help my cafe stand out from competitors?</summary>
+          <div class="faq-answer"><p>A comprehensive marketing strategy builds your cafe's visibility across every channel where customers discover new cafes. Local SEO ensures you appear in Google searches, social media showcases your cafe's atmosphere and food, and content marketing positions you as a go-to destination in your neighbourhood.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you handle Instagram marketing for cafes?</summary>
+          <div class="faq-answer"><p>Yes. Instagram is one of the most powerful channels for cafes. We create and manage visual content — food photography, Reels, Stories, and carousels — that showcases your cafe's aesthetic and drives foot traffic. Social media management is included in all our marketing packages.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you market multiple cafe locations?</summary>
+          <div class="faq-answer"><p>Absolutely. Multi-location cafe marketing is a core capability. We create location-specific strategies, manage individual Google Business Profiles, run geo-targeted campaigns for each outlet, and maintain consistent branding while adapting content for each neighbourhood's audience.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

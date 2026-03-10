@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Martial Arts SEO Singapore",
+    "description": "SEO services for martial arts schools in Singapore. Local SEO, Google Business Profile optimisation, discipline-specific keyword strategy, and content marketing to fill your classes — from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Martial Arts School SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Martial Arts SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, Google Analytics and Search Console configuration, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Martial Arts SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus discipline-specific content strategy, local citation building, review generation strategy, competitor monitoring, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Martial Arts SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location gym SEO, content creation and publishing, advanced link building, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does SEO cost for a martial arts school in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Martial arts SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add discipline-specific content strategy, link building, and multi-location local SEO." } },
+      { "@type": "Question", "name": "How long does it take for martial arts SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most martial arts schools see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Discipline-specific keywords like 'BJJ Singapore' or 'muay thai near Bugis' often rank faster than broad competitive terms." } },
+      { "@type": "Question", "name": "Can SEO help my martial arts school rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our martial arts SEO service. We optimise your listing categories, upload gym photos, manage student reviews, and build local citations so your school appears in the Maps 3-pack for 'martial arts near me', 'BJJ near me', and 'muay thai near me' searches." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for martial arts in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'martial arts near me', 'BJJ Singapore', 'muay thai near me', 'boxing gym Singapore', 'kids martial arts class', 'taekwondo Singapore', and discipline-specific queries like 'no-gi jiu jitsu Singapore'. We research the exact terms driving sign-ups for each discipline you offer." } },
+      { "@type": "Question", "name": "Do you work with martial arts schools that teach multiple disciplines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-discipline keyword strategy is a core strength. We create dedicated landing pages for each art — BJJ, muay thai, boxing, wrestling, MMA, taekwondo — so your school ranks independently for each discipline rather than competing against yourself with a single generic page." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Martial Arts SEO Singapore", "item": "https://jraftcreative.com/martial-arts-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Martial Arts SEO Singapore — Rank Higher, Fill More Classes | Jraft Creative"
+  description="SEO services for martial arts schools in Singapore. Local SEO, Google Business Profile optimisation, discipline-specific landing pages, and Google Maps ranking to fill your classes — from S$800/month."
+  canonical="https://jraftcreative.com/martial-arts-seo-singapore/"
+  ogTitle="Martial Arts SEO Singapore — Jraft Creative"
+  ogDescription="SEO for martial arts schools in Singapore. Local search optimisation, Google Maps ranking, and discipline-specific content to drive sign-ups. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="martial arts seo singapore, bjj seo singapore, muay thai seo, seo for martial arts schools, martial arts google ranking, martial arts local seo, martial arts marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Martial Arts SEO"
+  heroTitle='SEO for <span class="highlight">Martial Arts Schools in Singapore</span>'
+  heroSubtitle="From BJJ to muay thai to boxing, Singapore's martial arts scene is fiercely competitive — both on and off the mat. When someone searches 'BJJ Singapore' or 'muay thai near me', the schools on page one get the trial sign-ups. Everyone else gets scrolled past. We help martial arts schools dominate Google and turn search visibility into full classes."
+  heroImage="/images/service-martialarts.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my martial arts school in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Martial Arts School Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your martial arts school stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20martial%20arts%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for martial arts schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Dozens of Martial Arts Gyms per District — Can Students Find Yours?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's martial arts scene has grown far beyond traditional dojos. BJJ academies, muay thai gyms, boxing studios, MMA training centres, and multi-discipline schools now operate in nearly every neighbourhood. The CBD alone has over a dozen gyms teaching some combination of grappling and striking arts. For school owners, this means the competition for new students has moved from the mat to the search results page.</p>
+        <p>"BJJ Singapore", "muay thai near me", "boxing gym CBD", "kids martial arts class" — these are real searches happening thousands of times each month by people ready to walk in and try a class. The schools ranking in the top three Google results and the Maps 3-pack are booking trial sessions daily. The rest are invisible to the very people who want what they teach.</p>
+        <p>Most martial arts schools rely on Instagram, word-of-mouth, or competition results for visibility. These channels build community, but they don't capture the person typing "BJJ near Tanjong Pagar" at 10pm after watching a UFC event. That person is ready to sign up tomorrow — and they'll go to whichever school Google shows them first. Without proper SEO, your gym is losing potential students every single day to competitors who rank above you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for martial arts schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for Martial Arts Schools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Martial arts SEO requires a discipline-specific approach. Students search by art, experience level, competition focus, and neighbourhood — creating dozens of keyword combinations that need dedicated pages and local signals. We build SEO strategies specifically for how Singapore residents research and choose martial arts schools.</p>
+        <p>From technical foundations to discipline-specific landing pages and Google Maps dominance, every element of our approach is designed to drive trial bookings from people actively looking for training.</p>
+        <p>Pair SEO with a professionally designed <a href="/martial-arts-website-singapore/">martial arts website</a>, <a href="/services/social-media/">social media marketing</a> to showcase techniques and community, or <a href="/services/paid-ads/">Google Ads</a> to capture surges in demand around major UFC events and competition seasons.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Complete crawl of your martial arts website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your school for searches like "BJJ near me" and "muay thai Singapore" in your area.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>On-Page Optimisation</h3>
+            <p>Keyword-optimised landing pages for every discipline you teach — BJJ, muay thai, boxing, wrestling, MMA, taekwondo, and kids programmes. Meta titles, descriptions, heading structures, and internal links targeting searches like "BJJ Tanjong Pagar", "muay thai near Bugis", and "kids martial arts class Singapore".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Google Business Profile optimisation with correct martial arts categories, class schedules, gym photos, student review management, and local citation building across Singapore directories. Designed to get your school into the Google Maps 3-pack for every "martial arts near me" and discipline-specific search in your area.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Discipline-Focused Content Strategy</h3>
+            <p>Blog articles and guides answering the questions potential students search — "BJJ vs wrestling for self defence", "is muay thai good for beginners", "what to expect at your first MMA class Singapore". Content that builds your authority, earns organic backlinks, and captures students during the decision-making phase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for martial arts school SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Understands Martial Arts</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with fitness and combat sports businesses across Singapore. We understand trial-to-membership conversion cycles, seasonal demand patterns around major events, and which search terms actually convert browsers into students who train consistently.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Multi-Discipline Keyword Strategy</h3>
+            <p>We understand the difference between BJJ, no-gi, muay thai, boxing, and MMA — and we know that each discipline has its own search volume and competition level in Singapore. Our strategies create dedicated ranking opportunities for every art your school teaches.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood-Level Local SEO</h3>
+            <p>Martial arts schools draw students from a 15-to-20 minute commute radius. We optimise for neighbourhood-level searches — Clarke Quay, Tanjong Pagar, Jurong, Tampines, Serangoon — so your school ranks exactly where your potential students live and work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Clear Monthly Reporting</h3>
+            <p>Every month you receive a report showing keyword rankings across disciplines, organic traffic, Google Business Profile insights, and trial booking trends. We show you the numbers that matter — not vanity metrics, but data tied directly to student acquisition.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Presence Under One Roof</h3>
+            <p>SEO is one piece of the puzzle. We also handle martial arts website design, social media content, and paid ads — so your entire digital marketing works together as a single system to fill your classes and grow your competition team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Martial arts school SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Martial Arts SEO Pricing</p>
+        <h2>SEO Plans for Martial Arts Schools</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location schools building local search visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For martial arts schools ready to dominate local search.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Discipline-specific content strategy</li>
+              <li>Local citation building</li>
+              <li>Review generation strategy</li>
+              <li>Competitor monitoring</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location martial arts operators.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Multi-location local SEO</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Advanced link building</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about martial arts school SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Martial Arts SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does SEO cost for a martial arts school in Singapore?</summary>
+          <div class="faq-answer"><p>Martial arts SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add discipline-specific content strategy, link building, and multi-location local SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take for martial arts SEO to show results?</summary>
+          <div class="faq-answer"><p>Most martial arts schools see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Discipline-specific keywords like "BJJ Tanjong Pagar" or "muay thai near Bugis" often rank faster than broad competitive terms like "martial arts Singapore".</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can SEO help my martial arts school rank in Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our martial arts SEO service. We optimise your listing categories, upload gym photos, manage student reviews, and build local citations so your school appears in the Maps 3-pack for "martial arts near me", "BJJ near me", and "muay thai near me" searches.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What keywords do people search when looking for martial arts in Singapore?</summary>
+          <div class="faq-answer"><p>Common search terms include "martial arts near me", "BJJ Singapore", "muay thai near me", "boxing gym Singapore", "kids martial arts class", "taekwondo near me", and discipline-specific queries like "no-gi jiu jitsu" or "kickboxing classes Singapore". We research the exact terms driving sign-ups for each discipline you teach.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you work with schools that teach multiple martial arts?</summary>
+          <div class="faq-answer"><p>Yes. Multi-discipline keyword strategy is a core strength. We create dedicated, optimised landing pages for each art — BJJ, muay thai, boxing, wrestling, MMA, taekwondo — ensuring your school ranks independently for each discipline rather than diluting your SEO with a single generic "martial arts" page.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Martial Arts Marketing Singapore",
+    "description": "Full-service digital marketing for martial arts schools in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow student enrolments from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Martial Arts School Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for martial arts schools" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, class-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-branch campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a martial arts school spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most martial arts schools in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your school's size, number of disciplines offered, and student targets. Our Essential plan at $3,000/month is ideal for single-location schools building a marketing foundation." } },
+      { "@type": "Question", "name": "How long before marketing generates new students for my martial arts school?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads can generate trial class enquiries within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds brand awareness and community engagement over 2–3 months. Most martial arts school clients see a meaningful increase in trial sign-ups within the first 60 days of a full-service campaign." } },
+      { "@type": "Question", "name": "What marketing channels work best for martial arts schools in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search is the highest-intent channel — parents searching for 'kids martial arts Singapore' or adults searching for 'muay thai classes near me' are ready to sign up. Instagram and TikTok work well for showcasing training, competitions, and student progress. Facebook Ads are effective for targeting parents in specific neighbourhoods. A professional website ties everything together as your conversion hub." } },
+      { "@type": "Question", "name": "Do you work with all types of martial arts disciplines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with schools teaching Brazilian Jiu-Jitsu, Muay Thai, taekwondo, karate, boxing, kickboxing, MMA, Krav Maga, Wing Chun, and multi-discipline academies. Each discipline attracts a different demographic and has unique search behaviour. We tailor every marketing strategy to your specific discipline, target audience, and competitive positioning in Singapore." } },
+      { "@type": "Question", "name": "Can you help market both kids and adult programmes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Kids and adult programmes require fundamentally different marketing approaches. For kids programmes, we target parents through Google Ads, parent-focused content, and Facebook campaigns highlighting discipline, confidence, and physical development. For adult programmes, we target individuals through Instagram, Google Search, and content around fitness, self-defence, and competition. We run separate campaigns for each audience to maximise results." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Martial Arts Marketing Singapore", "item": "https://jraftcreative.com/martial-arts-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Martial Arts Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for martial arts schools in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow student enrolments from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/martial-arts-marketing-singapore/"
+  ogTitle="Martial Arts Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for martial arts schools in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more students."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="martial arts marketing singapore, martial arts school advertising, BJJ marketing singapore, muay thai marketing, martial arts digital marketing, taekwondo marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Martial Arts Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Martial Arts Schools in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your mats. Stop juggling freelancers and start running a unified student acquisition strategy."
+  heroImage="/images/service-martialarts.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my martial arts school in Singapore."
+  ctaLabel="Ready to Fill Your Mats?"
+  ctaTitle="Get Your Free Martial Arts Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your school's enrolment goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20martial%20arts%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why martial arts schools need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Great Training Alone Will Not Fill Your School</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's martial arts scene is thriving — Brazilian Jiu-Jitsu gyms, Muay Thai camps, taekwondo dojangs, boxing studios, and multi-discipline academies are competing for the same pool of students. From Bugis to Jurong, new schools are opening regularly while established ones fight to retain members. Parents searching for kids martial arts classes and adults looking for self-defence or combat fitness have more options than ever before.</p>
+        <p>Many martial arts schools rely on word-of-mouth, competition results, and Instagram clips of sparring sessions. While community reputation matters, it does not scale. A parent searching "kids martial arts Tampines" on Google will not find your school through word-of-mouth — they will find whichever competitor ranks on page one. An adult searching "muay thai classes near me" will book a trial at the first school that shows up with a professional website and clear pricing.</p>
+        <p>Full-service marketing solves this by building visibility across every channel your potential students use — a professional website that communicates your school's values and offerings, SEO that captures search traffic by discipline and location, ads that drive immediate trial bookings, and social content that showcases your training culture and builds credibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for martial arts schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your Martial Arts School Needs to Grow</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your martial arts school's marketing in-house — from designing a website that converts visitors into trial bookings, to ranking your school on Google for every discipline you teach, running targeted ads for both kids and adult programmes, and creating social content that captures the energy of your training. No outsourcing, no subcontractors. One team, one strategy, measurable student growth.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A professional, mobile-responsive website that communicates your school's philosophy, showcases your disciplines, presents instructor credentials, and makes it easy to book a trial class. Dedicated pages for each programme — kids BJJ, adult Muay Thai, self-defence workshops — designed for how Singapore families and individuals evaluate martial arts schools.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for every discipline and location your school serves — "Brazilian Jiu-Jitsu Singapore," "kids taekwondo Bukit Timah," "Muay Thai classes Tanjong Pagar." Google Business Profile optimisation, local citations, and discipline-specific content that drives organic trial bookings month after month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Social</h3>
+            <p>Targeted ad campaigns on Google, Instagram, Facebook, and TikTok. Separate campaigns for kids programmes (targeting parents) and adult programmes (targeting individuals). We manage budgets by discipline and audience, optimise for cost-per-trial, and scale spend during peak enrolment periods like school holidays and New Year.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content Marketing</h3>
+            <p>Instagram, TikTok, and Facebook content that captures your school's training culture — sparring highlights, technique breakdowns, student progress stories, belt promotions, and competition results. Martial arts content performs exceptionally well on social media, and we create content that builds your community while driving trial sign-ups.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for martial arts marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands Martial Arts</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with martial arts schools, fitness businesses, and wellness brands across Singapore. We understand the dual-audience challenge of marketing to both parents and adults, the seasonal enrolment patterns, and the community-driven nature of martial arts marketing:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Fitness &amp; Combat Sports Expertise</h3>
+            <p>We know the Singapore martial arts market — discipline-specific audiences, the kids vs adult split, competitive positioning against large franchises, and how potential students discover and evaluate schools. Your marketing strategy is built on industry knowledge, not guesswork.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same brand message, targeting the right audience for each discipline with a unified strategy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Enrolment-Focused Reporting</h3>
+            <p>We do not report on vanity metrics. You get clear data on trial bookings, student sign-ups, cost per lead by discipline, and channel performance — the numbers that directly impact your school's mat occupancy and revenue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for martial arts schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Martial Arts Schools</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location schools building a marketing foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For schools ready to scale enrolments across channels.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Instagram &amp; Facebook Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Discipline-specific content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-branch martial arts academies.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-branch campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Competition &amp; event promotions</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about martial arts marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Martial Arts Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a martial arts school spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most martial arts schools in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your school's size, number of disciplines offered, and student targets. Our Essential plan at $3,000/month is ideal for single-location schools building a solid marketing foundation.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new students for my martial arts school?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads can generate trial class enquiries within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds brand awareness and community engagement over 2–3 months. Most martial arts school clients see a meaningful increase in trial sign-ups within the first 60 days of a full-service campaign.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What marketing channels work best for martial arts schools in Singapore?</summary>
+          <div class="faq-answer"><p>Google Search is the highest-intent channel — parents searching for "kids martial arts Singapore" or adults searching for "muay thai classes near me" are ready to sign up. Instagram and TikTok work exceptionally well for showcasing training, competitions, and student progress. Facebook Ads are effective for targeting parents in specific neighbourhoods. A professional website ties everything together as your conversion hub.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with all types of martial arts disciplines?</summary>
+          <div class="faq-answer"><p>Yes. We work with schools teaching Brazilian Jiu-Jitsu, Muay Thai, taekwondo, karate, boxing, kickboxing, MMA, Krav Maga, Wing Chun, and multi-discipline academies. Each discipline attracts a different demographic and has unique search behaviour. We tailor every marketing strategy to your specific discipline, target audience, and competitive positioning in Singapore.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help market both kids and adult programmes?</summary>
+          <div class="faq-answer"><p>Yes. Kids and adult programmes require fundamentally different marketing approaches. For kids programmes, we target parents through Google Ads, parent-focused content, and Facebook campaigns highlighting discipline, confidence, and physical development. For adult programmes, we target individuals through Instagram, Google Search, and content around fitness, self-defence, and competition. We run separate campaigns for each audience to maximise results.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

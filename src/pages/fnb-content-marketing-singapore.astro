@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "F&B Content Marketing Singapore",
+    "description": "Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, behind-the-scenes stories, and SEO-driven content strategy — from S$1,500/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "F&B Content Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Content", "price": "1500", "priceCurrency": "SGD", "description": "4 SEO blog articles per month, content calendar, keyword research, and monthly performance reporting" },
+      { "@type": "Offer", "name": "Growth Content", "price": "3000", "priceCurrency": "SGD", "description": "8 articles per month, email newsletter, recipe content, social media content repurposing, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Content", "price": "5000", "priceCurrency": "SGD", "description": "12+ articles per month, full content strategy, video content, influencer collaboration, link building, and weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does content marketing cost for an F&B business?", "acceptedAnswer": { "@type": "Answer", "text": "F&B content marketing starts at $1,500 SGD per month for 4 blog articles with keyword research and a content calendar. Growth plans at $3,000/month add email newsletters and recipe content. Enterprise plans at $5,000+/month include video content, influencer collaboration, and comprehensive link building." } },
+      { "@type": "Question", "name": "What kind of content works for F&B businesses?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective F&B content includes 'best of' food guides (e.g., 'best brunch in Tiong Bahru'), recipe articles, chef profiles, behind-the-scenes stories, seasonal menu features, food trend articles, and neighbourhood dining guides. All content is SEO-optimised to drive organic traffic from food-related searches." } },
+      { "@type": "Question", "name": "How does content marketing help my restaurant get more customers?", "acceptedAnswer": { "@type": "Answer", "text": "Content marketing builds organic search traffic over time. When your blog ranks for food-related searches, it brings potential diners to your website who are actively looking for dining options. It also builds brand authority, supports social media with shareable content, and earns backlinks that improve your overall SEO." } },
+      { "@type": "Question", "name": "How long before content marketing shows results?", "acceptedAnswer": { "@type": "Answer", "text": "Blog content typically takes 2–4 months to rank and drive meaningful organic traffic. However, content also has immediate value for social media sharing, email newsletters, and brand building. The compounding effect of consistent content means results accelerate over time." } },
+      { "@type": "Question", "name": "Do you create content for social media as well?", "acceptedAnswer": { "@type": "Answer", "text": "Our Growth plan ($3,000/month) and above include social media content repurposing — taking blog articles and turning them into Instagram carousels, short-form video scripts, and social media posts. For full social media management, we recommend pairing content marketing with our social media service." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "F&B Content Marketing Singapore", "item": "https://jraftcreative.com/fnb-content-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="F&B Content Marketing Singapore — Blog & SEO Content for Food Businesses | Jraft Creative"
+  description="Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, behind-the-scenes stories, and SEO-driven content strategy — from S$1,500/month."
+  canonical="https://jraftcreative.com/fnb-content-marketing-singapore/"
+  ogTitle="F&B Content Marketing Singapore — Jraft Creative"
+  ogDescription="Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, and SEO content strategy — from $1,500 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="fnb content marketing singapore, food content marketing, restaurant blog content, f&b blog strategy, food seo content, restaurant content strategy, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="F&B Content Marketing"
+  heroTitle='Content Marketing for <span class="highlight">F&amp;B Businesses in Singapore</span>'
+  heroSubtitle="Great food deserves great content. We create SEO-driven blog articles, recipe content, food guides, and brand stories that bring hungry customers to your website and keep them coming back for more."
+  heroImage="/images/service-fnb.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need content marketing for my F&B business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Feed Your Website with Great Content"
+  ctaDescription="Book a free consultation and we'll show you the content opportunities your F&B business is missing. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why F&B businesses need content marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Competitors Are Ranking for the Searches Your Customers Make</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every day, thousands of people in Singapore search Google for food-related content: "best brunch spots in Singapore", "where to eat in Tanjong Pagar", "best Italian restaurant CBD". The businesses that produce content targeting these searches capture organic traffic from diners actively looking for somewhere to eat.</p>
+        <p>Without a content strategy, your website is static — a homepage and a menu that Google has no reason to rank above competitors. Content marketing gives Google fresh, relevant pages to index, builds your authority as a dining destination, and creates a compounding asset that drives traffic for months and years after publication.</p>
+        <p>Social media posts disappear in hours. Paid ads stop working when you stop paying. But a well-written blog article ranking for "best cafe in Tiong Bahru" keeps bringing new customers to your website every single day — for free. That's the power of content marketing for F&B.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="F&B content marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Content Marketing for Food &amp; Beverage</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We create SEO-optimised content that drives organic traffic and positions your F&B business as a go-to dining destination. Every piece of content is researched, written, and published with the goal of attracting hungry customers searching Google.</p>
+        <p>Content marketing works best alongside <a href="/services/seo-performance/">technical SEO</a> for maximum ranking power, <a href="/services/social-media/">social media marketing</a> for content distribution, and a well-designed <a href="/fnb-website-design-singapore/">F&B website</a> that converts readers into diners.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO Blog Articles</h3>
+            <p>Keyword-researched blog articles targeting food searches in Singapore. Food guides, neighbourhood dining features, seasonal menu stories, and cuisine deep-dives that rank on Google and drive hungry readers to your website.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Recipe &amp; Food Content</h3>
+            <p>Recipe articles, chef profiles, ingredient stories, and behind-the-scenes content that showcases your culinary expertise and builds an emotional connection with your audience.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Strategy &amp; Calendar</h3>
+            <p>Data-driven content calendar based on keyword research, seasonal trends, and competitive gaps. Every piece of content is planned to target specific search terms and support your business goals.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Performance Tracking</h3>
+            <p>Monthly reports showing organic traffic growth, keyword rankings, engagement metrics, and content ROI. We track which articles drive the most visitors and adjust strategy based on real data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for F&B content marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Content Writers Who Know F&amp;B</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We combine F&B industry knowledge with SEO expertise to create content that ranks and converts. Our writers understand Singapore's food culture and know how to write content that resonates with local diners.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>F&amp;B Content Expertise</h3>
+            <p>We know food. Our writers understand cuisines, dining trends, and Singapore's food culture. Your content reads like it was written by someone who actually eats here — because it was.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>SEO-First Approach</h3>
+            <p>Every article starts with keyword research. We target the searches your potential customers make and write content that Google wants to rank. No fluff — just strategic content that drives organic traffic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Consistent Publishing</h3>
+            <p>Content marketing only works with consistency. We handle everything — research, writing, editing, and publishing — so your blog grows steadily without adding work to your team.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Marketing Integration</h3>
+            <p>Content feeds into SEO, social media, email, and ads. We integrate content with your broader marketing strategy so every article supports multiple channels simultaneously.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="F&B content marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Content Marketing Pricing</p>
+        <h2>Content Marketing Packages for F&amp;B</h2>
+        <p>Monthly retainer. Cancel any time.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For F&B businesses starting their content strategy.</p>
+            <ul class="pricing-features">
+              <li>4 SEO blog articles/month</li>
+              <li>Keyword research</li>
+              <li>Content calendar</li>
+              <li>On-page optimisation</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For F&B businesses scaling their content presence.</p>
+            <ul class="pricing-features">
+              <li>8 articles/month</li>
+              <li>Email newsletter content</li>
+              <li>Recipe &amp; food content</li>
+              <li>Social media repurposing</li>
+              <li>Competitor content analysis</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$5,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For F&B groups with ambitious content goals.</p>
+            <ul class="pricing-features">
+              <li>12+ articles/month</li>
+              <li>Video content strategy</li>
+              <li>Influencer collaboration</li>
+              <li>Link building outreach</li>
+              <li>Full content strategy</li>
+              <li>Weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about F&B content marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>F&amp;B Content Marketing Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does content marketing cost for an F&amp;B business?</summary>
+          <div class="faq-answer"><p>F&B content marketing starts at $1,500 SGD per month for 4 blog articles with keyword research and a content calendar. Growth plans at $3,000/month add email newsletters and recipe content. Enterprise plans at $5,000+/month include video content, influencer collaboration, and comprehensive link building.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What kind of content works for F&amp;B businesses?</summary>
+          <div class="faq-answer"><p>The most effective F&B content includes "best of" food guides (e.g., "best brunch in Tiong Bahru"), recipe articles, chef profiles, behind-the-scenes stories, seasonal menu features, food trend articles, and neighbourhood dining guides. All content is SEO-optimised to drive organic traffic from food-related searches.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How does content marketing help my restaurant get more customers?</summary>
+          <div class="faq-answer"><p>Content marketing builds organic search traffic over time. When your blog ranks for food-related searches, it brings potential diners to your website who are actively looking for dining options. It also builds brand authority, supports social media with shareable content, and earns backlinks that improve your overall SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long before content marketing shows results?</summary>
+          <div class="faq-answer"><p>Blog content typically takes 2–4 months to rank and drive meaningful organic traffic. However, content also has immediate value for social media sharing, email newsletters, and brand building. The compounding effect of consistent content means results accelerate over time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you create content for social media as well?</summary>
+          <div class="faq-answer"><p>Our Growth plan ($3,000/month) and above include social media content repurposing — taking blog articles and turning them into Instagram carousels, short-form video scripts, and social media posts. For full social media management, we recommend pairing content marketing with our social media service.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

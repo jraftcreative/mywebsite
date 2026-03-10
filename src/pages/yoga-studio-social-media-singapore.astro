@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Yoga Studio Social Media Marketing Singapore",
+    "description": "Social media marketing for yoga studios in Singapore. Class highlights, wellness lifestyle content, instructor spotlights, and community-building campaigns across Instagram and Facebook.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Yoga Studio Social Media Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Social Media", "price": "2500", "priceCurrency": "SGD", "description": "8 posts per month across 2 platforms, content calendar, graphic design, copywriting, and monthly reporting for yoga studios" },
+      { "@type": "Offer", "name": "Professional Social Media", "price": "3500", "priceCurrency": "SGD", "description": "12 posts per month across 3 platforms, 4 Reels/month, content strategy, community management, and bi-weekly reporting for yoga studios" },
+      { "@type": "Offer", "name": "Full-Service Social Media", "price": "5000", "priceCurrency": "SGD", "description": "20 posts per month across all platforms, 8+ Reels/month, dedicated creative team, influencer coordination, and weekly reporting for yoga studios" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does social media marketing cost for yoga studios in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Social media marketing for yoga studios in Singapore ranges from $2,500 to $5,000+ per month. Our Essential plan starts at $2,500 SGD/month for 8 posts across 2 platforms, with Professional and Full-Service plans offering expanded content, Reels production, and dedicated community management." } },
+      { "@type": "Question", "name": "What type of social media content works best for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective yoga studio content combines instructor-led tutorials, class atmosphere videos, student progress stories, wellness tips, and behind-the-scenes studio moments. Reels showing pose breakdowns and short flow sequences consistently generate the highest engagement. Lifestyle content connecting yoga to Singapore's fast-paced work culture resonates strongly with the local audience." } },
+      { "@type": "Question", "name": "Which social media platforms should yoga studios in Singapore focus on?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the primary platform for yoga studios in Singapore due to its visual nature and strong wellness community. TikTok is growing rapidly for short-form yoga content. Facebook remains effective for community building, event promotion, and reaching the 35+ demographic. We recommend starting with Instagram and expanding based on your target audience." } },
+      { "@type": "Question", "name": "How can social media help my yoga studio attract new students?", "acceptedAnswer": { "@type": "Answer", "text": "Social media builds awareness and trust before a potential student books their first class. Consistent content showcasing your teaching style, studio atmosphere, and community helps people overcome the intimidation factor. Targeted local campaigns, trial class promotions, and student testimonial content convert followers into first-time visitors. Most studios see measurable growth in trial bookings within 2 to 3 months of consistent social media activity." } },
+      { "@type": "Question", "name": "Do you create video content for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Video is central to yoga studio social media. We produce Reels and short-form videos including pose tutorials, class previews, instructor introductions, studio tours, and student testimonials. Our Professional plan includes 4 Reels per month, and our Full-Service plan includes 8+ Reels per month. We handle filming direction, editing, music selection, and caption writing." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/social-media-marketing-singapore/" },
+      { "@type": "ListItem", "position": 3, "name": "Yoga Studio Social Media", "item": "https://jraftcreative.com/yoga-studio-social-media-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Yoga Studio Social Media Singapore &mdash; Social Media Marketing | Jraft Creative"
+  description="Social media marketing for yoga studios in Singapore. Class highlights, wellness lifestyle content, instructor spotlights, and community-building campaigns. Monthly plans from S$2,500."
+  canonical="https://jraftcreative.com/yoga-studio-social-media-singapore/"
+  ogTitle="Yoga Studio Social Media Singapore — Jraft Creative"
+  ogDescription="Social media marketing for yoga studios in Singapore. Build your community, fill more classes, and grow your studio brand online. Plans from $2,500 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="yoga studio social media singapore, yoga social media marketing, yoga instagram marketing singapore, yoga studio digital marketing, yoga content creation singapore, wellness social media singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Yoga Studio Social Media Marketing"
+  heroTitle='Social Media for <span class="highlight">Yoga Studios</span> in Singapore'
+  heroSubtitle="Class highlights, wellness lifestyle content, and instructor spotlights that build your community online. We help yoga studios in Singapore attract new students, retain existing members, and grow a brand people genuinely connect with."
+  heroImage="/images/service-yoga.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need social media marketing for my yoga studio in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Yoga Studio with Social Media"
+  ctaDescription="Book a free consultation and tell us about your studio. We'll get back to you within 24 hours with a tailored social media strategy."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Social media challenges for yoga studios in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Beautiful Classes Alone Will Not Fill Your Studio</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has over 300 yoga studios — from boutique shalas in Tiong Bahru to large franchise operations in Orchard Road. ClassPass, online yoga platforms, and home practice apps have given students more options than ever. The studios that consistently fill classes are not necessarily the ones with the best teachers or the most beautiful spaces. They are the ones students find, follow, and feel connected to before they ever roll out a mat.</p>
+        <p>Social media is where that connection begins. A potential student scrolling through Instagram at lunch decides whether your studio feels right for them based on a 15-second Reel or a single post. If your feed is sparse, inconsistent, or looks like a schedule board with stock imagery, they scroll past. The studio that shows up with authentic class footage, instructor personality, and genuine community moments earns the trial booking. In a market where switching studios costs nothing, your social media is the reason students choose you — and keep choosing you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Social media services for yoga studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Do</p>
+        <h2>Social Media Services for Yoga Studios</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We create and manage social media content that captures the energy, warmth, and expertise of your yoga studio. From flowing Reels and pose breakdowns to wellness lifestyle posts and student stories, every piece of content is designed to reflect your teaching philosophy and bring the right students through your door.</p>
+        <p>Our team handles strategy, design, video production, copywriting, and community management — so you can focus on teaching. We plan content around workshop launches, seasonal campaigns, and the natural rhythms of Singapore's yoga calendar.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+          <div class="service-detail-card__content">
+            <h3>Class &amp; Flow Reels</h3>
+            <p>Short-form video content capturing the atmosphere of your classes — flowing sequences, pose breakdowns, breathing exercises, and studio ambience that gives potential students a genuine feel for what practising at your studio is like.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+          <div class="service-detail-card__content">
+            <h3>Community Building</h3>
+            <p>Proactive engagement with your students and followers — responding to comments, answering class enquiries, sharing student milestones, and fostering the sense of community that keeps members loyal and turns first-timers into regulars.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Wellness Lifestyle Content</h3>
+            <p>Branded graphics and lifestyle posts covering mindfulness tips, nutrition guidance, stress management, and holistic wellness — positioning your studio as more than just a place to exercise, but a resource for balanced living in Singapore.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Instructor Spotlights &amp; Campaigns</h3>
+            <p>Featured profiles of your teaching team, workshop promotions, seasonal challenges, and trial class campaigns — designed to showcase your studio's expertise and drive bookings during peak interest periods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio social media">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Social Media Partner That Gets Yoga</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Yoga is personal, and your social media should feel that way too. We create content that honours your teaching style, respects the practice, and speaks to the people in Singapore who are looking for exactly what your studio offers — without the generic wellness cliches.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Wellness Industry Experience</h3>
+            <p>We understand the yoga and wellness landscape in Singapore — from boutique Vinyasa studios to large Bikram chains. Your content reflects the nuances of your teaching style, lineage, and the community you are building.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Authentic, Not Performative</h3>
+            <p>No over-filtered, contortionist-level poses that intimidate beginners. We create content that feels real, approachable, and inclusive — reflecting how yoga is actually practised in your studio, not how it looks on stock image sites.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Full Review &amp; Approval</h3>
+            <p>Every post, caption, and Reel is sent for your review before publishing. You maintain full control over your studio's voice and messaging. Nothing goes live without your approval.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month plans with no long-term commitments. Stay because your classes are filling up and your community is growing — not because of a binding contract.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Yoga studio social media marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Social Media Pricing</p>
+        <h2>Plans for Yoga Studios of Every Size</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$2,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For studios building a consistent social presence.</p>
+            <ul class="pricing-features">
+              <li>8 posts per month</li>
+              <li>2 platforms</li>
+              <li>Content calendar &amp; strategy</li>
+              <li>Graphic design</li>
+              <li>Copywriting &amp; hashtags</li>
+              <li>Monthly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Professional</h3>
+            <div class="price">$3,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For growing studios ready to fill more classes.</p>
+            <ul class="pricing-features">
+              <li>12 posts per month</li>
+              <li>3 platforms</li>
+              <li>4 Reels / short-form videos</li>
+              <li>Content strategy &amp; design</li>
+              <li>Community management</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Full-Service</h3>
+            <div class="price">$5,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established studios that want a complete social team.</p>
+            <ul class="pricing-features">
+              <li>20 posts per month</li>
+              <li>All platforms</li>
+              <li>8+ Reels / short-form videos</li>
+              <li>Dedicated creative team</li>
+              <li>Influencer coordination</li>
+              <li>Weekly reporting &amp; strategy</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/social-media/" class="inline-link">social media marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio social media marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Yoga Studio Social Media — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does social media marketing cost for yoga studios in Singapore?</summary>
+          <div class="faq-answer"><p>Social media marketing for yoga studios in Singapore ranges from $2,500 to $5,000+ per month. Our Essential plan starts at $2,500 SGD/month for 8 posts across 2 platforms, with Professional and Full-Service plans offering expanded content, Reels production, and dedicated community management.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What type of social media content works best for yoga studios?</summary>
+          <div class="faq-answer"><p>The most effective yoga studio content combines instructor-led tutorials, class atmosphere videos, student progress stories, wellness tips, and behind-the-scenes studio moments. Reels showing pose breakdowns and short flow sequences consistently generate the highest engagement. Lifestyle content connecting yoga to Singapore's fast-paced work culture resonates strongly with the local audience.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which social media platforms should yoga studios in Singapore focus on?</summary>
+          <div class="faq-answer"><p>Instagram is the primary platform for yoga studios in Singapore due to its visual nature and strong wellness community. TikTok is growing rapidly for short-form yoga content. Facebook remains effective for community building, event promotion, and reaching the 35+ demographic. We recommend starting with Instagram and expanding based on your target audience.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How can social media help my yoga studio attract new students?</summary>
+          <div class="faq-answer"><p>Social media builds awareness and trust before a potential student books their first class. Consistent content showcasing your teaching style, studio atmosphere, and community helps people overcome the intimidation factor. Targeted local campaigns, trial class promotions, and student testimonial content convert followers into first-time visitors. Most studios see measurable growth in trial bookings within 2 to 3 months of consistent social media activity.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you create video content for yoga studios?</summary>
+          <div class="faq-answer"><p>Yes. Video is central to yoga studio social media. We produce Reels and short-form videos including pose tutorials, class previews, instructor introductions, studio tours, and student testimonials. Our Professional plan includes 4 Reels per month, and our Full-Service plan includes 8+ Reels per month. We handle filming direction, editing, music selection, and caption writing.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

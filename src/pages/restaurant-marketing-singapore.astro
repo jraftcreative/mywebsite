@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Restaurant Marketing Singapore",
+    "description": "Digital marketing for restaurants in Singapore. SEO, Google Ads, social media, and content marketing under one roof — from S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Restaurant Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Restaurant Marketing", "price": "3000", "priceCurrency": "SGD", "description": "SEO, Google Business Profile management, basic social media content, and monthly performance reporting" },
+      { "@type": "Offer", "name": "Growth Restaurant Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service marketing with SEO, Google Ads, social media management, content creation, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Restaurant Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive marketing with dedicated strategist, multi-channel campaigns, influencer partnerships, and weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does restaurant marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant digital marketing in Singapore starts at $3,000 SGD per month for essential services including SEO and social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist, multi-channel campaigns, and influencer partnerships." } },
+      { "@type": "Question", "name": "What's included in restaurant digital marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Our restaurant marketing packages combine multiple channels: SEO and Google Maps optimisation, Google Ads for immediate traffic, social media content and management, review management, and performance analytics. The specific mix depends on your package and goals." } },
+      { "@type": "Question", "name": "How long before I see results from restaurant marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can drive traffic within days. Social media builds engagement within 2–4 weeks. SEO typically shows ranking improvements within 3–4 months. A multi-channel approach means you see results at different speeds — paid channels deliver quickly while organic channels build long-term." } },
+      { "@type": "Question", "name": "Do you work with restaurants that have multiple outlets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-location restaurant marketing is a core capability. We create location-specific strategies, manage individual Google Business Profiles, run geo-targeted ads for each outlet, and maintain consistent branding across all locations while adapting messaging for each neighbourhood." } },
+      { "@type": "Question", "name": "Can restaurant marketing reduce my dependence on delivery platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. One of the primary goals of restaurant marketing is building your own customer channels. SEO drives direct website traffic, Google Ads captures delivery searches, and social media builds a following you own. Over time, this reduces reliance on platforms that take 25–30% commission." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Restaurant Marketing Singapore", "item": "https://jraftcreative.com/restaurant-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Restaurant Marketing Singapore — Full-Service Digital Marketing | Jraft Creative"
+  description="Digital marketing for restaurants in Singapore. SEO, Google Ads, social media, and content marketing under one roof — from S$3,000/month."
+  canonical="https://jraftcreative.com/restaurant-marketing-singapore/"
+  ogTitle="Restaurant Marketing Singapore — Jraft Creative"
+  ogDescription="Digital marketing for restaurants in Singapore. SEO, Google Ads, social media, content — from $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="restaurant marketing singapore, restaurant digital marketing, restaurant advertising singapore, restaurant promotion, restaurant marketing agency, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Restaurant Marketing"
+  heroTitle='Digital Marketing for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="Running a restaurant is hard enough without having to figure out Google Ads, SEO, and social media. We handle your entire digital marketing — from getting found on Google to filling tables every night — so you can focus on what you do best."
+  heroImage="/images/service-restaurant.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need digital marketing for my restaurant in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Let Us Fill Your Tables"
+  ctaDescription="Book a free consultation and tell us about your restaurant. We'll get back to you within 24 hours with a tailored marketing strategy."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20restaurant%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why restaurants need digital marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Great Food Deserves Customers Who Know About It</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has over 7,000 restaurants, and new ones open every week. Word-of-mouth and walk-in traffic aren't enough to sustain a restaurant business anymore. The majority of dining decisions now start on Google, Instagram, or TikTok — and the restaurants that dominate those channels are the ones filling tables consistently.</p>
+        <p>The challenge for most restaurant owners is that digital marketing requires expertise across multiple channels: SEO to rank on Google, paid ads to capture immediate demand, social media to build a following, and content to establish authority. Managing all of this while running a restaurant is unrealistic.</p>
+        <p>That's where a full-service approach pays off. Instead of piecemealing different agencies for SEO, ads, and social media, a single marketing partner who understands the restaurant industry can build a cohesive strategy where every channel supports the others — and every dollar spent drives measurable results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="Restaurant marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Full-Service Restaurant Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We combine every digital marketing channel into one coordinated strategy for your restaurant. SEO, paid ads, social media, and content all working together — managed by a team that understands the restaurant industry in Singapore.</p>
+        <p>Need a new website to go with your marketing? We also offer <a href="/fnb-website-design-singapore/">restaurant website design</a> and <a href="/restaurant-branding-singapore/">restaurant branding</a> to complete your digital presence.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>On-page SEO, Google Business Profile management, review strategy, and local citation building. Rank for "restaurant near me" and cuisine-specific searches that drive foot traffic and reservations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Media</h3>
+            <p>Targeted Google Ads campaigns for local search, delivery promotion, and event advertising. Every campaign tracked with clear cost-per-reservation and cost-per-order metrics.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media Management</h3>
+            <p>Instagram, TikTok, and Facebook content creation and management. Food photography, Reels, Stories, and community engagement that builds a following and drives diners to your restaurant.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Analytics &amp; Reporting</h3>
+            <p>Comprehensive performance reporting across all channels. Track reservations, foot traffic trends, online orders, and marketing ROI with clear, actionable dashboards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Agency That Speaks Restaurant</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with restaurants across Singapore and understand what drives diners — from impulse searches to planned celebrations. Our strategies are built around real restaurant business models, not generic marketing playbooks.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Restaurant Industry Focus</h3>
+            <p>We know peak hours, seasonal trends, dine-in vs delivery dynamics, and what makes Singapore diners choose one restaurant over another. Your marketing is built by people who understand the business.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, ads, social media, and content under one roof. No coordinating between agencies. Every channel works together as part of a single, coherent strategy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Results-Driven Approach</h3>
+            <p>We measure what matters — reservations, orders, foot traffic, and revenue. Not impressions, not likes. Real business metrics that show whether your marketing is working.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In Contracts</h3>
+            <p>We earn your business every month. If we're not delivering results, you're free to leave. Most clients stay because the ROI speaks for itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Restaurant marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Marketing Pricing</p>
+        <h2>Digital Marketing Packages for Restaurants</h2>
+        <p>Monthly retainer. Cancel any time.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location restaurants getting started.</p>
+            <ul class="pricing-features">
+              <li>Local SEO optimisation</li>
+              <li>Google Business Profile management</li>
+              <li>Basic social media content</li>
+              <li>Review management</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For restaurants ready to scale their marketing.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Full social media management</li>
+              <li>Content creation &amp; blog</li>
+              <li>Email marketing</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-outlet restaurants and F&B groups.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated account strategist</li>
+              <li>Multi-location marketing</li>
+              <li>Influencer partnerships</li>
+              <li>Video content production</li>
+              <li>Weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/service-page/digital-marketing/" class="inline-link">digital marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about restaurant marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Restaurant Marketing Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does restaurant marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Restaurant digital marketing in Singapore starts at $3,000 SGD per month for essential services including SEO and social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist, multi-channel campaigns, and influencer partnerships.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What's included in restaurant digital marketing?</summary>
+          <div class="faq-answer"><p>Our restaurant marketing packages combine multiple channels: SEO and Google Maps optimisation, Google Ads for immediate traffic, social media content and management, review management, and performance analytics. The specific mix depends on your package and goals.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before I see results from restaurant marketing?</summary>
+          <div class="faq-answer"><p>Google Ads can drive traffic within days. Social media builds engagement within 2–4 weeks. SEO typically shows ranking improvements within 3–4 months. A multi-channel approach means you see results at different speeds — paid channels deliver quickly while organic channels build long-term.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with restaurants that have multiple outlets?</summary>
+          <div class="faq-answer"><p>Yes. Multi-location restaurant marketing is a core capability. We create location-specific strategies, manage individual Google Business Profiles, run geo-targeted ads for each outlet, and maintain consistent branding across all locations while adapting messaging for each neighbourhood.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can restaurant marketing reduce my dependence on delivery platforms?</summary>
+          <div class="faq-answer"><p>Absolutely. One of the primary goals of restaurant marketing is building your own customer channels. SEO drives direct website traffic, Google Ads captures delivery searches, and social media builds a following you own. Over time, this reduces reliance on platforms that take 25–30% commission.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

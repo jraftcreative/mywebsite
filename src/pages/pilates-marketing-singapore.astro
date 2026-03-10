@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pilates Marketing Singapore",
+    "description": "Full-service digital marketing for pilates studios in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow memberships from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Pilates Studio Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for pilates studios" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, class-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-location campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a pilates studio spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most pilates studios in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your studio's format (reformer vs mat), number of locations, and membership targets. Our Essential plan at $3,000/month is a strong starting point for single-location studios." } },
+      { "@type": "Question", "name": "How long before marketing generates new members for my pilates studio?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads and Instagram Ads can generate trial class bookings within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds brand awareness over 2–3 months. Most pilates studio clients see a meaningful increase in trial class sign-ups within the first 60 days of a full-service campaign." } },
+      { "@type": "Question", "name": "What marketing channels work best for pilates studios in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is highly effective for pilates studios — reformer and movement content performs well visually. Google Search captures high-intent traffic from people actively searching for pilates classes. Facebook Ads work well for targeting specific demographics, particularly women aged 25–55 in specific neighbourhoods. A professional website with integrated class booking is essential as your conversion hub." } },
+      { "@type": "Question", "name": "Do you handle marketing for both reformer and mat pilates studios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with reformer pilates studios, mat pilates studios, clinical pilates providers, and hybrid studios offering multiple formats. Each format attracts a different audience — reformer tends to skew towards a premium clientele, while mat pilates appeals to a broader audience. We tailor the marketing strategy, messaging, and targeting to match your studio's specific format and price point." } },
+      { "@type": "Question", "name": "Can you help promote private pilates sessions and teacher training?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Beyond group classes, we create dedicated marketing campaigns for private one-on-one sessions, small group reformer classes, prenatal pilates, rehabilitation-focused pilates, and teacher training programmes. Each offering has its own target audience and search behaviour, and we build specific landing pages, ad campaigns, and content to drive bookings for each." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Pilates Marketing Singapore", "item": "https://jraftcreative.com/pilates-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Pilates Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for pilates studios in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow memberships from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/pilates-marketing-singapore/"
+  ogTitle="Pilates Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for pilates studios in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more memberships."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="pilates marketing singapore, pilates studio marketing agency, pilates advertising singapore, pilates digital marketing, reformer pilates marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Pilates Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Pilates Studios in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your reformers and mat classes. Stop piecing together freelancers and start running a unified membership growth strategy."
+  heroImage="/images/service-pilates.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my pilates studio in Singapore."
+  ctaLabel="Ready to Fill Your Reformers?"
+  ctaTitle="Get Your Free Pilates Studio Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your studio's membership goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20pilates%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why pilates studios need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Premium Equipment and Skilled Instructors Are Not Enough</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Pilates has exploded in popularity in Singapore. Reformer studios are opening in practically every mall and mixed-use development — from Tanjong Pagar to Tampines. ClassPass has made studio-hopping effortless, meaning students try multiple studios without committing to any. The competition for long-term members is fiercer than ever, and studios that rely solely on word-of-mouth and Instagram are leaving memberships on the table.</p>
+        <p>When someone in Singapore searches "reformer pilates near me" or "best pilates studio Bukit Timah," they are ready to book a trial class. If your studio does not appear in those search results, that booking goes to a competitor. Meanwhile, studios without a professional website — or worse, a slow one with no online booking — lose credibility with the discerning clientele pilates attracts.</p>
+        <p>Full-service marketing solves this by building visibility across every channel your potential members use — a polished website that reflects your studio's premium positioning, SEO that captures search traffic for your class types and neighbourhood, ads that drive immediate trial bookings, and social content that builds community and converts followers into loyal members.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for pilates studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your Pilates Studio Needs to Grow</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your pilates studio's marketing in-house — from designing a website that converts visitors into trial bookings, to ranking your studio on Google, running targeted ads that fill off-peak slots, and creating social media content that builds the engaged community pilates thrives on. No outsourcing, no subcontractors. One team, one strategy, measurable membership growth.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A premium, mobile-responsive website that showcases your studio's atmosphere, reformer setup, class schedule, instructor credentials, and pricing. Integrated with your booking system and designed for the discerning clientele pilates attracts — clean, fast, and elegant on every device.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for the pilates styles and locations your studio covers — "reformer pilates Orchard," "mat pilates classes Singapore," "prenatal pilates Novena." Google Business Profile optimisation, local citations, and keyword-targeted content that drives organic trial bookings month after month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Social</h3>
+            <p>Targeted ad campaigns on Google, Instagram, and Facebook that put your studio in front of people actively searching for pilates. We build campaigns around high-intent keywords, target demographics that match your ideal member profile, and optimise spend to maximise cost-per-trial-booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content Marketing</h3>
+            <p>Instagram, Facebook, and TikTok content that showcases your reformer sessions, instructor expertise, member transformations, and studio culture. Pilates is inherently visual — we create content that captures the movement, the space, and the community to drive engagement and trial bookings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for pilates marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands Pilates</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with pilates studios, fitness businesses, and wellness brands across Singapore. We understand the membership model, the premium positioning pilates requires, and the competitive dynamics of Singapore's studio fitness market:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Fitness &amp; Wellness Expertise</h3>
+            <p>We know the Singapore pilates market — reformer vs mat positioning, pricing expectations, seasonal trends, ClassPass dynamics, and how members discover and evaluate studios. Your marketing strategy is built on industry knowledge, not generic playbooks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same premium brand positioning, targeting the same audience with a cohesive message.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Membership-Focused Reporting</h3>
+            <p>We do not report on vanity metrics. You get clear data on trial bookings, membership sign-ups, cost per lead, retention metrics, and channel performance — the numbers that directly impact your studio's revenue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for pilates studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Pilates Studios</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location studios building a marketing foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For studios ready to scale memberships across channels.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Instagram &amp; Facebook Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Class-focused content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-location pilates studios.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-location campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Workshop &amp; training promotions</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about pilates studio marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Pilates Studio Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a pilates studio spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most pilates studios in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and social media content. The right budget depends on your studio's format (reformer vs mat), number of locations, and membership targets. Our Essential plan at $3,000/month is a strong starting point for single-location studios.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new members for my pilates studio?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads and Instagram Ads can generate trial class bookings within the first week. SEO typically takes 3–6 months to build sustainable organic traffic. Social media builds brand awareness over 2–3 months. Most pilates studio clients see a meaningful increase in trial bookings within the first 60 days of a full-service campaign.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What marketing channels work best for pilates studios in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram is highly effective for pilates studios — reformer and movement content performs exceptionally well visually. Google Search captures high-intent traffic from people actively looking for pilates classes. Facebook Ads work well for targeting specific demographics, particularly women aged 25–55 in specific neighbourhoods. A professional website with integrated booking is essential as your conversion hub.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you handle marketing for both reformer and mat pilates studios?</summary>
+          <div class="faq-answer"><p>Yes. We work with reformer pilates studios, mat pilates studios, clinical pilates providers, and hybrid studios offering multiple formats. Each format attracts a different audience — reformer tends to skew towards a premium clientele, while mat pilates appeals to a broader audience. We tailor the marketing strategy, messaging, and targeting to match your studio's specific format and price point.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help promote private pilates sessions and teacher training?</summary>
+          <div class="faq-answer"><p>Yes. Beyond group classes, we create dedicated marketing campaigns for private one-on-one sessions, small group reformer classes, prenatal pilates, rehabilitation-focused pilates, and teacher training programmes. Each offering has its own target audience and search behaviour, and we build specific landing pages, ad campaigns, and content to drive bookings for each.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Physiotherapy Marketing Singapore",
+    "description": "Full-service digital marketing for physiotherapy clinics in Singapore — website design, SEO, Google Ads, social media, and content marketing. Grow patient bookings from $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Physiotherapy Clinic Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile optimisation, monthly content, and performance reporting for physiotherapy clinics" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads management, social media marketing, patient-focused content strategy, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-branch campaigns, video content, advanced ad funnels, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should a physiotherapy clinic spend on marketing in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most physiotherapy clinics in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your clinic's size, number of branches, specialisations, and patient acquisition targets. Our Essential plan at $3,000/month is a strong starting point for single-location clinics." } },
+      { "@type": "Question", "name": "How long before marketing generates new patients for my physiotherapy clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Paid channels like Google Ads can generate patient enquiries within the first week — people searching for physiotherapy are often in acute pain and ready to book immediately. SEO typically takes 3–6 months to build sustainable organic traffic. Content marketing and social media build authority over 2–3 months. Most clients see a meaningful increase in appointment bookings within the first 60 days." } },
+      { "@type": "Question", "name": "What marketing channels work best for physiotherapy clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search is the highest-intent channel — patients searching for 'physiotherapy near me' or 'sports physio Singapore' are ready to book. Google Business Profile is critical for local visibility and reviews. Content marketing builds long-term organic traffic through patient education articles. Social media builds credibility and keeps your clinic top-of-mind for referrals. A professional website ties everything together." } },
+      { "@type": "Question", "name": "Do you understand healthcare marketing regulations in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We are familiar with the Singapore Medical Council guidelines and PHMC advertising regulations that apply to physiotherapy clinics. We ensure all marketing content avoids prohibited claims, uses appropriate disclaimers, and maintains the professional standards expected in healthcare marketing. All content is reviewed for compliance before publication." } },
+      { "@type": "Question", "name": "Can you help market specialised physiotherapy services?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create targeted campaigns for each of your specialisations — sports physiotherapy, post-surgical rehabilitation, paediatric physiotherapy, geriatric care, women's health physiotherapy, occupational therapy, and workplace ergonomics. Each specialisation has its own audience, search behaviour, and marketing approach. We build dedicated landing pages, ad campaigns, and content for each service line." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Physiotherapy Marketing Singapore", "item": "https://jraftcreative.com/physiotherapy-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Physiotherapy Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for physiotherapy clinics in Singapore — website, SEO, Google Ads, social media, and content marketing. Grow patient bookings from $3,000 SGD/month."
+  canonical="https://jraftcreative.com/physiotherapy-marketing-singapore/"
+  ogTitle="Physiotherapy Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for physiotherapy clinics in Singapore. Website, SEO, Google Ads, social media — one agency, one strategy, more patients."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="physiotherapy marketing singapore, physio clinic marketing agency, physiotherapy advertising singapore, physio digital marketing, physiotherapy clinic promotion, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Physiotherapy Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your appointment book. Stop juggling vendors and start running a unified patient acquisition strategy."
+  heroImage="/images/service-physiotherapy.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my physiotherapy clinic in Singapore."
+  ctaLabel="Ready to Grow Your Patient Base?"
+  ctaTitle="Get Your Free Physiotherapy Clinic Marketing Audit"
+  ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your clinic's patient acquisition goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why physiotherapy clinics need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Referrals Alone Will Not Sustain Your Growth</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has hundreds of physiotherapy clinics — from hospital-linked practices in Novena to boutique sports physio studios in the CBD. Add chain clinics, polyclinic physiotherapy, and home-visit services to the mix, and patients have no shortage of options. When someone searches "physiotherapy near me" or "sports injury clinic Singapore," the clinics that appear at the top of Google capture the majority of bookings.</p>
+        <p>Many physiotherapy clinics depend heavily on doctor referrals and word-of-mouth. While these channels are valuable, they are limited and unpredictable. A patient searching Google for "physiotherapy for frozen shoulder" at 10pm is not going to call their GP for a referral — they are going to book directly with whichever clinic appears first in search results and has a professional website with clear information about that condition.</p>
+        <p>Full-service marketing solves this by building visibility across every channel patients use to find physiotherapy — a professional website that explains your services and makes booking easy, SEO that ranks your clinic for condition-specific and location-based searches, ads that capture patients in acute pain who need immediate help, and content that positions your physiotherapists as the trusted authorities in their specialisations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for physiotherapy clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Everything Your Physiotherapy Clinic Needs to Grow</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We handle every aspect of your physiotherapy clinic's marketing in-house — from designing a website that converts visitors into booked patients, to ranking your clinic on Google for every specialisation you offer, running targeted ads that capture patients in pain, and creating content that builds long-term authority. No outsourcing, no subcontractors. One team, one strategy, measurable patient growth.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A professional, mobile-responsive website that clearly presents your services, practitioner credentials, clinic locations, and makes booking an appointment seamless. Condition-specific pages, treatment explanations, and patient testimonials — designed for how Singapore patients evaluate and choose physiotherapy clinics.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank on Google for the conditions and locations your clinic covers — "physiotherapy Tampines," "sports injury clinic CBD," "post-surgery rehab Singapore." Google Business Profile optimisation with review management, local citations, and condition-specific content that drives organic appointment bookings month after month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Search</h3>
+            <p>Targeted Google Ads campaigns that capture patients actively searching for physiotherapy in Singapore. Patients in pain have high urgency — we build campaigns around condition-specific keywords, manage budgets to maximise cost-per-booking, and ensure your clinic appears at the top of search results when patients need help most.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Content Marketing &amp; Social Media</h3>
+            <p>Patient education articles, exercise guides, injury prevention content, and practitioner profiles that build trust and authority. Instagram and Facebook content that humanises your clinic — treatment demonstrations, patient success stories, team spotlights, and wellness tips that keep your clinic top-of-mind for both direct patients and referral sources.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for physiotherapy marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands Healthcare</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with physiotherapy clinics, medical practices, and wellness businesses across Singapore. We understand the patient journey, healthcare marketing regulations, and the trust-building that healthcare marketing demands:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Healthcare Marketing Expertise</h3>
+            <p>We know the Singapore healthcare market — patient search behaviour, condition-specific targeting, the importance of practitioner credibility, and compliance with healthcare advertising guidelines. Your marketing strategy is built on industry knowledge and regulatory awareness.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, In-House</h3>
+            <p>Website, SEO, ads, content, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same clinical brand, targeting the same patient audience with a unified, compliant message.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Patient Acquisition Reporting</h3>
+            <p>We do not report on vanity metrics. You get clear data on appointment bookings, patient enquiries, cost per lead by service line, and channel performance — the numbers that directly impact your clinic's patient volume and revenue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for physiotherapy clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Physiotherapy Clinics</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location clinics building a marketing foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For clinics ready to scale patient acquisition across channels.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Facebook &amp; Instagram Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Patient-focused content strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-branch physiotherapy groups.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-branch campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Referral network campaigns</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about physiotherapy marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Physiotherapy Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should a physiotherapy clinic spend on marketing in Singapore?</summary>
+          <div class="faq-answer"><p>Most physiotherapy clinics in Singapore invest between $2,500 and $8,000 per month on marketing. A typical allocation covers website maintenance, SEO, Google Ads, and content marketing. The right budget depends on your clinic's size, number of branches, specialisations, and patient acquisition targets. Our Essential plan at $3,000/month is a strong starting point for single-location clinics.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing generates new patients for my physiotherapy clinic?</summary>
+          <div class="faq-answer"><p>Paid channels like Google Ads can generate patient enquiries within the first week — people searching for physiotherapy are often in acute pain and ready to book immediately. SEO typically takes 3–6 months to build sustainable organic traffic. Content marketing and social media build authority over 2–3 months. Most clients see a meaningful increase in appointment bookings within the first 60 days.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What marketing channels work best for physiotherapy clinics in Singapore?</summary>
+          <div class="faq-answer"><p>Google Search is the highest-intent channel — patients searching for "physiotherapy near me" or "sports physio Singapore" are ready to book. Google Business Profile is critical for local visibility and reviews. Content marketing builds long-term organic traffic through patient education articles. Social media builds credibility and keeps your clinic top-of-mind. A professional website ties everything together.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you understand healthcare marketing regulations in Singapore?</summary>
+          <div class="faq-answer"><p>Yes. We are familiar with the Singapore Medical Council guidelines and PHMC advertising regulations that apply to physiotherapy clinics. We ensure all marketing content avoids prohibited claims, uses appropriate disclaimers, and maintains the professional standards expected in healthcare marketing. All content is reviewed for compliance before publication.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help market specialised physiotherapy services?</summary>
+          <div class="faq-answer"><p>Yes. We create targeted campaigns for each of your specialisations — sports physiotherapy, post-surgical rehabilitation, paediatric physiotherapy, geriatric care, women's health physiotherapy, and workplace ergonomics. Each specialisation has its own audience, search behaviour, and marketing approach. We build dedicated landing pages, ad campaigns, and content for each service line.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
