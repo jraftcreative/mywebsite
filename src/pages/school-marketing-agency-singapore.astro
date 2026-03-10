@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "School Marketing Agency Singapore",
+    "description": "Full-service marketing agency for schools in Singapore — international schools, private schools, tuition centres, and enrichment centres. Website design, SEO, Google Ads, social media, and parent communication. From $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "School Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile, social media content, and monthly reporting for schools and education centres" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads, Facebook and Instagram Ads, content marketing strategy, open house campaigns, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-campus campaigns, video content, parent communication systems, brand positioning, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What types of schools do you provide marketing for?", "acceptedAnswer": { "@type": "Answer", "text": "We work with all types of schools in Singapore — international schools, private schools, tuition centres, enrichment centres, preschools, childcare centres, music schools, coding academies, language centres, and specialist education providers. Each school type has unique admissions cycles, parent demographics, and competitive dynamics that we account for in every strategy." } },
+      { "@type": "Question", "name": "How do you differentiate a school's brand from competitors?", "acceptedAnswer": { "@type": "Answer", "text": "We start with a brand positioning audit — analysing your unique strengths, curriculum differentiators, teaching philosophy, student outcomes, and campus experience. Then we translate these differentiators into consistent messaging across your website, social media, ads, and content. The goal is a clear, authentic brand identity that parents can immediately understand and connect with." } },
+      { "@type": "Question", "name": "How important is parent communication in school marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Critical. Existing parent satisfaction drives referrals, reviews, and retention — all of which directly impact enrolment. We help schools build parent communication systems including email newsletters, social media community management, event promotion, and feedback collection. Happy, informed parents are your most powerful marketing channel." } },
+      { "@type": "Question", "name": "Can you manage marketing for multiple campuses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-campus schools need location-specific SEO, separate Google Business Profiles, localised ad campaigns, and consistent brand messaging across all campuses. Our Growth and Enterprise plans include multi-campus campaign management with individual performance tracking, unified reporting, and campus-specific content strategies." } },
+      { "@type": "Question", "name": "How do you help with school admissions marketing?", "acceptedAnswer": { "@type": "Answer", "text": "We build end-to-end admissions campaigns — optimised landing pages for each intake period, Google Ads targeting parents in specific demographics, Facebook awareness campaigns, open house event promotion, email sequences for registered leads, and post-event follow-up nurturing. We time campaigns around Singapore's admissions calendar for maximum impact." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "School Marketing Agency Singapore", "item": "https://jraftcreative.com/school-marketing-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="School Marketing Agency Singapore — Full-Service | Jraft Creative"
+  description="Full-service marketing agency for schools in Singapore — international schools, private schools, tuition centres, enrichment centres. Website, SEO, ads, social media. From $3,000 SGD/month."
+  canonical="https://jraftcreative.com/school-marketing-agency-singapore/"
+  ogTitle="School Marketing Agency Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for schools in Singapore. International, private, tuition, enrichment — website, SEO, ads, social media. One agency, unified strategy."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="school marketing agency singapore, school marketing singapore, school advertising agency, marketing for schools, school digital marketing singapore, school admissions marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="School Marketing Agency Singapore"
+  heroTitle='Full-Service <span class="highlight">School Marketing Agency in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and parent communication for international schools, private schools, tuition centres, and enrichment centres. One agency partner for every channel that drives admissions."
+  heroImage="/images/service-education.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a marketing agency for my school in Singapore."
+  ctaLabel="Ready to Grow Admissions?"
+  ctaTitle="Get Your Free School Marketing Audit"
+  ctaDescription="Book a free consultation and we'll assess your school's digital presence, analyse your competitive landscape, and recommend a marketing strategy tailored to your admissions goals. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20marketing%20agency%20for%20my%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why schools need a specialist marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Admissions Don't Fill Themselves Anymore</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>The days when schools could rely solely on reputation and word-of-mouth for admissions are over. Singapore's education landscape is more competitive than ever — international schools compete for expat families, private schools differentiate on curriculum and outcomes, tuition centres fight for enrolments across subjects and levels, and enrichment centres battle for attention in an overcrowded market.</p>
+        <p>Parents today are digital-first researchers. Before attending an open house or submitting an admissions enquiry, they've already compared websites, read Google reviews, checked social media feeds, watched campus tour videos, and discussed options in parent WhatsApp groups. Schools that aren't visible, professional, and compelling across these channels lose admissions to competitors who are — regardless of programme quality.</p>
+        <p>A specialist school marketing agency understands these dynamics. We know the admissions calendar, the parent decision journey, and the competitive positioning strategies that differentiate one school from another. We build multi-channel marketing systems that attract the right families, communicate your unique value, and convert interest into confirmed admissions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="School marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Multi-Channel Marketing for Schools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We provide integrated marketing across every channel that drives school admissions — from a brand-aligned website to search visibility, paid advertising, social media content, and parent communication systems. Everything is managed in-house by one team with education sector expertise, so your brand stays consistent and your strategy stays unified.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A professional, brand-aligned website that communicates your school's identity, curriculum, facilities, faculty, and student outcomes. Virtual campus tours, programme pages, admissions information, event calendars, and parent portals — designed to convert interested families into admissions enquiries. <a href="/services/website-development/">View web design services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Search Visibility</h3>
+            <p>Rank for the searches parents use when evaluating schools — "international school Singapore", "IB school Bukit Timah", "best tuition centre for PSLE", "enrichment centre near Novena". Google Business Profile management, local SEO for each campus, and content marketing that positions your school as an authority. <a href="/services/seo-performance/">View SEO services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Paid Ads &amp; Admissions Campaigns</h3>
+            <p>Google Ads, Facebook, and Instagram campaigns timed to admissions cycles. Open house event promotion, admissions deadline campaigns, retargeting for website visitors who didn't enquire, and lookalike audiences to find more families matching your ideal parent profile. <a href="/services/paid-ads/">View paid ads services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Brand Building</h3>
+            <p>Platform-specific content that brings your school's story to life — student achievements, campus events, teacher spotlights, curriculum highlights, and parent testimonials across Instagram, Facebook, LinkedIn, and TikTok. Build the social proof that parents need to shortlist your school. <a href="/social-media-marketing-singapore/">View social media services</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your school marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Agency That Speaks Education</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We've built our agency with deep expertise in Singapore's education sector. From international school admissions campaigns to tuition centre enrolment drives, we understand the marketing dynamics that are unique to schools:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>All School Types, One Agency</h3>
+            <p>International schools, private schools, tuition centres, enrichment centres, preschools, and childcare — we understand the unique admissions dynamics, parent demographics, and competitive landscape of each segment. One agency with cross-sector education expertise.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Brand Positioning Expertise</h3>
+            <p>In a crowded market, differentiation matters. We help schools articulate their unique value proposition — whether it's curriculum approach, student outcomes, campus culture, or community values — and communicate it consistently across every marketing channel.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Parent Communication Systems</h3>
+            <p>Admissions marketing doesn't stop at the enquiry. We build parent communication frameworks — email newsletters, event invitations, social media community management, and feedback loops — that improve retention, generate referrals, and build long-term brand loyalty.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Flexible, No Lock-in Plans</h3>
+            <p>Month-to-month retainers on every plan. Scale up for admissions season, adjust during quieter periods. No long-term contracts — we earn your business through consistent results and strategic partnership.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="School marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Schools</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-campus schools building their digital foundation.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For schools driving admissions with ads and content campaigns.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Facebook &amp; Instagram Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Open house &amp; event campaigns</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-campus schools.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-campus campaign management</li>
+              <li>Video content &amp; virtual tours</li>
+              <li>Parent communication systems</li>
+              <li>Brand positioning &amp; strategy</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Looking for segment-specific services? See our <a href="/tuition-centre-marketing-singapore/" class="inline-link">tuition centre marketing</a>, <a href="/enrichment-centre-marketing-singapore/" class="inline-link">enrichment centre marketing</a>, <a href="/preschool-marketing-singapore/" class="inline-link">preschool marketing</a>, or <a href="/education-marketing-agency-singapore/" class="inline-link">education marketing</a> pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about school marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>School Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What types of schools do you provide marketing for?</summary>
+          <div class="faq-answer"><p>We work with all types of schools in Singapore — international schools, private schools, <a href="/tuition-centre-marketing-singapore/">tuition centres</a>, <a href="/enrichment-centre-marketing-singapore/">enrichment centres</a>, <a href="/preschool-marketing-singapore/">preschools</a>, <a href="/childcare-marketing-singapore/">childcare centres</a>, music schools, coding academies, language centres, and specialist education providers. Each school type has unique admissions cycles, parent demographics, and competitive dynamics that we account for in every strategy.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you differentiate a school's brand from competitors?</summary>
+          <div class="faq-answer"><p>We start with a brand positioning audit — analysing your unique strengths, curriculum differentiators, teaching philosophy, student outcomes, and campus experience. Then we translate these differentiators into consistent messaging across your website, social media, ads, and content. The goal is a clear, authentic brand identity that parents can immediately understand and connect with.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How important is parent communication in school marketing?</summary>
+          <div class="faq-answer"><p>Critical. Existing parent satisfaction drives referrals, reviews, and retention — all of which directly impact enrolment. We help schools build parent communication systems including email newsletters, social media community management, event promotion, and feedback collection. Happy, informed parents are your most powerful marketing channel.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you manage marketing for multiple campuses?</summary>
+          <div class="faq-answer"><p>Yes. Multi-campus schools need location-specific <a href="/services/seo-performance/">SEO</a>, separate Google Business Profiles, localised <a href="/services/paid-ads/">ad campaigns</a>, and consistent brand messaging across all campuses. Our Growth and Enterprise plans include multi-campus campaign management with individual performance tracking, unified reporting, and campus-specific content strategies.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you help with school admissions marketing?</summary>
+          <div class="faq-answer"><p>We build end-to-end admissions campaigns — optimised landing pages for each intake period, Google Ads targeting parents in specific demographics, Facebook awareness campaigns, open house event promotion, email sequences for registered leads, and post-event follow-up nurturing. We time campaigns around Singapore's admissions calendar for maximum impact.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

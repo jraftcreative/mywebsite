@@ -1,0 +1,262 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Preschool Branding Singapore",
+    "description": "Professional branding for preschools in Singapore — child-friendly logo design, visual identity, trust-building collateral, signage, and parent communication materials. From $3,500 SGD.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Preschool Branding",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Preschool Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography, and basic brand guidelines for new preschools" },
+      { "@type": "Offer", "name": "Business Preschool Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full brand identity with logo suite, brand guidelines, parent communication templates, signage design, and enrolment collateral" },
+      { "@type": "Offer", "name": "Premium Preschool Branding", "price": "15000", "priceCurrency": "SGD", "description": "End-to-end brand strategy, visual identity, complete collateral suite, signage, uniform design, and multi-centre brand rollout" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does preschool branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Preschool branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with parent communication materials, signage, and enrolment collateral starts from $7,500. Premium branding with full strategy, multi-centre rollout, and uniform design starts from $15,000." } },
+      { "@type": "Question", "name": "What should a preschool brand look like?", "acceptedAnswer": { "@type": "Answer", "text": "A preschool brand should be child-friendly without being childish. It needs to feel warm, nurturing, and safe to parents while being visually engaging for young children. The best preschool brands use soft but confident colour palettes, rounded and approachable typography, and imagery that conveys a caring educational environment. Critically, the brand must also project professionalism and credibility — parents are entrusting their youngest children to your care." } },
+      { "@type": "Question", "name": "How long does preschool branding take?", "acceptedAnswer": { "@type": "Answer", "text": "A typical preschool branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines are completed in 2 to 3 weeks. Full brand identity systems with signage, parent materials, and uniform design take 4 to 6 weeks. We work with your timeline and can align delivery with your registration season." } },
+      { "@type": "Question", "name": "Do you design uniforms and merchandise for preschools?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Premium package includes uniform design — polo shirts, PE wear, school bags, and other merchandise items featuring your brand identity. We provide design files and specifications that your uniform supplier can produce directly. Many preschools find branded uniforms strengthen parent perception and build community among students." } },
+      { "@type": "Question", "name": "Can you help with ECDA compliance for branding materials?", "acceptedAnswer": { "@type": "Answer", "text": "While branding itself does not fall under ECDA regulations, we are familiar with the guidelines that govern how preschools in Singapore communicate with parents. We ensure your branding materials — including prospectuses, fee schedules, and parent handbooks — are formatted appropriately and present your centre as a professionally managed early childhood education provider." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Preschool Branding Singapore", "item": "https://jraftcreative.com/preschool-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Preschool Branding Singapore &mdash; Logo &amp; Brand Identity | Jraft Creative"
+  description="Professional branding for preschools in Singapore — child-friendly logo design, visual identity, trust-building collateral, signage, and parent communication materials. From $3,500 SGD."
+  canonical="https://jraftcreative.com/preschool-branding-singapore/"
+  ogTitle="Preschool Branding Singapore — Jraft Creative"
+  ogDescription="Child-friendly yet professional brand identity for preschools in Singapore. Logo design, signage, parent materials, and uniform design that builds trust."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="preschool branding singapore, preschool logo design, preschool brand identity, kindergarten branding singapore, early childhood branding, childcare branding singapore, preschool marketing materials, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Preschool Branding"
+  heroTitle='Professional <span class="highlight">Branding for Preschools in Singapore</span>'
+  heroSubtitle="Parents choosing a preschool are making one of their most emotionally charged decisions. Your brand needs to project warmth, safety, and educational excellence — all at a single glance. We build preschool identities that earn trust before a parent ever visits your centre."
+  heroImage="/images/service-preschool.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my preschool in Singapore."
+  ctaLabel="Ready to Build Your Preschool Brand?"
+  ctaTitle="Get a Brand That Parents Trust with Their Children"
+  ctaDescription="Book a free consultation and tell us about your preschool. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for preschools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Preschool's First Impression Decides Everything</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Choosing a preschool is deeply personal for Singapore parents. They are entrusting their youngest children — some as young as 18 months — to your care for hours each day. Before they visit, they research online. Before they research, they form a first impression based on your brand. A dated logo, inconsistent colours, and amateur-looking flyers do not just fail to impress — they actively erode the trust parents need to feel before they even book a tour.</p>
+        <p>Singapore has over 1,800 registered preschools and kindergartens. Competition is fierce, and new centres open every year. Many operators focus entirely on curriculum and facilities, treating branding as an afterthought. The result is a sea of preschools with forgettable names, generic rainbow logos, and marketing materials that look like they were designed in PowerPoint. Parents cannot tell them apart, so they default to the established names or the centre their colleague recommended.</p>
+        <p>A professionally branded preschool breaks through this noise. It communicates three things parents need to feel before they enrol: this centre is safe, this centre is professionally managed, and this centre cares about quality in everything it does. From your signage to your parent handbook to your staff uniforms, every brand touchpoint either builds or breaks that perception.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Preschool branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Branding Services for Preschools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build complete brand identities designed specifically for the early childhood education sector. Every element — from your logo and colour palette to your parent communication templates and centre signage — is crafted to project the warmth, safety, and professionalism that Singapore parents demand from a preschool.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A custom logo that feels warm and nurturing without being cartoonish. Designed to work on signage, uniforms, stationery, and digital platforms. Includes primary, stacked, icon, and monochrome variations with clear usage rules.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Parent Communication Materials</h3>
+            <p>Prospectus, parent handbook, fee schedule templates, progress report designs, and event invitation templates — all branded and formatted to give parents confidence in your centre's professionalism and attention to detail.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Enrolment Collateral &amp; Brochures</h3>
+            <p>Registration packs, programme brochures, open house flyers, and waiting list communications designed to convert enquiring parents into enrolled families. Materials that look polished enough to share with friends and family.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Signage &amp; Uniform Design</h3>
+            <p>Centre signage, classroom labels, safety signage, wall graphics, staff uniform design, and student uniform design. Every physical touchpoint in your centre reflects your brand identity and reinforces the quality parents expect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for preschool branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Preschools Choose Us for Branding</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand that preschool branding operates in a uniquely sensitive space. Parents are making an emotional decision about their child's safety and development. Every design choice we make is informed by this reality. Here is what sets our preschool branding apart:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Early Childhood Sector Expertise</h3>
+            <p>We have built brands for preschools, kindergartens, and childcare centres across Singapore. We understand ECDA expectations, parent psychology, and the visual language that signals trust and nurturing care to families with young children.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Capability</h3>
+            <p>Branding, <a href="/preschool-website-design-singapore/">website design</a>, <a href="/preschool-seo-singapore/">SEO</a>, and <a href="/social-media-marketing-singapore/">social media</a> — all under one roof. Your preschool brand flows seamlessly from centre signage to your online presence without miscommunication between agencies.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Fixed Pricing &amp; Full Ownership</h3>
+            <p>One-time project fee with no hidden costs. You receive full ownership of every asset — logos, guidelines, templates, source files, and print-ready artwork. No monthly retainers and no ongoing fees for the branding work itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Trust-First Design Philosophy</h3>
+            <p>Every design decision passes through one filter: does this build parent trust? We avoid gimmicky designs and overly childish aesthetics that undermine credibility. The result is a brand that feels warm and child-friendly while projecting the professional management parents need to see.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Preschool branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>Preschool Branding Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$3,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new preschools establishing their brand.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$7,500 <span>SGD</span></div>
+            <p class="pricing-desc">For centres that need a complete brand system.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Parent handbook &amp; prospectus design</li>
+              <li>Enrolment pack &amp; brochure design</li>
+              <li>Signage design (exterior &amp; interior)</li>
+              <li>Social media profile templates</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$15,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For established or multi-centre preschools.</p>
+            <ul class="pricing-features">
+              <li>Brand strategy &amp; market positioning</li>
+              <li>Full visual identity system</li>
+              <li>Complete collateral suite</li>
+              <li>Signage &amp; environmental design</li>
+              <li>Uniform design (staff &amp; students)</li>
+              <li>Multi-centre brand rollout</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about preschool branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Preschool Branding Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does preschool branding cost in Singapore?</summary>
+          <div class="faq-answer"><p>Preschool branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with parent communication materials, signage, and enrolment collateral starts from $7,500. Premium branding with full strategy, multi-centre rollout, and uniform design starts from $15,000.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What should a preschool brand look like?</summary>
+          <div class="faq-answer"><p>A preschool brand should be child-friendly without being childish. It needs to feel warm, nurturing, and safe to parents while being visually engaging for young children. The best preschool brands use soft but confident colour palettes, rounded and approachable typography, and imagery that conveys a caring educational environment. Critically, the brand must also project professionalism and credibility — parents are entrusting their youngest children to your care.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does preschool branding take?</summary>
+          <div class="faq-answer"><p>A typical preschool branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines are completed in 2 to 3 weeks. Full brand identity systems with signage, parent materials, and uniform design take 4 to 6 weeks. We work with your timeline and can align delivery with your registration season.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you design uniforms and merchandise for preschools?</summary>
+          <div class="faq-answer"><p>Yes. Our Premium package includes uniform design — polo shirts, PE wear, school bags, and other merchandise items featuring your brand identity. We provide design files and specifications that your uniform supplier can produce directly. Many preschools find branded uniforms strengthen parent perception and build community among students.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help with ECDA compliance for branding materials?</summary>
+          <div class="faq-answer"><p>While branding itself does not fall under ECDA regulations, we are familiar with the guidelines that govern how preschools in Singapore communicate with parents. We ensure your branding materials — including prospectuses, fee schedules, and parent handbooks — are formatted appropriately and present your centre as a professionally managed early childhood education provider.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

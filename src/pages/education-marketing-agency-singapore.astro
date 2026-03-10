@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Education Marketing Agency Singapore",
+    "description": "Full-service education marketing agency in Singapore — website design, SEO, Google Ads, social media, and content marketing for tuition centres, enrichment centres, preschools, childcare, and schools. From $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Education Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile, social media content, and monthly reporting for education businesses" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads, Facebook and Instagram Ads, content marketing strategy, enrolment campaigns, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-location campaigns, video content, advanced ad funnels, seasonal campaign management, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What types of education businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work across Singapore's entire education sector — tuition centres, enrichment centres, preschools, childcare centres, kindergartens, international schools, private schools, music schools, coding academies, language centres, STEM programmes, sports academies, and edtech platforms. Each segment has unique marketing dynamics, and we tailor strategies accordingly." } },
+      { "@type": "Question", "name": "How big is Singapore's education market?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore's private education and enrichment market is valued at over $1.68 billion annually. With 800+ tuition centres, 1,600+ enrichment centres, and hundreds of preschools and childcare centres, competition for student enrolments is intense. The centres that invest in consistent, professional marketing are the ones that sustain growth." } },
+      { "@type": "Question", "name": "How is education marketing different from general marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Education marketing targets parents and students — an audience that researches extensively, compares options, reads reviews, and makes decisions based on trust and outcomes. Enrolment cycles are seasonal. Keywords are subject-specific and level-specific. And the decision-making process is longer and more emotional than typical consumer purchases. Generic marketing agencies miss these nuances." } },
+      { "@type": "Question", "name": "Do you offer marketing for multiple branches or locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-location education businesses need location-specific SEO, separate Google Business Profiles for each branch, localised ad campaigns with distinct budgets, and unified brand messaging across all outlets. Our Growth and Enterprise plans include multi-branch campaign management with per-location performance tracking." } },
+      { "@type": "Question", "name": "How do you measure success for education marketing?", "acceptedAnswer": { "@type": "Answer", "text": "We track enrolment-focused metrics — enquiry volume, trial class bookings, registration form submissions, cost per lead, and channel attribution. We also monitor keyword rankings, organic traffic, ad performance, and social media engagement. Every report ties marketing spend directly to business outcomes you care about." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Education Marketing Agency Singapore", "item": "https://jraftcreative.com/education-marketing-agency-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Education Marketing Agency Singapore — Full-Service | Jraft Creative"
+  description="Full-service education marketing agency in Singapore. Website, SEO, Google Ads, social media for tuition centres, enrichment centres, preschools, schools. From $3,000 SGD/month."
+  canonical="https://jraftcreative.com/education-marketing-agency-singapore/"
+  ogTitle="Education Marketing Agency Singapore — Jraft Creative"
+  ogDescription="Full-service marketing agency for education businesses in Singapore. Tuition, enrichment, preschools, schools — one agency, complete digital strategy."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="education marketing agency singapore, education marketing singapore, marketing for schools singapore, marketing for tuition centres, education digital marketing, education advertising singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Education Marketing Agency Singapore"
+  heroTitle='Full-Service <span class="highlight">Education Marketing Agency in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and content marketing for every segment of Singapore's $1.68B education industry. Tuition centres, enrichment programmes, preschools, childcare, and schools — one agency with the expertise to grow them all."
+  heroImage="/images/service-education.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a marketing agency for my education business in Singapore."
+  ctaLabel="Ready to Grow Enrolments?"
+  ctaTitle="Get Your Free Education Marketing Audit"
+  ctaDescription="Book a free consultation and we'll assess your education business's digital presence, benchmark you against competitors in your segment, and map out a growth strategy. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20marketing%20agency%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why education businesses need a specialist marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Singapore's Education Market Is Fiercely Competitive</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's private education and enrichment industry is valued at over $1.68 billion annually. With 800+ tuition centres, 1,600+ enrichment centres, hundreds of preschools, and a growing number of international and private schools, the competition for student enrolments is intense. Every year, new centres open while existing ones fight to maintain occupancy rates.</p>
+        <p>Parents and students research extensively before making enrolment decisions. They compare Google search results, read reviews on Google and forums, check social media for photos and testimonials, visit websites to compare curricula and pricing, and attend open houses at multiple centres. If your education business isn't visible and compelling across these touchpoints, you're losing students to competitors who are.</p>
+        <p>A specialist education marketing agency understands these dynamics — the seasonal enrolment cycles, the parent decision journey, the subject-specific keyword landscape, and the trust signals that drive registration. Generic agencies miss these nuances, resulting in campaigns that generate clicks but not enrolments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Education marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Full-Service Marketing for Education Businesses</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We provide integrated marketing across every channel that drives education enrolments — a high-converting website, search visibility for programme-specific keywords, targeted paid advertising, and social media content that builds parent and student trust. All managed in-house by one team with deep education sector experience.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>Professional, conversion-optimised websites for education businesses. Programme pages, teacher profiles, fee structures, branch locations, testimonials, and online enquiry forms. Designed around the way parents and students evaluate education providers. <a href="/services/website-development/">View web design services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Education-specific keyword strategies covering subjects, levels, programme types, and neighbourhoods. Google Business Profile optimisation for every branch. Local SEO that captures "near me" searches. Content marketing that positions your brand as an authority in your education segment. <a href="/education-seo-singapore/">View education SEO</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Campaigns</h3>
+            <p>Targeted ad campaigns across Google Search, Display, and YouTube. We build campaigns around high-intent education keywords, manage seasonal budgets for peak registration periods, and retarget parents and students who visited your site without enquiring. <a href="/education-google-ads-singapore/">View education Google Ads</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content</h3>
+            <p>Platform-specific content across Instagram, Facebook, TikTok, and LinkedIn. Student success stories, programme highlights, teacher spotlights, exam tips, and behind-the-scenes content. We build the social proof parents and students need to choose your institution. <a href="/social-media-marketing-singapore/">View social media services</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your education marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An Agency Built for the Education Sector</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We've built our education marketing practice around deep understanding of Singapore's education landscape. From tuition centres in Tampines to international schools in Bukit Timah, we know what drives enrolment decisions across every segment:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cross-Segment Expertise</h3>
+            <p>We work with tuition centres, enrichment programmes, preschools, childcare centres, and schools. This cross-segment experience gives us unmatched insight into keyword landscapes, competitive positioning, and parent behaviour across the entire education market.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Singapore Market Knowledge</h3>
+            <p>We understand MOE curricula, PSLE/O-Level/A-Level cycles, ECDA regulations, international school admissions timelines, and the cultural dynamics that influence education decisions in Singapore. Your marketing is locally informed, not imported.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Enrolment-Focused Metrics</h3>
+            <p>We measure what matters — enquiry volume, trial bookings, cost per enrolment, and channel attribution. Every report connects marketing spend directly to student registrations, not vanity metrics like impressions or followers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full-Service, No Lock-ins</h3>
+            <p>Website, SEO, ads, and social media — all under one roof. Month-to-month retainers with no long-term contracts. Scale your marketing around enrolment seasons and adjust when needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Education marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Education Businesses</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location education businesses building visibility.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For education businesses scaling enrolments with paid ads and content.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Facebook &amp; Instagram Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Enrolment campaign strategy</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-branch education businesses.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-location campaign management</li>
+              <li>Video content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Seasonal enrolment campaigns</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Looking for segment-specific services? See our <a href="/tuition-centre-marketing-singapore/" class="inline-link">tuition centre marketing</a>, <a href="/enrichment-centre-marketing-singapore/" class="inline-link">enrichment centre marketing</a>, <a href="/preschool-marketing-singapore/" class="inline-link">preschool marketing</a>, or <a href="/childcare-marketing-singapore/" class="inline-link">childcare marketing</a> pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about education marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Education Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What types of education businesses do you work with?</summary>
+          <div class="faq-answer"><p>We work across Singapore's entire education sector — <a href="/tuition-centre-marketing-singapore/">tuition centres</a>, <a href="/enrichment-centre-marketing-singapore/">enrichment centres</a>, <a href="/preschool-marketing-singapore/">preschools</a>, <a href="/childcare-marketing-singapore/">childcare centres</a>, kindergartens, international schools, private schools, music schools, coding academies, language centres, STEM programmes, sports academies, and edtech platforms. Each segment has unique marketing dynamics, and we tailor strategies accordingly.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How big is Singapore's education market?</summary>
+          <div class="faq-answer"><p>Singapore's private education and enrichment market is valued at over $1.68 billion annually. With 800+ tuition centres, 1,600+ enrichment centres, and hundreds of preschools and childcare centres, competition for student enrolments is intense. The centres that invest in consistent, professional marketing are the ones that sustain growth year over year.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How is education marketing different from general marketing?</summary>
+          <div class="faq-answer"><p>Education marketing targets parents and students — an audience that researches extensively, compares options, reads reviews, and makes decisions based on trust and outcomes. Enrolment cycles are seasonal. Keywords are subject-specific and level-specific. And the decision-making process is longer and more emotional than typical consumer purchases. Generic marketing agencies miss these nuances.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you offer marketing for multiple branches or locations?</summary>
+          <div class="faq-answer"><p>Yes. Multi-location education businesses need location-specific <a href="/services/seo-performance/">SEO</a>, separate Google Business Profiles for each branch, localised <a href="/services/paid-ads/">ad campaigns</a> with distinct budgets, and unified brand messaging across all outlets. Our Growth and Enterprise plans include multi-branch campaign management with per-location performance tracking.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success for education marketing?</summary>
+          <div class="faq-answer"><p>We track enrolment-focused metrics — enquiry volume, trial class bookings, registration form submissions, cost per lead, and channel attribution. We also monitor keyword rankings, organic traffic, ad performance, and social media engagement. Every report ties marketing spend directly to business outcomes you care about.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

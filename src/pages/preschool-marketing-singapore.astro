@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Preschool Marketing Singapore",
+    "description": "Full-service digital marketing for preschools in Singapore — website design, SEO, Google Ads, social media, and parent engagement campaigns. Build trust and grow enrolments. From $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Preschool Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website, SEO foundations, Google Business Profile, social media content, and monthly reporting for single-branch preschools" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads, Facebook and Instagram Ads, parent engagement campaigns, open house promotion, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service marketing with dedicated strategist, multi-branch campaigns, video tours, waitlist management campaigns, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do parents choose a preschool in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most parents start with a Google search — 'preschool near me', 'best preschool in Punggol', or 'Montessori preschool Singapore'. They compare websites, read Google reviews, check social media for photos and videos of the learning environment, and attend open houses before making a decision. A strong digital presence across these touchpoints is essential for capturing enrolments." } },
+      { "@type": "Question", "name": "How much should a preschool invest in marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Preschools in Singapore typically invest between $3,000 and $8,000 per month on marketing. This covers website maintenance, SEO, paid advertising, and social media content. Our Essential plan at $3,000/month provides a solid foundation for single-branch preschools, while the Growth plan at $5,500/month adds paid ads and open house campaigns for faster enrolment growth." } },
+      { "@type": "Question", "name": "How do you build trust with parents through marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Trust is built through consistency and authenticity. We create content that shows your preschool's real environment — teacher interactions, learning activities, outdoor play, and milestone celebrations. Google reviews are actively managed, parent testimonials are featured prominently, and your website communicates your curriculum philosophy clearly. Nothing generic or stock-photo-driven." } },
+      { "@type": "Question", "name": "Can you promote preschool open house events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run full open house campaigns including landing page creation, Google Ads targeting parents in your area, Facebook event promotion, email sequences to registered leads, WhatsApp broadcast coordination, and social media countdown content. Post-event follow-up sequences nurture parents who attended but haven't enrolled yet." } },
+      { "@type": "Question", "name": "How do you handle ECDA and SPARK certification in marketing?", "acceptedAnswer": { "@type": "Answer", "text": "We highlight your ECDA licence, SPARK certification, and any curriculum accreditations as trust signals in your marketing — featuring them on your website, in ad copy, and on social media. Parents searching for 'SPARK-certified preschool' or 'ECDA-licensed kindergarten' are high-intent prospects, and we target these keywords specifically in SEO and paid campaigns." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Preschool Marketing Singapore", "item": "https://jraftcreative.com/preschool-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Preschool Marketing Singapore — Full-Service | Jraft Creative"
+  description="Full-service digital marketing for preschools in Singapore — website, SEO, Google Ads, social media, and parent engagement campaigns. Build trust and grow enrolments. From $3,000 SGD/month."
+  canonical="https://jraftcreative.com/preschool-marketing-singapore/"
+  ogTitle="Preschool Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service preschool marketing in Singapore. Website, SEO, Google Ads, social media — build parent trust and fill every classroom."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="preschool marketing singapore, preschool advertising singapore, preschool digital marketing, kindergarten marketing singapore, preschool enrolment marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Preschool Marketing Singapore"
+  heroTitle='Full-Service Marketing for <span class="highlight">Preschools in Singapore</span>'
+  heroSubtitle="Website, SEO, Google Ads, social media, and open house campaigns — managed by one agency to build parent trust and keep every classroom full. From registration to retention, we handle it all."
+  heroImage="/images/service-preschool.webp"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my preschool in Singapore."
+  ctaLabel="Ready to Grow Enrolments?"
+  ctaTitle="Get Your Free Preschool Marketing Audit"
+  ctaDescription="Book a free consultation and we'll review your preschool's digital presence, benchmark you against competing centres in your area, and recommend an enrolment growth strategy. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why preschools need full-service marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Research Online Before Booking a Tour</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Choosing a preschool is one of the most emotionally significant decisions Singapore parents make. They research extensively — comparing curricula, reading Google reviews, checking social media for photos of the learning environment, and visiting multiple centres before committing. If your preschool doesn't show up in their online research, you're not even in the consideration set.</p>
+        <p>Many preschools still rely on walk-in traffic, banners outside the centre, and word-of-mouth from existing parents. While these channels still generate some enrolments, they don't scale. A parent searching "Montessori preschool Punggol" or "best kindergarten near Sengkang" will enrol their child at the centre that appears first on Google — not the one with the best programme that nobody can find online.</p>
+        <p>Full-service marketing builds the trust and visibility preschools need. A warm, professional website. Strong Google rankings for your neighbourhood. Social content that gives parents a window into daily life at your centre. And targeted ads during registration season that fill your open house events with qualified leads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for preschools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>Marketing Built for Singapore Preschools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Preschool marketing requires a careful balance — you need to be professional and trustworthy, while also warm and approachable. We build marketing strategies that reflect your centre's personality and educational philosophy, driving parent enquiries through every channel that matters.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Website Design &amp; Development</h3>
+            <p>A warm, professional website that communicates your curriculum, teaching philosophy, facilities, and team. Virtual tour integration, class schedules, fee structures, and online enquiry forms — designed to convert anxious parents into confident tour bookings. <a href="/preschool-website-design-singapore/">View preschool web design</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank for neighbourhood-specific searches parents use — "preschool near Tampines", "kindergarten Bishan", "Montessori preschool Singapore". Google Business Profile optimisation with parent reviews, photos of your facilities, and posts about upcoming open houses. Local SEO that puts your centre on the map. <a href="/preschool-seo-singapore/">View preschool SEO</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Campaigns</h3>
+            <p>Targeted ads that reach parents searching for preschools in your area. We manage campaigns around registration periods, open house events, and waitlist-clearing windows. Retargeting brings back parents who visited your website but didn't book a tour. <a href="/preschool-advertising-singapore/">View preschool advertising</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Community</h3>
+            <p>Instagram and Facebook content that gives parents a genuine look at life inside your preschool — classroom activities, outdoor play, teacher spotlights, graduation celebrations, and parent community events. Content that builds emotional connection and trust before families even visit your centre. <a href="/social-media-marketing-singapore/">View social media services</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for preschool marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Partner That Understands Early Childhood</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with preschools, childcare centres, and kindergartens across Singapore. We understand the unique sensitivities of marketing to parents of young children — and how to position your centre as the trusted choice in your neighbourhood:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Early Childhood Focus</h3>
+            <p>We understand ECDA regulations, SPARK certification, MOE curriculum frameworks, and the parent concerns that drive preschool selection — safety, teacher quality, curriculum approach, and learning outcomes. Your marketing reflects this knowledge.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Trust-First Approach</h3>
+            <p>Preschool marketing must earn trust before it earns enrolments. We build campaigns around authentic content — real photos, genuine testimonials, transparent information — not stock images and empty promises.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Open House &amp; Event Campaigns</h3>
+            <p>We run end-to-end open house campaigns — landing pages, ads, email sequences, social promotion, and follow-up nurturing. Maximise attendance and convert attendees into enrolled families.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Month-to-Month, No Lock-ins</h3>
+            <p>All plans are month-to-month. Scale your marketing investment around registration periods and adjust during quieter months. No long-term contracts — we keep your business through results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Marketing pricing for preschools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Marketing Plans for Preschools</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-branch preschools building digital visibility.</p>
+            <ul class="pricing-features">
+              <li>Website design &amp; maintenance</li>
+              <li>SEO foundations (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>4 social media posts/month</li>
+              <li>Monthly performance report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For preschools scaling enrolments with ads and content campaigns.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Facebook &amp; Instagram Ads</li>
+              <li>8 social media posts/month</li>
+              <li>Open house campaign management</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service marketing for multi-branch preschool operators.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-branch campaign management</li>
+              <li>Video tours &amp; content production</li>
+              <li>Advanced ad funnels &amp; retargeting</li>
+              <li>Waitlist &amp; registration campaigns</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Need individual services? See our <a href="/preschool-seo-singapore/" class="inline-link">preschool SEO</a>, <a href="/preschool-advertising-singapore/" class="inline-link">preschool advertising</a>, or <a href="/preschool-website-design-singapore/" class="inline-link">website design</a> packages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about preschool marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Preschool Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do parents choose a preschool in Singapore?</summary>
+          <div class="faq-answer"><p>Most parents start with a Google search — "preschool near me", "best preschool in Punggol", or "Montessori preschool Singapore". They compare websites, read Google reviews, check social media for photos and videos of the learning environment, and attend open houses before making a decision. A strong digital presence across these touchpoints is essential for capturing enrolments.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How much should a preschool invest in marketing?</summary>
+          <div class="faq-answer"><p>Preschools in Singapore typically invest between $3,000 and $8,000 per month on marketing. This covers website maintenance, SEO, paid advertising, and social media content. Our Essential plan at $3,000/month provides a solid foundation for single-branch preschools, while the Growth plan at $5,500/month adds paid ads and open house campaigns for faster enrolment growth.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do you build trust with parents through marketing?</summary>
+          <div class="faq-answer"><p>Trust is built through consistency and authenticity. We create content that shows your preschool's real environment — teacher interactions, learning activities, outdoor play, and milestone celebrations. Google reviews are actively managed, parent testimonials are featured prominently, and your website communicates your curriculum philosophy clearly. Nothing generic or stock-photo-driven.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you promote preschool open house events?</summary>
+          <div class="faq-answer"><p>Yes. We run full open house campaigns including landing page creation, Google Ads targeting parents in your area, Facebook event promotion, email sequences to registered leads, WhatsApp broadcast coordination, and social media countdown content. Post-event follow-up sequences nurture parents who attended but haven't enrolled yet.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you handle ECDA and SPARK certification in marketing?</summary>
+          <div class="faq-answer"><p>We highlight your ECDA licence, SPARK certification, and any curriculum accreditations as trust signals in your marketing — featuring them on your website, in ad copy, and on social media. Parents searching for "SPARK-certified preschool" or "ECDA-licensed kindergarten" are high-intent prospects, and we target these keywords specifically in SEO and paid campaigns.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

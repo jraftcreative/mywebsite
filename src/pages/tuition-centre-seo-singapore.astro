@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO for Tuition Centres Singapore",
+    "description": "Specialist SEO services for tuition centres in Singapore — keyword research for subjects and levels, Google Business Profile optimisation, local SEO, and parent-focused content marketing. Monthly plans from S$800.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "SEO for Tuition Centres",
+    "offers": [
+      { "@type": "Offer", "name": "Essential SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, keyword research for core subjects and levels, Google Analytics and Search Console setup, monthly reporting" },
+      { "@type": "Offer", "name": "Growth SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Business Profile optimisation, local SEO for multiple branches, content strategy for parent queries, competitor analysis, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-branch local SEO, blog content creation, link building, Core Web Vitals optimisation, weekly reporting and strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does SEO take to work for a tuition centre?", "acceptedAnswer": { "@type": "Answer", "text": "Most tuition centres start seeing measurable ranking improvements within 3–6 months. Quick wins like fixing technical issues and optimising Google Business Profile can deliver results in weeks. SEO compounds over time — a centre that invests consistently will build a strong pipeline of organic enquiries from parents searching on Google." } },
+      { "@type": "Question", "name": "What ROI can a tuition centre expect from SEO?", "acceptedAnswer": { "@type": "Answer", "text": "A single student enrolled through organic search can be worth $2,000–$10,000+ annually in tuition fees. If SEO brings even 5–10 additional enquiries per month, the return on an $800–$1,500 monthly SEO investment is substantial. Unlike paid ads, organic rankings continue driving traffic without ongoing per-click costs." } },
+      { "@type": "Question", "name": "What keywords do you target for tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "We target high-intent keywords parents actually search — including subject-specific terms like 'PSLE maths tuition Singapore', level-based searches like 'O-Level chemistry tuition', and location queries like 'JC tuition Bishan' or 'tuition centre near Tampines'. We also target long-tail phrases like 'best primary school science tuition Singapore' that indicate strong enrolment intent." } },
+      { "@type": "Question", "name": "How does Google Business Profile help my tuition centre?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile is critical for tuition centres because parents frequently search 'tuition near me' or 'tuition centre [neighbourhood]'. An optimised GBP listing with accurate details, parent reviews, photos, and regular posts helps your centre appear in the Google Maps pack — the top 3 local results that appear before organic listings and capture the majority of clicks." } },
+      { "@type": "Question", "name": "What kind of SEO reports will I receive?", "acceptedAnswer": { "@type": "Answer", "text": "You receive clear monthly reports showing keyword rankings for your target subjects and levels, organic traffic growth, Google Business Profile performance, enquiry tracking, and competitor comparisons. Growth plan clients receive bi-weekly reports, and Enterprise clients get weekly reports with strategy calls to review progress and plan next steps." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tuition Centre SEO Singapore", "item": "https://jraftcreative.com/tuition-centre-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Tuition Centre SEO Singapore — Rank Higher on Google | Jraft Creative"
+  description="SEO services for tuition centres in Singapore — keyword research for subjects and levels, Google Business Profile, local SEO, and parent-focused content marketing. Plans from S$800/month."
+  canonical="https://jraftcreative.com/tuition-centre-seo-singapore/"
+  ogTitle="Tuition Centre SEO Singapore — Jraft Creative"
+  ogDescription="SEO for tuition centres in Singapore. Rank for PSLE tuition, O-Level tuition, and more. Keyword research, Google Business Profile, local SEO. From $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="tuition centre seo singapore, seo for tuition centres, tuition centre marketing, tuition google ranking, tuition seo services, tuition centre local seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="SEO for Tuition Centres"
+  heroTitle='Tuition Centre SEO <span class="highlight">in Singapore</span>'
+  heroSubtitle="Get your tuition centre found by parents searching Google for classes, subjects, and levels. We build SEO strategies tailored to education — so enquiries come from organic search, not just word-of-mouth."
+  heroImage="/images/service-tuition.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO services for my tuition centre in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Free Tuition Centre SEO Audit"
+  ctaDescription="Book a free consultation and we'll analyse your tuition centre's search visibility. We'll identify exactly where you're losing traffic to competitors and how to fix it."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20services%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why tuition centres need SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Search Google Before Choosing a Tuition Centre</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>When a parent in Singapore needs tuition for their child, the first thing they do is search Google. "PSLE tuition Singapore", "O-Level chemistry tuition near me", "JC maths tuition Bishan" — these searches happen thousands of times every month. If your tuition centre doesn't appear on page one for the subjects and levels you teach, those parents are enrolling their children with your competitors instead.</p>
+        <p>Referrals and word-of-mouth still matter, but they don't scale. Meanwhile, centres that rank on Google and appear in Google Maps results build a steady pipeline of enquiries from parents who are actively searching for exactly what you offer. The difference between a fully booked schedule and empty seats often comes down to search visibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for tuition centres">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for Singapore Tuition Centres</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Tuition centre SEO is different from general business SEO. Parents search by subject, level, exam type, and neighbourhood — creating hundreds of keyword opportunities most agencies miss entirely. We build strategies around the way Singapore parents actually search for tuition, covering every subject, level, and location your centre serves.</p>
+        <p>Our approach combines technical foundations with education-specific keyword research, Google Business Profile optimisation, and content that answers the questions parents are asking. The result: more organic enquiries from parents who are ready to enrol.</p>
+        <p>Pair SEO with a professionally designed <a href="/services/website-development/">tuition centre website</a> that converts visitors into enquiries, or add <a href="/services/paid-ads/">Google Ads</a> for immediate visibility while organic rankings build.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Subject &amp; Level Keyword Research</h3>
+            <p>We map out every keyword combination parents search — by subject (maths, science, English, Chinese), level (Primary, PSLE, O-Level, A-Level, JC), and location (Bishan, Tampines, Jurong) — then build your SEO strategy around the highest-value terms.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>On-Page SEO &amp; Site Structure</h3>
+            <p>Optimise every page on your site for target keywords — from meta titles and headings to content depth and internal linking. We structure your site so each subject, level, and branch has dedicated, optimised pages that rank independently.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Optimise your Google Business Profile with accurate categories, class photos, parent reviews, and regular posts. We target "tuition near me" and neighbourhood-specific searches so your centre appears in the Maps pack for every branch location.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Parent-Focused Content Strategy</h3>
+            <p>Blog articles and resource pages that answer questions parents search — "how to prepare for PSLE", "is tuition necessary for secondary school", "best study methods for O-Level". This content builds authority, drives traffic, and positions your centre as a trusted education resource.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for tuition centre SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Partner That Understands Education</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with tuition centres, enrichment centres, and education businesses across Singapore. That means we already know the keywords, the search patterns, and the competitive landscape in your industry:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Education Sector Expertise</h3>
+            <p>We've optimised websites for tuition centres, enrichment programmes, and education businesses across Singapore. We understand MOE curriculum levels, exam seasons, and the parent decision-making journey.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Transparent Monthly Reporting</h3>
+            <p>Clear reports showing keyword rankings by subject and level, organic traffic trends, Google Business Profile insights, and enquiry tracking. You always know where your investment is going.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Singapore Local Focus</h3>
+            <p>We target neighbourhood-level keywords, optimise for local search behaviour, and understand what Singapore parents look for when choosing a tuition centre — from location convenience to exam results.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Digital Agency</h3>
+            <p>SEO works best with a fast, well-designed <a href="/services/website-development/">website</a> and a strong <a href="/services/social-media/">social media</a> presence. We handle everything in-house — no coordination between separate agencies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="SEO pricing for tuition centres">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">SEO Pricing</p>
+        <h2>Monthly SEO Plans for Tuition Centres</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-branch tuition centres building organic visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Subject &amp; level keyword research</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly keyword tracking</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For centres ready to dominate local search rankings.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Local SEO for multiple branches</li>
+              <li>Content strategy &amp; blog SEO</li>
+              <li>Competitor analysis</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service SEO for multi-branch tuition centres.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Blog content creation &amp; publishing</li>
+              <li>Link building (10+ links/mo)</li>
+              <li>Core Web Vitals optimisation</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full SEO service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page. Need a website too? See our <a href="/services/website-development/" class="inline-link">website development</a> packages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about tuition centre SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Tuition Centre SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does SEO take to work for a tuition centre?</summary>
+          <div class="faq-answer"><p>Most tuition centres start seeing measurable ranking improvements within 3–6 months. Quick wins like fixing technical issues and optimising Google Business Profile can deliver results in weeks. SEO compounds over time — a centre that invests consistently will build a strong pipeline of organic enquiries from parents searching on Google.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What ROI can a tuition centre expect from SEO?</summary>
+          <div class="faq-answer"><p>A single student enrolled through organic search can be worth $2,000–$10,000+ annually in tuition fees. If SEO brings even 5–10 additional enquiries per month, the return on an $800–$1,500 monthly SEO investment is substantial. Unlike <a href="/services/paid-ads/">paid ads</a>, organic rankings continue driving traffic without ongoing per-click costs.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What keywords do you target for tuition centres?</summary>
+          <div class="faq-answer"><p>We target high-intent keywords parents actually search — including subject-specific terms like "PSLE maths tuition Singapore", level-based searches like "O-Level chemistry tuition", and location queries like "JC tuition Bishan" or "tuition centre near Tampines". We also target long-tail phrases like "best primary school science tuition Singapore" that indicate strong enrolment intent.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How does Google Business Profile help my tuition centre?</summary>
+          <div class="faq-answer"><p>Google Business Profile is critical for tuition centres because parents frequently search "tuition near me" or "tuition centre [neighbourhood]". An optimised GBP listing with accurate details, parent reviews, photos, and regular posts helps your centre appear in the Google Maps pack — the top 3 local results that appear before organic listings and capture the majority of clicks.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What kind of SEO reports will I receive?</summary>
+          <div class="faq-answer"><p>You receive clear monthly reports showing keyword rankings for your target subjects and levels, organic traffic growth, Google Business Profile performance, enquiry tracking, and competitor comparisons. Growth plan clients receive bi-weekly reports, and Enterprise clients get weekly reports with strategy calls to review progress and plan next steps.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

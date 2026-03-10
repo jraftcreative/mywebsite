@@ -1,0 +1,270 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Art School Website Design Singapore",
+    "description": "Custom website design for art schools and enrichment centres in Singapore — student gallery showcases, course pages for drawing, painting, pottery and digital art, instructor portfolios, trial class booking, and local SEO. From S$2,500.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Art School Website Design",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Art School Website", "price": "2500", "priceCurrency": "SGD", "description": "5-page responsive website with course overview pages, student artwork gallery, contact form, Google Maps, mobile-responsive design, basic SEO, and 2-week delivery" },
+      { "@type": "Offer", "name": "Business Art School Website", "price": "5500", "priceCurrency": "SGD", "description": "10-page website with trial class booking, instructor portfolios, age-group programme pages, blog, advanced SEO, Google Business Profile optimisation, and exhibition event pages" },
+      { "@type": "Offer", "name": "Premium Art School Website", "price": "10000", "priceCurrency": "SGD", "description": "Unlimited pages with custom design, student gallery with filtering, online registration and payment, multi-location support, exhibition and event calendar, and priority support" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does an art school website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A professional art school website in Singapore costs between $2,500 and $10,000+ SGD depending on features and complexity. Our Starter package at $2,500 includes a 5-page website with course information, a student gallery, contact form, Google Maps integration, and basic SEO. Business and Premium packages add trial class booking, instructor portfolios, age-group programmes, exhibition event pages, online registration, and payment integration." } },
+      { "@type": "Question", "name": "Can you build a student gallery to showcase artwork on our website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every package includes a student gallery section, but our Business and Premium tiers take it further with filterable galleries organised by medium (drawing, painting, pottery, digital art), age group, or programme. Students and parents can browse artwork in a lightbox view, and you can update the gallery easily as new pieces are completed — a powerful way to demonstrate the quality of your teaching." } },
+      { "@type": "Question", "name": "Can parents register for classes and make payments online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include online registration forms that let parents sign up for trial classes, workshops, or term-long programmes directly through your website. The Premium tier adds payment integration so parents can pay course fees online via credit card or PayNow — reducing admin work and making enrolment seamless for busy Singapore families." } },
+      { "@type": "Question", "name": "Will you optimise our art school website for local search in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your website for keywords parents actually search — like 'art class for kids Singapore', 'drawing lessons near me', or 'pottery class Bukit Timah'. This includes on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps for your specific area." } },
+      { "@type": "Question", "name": "How long does it take to build an art school website?", "acceptedAnswer": { "@type": "Answer", "text": "Most art school websites go live within 2 weeks for our Starter package. Business-tier sites with trial class booking, instructor portfolios, and exhibition pages typically take 3 weeks, while Premium builds with online registration, payment integration, and multi-location support take 4–5 weeks. We provide a clear timeline before starting so you can plan around your term schedule." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Art School Website Singapore", "item": "https://jraftcreative.com/art-school-website-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Art School Website Singapore — Art Enrichment Web Design | Jraft Creative"
+  description="Custom website design for art schools and enrichment centres in Singapore — student gallery showcases, course pages for drawing, painting, pottery and digital art, instructor portfolios, trial class booking, and local SEO. From S$2,500."
+  canonical="https://jraftcreative.com/art-school-website-singapore/"
+  ogTitle="Art School Website Singapore — Jraft Creative"
+  ogDescription="Custom website design for art schools and art enrichment centres in Singapore. Student galleries, course pages, trial class booking, and local SEO from $2,500 SGD."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="art school website design singapore, art school website singapore, art enrichment website singapore, drawing class website singapore, art class near me, art teacher website design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Art School Websites"
+  heroTitle='Website Design for <span class="highlight">Art Schools in Singapore</span>'
+  heroSubtitle="Parents search online before enrolling their child in a single art class. We build websites that showcase your students' artwork, present your courses clearly by age group and medium, and make booking a trial class effortless — so you can focus on teaching, not chasing enquiries."
+  heroImage="/images/service-artschool.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a website for my art school in Singapore."
+  ctaLabel="Ready to Grow Your Art School?"
+  ctaTitle="Get Your Art School Online"
+  ctaDescription="Tell us about your art school and we'll recommend the right website package. Free consultation — no obligations, no pressure."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20art%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why art schools need a proper website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Are Searching — Can They Find Your Art School?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every week, thousands of parents in Singapore search "art class for kids near me", "drawing lessons Singapore", or "pottery class for children" on Google. They compare enrichment centres side by side, scrolling through student artwork, reading instructor bios, and checking class schedules by age group. If your art school doesn't have a professional website, you're invisible to these families — and they're booking trial classes with your competitors instead.</p>
+        <p>A Facebook page or an Instagram account alone is not enough. Parents researching art enrichment for their children want to see the full range of programmes you offer — drawing, painting, pottery, digital art — understand each instructor's qualifications and teaching approach, view galleries of student work at different skill levels, and check available class timings — all before they ever call or walk in. They want proof that your school produces real results, not just a social media feed.</p>
+        <p>Art schools that invest in a proper website with clear programme information, compelling student galleries, and easy trial class booking consistently outperform those relying on word of mouth or marketplace listings alone. In a market as competitive as Singapore's art enrichment scene — from established chains to boutique studios in Bukit Timah, Tanjong Pagar, and Katong — your website is the first impression that determines whether a parent chooses your school or scrolls past.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section class="section" id="sub-services" aria-label="Art school website design services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>What We Build for Art Schools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every art school website we deliver is built to convert visitors into enrolled students. We go beyond a generic template — your site will feature dedicated course pages for drawing, painting, pottery, and digital art, student gallery showcases that demonstrate your teaching quality, and a frictionless booking flow that makes it easy to sign up for a trial class.</p>
+        <p>A great website is just the starting point. Pair your art school site with <a href="/services/seo-performance/">local SEO services</a> to rank for "art class near me" searches in your neighbourhood, <a href="/services/social-media/">social media marketing</a> to reach parents on Instagram and Facebook, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak enrolment periods like June and December holidays.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Course &amp; Programme Pages</h3>
+            <p>Dedicated pages for every medium and programme you offer — drawing, painting, watercolour, pottery, sculpture, and digital art. Each page details class formats, age groups from toddler to adult, skill levels from beginner to portfolio prep, and term schedules so parents find exactly the right fit for their child.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Trial Class Booking</h3>
+            <p>Let parents book trial classes directly through your website. The booking system displays class availability by day and time, filters by age group and medium, and sends automated confirmation emails — reducing phone calls and giving your team more time to focus on students in the studio.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Student Gallery &amp; Showcases</h3>
+            <p>A filterable gallery that lets visitors browse student artwork by medium, age group, or programme. Lightbox viewing, high-resolution images, and the option to feature standout pieces on the homepage — proof that your school produces real creative growth parents can see.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Instructor Portfolios &amp; Exhibition Pages</h3>
+            <p>Each instructor gets a profile page with their artistic background, qualifications, teaching philosophy, and a mini portfolio of their own work. Pair these with exhibition and event pages — open houses, student showcases, holiday workshops — to keep your community engaged year-round.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for art school website design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Choose Us for Your Art School Website</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand the art enrichment industry in Singapore. Our websites are built to address the specific challenges art schools face — from competing for "art class near me" searches to converting browsing parents into long-term student enrolments.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Art &amp; Enrichment Experience</h3>
+            <p>We've built websites for art schools, enrichment centres, and creative studios across Singapore. We know what parents look for and how to structure content that turns casual browsers into committed students enrolling for full-term programmes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Fast Turnaround — 2 Weeks</h3>
+            <p>Most art school websites go live within 2 weeks. We work fast so you can start capturing online bookings before the next term or holiday workshop season begins — no dragging projects out for months.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Gallery-Ready Design</h3>
+            <p>Your website will display student artwork beautifully with optimised image loading, lightbox galleries, and responsive layouts that look stunning on desktop and mobile. We ensure high-resolution artwork loads fast without sacrificing visual quality.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Package</h3>
+            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management — everything your art school needs to grow its online presence, fill more class slots, and build a waitlist for popular programmes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Art school website pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Art School Website Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new art schools getting online.</p>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>Course &amp; programme overview</li>
+              <li>Student artwork gallery</li>
+              <li>Contact form &amp; Google Maps</li>
+              <li>Mobile-responsive design</li>
+              <li>Basic SEO setup</li>
+              <li>2-week delivery</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$5,500 <span>SGD</span></div>
+            <p class="pricing-desc">For established schools ready to grow.</p>
+            <ul class="pricing-features">
+              <li>Up to 10 pages</li>
+              <li>Trial class booking system</li>
+              <li>Instructor portfolios</li>
+              <li>Age-group programme pages</li>
+              <li>Exhibition &amp; event pages</li>
+              <li>Advanced SEO &amp; schema</li>
+              <li>Google Business Profile setup</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For large academies and multi-location schools.</p>
+            <ul class="pricing-features">
+              <li>Unlimited pages</li>
+              <li>Custom design &amp; branding</li>
+              <li>Filterable student gallery</li>
+              <li>Online registration &amp; payment</li>
+              <li>Multi-location support</li>
+              <li>Exhibition calendar</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/services/website-development/" class="inline-link">website development</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about art school website design in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Art School Website Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does an art school website cost in Singapore?</summary>
+          <div class="faq-answer"><p>A professional art school website in Singapore costs between $2,500 and $10,000+ SGD depending on features and complexity. Our Starter package at $2,500 includes a 5-page website with course information, a student gallery, contact form, Google Maps integration, and basic SEO. Business and Premium packages add trial class booking, instructor portfolios, age-group programmes, exhibition event pages, online registration, and payment integration.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you build a student gallery to showcase artwork on our website?</summary>
+          <div class="faq-answer"><p>Yes. Every package includes a student gallery section, but our Business and Premium tiers take it further with filterable galleries organised by medium — drawing, painting, pottery, digital art — age group, or programme. Students and parents can browse artwork in a lightbox view, and you can update the gallery easily as new pieces are completed. It's one of the most powerful ways to demonstrate the quality of your teaching to prospective families.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can parents register for classes and make payments online?</summary>
+          <div class="faq-answer"><p>Yes. Our Business and Premium packages include online registration forms that let parents sign up for trial classes, workshops, or term-long programmes directly through your website. The Premium tier adds payment integration so parents can pay course fees online via credit card or PayNow — reducing admin work and making enrolment seamless for busy Singapore families.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will you optimise our art school website for local search in Singapore?</summary>
+          <div class="faq-answer"><p>Yes. We optimise your website for keywords parents actually search — like "art class for kids Singapore", "drawing lessons near me", or "pottery class Bukit Timah". This includes on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps for your specific neighbourhood.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take to build an art school website?</summary>
+          <div class="faq-answer"><p>Most art school websites go live within 2 weeks for our Starter package. Business-tier sites with trial class booking, instructor portfolios, and exhibition pages typically take 3 weeks, while Premium builds with online registration, payment integration, and multi-location support take 4-5 weeks. We provide a clear timeline before starting so you can plan around your term schedule.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

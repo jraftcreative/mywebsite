@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Student Enrolment Marketing Singapore",
+    "description": "Enrolment-focused digital marketing for education businesses in Singapore — conversion funnels, lead nurturing, parent journey mapping, registration campaigns, and seasonal strategies. From $3,000 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Student Enrolment Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Website with enquiry funnels, SEO foundations, Google Business Profile, social proof content, and monthly reporting" },
+      { "@type": "Offer", "name": "Growth Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Everything in Essential plus Google Ads, Facebook lead campaigns, parent journey email sequences, seasonal registration campaigns, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service enrolment marketing with dedicated strategist, advanced conversion funnels, multi-channel lead nurturing, CRM integration, and weekly strategy calls" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is student enrolment marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Student enrolment marketing is a specialised approach to digital marketing that focuses specifically on converting parent interest into confirmed registrations. It goes beyond generating awareness — it maps the entire parent decision journey, builds conversion funnels at every touchpoint, nurtures leads through email and remarketing, and optimises the registration process to minimise drop-offs." } },
+      { "@type": "Question", "name": "How is enrolment marketing different from regular marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Regular marketing often focuses on impressions, clicks, and traffic. Enrolment marketing focuses on the full conversion funnel — from first search to confirmed registration. We track enquiry-to-enrolment conversion rates, identify where parents drop off in the decision process, and optimise every step. The goal is not just more traffic, but more confirmed students." } },
+      { "@type": "Question", "name": "What is parent journey mapping?", "acceptedAnswer": { "@type": "Answer", "text": "Parent journey mapping identifies every touchpoint a parent goes through before enrolling their child — from the initial Google search, to reading reviews, browsing your website, attending an open house, discussing with their spouse, and finally submitting a registration form. We optimise your marketing at each stage to move parents forward and reduce drop-offs." } },
+      { "@type": "Question", "name": "How do seasonal campaigns affect enrolment numbers?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore's education sector has predictable enrolment peaks — January intake, post-PSLE/O-Level results, mid-year transfers, and year-end registration for the following year. Well-timed campaigns that ramp up ad spend, launch targeted landing pages, and activate email sequences during these windows can capture 40–60% of annual enrolments." } },
+      { "@type": "Question", "name": "Can you help improve our enquiry-to-enrolment conversion rate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is one of our core strengths. We audit your current enquiry process, identify friction points in the registration flow, implement follow-up email sequences for leads who haven't converted, and optimise your website forms and landing pages. Many education businesses lose 50–70% of enquiries due to slow follow-up or a clunky registration process." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Student Enrolment Marketing Singapore", "item": "https://jraftcreative.com/student-enrolment-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Student Enrolment Marketing Singapore — Full-Service | Jraft Creative"
+  description="Enrolment-focused digital marketing for education businesses in Singapore — conversion funnels, lead nurturing, parent journey mapping, and seasonal campaigns. From $3,000 SGD/month."
+  canonical="https://jraftcreative.com/student-enrolment-marketing-singapore/"
+  ogTitle="Student Enrolment Marketing Singapore — Jraft Creative"
+  ogDescription="Enrolment-focused marketing for education businesses in Singapore. Conversion funnels, lead nurturing, seasonal campaigns — turn parent interest into confirmed registrations."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="student enrolment marketing singapore, enrolment marketing, student registration marketing, education lead generation singapore, education conversion marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Student Enrolment Marketing Singapore"
+  heroTitle='Enrolment-Focused <span class="highlight">Marketing for Education in Singapore</span>'
+  heroSubtitle="Conversion funnels, lead nurturing, parent journey mapping, and seasonal registration campaigns. We don't just drive traffic — we turn parent interest into confirmed enrolments across every channel."
+  heroImage="/images/service-education.webp"
+  heroButtons={[
+    { text: "Get a Free Enrolment Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need help with student enrolment marketing in Singapore."
+  ctaLabel="Ready to Increase Enrolments?"
+  ctaTitle="Get Your Free Enrolment Marketing Audit"
+  ctaDescription="Book a free consultation and we'll analyse your current enquiry-to-enrolment funnel, identify where you're losing leads, and recommend strategies to increase conversion rates. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20help%20with%20student%20enrolment%20marketing%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why education businesses need enrolment-focused marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Traffic Without Enrolments Is Wasted Budget</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Many education businesses in Singapore invest in marketing that generates clicks, website visits, and social media followers — but not enough confirmed enrolments. The gap between a parent visiting your website and actually registering their child is where most marketing budgets leak. Without a systematic approach to conversion, you're paying for attention that never turns into revenue.</p>
+        <p>The parent decision journey in Singapore is lengthy and multi-step. A parent might search Google, visit three websites, read Google reviews, check Instagram, ask in a WhatsApp parent group, attend an open house, discuss with their spouse, and then — days or weeks later — finally fill out a registration form. If your marketing doesn't nurture that parent through every step, they'll enrol somewhere else.</p>
+        <p>Enrolment-focused marketing addresses this by building a complete conversion system — from the first search impression to the final registration. Every channel, every touchpoint, and every follow-up is designed to move parents closer to confirming enrolment. The result: more students from the same marketing budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Enrolment marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
+        <h2>From First Click to Confirmed Enrolment</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build enrolment systems, not just marketing campaigns. Every service we offer is optimised for one outcome: converting parent interest into confirmed student registrations. From your website to your ads to your follow-up emails — every touchpoint in the parent journey is designed to reduce friction and increase conversions.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Conversion-Optimised Websites</h3>
+            <p>Websites built around the enrolment funnel — programme pages with clear calls-to-action, trial booking forms with minimal friction, fee calculators, and trust signals strategically placed throughout the parent browsing journey. Every page is designed to move parents one step closer to registration. <a href="/services/website-development/">View web design services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO for High-Intent Keywords</h3>
+            <p>We target keywords that indicate enrolment intent — not just awareness. "Register for PSLE tuition Singapore", "preschool near Bedok accepting registration", "enrichment class trial booking" — these searches convert at far higher rates than generic terms, and we build your organic strategy around them. <a href="/services/seo-performance/">View SEO services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Paid Ads &amp; Lead Generation</h3>
+            <p>Google Ads and Facebook lead campaigns built for enquiry generation. Dedicated landing pages for each campaign, conversion tracking from click to registration, retargeting for parents who visited but didn't enquire, and lookalike audiences to find more parents like your best customers. <a href="/services/paid-ads/">View paid ads services</a></p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Lead Nurturing &amp; Follow-Up</h3>
+            <p>Email sequences that nurture enquiries into enrolments. Automated follow-ups for parents who submitted enquiry forms, post-open-house drip campaigns, seasonal registration reminders, and re-engagement sequences for leads that went cold. We recover the registrations most centres leave on the table. <a href="/email-marketing-singapore/">View email marketing</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for enrolment marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Enrolment Is the Only Metric That Matters</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We measure success by one metric: confirmed student registrations. Every strategy, campaign, and report is built around converting parent interest into enrolments. Here's why education businesses trust us with their growth:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Funnel-First Approach</h3>
+            <p>We map your entire enquiry-to-enrolment funnel before launching any campaigns. Where are parents dropping off? What's the time from first visit to registration? Which channels drive the most qualified leads? We answer these questions with data, then optimise accordingly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Seasonal Campaign Expertise</h3>
+            <p>We plan around Singapore's enrolment calendar — January intake, post-exam results, mid-year transfers, and year-end registration. Campaigns are pre-built, pre-scheduled, and launched at precisely the right moments to capture peak demand.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Full Conversion Tracking</h3>
+            <p>We track every step from ad click to confirmed registration. Which Google keywords generate the most enrolments? Which Facebook ad creative converts best? Which email follow-up sequence has the highest response rate? Granular data drives every decision.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in, Results-Driven</h3>
+            <p>Month-to-month retainers. No 12-month contracts. If our campaigns aren't driving enrolments, you can adjust or leave. We retain clients through performance, not paperwork.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Enrolment marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pricing</p>
+        <h2>Monthly Enrolment Marketing Plans</h2>
+        <p>Month-to-month retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For education businesses building their enrolment funnel.</p>
+            <ul class="pricing-features">
+              <li>Conversion-optimised website</li>
+              <li>SEO for high-intent keywords</li>
+              <li>Google Business Profile setup</li>
+              <li>Enquiry form optimisation</li>
+              <li>Monthly enrolment report</li>
+              <li>Dedicated account manager</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses scaling enrolments with ads and nurture campaigns.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads lead campaigns</li>
+              <li>Facebook lead generation ads</li>
+              <li>Email nurture sequences</li>
+              <li>Seasonal registration campaigns</li>
+              <li>Bi-weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service enrolment marketing for multi-branch operators.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Advanced conversion funnels</li>
+              <li>Multi-channel lead nurturing</li>
+              <li>CRM integration &amp; automation</li>
+              <li>Parent journey optimisation</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Looking for segment-specific marketing? See our <a href="/tuition-centre-marketing-singapore/" class="inline-link">tuition centre marketing</a>, <a href="/enrichment-centre-marketing-singapore/" class="inline-link">enrichment centre marketing</a>, <a href="/preschool-marketing-singapore/" class="inline-link">preschool marketing</a>, or <a href="/childcare-marketing-singapore/" class="inline-link">childcare marketing</a> pages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about student enrolment marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Student Enrolment Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is student enrolment marketing?</summary>
+          <div class="faq-answer"><p>Student enrolment marketing is a specialised approach to digital marketing that focuses specifically on converting parent interest into confirmed registrations. It goes beyond generating awareness — it maps the entire parent decision journey, builds conversion funnels at every touchpoint, nurtures leads through email and remarketing, and optimises the registration process to minimise drop-offs.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is enrolment marketing different from regular marketing?</summary>
+          <div class="faq-answer"><p>Regular marketing often focuses on impressions, clicks, and traffic. Enrolment marketing focuses on the full conversion funnel — from first search to confirmed registration. We track enquiry-to-enrolment conversion rates, identify where parents drop off in the decision process, and optimise every step. The goal is not just more traffic, but more confirmed students.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What is parent journey mapping?</summary>
+          <div class="faq-answer"><p>Parent journey mapping identifies every touchpoint a parent goes through before enrolling their child — from the initial Google search, to reading reviews, browsing your website, attending an open house, discussing with their spouse, and finally submitting a registration form. We optimise your marketing at each stage to move parents forward and reduce drop-offs.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do seasonal campaigns affect enrolment numbers?</summary>
+          <div class="faq-answer"><p>Singapore's education sector has predictable enrolment peaks — January intake, post-PSLE/O-Level results, mid-year transfers, and year-end registration for the following year. Well-timed campaigns that ramp up ad spend, launch targeted landing pages, and activate email sequences during these windows can capture 40–60% of annual enrolments.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help improve our enquiry-to-enrolment conversion rate?</summary>
+          <div class="faq-answer"><p>Yes — this is one of our core strengths. We audit your current enquiry process, identify friction points in the registration flow, implement follow-up email sequences for leads who haven't converted, and optimise your website forms and landing pages. Many education businesses lose 50–70% of enquiries due to slow follow-up or a clunky registration process.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Preschool SEO Singapore",
+    "description": "Specialist SEO services for preschools in Singapore. Local SEO, Google Business Profile optimisation, parent-focused keyword strategy, and content marketing to increase enrolment inquiries — from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Preschool SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Preschool SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, Google Analytics and Search Console configuration, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Preschool SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus parent-focused content strategy, local citation building, review generation strategy, competitor analysis, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Preschool SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-branch local SEO, content creation and publishing, advanced link building, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does preschool SEO cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Preschool SEO services in Singapore range from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content creation, link building, and multi-branch local SEO for preschool groups." } },
+      { "@type": "Question", "name": "How long before my preschool ranks on the first page of Google?", "acceptedAnswer": { "@type": "Answer", "text": "Most preschools see measurable improvements in local search rankings within 3 to 4 months. Quick wins like Google Business Profile optimisation and fixing technical issues can show results in weeks. Competitive keywords like 'best preschool in Singapore' take longer, but neighbourhood-specific terms often rank faster." } },
+      { "@type": "Question", "name": "Can SEO help my preschool appear in Google Maps results?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO and Google Business Profile optimisation are core parts of our preschool SEO service. We optimise your listing with accurate categories, programme descriptions, photos, and review management so your centre appears in the Google Maps 3-pack when parents search 'preschool near me' in your area." } },
+      { "@type": "Question", "name": "What keywords do parents use to find preschools in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Parents commonly search 'preschool near me', 'best preschool [neighbourhood]', 'Montessori preschool Singapore', 'bilingual preschool Singapore', and programme-specific terms like 'N1 registration' or 'K2 preschool fees'. We research and target the exact keywords relevant to your centre's programmes, location, and competitive advantages." } },
+      { "@type": "Question", "name": "Do you handle SEO for preschools with multiple branches?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-branch preschool SEO is a core strength. We create unique location pages for each branch, optimise individual Google Business Profiles, build location-specific content, and ensure consistent NAP citations across directories — so every branch ranks in its own neighbourhood." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Preschool SEO Singapore", "item": "https://jraftcreative.com/preschool-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Preschool SEO Singapore — Get Found by More Parents | Jraft Creative"
+  description="SEO services for preschools in Singapore. Local SEO, Google Business Profile optimisation, parent-focused content strategy, and technical audits to increase enrolment inquiries — from S$800/month."
+  canonical="https://jraftcreative.com/preschool-seo-singapore/"
+  ogTitle="Preschool SEO Singapore — Jraft Creative"
+  ogDescription="SEO for preschools in Singapore. Local SEO, Google Maps optimisation, and parent-focused content to drive enrolment inquiries. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="preschool seo singapore, preschool seo, seo for preschools, preschool google ranking, preschool local seo, preschool marketing singapore, early childhood seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Preschool SEO"
+  heroTitle='SEO for <span class="highlight">Preschools in Singapore</span>'
+  heroSubtitle="Parents searching 'preschool near me' and 'best preschool Punggol' are ready to enrol. If your centre doesn't appear on the first page, those families are visiting your competitors instead. We help ECDA-licensed preschools rank higher on Google and convert search traffic into centre visits."
+  heroImage="/images/service-preschool.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO services for my preschool in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Preschool Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your preschool stands in local search. We'll get back to you within 24 hours with a tailored action plan."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20services%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for preschools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Are Searching for Preschools Online — Is Yours Showing Up?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>"Preschool near me" is one of the most searched education terms in Singapore, with thousands of parents actively looking for early childhood centres every month. They search by neighbourhood — "preschool Tampines", "best preschool Sengkang", "Montessori preschool Bukit Timah" — and they rarely scroll past the first five results. If your preschool isn't appearing in those top positions, parents don't even know you exist.</p>
+        <p>Singapore has over 1,800 ECDA-licensed early childhood centres, and the number grows every year. Many preschools rely on word-of-mouth or directory listings that they can't control. Meanwhile, competitors investing in SEO are capturing Google's Map Pack, dominating "near me" searches, and filling enrolment slots before your open house flyers even go out. The preschools winning enrolments in 2026 are the ones parents find first on Google — not the ones with the best brochures sitting in a stack on a community centre counter.</p>
+        <p>The challenge isn't just being online — it's being visible at the exact moment a parent is actively comparing preschools. That requires a targeted SEO strategy built around how Singapore parents actually search, from programme-specific queries like "bilingual N2 programme" to location-based searches that trigger Google Maps results.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for preschools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for Preschool Enrolment</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We don't apply generic SEO templates to preschool websites. Our approach is built specifically for the early childhood education sector in Singapore — targeting the keywords parents use, optimising for the local search behaviour that drives centre visits, and creating content that builds trust with families evaluating your programmes.</p>
+        <p>From technical foundations to Google Business Profile optimisation, every element of our preschool SEO strategy is designed to increase the number of qualified enrolment inquiries your centre receives through organic search.</p>
+        <p>Pair SEO with a professionally designed <a href="/preschool-website-design-singapore/">preschool website</a>, <a href="/services/social-media/">social media marketing</a> to share classroom highlights, or <a href="/services/paid-ads/">Google Ads</a> to capture parents during peak registration periods.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Full crawl of your preschool website to identify indexing issues, broken links, missing meta data, slow load times, and mobile usability problems. We fix the technical foundations that prevent Google from ranking your centre for parent search queries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>On-Page Optimisation</h3>
+            <p>Keyword-optimised programme pages, meta titles and descriptions, heading structures, and internal links targeting parent search terms like "preschool Punggol", "Montessori kindergarten Singapore", and "N1 registration near me".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Google Business Profile optimisation with accurate categories, programme descriptions, classroom photos, parent reviews management, and local citation building across Singapore directories to dominate "preschool near me" map results.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Parent-Focused Content Strategy</h3>
+            <p>Blog articles and landing pages targeting questions parents ask — "how to choose a preschool in Singapore", "ECDA vs MOE kindergarten", "what age for N1". Content that builds authority, earns backlinks, and drives organic traffic from parents in research mode.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for preschool SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Understands Preschools</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with early childhood education providers across Singapore. We understand the enrolment cycle, how parents evaluate centres, and which search terms actually drive visits and registrations.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Early Childhood Sector Expertise</h3>
+            <p>We know the difference between N1, N2, K1, and K2 — and we know which keywords parents use for each level. Our SEO strategies are built around the preschool enrolment journey, not generic business templates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood-Level Targeting</h3>
+            <p>Parents search by location. We optimise your preschool for the specific neighbourhoods you serve — Punggol, Tampines, Woodlands, Bukit Timah, or wherever your centres are — so you appear in the map results that matter most.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Monthly Reporting</h3>
+            <p>Every month you receive a clear report showing keyword rankings, organic traffic, Google Business Profile performance, and enrolment inquiry trends. No jargon, no vanity metrics — just data that shows whether parents are finding your centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Website, SEO &amp; Marketing Together</h3>
+            <p>SEO drives traffic, but conversions depend on your website and wider marketing. We handle preschool web design, social media, and Google Ads under one roof — a complete system that turns online searches into enrolled students.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Preschool SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Preschool SEO Pricing</p>
+        <h2>SEO Plans for Preschools</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-centre preschools building local visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For preschools ready to dominate local search.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Parent-focused content strategy</li>
+              <li>Local citation building</li>
+              <li>Review generation strategy</li>
+              <li>Competitor analysis</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-branch preschool groups.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Multi-branch local SEO</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Advanced link building</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about preschool SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Preschool SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does preschool SEO cost in Singapore?</summary>
+          <div class="faq-answer"><p>Preschool SEO services in Singapore range from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content creation, link building, and multi-branch local SEO for preschool groups.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before my preschool ranks on the first page of Google?</summary>
+          <div class="faq-answer"><p>Most preschools see measurable improvements in local search rankings within 3 to 4 months. Quick wins like Google Business Profile optimisation and fixing technical issues can show results in weeks. Competitive keywords like "best preschool in Singapore" take longer, but neighbourhood-specific terms such as "preschool Sengkang" or "kindergarten Tampines" often rank faster.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can SEO help my preschool appear in Google Maps results?</summary>
+          <div class="faq-answer"><p>Yes. Local SEO and Google Business Profile optimisation are core parts of our preschool SEO service. We optimise your listing with accurate categories, programme descriptions, classroom photos, and review management so your centre appears in the Google Maps 3-pack when parents search "preschool near me" in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What keywords do parents use to find preschools in Singapore?</summary>
+          <div class="faq-answer"><p>Parents commonly search "preschool near me", "best preschool [neighbourhood]", "Montessori preschool Singapore", "bilingual preschool Singapore", and programme-specific terms like "N1 registration" or "K2 preschool fees". We research and target the exact keywords relevant to your centre's programmes, location, and competitive advantages.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle SEO for preschools with multiple branches?</summary>
+          <div class="faq-answer"><p>Yes. Multi-branch preschool SEO is a core strength. We create unique location pages for each branch, optimise individual Google Business Profiles, build location-specific content, and ensure consistent NAP citations across directories — so every branch ranks in its own neighbourhood rather than competing against itself.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
