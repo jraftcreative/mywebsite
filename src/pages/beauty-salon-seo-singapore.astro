@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Beauty Salon SEO Singapore",
+    "description": "SEO services for beauty salons in Singapore. Local SEO, Google Maps optimisation, service-specific landing pages, and review management to rank for 'beauty salon near me' — from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Beauty Salon SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Beauty Salon SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, Google Analytics and Search Console configuration, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Beauty Salon SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus service-specific content strategy, local citation building, review generation strategy, competitor monitoring, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Beauty Salon SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location salon SEO, content creation and publishing, advanced link building, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does SEO cost for a beauty salon in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Beauty salon SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add service-specific content strategy, local citation building, and multi-location SEO." } },
+      { "@type": "Question", "name": "How long does it take for beauty salon SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Neighbourhood-specific keywords like 'beauty salon near Bugis' or 'facial treatment Tanjong Pagar' often rank faster than broad competitive terms." } },
+      { "@type": "Question", "name": "Can SEO help my beauty salon appear in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches 'beauty salon near me' in your area." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'beauty salon near me', 'facial treatment Singapore', 'eyelash extensions near me', 'waxing Singapore', 'beauty salon Orchard', and treatment-specific queries like 'hydrafacial Singapore' or 'Korean facial near me'. We research the exact terms driving bookings in your area." } },
+      { "@type": "Question", "name": "Do you create service-specific landing pages for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, eyelash extensions, waxing, brow treatments, body treatments — each targeting the exact keywords potential clients use when searching for that specific service." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Beauty Salon SEO Singapore", "item": "https://jraftcreative.com/beauty-salon-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Beauty Salon SEO Singapore — Rank for 'Beauty Salon Near Me' | Jraft Creative"
+  description="SEO services for beauty salons in Singapore. Local SEO, Google Maps optimisation, service-specific landing pages, and review management to rank for 'beauty salon near me' — from S$800/month."
+  canonical="https://jraftcreative.com/beauty-salon-seo-singapore/"
+  ogTitle="Beauty Salon SEO Singapore — Jraft Creative"
+  ogDescription="SEO for beauty salons in Singapore. Local search optimisation, Google Maps ranking, and service-specific content to drive bookings. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="beauty salon seo singapore, beauty salon seo, seo for beauty salons, beauty salon google ranking, beauty salon local seo, beauty salon marketing singapore, facial treatment seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Beauty Salon SEO"
+  heroTitle='SEO Services for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="Thousands of potential clients search 'beauty salon near me', 'facial treatment Singapore', and 'eyelash extensions near me' every month. If your salon doesn't appear on page one, those clients book with competitors who do. We help beauty salons rank higher on Google and turn local search visibility into consistent bookings."
+  heroImage="/images/service-beauty.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my beauty salon in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Beauty Salon Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your beauty salon stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for beauty salons in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Hundreds of Salons in Singapore — Can Clients Find Yours on Google?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has hundreds of beauty salons competing for the same pool of clients. From facial studios in Orchard to waxing specialists in Bugis and lash bars in Tanjong Pagar, the competition is relentless. The problem is that most salons rely on Instagram and marketplace platforms like Fave or ClassPass to attract clients — platforms they don't own, can't control, and that charge a commission on every booking. Meanwhile, the salons that invest in SEO capture clients directly from Google at zero per-booking cost.</p>
+        <p>Google processes thousands of beauty-related searches in Singapore every month. "Beauty salon near me", "facial treatment Novena", "eyelash extensions Singapore", "waxing near MRT" — these are high-intent searches from people ready to book today. If your salon doesn't rank for these terms, you're paying for every new client through ads or marketplaces, or worse, losing them entirely to the salons that appear first in search results.</p>
+        <p>The beauty salons winning on Google have dedicated landing pages for each service they offer, optimised Google Business Profiles with dozens of five-star reviews, and blog content answering the questions potential clients search before they book. Without this SEO foundation, even a beautifully designed salon in a prime location remains invisible to the thousands of clients searching online every week.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for beauty salons">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for Beauty Salons</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Beauty salon SEO requires a specialist approach. Clients search by treatment type, neighbourhood, and urgency — creating dozens of keyword combinations that need dedicated pages and local signals. We build SEO strategies specifically for how Singapore residents research and choose beauty salons.</p>
+        <p>Pair SEO with a professionally designed <a href="/beauty-salon-website-singapore/" class="inline-link">beauty salon website</a>, <a href="/services/social-media/" class="inline-link">social media marketing</a> for beauty content that drives engagement, or <a href="/services/paid-ads/" class="inline-link">Google Ads</a> to capture demand during peak festive seasons and promotion periods.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Complete crawl of your beauty salon website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your salon for searches like "beauty salon near me" and "facial treatment Singapore".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Service-Specific Landing Pages</h3>
+            <p>Dedicated, keyword-optimised pages for every service — facials, eyelash extensions, waxing, brow treatments, body scrubs, manicures. Each page targets the exact terms clients use, like "hydrafacial near Orchard", "lash lift Singapore", or "Brazilian wax Bugis".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Maps</h3>
+            <p>Google Business Profile optimisation with correct beauty service categories, salon photos, client review management, and local citation building across Singapore directories. Designed to get your salon into the Google Maps 3-pack for every "beauty salon near me" search in your neighbourhood.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Review Management Strategy</h3>
+            <p>A structured approach to generating and managing Google reviews. We help you build a consistent flow of authentic reviews from satisfied clients — the single most influential factor in local search rankings and in convincing new clients to choose your salon over a competitor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Understands the Beauty Industry</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with beauty businesses across Singapore. We understand seasonal demand patterns, treatment-based search behaviour, and which keywords actually convert browsers into paying clients who rebook month after month.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Beauty Industry Knowledge</h3>
+            <p>We know the difference between a hydrafacial and a chemical peel, between lash lifts and lash extensions. Our strategies are built around how beauty clients actually search — not pulled from a generic SEO template that ignores your industry.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood-Level Targeting</h3>
+            <p>Beauty is hyper-local. Clients want a salon near their home or office. We optimise for neighbourhood-level searches — Orchard, Bugis, Tanjong Pagar, Tiong Bahru, Novena — so your salon ranks exactly where your potential clients are searching.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Clear Monthly Reporting</h3>
+            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We focus on the metrics that matter — search visibility and new client acquisition, not vanity numbers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Presence Under One Roof</h3>
+            <p>SEO is one piece of your digital strategy. We also handle beauty salon website design, social media content, and paid ads — so your entire marketing works together as a single system to keep your appointment book full.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Beauty salon SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Beauty Salon SEO Pricing</p>
+        <h2>SEO Plans for Beauty Salons</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location salons building local visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For salons ready to dominate local beauty searches.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Service-specific content strategy</li>
+              <li>Local citation building</li>
+              <li>Review generation strategy</li>
+              <li>Competitor monitoring</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location salon brands and franchises.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Multi-location salon SEO</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Advanced link building</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about beauty salon SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Beauty Salon SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does SEO cost for a beauty salon in Singapore?</summary>
+          <div class="faq-answer"><p>Beauty salon SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add service-specific content strategy, local citation building, and multi-location SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take for beauty salon SEO to show results?</summary>
+          <div class="faq-answer"><p>Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Neighbourhood-specific keywords like "beauty salon near Bugis" or "facial treatment Tanjong Pagar" often rank faster than broad competitive terms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can SEO help my beauty salon appear in Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches "beauty salon near me" in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What keywords do people search when looking for beauty salons in Singapore?</summary>
+          <div class="faq-answer"><p>Common search terms include "beauty salon near me", "facial treatment Singapore", "eyelash extensions near me", "waxing Singapore", "beauty salon Orchard", and treatment-specific queries like "hydrafacial Singapore" or "Korean facial near me". We research the exact terms driving bookings in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you create service-specific landing pages for beauty salons?</summary>
+          <div class="faq-answer"><p>Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, eyelash extensions, waxing, brow treatments, body treatments — each targeting the exact keywords potential clients use when searching for that specific service.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

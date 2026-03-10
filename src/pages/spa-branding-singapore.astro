@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spa Branding Singapore",
+    "description": "Professional branding for spas in Singapore — luxury brand identity, wellness positioning, treatment menu design, gift voucher design, and ambient brand experience. Stand out from $3,500 SGD.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Spa Branding",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Spa Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography, and basic brand guidelines for new spas" },
+      { "@type": "Offer", "name": "Business Spa Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full brand identity system with logo suite, brand guidelines, treatment menu design, gift voucher templates, and marketing collateral" },
+      { "@type": "Offer", "name": "Premium Spa Branding", "price": "15000", "priceCurrency": "SGD", "description": "End-to-end brand strategy, luxury visual identity, complete collateral suite, spa interior branding, product packaging line, and multi-location rollout" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does branding cost for a spa in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Spa branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with treatment menu design, gift vouchers, and marketing collateral starts from $7,500. Premium branding with full strategy, spa interior branding, product packaging, and multi-location rollout starts from $15,000." } },
+      { "@type": "Question", "name": "Why is branding important for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore's spa and wellness market is projected to reach $1.2 billion by 2028. Guests choose spas based on the promise of an experience — and that promise begins with your brand. A professionally designed identity that communicates luxury, tranquility, and expertise attracts guests who are willing to pay premium rates for a genuinely elevated spa experience rather than shopping purely on price." } },
+      { "@type": "Question", "name": "What makes spa branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Spa branding must create a sensory promise before the guest arrives. The visual identity needs to evoke calm, luxury, and rejuvenation — triggering an emotional response that makes someone feel relaxed just looking at your brand. It must also work across unique touchpoints: scented environments, treatment menus, robes and slippers, ambient music playlists, and gift packaging. Every detail contributes to the brand experience." } },
+      { "@type": "Question", "name": "How long does the spa branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most spa branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with treatment menus, gift vouchers, and spa collateral take 4 to 6 weeks. Premium projects with interior branding and product packaging take 6 to 8 weeks. We can align timelines with your spa opening or renovation." } },
+      { "@type": "Question", "name": "Do you design gift vouchers and membership materials?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gift vouchers are one of the highest-revenue items for spas in Singapore, and their design significantly impacts perceived value. Our Business and Premium packages include gift voucher design, membership welcome packs, loyalty programme materials, and seasonal promotion templates — all designed to feel luxurious and worth the premium price point." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
+      { "@type": "ListItem", "position": 3, "name": "Spa Branding", "item": "https://jraftcreative.com/spa-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Spa Branding Singapore &mdash; Luxury Brand Identity &amp; Design | Jraft Creative"
+  description="Professional branding for spas in Singapore — luxury brand identity, wellness positioning, treatment menu design, gift voucher design, and ambient brand experience. From $3,500 SGD."
+  canonical="https://jraftcreative.com/spa-branding-singapore/"
+  ogTitle="Spa Branding Singapore — Jraft Creative"
+  ogDescription="Luxury brand identity, treatment menu design, gift voucher design, and spa interior branding in Singapore. Create a brand experience that guests remember and return to."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="spa branding singapore, spa logo design, luxury spa brand identity, spa interior branding, treatment menu design, spa gift voucher design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Spa Branding"
+  heroTitle='Branding Services for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="A spa visit is an experience that begins the moment a guest encounters your brand. We create luxury identities that promise tranquility, deliver on that promise through every touchpoint, and keep guests coming back for more."
+  heroImage="/images/service-spa.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my spa in Singapore."
+  ctaLabel="Ready to Elevate Your Spa Brand?"
+  ctaTitle="Get a Brand That Feels as Good as Your Treatments"
+  ctaDescription="Book a free consultation and tell us about your spa. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for spas in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Too Many Spas Sell Relaxation but Look Like Everyone Else</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Search for "spa in Singapore" and you will find hundreds of options — from five-star hotel spas on Sentosa and Orchard Road to boutique day spas in Tiong Bahru and Holland Village. Most of them use the same visual cues: stone stacking imagery, bamboo textures, teal-and-beige colour schemes, and flowing script fonts. The branding says "relaxation" in the most generic way possible. A potential guest scrolling through Google or Instagram cannot tell which spa offers a transformative Balinese massage, which specialises in results-driven facials, and which provides the intimate, personalised experience they are looking for.</p>
+        <p>This generic approach to spa branding has a direct impact on revenue. When your brand looks like every other spa, you compete on price and promotions — a race to the bottom that erodes margins and attracts deal-seekers rather than loyal guests. A distinctive brand identity positions your spa as a destination worth the premium. When your visual presence communicates the specific experience you provide — whether that is tropical luxury, clinical skincare, traditional Asian healing, or modern urban wellness — guests choose you because of what you represent, not because you have the cheapest 60-minute massage on Fave.</p>
+        <p>Singapore's high-income residents and steady flow of international visitors spend generously on premium spa experiences. But they are discerning. They research online, compare options, and make judgements within seconds of landing on your website or Instagram profile. A luxurious, cohesive brand identity signals that your spa experience will match their expectations — and that confidence is what converts a browser into a booking. Your brand is the first touchpoint of the relaxation journey, and it needs to feel as intentional as the experience itself.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Spa branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Branding Services for Spas</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We create luxury brand identities that translate the sensory spa experience into a visual language — one that works seamlessly from your digital presence to your physical environment. Every element is designed to evoke the feeling of your spa before, during, and after each visit.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Luxury Logo &amp; Visual Identity</h3>
+            <p>A refined logo that communicates the essence of your spa — whether that is tropical serenity, modern minimalism, or traditional healing. Includes primary, stacked, icon, and monochrome versions designed for signage, embossed stationery, embroidered robes, digital platforms, and everything in between.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Treatment Menu &amp; Wellness Positioning</h3>
+            <p>Beautifully designed treatment menus that present your services as curated experiences rather than a price list. We structure your offerings to guide guests toward premium treatments and packages, with copy and layout that communicates the value and philosophy behind each service.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Gift Voucher &amp; Membership Design</h3>
+            <p>Premium gift vouchers that recipients feel genuinely excited to receive — tactile, beautifully designed, and presented in branded packaging. Plus membership cards, welcome packs, and loyalty programme materials that make every guest interaction feel exclusive and worth the investment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Ambient Brand Experience &amp; Interior</h3>
+            <p>Spa interior branding guidelines covering reception design, treatment room styling, wayfinding signage, and ambient elements. We ensure the physical environment is a seamless extension of your brand — from the entrance corridor to the relaxation lounge — creating a total immersion experience for every guest.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Spas Choose Us for Branding</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand that spa branding is about creating a sensory promise. The visual identity must make someone feel the beginning of relaxation before they even step through the door. Here is why spas across Singapore work with us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Luxury Wellness Expertise</h3>
+            <p>We design for the wellness and hospitality sector — which means we understand how to create brands that feel genuinely luxurious without being pretentious. Your brand will communicate quality, calm, and care in equal measure, attracting guests who seek a premium experience.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Integration</h3>
+            <p>Branding, <a href="/service-page/branding-and-strategy/" class="inline-link">brand strategy</a>, and digital marketing — all handled by one team. Your brand identity is implemented consistently across every channel, from your spa interior and treatment menus to your website and social media presence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; Full Ownership</h3>
+            <p>Fixed-price packages with no hidden fees. You own every asset we create — logos, guidelines, templates, menu designs, voucher templates, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore Hospitality Knowledge</h3>
+            <p>We know the spa and wellness landscape in Singapore — from the luxury resort spas of Sentosa to the boutique day spas of Dempsey Hill and Duxton. We research your competitors, your guest demographics, and your positioning before designing, so your brand captures the right market segment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Spa branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>Spa Branding Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$3,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new spas establishing their brand.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$7,500 <span>SGD</span></div>
+            <p class="pricing-desc">For spas ready for a complete brand system.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Treatment menu &amp; price list design</li>
+              <li>Gift voucher &amp; membership templates</li>
+              <li>Social media profile templates</li>
+              <li>Spa signage &amp; collateral design</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$15,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For luxury or multi-location spas.</p>
+            <ul class="pricing-features">
+              <li>Brand strategy &amp; market positioning</li>
+              <li>Full luxury visual identity system</li>
+              <li>Complete collateral &amp; packaging suite</li>
+              <li>Spa interior &amp; environmental branding</li>
+              <li>Product packaging line design</li>
+              <li>Multi-location brand rollout</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Spa Branding Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does branding cost for a spa in Singapore?</summary>
+          <div class="faq-answer"><p>Spa branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with treatment menu design, gift vouchers, and marketing collateral starts from $7,500. Premium branding with full strategy, spa interior branding, product packaging, and multi-location rollout starts from $15,000.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why is branding important for spas in Singapore?</summary>
+          <div class="faq-answer"><p>Singapore's spa and wellness market is projected to reach $1.2 billion by 2028. Guests choose spas based on the promise of an experience — and that promise begins with your brand. A professionally designed identity that communicates luxury, tranquility, and expertise attracts guests who are willing to pay premium rates for a genuinely elevated spa experience rather than shopping purely on price.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What makes spa branding different from regular branding?</summary>
+          <div class="faq-answer"><p>Spa branding must create a sensory promise before the guest arrives. The visual identity needs to evoke calm, luxury, and rejuvenation — triggering an emotional response that makes someone feel relaxed just looking at your brand. It must also work across unique touchpoints: scented environments, treatment menus, robes and slippers, ambient music playlists, and gift packaging. Every detail contributes to the brand experience.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does the spa branding process take?</summary>
+          <div class="faq-answer"><p>Most spa branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with treatment menus, gift vouchers, and spa collateral take 4 to 6 weeks. Premium projects with interior branding and product packaging take 6 to 8 weeks. We can align timelines with your spa opening or renovation.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you design gift vouchers and membership materials?</summary>
+          <div class="faq-answer"><p>Yes. Gift vouchers are one of the highest-revenue items for spas in Singapore, and their design significantly impacts perceived value. Our Business and Premium packages include gift voucher design, membership welcome packs, loyalty programme materials, and seasonal promotion templates — all designed to feel luxurious and worth the premium price point.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

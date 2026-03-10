@@ -1,0 +1,263 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Beauty Salon Branding Singapore",
+    "description": "Professional branding for beauty salons in Singapore — logo design, salon interior branding, packaging design, brand photography direction, and visual identity systems. Stand out from $3,500 SGD.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Beauty Salon Branding",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Beauty Salon Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography, and basic brand guidelines for new beauty salons" },
+      { "@type": "Offer", "name": "Business Beauty Salon Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full brand identity system with logo suite, brand guidelines, packaging design, social media templates, and salon collateral" },
+      { "@type": "Offer", "name": "Premium Beauty Salon Branding", "price": "15000", "priceCurrency": "SGD", "description": "End-to-end brand strategy, visual identity, complete collateral suite, salon interior branding, product packaging, and multi-outlet rollout" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does branding cost for a beauty salon in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Beauty salon branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with packaging design, social media templates, and salon collateral starts from $7,500. Premium branding with full strategy, interior branding, and multi-outlet rollout starts from $15,000." } },
+      { "@type": "Question", "name": "Why is branding important for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore has over 7,000 registered beauty establishments competing for the same clientele. Customers choose salons based on perceived quality and experience — and that perception begins with your brand. A professionally designed identity that communicates your specialisation, service quality, and salon atmosphere attracts clients who value what you offer and are willing to pay for it." } },
+      { "@type": "Question", "name": "What makes beauty salon branding different from other industries?", "acceptedAnswer": { "@type": "Answer", "text": "Beauty salon branding must convey aspiration, trust, and sensory experience simultaneously. Clients need to feel that your salon delivers premium results before they walk through the door. The brand must balance elegance with approachability, and luxury with warmth. It also needs to work across uniquely diverse touchpoints — from appointment cards and product packaging to Instagram grids and salon interiors." } },
+      { "@type": "Question", "name": "How long does the beauty salon branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most beauty salon branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with packaging, social media templates, and salon signage take 4 to 6 weeks. We can align deliverables with your salon opening or rebrand launch date." } },
+      { "@type": "Question", "name": "Do you design product packaging and retail displays?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include packaging design for retail products, treatment kits, and gift sets. The Premium package also covers retail display design, shelf talkers, and point-of-sale materials. We ensure your retail products carry the same brand identity as your salon environment and digital presence." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
+      { "@type": "ListItem", "position": 3, "name": "Beauty Salon Branding", "item": "https://jraftcreative.com/beauty-salon-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Beauty Salon Branding Singapore &mdash; Logo &amp; Brand Identity | Jraft Creative"
+  description="Professional branding for beauty salons in Singapore — logo design, salon interior branding, packaging design, brand photography direction, and visual identity systems. From $3,500 SGD."
+  canonical="https://jraftcreative.com/beauty-salon-branding-singapore/"
+  ogTitle="Beauty Salon Branding Singapore — Jraft Creative"
+  ogDescription="Logo design, brand identity, packaging, and salon interior branding for beauty salons in Singapore. Create a brand that attracts and retains loyal clients."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="beauty salon branding singapore, salon logo design, beauty brand identity singapore, salon interior branding, beauty packaging design, salon marketing materials, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Beauty Salon Branding"
+  heroTitle='Branding Services for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="Your salon delivers transformative beauty experiences. We create brand identities that capture that transformation — from your logo and packaging to your salon interior and social media presence — so clients feel the quality before they sit in the chair."
+  heroImage="/images/service-beauty.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my beauty salon in Singapore."
+  ctaLabel="Ready to Elevate Your Salon Brand?"
+  ctaTitle="Get a Brand That Matches Your Craft"
+  ctaDescription="Book a free consultation and tell us about your beauty salon. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for beauty salons in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Most Salons Look Interchangeable — Pink Logos, Script Fonts, and Scissors Icons</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Walk through any shopping mall in Singapore — from Orchard Gateway to Tampines Mall — and count the beauty salons. You will pass dozens, and most share the same visual language: rose gold accents, thin script fonts, scissors-and-comb icons, and pastel colour schemes. They look like variations of the same template. Which one specialises in Korean hair treatments? Which one offers expert balayage? Which one provides the luxurious pampering experience you have been craving? You cannot tell from looking at their branding, because they all look identical.</p>
+        <p>This visual sameness is a competitive handicap. When every salon looks the same, clients default to choosing based on price or proximity rather than genuine affinity for what your salon offers. A distinctive brand identity changes the equation entirely. When your visual presence communicates your specific expertise — whether that is Japanese scalp therapy, bridal beauty services, or cutting-edge colour work — the right clients find you and stay loyal. They walk past cheaper alternatives because your brand promises something specific that no discount can replace.</p>
+        <p>Singapore's beauty market is worth over $2.2 billion, and customer acquisition costs keep rising. Salons that invest in professional branding spend less on advertising because their brand does the selling for them. A recognisable, premium-feeling identity generates word-of-mouth, photographs well for social media sharing, and creates the kind of first impression that converts walk-ins into regulars. Your branding is not a cosmetic expense — it is the foundation of sustainable growth in one of Singapore's most competitive industries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Beauty salon branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Branding Services for Beauty Salons</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We create brand identities that capture the artistry and atmosphere of your salon and translate them into a visual system that works everywhere — from your storefront signage and product packaging to your Instagram grid and booking confirmation emails. Every element is designed to reflect your salon's unique character.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity System</h3>
+            <p>A custom logo that communicates your salon's personality — whether that is bold and editorial, soft and luxurious, or clean and modern. Includes primary, stacked, icon, and monochrome variations designed to work on signage, product labels, embroidered towels, and digital platforms across every touchpoint.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Salon Interior Branding</h3>
+            <p>Storefront design, reception area styling, station branding, and environmental graphics that make your physical space an extension of your brand identity. We create design specifications for signage, wall treatments, mirror decals, and display areas so the salon experience feels cohesive from the moment clients walk through the door.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Packaging &amp; Product Design</h3>
+            <p>Labels, boxes, bags, and gift set packaging for your retail products and treatment kits. We design packaging that elevates perceived value, encourages retail purchases, and looks stunning when clients photograph and share their haul on social media — turning every product sale into organic brand exposure.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Brand Photography &amp; Social Templates</h3>
+            <p>Photography direction guides covering lighting, composition, colour grading, and styling — so every image your salon publishes reinforces the brand. Plus ready-to-use social media templates for Instagram posts, stories, and reels that maintain visual consistency without requiring a designer for every upload.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Beauty Salons Choose Us for Branding</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand that salon branding must do more than look attractive — it must communicate quality, build trust, and create an emotional connection that turns first-time visitors into lifelong clients. Here is why salons across Singapore work with us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Beauty Industry Expertise</h3>
+            <p>We design for the beauty and aesthetics sector — which means we understand the visual expectations of salon clients, the touchpoints that matter most, and how to create brands that feel premium without being unapproachable. Your brand will attract the clientele your services deserve.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Integration</h3>
+            <p>Branding, <a href="/service-page/branding-and-strategy/" class="inline-link">brand strategy</a>, and social media marketing — all handled by one team. Your brand identity is implemented consistently across every channel, from your salon signage to your Instagram feed, from day one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; Full Ownership</h3>
+            <p>Fixed-price packages with no hidden fees. You own every asset we create — logos, guidelines, templates, source files, packaging designs. No monthly retainers and no ongoing fees for the branding project itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore Market Knowledge</h3>
+            <p>We know the beauty landscape in Singapore — from the high-end salons of Orchard Road to the neighbourhood favourites in Tanjong Pagar and Katong. We research your area, your competitors, and your target demographic before designing, so your brand is positioned to stand out in your specific market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Beauty salon branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>Beauty Salon Branding Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$3,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new salons establishing their brand.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$7,500 <span>SGD</span></div>
+            <p class="pricing-desc">For salons ready for a complete brand system.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Packaging &amp; product label design</li>
+              <li>Social media profile templates</li>
+              <li>Salon signage &amp; collateral design</li>
+              <li>Brand photography direction guide</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$15,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For flagship or multi-outlet salons.</p>
+            <ul class="pricing-features">
+              <li>Brand strategy &amp; market positioning</li>
+              <li>Full visual identity system</li>
+              <li>Complete packaging &amp; collateral suite</li>
+              <li>Interior &amp; environmental branding</li>
+              <li>Retail display &amp; POS design</li>
+              <li>Multi-outlet brand rollout</li>
+            </ul>
+            <a href="/service-page/branding-and-strategy/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about beauty salon branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Beauty Salon Branding Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does branding cost for a beauty salon in Singapore?</summary>
+          <div class="faq-answer"><p>Beauty salon branding in Singapore ranges from $3,500 to $15,000+ SGD. A Starter package with logo, colour palette, and basic guidelines starts at $3,500. A full brand identity with packaging design, social media templates, and salon collateral starts from $7,500. Premium branding with full strategy, interior branding, and multi-outlet rollout starts from $15,000.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why is branding important for beauty salons in Singapore?</summary>
+          <div class="faq-answer"><p>Singapore has over 7,000 registered beauty establishments competing for the same clientele. Customers choose salons based on perceived quality and experience — and that perception begins with your brand. A professionally designed identity that communicates your specialisation, service quality, and salon atmosphere attracts clients who value what you offer and are willing to pay for it.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What makes beauty salon branding different from other industries?</summary>
+          <div class="faq-answer"><p>Beauty salon branding must convey aspiration, trust, and sensory experience simultaneously. Clients need to feel that your salon delivers premium results before they walk through the door. The brand must balance elegance with approachability, and luxury with warmth. It also needs to work across uniquely diverse touchpoints — from appointment cards and product packaging to Instagram grids and salon interiors.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does the beauty salon branding process take?</summary>
+          <div class="faq-answer"><p>Most beauty salon branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with packaging, social media templates, and salon signage take 4 to 6 weeks. We can align deliverables with your salon opening or rebrand launch date.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you design product packaging and retail displays?</summary>
+          <div class="faq-answer"><p>Yes. Our Business and Premium packages include packaging design for retail products, treatment kits, and gift sets. The Premium package also covers retail display design, shelf talkers, and point-of-sale materials. We ensure your retail products carry the same brand identity as your salon environment and digital presence.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

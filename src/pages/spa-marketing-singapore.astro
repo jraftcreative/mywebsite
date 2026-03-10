@@ -1,0 +1,265 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spa Marketing Singapore",
+    "description": "Digital marketing for spas in Singapore. Luxury positioning, gift voucher campaigns, corporate wellness marketing, and multi-channel acquisition — from S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Spa Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Spa Marketing", "price": "3000", "priceCurrency": "SGD", "description": "SEO, Google Business Profile management, basic social media content, and monthly performance reporting" },
+      { "@type": "Offer", "name": "Growth Spa Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service marketing with SEO, Google Ads, social media management, content creation, and bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Spa Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive marketing with dedicated strategist, multi-channel campaigns, influencer partnerships, and weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does spa marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Spa digital marketing in Singapore starts at $3,000 SGD per month for essential services including SEO and social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist, influencer partnerships, and corporate wellness marketing." } },
+      { "@type": "Question", "name": "How do you market luxury spa services effectively?", "acceptedAnswer": { "@type": "Answer", "text": "Luxury spa marketing requires premium positioning across all channels. We create aspirational content that emphasises the experience — not just the treatment. Professional photography, wellness-focused blog content, targeted Google Ads for high-intent searches, and Instagram content that conveys atmosphere and exclusivity. The messaging focuses on outcomes and experience rather than price." } },
+      { "@type": "Question", "name": "Can you help drive gift voucher sales for our spa?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Gift voucher campaigns are a major revenue driver for spas, especially during festive seasons, Valentine's Day, Mother's Day, and Christmas. We run targeted Google Ads, social media campaigns, and email marketing timed around gifting occasions — making it easy for customers to purchase vouchers online." } },
+      { "@type": "Question", "name": "Do you handle corporate wellness marketing for spas?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Corporate wellness is a significant growth channel for spas in Singapore. We create targeted campaigns reaching HR managers and corporate decision-makers, develop corporate package landing pages, and run LinkedIn advertising to position your spa as a preferred corporate wellness partner." } },
+      { "@type": "Question", "name": "How do you promote couples and group spa packages?", "acceptedAnswer": { "@type": "Answer", "text": "We build dedicated campaigns around couples and group experiences — targeting keywords like 'couples spa Singapore,' creating social content that showcases shared experiences, running Google Ads during peak gifting and celebration periods, and building landing pages optimised for group booking conversions." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Spa Marketing Singapore", "item": "https://jraftcreative.com/spa-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Spa Marketing Singapore — Luxury Digital Marketing | Jraft Creative"
+  description="Digital marketing for spas in Singapore. Luxury positioning, gift voucher campaigns, corporate wellness marketing, and multi-channel acquisition — from S$3,000/month."
+  canonical="https://jraftcreative.com/spa-marketing-singapore/"
+  ogTitle="Spa Marketing Singapore — Jraft Creative"
+  ogDescription="Digital marketing for spas in Singapore. Luxury positioning, gift vouchers, corporate wellness, SEO, ads — from $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="spa marketing singapore, spa digital marketing, spa advertising singapore, wellness marketing, spa promotion agency, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Spa Marketing"
+  heroTitle='Digital Marketing for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="Your spa delivers transformative experiences — but empty treatment rooms don't sustain a business. We handle your digital marketing from luxury positioning to gift voucher campaigns, so you can focus on creating unforgettable wellness experiences."
+  heroImage="/images/service-spa.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need digital marketing for my spa in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Let Us Fill Your Treatment Rooms"
+  ctaDescription="Book a free consultation and tell us about your spa. We'll get back to you within 24 hours with a tailored marketing strategy."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why spas need digital marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Exceptional Wellness Experiences Need Exceptional Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's spa and wellness industry is worth over S$1 billion, with everything from five-star hotel spas to neighbourhood wellness centres competing for clients. The spas that consistently fill their treatment rooms are the ones with strong digital visibility — ranking on Google for "spa near me," building aspirational Instagram presences, and capturing gift voucher demand during peak seasons.</p>
+        <p>Spa marketing is uniquely challenging because it sells an experience, not a product. Clients need to trust that your environment, therapists, and treatments justify premium pricing before they walk through the door. Generic ads and sporadic social media posts don't build that trust — a cohesive digital presence across search, social, and content does.</p>
+        <p>A full-service marketing strategy positions your spa as a destination, not just another option. When your SEO captures wellness searches, your social content conveys atmosphere and quality, your ads target high-intent buyers, and your corporate outreach opens new revenue streams — your treatment rooms stay consistently booked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="Spa marketing services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Full-Service Spa Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies that position your spa as a premium wellness destination. SEO, paid ads, social media, and specialised campaigns for gift vouchers, corporate wellness, and couples experiences — all managed under one strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Local Search</h3>
+            <p>Rank for "spa near me," "massage Singapore," and treatment-specific queries. Google Business Profile optimisation with professional imagery, service listings, and strategic review management to build trust and drive walk-ins.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Ads &amp; Paid Media</h3>
+            <p>Targeted campaigns for spa services, gift vouchers, and corporate wellness packages. Seasonal ad campaigns for Valentine's Day, Mother's Day, and year-end gifting. Every campaign tracked to cost-per-booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Social Media &amp; Content</h3>
+            <p>Aspirational Instagram and Facebook content that conveys your spa's atmosphere and quality. Treatment showcases, therapist spotlights, wellness tips, and behind-the-scenes content that builds trust and desire.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Vouchers, Corporate &amp; Analytics</h3>
+            <p>Gift voucher landing pages and seasonal campaigns, corporate wellness outreach to Singapore businesses, couples and group package promotion, and comprehensive analytics tracking revenue across all channels.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A Marketing Agency That Understands Wellness</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with spas across Singapore and understand what drives bookings — from self-care seekers to gift buyers to corporate wellness managers. Our strategies are built around how spa clients actually make decisions.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Spa Industry Expertise</h3>
+            <p>We understand seasonal demand, gift voucher economics, corporate wellness channels, and the premium positioning that spa marketing requires. Your campaigns are built by people who know the wellness industry.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, ads, social media, corporate outreach, and gift campaigns under one roof. No coordinating between agencies. Every channel works together as part of a single, premium brand strategy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Revenue-Focused Metrics</h3>
+            <p>We measure what matters — bookings, gift voucher sales, corporate contracts, and total revenue generated. Not impressions or reach. Real business outcomes that prove your marketing ROI.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In Contracts</h3>
+            <p>We earn your business every month. If we're not delivering results, you're free to leave. Most spa clients stay because the revenue growth speaks for itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Spa marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Marketing Pricing</p>
+        <h2>Digital Marketing Packages for Spas</h2>
+        <p>Monthly retainer. Cancel any time.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location spas building their digital presence.</p>
+            <ul class="pricing-features">
+              <li>Local SEO optimisation</li>
+              <li>Google Business Profile management</li>
+              <li>Basic social media content</li>
+              <li>Review management</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For spas scaling bookings and gift voucher revenue.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Google Ads management</li>
+              <li>Full social media management</li>
+              <li>Gift voucher campaigns</li>
+              <li>Corporate wellness outreach</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For luxury spas and multi-location wellness brands.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated account strategist</li>
+              <li>Multi-location marketing</li>
+              <li>Influencer partnerships</li>
+              <li>Video content production</li>
+              <li>Weekly reporting &amp; calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/service-page/digital-marketing/" class="inline-link">digital marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Spa Marketing Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does spa marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Spa digital marketing in Singapore starts at $3,000 SGD per month for essential services including SEO and social media. Growth packages at $5,500/month add Google Ads and content marketing. Enterprise packages at $10,000+/month include a dedicated strategist, influencer partnerships, and corporate wellness marketing.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you market luxury spa services effectively?</summary>
+          <div class="faq-answer"><p>Luxury spa marketing requires premium positioning across all channels. We create aspirational content that emphasises the experience — not just the treatment. Professional photography, wellness-focused blog content, targeted Google Ads for high-intent searches, and Instagram content that conveys atmosphere and exclusivity. The messaging focuses on outcomes and experience rather than price.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you help drive gift voucher sales for our spa?</summary>
+          <div class="faq-answer"><p>Yes. Gift voucher campaigns are a major revenue driver for spas, especially during festive seasons, Valentine's Day, Mother's Day, and Christmas. We run targeted Google Ads, social media campaigns, and email marketing timed around gifting occasions — making it easy for customers to purchase vouchers online.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you handle corporate wellness marketing for spas?</summary>
+          <div class="faq-answer"><p>Yes. Corporate wellness is a significant growth channel for spas in Singapore. We create targeted campaigns reaching HR managers and corporate decision-makers, develop corporate package landing pages, and run LinkedIn advertising to position your spa as a preferred corporate wellness partner.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you promote couples and group spa packages?</summary>
+          <div class="faq-answer"><p>We build dedicated campaigns around couples and group experiences — targeting keywords like "couples spa Singapore," creating social content that showcases shared experiences, running Google Ads during peak gifting and celebration periods, and building landing pages optimised for group booking conversions.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

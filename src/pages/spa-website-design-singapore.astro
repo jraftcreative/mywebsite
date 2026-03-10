@@ -1,0 +1,267 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spa Website Design Singapore",
+    "description": "Professional website design for spas in Singapore. Treatment menus, online booking, wellness packages, gift vouchers, and ambience showcase — from S$2,500.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Spa Website Design",
+    "offers": [
+      { "@type": "Offer", "name": "Starter Spa Website", "price": "2500", "priceCurrency": "SGD", "description": "5-page spa website with treatment menu, contact form, Google Maps, ambience gallery, mobile-responsive design, and basic SEO setup" },
+      { "@type": "Offer", "name": "Business Spa Website", "price": "5500", "priceCurrency": "SGD", "description": "10-page website with online booking integration, wellness packages, gift voucher system, blog, advanced SEO, and Google Business Profile optimisation" },
+      { "@type": "Offer", "name": "Premium Spa Website", "price": "10000", "priceCurrency": "SGD", "description": "Fully custom website with multi-location support, membership portal, product e-commerce, virtual tour, and priority support" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does a spa website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A professional spa website in Singapore costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with your treatment menu, ambience gallery, and contact form. Business and Premium packages add online booking, gift vouchers, and wellness package pages." } },
+      { "@type": "Question", "name": "Can you integrate online booking into my spa website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We integrate with Fresha, Booksy, and other booking platforms used by spas in Singapore. Clients can browse treatments, select a therapist, choose a time slot, and confirm their booking directly on your website — reducing no-shows and phone enquiries." } },
+      { "@type": "Question", "name": "Do you build gift voucher systems for spa websites?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our Business package ($5,500) and above include a digital gift voucher system. Clients can purchase spa vouchers for specific treatments or monetary values directly online — a proven revenue driver especially during festive seasons and Mother's Day in Singapore." } },
+      { "@type": "Question", "name": "Can you showcase the spa ambience on my website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We use high-quality imagery, ambient colour palettes, and optional video backgrounds to convey your spa's atmosphere online. Premium packages can include a 360-degree virtual tour so potential clients experience your space before stepping through the door." } },
+      { "@type": "Question", "name": "How long does it take to build a spa website?", "acceptedAnswer": { "@type": "Answer", "text": "Most spa websites go live within 2–3 weeks. A Starter site can be ready in 2 weeks, while larger projects with booking integration, gift vouchers, or virtual tours typically take 3–4 weeks. We provide a clear timeline before starting." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Spa Website Design Singapore", "item": "https://jraftcreative.com/spa-website-design-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Spa Website Design Singapore — Booking & Gift Vouchers | Jraft Creative"
+  description="Professional website design for spas in Singapore. Treatment menus, online booking, wellness packages, gift vouchers, and ambience showcase — from S$2,500."
+  canonical="https://jraftcreative.com/spa-website-design-singapore/"
+  ogTitle="Spa Website Design Singapore — Jraft Creative"
+  ogDescription="Website design for spas in Singapore. Treatment menus, online booking, gift vouchers, and wellness packages — from $2,500 SGD."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="spa website design singapore, spa website singapore, spa booking website, wellness website design, massage spa website, day spa web design, spa near me, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Spa Website Design"
+  heroTitle='Website Design for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="Your spa offers an experience — your website should reflect that. We build elegant, mobile-first websites for spas with online booking, treatment menus, gift vouchers, and immersive galleries that capture your ambience and convert visitors into bookings."
+  heroImage="/images/service-spa.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a website for my spa in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Get Your Spa Online"
+  ctaDescription="Book a free consultation and tell us about your spa. We'll get back to you within 24 hours with a tailored proposal covering design, booking integration, and gift voucher functionality."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why spas need a proper website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Clients Searching "Spa Near Me" Won't Find You Without a Website</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>"Spa near me", "massage Singapore", and "facial treatment near Orchard" are searched thousands of times every month by people ready to book. These are high-intent clients looking for a spa right now — and they're choosing from the results Google shows them. If your spa doesn't have a professional website, you're invisible to this audience and handing bookings to competitors who invested in their online presence.</p>
+        <p>A spa website does what your Instagram page and marketplace listing cannot. It displays your full treatment menu with descriptions, durations, and pricing. It lets clients book appointments directly — even at midnight after a stressful day when they need a massage most. It showcases your spa's ambience through immersive imagery so first-time visitors feel comfortable before they arrive. And it sells gift vouchers around the clock, turning your website into a revenue stream that never sleeps.</p>
+        <p>Singapore's spa and wellness market is growing rapidly, with new outlets opening in malls, shophouses, and mixed-use developments across the island. Whether you operate a luxury day spa in Marina Bay, a traditional Thai massage studio in Jalan Besar, or a boutique facial spa in Holland Village, a well-designed website is what separates you from the hundreds of spas competing for the same clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section class="section" id="sub-services" aria-label="Spa website design services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>What We Build for Spas</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every spa website we create is designed to evoke your space's atmosphere online. From treatment discovery to booking confirmation, we build a seamless journey that makes clients feel welcomed before they even walk through your door.</p>
+        <p>Complement your website with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to rank for "spa near me" searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> for wellness content that builds trust, and <a href="/services/paid-ads/" class="inline-link">paid ads</a> to promote seasonal packages and gift voucher campaigns.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Treatment Menu &amp; Packages</h3>
+            <p>Organised treatment pages with descriptions, durations, pricing, and package bundles. Categorised by type — massage, facial, body scrub, wellness rituals — so clients can browse, compare, and choose the perfect treatment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Online Booking Integration</h3>
+            <p>Seamless integration with Fresha, Booksy, or your existing booking platform. Clients select a treatment, choose a therapist, pick a date and time, and confirm — no phone calls, no WhatsApp back-and-forth, no missed bookings.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Gift Voucher System</h3>
+            <p>Digital gift vouchers purchasable online for specific treatments or custom monetary values. Popular for Mother's Day, birthdays, anniversaries, and corporate gifting in Singapore — generating revenue even when your treatment rooms are full.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Ambience Showcase</h3>
+            <p>Immersive photography galleries, ambient colour palettes, and optional video backgrounds that convey the tranquillity of your space. Premium packages include 360-degree virtual tours so clients experience your spa environment before booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa website design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Choose Us for Spa Web Design</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build websites for wellness businesses across Singapore. For spas, that means every design decision is made to evoke calm, build trust, and make booking effortless — because that's what your clients expect from the moment they land on your site.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Wellness Industry Experience</h3>
+            <p>We understand how spa clients make decisions — ambience, treatment variety, therapist expertise, and ease of booking. Every element on your website is designed to address these factors and convert browsers into confirmed appointments.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Fast Turnaround — 2 Weeks</h3>
+            <p>Most spa websites go live within 2 weeks. Whether you're launching a new spa, rebranding an existing one, or replacing a dated site that's not generating bookings, we deliver quickly without compromising on design quality.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First Design</h3>
+            <p>Most spa bookings happen on mobile — often in the evening after a long day. Every site we build is optimised for mobile with fast load times, intuitive navigation, and tap-to-book buttons that make booking a spa treatment as relaxing as the treatment itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Package</h3>
+            <p>Website, SEO, social media, and paid ads under one roof. We can manage your spa's entire digital presence so you can focus on delivering the exceptional treatments and experiences your clients love.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Spa website design pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Spa Website Pricing</p>
+        <h2>Website Packages for Spas</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new spas and massage studios getting online.</p>
+            <ul class="pricing-features">
+              <li>Up to 5 pages</li>
+              <li>Treatment menu with pricing</li>
+              <li>Ambience gallery</li>
+              <li>Contact page &amp; Google Maps</li>
+              <li>Mobile-responsive design</li>
+              <li>Basic SEO setup</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$5,500 <span>SGD</span></div>
+            <p class="pricing-desc">For spas ready to grow bookings and voucher sales.</p>
+            <ul class="pricing-features">
+              <li>Up to 10 pages</li>
+              <li>Online booking integration</li>
+              <li>Gift voucher system</li>
+              <li>Wellness package pages</li>
+              <li>Blog / wellness journal</li>
+              <li>Advanced SEO &amp; schema</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For luxury spas and multi-location wellness brands.</p>
+            <ul class="pricing-features">
+              <li>Unlimited pages</li>
+              <li>Custom design &amp; features</li>
+              <li>Multi-location support</li>
+              <li>Membership portal</li>
+              <li>Product e-commerce</li>
+              <li>Priority support</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>See full service details on our <a href="/services/website-development/" class="inline-link">website development</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa website design in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Spa Website Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does a spa website cost in Singapore?</summary>
+          <div class="faq-answer"><p>A professional spa website in Singapore costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with your treatment menu, ambience gallery, and contact form. Business and Premium packages add online booking, gift vouchers, and wellness package pages.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you integrate online booking into my spa website?</summary>
+          <div class="faq-answer"><p>Yes. We integrate with Fresha, Booksy, and other booking platforms used by spas in Singapore. Clients can browse treatments, select a therapist, choose a time slot, and confirm their booking directly on your website — reducing no-shows and phone enquiries.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you build gift voucher systems for spa websites?</summary>
+          <div class="faq-answer"><p>Absolutely. Our Business package ($5,500) and above include a digital gift voucher system. Clients can purchase spa vouchers for specific treatments or monetary values directly online — a proven revenue driver especially during festive seasons and Mother's Day in Singapore.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you showcase the spa ambience on my website?</summary>
+          <div class="faq-answer"><p>Yes. We use high-quality imagery, ambient colour palettes, and optional video backgrounds to convey your spa's atmosphere online. Premium packages can include a 360-degree virtual tour so potential clients experience your space before stepping through the door.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take to build a spa website?</summary>
+          <div class="faq-answer"><p>Most spa websites go live within 2–3 weeks. A Starter site can be ready in 2 weeks, while larger projects with booking integration, gift vouchers, or virtual tours typically take 3–4 weeks. We provide a clear timeline before starting.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

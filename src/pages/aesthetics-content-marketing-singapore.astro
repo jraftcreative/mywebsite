@@ -1,0 +1,262 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Aesthetics Content Marketing Singapore",
+    "description": "Content marketing for aesthetics clinics in Singapore — treatment education articles, skincare science content, MOH-compliant blog posts, and patient education resources. Build authority and attract patients from $1,500 SGD/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Aesthetics Content Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Content Marketing", "price": "1500", "priceCurrency": "SGD", "description": "Content strategy, 4 SEO blog posts per month, treatment education articles, and monthly analytics reporting for aesthetics clinics" },
+      { "@type": "Offer", "name": "Growth Content Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Full content strategy, 8 SEO blog posts per month, skincare science guides, patient FAQ content, newsletter content, and monthly performance reporting" },
+      { "@type": "Offer", "name": "Enterprise Content Marketing", "price": "5000", "priceCurrency": "SGD", "description": "End-to-end content marketing with 12+ posts per month, doctor thought leadership, downloadable patient resources, email campaigns, and dedicated content strategist" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does content marketing cost for aesthetics clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Content marketing for aesthetics clinics in Singapore ranges from $1,500 to $5,000+ per month. An Essential package with 4 SEO blog posts and content strategy starts at $1,500/mo. A Growth package with 8 posts, skincare science guides, patient FAQ content, and newsletter content starts at $3,000/mo. Enterprise packages with 12+ posts, doctor thought leadership, and email campaign management start from $5,000/mo." } },
+      { "@type": "Question", "name": "How do you ensure aesthetics content is MOH-compliant?", "acceptedAnswer": { "@type": "Answer", "text": "Every article we produce for aesthetics clinics is written with Singapore's MOH advertising guidelines in mind. We avoid prohibited claims, unsubstantiated efficacy statistics, misleading before-and-after narratives, and non-compliant promotional language. Our team stays current with MOH, SAC, and AMIC regulations so your content educates patients effectively while remaining fully compliant." } },
+      { "@type": "Question", "name": "What kind of content works best for aesthetics clinics?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective aesthetics content educates patients about treatments they are researching online. This includes treatment comparison articles, procedure explainers, recovery guides, skincare science breakdowns, and FAQ-driven content answering the specific questions patients ask before booking a consultation. For Singapore specifically, content addressing local concerns — humidity effects on skin, pigmentation from UV exposure, anti-ageing for Asian skin types — ranks particularly well." } },
+      { "@type": "Question", "name": "How long does it take for aesthetics content marketing to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most aesthetics clinics see measurable increases in organic traffic within 3 to 4 months. Medical aesthetics content often ranks faster than general content because treatment-specific keywords have less competition but high commercial intent. Patient consultation requests typically increase once content begins ranking for terms like 'Botox vs fillers Singapore' or 'thread lift recovery time.' We provide monthly reporting from day one." } },
+      { "@type": "Question", "name": "Can you position our doctors as thought leaders through content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Growth and Enterprise packages include doctor thought leadership content — expert opinion articles, treatment innovation commentary, skincare science explainers, and authored guides published under your practitioners' names. This content builds individual doctor authority, earns backlinks from medical and beauty publications, and gives patients confidence in the expertise behind their treatments." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Aesthetics Content Marketing Singapore", "item": "https://jraftcreative.com/aesthetics-content-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Aesthetics Content Marketing Singapore &mdash; Blog &amp; SEO Content | Jraft Creative"
+  description="Content marketing for aesthetics clinics in Singapore — treatment education articles, skincare science content, MOH-compliant blog posts, and patient education. Build authority from $1,500/mo SGD."
+  canonical="https://jraftcreative.com/aesthetics-content-marketing-singapore/"
+  ogTitle="Aesthetics Content Marketing Singapore — Jraft Creative"
+  ogDescription="Treatment education articles, skincare science content, and MOH-compliant blog posts for aesthetics clinics in Singapore. Attract quality patients organically."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="aesthetics content marketing singapore, aesthetic clinic blog writing, skincare content strategy, medical aesthetics SEO content, treatment education content, aesthetics content agency, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Aesthetics Content Marketing"
+  heroTitle='Content Marketing for <span class="highlight">Aesthetics Clinics in Singapore</span>'
+  heroSubtitle="Patients research treatments extensively before booking a consultation. When your clinic publishes the expert, evidence-based content they find on Google, you become the aesthetics provider they trust — and the one they choose."
+  heroImage="/images/service-aesthetics.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need content marketing for my aesthetics clinic in Singapore."
+  ctaLabel="Ready to Build Authority in Aesthetics?"
+  ctaTitle="Get a Content Strategy That Drives Patient Consultations"
+  ctaDescription="Book a free consultation and tell us about your aesthetics clinic. We will design a tailored content marketing strategy covering patient education, SEO articles, and lead generation — no obligations."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20aesthetics%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Content marketing challenges for aesthetics clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Patients Research Every Treatment Before They Ever Call Your Clinic</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>The modern aesthetics patient in Singapore does not walk into a clinic on impulse. They spend weeks — sometimes months — researching treatments online before booking a consultation. They search for "Botox side effects Singapore," "how long do dermal fillers last," "thread lift vs HIFU for jawline," and "best aesthetic clinic in Orchard Road." They read articles, watch videos, compare clinics, and form opinions about which practitioners they trust. The clinics that publish the content these patients find are the ones that win the consultation booking. The clinics that do not publish are invisible at the most critical stage of the patient decision journey.</p>
+        <p>Most aesthetics clinics in Singapore rely on Instagram before-and-after posts and paid advertising to attract patients. While these channels have a role, they miss the enormous volume of search traffic from patients actively researching specific treatments. A stunning Instagram grid will not appear when someone searches "is PRP good for hair loss" or "PICO laser for melasma recovery time." That traffic — high-intent, information-seeking, ready-to-book traffic — goes to whichever clinic published the well-researched, medically accurate article that ranks on Google.</p>
+        <p>Strategic content marketing captures this traffic systematically. By publishing treatment education articles, skincare science guides, and FAQ-driven content optimised for search engines, your clinic becomes the trusted voice that patients encounter throughout their research journey. This content builds authority, pre-qualifies patients before consultation, and creates a growing pipeline of organic enquiries that reduces your clinic's dependence on expensive paid advertising and algorithm-dependent social media platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Aesthetics content marketing services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Content Marketing Services for Aesthetics Clinics</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We produce content specifically for aesthetics clinics in Singapore — medically accurate, MOH-compliant, and optimised to rank on Google. Every article is designed to educate patients, build trust in your clinical expertise, and drive consultation bookings from people who have already decided they want treatment.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Treatment Education Articles</h3>
+            <p>Comprehensive treatment guides covering how procedures work, what patients can expect, recovery timelines, suitability criteria, and realistic outcomes. We produce content for every treatment category — injectables, laser treatments, body contouring, skin rejuvenation, and regenerative medicine — written to answer the exact questions patients ask before booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Skincare Science &amp; Patient Guides</h3>
+            <p>Evidence-based skincare articles that demonstrate your clinic's scientific expertise — ingredient breakdowns, skin condition explainers, treatment comparison guides, and pre/post-treatment care instructions. This content positions your clinic as the authoritative source for skincare knowledge in Singapore and builds patient confidence before consultation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>MOH-Compliant Blog &amp; FAQ Content</h3>
+            <p>All content produced within MOH advertising guidelines — avoiding prohibited claims, unsubstantiated statistics, and non-compliant language while still being compelling and informative. We also produce structured FAQ content that targets featured snippets on Google, capturing prime search real estate for treatment-related queries that your patients are asking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Doctor Thought Leadership &amp; Email Nurture</h3>
+            <p>Expert articles published under your doctors' names — treatment innovation commentary, skincare science perspectives, and clinical opinion pieces that build individual practitioner authority. Paired with email nurture sequences that educate prospective patients over time and convert researchers into booked consultations through targeted follow-up content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for aesthetics content marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Aesthetics Clinics Choose Us for Content</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We specialise in content marketing for Singapore's medical aesthetics industry. Our team understands the patient journey, MOH compliance requirements, and clinical nuances that make aesthetics content effective. Here is what sets us apart:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Medical Aesthetics Specialisation</h3>
+            <p>We write for aesthetics clinics, dermatology practices, and cosmetic surgery centres across Singapore. We understand MOH advertising compliance, the patient research journey for aesthetic procedures, and the specific search terms that drive consultation bookings in this market.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>SEO-First Content Strategy</h3>
+            <p>Every piece of content starts with keyword research and search intent analysis. We target the exact terms prospective patients search when evaluating treatments — from "Botox price Singapore" to "best clinic for pigmentation treatment." Content marketing integrates with your broader <a href="/services/seo-performance/" class="inline-link">SEO strategy</a> for compounding results.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Reporting &amp; No Lock-ins</h3>
+            <p>Monthly performance reports showing traffic, rankings, engagement, and consultation requests generated by your content. No long-term contracts — you see exactly what your content investment delivers each month, and you can adjust or cancel at any time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Digital Marketing</h3>
+            <p>Content marketing is most effective alongside SEO, social media, and paid ads. We offer all services in-house, so your content feeds your search rankings, amplifies through social channels, and provides landing pages for your Google Ads campaigns — all under a single unified strategy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Aesthetics content marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Content Marketing Pricing</p>
+        <h2>Aesthetics Content Marketing Packages</h2>
+        <p>Monthly retainer. Cancel anytime.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$1,500 <span>SGD / mo</span></div>
+            <p class="pricing-desc">For clinics starting with content marketing.</p>
+            <ul class="pricing-features">
+              <li>Content strategy &amp; keyword research</li>
+              <li>4 SEO blog posts per month</li>
+              <li>Treatment education articles</li>
+              <li>On-page optimisation per post</li>
+              <li>Monthly traffic &amp; ranking report</li>
+            </ul>
+            <a href="/services/seo-performance/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$3,000 <span>SGD / mo</span></div>
+            <p class="pricing-desc">For clinics scaling organic patient acquisition.</p>
+            <ul class="pricing-features">
+              <li>Full content strategy &amp; competitor analysis</li>
+              <li>8 SEO blog posts per month</li>
+              <li>Skincare science &amp; treatment guides</li>
+              <li>Patient FAQ content series</li>
+              <li>Newsletter content (2x per month)</li>
+              <li>Monthly performance reporting</li>
+            </ul>
+            <a href="/services/seo-performance/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$5,000+ <span>SGD / mo</span></div>
+            <p class="pricing-desc">For multi-location aesthetics brands.</p>
+            <ul class="pricing-features">
+              <li>Dedicated content strategist</li>
+              <li>12+ SEO blog posts per month</li>
+              <li>Doctor thought leadership content</li>
+              <li>Downloadable patient resources</li>
+              <li>Email campaign management</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/services/seo-performance/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics content marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Aesthetics Content Marketing Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does content marketing cost for aesthetics clinics in Singapore?</summary>
+          <div class="faq-answer"><p>Content marketing for aesthetics clinics in Singapore ranges from $1,500 to $5,000+ per month. An Essential package with 4 SEO blog posts and content strategy starts at $1,500/mo. A Growth package with 8 posts, skincare science guides, patient FAQ content, and newsletter content starts at $3,000/mo. Enterprise packages with 12+ posts, doctor thought leadership, and email campaign management start from $5,000/mo.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you ensure aesthetics content is MOH-compliant?</summary>
+          <div class="faq-answer"><p>Every article we produce for aesthetics clinics is written with Singapore's MOH advertising guidelines in mind. We avoid prohibited claims, unsubstantiated efficacy statistics, misleading before-and-after narratives, and non-compliant promotional language. Our team stays current with MOH, SAC, and AMIC regulations so your content educates patients effectively while remaining fully compliant.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What kind of content works best for aesthetics clinics?</summary>
+          <div class="faq-answer"><p>The most effective aesthetics content educates patients about treatments they are researching online. This includes treatment comparison articles, procedure explainers, recovery guides, skincare science breakdowns, and FAQ-driven content answering the specific questions patients ask before booking a consultation. For Singapore specifically, content addressing local concerns — humidity effects on skin, pigmentation from UV exposure, anti-ageing for Asian skin types — ranks particularly well.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does it take for aesthetics content marketing to show results?</summary>
+          <div class="faq-answer"><p>Most aesthetics clinics see measurable increases in organic traffic within 3 to 4 months. Medical aesthetics content often ranks faster than general content because treatment-specific keywords have less competition but high commercial intent. Patient consultation requests typically increase once content begins ranking for terms like "Botox vs fillers Singapore" or "thread lift recovery time." We provide monthly reporting from day one.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you position our doctors as thought leaders through content?</summary>
+          <div class="faq-answer"><p>Yes. Our Growth and Enterprise packages include doctor thought leadership content — expert opinion articles, treatment innovation commentary, skincare science explainers, and authored guides published under your practitioners' names. This content builds individual doctor authority, earns backlinks from medical and beauty publications, and gives patients confidence in the expertise behind their treatments.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

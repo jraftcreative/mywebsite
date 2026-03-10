@@ -1,0 +1,266 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spa SEO Singapore",
+    "description": "SEO services for spas in Singapore. Spa treatment keywords, 'spa near me' ranking, massage and wellness SEO, luxury spa searches, and Google Maps optimisation — from S$800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Spa SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Spa SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, Google Analytics and Search Console configuration, monthly reporting" },
+      { "@type": "Offer", "name": "Growth Spa SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus treatment-specific content strategy, local citation building, review generation strategy, competitor monitoring, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Enterprise Spa SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location spa SEO, content creation and publishing, advanced link building, Core Web Vitals optimisation, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does SEO cost for a spa in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Spa SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add treatment-specific content strategy, review management, and multi-location spa SEO." } },
+      { "@type": "Question", "name": "How long does it take for spa SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most spas see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Treatment-specific keywords like 'hot stone massage Orchard' or 'facial spa near me' often rank faster than broad national terms like 'spa Singapore'." } },
+      { "@type": "Question", "name": "Can SEO help my spa rank for 'spa near me' on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our spa SEO service. We optimise your listing with correct spa categories, upload facility photos, manage client reviews, and build local citations so your spa appears in the Maps 3-pack for 'spa near me' searches in your area." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'spa near me', 'massage Singapore', 'facial treatment near me', 'couples spa Singapore', 'Thai massage near me', 'luxury spa Singapore', and treatment-specific queries like 'hot stone massage' or 'deep tissue massage Singapore'. We research the exact terms driving bookings in your area." } },
+      { "@type": "Question", "name": "Do you work with spas that have multiple locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-location spa SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each spa ranks independently in its own neighbourhood." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Spa SEO Singapore", "item": "https://jraftcreative.com/spa-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Spa SEO Singapore — Rank for 'Spa Near Me' & Massage Keywords | Jraft Creative"
+  description="SEO services for spas in Singapore. Spa treatment keywords, 'spa near me' ranking, massage and wellness SEO, luxury spa searches, and Google Maps optimisation — from S$800/month."
+  canonical="https://jraftcreative.com/spa-seo-singapore/"
+  ogTitle="Spa SEO Singapore — Jraft Creative"
+  ogDescription="SEO for spas in Singapore. Local search optimisation, Google Maps ranking, and treatment-specific content to drive bookings. Plans from $800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  keywords="spa seo singapore, spa seo, seo for spas, spa google ranking, spa local seo, massage seo singapore, wellness seo, luxury spa seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Spa SEO"
+  heroTitle='SEO Services for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="'Spa near me', 'massage Singapore', and 'facial treatment near me' are searched thousands of times monthly by people ready to book. If your spa isn't ranking on page one, those clients walk into a competitor's door instead. We help spas climb Google rankings with treatment-focused SEO and local search dominance."
+  heroImage="/images/service-spa.webp"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my spa in Singapore."
+  ctaLabel="Ready to Rank Higher?"
+  ctaTitle="Get Your Spa Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your spa stands in local search compared to competitors in your area. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for spas in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Thousands Search for Spa Treatments Monthly — Is Your Spa Visible?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's wellness industry is booming, with new spas, massage studios, and facial treatment centres opening every month. But while the demand for spa treatments keeps growing, so does the competition. When a stressed professional searches "spa near me" after a long workday or a couple searches "couples spa Singapore" before an anniversary, Google shows them the spas with the strongest online presence — not necessarily the ones with the best therapists or the most luxurious treatment rooms.</p>
+        <p>Most spas in Singapore rely on marketplace platforms like Fave and Klook, or depend on their location's foot traffic to attract clients. These channels work, but they come at a cost: marketplace commissions that eat into your margins, and zero brand loyalty from clients who booked through a deal rather than through you. SEO delivers clients who find your spa directly on Google, visit your own website, and book at full price — clients who are more likely to return and recommend you.</p>
+        <p>The spas winning on Google have treatment-specific landing pages for every service — massage, facial, body scrub, wellness packages — optimised Google Business Profiles with consistent five-star reviews, and content that answers the questions people search before they book. Without this foundation, your spa competes on price rather than quality, and remains invisible to the thousands of clients searching for exactly what you offer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="SEO services for spas">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for Spas</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Spa SEO requires a specialist approach. Clients search by treatment type, price range, location, and occasion — from "cheap massage near me" to "luxury spa Singapore anniversary". We build SEO strategies tailored to how Singapore residents research and choose spas for every need and budget.</p>
+        <p>Pair SEO with a professionally designed <a href="/spa-website-design-singapore/" class="inline-link">spa website</a>, <a href="/services/social-media/" class="inline-link">social media marketing</a> for wellness content that inspires bookings, or <a href="/services/paid-ads/" class="inline-link">Google Ads</a> to capture high-intent searches during peak seasons like Christmas, Valentine's Day, and Mother's Day.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>Complete crawl of your spa website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix every technical barrier stopping Google from ranking your spa for high-value searches like "spa near me" and "massage Singapore".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Treatment Keyword Strategy</h3>
+            <p>Keyword-optimised pages for every treatment — deep tissue massage, hot stone massage, aromatherapy, facial treatments, body wraps, couples packages. Each page targets specific search terms like "Thai massage Jalan Besar", "hydrafacial near me", or "prenatal massage Singapore".</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Maps</h3>
+            <p>Google Business Profile optimisation with correct spa and wellness categories, facility photos, treatment hours, client review management, and local citation building. Designed to get your spa into the Google Maps 3-pack for every "spa near me" and "massage near me" search in your neighbourhood.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Wellness Content Strategy</h3>
+            <p>Blog articles and guides answering questions potential clients search — "best massage for back pain", "Swedish vs deep tissue massage", "how often should you get a facial Singapore". Content that builds your authority, earns organic links, and captures clients during their research phase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That Understands the Spa Industry</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with wellness businesses across Singapore. We understand treatment-based search patterns, seasonal demand spikes around holidays, and which keywords convert searchers into high-value, repeat-booking spa clients.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Spa Industry Knowledge</h3>
+            <p>We understand the difference between Swedish and deep tissue, between a day spa and a medical spa. Our keyword strategies reflect how real clients search — by treatment type, by occasion, by location, and by budget. No generic fitness SEO templates here.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood-Level Local SEO</h3>
+            <p>Spa clients want somewhere nearby. We optimise for hyperlocal searches — Marina Bay, Orchard, Jalan Besar, Tanjong Pagar, Holland Village, Katong — so your spa ranks precisely where your most likely clients are searching.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Clear Monthly Reporting</h3>
+            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We focus on the metrics that drive revenue — new client acquisition and treatment page visibility, not vanity numbers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Full Digital Presence Under One Roof</h3>
+            <p>SEO is one part of your marketing. We also handle spa website design, social media content, and paid ads — so every digital channel works together to keep your treatment rooms booked and your revenue growing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Spa SEO pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Spa SEO Pricing</p>
+        <h2>SEO Plans for Spas</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location spas building local visibility.</p>
+            <ul class="pricing-features">
+              <li>Technical SEO audit</li>
+              <li>On-page optimisation (10 pages)</li>
+              <li>Google Business Profile setup</li>
+              <li>Google Analytics &amp; Search Console</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For spas ready to dominate local wellness searches.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essential</li>
+              <li>Treatment-specific content strategy</li>
+              <li>Local citation building</li>
+              <li>Review generation strategy</li>
+              <li>Competitor monitoring</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$3,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location spa brands and wellness chains.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Dedicated SEO strategist</li>
+              <li>Multi-location spa SEO</li>
+              <li>Content creation &amp; publishing</li>
+              <li>Advanced link building</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Spa SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does SEO cost for a spa in Singapore?</summary>
+          <div class="faq-answer"><p>Spa SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add treatment-specific content strategy, review management, and multi-location spa SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does it take for spa SEO to show results?</summary>
+          <div class="faq-answer"><p>Most spas see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Treatment-specific keywords like "hot stone massage Orchard" or "facial spa near me" often rank faster than broad national terms like "spa Singapore".</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can SEO help my spa rank for "spa near me" on Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our spa SEO service. We optimise your listing with correct spa categories, upload facility photos, manage client reviews, and build local citations so your spa appears in the Maps 3-pack for "spa near me" searches in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What keywords do people search when looking for spas in Singapore?</summary>
+          <div class="faq-answer"><p>Common search terms include "spa near me", "massage Singapore", "facial treatment near me", "couples spa Singapore", "Thai massage near me", "luxury spa Singapore", and treatment-specific queries like "hot stone massage" or "deep tissue massage Singapore". We research the exact terms driving bookings in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you work with spas that have multiple locations?</summary>
+          <div class="faq-answer"><p>Yes. Multi-location spa SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each spa ranks independently in its own neighbourhood.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>
