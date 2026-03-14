@@ -149,6 +149,13 @@ const schemaData = [
         return;
       }
 
+      // Honeypot check — if filled, silently reject (bots only)
+      var honeypot = document.getElementById('website');
+      if (honeypot && honeypot.value) {
+        e.preventDefault();
+        return;
+      }
+
       var btn = document.getElementById('submitBtn');
       var name = nameField.value.trim();
       var company = document.getElementById('company').value.trim();

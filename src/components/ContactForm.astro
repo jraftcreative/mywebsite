@@ -29,6 +29,11 @@
       <textarea id="message" name="message" rows="4" placeholder="What are you looking to build? Any specific goals or timeline?" required aria-required="true"></textarea>
       <span class="form-error" id="messageError" role="alert" aria-live="polite"></span>
     </div>
+    <!-- Honeypot field — hidden from real users, filled by bots -->
+    <div style="position:absolute;left:-9999px;" aria-hidden="true">
+      <label for="website">Website</label>
+      <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
     <button type="submit" class="btn btn-primary form-submit" id="submitBtn" aria-label="Send your message to Jraft Creative">Send Your Message</button>
   </div>
   <div class="form-success" role="status" aria-live="polite">
