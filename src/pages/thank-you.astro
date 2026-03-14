@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Thank You", "item": "https://jraftcreative.com/thank-you/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Thank You | Jraft Creative"
+  description="Thank you for your enquiry. We'll get back to you within 24 hours."
+  canonical="https://jraftcreative.com/thank-you/"
+  noindex={true}
+  schemaData={schemaData}
+>
+  <section class="section">
+    <div class="container">
+      <div class="thank-you-wrap">
+        <div class="thank-you-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#49b889" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h1>Thank You!</h1>
+        <p>We've received your enquiry and will get back to you within 24 hours.</p>
+        <div class="thank-you-actions">
+          <a href="/contact/" class="btn btn-primary">Book a Free Consultation</a>
+          <a href="/" class="btn btn-secondary">Back to Homepage</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .thank-you-wrap {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 4rem 0;
+    }
+    .thank-you-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(73, 184, 137, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .thank-you-wrap h1 {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .thank-you-wrap p {
+      color: #999;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .thank-you-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</BaseLayout>

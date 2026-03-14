@@ -7,6 +7,6 @@ export default defineConfig({
   output: 'static',
   adapter: cloudflare(),
   integrations: [sitemap({
-    filter: (page) => !page.includes('/service-page/') && !page.includes('/portfolio/'),
+    filter: (page) => !page.includes('/service-page/') && !page.includes('/portfolio/') && !page.includes('/thank-you/'),
   })],
 });

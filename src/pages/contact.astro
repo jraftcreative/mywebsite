@@ -179,9 +179,7 @@ const schemaData = [
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         }).then(function () {
-          form.querySelector('.form-fields').style.display = 'none';
-          form.querySelector('.form-error-state').style.display = 'none';
-          form.querySelector('.form-success').style.display = 'flex';
+          window.location.href = '/thank-you/';
         }).catch(function () {
           btn.textContent = 'Send Your Message';
           btn.disabled = false;
