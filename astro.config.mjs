@@ -6,5 +6,7 @@ export default defineConfig({
   site: 'https://jraftcreative.com',
   output: 'static',
   adapter: cloudflare(),
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.includes('/service-page/') && !page.includes('/portfolio/'),
+  })],
 });
