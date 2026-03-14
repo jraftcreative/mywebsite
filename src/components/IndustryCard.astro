@@ -4,14 +4,25 @@ interface Props {
   description: string;
   backgroundImage: string;
   revealClass?: string;
+  href?: string;
 }
 
-const { title, description, backgroundImage, revealClass = '' } = Astro.props;
+const { title, description, backgroundImage, revealClass = '', href } = Astro.props;
 ---
-<div class={`industry-card industry-img-card reveal ${revealClass}`}>
-  <div class="industry-card-bg" data-bg={backgroundImage}></div>
-  <div class="industry-card-content">
-    <h3>{title}</h3>
-    <p>{description}</p>
+{href ? (
+  <a href={href} class={`industry-card industry-img-card reveal ${revealClass}`} style="text-decoration:none;color:inherit;">
+    <div class="industry-card-bg" data-bg={backgroundImage}></div>
+    <div class="industry-card-content">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  </a>
+) : (
+  <div class={`industry-card industry-img-card reveal ${revealClass}`}>
+    <div class="industry-card-bg" data-bg={backgroundImage}></div>
+    <div class="industry-card-content">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
   </div>
-</div>
+)}
