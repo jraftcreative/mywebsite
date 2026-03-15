@@ -11,7 +11,7 @@ interface Props {
 const { title, subtitle, backgroundImage, heroLabel, heroClass = '', buttons = [] } = Astro.props;
 ---
 <section class={`hero ${heroClass}`} aria-label="Page introduction">
-  <div class="hero-bg" aria-hidden="true"><img src={backgroundImage} alt="" fetchpriority="high" decoding="async" class="hero-bg-img" width="1920" height="1280"></div>
+  <div class="hero-bg" aria-hidden="true"><img src={backgroundImage} alt="" fetchpriority="high" decoding="async" class="hero-bg-img" width="800" height="1000"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="container">
     {heroLabel && <span class="hero-label hero-anim hero-anim-1">{heroLabel}</span>}
