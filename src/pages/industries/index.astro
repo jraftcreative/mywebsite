@@ -2,15 +2,15 @@
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const industries = [
-  { name: "F&B & Hospitality", description: "Restaurants, cafes, bars, and food delivery brands.", href: "/industries/food-beverage/", image: "/images/industry-fnb.webp" },
-  { name: "Beauty & Aesthetics", description: "Beauty salons, hair salons, nail studios, spas, and aesthetics clinics.", href: "/industries/beauty-aesthetics/", image: "/images/industry-beauty.webp" },
-  { name: "Healthcare", description: "Clinics, dental practices, TCM, physiotherapy, and veterinary clinics.", href: "/industries/healthcare/", image: "/images/industry-healthcare.webp" },
-  { name: "Fitness & Sports", description: "Gyms, yoga studios, pilates studios, and martial arts schools.", href: "/industries/fitness/", image: "/images/industry-fitness.webp" },
-  { name: "Education", description: "Tuition centres, enrichment schools, preschools, and music schools.", href: "/industries/education/", image: "/images/industry-education.webp" },
-  { name: "Professional Services", description: "Law firms, accounting firms, property agents, and insurance advisors.", href: "/industries/professional-services/", image: "/images/industry-professional.webp" },
-  { name: "Retail & Ecommerce", description: "Fashion, lifestyle brands, specialty goods, and online stores.", href: "/industries/retail-ecommerce/", image: "/images/industry-retail.webp" },
-  { name: "Creative & Events", description: "Interior designers, photographers, wedding planners, and event companies.", href: "/industries/creative-events/", image: "/images/industry-creative.webp" },
-  { name: "Home & Trade Services", description: "Construction firms, cleaning companies, and logistics providers.", href: "/industries/home-trade/", image: "/images/industry-trade.webp" },
+  { name: "F&B & Hospitality", description: "Restaurants, cafes, bars, and food delivery brands.", href: "/industries/food-beverage/", image: "/images/service-fnb.webp" },
+  { name: "Beauty & Aesthetics", description: "Beauty salons, hair salons, nail studios, spas, and aesthetics clinics.", href: "/industries/beauty-aesthetics/", image: "/images/service-beauty.webp" },
+  { name: "Healthcare", description: "Clinics, dental practices, TCM, physiotherapy, and veterinary clinics.", href: "/industries/healthcare/", image: "/images/service-clinic.webp" },
+  { name: "Fitness & Sports", description: "Gyms, yoga studios, pilates studios, and martial arts schools.", href: "/industries/fitness/", image: "/images/service-gym.webp" },
+  { name: "Education", description: "Tuition centres, enrichment schools, preschools, and music schools.", href: "/industries/education/", image: "/images/service-tuition.webp" },
+  { name: "Professional Services", description: "Law firms, accounting firms, property agents, and insurance advisors.", href: "/industries/professional-services/", image: "/images/service-law.webp" },
+  { name: "Retail & Ecommerce", description: "Fashion, lifestyle brands, specialty goods, and online stores.", href: "/industries/retail-ecommerce/", image: "/images/service-ecommerce.webp" },
+  { name: "Creative & Events", description: "Interior designers, photographers, wedding planners, and event companies.", href: "/industries/creative-events/", image: "/images/service-interior.webp" },
+  { name: "Home & Trade Services", description: "Construction firms, cleaning companies, and logistics providers.", href: "/industries/home-trade/", image: "/images/service-construction.webp" },
 ];
 
 const schemaData = [
@@ -67,7 +67,7 @@ const schemaData = [
     <div class="container">
       <div class="industries-hub-grid">
         {industries.map((industry, i) => (
-          <a href={industry.href} class={`industry-hub-card reveal ${i > 0 ? `reveal-d${Math.min(i, 4)}` : ''}`}>
+          <a href={industry.href} class={`industry-hub-card reveal ${i > 0 ? `reveal-d${Math.min(i, 4)}` : ''}`} data-bg={industry.image}>
             <div class="industry-hub-card-content">
               <h2>{industry.name}</h2>
               <p>{industry.description}</p>

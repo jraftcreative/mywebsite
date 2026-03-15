@@ -3001,32 +3001,57 @@ html, body {
 
 .industry-hub-card {
   display: block;
+  position: relative;
+  overflow: hidden;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+}
+
+.industry-hub-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(10, 10, 18, 0.55) 0%, rgba(10, 10, 18, 0.65) 100%);
+  z-index: 1;
+  transition: background 0.3s ease;
 }
 
 .industry-hub-card:hover {
   border-color: var(--primary);
-  background: rgba(73, 184, 137, 0.04);
   transform: translateY(-2px);
+}
+
+.industry-hub-card:hover::before {
+  background: linear-gradient(to bottom, rgba(10, 10, 18, 0.45) 0%, rgba(10, 10, 18, 0.58) 100%);
+}
+
+.industry-hub-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .industry-hub-card h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--text);
+  color: #fff;
 }
 
 .industry-hub-card p {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 1rem;
   line-height: 1.5;
+  flex-grow: 1;
 }
 
 .industry-hub-card-cta {
