@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -89,32 +89,36 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
+<ServiceLayout
   title="Beauty & Aesthetics Marketing Singapore | Jraft Creative"
   description="Digital marketing for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads tailored to the beauty industry."
   canonical="https://jraftcreative.com/industries/beauty-aesthetics/"
-  currentPath="/industries/beauty-aesthetics/"
-  schema={schemaData}
+  ogTitle="Beauty & Aesthetics Marketing Singapore — Jraft Creative"
+  ogDescription="Digital marketing for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads tailored to the beauty industry."
+  keywords="beauty salon marketing Singapore, aesthetics clinic marketing Singapore, hair salon SEO Singapore, spa digital marketing Singapore, nail salon website Singapore"
+  ogImage="https://jraftcreative.com/images/industry-beauty.webp"
+  schemaData={schemaData}
+  heroLabel="Beauty & Aesthetics"
+  heroTitle='Marketing for <span class="highlight">Beauty &amp; Aesthetics</span> in Singapore'
+  heroSubtitle="The beauty industry in Singapore is competitive and highly visual. We help salons, spas, and aesthetics clinics grow online — through websites built for bookings, SEO that targets high-intent searches, and social media content that converts browsers into clients."
+  heroImage="/images/industry-beauty.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Our Services", href: "/services/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my beauty business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Beauty Business"
+  ctaDescription="Book a free consultation and tell us about your salon, spa, or aesthetics clinic. We'll get back to you within 24 hours with a tailored proposal."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20beauty%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">Beauty &amp; Aesthetics</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>Beauty &amp; Aesthetics Marketing</h1>
-        <p class="service-hero-sub">The beauty industry in Singapore is competitive and highly visual. We help salons, spas, and aesthetics clinics grow online — through websites built for bookings, SEO that targets high-intent searches, and social media content that converts browsers into clients.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Specialisations</p>
         <h2>Beauty &amp; Aesthetics Businesses We Work With</h2>
         <p>Select your business type to see the specific services available for your industry.</p>
       </div>
@@ -137,6 +141,7 @@ const schemaData = [
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
         <h2>Why Beauty Businesses Need Specialised Marketing</h2>
         <p>Generic digital marketing does not work for beauty and aesthetics. The sector has unique demands — from visually driven discovery on Instagram to the need for seamless online booking integration — that require a focused approach.</p>
       </div>
@@ -160,16 +165,4 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your Beauty Business?</h2>
-        <p>Get a free consultation and a tailored marketing plan for your salon, spa, or aesthetics clinic.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>

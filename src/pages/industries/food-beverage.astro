@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -76,32 +76,37 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
-  title="F&B & Hospitality Marketing Singapore — Restaurants, Cafes & Bars | Jraft Creative"
+<ServiceLayout
+  title="F&B & Hospitality Marketing Singapore | Jraft Creative"
   description="Marketing services for restaurants, cafes, bars, and F&B businesses in Singapore. Website design, SEO, social media, Google Ads, and branding tailored to the food and beverage industry."
   canonical="https://jraftcreative.com/industries/food-beverage/"
-  currentPath="/industries/food-beverage/"
-  schema={schemaData}
+  ogTitle="F&B & Hospitality Marketing Singapore — Jraft Creative"
+  ogDescription="Marketing services for restaurants, cafes, bars, and F&B businesses in Singapore. Website design, SEO, social media, Google Ads, and branding tailored to the food and beverage industry."
+  keywords="fnb marketing singapore, restaurant marketing, cafe marketing singapore, f&b website design, Jraft Creative"
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  schemaData={schemaData}
+  heroLabel="F&B & Hospitality"
+  heroTitle='Marketing for Restaurants &amp; <span class="highlight">F&amp;B in Singapore</span>'
+  heroSubtitle="We help restaurants, cafes, bars, and food brands in Singapore attract more customers, build a loyal following, and grow revenue."
+  heroImage="/images/service-fnb.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my F&B business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your F&B Business"
+  ctaDescription="Book a free consultation and tell us about your restaurant, cafe, or F&B concept. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20F%26B%20business.", class: "btn btn-secondary" }
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">F&amp;B &amp; Hospitality</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>F&amp;B &amp; Hospitality Marketing</h1>
-        <p class="service-hero-sub">We help restaurants, cafes, bars, and food and beverage brands in Singapore attract more customers, build a loyal following, and grow revenue — with marketing strategies built around how diners actually discover and choose where to eat.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
+  <section class="section" id="services" aria-label="Services by F&B type">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
         <h2>Services by F&amp;B Type</h2>
         <p>Select your business type to see the full range of services available.</p>
       </div>
@@ -121,9 +126,10 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section bg-alt">
+  <section class="section bg-alt" aria-label="Why F&B businesses need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
         <h2>Why F&amp;B Businesses in Singapore Need Specialised Marketing</h2>
       </div>
       <div class="reveal reveal-d1">
@@ -133,15 +139,4 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your F&amp;B Business?</h2>
-        <p>Get a free consultation and a marketing plan tailored to your restaurant, cafe, or bar.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>

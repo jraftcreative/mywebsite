@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -45,32 +45,37 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
+<ServiceLayout
   title="Retail & Ecommerce Marketing Singapore | Jraft Creative"
   description="Marketing services for retail and ecommerce businesses in Singapore. Website design, SEO, social media, and paid ads tailored to online stores, DTC brands, and specialty retailers."
   canonical="https://jraftcreative.com/industries/retail-ecommerce/"
-  currentPath="/industries/retail-ecommerce/"
-  schema={schemaData}
+  ogTitle="Retail & Ecommerce Marketing Singapore — Jraft Creative"
+  ogDescription="Marketing services for retail and ecommerce businesses in Singapore. Website design, SEO, social media, and paid ads tailored to online stores, DTC brands, and specialty retailers."
+  keywords="retail marketing singapore, ecommerce marketing singapore, online store website singapore, ecommerce seo singapore, Jraft Creative"
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  schemaData={schemaData}
+  heroLabel="Retail & Ecommerce"
+  heroTitle='Marketing for <span class="highlight">Retail &amp; Ecommerce</span> in Singapore'
+  heroSubtitle="We help retail and ecommerce businesses in Singapore build high-converting online stores, reach buyers across search and social, and turn traffic into consistent revenue."
+  heroImage="/images/industry-retail.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my retail business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Retail Business"
+  ctaDescription="Book a free consultation and tell us about your store, products, and goals. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20retail%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">Retail &amp; Ecommerce</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>Retail &amp; Ecommerce Marketing</h1>
-        <p class="service-hero-sub">We help retail and ecommerce businesses in Singapore build high-converting online stores, reach buyers across search and social, and turn traffic into consistent revenue — with strategies built around how Singaporeans actually shop online.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
+  <section class="section" id="services" aria-label="Services by retail type">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
         <h2>Services by Retail Type</h2>
         <p>Select your business type to see the full range of services available.</p>
       </div>
@@ -90,9 +95,10 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section bg-alt">
+  <section class="section bg-alt" aria-label="Why retail and ecommerce businesses need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
         <h2>Why Retail &amp; Ecommerce Businesses Need Specialised Marketing</h2>
       </div>
       <div class="reveal reveal-d1">
@@ -102,15 +108,4 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your Retail or Ecommerce Business?</h2>
-        <p>Get a free consultation and a marketing plan built around your products, your platform, and your customers.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>

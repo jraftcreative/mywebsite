@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -53,32 +53,36 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
+<ServiceLayout
   title="Home & Trade Services Marketing Singapore | Jraft Creative"
   description="Marketing services for construction companies, cleaning businesses, and logistics providers in Singapore. Website design and digital marketing built for the home and trade services sector."
   canonical="https://jraftcreative.com/industries/home-trade/"
-  currentPath="/industries/home-trade/"
-  schema={schemaData}
+  ogTitle="Home & Trade Services Marketing Singapore | Jraft Creative"
+  ogDescription="Marketing services for construction companies, cleaning businesses, and logistics providers in Singapore. Website design and digital marketing built for the home and trade services sector."
+  keywords="home trade services marketing Singapore, construction company marketing, cleaning company marketing Singapore, logistics company marketing Singapore, trade business website Singapore"
+  ogImage="/images/service-construction.webp"
+  schemaData={schemaData}
+  heroLabel="Home & Trade Services"
+  heroTitle='Marketing for <span class="highlight">Home &amp; Trade Services</span> in Singapore'
+  heroSubtitle="We help construction companies, cleaning businesses, and logistics providers in Singapore win more contracts and grow their client base — with websites and marketing built around the way trade buyers and property owners actually search for and evaluate service providers."
+  heroImage="/images/service-construction.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Work", href: "/portfolio/", class: "btn btn-secondary" },
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my trade services business in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Trade Business"
+  ctaDescription="Get a free consultation and a marketing plan built for your industry."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20trade%20services%20business%20in%20Singapore.", class: "btn btn-secondary" },
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">Home &amp; Trade Services</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>Home &amp; Trade Services Marketing</h1>
-        <p class="service-hero-sub">We help construction companies, cleaning businesses, and logistics providers in Singapore win more contracts and grow their client base — with websites and marketing built around the way trade buyers and property owners actually search for and evaluate service providers.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Coverage</p>
         <h2>Services by Trade Type</h2>
         <p>Select your business type to see the full range of services available.</p>
       </div>
@@ -101,6 +105,7 @@ const schemaData = [
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
         <h2>Why Home &amp; Trade Businesses in Singapore Need Specialised Marketing</h2>
       </div>
       <div class="reveal reveal-d1">
@@ -109,16 +114,4 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your Trade Business?</h2>
-        <p>Get a free consultation and a marketing plan built for your industry.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>

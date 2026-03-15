@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -61,32 +61,37 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
+<ServiceLayout
   title="Professional Services Marketing Singapore | Jraft Creative"
   description="Marketing services for law firms, accounting firms, property agents, and insurance advisors in Singapore. Professional website design and digital marketing built around trust, credibility, and lead generation."
   canonical="https://jraftcreative.com/industries/professional-services/"
-  currentPath="/industries/professional-services/"
-  schema={schemaData}
+  ogTitle="Professional Services Marketing Singapore — Jraft Creative"
+  ogDescription="Marketing services for law firms, accounting firms, property agents, and insurance advisors in Singapore. Professional website design and digital marketing built around trust, credibility, and lead generation."
+  keywords="professional services marketing singapore, law firm marketing, accounting firm website singapore, property agent website singapore, insurance advisor marketing, Jraft Creative"
+  ogImage="https://jraftcreative.com/images/og-web-dev.jpg"
+  schemaData={schemaData}
+  heroLabel="Professional Services"
+  heroTitle='Marketing for <span class="highlight">Professional Services</span> in Singapore'
+  heroSubtitle="We help law firms, accounting practices, property agents, and financial advisors in Singapore build credibility online, generate qualified leads, and grow their client base — with marketing that reflects the professionalism their clients expect."
+  heroImage="/images/service-law.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my professional services firm in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Practice"
+  ctaDescription="Book a free consultation and tell us about your firm or advisory practice. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20professional%20services%20firm%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">Professional Services</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>Professional Services Marketing</h1>
-        <p class="service-hero-sub">We help law firms, accounting practices, property agents, and financial advisors in Singapore build credibility online, generate qualified leads, and grow their client base — with marketing that reflects the professionalism their clients expect.</p>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
+  <section class="section" id="services" aria-label="Services by practice type">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Services</p>
         <h2>Services by Practice Type</h2>
         <p>Select your practice type to see the services available for your business.</p>
       </div>
@@ -106,9 +111,10 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section bg-alt">
+  <section class="section bg-alt" aria-label="Why professional service firms need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
         <h2>Why Professional Service Firms Need Specialised Marketing</h2>
       </div>
       <div class="reveal reveal-d1">
@@ -119,15 +125,4 @@ const schemaData = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your Practice?</h2>
-        <p>Get a free consultation and a marketing plan tailored to your firm, practice, or advisory business.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>

@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
 const subIndustries = [
   {
@@ -86,32 +86,36 @@ const schemaData = [
 ];
 ---
 
-<BaseLayout
+<ServiceLayout
   title="Healthcare Marketing Singapore — Clinic & Medical Websites | Jraft Creative"
   description="Marketing services for clinics, dental practices, TCM, physiotherapy, mental health, and veterinary businesses in Singapore. Website design, SEO, social media, and Google Ads tailored to the healthcare industry."
   canonical="https://jraftcreative.com/industries/healthcare/"
-  currentPath="/industries/healthcare/"
-  schema={schemaData}
+  ogTitle="Healthcare Marketing Singapore — Clinic & Medical Websites | Jraft Creative"
+  ogDescription="Marketing services for clinics, dental practices, TCM, physiotherapy, mental health, and veterinary businesses in Singapore. Website design, SEO, social media, and Google Ads tailored to the healthcare industry."
+  keywords="healthcare marketing Singapore, clinic website design Singapore, medical practice marketing, dental marketing Singapore, physiotherapy marketing Singapore, mental health marketing Singapore"
+  ogImage="/images/service-clinic.webp"
+  schemaData={schemaData}
+  heroLabel="Healthcare"
+  heroTitle='Marketing for <span class="highlight">Healthcare</span> in Singapore'
+  heroSubtitle="We help clinics and medical practices in Singapore attract more patients, build trust in their communities, and grow sustainably — with marketing strategies designed around how Singaporeans search for and choose healthcare providers."
+  heroImage="/images/service-clinic.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Work", href: "/portfolio/", class: "btn btn-secondary" },
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing help for my healthcare practice in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your Healthcare Practice"
+  ctaDescription="Get a free consultation and a marketing plan tailored to your clinic or medical practice."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20healthcare%20practice%20in%20Singapore.", class: "btn btn-secondary" },
+  ]}
 >
-  <section class="service-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/industries/">Industries</a></li>
-          <li aria-current="page">Healthcare</li>
-        </ol>
-      </nav>
-      <div class="service-hero-content reveal">
-        <h1>Healthcare Marketing</h1>
-        <p class="service-hero-sub">We help clinics and medical practices in Singapore attract more patients, build trust in their communities, and grow sustainably — with marketing strategies designed around how Singaporeans search for and choose healthcare providers.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">What We Cover</p>
         <h2>Services by Healthcare Type</h2>
         <p>Select your practice type to see the full range of services available.</p>
       </div>
@@ -134,6 +138,7 @@ const schemaData = [
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header reveal">
+        <p class="section-label">Our Approach</p>
         <h2>Why Healthcare Marketing Needs Specialised Expertise</h2>
       </div>
       <div class="reveal reveal-d1">
@@ -143,16 +148,4 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <div class="section-header reveal">
-        <h2>Ready to Grow Your Practice?</h2>
-        <p>Get a free consultation and a marketing plan tailored to your clinic or medical practice.</p>
-      </div>
-      <div class="reveal reveal-d1">
-        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+</ServiceLayout>
