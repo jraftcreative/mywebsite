@@ -2992,6 +2992,118 @@ html, body {
 }
 
 /* --- Related Services Cross-Links --- */
+/* ===== Industry Hub Pages ===== */
+.industries-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.industry-hub-card {
+  display: block;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.industry-hub-card:hover {
+  border-color: var(--primary);
+  background: rgba(73, 184, 137, 0.04);
+  transform: translateY(-2px);
+}
+
+.industry-hub-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.industry-hub-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.industry-hub-card-cta {
+  font-size: 0.85rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* Industry detail page */
+.industry-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.industry-detail-card {
+  padding: 1.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.3s ease;
+}
+
+.industry-detail-card:hover {
+  border-color: var(--primary);
+}
+
+.industry-detail-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.industry-detail-card h3 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.industry-detail-card h3 a:hover {
+  color: var(--primary);
+}
+
+.industry-detail-card > p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.industry-detail-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.industry-detail-services a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--base-200);
+  border-radius: 999px;
+  color: var(--base-700);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.industry-detail-services a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .industries-hub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .related-services-grid {
   display: flex;
   flex-wrap: wrap;

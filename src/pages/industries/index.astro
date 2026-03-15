@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const industries = [
+  { name: "F&B & Hospitality", description: "Restaurants, cafes, bars, and food delivery brands.", href: "/industries/food-beverage/", image: "/images/industry-fnb.webp" },
+  { name: "Beauty & Aesthetics", description: "Beauty salons, hair salons, nail studios, spas, and aesthetics clinics.", href: "/industries/beauty-aesthetics/", image: "/images/industry-beauty.webp" },
+  { name: "Healthcare", description: "Clinics, dental practices, TCM, physiotherapy, and veterinary clinics.", href: "/industries/healthcare/", image: "/images/industry-healthcare.webp" },
+  { name: "Fitness & Sports", description: "Gyms, yoga studios, pilates studios, and martial arts schools.", href: "/industries/fitness/", image: "/images/industry-fitness.webp" },
+  { name: "Education", description: "Tuition centres, enrichment schools, preschools, and music schools.", href: "/industries/education/", image: "/images/industry-education.webp" },
+  { name: "Professional Services", description: "Law firms, accounting firms, property agents, and insurance advisors.", href: "/industries/professional-services/", image: "/images/industry-professional.webp" },
+  { name: "Retail & Ecommerce", description: "Fashion, lifestyle brands, specialty goods, and online stores.", href: "/industries/retail-ecommerce/", image: "/images/industry-retail.webp" },
+  { name: "Creative & Events", description: "Interior designers, photographers, wedding planners, and event companies.", href: "/industries/creative-events/", image: "/images/industry-creative.webp" },
+  { name: "Home & Trade Services", description: "Construction firms, cleaning companies, and logistics providers.", href: "/industries/home-trade/", image: "/images/industry-trade.webp" },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Industries We Serve — Jraft Creative",
+    "description": "Explore the industries we specialise in. Jraft Creative provides website design, SEO, marketing, and social media services tailored to your industry in Singapore.",
+    "url": "https://jraftcreative.com/industries/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Industries We Serve — Website Design & Marketing | Jraft Creative"
+  description="Explore the industries we specialise in. Jraft Creative provides website design, SEO, marketing, and social media services tailored to your industry in Singapore."
+  canonical="https://jraftcreative.com/industries/"
+  currentPath="/industries/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li aria-current="page">Industries</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Industries We Serve</h1>
+        <p class="service-hero-sub">We build websites and run marketing campaigns tailored to your industry — not generic templates. Choose your industry below to see what we can do for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="industries-hub-grid">
+        {industries.map((industry, i) => (
+          <a href={industry.href} class={`industry-hub-card reveal ${i > 0 ? `reveal-d${Math.min(i, 4)}` : ''}`}>
+            <div class="industry-hub-card-content">
+              <h2>{industry.name}</h2>
+              <p>{industry.description}</p>
+              <span class="industry-hub-card-cta">View services &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Industry-Specific Marketing Matters</h2>
+        <p>A one-size-fits-all approach doesn't work. Every industry has unique customer behaviour, compliance requirements, and competitive dynamics. We tailor our strategies to what actually drives results in your space.</p>
+      </div>
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card reveal">
+          <h3>Industry Expertise</h3>
+          <p>We understand the regulations, customer journeys, and conversion patterns specific to your industry.</p>
+        </div>
+        <div class="feature-card reveal reveal-d1">
+          <h3>Targeted Keywords</h3>
+          <p>We target the exact search terms your potential customers use — not generic keywords that waste your budget.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <h3>Proven Templates</h3>
+          <p>Our website layouts are tested and optimised for conversions in your specific industry vertical.</p>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <h3>Local Focus</h3>
+          <p>Singapore-specific strategies including Google Business Profile, local SEO, and neighbourhood targeting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Business?</h2>
+        <p>Get a free consultation and quote tailored to your industry.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Ecommerce",
+    href: "/ecommerce-website-singapore/",
+    description: "Online stores, DTC brands, and marketplace sellers.",
+    services: [
+      { label: "Website", href: "/ecommerce-website-singapore/" },
+    ],
+  },
+  {
+    name: "Pet Shop",
+    href: "/pet-shop-website-singapore/",
+    description: "Pet stores, grooming services, and pet supply retailers.",
+    services: [
+      { label: "Website", href: "/pet-shop-website-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Retail & Ecommerce Marketing Singapore — Jraft Creative",
+    "description": "Marketing services for retail and ecommerce businesses in Singapore. Website design, SEO, social media, and paid ads tailored to online stores, DTC brands, and specialty retailers.",
+    "url": "https://jraftcreative.com/industries/retail-ecommerce/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Retail & Ecommerce", "item": "https://jraftcreative.com/industries/retail-ecommerce/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Retail & Ecommerce Marketing Singapore | Jraft Creative"
+  description="Marketing services for retail and ecommerce businesses in Singapore. Website design, SEO, social media, and paid ads tailored to online stores, DTC brands, and specialty retailers."
+  canonical="https://jraftcreative.com/industries/retail-ecommerce/"
+  currentPath="/industries/retail-ecommerce/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Retail &amp; Ecommerce</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Retail &amp; Ecommerce Marketing</h1>
+        <p class="service-hero-sub">We help retail and ecommerce businesses in Singapore build high-converting online stores, reach buyers across search and social, and turn traffic into consistent revenue — with strategies built around how Singaporeans actually shop online.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by Retail Type</h2>
+        <p>Select your business type to see the full range of services available.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Retail &amp; Ecommerce Businesses Need Specialised Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>Retail and ecommerce in Singapore is highly competitive. Shoppers compare prices across Shopee, Lazada, and brand-owned stores in seconds — which means your website, product pages, and ad creative all have to work harder than in most other industries. A generic digital marketing approach built for service businesses will not translate into add-to-cart actions and completed checkouts.</p>
+        <p style="margin-top: 1rem;">Effective ecommerce marketing requires a specific skill set: product photography and visual content that communicates quality and drives purchase intent, Shopify and WooCommerce website builds optimised for conversion and mobile checkout, payment gateway integrations suited to the Singapore market, inventory-aware SEO that keeps product pages ranking even as stock changes, and DTC strategies that reduce reliance on marketplace platforms and build long-term customer relationships. We understand this industry and build campaigns that translate into orders, repeat buyers, and sustainable growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Retail or Ecommerce Business?</h2>
+        <p>Get a free consultation and a marketing plan built around your products, your platform, and your customers.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Fitness & Sports Marketing Singapore — Jraft Creative",
+    "description": "Website design, SEO, social media, and digital marketing for gyms, yoga studios, pilates studios, and martial arts schools in Singapore.",
+    "url": "https://jraftcreative.com/industries/fitness/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Fitness & Sports", "item": "https://jraftcreative.com/industries/fitness/" }
+    ]
+  }
+];
+
+const subIndustries = [
+  {
+    name: "Gym",
+    href: "/gym-website-design-singapore/",
+    description: "Commercial gyms, boutique fitness studios, and CrossFit boxes.",
+    services: [
+      { label: "Website", href: "/gym-website-design-singapore/" },
+      { label: "SEO", href: "/gym-seo-singapore/" },
+      { label: "Marketing", href: "/gym-marketing-singapore/" },
+      { label: "Social Media", href: "/gym-social-media-singapore/" },
+      { label: "Google Ads", href: "/gym-google-ads-singapore/" },
+      { label: "Branding", href: "/gym-branding-singapore/" },
+    ]
+  },
+  {
+    name: "Yoga Studio",
+    href: "/yoga-studio-website-singapore/",
+    description: "Yoga studios, hot yoga centres, and wellness spaces.",
+    services: [
+      { label: "Website", href: "/yoga-studio-website-singapore/" },
+      { label: "SEO", href: "/yoga-studio-seo-singapore/" },
+      { label: "Marketing", href: "/yoga-studio-marketing-singapore/" },
+      { label: "Social Media", href: "/yoga-studio-social-media-singapore/" },
+      { label: "Google Ads", href: "/yoga-studio-google-ads-singapore/" },
+      { label: "Branding", href: "/yoga-studio-branding-singapore/" },
+    ]
+  },
+  {
+    name: "Pilates Studio",
+    href: "/pilates-studio-website-singapore/",
+    description: "Reformer pilates, mat pilates, and clinical pilates studios.",
+    services: [
+      { label: "Website", href: "/pilates-studio-website-singapore/" },
+    ]
+  },
+  {
+    name: "Martial Arts",
+    href: "/martial-arts-website-singapore/",
+    description: "Muay Thai, BJJ, taekwondo, and MMA gyms.",
+    services: [
+      { label: "Website", href: "/martial-arts-website-singapore/" },
+      { label: "SEO", href: "/martial-arts-seo-singapore/" },
+      { label: "Marketing", href: "/martial-arts-marketing-singapore/" },
+    ]
+  },
+];
+---
+
+<BaseLayout
+  title="Fitness & Sports Marketing Singapore | Jraft Creative"
+  description="Website design, SEO, social media, and digital marketing for gyms, yoga studios, pilates studios, and martial arts schools in Singapore. Drive memberships and class bookings."
+  canonical="https://jraftcreative.com/industries/fitness/"
+  currentPath="/industries/fitness/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Fitness &amp; Sports</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Fitness & Sports Marketing</h1>
+        <p class="service-hero-sub">We help gyms, studios, and sports facilities in Singapore attract members, fill class timetables, and grow their brand — with websites and marketing built for the fitness industry.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Your Fitness Niche, Our Expertise</h2>
+        <p>Select your type of fitness business below to explore the services we offer for your specific category.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((industry, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={industry.href}>{industry.name}</a></h3>
+            <p>{industry.description}</p>
+            <div class="industry-detail-services">
+              {industry.services.map(service => (
+                <a href={service.href}>{service.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Fitness Businesses Need Specialised Marketing</h2>
+        <p>The fitness industry in Singapore is competitive. Members comparison-shop across multiple studios before committing. Your digital presence needs to do more than look good — it needs to convert visitors into trial bookings and trial bookings into paying members.</p>
+      </div>
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card reveal">
+          <h3>Class Timetable Integration</h3>
+          <p>We build websites that connect seamlessly with booking systems such as Mindbody and ClassPass, so your live timetable is always visible and easy to book from any device.</p>
+        </div>
+        <div class="feature-card reveal reveal-d1">
+          <h3>Membership Signups</h3>
+          <p>Clear membership tier pages, pricing tables, and conversion-focused layouts that move prospects from browsing to signing up without friction.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <h3>Trial Class Bookings</h3>
+          <p>Dedicated trial offer landing pages with urgency copy and prominent calls to action — designed to turn first-time visitors into paying customers.</p>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <h3>Trainer Profiles</h3>
+          <p>Showcase the credentials and personalities of your coaching team. Trust in the trainer is one of the top reasons customers choose one fitness studio over another.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Fitness Business?</h2>
+        <p>Get a free consultation and a tailored marketing plan for your gym or studio.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

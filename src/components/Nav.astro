@@ -7,6 +7,7 @@ const { currentPath = '/' } = Astro.props;
 
 const isServicePage = currentPath.startsWith('/services/');
 const isHome = currentPath === '/';
+const isIndustryPage = currentPath.startsWith('/industries/');
 
 const isBlogPage = currentPath.startsWith('/blog');
 
@@ -15,11 +16,16 @@ function isActive(href: string): boolean {
   if (href.startsWith('/#')) return isHome;
   if (href === '/blog/' && isBlogPage) return true;
   if (href.startsWith('/services/') && currentPath === href) return true;
+  if (href.startsWith('/industries/') && currentPath === href) return true;
   return false;
 }
 
 function isServicesActive(): boolean {
   return isServicePage;
+}
+
+function isIndustriesActive(): boolean {
+  return isIndustryPage;
 }
 ---
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
@@ -36,7 +42,20 @@ function isServicesActive(): boolean {
         </ul>
       </li>
       <li role="none"><a href="/services/website-development/#portfolio" role="menuitem">Work</a></li>
-      <li role="none"><a href="/#industries" role="menuitem">Industries</a></li>
+      <li class="nav-dropdown-wrap" role="none">
+        <a href="/industries/" class={`nav-dropdown-toggle${isIndustriesActive() ? ' nav-active' : ''}`} role="menuitem" aria-haspopup="true" aria-expanded="false">Industries <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg></a>
+        <ul class="nav-dropdown" role="menu" aria-label="Industries submenu">
+          <li role="none"><a href="/industries/food-beverage/" role="menuitem" class={isActive('/industries/food-beverage/') ? 'nav-active' : ''}>F&amp;B &amp; Hospitality</a></li>
+          <li role="none"><a href="/industries/beauty-aesthetics/" role="menuitem" class={isActive('/industries/beauty-aesthetics/') ? 'nav-active' : ''}>Beauty &amp; Aesthetics</a></li>
+          <li role="none"><a href="/industries/healthcare/" role="menuitem" class={isActive('/industries/healthcare/') ? 'nav-active' : ''}>Healthcare</a></li>
+          <li role="none"><a href="/industries/fitness/" role="menuitem" class={isActive('/industries/fitness/') ? 'nav-active' : ''}>Fitness &amp; Sports</a></li>
+          <li role="none"><a href="/industries/education/" role="menuitem" class={isActive('/industries/education/') ? 'nav-active' : ''}>Education</a></li>
+          <li role="none"><a href="/industries/professional-services/" role="menuitem" class={isActive('/industries/professional-services/') ? 'nav-active' : ''}>Professional Services</a></li>
+          <li role="none"><a href="/industries/retail-ecommerce/" role="menuitem" class={isActive('/industries/retail-ecommerce/') ? 'nav-active' : ''}>Retail &amp; Ecommerce</a></li>
+          <li role="none"><a href="/industries/creative-events/" role="menuitem" class={isActive('/industries/creative-events/') ? 'nav-active' : ''}>Creative &amp; Events</a></li>
+          <li role="none"><a href="/industries/home-trade/" role="menuitem" class={isActive('/industries/home-trade/') ? 'nav-active' : ''}>Home &amp; Trade Services</a></li>
+        </ul>
+      </li>
       <li role="none"><a href="/process/" role="menuitem" class={currentPath === '/process/' ? 'nav-active' : ''}>Process</a></li>
       <li role="none"><a href="/blog/" role="menuitem" class={isActive('/blog/') ? 'nav-active' : ''}>Blog</a></li>
       <li role="none"><a href="/contact/" class="nav-cta" role="menuitem">Get a Free Quote</a></li>

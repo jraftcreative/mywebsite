@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Beauty Salon",
+    href: "/beauty-salon-website-singapore/",
+    description: "Full-service beauty salons offering facials, waxing, and beauty treatments.",
+    services: [
+      { label: "Website", href: "/beauty-salon-website-singapore/" },
+      { label: "SEO", href: "/beauty-salon-seo-singapore/" },
+      { label: "Marketing", href: "/beauty-salon-marketing-singapore/" },
+      { label: "Social Media", href: "/beauty-salon-social-media-singapore/" },
+      { label: "Google Ads", href: "/beauty-salon-google-ads-singapore/" },
+      { label: "Facebook Ads", href: "/beauty-salon-facebook-ads-singapore/" },
+      { label: "Branding", href: "/beauty-salon-branding-singapore/" },
+    ],
+  },
+  {
+    name: "Hair Salon",
+    href: "/hair-salon-website-singapore/",
+    description: "Hair salons, barbershops, and styling studios.",
+    services: [
+      { label: "Website", href: "/hair-salon-website-singapore/" },
+      { label: "SEO", href: "/hair-salon-seo-singapore/" },
+      { label: "Marketing", href: "/hair-salon-marketing-singapore/" },
+      { label: "Social Media", href: "/hair-salon-social-media-singapore/" },
+    ],
+  },
+  {
+    name: "Nail Salon",
+    href: "/nail-salon-website-singapore/",
+    description: "Nail studios, manicure and pedicure specialists.",
+    services: [
+      { label: "Website", href: "/nail-salon-website-singapore/" },
+      { label: "Marketing", href: "/nail-salon-marketing-singapore/" },
+    ],
+  },
+  {
+    name: "Spa",
+    href: "/spa-website-design-singapore/",
+    description: "Day spas, wellness retreats, and massage centres.",
+    services: [
+      { label: "Website", href: "/spa-website-design-singapore/" },
+      { label: "SEO", href: "/spa-seo-singapore/" },
+      { label: "Marketing", href: "/spa-marketing-singapore/" },
+      { label: "Social Media", href: "/spa-social-media-singapore/" },
+      { label: "Google Ads", href: "/spa-google-ads-singapore/" },
+      { label: "Branding", href: "/spa-branding-singapore/" },
+    ],
+  },
+  {
+    name: "Aesthetics Clinic",
+    href: "/aesthetics-clinic-website-singapore/",
+    description: "Medical aesthetics clinics offering non-surgical treatments.",
+    services: [
+      { label: "Website", href: "/aesthetics-clinic-website-singapore/" },
+      { label: "SEO", href: "/aesthetics-clinic-seo-singapore/" },
+      { label: "Marketing", href: "/aesthetics-clinic-marketing-singapore/" },
+      { label: "Social Media", href: "/aesthetics-clinic-social-media-singapore/" },
+      { label: "Google Ads", href: "/aesthetics-clinic-google-ads-singapore/" },
+      { label: "Branding", href: "/aesthetics-clinic-branding-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Beauty & Aesthetics Marketing Singapore — Jraft Creative",
+    "description": "Digital marketing services for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads.",
+    "url": "https://jraftcreative.com/industries/beauty-aesthetics/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Beauty & Aesthetics", "item": "https://jraftcreative.com/industries/beauty-aesthetics/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Beauty & Aesthetics Marketing Singapore | Jraft Creative"
+  description="Digital marketing for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads tailored to the beauty industry."
+  canonical="https://jraftcreative.com/industries/beauty-aesthetics/"
+  currentPath="/industries/beauty-aesthetics/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Beauty &amp; Aesthetics</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Beauty &amp; Aesthetics Marketing</h1>
+        <p class="service-hero-sub">The beauty industry in Singapore is competitive and highly visual. We help salons, spas, and aesthetics clinics grow online — through websites built for bookings, SEO that targets high-intent searches, and social media content that converts browsers into clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Beauty &amp; Aesthetics Businesses We Work With</h2>
+        <p>Select your business type to see the specific services available for your industry.</p>
+      </div>
+      <div class="industry-detail-grid" style="margin-top: 2rem;">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map(service => (
+                <a href={service.href}>{service.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Beauty Businesses Need Specialised Marketing</h2>
+        <p>Generic digital marketing does not work for beauty and aesthetics. The sector has unique demands — from visually driven discovery on Instagram to the need for seamless online booking integration — that require a focused approach.</p>
+      </div>
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card reveal">
+          <h3>Online Booking Integration</h3>
+          <p>We build websites that connect directly with booking platforms such as Fresha and Booksy, so clients can schedule appointments without calling or messaging on WhatsApp.</p>
+        </div>
+        <div class="feature-card reveal reveal-d1">
+          <h3>Before &amp; After Galleries</h3>
+          <p>Visual proof is the most effective conversion tool in beauty. We design gallery sections that showcase your work and give prospective clients confidence to book.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <h3>Instagram &amp; Social Presence</h3>
+          <p>Beauty is one of the most searched categories on Instagram in Singapore. We manage content strategies that build following, drive saves, and translate engagement into bookings.</p>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <h3>Treatment Menus &amp; Pricing Pages</h3>
+          <p>Clearly structured treatment menus reduce friction and improve search visibility. We write and optimise service pages that rank for the specific treatments your clients are searching for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Beauty Business?</h2>
+        <p>Get a free consultation and a tailored marketing plan for your salon, spa, or aesthetics clinic.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

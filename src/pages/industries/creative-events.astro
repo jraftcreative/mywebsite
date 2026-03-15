@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Interior Design",
+    href: "/interior-design-website-singapore/",
+    description: "Interior design firms, renovation contractors, and home staging studios.",
+    services: [
+      { label: "Website", href: "/interior-design-website-singapore/" },
+    ],
+  },
+  {
+    name: "Photography",
+    href: "/photography-website-singapore/",
+    description: "Wedding photographers, commercial studios, and portrait specialists.",
+    services: [
+      { label: "Website", href: "/photography-website-singapore/" },
+    ],
+  },
+  {
+    name: "Wedding",
+    href: "/wedding-website-design-singapore/",
+    description: "Wedding planners, bridal studios, and wedding venues.",
+    services: [
+      { label: "Website", href: "/wedding-website-design-singapore/" },
+    ],
+  },
+  {
+    name: "Event Company",
+    href: "/event-company-website-singapore/",
+    description: "Event management companies, conference organisers, and party planners.",
+    services: [
+      { label: "Website", href: "/event-company-website-singapore/" },
+    ],
+  },
+  {
+    name: "Florist",
+    href: "/florist-website-singapore/",
+    description: "Flower shops, floral designers, and plant studios.",
+    services: [
+      { label: "Website", href: "/florist-website-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Creative & Events Marketing Services — Jraft Creative",
+    "description": "Website design and marketing services for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio showcases, booking systems, and visual-first strategies built for creative businesses.",
+    "url": "https://jraftcreative.com/industries/creative-events/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Creative & Events", "item": "https://jraftcreative.com/industries/creative-events/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Creative & Events Marketing Singapore | Jraft Creative"
+  description="Website design and marketing services for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio showcases, booking systems, and visual-first strategies built for creative businesses."
+  canonical="https://jraftcreative.com/industries/creative-events/"
+  currentPath="/industries/creative-events/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Creative &amp; Events</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Creative &amp; Events Marketing</h1>
+        <p class="service-hero-sub">We build websites and digital strategies for creative and events businesses in Singapore — from interior design studios and photography practices to wedding planners and florists. Visual-first, portfolio-driven, and designed to convert browsers into booked clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by Business Type</h2>
+        <p>Select your business type to see the full range of services available.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Creative &amp; Events Businesses Need Visual-First Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>In Singapore's creative and events industry, your work is your most powerful selling tool — but only if the right people can find it and experience it properly online. Potential clients are searching Google for interior designers in their area, scrolling through photography portfolios before reaching out, and comparing wedding vendors weeks before they make a single enquiry. A website that does not showcase your work effectively, load quickly on mobile, or guide visitors toward a booking is costing you clients every day.</p>
+        <p style="margin-top: 1rem;">Creative businesses require a distinct approach to web design and marketing: curated portfolio showcases that present work at its best, gallery pages optimised for speed without sacrificing image quality, clear booking flows and enquiry forms that reduce friction, and social proof through client testimonials and project case studies. SEO for this sector means targeting intent-driven search terms — "interior designer Bukit Timah," "wedding photographer Singapore," "event company for corporate events" — rather than broad categories that attract the wrong audience. We understand the visual and commercial demands of this industry and build digital presences that reflect the quality of the work behind them.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Showcase Your Work Online?</h2>
+        <p>Get a free consultation and a website strategy tailored to your creative or events business.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

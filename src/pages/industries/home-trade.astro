@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Construction",
+    href: "/construction-website-singapore/",
+    description: "General contractors, renovation firms, and building companies.",
+    services: [
+      { label: "Website", href: "/construction-website-singapore/" },
+    ],
+  },
+  {
+    name: "Cleaning Company",
+    href: "/cleaning-company-website-singapore/",
+    description: "Commercial cleaning, residential cleaning, and disinfection services.",
+    services: [
+      { label: "Website", href: "/cleaning-company-website-singapore/" },
+    ],
+  },
+  {
+    name: "Logistics Company",
+    href: "/logistics-company-website-singapore/",
+    description: "Freight forwarders, courier services, and supply chain providers.",
+    services: [
+      { label: "Website", href: "/logistics-company-website-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Home & Trade Services Marketing — Jraft Creative",
+    "description": "Marketing services for construction companies, cleaning businesses, and logistics providers in Singapore. Website design and digital marketing tailored to the home and trade services industry.",
+    "url": "https://jraftcreative.com/industries/home-trade/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Home & Trade Services", "item": "https://jraftcreative.com/industries/home-trade/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Home & Trade Services Marketing Singapore | Jraft Creative"
+  description="Marketing services for construction companies, cleaning businesses, and logistics providers in Singapore. Website design and digital marketing built for the home and trade services sector."
+  canonical="https://jraftcreative.com/industries/home-trade/"
+  currentPath="/industries/home-trade/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Home &amp; Trade Services</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Home &amp; Trade Services Marketing</h1>
+        <p class="service-hero-sub">We help construction companies, cleaning businesses, and logistics providers in Singapore win more contracts and grow their client base — with websites and marketing built around the way trade buyers and property owners actually search for and evaluate service providers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by Trade Type</h2>
+        <p>Select your business type to see the full range of services available.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Home &amp; Trade Businesses in Singapore Need Specialised Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>Trade and home service businesses in Singapore operate in a category where trust and credibility determine whether a prospect makes contact. Property owners researching renovation contractors, facilities managers sourcing commercial cleaning providers, and operations teams evaluating logistics partners all expect to see project portfolios, safety certifications, and clear service scope before they request a quote. A generic business website or a standard digital marketing approach will not satisfy these expectations.</p>
+        <p style="margin-top: 1rem;">Effective marketing in this sector requires project portfolio pages that demonstrate completed work and relevant experience, quote request forms that qualify leads before they reach your sales team, and prominent display of licences, certifications, and compliance credentials that reduce buyer hesitation. For businesses pursuing B2B contracts, the marketing funnel is longer and more information-driven — decision-makers compare multiple vendors, involve multiple stakeholders, and require documented proof of capability. We build the digital presence and lead generation infrastructure that positions your trade business to win both residential and commercial work in Singapore.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Trade Business?</h2>
+        <p>Get a free consultation and a marketing plan built for your industry.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

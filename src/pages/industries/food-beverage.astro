@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Restaurant",
+    href: "/restaurant-marketing-singapore/",
+    description: "Full-service restaurants, fast casual, and fine dining.",
+    services: [
+      { label: "Website", href: "/fnb-website-design-singapore/" },
+      { label: "SEO", href: "/restaurant-seo-singapore/" },
+      { label: "Marketing", href: "/restaurant-marketing-singapore/" },
+      { label: "Social Media", href: "/restaurant-social-media-singapore/" },
+      { label: "Google Ads", href: "/restaurant-google-ads-singapore/" },
+      { label: "Facebook Ads", href: "/restaurant-facebook-ads-singapore/" },
+      { label: "Branding", href: "/restaurant-branding-singapore/" },
+    ],
+  },
+  {
+    name: "Cafe",
+    href: "/cafe-marketing-singapore/",
+    description: "Coffee shops, bakery cafes, and dessert bars.",
+    services: [
+      { label: "Website", href: "/cafe-website-design-singapore/" },
+      { label: "SEO", href: "/cafe-seo-singapore/" },
+      { label: "Marketing", href: "/cafe-marketing-singapore/" },
+      { label: "Social Media", href: "/cafe-social-media-singapore/" },
+    ],
+  },
+  {
+    name: "Bar",
+    href: "/bar-website-design-singapore/",
+    description: "Cocktail bars, wine bars, and nightlife venues.",
+    services: [
+      { label: "Website", href: "/bar-website-design-singapore/" },
+    ],
+  },
+  {
+    name: "F&B (General)",
+    href: "/fnb-marketing-agency-singapore/",
+    description: "Catering services, food delivery, and multi-concept F&B groups.",
+    services: [
+      { label: "Website", href: "/fnb-website-design-singapore/" },
+      { label: "SEO", href: "/fnb-seo-singapore/" },
+      { label: "Marketing", href: "/fnb-marketing-agency-singapore/" },
+      { label: "Social Media", href: "/fnb-social-media-singapore/" },
+      { label: "Google Ads", href: "/fnb-google-ads-singapore/" },
+      { label: "Branding", href: "/fnb-branding-singapore/" },
+      { label: "Content Marketing", href: "/fnb-content-marketing-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "F&B & Hospitality Marketing Services — Jraft Creative",
+    "description": "Marketing services for restaurants, cafes, bars, and F&B businesses in Singapore. Website design, SEO, social media, Google Ads, and branding tailored to the food and beverage industry.",
+    "url": "https://jraftcreative.com/industries/food-beverage/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "F&B & Hospitality", "item": "https://jraftcreative.com/industries/food-beverage/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="F&B & Hospitality Marketing Singapore — Restaurants, Cafes & Bars | Jraft Creative"
+  description="Marketing services for restaurants, cafes, bars, and F&B businesses in Singapore. Website design, SEO, social media, Google Ads, and branding tailored to the food and beverage industry."
+  canonical="https://jraftcreative.com/industries/food-beverage/"
+  currentPath="/industries/food-beverage/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">F&amp;B &amp; Hospitality</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>F&amp;B &amp; Hospitality Marketing</h1>
+        <p class="service-hero-sub">We help restaurants, cafes, bars, and food and beverage brands in Singapore attract more customers, build a loyal following, and grow revenue — with marketing strategies built around how diners actually discover and choose where to eat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by F&amp;B Type</h2>
+        <p>Select your business type to see the full range of services available.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why F&amp;B Businesses in Singapore Need Specialised Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>The Singapore food and beverage market is one of the most competitive in Southeast Asia. Diners research online before they visit — they scroll Instagram for food photography, check Google Maps reviews, compare menus on delivery platforms like GrabFood and Foodpanda, and look at a restaurant's website before making a reservation. A generic marketing approach built for other industries will not move the needle here.</p>
+        <p style="margin-top: 1rem;">F&amp;B marketing requires a distinct set of skills: high-quality food photography that drives appetite appeal, Google Business Profile management to dominate local map rankings, social media content that builds anticipation and repeat visits, and SEO strategies targeting the exact search terms Singapore diners use — from "best brunch cafe in Tanjong Pagar" to "halal restaurants near me." We understand this industry and build campaigns that translate into covers, orders, and returning customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your F&amp;B Business?</h2>
+        <p>Get a free consultation and a marketing plan tailored to your restaurant, cafe, or bar.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

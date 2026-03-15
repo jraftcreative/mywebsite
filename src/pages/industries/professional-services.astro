@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Law Firm",
+    href: "/law-firm-website-singapore/",
+    description: "Corporate law firms, family law practices, and legal consultancies.",
+    services: [
+      { label: "Website", href: "/law-firm-website-singapore/" },
+    ],
+  },
+  {
+    name: "Accounting Firm",
+    href: "/accounting-firm-website-singapore/",
+    description: "Audit firms, tax consultancies, and bookkeeping services.",
+    services: [
+      { label: "Website", href: "/accounting-firm-website-singapore/" },
+    ],
+  },
+  {
+    name: "Property Agent",
+    href: "/property-agent-website-singapore/",
+    description: "Real estate agents, property agencies, and developer sales teams.",
+    services: [
+      { label: "Website", href: "/property-agent-website-singapore/" },
+    ],
+  },
+  {
+    name: "Insurance Agent",
+    href: "/insurance-agent-website-singapore/",
+    description: "Independent financial advisors and insurance agencies.",
+    services: [
+      { label: "Website", href: "/insurance-agent-website-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Professional Services Marketing — Jraft Creative",
+    "description": "Marketing services for law firms, accounting firms, property agents, and insurance advisors in Singapore. Professional website design and digital marketing built around trust, credibility, and lead generation.",
+    "url": "https://jraftcreative.com/industries/professional-services/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Professional Services", "item": "https://jraftcreative.com/industries/professional-services/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Professional Services Marketing Singapore | Jraft Creative"
+  description="Marketing services for law firms, accounting firms, property agents, and insurance advisors in Singapore. Professional website design and digital marketing built around trust, credibility, and lead generation."
+  canonical="https://jraftcreative.com/industries/professional-services/"
+  currentPath="/industries/professional-services/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Professional Services</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Professional Services Marketing</h1>
+        <p class="service-hero-sub">We help law firms, accounting practices, property agents, and financial advisors in Singapore build credibility online, generate qualified leads, and grow their client base — with marketing that reflects the professionalism their clients expect.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by Practice Type</h2>
+        <p>Select your practice type to see the services available for your business.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Professional Service Firms Need Specialised Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>Professional services firms operate in sectors where trust is the primary purchase driver. Prospective clients — whether they are looking for a conveyancing lawyer, a corporate tax advisor, a property agent, or an insurance planner — conduct significant research before making contact. They assess credentials, read reviews, scrutinise websites, and compare firms before ever reaching out. A poorly positioned online presence is not just a missed opportunity; it actively undermines confidence in your firm.</p>
+        <p style="margin-top: 1rem;">Marketing in these industries also carries obligations that generic agencies are ill-equipped to handle. Legal advertising in Singapore is governed by the Legal Profession (Publicity) Rules. Financial advisory marketing must comply with MAS guidelines. Real estate agent promotions are subject to CEA regulations. We understand these constraints and build campaigns that generate leads without crossing regulatory lines.</p>
+        <p style="margin-top: 1rem;">Beyond compliance, effective professional services marketing centres on demonstrable expertise: client-facing credentials, case studies, thought leadership content, and trust signals that convert a cautious prospect into a paying client. We design websites and run campaigns built around this reality — not templates borrowed from e-commerce or retail.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Practice?</h2>
+        <p>Get a free consultation and a marketing plan tailored to your firm, practice, or advisory business.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

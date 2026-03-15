@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const subIndustries = [
+  {
+    name: "Tuition Centre",
+    href: "/tuition-centre-marketing-singapore/",
+    description: "Academic tuition centres for primary, secondary, and JC students.",
+    services: [
+      { label: "Website", href: "/tuition-centre-website-singapore/" },
+      { label: "SEO", href: "/tuition-centre-seo-singapore/" },
+      { label: "Marketing", href: "/tuition-centre-marketing-singapore/" },
+      { label: "Social Media", href: "/tuition-centre-social-media-singapore/" },
+      { label: "Google Ads", href: "/tuition-centre-google-ads-singapore/" },
+      { label: "Facebook Ads", href: "/tuition-centre-facebook-ads-singapore/" },
+      { label: "Branding", href: "/tuition-centre-branding-singapore/" },
+      { label: "Content Marketing", href: "/tuition-centre-content-marketing-singapore/" },
+    ],
+  },
+  {
+    name: "Enrichment Centre",
+    href: "/enrichment-centre-website-singapore/",
+    description: "STEM, coding, robotics, and enrichment programme providers.",
+    services: [
+      { label: "Website", href: "/enrichment-centre-website-singapore/" },
+    ],
+  },
+  {
+    name: "Preschool",
+    href: "/preschool-marketing-singapore/",
+    description: "Preschools, nurseries, and playgroups.",
+    services: [
+      { label: "Website", href: "/preschool-website-design-singapore/" },
+      { label: "SEO", href: "/preschool-seo-singapore/" },
+      { label: "Marketing", href: "/preschool-marketing-singapore/" },
+      { label: "Social Media", href: "/preschool-social-media-marketing-singapore/" },
+      { label: "Advertising", href: "/preschool-advertising-singapore/" },
+      { label: "Branding", href: "/preschool-branding-singapore/" },
+    ],
+  },
+  {
+    name: "Kindergarten",
+    href: "/kindergarten-website-design-singapore/",
+    description: "MOE-registered and private kindergartens.",
+    services: [
+      { label: "Website", href: "/kindergarten-website-design-singapore/" },
+    ],
+  },
+  {
+    name: "Childcare Centre",
+    href: "/childcare-centre-website-singapore/",
+    description: "Full-day childcare centres and infant care.",
+    services: [
+      { label: "Website", href: "/childcare-centre-website-singapore/" },
+    ],
+  },
+  {
+    name: "Student Care",
+    href: "/student-care-website-singapore/",
+    description: "After-school student care centres.",
+    services: [
+      { label: "Website", href: "/student-care-website-singapore/" },
+    ],
+  },
+  {
+    name: "Music School",
+    href: "/music-school-website-singapore/",
+    description: "Music schools, piano studios, and instrument academies.",
+    services: [
+      { label: "Website", href: "/music-school-website-singapore/" },
+      { label: "SEO", href: "/music-school-seo-singapore/" },
+    ],
+  },
+  {
+    name: "Dance Studio",
+    href: "/dance-studio-website-singapore/",
+    description: "Ballet, contemporary, hip-hop, and dance academies.",
+    services: [
+      { label: "Website", href: "/dance-studio-website-singapore/" },
+    ],
+  },
+  {
+    name: "Art School",
+    href: "/art-school-website-singapore/",
+    description: "Art studios, painting classes, and creative workshops.",
+    services: [
+      { label: "Website", href: "/art-school-website-singapore/" },
+    ],
+  },
+  {
+    name: "Coding School",
+    href: "/coding-school-website-singapore/",
+    description: "Kids coding bootcamps and programming academies.",
+    services: [
+      { label: "Website", href: "/coding-school-website-singapore/" },
+    ],
+  },
+  {
+    name: "Swimming School",
+    href: "/swimming-school-website-singapore/",
+    description: "Swimming academies and private swim coaching.",
+    services: [
+      { label: "Website", href: "/swimming-school-website-singapore/" },
+    ],
+  },
+  {
+    name: "Speech & Drama",
+    href: "/speech-drama-website-singapore/",
+    description: "Speech, drama, and public speaking programmes.",
+    services: [
+      { label: "Website", href: "/speech-drama-website-singapore/" },
+    ],
+  },
+];
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Education Marketing Singapore — Jraft Creative",
+    "description": "Marketing services for tuition centres, preschools, enrichment centres, and education businesses in Singapore. Website design, SEO, social media, and advertising tailored to the education sector.",
+    "url": "https://jraftcreative.com/industries/education/",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://jraftcreative.com/industries/" },
+      { "@type": "ListItem", "position": 3, "name": "Education", "item": "https://jraftcreative.com/industries/education/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Education Marketing Singapore — School & Tuition Centre Websites | Jraft Creative"
+  description="Marketing services for tuition centres, preschools, enrichment centres, and education businesses in Singapore. Website design, SEO, social media, and advertising tailored to the education sector."
+  canonical="https://jraftcreative.com/industries/education/"
+  currentPath="/industries/education/"
+  schema={schemaData}
+>
+  <section class="service-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/industries/">Industries</a></li>
+          <li aria-current="page">Education</li>
+        </ol>
+      </nav>
+      <div class="service-hero-content reveal">
+        <h1>Education Marketing</h1>
+        <p class="service-hero-sub">We help tuition centres, preschools, enrichment schools, and education providers in Singapore build credibility online, reach parents at the right moment, and fill their enrolment pipelines with targeted digital marketing.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Services by Education Type</h2>
+        <p>Select your business type to see the full range of services available.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map((svc) => (
+                <a href={svc.href}>{svc.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Why Education Businesses in Singapore Need Specialised Marketing</h2>
+      </div>
+      <div class="reveal reveal-d1">
+        <p>Parents in Singapore research extensively before committing to an education provider. Whether they are looking for a primary school tuition centre in Tampines or a preschool near their home in Clementi, the decision process typically begins with a Google search, moves through a review of the school's website and social media presence, and ends with enquiries to two or three shortlisted providers. Centres that appear prominently online and communicate trust clearly win the enrolment — those that do not, lose it to a competitor who does.</p>
+        <p style="margin-top: 1rem;">Education marketing in Singapore requires a specific understanding of parent psychology, local curriculum structures, and the regulatory environment. Content must address academic outcomes, teacher qualifications, class schedules, and safety — while also meeting any relevant MOE and ECDA guidelines on how education services can be advertised. Enrolment funnels differ significantly from retail purchases: the sales cycle is longer, word-of-mouth and testimonials carry outsized weight, and the cost of acquiring a single enrolled student justifies meaningful investment in both organic and paid channels. We build marketing strategies that account for all of this, helping education providers grow enrolment sustainably and build lasting reputations in their communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <div class="section-header reveal">
+        <h2>Ready to Grow Your Education Business?</h2>
+        <p>Get a free consultation and a marketing plan tailored to your school or centre.</p>
+      </div>
+      <div class="reveal reveal-d1">
+        <a href="/contact/" class="btn btn-primary" style="margin-top: 1rem;">Get a Free Quote</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
