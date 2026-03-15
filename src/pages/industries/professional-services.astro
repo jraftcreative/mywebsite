@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Law Firm",
     href: "/law-firm-website-singapore/",
     description: "Corporate law firms, family law practices, and legal consultancies.",
+    image: "/images/service-law.webp",
     services: [
       { label: "Website", href: "/law-firm-website-singapore/" },
     ],
@@ -14,6 +15,7 @@ const subIndustries = [
     name: "Accounting Firm",
     href: "/accounting-firm-website-singapore/",
     description: "Audit firms, tax consultancies, and bookkeeping services.",
+    image: "/images/service-accounting.webp",
     services: [
       { label: "Website", href: "/accounting-firm-website-singapore/" },
     ],
@@ -22,6 +24,7 @@ const subIndustries = [
     name: "Property Agent",
     href: "/property-agent-website-singapore/",
     description: "Real estate agents, property agencies, and developer sales teams.",
+    image: "/images/service-property.webp",
     services: [
       { label: "Website", href: "/property-agent-website-singapore/" },
     ],
@@ -30,6 +33,7 @@ const subIndustries = [
     name: "Insurance Agent",
     href: "/insurance-agent-website-singapore/",
     description: "Independent financial advisors and insurance agencies.",
+    image: "/images/service-insurance.webp",
     services: [
       { label: "Website", href: "/insurance-agent-website-singapore/" },
     ],
@@ -111,7 +115,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

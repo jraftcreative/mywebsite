@@ -6,6 +6,7 @@ const subIndustries = [
     name: "General Clinic",
     href: "/clinic-website-design-singapore/",
     description: "GP clinics, polyclinics, and family medicine practices.",
+    image: "/images/service-clinic.webp",
     services: [
       { label: "Website", href: "/clinic-website-design-singapore/" },
     ],
@@ -14,6 +15,7 @@ const subIndustries = [
     name: "Dental Clinic",
     href: "/dental-website-design-singapore/",
     description: "General dentistry, orthodontics, and cosmetic dental practices.",
+    image: "/images/service-dental.webp",
     services: [
       { label: "Website", href: "/dental-website-design-singapore/" },
     ],
@@ -22,6 +24,7 @@ const subIndustries = [
     name: "TCM Clinic",
     href: "/tcm-clinic-website-singapore/",
     description: "Traditional Chinese Medicine clinics and acupuncture centres.",
+    image: "/images/service-tcm.webp",
     services: [
       { label: "Website", href: "/tcm-clinic-website-singapore/" },
     ],
@@ -30,6 +33,7 @@ const subIndustries = [
     name: "Physiotherapy",
     href: "/physiotherapy-website-singapore/",
     description: "Physiotherapy clinics and rehabilitation centres.",
+    image: "/images/service-physiotherapy.webp",
     services: [
       { label: "Website", href: "/physiotherapy-website-singapore/" },
       { label: "SEO", href: "/physiotherapy-seo-singapore/" },
@@ -44,6 +48,7 @@ const subIndustries = [
     name: "Mental Health",
     href: "/mental-health-clinic-website-singapore/",
     description: "Psychology practices, counselling centres, and psychiatric clinics.",
+    image: "/images/service-mentalhealth.webp",
     services: [
       { label: "Website", href: "/mental-health-clinic-website-singapore/" },
       { label: "Marketing", href: "/mental-health-marketing-singapore/" },
@@ -55,6 +60,7 @@ const subIndustries = [
     name: "Veterinary Clinic",
     href: "/veterinary-clinic-website-singapore/",
     description: "Animal hospitals, vet clinics, and pet care centres.",
+    image: "/images/service-veterinary.webp",
     services: [
       { label: "Website", href: "/veterinary-clinic-website-singapore/" },
     ],
@@ -135,7 +141,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

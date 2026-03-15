@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Beauty Salon",
     href: "/beauty-salon-website-singapore/",
     description: "Full-service beauty salons offering facials, waxing, and beauty treatments.",
+    image: "/images/service-beauty.webp",
     services: [
       { label: "Website", href: "/beauty-salon-website-singapore/" },
       { label: "SEO", href: "/beauty-salon-seo-singapore/" },
@@ -20,6 +21,7 @@ const subIndustries = [
     name: "Hair Salon",
     href: "/hair-salon-website-singapore/",
     description: "Hair salons, barbershops, and styling studios.",
+    image: "/images/service-hairsalon.webp",
     services: [
       { label: "Website", href: "/hair-salon-website-singapore/" },
       { label: "SEO", href: "/hair-salon-seo-singapore/" },
@@ -31,6 +33,7 @@ const subIndustries = [
     name: "Nail Salon",
     href: "/nail-salon-website-singapore/",
     description: "Nail studios, manicure and pedicure specialists.",
+    image: "/images/service-nailsalon.webp",
     services: [
       { label: "Website", href: "/nail-salon-website-singapore/" },
       { label: "Marketing", href: "/nail-salon-marketing-singapore/" },
@@ -40,6 +43,7 @@ const subIndustries = [
     name: "Spa",
     href: "/spa-website-design-singapore/",
     description: "Day spas, wellness retreats, and massage centres.",
+    image: "/images/service-spa.webp",
     services: [
       { label: "Website", href: "/spa-website-design-singapore/" },
       { label: "SEO", href: "/spa-seo-singapore/" },
@@ -53,6 +57,7 @@ const subIndustries = [
     name: "Aesthetics Clinic",
     href: "/aesthetics-clinic-website-singapore/",
     description: "Medical aesthetics clinics offering non-surgical treatments.",
+    image: "/images/service-aesthetics.webp",
     services: [
       { label: "Website", href: "/aesthetics-clinic-website-singapore/" },
       { label: "SEO", href: "/aesthetics-clinic-seo-singapore/" },
@@ -152,7 +157,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid" style="margin-top: 2rem;">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Restaurant",
     href: "/restaurant-marketing-singapore/",
     description: "Full-service restaurants, fast casual, and fine dining.",
+    image: "/images/service-restaurant.webp",
     services: [
       { label: "Website", href: "/fnb-website-design-singapore/" },
       { label: "SEO", href: "/restaurant-seo-singapore/" },
@@ -20,6 +21,7 @@ const subIndustries = [
     name: "Cafe",
     href: "/cafe-marketing-singapore/",
     description: "Coffee shops, bakery cafes, and dessert bars.",
+    image: "/images/service-cafe.webp",
     services: [
       { label: "Website", href: "/cafe-website-design-singapore/" },
       { label: "SEO", href: "/cafe-seo-singapore/" },
@@ -31,6 +33,7 @@ const subIndustries = [
     name: "Bar",
     href: "/bar-website-design-singapore/",
     description: "Cocktail bars, wine bars, and nightlife venues.",
+    image: "/images/service-bar.webp",
     services: [
       { label: "Website", href: "/bar-website-design-singapore/" },
     ],
@@ -39,6 +42,7 @@ const subIndustries = [
     name: "F&B (General)",
     href: "/fnb-marketing-agency-singapore/",
     description: "Catering services, food delivery, and multi-concept F&B groups.",
+    image: "/images/service-fnb.webp",
     services: [
       { label: "Website", href: "/fnb-website-design-singapore/" },
       { label: "SEO", href: "/fnb-seo-singapore/" },
@@ -125,7 +129,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

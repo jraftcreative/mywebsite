@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Ecommerce",
     href: "/ecommerce-website-singapore/",
     description: "Online stores, DTC brands, and marketplace sellers.",
+    image: "/images/service-ecommerce.webp",
     services: [
       { label: "Website", href: "/ecommerce-website-singapore/" },
     ],
@@ -14,6 +15,7 @@ const subIndustries = [
     name: "Pet Shop",
     href: "/pet-shop-website-singapore/",
     description: "Pet stores, grooming services, and pet supply retailers.",
+    image: "/images/service-petshop.webp",
     services: [
       { label: "Website", href: "/pet-shop-website-singapore/" },
     ],
@@ -94,7 +96,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Tuition Centre",
     href: "/tuition-centre-marketing-singapore/",
     description: "Academic tuition centres for primary, secondary, and JC students.",
+    image: "/images/service-tuition.webp",
     services: [
       { label: "Website", href: "/tuition-centre-website-singapore/" },
       { label: "SEO", href: "/tuition-centre-seo-singapore/" },
@@ -21,6 +22,7 @@ const subIndustries = [
     name: "Enrichment Centre",
     href: "/enrichment-centre-website-singapore/",
     description: "STEM, coding, robotics, and enrichment programme providers.",
+    image: "/images/service-enrichment.webp",
     services: [
       { label: "Website", href: "/enrichment-centre-website-singapore/" },
     ],
@@ -29,6 +31,7 @@ const subIndustries = [
     name: "Preschool",
     href: "/preschool-marketing-singapore/",
     description: "Preschools, nurseries, and playgroups.",
+    image: "/images/service-preschool.webp",
     services: [
       { label: "Website", href: "/preschool-website-design-singapore/" },
       { label: "SEO", href: "/preschool-seo-singapore/" },
@@ -42,6 +45,7 @@ const subIndustries = [
     name: "Kindergarten",
     href: "/kindergarten-website-design-singapore/",
     description: "MOE-registered and private kindergartens.",
+    image: "/images/service-kindergarten.webp",
     services: [
       { label: "Website", href: "/kindergarten-website-design-singapore/" },
     ],
@@ -50,6 +54,7 @@ const subIndustries = [
     name: "Childcare Centre",
     href: "/childcare-centre-website-singapore/",
     description: "Full-day childcare centres and infant care.",
+    image: "/images/service-childcare.webp",
     services: [
       { label: "Website", href: "/childcare-centre-website-singapore/" },
     ],
@@ -58,6 +63,7 @@ const subIndustries = [
     name: "Student Care",
     href: "/student-care-website-singapore/",
     description: "After-school student care centres.",
+    image: "/images/service-studentcare.webp",
     services: [
       { label: "Website", href: "/student-care-website-singapore/" },
     ],
@@ -66,6 +72,7 @@ const subIndustries = [
     name: "Music School",
     href: "/music-school-website-singapore/",
     description: "Music schools, piano studios, and instrument academies.",
+    image: "/images/service-musicschool.webp",
     services: [
       { label: "Website", href: "/music-school-website-singapore/" },
       { label: "SEO", href: "/music-school-seo-singapore/" },
@@ -75,6 +82,7 @@ const subIndustries = [
     name: "Dance Studio",
     href: "/dance-studio-website-singapore/",
     description: "Ballet, contemporary, hip-hop, and dance academies.",
+    image: "/images/service-dancestudio.webp",
     services: [
       { label: "Website", href: "/dance-studio-website-singapore/" },
     ],
@@ -83,6 +91,7 @@ const subIndustries = [
     name: "Art School",
     href: "/art-school-website-singapore/",
     description: "Art studios, painting classes, and creative workshops.",
+    image: "/images/service-artschool.webp",
     services: [
       { label: "Website", href: "/art-school-website-singapore/" },
     ],
@@ -91,6 +100,7 @@ const subIndustries = [
     name: "Coding School",
     href: "/coding-school-website-singapore/",
     description: "Kids coding bootcamps and programming academies.",
+    image: "/images/service-codingschool.webp",
     services: [
       { label: "Website", href: "/coding-school-website-singapore/" },
     ],
@@ -99,6 +109,7 @@ const subIndustries = [
     name: "Swimming School",
     href: "/swimming-school-website-singapore/",
     description: "Swimming academies and private swim coaching.",
+    image: "/images/service-swimmingschool.webp",
     services: [
       { label: "Website", href: "/swimming-school-website-singapore/" },
     ],
@@ -107,6 +118,7 @@ const subIndustries = [
     name: "Speech & Drama",
     href: "/speech-drama-website-singapore/",
     description: "Speech, drama, and public speaking programmes.",
+    image: "/images/service-speechdrama.webp",
     services: [
       { label: "Website", href: "/speech-drama-website-singapore/" },
     ],
@@ -187,7 +199,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">

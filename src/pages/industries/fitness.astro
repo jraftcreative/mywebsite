@@ -30,6 +30,7 @@ const subIndustries = [
     name: "Gym",
     href: "/gym-website-design-singapore/",
     description: "Commercial gyms, boutique fitness studios, and CrossFit boxes.",
+    image: "/images/service-gym.webp",
     services: [
       { label: "Website", href: "/gym-website-design-singapore/" },
       { label: "SEO", href: "/gym-seo-singapore/" },
@@ -43,6 +44,7 @@ const subIndustries = [
     name: "Yoga Studio",
     href: "/yoga-studio-website-singapore/",
     description: "Yoga studios, hot yoga centres, and wellness spaces.",
+    image: "/images/service-yoga.webp",
     services: [
       { label: "Website", href: "/yoga-studio-website-singapore/" },
       { label: "SEO", href: "/yoga-studio-seo-singapore/" },
@@ -56,6 +58,7 @@ const subIndustries = [
     name: "Pilates Studio",
     href: "/pilates-studio-website-singapore/",
     description: "Reformer pilates, mat pilates, and clinical pilates studios.",
+    image: "/images/service-pilates.webp",
     services: [
       { label: "Website", href: "/pilates-studio-website-singapore/" },
     ]
@@ -64,6 +67,7 @@ const subIndustries = [
     name: "Martial Arts",
     href: "/martial-arts-website-singapore/",
     description: "Muay Thai, BJJ, taekwondo, and MMA gyms.",
+    image: "/images/service-martialarts.webp",
     services: [
       { label: "Website", href: "/martial-arts-website-singapore/" },
       { label: "SEO", href: "/martial-arts-seo-singapore/" },
@@ -135,7 +139,7 @@ const subIndustries = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((industry, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={industry.image}>
             <h3><a href={industry.href}>{industry.name}</a></h3>
             <p>{industry.description}</p>
             <div class="industry-detail-services">

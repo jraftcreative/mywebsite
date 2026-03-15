@@ -6,6 +6,7 @@ const subIndustries = [
     name: "Interior Design",
     href: "/interior-design-website-singapore/",
     description: "Interior design firms, renovation contractors, and home staging studios.",
+    image: "/images/service-interior.webp",
     services: [
       { label: "Website", href: "/interior-design-website-singapore/" },
     ],
@@ -14,6 +15,7 @@ const subIndustries = [
     name: "Photography",
     href: "/photography-website-singapore/",
     description: "Wedding photographers, commercial studios, and portrait specialists.",
+    image: "/images/service-photography.webp",
     services: [
       { label: "Website", href: "/photography-website-singapore/" },
     ],
@@ -22,6 +24,7 @@ const subIndustries = [
     name: "Wedding",
     href: "/wedding-website-design-singapore/",
     description: "Wedding planners, bridal studios, and wedding venues.",
+    image: "/images/service-wedding.webp",
     services: [
       { label: "Website", href: "/wedding-website-design-singapore/" },
     ],
@@ -30,6 +33,7 @@ const subIndustries = [
     name: "Event Company",
     href: "/event-company-website-singapore/",
     description: "Event management companies, conference organisers, and party planners.",
+    image: "/images/service-event.webp",
     services: [
       { label: "Website", href: "/event-company-website-singapore/" },
     ],
@@ -38,6 +42,7 @@ const subIndustries = [
     name: "Florist",
     href: "/florist-website-singapore/",
     description: "Flower shops, floral designers, and plant studios.",
+    image: "/images/service-florist.webp",
     services: [
       { label: "Website", href: "/florist-website-singapore/" },
     ],
@@ -118,7 +123,7 @@ const schemaData = [
       </div>
       <div class="industry-detail-grid">
         {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
             <h3><a href={sub.href}>{sub.name}</a></h3>
             <p>{sub.description}</p>
             <div class="industry-detail-services">
