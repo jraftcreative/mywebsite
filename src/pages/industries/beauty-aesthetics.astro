@@ -101,7 +101,7 @@ const schemaData = [
   heroLabel="Beauty & Aesthetics"
   heroTitle='Marketing for <span class="highlight">Beauty &amp; Aesthetics</span> in Singapore'
   heroSubtitle="The beauty industry in Singapore is competitive and highly visual. We help salons, spas, and aesthetics clinics grow online — through websites built for bookings, SEO that targets high-intent searches, and social media content that converts browsers into clients."
-  heroImage="/images/industry-beauty.webp"
+  heroImage="/images/service-beauty.webp"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Services", href: "/services/", class: "btn btn-secondary" }
@@ -115,29 +115,6 @@ const schemaData = [
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20beauty%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Our Specialisations</p>
-        <h2>Beauty &amp; Aesthetics Businesses We Work With</h2>
-        <p>Select your business type to see the specific services available for your industry.</p>
-      </div>
-      <div class="industry-detail-grid" style="margin-top: 2rem;">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map(service => (
-                <a href={service.href}>{service.label}</a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header reveal">
@@ -162,6 +139,29 @@ const schemaData = [
           <h3>Treatment Menus &amp; Pricing Pages</h3>
           <p>Clearly structured treatment menus reduce friction and improve search visibility. We write and optimise service pages that rank for the specific treatments your clients are searching for.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Specialisations</p>
+        <h2>Beauty &amp; Aesthetics Businesses We Work With</h2>
+        <p>Select your business type to see the specific services available for your industry.</p>
+      </div>
+      <div class="industry-detail-grid" style="margin-top: 2rem;">
+        {subIndustries.map((sub, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={sub.href}>{sub.name}</a></h3>
+            <p>{sub.description}</p>
+            <div class="industry-detail-services">
+              {sub.services.map(service => (
+                <a href={service.href}>{service.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>

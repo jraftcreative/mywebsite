@@ -98,29 +98,6 @@ const subIndustries = [
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20fitness%20business%20in%20Singapore.", class: "btn btn-secondary" },
   ]}
 >
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">What We Cover</p>
-        <h2>Your Fitness Niche, Our Expertise</h2>
-        <p>Select your type of fitness business below to explore the services we offer for your specific category.</p>
-      </div>
-      <div class="industry-detail-grid">
-        {subIndustries.map((industry, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
-            <h3><a href={industry.href}>{industry.name}</a></h3>
-            <p>{industry.description}</p>
-            <div class="industry-detail-services">
-              {industry.services.map(service => (
-                <a href={service.href}>{service.label}</a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section bg-alt">
     <div class="container">
       <div class="section-header reveal">
@@ -145,6 +122,29 @@ const subIndustries = [
           <h3>Trainer Profiles</h3>
           <p>Showcase the credentials and personalities of your coaching team. Trust in the trainer is one of the top reasons customers choose one fitness studio over another.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Cover</p>
+        <h2>Your Fitness Niche, Our Expertise</h2>
+        <p>Select your type of fitness business below to explore the services we offer for your specific category.</p>
+      </div>
+      <div class="industry-detail-grid">
+        {subIndustries.map((industry, i) => (
+          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`}>
+            <h3><a href={industry.href}>{industry.name}</a></h3>
+            <p>{industry.description}</p>
+            <div class="industry-detail-services">
+              {industry.services.map(service => (
+                <a href={service.href}>{service.label}</a>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
