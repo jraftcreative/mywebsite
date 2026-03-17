@@ -1,0 +1,246 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Search Optimisation (GEO)",
+    "description": "AI Search Optimisation in Singapore — get your brand recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews. GEO audits, content optimisation, and AI visibility monitoring.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "AI Search Optimisation",
+    "offers": [
+      { "@type": "Offer", "name": "GEO Essentials", "price": "1500", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
+      { "@type": "Offer", "name": "GEO Growth", "price": "3000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
+      { "@type": "Offer", "name": "GEO Enterprise", "price": "5000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is AI Search Optimisation (GEO)?", "acceptedAnswer": { "@type": "Answer", "text": "GEO (Generative Engine Optimisation) is the practice of optimising your brand's online presence so that AI platforms like ChatGPT, Google Gemini, Perplexity, and Microsoft Copilot recommend your business when users ask for suggestions. Unlike traditional SEO which helps you rank in search results, GEO ensures you're the brand AI names in its answers." } },
+      { "@type": "Question", "name": "Is this different from SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SEO gets you found in search results. GEO gets you recommended in AI answers. The overlap between Google rankings and AI citations has dropped below 20% — ranking #1 on Google no longer guarantees AI will recommend you. GEO complements SEO but requires different optimisation strategies focused on entity clarity, structured data, content freshness, and third-party authority signals." } },
+      { "@type": "Question", "name": "Which AI platforms do you optimise for?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise for all major AI platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, Microsoft Copilot, and Claude. Each platform has different source preferences, so we tailor our strategy to maximise your visibility across all of them." } },
+      { "@type": "Question", "name": "How long does it take to see results?", "acceptedAnswer": { "@type": "Answer", "text": "Most businesses see measurable changes in AI citation rates within 30-90 days. Quick wins like schema markup and llms.txt implementation can improve visibility within weeks. Authority building and content freshness programmes compound over time for sustained results." } },
+      { "@type": "Question", "name": "How do you measure AI search performance?", "acceptedAnswer": { "@type": "Answer", "text": "We track Brand Visibility Score (how often your brand appears in AI answers), Citation Rate (percentage of relevant prompts that mention you), and Share of Voice (your mentions vs competitors). You get a monthly dashboard showing your performance across ChatGPT, Gemini, Perplexity, and Google AI Overviews." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Services" },
+      { "@type": "ListItem", "position": 3, "name": "AI Search Optimisation", "item": "https://jraftcreative.com/services/ai-search-optimisation/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="AI Search Optimisation (GEO) — Get Recommended by ChatGPT, Gemini & Perplexity | Jraft Creative"
+  description="AI Search Optimisation in Singapore — get your brand recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews. GEO audits, content optimisation, and AI visibility monitoring from $1,500/month."
+  canonical="https://jraftcreative.com/services/ai-search-optimisation/"
+  ogTitle="AI Search Optimisation Singapore — Jraft Creative"
+  ogDescription="Get your brand recommended by AI. We optimise your online presence for ChatGPT, Gemini, Perplexity, and Google AI Overviews."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="AI search optimisation singapore, GEO singapore, generative engine optimisation, LLMO, get recommended by ChatGPT, AI visibility, AI search agency singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="AI Search Optimisation Singapore"
+  heroTitle='AI Search Optimisation — Get Your Brand <span class="highlight">Recommended by AI</span>'
+  heroSubtitle="When someone asks ChatGPT, Gemini, or Perplexity for a recommendation, does your brand come up? We make sure it does. AI Search Optimisation (GEO) puts your business in the answers — not just the search results."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to enquire about your AI Search Optimisation (GEO) services."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Get Your Brand Into AI Answers"
+  ctaDescription="Book a free AI visibility audit. We'll show you exactly where your brand appears (and doesn't) across ChatGPT, Gemini, Perplexity, and Google AI Overviews — no obligations."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20AI%20Search%20Optimisation%20services.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="The AI search challenge businesses face">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Your Customers Are Asking AI — Not Google</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Google search volume is dropping 25% as consumers shift to ChatGPT, Gemini, and Perplexity for recommendations. When AI answers a question, it names 3-4 brands — not 10 blue links. If your brand isn't one of them, you're invisible to a fast-growing audience.</p>
+        <p>Singapore has the second highest AI adoption rate in the world — 60.9% of the population already uses generative AI. Traditional SEO alone won't get you into AI answers. The overlap between Google rankings and AI citations has dropped below 20%. You need a different strategy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOLUTION (SUB-SERVICES) ========== -->
+  <section class="section" id="sub-services" aria-label="Our AI search optimisation solutions">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Solution</p>
+        <h2>Our AI Search Optimisation Services</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We optimise your brand's visibility across every major AI platform — ChatGPT, Google Gemini, Perplexity, Microsoft Copilot, and Google AI Overviews. Our GEO (Generative Engine Optimisation) services combine technical implementation, content strategy, and authority building to make your brand the one AI recommends.</p>
+        <p>GEO works alongside your existing SEO strategy — not against it. Combine with our <a href="/services/seo-performance">SEO services</a> for maximum search visibility, or pair with <a href="/services/paid-ads">paid ads</a> and <a href="/services/social-media">social media</a> for a full-funnel approach.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>Comprehensive audit of your brand's presence across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Overviews. We test 20-30 target prompts, benchmark against competitors, and identify exactly where you appear and where you're missing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Optimisation</h3>
+            <p>Advanced structured data markup (JSON-LD) that tells AI exactly who you are, what you offer, and why you're credible. Organization, Service, FAQ, Person, and Speakable schemas — plus llms.txt implementation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Citation-Ready Content</h3>
+            <p>We restructure your content so AI engines can extract and cite it. Answer-first formatting, comparison tables, fact-dense paragraphs, and FAQ sections that directly match what your prospects are asking AI.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Authority &amp; Reputation Building</h3>
+            <p>AI models assess credibility through third-party mentions. We build your presence on review platforms, industry directories, and authority sites that AI trusts — so it has a reason to recommend you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Monitoring</h3>
+            <p>Monthly tracking of your Brand Visibility Score, Citation Rate, and Share of Voice across all major AI platforms. Know exactly where you stand and how you compare to competitors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROOF ========== -->
+  <section class="section" id="proof" style="background: var(--bg-alt);" aria-label="AI search optimisation results">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why It Matters</p>
+        <h2>AI-Referred Traffic Converts 4.4x Better</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Visitors who find your brand through AI recommendations convert at 4.4 times the rate of traditional organic search traffic. The volume is still growing, but the quality is dramatically higher — these are people who received a direct recommendation, not just a list of links.</p>
+        <p>Businesses that optimise for AI search early are seeing results within 90 days — from zero AI visibility to appearing in 40-68% of target prompts. The window for first-mover advantage is now.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="AI search optimisation pricing plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">GEO Pricing</p>
+        <h2>AI Search Optimisation Plans</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essentials</h3>
+            <div class="price">$1,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses starting their AI visibility journey.</p>
+            <ul class="pricing-features">
+              <li>AI visibility audit &amp; baseline</li>
+              <li>Schema markup implementation</li>
+              <li>Content optimisation (5 pages/mo)</li>
+              <li>llms.txt setup &amp; maintenance</li>
+              <li>Monthly AI visibility report</li>
+              <li>Quarterly strategy review</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate AI recommendations.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essentials</li>
+              <li>Content optimisation (20 pages/mo)</li>
+              <li>Authority building &amp; directory registrations</li>
+              <li>Answer Engine content creation</li>
+              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Dedicated GEO strategist</li>
+              <li>Content freshness programme (7-14 day cycle)</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$5,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service AI search domination across all platforms.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-platform defensive monitoring</li>
+              <li>Wikipedia presence strategy</li>
+              <li>Weekly strategy calls &amp; real-time dashboard</li>
+              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Sentiment defence &amp; crisis alerts</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is AI Search Optimisation (GEO)?</summary>
+          <div class="faq-answer"><p>GEO (Generative Engine Optimisation) is the practice of optimising your brand's online presence so that AI platforms like ChatGPT, Google Gemini, Perplexity, and Microsoft Copilot recommend your business when users ask for suggestions. Unlike traditional SEO which helps you rank in search results, GEO ensures you're the brand AI names in its answers.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Is this different from SEO?</summary>
+          <div class="faq-answer"><p>Yes. SEO gets you found in search results. GEO gets you recommended in AI answers. The overlap between Google rankings and AI citations has dropped below 20% — ranking #1 on Google no longer guarantees AI will recommend you. GEO complements SEO but requires different optimisation strategies focused on entity clarity, structured data, content freshness, and third-party authority signals.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which AI platforms do you optimise for?</summary>
+          <div class="faq-answer"><p>We optimise for all major AI platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, Microsoft Copilot, and Claude. Each platform has different source preferences, so we tailor our strategy to maximise your visibility across all of them.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does it take to see results?</summary>
+          <div class="faq-answer"><p>Most businesses see measurable changes in AI citation rates within 30-90 days. Quick wins like schema markup and llms.txt implementation can improve visibility within weeks. Authority building and content freshness programmes compound over time for sustained results.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure AI search performance?</summary>
+          <div class="faq-answer"><p>We track Brand Visibility Score (how often your brand appears in AI answers), Citation Rate (percentage of relevant prompts that mention you), and Share of Voice (your mentions vs competitors). You get a monthly dashboard showing your performance across ChatGPT, Gemini, Perplexity, and Google AI Overviews.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</ServiceLayout>

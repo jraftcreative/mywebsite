@@ -15,11 +15,22 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Jraft Creative",
+    "legalName": "Jraft Creative Pte. Ltd.",
     "description": "Full-service marketing agency in Singapore specialising in website development, SEO, paid performance marketing, and social media content creation.",
     "url": "https://jraftcreative.com/",
     "logo": "https://jraftcreative.com/images/logo.png",
     "email": "contact@jraftcreative.com",
     "telephone": "+6582234578",
+    "foundingDate": "2025",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Singapore"
+    },
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 1,
+      "maxValue": 10
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
@@ -30,6 +41,48 @@ const schemaData = [
     "areaServed": {
       "@type": "Country",
       "name": "Singapore"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "OfferCatalog",
+          "name": "Website Development",
+          "description": "Custom business websites, ecommerce stores, web applications, and landing pages. From SGD 2,500.",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website", "description": "Custom-designed, mobile-responsive website up to 5 pages with contact form and basic SEO setup" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Store", "description": "Full online store with product catalogue, secure checkout, and inventory management" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application", "description": "Booking systems, client portals, dashboards, and custom operational tools" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "SEO & Performance Optimisation",
+          "description": "Technical SEO audits, on-page optimisation, local SEO, link building, and analytics. From SGD 800/month.",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO Audit", "description": "Comprehensive site crawl, indexing fixes, schema markup, and site architecture improvements" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO", "description": "Google Business Profile optimisation, local citations, review management, and map pack rankings" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Paid Performance Marketing",
+          "description": "Google Ads, Meta Ads, TikTok Ads, YouTube Ads, retargeting, and conversion tracking. From SGD 1,000/month.",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads Management", "description": "Search and display campaign setup, bid management, and Quality Score optimisation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads Management", "description": "Facebook and Instagram audience targeting, creative production, and A/B testing" } }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          "name": "Social Media Content Creation",
+          "description": "Content strategy, branded graphics, Reels, TikTok videos, captions, and community management. From SGD 2,000/month.",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management", "description": "Monthly content calendars, graphic design, video production, and community management" } }
+          ]
+        }
+      ]
     },
     "serviceType": [
       "Website Development",
@@ -43,7 +96,12 @@ const schemaData = [
       "Google Ads",
       "Meta Ads",
       "Search Engine Optimisation",
-      "Social Media Marketing"
+      "Social Media Marketing",
+      "Digital Marketing Strategy",
+      "Content Marketing",
+      "Local SEO Singapore",
+      "TikTok Marketing",
+      "Landing Page Optimisation"
     ],
     "sameAs": [
       "https://www.instagram.com/jraftcreative",
@@ -61,6 +119,8 @@ const schemaData = [
     "email": "contact@jraftcreative.com",
     "image": "https://jraftcreative.com/images/og-image.jpg",
     "priceRange": "$$",
+    "currenciesAccepted": "SGD",
+    "paymentAccepted": "Bank Transfer, PayNow",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
@@ -92,7 +152,34 @@ const schemaData = [
     "@type": "WebSite",
     "name": "Jraft Creative",
     "alternateName": ["JRaft Creative", "Jraft"],
-    "url": "https://jraftcreative.com/"
+    "url": "https://jraftcreative.com/",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".section-header h2", ".section-content p", ".hero-subtitle"]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Jraft Creative",
+    "description": "Jraft Creative is a full-service digital marketing agency in Singapore offering website development, SEO, paid ads management, and social media content creation for small and medium businesses.",
+    "url": "https://jraftcreative.com/",
+    "telephone": "+6582234578",
+    "priceRange": "$$",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Singapore"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Marketing Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development", "description": "Custom websites from SGD 2,500" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services", "description": "Search engine optimisation from SGD 800/month" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Ads Management", "description": "Google Ads and Meta Ads from SGD 1,000/month" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing", "description": "Content creation and management from SGD 2,000/month" } }
+      ]
+    }
   },
   {
     "@context": "https://schema.org",
@@ -158,6 +245,14 @@ const adsSubItems = [
   { title: "Campaign Analytics & Optimisation", description: "Conversion tracking, ROAS reporting, budget allocation, and continuous campaign refinement." },
 ];
 
+const geoSubItems = [
+  { title: "AI Visibility Audit", description: "Test 20-30 target prompts across ChatGPT, Gemini, Perplexity, and Copilot. Benchmark against competitors and identify gaps." },
+  { title: "Schema & Entity Optimisation", description: "Advanced JSON-LD markup, Organization/Service/FAQ schemas, and llms.txt implementation so AI knows exactly who you are." },
+  { title: "Citation-Ready Content", description: "Answer-first formatting, comparison tables, and FAQ sections that AI engines can extract and cite directly." },
+  { title: "Authority & Reputation Building", description: "Build your presence on review platforms, directories, and authority sites that AI trusts and references." },
+  { title: "AI Visibility Monitoring", description: "Monthly tracking of Brand Visibility Score, Citation Rate, and Share of Voice across all major AI platforms." },
+];
+
 const socialSubItems = [
   { title: "Content Strategy & Planning", description: "Monthly content calendars, pillar themes, and platform-specific strategies aligned to your goals." },
   { title: "Graphic Design & Visuals", description: "Branded carousels, infographics, quote cards, and on-brand static posts for all platforms." },
@@ -204,7 +299,7 @@ const socialSubItems = [
         <p>End-to-end digital solutions tailored to your business needs. As a full-service digital marketing agency in Singapore, Jraft Creative helps brands build a powerful online presence through expert website development, SEO services, social media marketing, and paid ads management.</p>
         <p>Whether you need a high-converting <a href="/web-design-singapore/">web design</a>, an <a href="/ecommerce-website-singapore/">ecommerce store</a>, or a results-driven <a href="/digital-marketing-agency-singapore/">digital strategy</a>, our team delivers measurable business growth — from concept to launch and beyond. We also offer specialised <a href="/seo-services-singapore/">SEO services</a>, <a href="/google-ads-agency-singapore/">Google Ads management</a>, and <a href="/social-media-marketing-singapore/">social media marketing</a>.</p>
       </div>
-      <div class="services-grid services-grid-4">
+      <div class="services-grid services-grid-5">
         <ServiceCard
           title="Website Development"
           description="Custom websites, stores, and web apps — designed to convert and built to scale."
@@ -275,6 +370,24 @@ const socialSubItems = [
               { name: "Essential", price: "$2,000", unit: "SGD/mo", description: "For brands starting their social media presence.", features: ["12 posts per month", "2 platforms", "Branded graphic design", "Captions & hashtags", "Monthly content calendar"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
               { name: "Professional", price: "$3,000", unit: "SGD/mo", description: "For brands ready to grow and engage consistently.", features: ["20 posts per month", "3 platforms", "4 Reels / short-form videos", "Stories & highlights design", "Captions, hashtags & scheduling", "Basic community management"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
               { name: "Full-Service", price: "$5,000+", unit: "SGD/mo", description: "End-to-end social media management for serious brands.", features: ["30+ posts per month", "All platforms", "8+ Reels & video production", "Full community management", "Influencer coordination", "Monthly analytics & strategy review"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
+            ]
+          }}
+        />
+        <ServiceCard
+          title="AI Search Optimisation (GEO)"
+          description="Get your brand recommended by ChatGPT, Gemini, and Perplexity. AI visibility audits, content optimisation, and citation monitoring."
+          backgroundImage="/images/service-seo.webp"
+          id="serviceGeo"
+          revealClass="reveal-d1"
+          expandable={true}
+          subItems={geoSubItems}
+          pricing={{
+            title: "GEO Pricing",
+            description: "Monthly retainer plans. No lock-in contracts.",
+            cards: [
+              { name: "Essentials", price: "$1,500", unit: "SGD/mo", description: "For businesses starting their AI visibility journey.", features: ["AI visibility audit & baseline", "Schema markup implementation", "Content optimisation (5 pages/mo)", "llms.txt setup & maintenance", "Monthly AI visibility report", "Quarterly strategy review"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
+              { name: "Growth", price: "$3,000", unit: "SGD/mo", description: "For businesses ready to dominate AI recommendations.", features: ["Everything in Essentials", "Content optimisation (20 pages/mo)", "Authority building & directories", "Answer Engine content creation", "Bi-weekly reporting & benchmarks", "Dedicated GEO strategist", "Content freshness programme"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
+              { name: "Enterprise", price: "$5,000+", unit: "SGD/mo", description: "Full-service AI search domination across all platforms.", features: ["Everything in Growth", "Multi-platform defensive monitoring", "Wikipedia presence strategy", "Weekly calls & real-time dashboard", "50+ prompt monitoring daily", "Sentiment defence & crisis alerts"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
             ]
           }}
         />
