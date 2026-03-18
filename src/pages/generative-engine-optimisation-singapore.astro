@@ -1,0 +1,284 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Generative Engine Optimisation Singapore",
+    "description": "Generative Engine Optimisation (GEO) services in Singapore. We optimise your brand to be recommended by ChatGPT, Gemini, Perplexity, and AI Overviews. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Generative Engine Optimisation (GEO)",
+    "offers": [
+      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
+      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
+      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is Generative Engine Optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "Generative Engine Optimisation (GEO) is the practice of optimising your brand and content so that AI-powered search platforms — ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot — recommend your business in their generated answers. It focuses on the signals AI models use to select and cite brands, which differ significantly from traditional Google ranking factors." } },
+      { "@type": "Question", "name": "How is GEO different from SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO optimises for Google's algorithm to rank your website in search results. GEO optimises for how AI models decide which brands to name in generated answers. The overlap between Google rankings and AI citations is below 20%, meaning strong SEO does not automatically translate to AI visibility. GEO targets entity clarity, structured data, content structure, and third-party authority signals." } },
+      { "@type": "Question", "name": "Is GEO the same as LLMO?", "acceptedAnswer": { "@type": "Answer", "text": "GEO (Generative Engine Optimisation) and LLMO (Large Language Model Optimisation) refer to the same discipline — optimising your brand for AI-generated answers. GEO is the broader, more commonly adopted term that encompasses all generative AI platforms, while LLMO specifically references large language models. In practice, the strategies and outcomes are identical." } },
+      { "@type": "Question", "name": "Which AI platforms does GEO target?", "acceptedAnswer": { "@type": "Answer", "text": "GEO targets all major AI-powered search platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each platform has different source preferences and recommendation algorithms, so an effective GEO strategy accounts for platform-specific signals while building cross-platform authority." } },
+      { "@type": "Question", "name": "How much does GEO cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our GEO plans start at $3,000 SGD/month for the Essentials package, which includes an AI visibility audit, schema markup, and content optimisation for 5 pages per month. The Growth plan at $5,000/month adds authority building and a dedicated strategist. Enterprise plans from $10,000/month provide full-service AI search domination with defensive monitoring and sentiment analysis." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Generative Engine Optimisation Singapore", "item": "https://jraftcreative.com/generative-engine-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Generative Engine Optimisation Singapore — GEO Services | Jraft Creative"
+  description="Generative Engine Optimisation (GEO) services in Singapore. Get your brand recommended by ChatGPT, Gemini, Perplexity, and AI Overviews — from S$3,000/month."
+  canonical="https://jraftcreative.com/generative-engine-optimisation-singapore/"
+  ogTitle="Generative Engine Optimisation Singapore — Jraft Creative"
+  ogDescription="GEO services for Singapore businesses. Get your brand into AI-generated answers across ChatGPT, Gemini, Perplexity, and AI Overviews."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="generative engine optimisation singapore, GEO singapore, generative engine optimisation services, GEO agency, AI search optimisation singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Generative Engine Optimisation"
+  heroTitle='Generative Engine Optimisation in <span class="highlight">Singapore</span>'
+  heroSubtitle="SEO gets you ranked. GEO gets you recommended. Generative Engine Optimisation is the emerging discipline of making your brand the one AI names when Singapore consumers ask ChatGPT, Gemini, or Perplexity for answers. With 60.9% AI adoption and a 4.4x conversion advantage, GEO is the highest-leverage channel for Singapore businesses in 2026."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Get a Free GEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about Generative Engine Optimisation for my business."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Start Your GEO Strategy Today"
+  ctaDescription="Book a free Generative Engine Optimisation audit. We'll show you where your brand stands across ChatGPT, Gemini, Perplexity, and AI Overviews — and map the strategy to get you recommended. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free GEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20Generative%20Engine%20Optimisation.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why Singapore businesses need Generative Engine Optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Google Rankings No Longer Guarantee Visibility</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Generative Engine Optimisation (GEO) is the emerging discipline of making your brand visible in AI-generated answers. When a consumer asks ChatGPT "best web design agency in Singapore" or asks Gemini "who should I hire for digital marketing," the AI names 3-4 brands in a direct answer. There are no page-two results, no ads above the fold, no ten blue links. Your brand is either recommended or it doesn't exist in that moment.</p>
+        <p>Traditional SEO optimises for Google's algorithm — keywords, backlinks, page speed, and technical crawlability. GEO optimises for how AI models select and cite brands — entity clarity, structured data, content freshness, and third-party authority. The overlap between Google rankings and AI citations has fallen below 20%. A business can rank #1 on Google and still be completely absent from ChatGPT's recommendations. These are fundamentally different systems requiring fundamentally different strategies.</p>
+        <p>Singapore businesses that adopt GEO early gain a compounding advantage. With 60.9% of Singapore's population already using generative AI and AI recommendations converting at 4.4x the rate of traditional search clicks, the channel is too large and too effective to treat as experimental. Every month without a GEO strategy is a month your competitors are building the authority signals that make AI recommend them by default.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="Generative Engine Optimisation services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>End-to-End Generative Engine Optimisation</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>GEO isn't a single tactic — it's a full-stack discipline covering technical infrastructure, content strategy, entity management, and authority development. We handle every layer of Generative Engine Optimisation so your brand earns consistent recommendations across all major AI platforms.</p>
+        <p>GEO integrates with our <a href="/services/seo-performance/">SEO services</a> to ensure you're visible in both traditional and AI search. Combine with <a href="/services/paid-ads/">paid ads</a> and <a href="/services/social-media/">social media</a> for a full-spectrum digital strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We benchmark your current GEO position by testing 20-30 industry-specific prompts across ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot. The audit reveals your citation rate, competitor positioning, and the specific entity and authority gaps holding your brand back from AI recommendations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Optimisation</h3>
+            <p>GEO starts with making your brand machine-readable. We implement comprehensive JSON-LD schemas — Organisation, Service, FAQ, HowTo, and Speakable — that define your brand entity with the precision AI models require. We also deploy llms.txt to give AI direct access to your most important content.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Citation-Ready Content</h3>
+            <p>AI models cite content that's structured for extraction — answer-first formatting, data-dense paragraphs, comparison matrices, and FAQ blocks that map directly to real user prompts. We restructure existing content and create new material optimised specifically for how generative engines select sources to cite.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Authority Building</h3>
+            <p>Generative engines evaluate brand credibility through the volume and quality of third-party mentions. We build your authority footprint across review platforms, industry directories, niche publications, and high-trust domains — creating the external validation that makes AI models confident in recommending your brand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for Generative Engine Optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Singapore's GEO Pioneers</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Generative Engine Optimisation is a new discipline, and most agencies are still figuring out what it means. We've been building GEO strategies since AI search became a measurable channel — our methodology is research-backed, data-driven, and refined through real results across Singapore industries.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>GEO Pioneers in Singapore</h3>
+            <p>We were among the first agencies in Singapore to treat Generative Engine Optimisation as a dedicated service — not an add-on to SEO. Our team has deep expertise in how AI models select, evaluate, and cite brands, built from systematic testing across hundreds of prompts and multiple industries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Research-Backed Methodology</h3>
+            <p>Our GEO framework is grounded in published research on how large language models retrieve and rank information. We don't guess at what works — we test, measure, and iterate based on how AI platforms actually behave, adapting as models update their retrieval and citation mechanisms.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Full-Stack AI Optimisation</h3>
+            <p>GEO touches technical infrastructure, content strategy, entity management, and off-site authority. We handle all of it in-house — schema implementation, content restructuring, llms.txt deployment, directory registrations, and authority building — so nothing falls through the cracks between siloed teams.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Transparent GEO Metrics</h3>
+            <p>We report on the metrics that matter for Generative Engine Optimisation: AI Citation Rate, Brand Visibility Score, Share of Voice per platform, and prompt-level tracking. Every report shows exactly which prompts return your brand, which don't, and what we're doing about it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Generative Engine Optimisation pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">GEO Pricing</p>
+        <h2>Generative Engine Optimisation Plans</h2>
+        <p>Monthly retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essentials</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses starting their AI visibility journey.</p>
+            <ul class="pricing-features">
+              <li>AI visibility audit &amp; baseline</li>
+              <li>Schema markup implementation</li>
+              <li>Content optimisation (5 pages/mo)</li>
+              <li>llms.txt setup &amp; maintenance</li>
+              <li>Monthly AI visibility report</li>
+              <li>Quarterly strategy review</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate AI recommendations.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essentials</li>
+              <li>Content optimisation (20 pages/mo)</li>
+              <li>Authority building &amp; directory registrations</li>
+              <li>Answer Engine content creation</li>
+              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Dedicated GEO strategist</li>
+              <li>Content freshness programme</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service AI search domination across all platforms.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-platform defensive monitoring</li>
+              <li>Wikipedia presence strategy</li>
+              <li>Weekly strategy calls &amp; real-time dashboard</li>
+              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Sentiment defence &amp; crisis alerts</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Generative Engine Optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Generative Engine Optimisation Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is Generative Engine Optimisation?</summary>
+          <div class="faq-answer"><p>Generative Engine Optimisation (GEO) is the practice of optimising your brand and content so that AI-powered search platforms — ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot — recommend your business in their generated answers. It focuses on the signals AI models use to select and cite brands, which differ significantly from traditional Google ranking factors.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is GEO different from SEO?</summary>
+          <div class="faq-answer"><p>SEO optimises for Google's algorithm to rank your website in search results. GEO optimises for how AI models decide which brands to name in generated answers. The overlap between Google rankings and AI citations is below 20%, meaning strong SEO does not automatically translate to AI visibility. GEO targets entity clarity, structured data, content structure, and third-party authority signals.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Is GEO the same as LLMO?</summary>
+          <div class="faq-answer"><p>GEO (Generative Engine Optimisation) and LLMO (Large Language Model Optimisation) refer to the same discipline — optimising your brand for AI-generated answers. GEO is the broader, more commonly adopted term that encompasses all generative AI platforms, while LLMO specifically references large language models. In practice, the strategies and outcomes are identical.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which AI platforms does GEO target?</summary>
+          <div class="faq-answer"><p>GEO targets all major AI-powered search platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each platform has different source preferences and recommendation algorithms, so an effective GEO strategy accounts for platform-specific signals while building cross-platform authority.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How much does GEO cost in Singapore?</summary>
+          <div class="faq-answer"><p>Our GEO plans start at $3,000 SGD/month for the Essentials package, which includes an AI visibility audit, schema markup, and content optimisation for 5 pages per month. The Growth plan at $5,000/month adds authority building and a dedicated strategist. Enterprise plans from $10,000/month provide full-service AI search domination with defensive monitoring and sentiment analysis.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related GEO Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
+        <a href="/ai-seo-singapore/" class="related-service-link">AI SEO Singapore</a>
+        <a href="/llmo-services-singapore/" class="related-service-link">LLMO Services</a>
+        <a href="/chatgpt-optimisation-singapore/" class="related-service-link">ChatGPT Optimisation</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

@@ -1,0 +1,284 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI SEO Singapore",
+    "description": "AI SEO services in Singapore — bridging traditional search and AI search optimisation so your brand gets found on Google and recommended by ChatGPT, Gemini, and Perplexity. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "AI SEO (Artificial Intelligence Search Engine Optimisation)",
+    "offers": [
+      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
+      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
+      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is AI SEO?", "acceptedAnswer": { "@type": "Answer", "text": "AI SEO is the practice of optimising your website and brand for both traditional search engines and AI-powered platforms like ChatGPT, Google Gemini, and Perplexity. It combines conventional SEO techniques with Generative Engine Optimisation (GEO) strategies such as structured data, entity optimisation, and citation-ready content formatting." } },
+      { "@type": "Question", "name": "How is AI SEO different from regular SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Regular SEO focuses on ranking in Google's blue links through keywords, backlinks, and on-page signals. AI SEO adds a layer of optimisation for how AI models select and cite brands — including entity clarity, schema markup, content structure, and third-party authority signals. The overlap between traditional Google rankings and AI citations is below 20%, meaning strong SEO alone won't guarantee AI visibility." } },
+      { "@type": "Question", "name": "How much do AI SEO services cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our AI SEO plans start at $3,000 SGD/month for the Essentials package, which includes an AI visibility audit, schema markup, and content optimisation for 5 pages. Growth plans at $5,000/month expand to 20 pages and add authority building. Enterprise plans from $10,000/month deliver full AI search domination with defensive monitoring and sentiment alerts." } },
+      { "@type": "Question", "name": "How long does AI SEO take to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Technical fixes like schema markup and llms.txt can improve AI visibility within weeks. Broader content and authority-building strategies typically produce measurable citation improvements in 30 to 90 days. Long-term AI SEO compounds over time as your entity data strengthens across platforms." } },
+      { "@type": "Question", "name": "Which AI platforms does AI SEO target?", "acceptedAnswer": { "@type": "Answer", "text": "AI SEO targets all major AI search platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each platform sources and weights information differently, so effective AI SEO requires tailored strategies for each one rather than a one-size-fits-all approach." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI SEO Singapore", "item": "https://jraftcreative.com/ai-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="AI SEO Singapore — AI Search Engine Optimisation | Jraft Creative"
+  description="AI SEO services in Singapore. We bridge traditional SEO and AI search optimisation so your brand ranks on Google and gets recommended by ChatGPT, Gemini, and Perplexity — from S$3,000/month."
+  canonical="https://jraftcreative.com/ai-seo-singapore/"
+  ogTitle="AI SEO Singapore — Jraft Creative"
+  ogDescription="AI SEO services in Singapore. Get your brand ranked on Google and recommended by ChatGPT, Gemini, Perplexity, and AI Overviews."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="ai seo singapore, AI SEO services, ai search optimisation singapore, AI search engine optimisation, ai seo agency singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="AI SEO"
+  heroTitle='AI SEO Services in <span class="highlight">Singapore</span>'
+  heroSubtitle="Google's AI Overviews, ChatGPT, and Gemini are reshaping how people find businesses. Traditional SEO gets you ranked — but AI SEO gets you ranked and recommended. We bridge the gap so your brand shows up everywhere your customers are searching, whether they type into Google or ask an AI."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Get a Free AI SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View AI SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about your AI SEO services in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Future-Proof Your Search Visibility"
+  ctaDescription="Book a free AI SEO audit and we'll show you where your brand stands across Google, ChatGPT, Gemini, Perplexity, and AI Overviews — plus a clear plan to close the gaps. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free AI SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20your%20AI%20SEO%20services.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why businesses need AI SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Traditional SEO Alone No Longer Cuts It</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Search has split in two. Google still drives traffic through traditional rankings, but a growing share of purchase decisions now happen inside AI platforms. Google's AI Overviews sit above organic results. ChatGPT and Gemini answer product and service questions directly. When AI gives an answer, it names 3-4 brands — not 10 blue links. If your business isn't one of them, you're losing ground to competitors who are.</p>
+        <p>The data makes the gap clear. The overlap between Google's top-ranking pages and the brands AI platforms cite has dropped below 20%. A page-one ranking does not mean ChatGPT or Gemini will mention you. The signals AI uses — entity clarity, structured data, content freshness, third-party authority — are different from the backlinks and keyword density that drive traditional rankings. Businesses that only optimise for Google are invisible to 60.9% of Singaporeans who already use AI to research purchases.</p>
+        <p>AI SEO bridges this gap. Instead of choosing between traditional search and AI search, an AI SEO strategy covers both. You keep your Google rankings while building the structured data, entity signals, and citation-ready content that AI platforms need to recommend your brand. Without this dual approach, you're optimising for yesterday's search behaviour while your competitors capture tomorrow's.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="AI SEO services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>AI SEO That Covers Both Sides of Search</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Our AI SEO service is built on two pillars: maintaining your traditional search performance and expanding your visibility into AI platforms. We handle the technical, content, and authority work needed to get your brand ranked on Google and recommended by ChatGPT, Gemini, Perplexity, and Copilot.</p>
+        <p>Combine AI SEO with our <a href="/services/seo-performance/">SEO services</a> for deeper organic coverage, or pair with <a href="/services/paid-ads/">paid ads</a> and <a href="/services/social-media/">social media</a> for a complete digital strategy.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We test your brand against 20-30 high-intent prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Overviews. You get a clear benchmark of where you appear, where competitors appear instead, and what's driving the difference.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Optimisation</h3>
+            <p>We implement structured data (JSON-LD) that tells both Google and AI platforms exactly who you are and what you offer. Organization, Service, FAQ, and Speakable schemas combined with llms.txt — so your brand is machine-readable across every search surface.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Citation-Ready Content</h3>
+            <p>Content structured for AI consumption — answer-first paragraphs, comparison tables, fact-dense sections, and FAQ patterns that match the prompts your customers ask ChatGPT and Gemini. This content also strengthens your traditional SEO with better on-page signals.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Authority Building</h3>
+            <p>AI models weigh third-party mentions when deciding which brands to cite. We build your presence across review platforms, industry directories, and authority publications that ChatGPT, Gemini, and Perplexity draw from — creating the trust signals that drive AI recommendations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for AI SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>AI SEO Built for How Search Actually Works Now</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies still separate SEO and AI optimisation into different services. We built our AI SEO approach to treat them as one integrated discipline — because that's how your customers experience search today.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>AI-First SEO Strategy</h3>
+            <p>Every strategy starts with AI visibility data. We audit how ChatGPT, Gemini, and Perplexity see your brand before writing a single line of content — then build an optimisation plan that targets both traditional and AI search from day one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Dual Search Coverage</h3>
+            <p>We optimise for Google and AI platforms simultaneously. Schema markup, content structure, and authority signals are built to satisfy Google's algorithm and the citation logic used by ChatGPT, Gemini, Perplexity, and Copilot — no trade-offs.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Singapore Market Expertise</h3>
+            <p>Singapore has the second-highest AI adoption rate globally at 60.9%. We understand the local search landscape, buying behaviour, and competitive dynamics that shape how Singaporean consumers use both Google and AI to find services.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Transparent AI Metrics</h3>
+            <p>We track Brand Visibility Score, AI Citation Rate, and Share of Voice across every major AI platform alongside your traditional SEO metrics. You see exactly how your brand performs in both worlds — with clear reporting that ties AI visibility to business outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="AI SEO pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">AI SEO Pricing</p>
+        <h2>AI Search Optimisation Plans</h2>
+        <p>Monthly retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essentials</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses starting their AI search visibility journey.</p>
+            <ul class="pricing-features">
+              <li>AI visibility audit &amp; baseline</li>
+              <li>Schema markup implementation</li>
+              <li>Content optimisation (5 pages/mo)</li>
+              <li>llms.txt setup &amp; maintenance</li>
+              <li>Monthly AI visibility report</li>
+              <li>Quarterly strategy review</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate both Google and AI search.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essentials</li>
+              <li>Content optimisation (20 pages/mo)</li>
+              <li>Authority building &amp; directory registrations</li>
+              <li>Answer Engine content creation</li>
+              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Dedicated AI SEO strategist</li>
+              <li>Content freshness programme</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service AI search domination across all platforms.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-platform defensive monitoring</li>
+              <li>Wikipedia presence strategy</li>
+              <li>Weekly strategy calls &amp; real-time dashboard</li>
+              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Sentiment defence &amp; crisis alerts</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about AI SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>AI SEO Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is AI SEO?</summary>
+          <div class="faq-answer"><p>AI SEO is the practice of optimising your website and brand for both traditional search engines and AI-powered platforms like ChatGPT, Google Gemini, and Perplexity. It combines conventional SEO techniques with Generative Engine Optimisation strategies — structured data, entity optimisation, and citation-ready content — so your brand gets found in search results and named in AI answers.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is AI SEO different from regular SEO?</summary>
+          <div class="faq-answer"><p>Regular SEO focuses on ranking in Google's organic results through keywords, backlinks, and technical on-page signals. AI SEO adds optimisation for the signals AI models use to select brands — entity clarity, structured data, content freshness, and third-party authority. The overlap between traditional Google rankings and AI citations has dropped below 20%, so strong traditional SEO alone won't guarantee AI recommends your brand.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How much do AI SEO services cost in Singapore?</summary>
+          <div class="faq-answer"><p>Our AI SEO plans start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation for 5 pages. Growth plans at $5,000/month expand to 20 pages with authority building and a dedicated strategist. Enterprise plans from $10,000/month deliver full AI search domination with defensive monitoring across all platforms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does AI SEO take to show results?</summary>
+          <div class="faq-answer"><p>Technical changes like schema markup and llms.txt implementation can improve AI visibility within weeks. Content and authority-building strategies typically show measurable improvements in AI citation rates within 30 to 90 days. The compounding effect of AI SEO strengthens over time as your entity signals build across platforms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which AI platforms does AI SEO target?</summary>
+          <div class="faq-answer"><p>We optimise for all major AI search platforms: ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each platform sources and ranks information differently, so our AI SEO strategies are tailored per platform rather than using a one-size-fits-all approach.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related AI Search Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
+        <a href="/llmo-services-singapore/" class="related-service-link">LLMO Services</a>
+        <a href="/chatgpt-optimisation-singapore/" class="related-service-link">ChatGPT Optimisation</a>
+        <a href="/ai-search-optimisation-agency-singapore/" class="related-service-link">AI Search Optimisation Agency</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

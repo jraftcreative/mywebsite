@@ -1,0 +1,284 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "LLMO Services Singapore",
+    "description": "LLMO services in Singapore — Large Language Model Optimisation to get your brand recommended by ChatGPT, Google Gemini, Perplexity, and Copilot. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Large Language Model Optimisation (LLMO)",
+    "offers": [
+      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
+      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
+      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is LLMO?", "acceptedAnswer": { "@type": "Answer", "text": "LLMO (Large Language Model Optimisation) is the discipline of optimising your brand's data, content, and authority signals so that large language models like ChatGPT, Google Gemini, and Perplexity recommend your business in their responses. It focuses on the specific signals LLMs use to decide which brands to cite — entity clarity, structured data, and third-party credibility." } },
+      { "@type": "Question", "name": "How do LLMs choose which brands to recommend?", "acceptedAnswer": { "@type": "Answer", "text": "LLMs assess three core signals: entity data (how clearly your brand is defined across the web), content structure (whether your information is formatted for AI extraction), and authority signals (how often trusted third-party sources mention your brand). Brands with strong, consistent signals across all three areas are the ones LLMs name in their answers." } },
+      { "@type": "Question", "name": "What is the difference between LLMO and SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO optimises for search engine algorithms that rank web pages in a list of results. LLMO optimises for language models that select brands to name in conversational answers. The overlap between Google rankings and LLM citations is below 20%, so ranking well on Google does not mean an LLM will recommend you. LLMO requires different strategies focused on entity data, structured markup, and third-party authority." } },
+      { "@type": "Question", "name": "How much do LLMO services cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our LLMO plans start at $3,000 SGD/month for the Essentials package, which covers an AI visibility audit, schema markup, and content optimisation for 5 pages. Growth plans at $5,000/month add authority building and a dedicated strategist. Enterprise plans from $10,000/month provide full-scale LLM domination with defensive monitoring and sentiment alerts." } },
+      { "@type": "Question", "name": "How do you measure LLMO success?", "acceptedAnswer": { "@type": "Answer", "text": "We track Citation Rate (how often LLMs name your brand), Brand Visibility Score (your presence across ChatGPT, Gemini, Perplexity, and Copilot), and Share of Voice (your mentions versus competitors). These metrics are measured through systematic prompt testing across all major LLM platforms with regular reporting." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "LLMO Services Singapore", "item": "https://jraftcreative.com/llmo-services-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="LLMO Services Singapore — Large Language Model Optimisation | Jraft Creative"
+  description="LLMO services in Singapore. We optimise your brand for ChatGPT, Gemini, Perplexity, and Copilot using Large Language Model Optimisation — from S$3,000/month."
+  canonical="https://jraftcreative.com/llmo-services-singapore/"
+  ogTitle="LLMO Services Singapore — Jraft Creative"
+  ogDescription="LLMO services in Singapore. Get your brand recommended by ChatGPT, Gemini, Perplexity, and Google AI Overviews through Large Language Model Optimisation."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="llmo services singapore, large language model optimisation, LLMO agency singapore, LLM optimisation services, AI brand optimisation singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="LLMO Services"
+  heroTitle='LLMO Services in <span class="highlight">Singapore</span>'
+  heroSubtitle="LLMs don't rank websites — they recommend brands. When a prospect asks ChatGPT or Gemini for the best service provider, the model picks 3-4 names based on entity data, content structure, and third-party signals. Our LLMO services ensure your brand is the one that gets named."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Get a Free LLMO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "View LLMO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about your LLMO services in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Get Your Brand Into LLM Answers"
+  ctaDescription="Book a free LLMO audit and we'll show you exactly which brands ChatGPT, Gemini, and Perplexity recommend instead of yours — and what it takes to change that. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free LLMO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20your%20LLMO%20services.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why businesses need LLMO services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>LLMs Recommend Brands — Not Websites</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Large language models like ChatGPT, Google Gemini, and Perplexity have fundamentally changed how consumers discover businesses. These platforms don't serve a list of links — they name specific brands in their answers. When a user asks "what's the best digital agency in Singapore," the LLM selects 3-4 companies to recommend. If your brand isn't one of them, you don't get a consolation prize on page two. You simply don't exist in that conversation.</p>
+        <p>The signals LLMs use to choose brands are different from what drives Google rankings. Entity clarity — how consistently and clearly your brand is defined across the web — matters more than keyword density. Structured data that machines can parse matters more than backlink profiles. Third-party authority signals from review platforms, directories, and industry publications carry more weight than on-site content alone. With 60.9% of Singaporeans already using AI to research purchases, brands with weak entity data and unstructured content are losing recommendations to competitors every day.</p>
+        <p>Most businesses don't realise they have an LLMO problem because they've never tested it. They assume strong Google rankings translate to AI recommendations, but the overlap between traditional search results and LLM citations is below 20%. Your website might rank on page one of Google while ChatGPT recommends three of your competitors by name. LLMO is the technical discipline that closes this gap — optimising the specific data, content, and authority signals that language models rely on when deciding which brands to name.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="LLMO services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>End-to-End Large Language Model Optimisation</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Our LLMO services target the three pillars that determine LLM brand recommendations: entity data, content structure, and authority signals. We systematically optimise each one so language models have clear, credible reasons to name your brand in their responses.</p>
+        <p>LLMO works alongside your existing marketing. Pair it with our <a href="/services/seo-performance/">SEO services</a> for traditional search coverage, or combine with <a href="/services/paid-ads/">paid ads</a> and <a href="/services/social-media/">social media</a> to build the third-party signals that strengthen LLM citations.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We systematically query ChatGPT, Gemini, Perplexity, Copilot, and Google AI Overviews with 20-30 prompts your prospects actually use. The audit reveals which brands LLMs currently recommend, where your entity data breaks down, and what's preventing your brand from being cited.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Optimisation</h3>
+            <p>LLMs need unambiguous entity data to recommend your brand. We implement JSON-LD structured data — Organization, Service, FAQ, and Speakable schemas — and set up llms.txt to make your brand identity machine-readable. The goal: zero ambiguity about who you are and what you do.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Citation-Ready Content</h3>
+            <p>LLMs extract and synthesise information differently from search crawlers. We restructure your content with answer-first formatting, comparison data, fact-dense paragraphs, and structured FAQ sections that match the exact prompts your prospects type into ChatGPT and Gemini.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Authority Building</h3>
+            <p>Third-party credibility is the signal most businesses underestimate. LLMs cross-reference your brand against review platforms, directories, and industry publications before deciding whether to recommend you. We build your presence across the sources that ChatGPT, Gemini, and Perplexity actually draw from.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for LLMO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>LLMO Specialists Who Understand Language Models</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>LLMO is not repackaged SEO. It requires understanding how language models process entity data, weight authority signals, and select brands to recommend. We built our LLMO practice from the ground up around these mechanics.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>LLMO-Specialist Team</h3>
+            <p>Our team focuses on how language models select, synthesise, and cite brand information. We understand the retrieval-augmented generation pipelines that power ChatGPT, Gemini, and Perplexity — and we optimise for the specific signals each model weighs.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Entity-First Approach</h3>
+            <p>Everything starts with your entity data. Before touching content or links, we ensure your brand identity is defined clearly and consistently across every source LLMs draw from — your website, structured data, directories, review platforms, and knowledge bases.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Multi-LLM Coverage</h3>
+            <p>We optimise across ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each model has different source preferences and retrieval methods — our strategies are tailored per platform so you're not leaving citations on the table.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Measurable Citation Metrics</h3>
+            <p>We track Citation Rate, Brand Visibility Score, and Share of Voice through systematic prompt testing across all major LLMs. You get clear, repeatable metrics that show how often language models name your brand — and how that changes month over month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="LLMO services pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">LLMO Pricing</p>
+        <h2>Large Language Model Optimisation Plans</h2>
+        <p>Monthly retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essentials</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses building their first LLM visibility strategy.</p>
+            <ul class="pricing-features">
+              <li>AI visibility audit &amp; baseline</li>
+              <li>Schema markup implementation</li>
+              <li>Content optimisation (5 pages/mo)</li>
+              <li>llms.txt setup &amp; maintenance</li>
+              <li>Monthly AI visibility report</li>
+              <li>Quarterly strategy review</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate LLM recommendations.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essentials</li>
+              <li>Content optimisation (20 pages/mo)</li>
+              <li>Authority building &amp; directory registrations</li>
+              <li>Answer Engine content creation</li>
+              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Dedicated LLMO strategist</li>
+              <li>Content freshness programme</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service LLM domination across all platforms.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-platform defensive monitoring</li>
+              <li>Wikipedia presence strategy</li>
+              <li>Weekly strategy calls &amp; real-time dashboard</li>
+              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Sentiment defence &amp; crisis alerts</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about LLMO services in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>LLMO Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is LLMO?</summary>
+          <div class="faq-answer"><p>LLMO stands for Large Language Model Optimisation. It's the discipline of optimising your brand's data, content, and authority signals so that language models like ChatGPT, Google Gemini, and Perplexity recommend your business when users ask for suggestions. Think of it as the technical backbone behind Generative Engine Optimisation (GEO).</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do LLMs choose which brands to recommend?</summary>
+          <div class="faq-answer"><p>LLMs evaluate three core signals: entity data (how clearly and consistently your brand is defined across the web), content structure (whether your information is formatted for AI extraction), and authority signals (how often trusted third-party sources mention your brand). Brands that score well across all three are the ones language models name in their responses.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What is the difference between LLMO and SEO?</summary>
+          <div class="faq-answer"><p>SEO optimises for search engine algorithms that rank pages in a list. LLMO optimises for language models that select brands to name in conversational answers. The overlap between Google rankings and LLM citations is below 20%, so ranking well on Google doesn't guarantee a language model will recommend you. LLMO targets different signals — entity clarity, structured data, and third-party authority.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much do LLMO services cost in Singapore?</summary>
+          <div class="faq-answer"><p>Our LLMO plans start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation for 5 pages. Growth plans at $5,000/month expand coverage to 20 pages with authority building and a dedicated strategist. Enterprise plans from $10,000/month provide full LLM domination with defensive monitoring and sentiment defence.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure LLMO success?</summary>
+          <div class="faq-answer"><p>We measure LLMO success through three core metrics: Citation Rate (how often LLMs name your brand in relevant responses), Brand Visibility Score (your overall presence across ChatGPT, Gemini, Perplexity, and Copilot), and Share of Voice (your citation frequency compared to competitors). These are tracked through systematic prompt testing with clear month-over-month trend reporting.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related AI Optimisation Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
+        <a href="/ai-seo-singapore/" class="related-service-link">AI SEO Singapore</a>
+        <a href="/chatgpt-optimisation-singapore/" class="related-service-link">ChatGPT Optimisation</a>
+        <a href="/ai-search-optimisation-agency-singapore/" class="related-service-link">AI Search Optimisation Agency</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

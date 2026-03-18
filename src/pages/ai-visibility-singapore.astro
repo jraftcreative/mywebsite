@@ -1,0 +1,284 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Visibility Singapore",
+    "description": "Measure and improve your brand's visibility across ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot. AI visibility services for Singapore businesses from S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "AI Visibility Optimisation",
+    "offers": [
+      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
+      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
+      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "AI visibility measures how often and how prominently your brand appears when people ask AI platforms like ChatGPT, Gemini, Perplexity, and Copilot questions related to your industry. It's the AI equivalent of search engine visibility — but instead of ranking in a list of links, your brand is either named in the answer or it isn't." } },
+      { "@type": "Question", "name": "How do I check my AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Start by asking ChatGPT, Gemini, and Perplexity the same questions your customers would ask — 'best [your service] in Singapore,' 'recommended [your industry] companies,' or 'who should I hire for [your offering].' If your brand doesn't appear in the answers, you have an AI visibility gap. We run comprehensive audits across 20-30 prompts to give you a detailed baseline." } },
+      { "@type": "Question", "name": "Does Google ranking affect AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Less than you'd expect. The overlap between Google rankings and AI citations has dropped below 20%. Ranking on page one of Google does not mean AI will recommend you. AI platforms weigh different signals — entity clarity, structured data, content freshness, and third-party authority — so a dedicated AI visibility strategy is essential." } },
+      { "@type": "Question", "name": "Which AI platforms matter most for visibility?", "acceptedAnswer": { "@type": "Answer", "text": "The five platforms that matter most right now are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. In Singapore, AI adoption sits at 60.9% and growing, so visibility across all five platforms is critical to capturing the full spectrum of AI-driven search behaviour." } },
+      { "@type": "Question", "name": "How do I improve my AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Improving AI visibility requires a combination of structured data markup, entity optimisation, citation-ready content, and third-party authority building. Each AI platform weighs these signals differently, so a cross-platform strategy is essential. Most businesses see measurable improvements within 30 to 90 days of starting a GEO programme." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "AI Visibility Singapore", "item": "https://jraftcreative.com/ai-visibility-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="AI Visibility Singapore — Get Found by AI Search Platforms | Jraft Creative"
+  description="Measure and improve your brand's AI visibility across ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot. AI visibility services for Singapore businesses from S$3,000/month."
+  canonical="https://jraftcreative.com/ai-visibility-singapore/"
+  ogTitle="AI Visibility Singapore — Jraft Creative"
+  ogDescription="Is AI recommending your brand? Measure and improve your visibility across ChatGPT, Gemini, Perplexity, and every major AI platform."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="ai visibility singapore, AI brand visibility, AI search visibility, ai visibility audit, generative AI visibility, AI platform visibility, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="AI Visibility"
+  heroTitle='AI Visibility in <span class="highlight">Singapore</span>'
+  heroSubtitle="60.9% of Singapore uses AI to search, ask questions, and get recommendations. But most businesses have never checked whether AI even knows they exist. AI visibility is the new metric that separates brands being recommended from brands being ignored — and right now, there's no middle ground."
+  heroImage="/images/service-seo.webp"
+  heroButtons={[
+    { text: "Check Your AI Visibility", href: "/contact/", class: "btn btn-primary" },
+    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to check my brand's AI visibility across search platforms."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Find Out If AI Recommends Your Brand"
+  ctaDescription="Book a free AI visibility audit. We'll test what ChatGPT, Gemini, Perplexity, and AI Overviews say about your brand and your competitors — and show you exactly where you stand. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20check%20my%20brand%27s%20AI%20visibility.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why AI visibility matters for Singapore businesses">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>You're Either Visible to AI — Or You Don't Exist</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most Singapore businesses have no idea whether AI recommends them. They've never opened ChatGPT, Gemini, or Perplexity and tested what happens when someone asks for a recommendation in their industry. The result is a blind spot that grows more expensive every month as AI adoption accelerates. If you haven't tested your AI visibility, the honest answer is: you probably don't have any.</p>
+        <p>AI visibility is fundamentally different from Google visibility. There's no "page two" of ChatGPT — your brand is either named in the answer or it's absent entirely. The overlap between Google rankings and AI citations sits below 20%, which means your SEO investment alone isn't protecting you. Businesses ranking #1 on Google are routinely absent from AI recommendations because AI platforms evaluate completely different signals: entity clarity, structured data quality, third-party authority, and content freshness.</p>
+        <p>Singapore has the second highest AI adoption rate globally at 60.9%. Consumers here are already using ChatGPT and Gemini to find restaurants, agencies, accountants, and service providers. AI recommendations convert at 4.4x the rate of traditional search clicks because users trust the curated answer. Businesses that measure and optimise their AI visibility now will compound that advantage as AI usage continues to grow. Those that wait will find themselves competing for a shrinking share of traditional search traffic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="AI visibility services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Complete AI Visibility Across Every Platform</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>AI visibility isn't a single metric — it's your brand's presence across ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot. We audit, measure, and systematically improve your visibility on every platform that matters, using strategies tailored to how each AI model selects brands to recommend.</p>
+        <p>Pair AI visibility with our <a href="/services/seo-performance/">SEO services</a> to cover both traditional and AI search, or combine with <a href="/services/paid-ads/">paid ads</a> and <a href="/services/social-media/">social media</a> for full-funnel brand presence.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We test your brand across 20-30 industry-specific prompts on ChatGPT, Gemini, Perplexity, AI Overviews, and Copilot. You get a complete picture of where you're visible, where you're absent, and how competitors compare — the first step to knowing exactly where you stand in AI search.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Optimisation</h3>
+            <p>AI platforms need to recognise your brand as a distinct entity before they can recommend it. We build the structured data foundation — Organisation, Service, FAQ, and Speakable schemas plus llms.txt — that makes your brand machine-readable and trustworthy to every major AI model.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+          <div class="service-detail-card__content">
+            <h3>Citation-Ready Content</h3>
+            <p>We transform your content into the format AI platforms prefer to cite — concise answer-first paragraphs, comparison tables, data-backed claims, and structured FAQ sections. Content built for AI visibility gets cited across platforms, not just indexed by one search engine.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+          <div class="service-detail-card__content">
+            <h3>Authority Building</h3>
+            <p>Every AI platform uses third-party mentions to gauge credibility. We build your authority signals across review platforms, industry directories, and publications that AI models trust — creating a web of references that makes AI confident enough to recommend your brand consistently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for AI visibility">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>AI Visibility Experts Across Every Platform</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We don't just optimise for one AI platform and hope the rest follow. Our approach covers every major AI model with platform-specific strategies, cross-platform measurement, and clear metrics that show exactly how your brand's AI visibility is improving.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cross-Platform AI Coverage</h3>
+            <p>We optimise across ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each platform weighs sources differently — Perplexity leans on real-time web data, Gemini favours Google's index, and ChatGPT relies heavily on entity signals. Our strategies are tailored to each.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Brand Visibility Scoring</h3>
+            <p>We assign your brand a quantified AI Visibility Score based on citation rate, sentiment, prominence, and frequency across all major AI platforms. This score becomes the single metric you track to measure whether your AI presence is growing, stagnating, or declining.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Competitive AI Benchmarking</h3>
+            <p>We don't just measure your visibility — we benchmark it against your direct competitors. You'll see exactly who AI recommends in your space, how often, and what signals they have that you don't. Competitive intelligence drives our entire prioritisation strategy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Actionable Visibility Roadmaps</h3>
+            <p>Every engagement starts with a clear, prioritised roadmap of actions ranked by expected impact on your AI visibility. No vague recommendations — specific technical fixes, content changes, and authority-building steps with timelines and expected outcomes attached to each.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="AI visibility service pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">GEO Pricing</p>
+        <h2>AI Visibility Plans</h2>
+        <p>Monthly retainer. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essentials</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses starting their AI visibility journey.</p>
+            <ul class="pricing-features">
+              <li>AI visibility audit &amp; baseline</li>
+              <li>Schema markup implementation</li>
+              <li>Content optimisation (5 pages/mo)</li>
+              <li>llms.txt setup &amp; maintenance</li>
+              <li>Monthly AI visibility report</li>
+              <li>Quarterly strategy review</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For businesses ready to dominate AI recommendations.</p>
+            <ul class="pricing-features">
+              <li>Everything in Essentials</li>
+              <li>Content optimisation (20 pages/mo)</li>
+              <li>Authority building &amp; directory registrations</li>
+              <li>Answer Engine content creation</li>
+              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Dedicated GEO strategist</li>
+              <li>Content freshness programme</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">Full-service AI search domination across all platforms.</p>
+            <ul class="pricing-features">
+              <li>Everything in Growth</li>
+              <li>Multi-platform defensive monitoring</li>
+              <li>Wikipedia presence strategy</li>
+              <li>Weekly strategy calls &amp; real-time dashboard</li>
+              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Sentiment defence &amp; crisis alerts</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about AI visibility in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>AI Visibility Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is AI visibility?</summary>
+          <div class="faq-answer"><p>AI visibility measures how often and how prominently your brand appears when people ask AI platforms like ChatGPT, Gemini, Perplexity, and Copilot questions related to your industry. It's the AI equivalent of search engine visibility — but instead of ranking in a list of links, your brand is either named in the answer or it isn't.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do I check my AI visibility?</summary>
+          <div class="faq-answer"><p>Start by asking ChatGPT, Gemini, and Perplexity the same questions your customers would ask — "best [your service] in Singapore," "recommended [your industry] companies," or "who should I hire for [your offering]." If your brand doesn't appear in the answers, you have an AI visibility gap. We run comprehensive audits across 20-30 prompts to give you a detailed baseline.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Does Google ranking affect AI visibility?</summary>
+          <div class="faq-answer"><p>Less than you'd expect. The overlap between Google rankings and AI citations has dropped below 20%. Ranking on page one of Google does not mean AI will recommend you. AI platforms weigh different signals — entity clarity, structured data, content freshness, and third-party authority — so a dedicated AI visibility strategy is essential.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which AI platforms matter most for visibility?</summary>
+          <div class="faq-answer"><p>The five platforms that matter most right now are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. In Singapore, AI adoption sits at 60.9% and growing, so visibility across all five platforms is critical to capturing the full spectrum of AI-driven search behaviour.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do I improve my AI visibility?</summary>
+          <div class="faq-answer"><p>Improving AI visibility requires a combination of structured data markup, entity optimisation, citation-ready content, and third-party authority building. Each AI platform weighs these signals differently, so a cross-platform strategy is essential. Most businesses see measurable improvements within 30 to 90 days of starting a GEO programme.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related GEO Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
+        <a href="/ai-seo-singapore/" class="related-service-link">AI SEO Singapore</a>
+        <a href="/llmo-services-singapore/" class="related-service-link">LLMO Services</a>
+        <a href="/ai-search-optimisation-agency-singapore/" class="related-service-link">AI Search Optimisation Agency</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
