@@ -104,8 +104,10 @@ const schemaData = [
   <section class="section" style="background: rgba(13, 13, 20, 0.6); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);" aria-label="Meet the founder">
     <div class="container">
       <div class="about-founder-grid reveal">
-        <div class="about-founder-photo">
-          <img src="/images/founder.webp" alt="Jeremy Cheong, Co-Founder of Jraft Creative" width="800" height="1200" loading="lazy">
+        <div class="about-founder-col">
+          <div class="about-founder-photo">
+            <img src="/images/founder.webp" alt="Jeremy Cheong, Co-Founder of Jraft Creative" width="800" height="1200" loading="lazy">
+          </div>
           <div class="about-founder-name">
             <strong>Jeremy Cheong</strong>
             <span>Co-Founder</span>
@@ -378,6 +380,12 @@ const schemaData = [
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 64px;
+    align-items: start;
+  }
+
+  .about-founder-col {
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
@@ -388,6 +396,7 @@ const schemaData = [
     aspect-ratio: 2 / 3;
     background: var(--bg-card);
     border: 1px solid var(--border);
+    width: 100%;
   }
 
   .about-founder-photo img {
@@ -603,7 +612,7 @@ const schemaData = [
       text-align: center;
     }
 
-    .about-founder-photo {
+    .about-founder-col {
       max-width: 260px;
       margin: 0 auto;
     }
