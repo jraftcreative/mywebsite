@@ -1931,6 +1931,7 @@ img {
   .service-pricing .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 380px;
+    margin: 0 auto;
   }
 
   .portfolio-grid {
@@ -2080,7 +2081,15 @@ img {
   }
 
   .service-hero h1 {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .nav .container {
+    padding: 0 20px;
   }
 
   .hero {
@@ -2139,14 +2148,35 @@ img {
 }
 
 /* --- Performance: content-visibility for off-screen sections --- */
-#services,
-#work,
-#industries,
-#process,
-.contact-section,
-.footer {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
+@media (min-width: 641px) {
+  #services,
+  #work,
+  #industries,
+  #process,
+  .contact-section,
+  .footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+
+/* --- Mobile orb size reduction for performance --- */
+@media (max-width: 640px) {
+  .animated-bg__orb--1 {
+    width: 350px;
+    height: 350px;
+  }
+  .animated-bg__orb--2 {
+    width: 300px;
+    height: 300px;
+  }
+  .animated-bg__orb--3 {
+    width: 250px;
+    height: 250px;
+  }
+  .animated-bg__orb {
+    filter: blur(50px);
+  }
 }
 
 /* ============================================
@@ -2331,7 +2361,7 @@ select:focus-visible,
 
   /* Footer links — 48px tap target */
   .footer-col a {
-    min-height: 44px;
+    min-height: 48px;
     display: flex;
     align-items: center;
   }
@@ -2868,12 +2898,14 @@ html, body {
   border: none;
   background: var(--border);
   cursor: pointer;
-  padding: 0;
+  padding: 17px;
+  background-clip: content-box;
   transition: all 0.3s ease;
 }
 
 .carousel-dot.active {
   background: var(--accent);
+  background-clip: content-box;
   transform: scale(1.2);
 }
 
