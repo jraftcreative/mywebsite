@@ -42,7 +42,7 @@ The industry hasn't settled on a single name yet. You'll see several terms float
 - **AEO** (Answer Engine Optimisation) — frames it around AI being an "answer engine"
 - **AIO** (AI Overview Optimisation) — specifically targets Google's AI Overviews feature
 
-For simplicity, we use GEO. It covers all AI platforms, not just one.
+For simplicity, we use GEO. It covers all AI platforms, not just one. If you want to dive deeper into LLMO specifically, see our [LLMO services](/llmo-services-singapore/) page.
 
 ## How GEO Differs from SEO
 
@@ -114,5 +114,7 @@ These three checks will tell you exactly where you stand.
 ---
 
 *This is Part 1 of our AI Search Optimisation series. Next up: [Why AI Search Matters for Singapore Businesses](/blog/why-ai-search-matters-singapore/) — the specific data on how AI is reshaping search in Singapore and which industries are most affected.*
+
+*Looking for a [GEO agency in Singapore](/geo-agency-singapore/)? Or want to understand how [ChatGPT optimisation](/chatgpt-optimisation-singapore/) works for your business? We've built dedicated service pages for each.*
 
 *Want to know where your brand stands? [Book a free AI visibility audit](/contact/) — we'll show you exactly where you appear (and don't) across ChatGPT, Gemini, Perplexity, and Google AI Overviews.*

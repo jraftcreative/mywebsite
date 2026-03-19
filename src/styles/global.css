@@ -3209,6 +3209,150 @@ html, body {
   }
 }
 
+/* --- GEO Content Utilities --- */
+
+/* Comparison table — responsive horizontal scroll on mobile */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+.comparison-table th {
+  color: var(--text);
+  font-weight: 600;
+  background: var(--bg-card);
+  white-space: nowrap;
+}
+
+.comparison-table thead th {
+  border-bottom: 2px solid var(--accent);
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--accent-dim);
+}
+
+@media (max-width: 640px) {
+  .comparison-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 2rem -20px;
+    padding: 0 20px;
+  }
+
+  .comparison-table {
+    min-width: 560px;
+  }
+}
+
+/* Checklist grid — two-column with checkmark items */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+  margin: 1.5rem 0;
+  list-style: none;
+  padding: 0;
+}
+
+.checklist-grid li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.checklist-grid li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .checklist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stat highlight — callout block for key numbers */
+.stat-highlight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--accent-dim);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 24px;
+  margin: 2rem 0;
+}
+
+.stat-highlight-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.stat-highlight-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .stat-highlight {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .stat-highlight-number {
+    font-size: 2rem;
+  }
+}
+
+/* Content callout — bordered callout box for key takeaways */
+.content-callout {
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 2rem 0;
+}
+
+.content-callout h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.content-callout p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.content-callout p + p {
+  margin-top: 12px;
+}
+
 .related-services-grid {
   display: flex;
   flex-wrap: wrap;

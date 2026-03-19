@@ -87,8 +87,104 @@ const schemaData = [
       </div>
       <div class="section-content reveal">
         <p>Large language models like ChatGPT, Google Gemini, and Perplexity have fundamentally changed how consumers discover businesses. These platforms don't serve a list of links — they name specific brands in their answers. When a user asks "what's the best digital agency in Singapore," the LLM selects 3-4 companies to recommend. If your brand isn't one of them, you don't get a consolation prize on page two. You simply don't exist in that conversation. And the brands that do get named see visitors convert at 4.4x the rate of traditional search traffic.</p>
-        <p>The signals LLMs use to choose brands are different from what drives Google rankings. Entity clarity — how consistently and clearly your brand is defined across the web — matters more than keyword density. Structured data that machines can parse matters more than backlink profiles. Third-party authority signals from review platforms, directories, and industry publications carry more weight than on-site content alone. With 60.9% of Singaporeans already using AI to research purchases, brands with weak entity data and unstructured content are losing recommendations to competitors every day.</p>
-        <p>Most businesses don't realise they have an LLMO problem because they've never tested it. They assume strong Google rankings translate to AI recommendations, but the overlap between traditional search results and LLM citations is below 20%. Your website might rank on page one of Google while ChatGPT recommends three of your competitors by name. LLMO is the technical discipline that closes this gap — optimising the specific data, content, and authority signals that language models rely on when deciding which brands to name.</p>
+        <p>The signals LLMs use to choose brands are different from what drives Google rankings. Entity clarity — how consistently and clearly your brand is defined across the web — matters more than keyword density. Structured data that machines can parse matters more than backlink profiles. Third-party authority signals from review platforms, directories, and industry publications carry more weight than on-site content alone. With <a href="/blog/why-ai-search-matters-singapore/">60.9% of Singaporeans already using AI to research purchases</a>, brands with weak entity data and unstructured content are losing recommendations to competitors every day.</p>
+        <p>Most businesses don't realise they have an LLMO problem because they've never tested it. They assume strong Google rankings translate to AI recommendations, but the overlap between traditional search results and LLM citations is below 20%. Your website might rank on page one of Google while ChatGPT recommends three of your competitors by name. LLMO is the technical discipline — closely related to <a href="/generative-engine-optimisation-singapore/">Generative Engine Optimisation</a> — that closes this gap, optimising the specific data, content, and authority signals that language models rely on when deciding which brands to name.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW LLMS CHOOSE BRANDS ========== -->
+  <section class="section" id="how-llms-choose-brands" aria-label="How large language models choose which brands to recommend">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How LLMs Work</p>
+        <h2>How Large Language Models Choose Which Brands to Recommend</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>LLM recommendations aren't random. When ChatGPT, Gemini, or Perplexity names a brand in a response, that selection follows specific logic rooted in four key mechanisms. Understanding these mechanisms is the foundation of effective LLMO — and the reason generic SEO tactics fail to move the needle in AI search.</p>
+
+        <h3>1. Training Data Patterns</h3>
+        <p>LLMs learn brand associations from massive text corpora during their training phase. If your brand consistently appears in positive contexts across the training data — websites, reviews, articles, forums, and industry publications — the model develops a higher probability of citing you when relevant prompts arise. This isn't keyword stuffing; it's statistical association built over billions of tokens. Brands with thin online footprints simply don't exist in the model's learned associations. A company mentioned in 3 places online has a fundamentally different training signal than one mentioned in 300.</p>
+
+        <h3>2. Real-Time Retrieval (RAG)</h3>
+        <p><a href="/chatgpt-optimisation-singapore/">ChatGPT with browsing</a>, Perplexity, and Google Gemini use Retrieval-Augmented Generation (RAG) to pull live web data into their responses. Rather than relying solely on what the model learned during training, these systems fetch current pages, extract relevant information, and synthesise answers in real time. This means your content needs to be structured for extraction — answer-first formatting, clear entity data, and up-to-date information that RAG pipelines can parse quickly. If your content is buried in marketing fluff, vague language, or poorly structured pages, RAG systems skip it in favour of competitors whose content is machine-readable.</p>
+
+        <h3>3. Entity Resolution</h3>
+        <p>Before an LLM can recommend your brand, it needs to resolve your brand as a distinct entity. This means consistent naming, structured data (JSON-LD schema), and clear attribution across all sources. If "Jraft Creative" appears as "JRaft Creative" on one site and "Jraft" on another, the model may not connect them as the same entity — splitting your authority signals across multiple identity fragments. Schema markup solves this by providing an explicit, machine-readable declaration of who you are, what you do, and where you operate. The cleaner your entity data, the easier it is for LLMs to confidently associate all mentions with a single brand.</p>
+
+        <h3>4. Citation Confidence Scoring</h3>
+        <p>Before naming a brand in a response, LLMs assess confidence based on the strength and consistency of available signals. Multiple independent sources mentioning your brand, consistent information across platforms, and recent content all increase citation confidence. A brand mentioned by 1 source has much lower citation probability than one mentioned by 20+ authoritative sources. This is why <a href="/ai-visibility-singapore/">AI visibility</a> across directories, review platforms, and industry publications directly impacts whether an LLM names you — each additional credible mention raises the model's confidence that recommending your brand is the right answer.</p>
+
+        <div class="content-callout reveal">
+          <p><strong>Key takeaway:</strong> LLMO works by strengthening all four mechanisms simultaneously. Training data builds long-term associations, RAG captures real-time content, entity resolution ensures clarity, and citation confidence determines whether AI names you. Optimising just one mechanism leaves gaps that competitors exploit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LLM PLATFORM COMPARISON ========== -->
+  <section class="section" id="llm-platform-comparison" style="background: var(--bg-alt);" aria-label="LLM platform comparison for brand recommendations">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Platform Comparison</p>
+        <h2>LLM Platform Comparison — How Each AI Handles Recommendations</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each major AI platform handles brand recommendations differently. They draw from different data sources, use different retrieval methods, and update at different frequencies. An effective LLMO strategy accounts for these differences rather than treating all LLMs as interchangeable.</p>
+      </div>
+      <div class="comparison-table-wrap reveal">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Data Sources</th>
+              <th>Browse Capability</th>
+              <th>Update Frequency</th>
+              <th>Singapore Relevance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ChatGPT</strong></td>
+              <td>Training data + Bing web browsing</td>
+              <td>Yes (with browsing enabled)</td>
+              <td>Training cutoff + live browse</td>
+              <td>High — large Singapore user base, browses local sites</td>
+            </tr>
+            <tr>
+              <td><strong>Google Gemini</strong></td>
+              <td>Google Search index + Knowledge Graph</td>
+              <td>Yes (native Google integration)</td>
+              <td>Near real-time via Google index</td>
+              <td>Very high — leverages Google's Singapore-specific data</td>
+            </tr>
+            <tr>
+              <td><strong>Perplexity</strong></td>
+              <td>Real-time web search (multiple engines)</td>
+              <td>Always on — search-first architecture</td>
+              <td>Real-time</td>
+              <td>Medium — indexes global sources, growing SG coverage</td>
+            </tr>
+            <tr>
+              <td><strong>Microsoft Copilot</strong></td>
+              <td>Bing index + OpenAI models</td>
+              <td>Yes (Bing integration)</td>
+              <td>Near real-time via Bing</td>
+              <td>Medium — smaller SG market share but growing</td>
+            </tr>
+            <tr>
+              <td><strong>Google AI Overviews</strong></td>
+              <td>Google Search index + web content</td>
+              <td>Yes (embedded in Google Search)</td>
+              <td>Real-time with search results</td>
+              <td>Very high — triggers on 48% of Google searches</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stat-highlight reveal">
+        <div class="stat-highlight__number">5</div>
+        <p class="stat-highlight__text">Major AI platforms your brand needs to be optimised for. Each one sources and weights information differently — a single-platform strategy leaves visibility gaps.</p>
       </div>
     </div>
   </section>

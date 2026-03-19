@@ -158,6 +158,8 @@ The good news: businesses that act now are seeing results within 30-90 days. The
 
 The shift from traditional search to AI-powered recommendations is the biggest change in digital marketing since mobile. Singapore is at the forefront. The question isn't whether this affects your business — it's whether you'll adapt before your competitors do.
 
+If you're ready to act, explore our [AI SEO services](/ai-seo-singapore/) that bridge traditional search and AI recommendations, or check your brand's [AI visibility](/ai-visibility-singapore/) across every major platform. For a comprehensive approach, our [GEO agency](/geo-agency-singapore/) handles strategy, implementation, and monitoring end to end.
+
 ---
 
 *This is Part 2 of our AI Search Optimisation series. Previously: [What Is GEO? The New Way Customers Find Businesses](/blog/what-is-geo-ai-search-optimisation/) — the fundamentals of GEO and how it differs from SEO.*
