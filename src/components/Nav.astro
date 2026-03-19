@@ -36,14 +36,14 @@ function isIndustriesActive(): boolean {
       <li class="nav-dropdown-wrap" role="none">
         <a href="/#services" class={`nav-dropdown-toggle${isServicesActive() ? ' nav-active' : ''}`} role="menuitem" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg></a>
         <ul class="nav-dropdown" role="menu" aria-label="Services submenu">
-          <li role="none"><a href="/services/ai-search-optimisation" role="menuitem" class={isActive('/services/ai-search-optimisation') ? 'nav-active' : ''}>AI Search (GEO)</a></li>
-          <li role="none"><a href="/services/website-development" role="menuitem" class={isActive('/services/website-development') ? 'nav-active' : ''}>Website Development</a></li>
-          <li role="none"><a href="/services/seo-performance" role="menuitem" class={isActive('/services/seo-performance') ? 'nav-active' : ''}>SEO &amp; Performance</a></li>
-          <li role="none"><a href="/services/paid-ads" role="menuitem" class={isActive('/services/paid-ads') ? 'nav-active' : ''}>Paid Ads</a></li>
-          <li role="none"><a href="/services/social-media" role="menuitem" class={isActive('/services/social-media') ? 'nav-active' : ''}>Social Media</a></li>
+          <li role="none"><a href="/services/ai-search-optimisation/" role="menuitem" class={isActive('/services/ai-search-optimisation/') ? 'nav-active' : ''}>AI Search (GEO)</a></li>
+          <li role="none"><a href="/services/website-development/" role="menuitem" class={isActive('/services/website-development/') ? 'nav-active' : ''}>Website Development</a></li>
+          <li role="none"><a href="/services/seo-performance/" role="menuitem" class={isActive('/services/seo-performance/') ? 'nav-active' : ''}>SEO &amp; Performance</a></li>
+          <li role="none"><a href="/services/paid-ads/" role="menuitem" class={isActive('/services/paid-ads/') ? 'nav-active' : ''}>Paid Ads</a></li>
+          <li role="none"><a href="/services/social-media/" role="menuitem" class={isActive('/services/social-media/') ? 'nav-active' : ''}>Social Media</a></li>
         </ul>
       </li>
-      <li role="none"><a href="/services/website-development/#portfolio" role="menuitem">Work</a></li>
+      <li role="none"><a href="/services/website-development/#portfolio" role="menuitem" class={currentPath === '/services/website-development/' ? 'nav-active' : ''}>Work</a></li>
       <li class="nav-dropdown-wrap" role="none">
         <a href="/industries/" class={`nav-dropdown-toggle${isIndustriesActive() ? ' nav-active' : ''}`} role="menuitem" aria-haspopup="true" aria-expanded="false">Industries <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 4 6 8 10 4"/></svg></a>
         <ul class="nav-dropdown" role="menu" aria-label="Industries submenu">
