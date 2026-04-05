@@ -2,9 +2,11 @@
 title: "AI Search Optimisation for Restaurants in Singapore: A Practical Guide"
 description: "How Singapore restaurants can get recommended by ChatGPT, Gemini, and Perplexity. Covers structured data, review strategy, Google Business Profile, and the local platforms AI actually references."
 date: 2026-03-19
-author: "Jraft Creative"
+lastModified: 2026-03-19
+author: "Jeremy Cheong"
+authorUrl: "/about/jeremy/"
 category: "AI & SEO"
-image: "/images/blog/ai-search-singapore-businesses.webp"
+image: "/images/blog/ai-search-restaurants-singapore.webp"
 imageAlt: "Singapore restaurant optimising for AI search recommendations across ChatGPT and Google Gemini"
 keywords:
   - ai search optimisation for restaurants

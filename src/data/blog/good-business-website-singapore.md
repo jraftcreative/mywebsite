@@ -2,7 +2,9 @@
 title: "What Makes a Good Business Website? 7 Things Singapore Customers Expect"
 description: "Find out what Singapore customers actually look for in a business website — from fast loading to mobile design, trust signals, and clear pricing."
 date: 2026-02-27
-author: "Jraft Creative"
+lastModified: 2026-02-27
+author: "Jeremy Cheong"
+authorUrl: "/about/jeremy/"
 category: "Business Tips"
 image: "/images/blog/good-business-website-singapore.webp"
 imageAlt: "What Singapore customers expect from a business website"

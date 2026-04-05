@@ -2,7 +2,9 @@
 title: "How Much Does a Website Cost in Singapore in 2026?"
 description: "A detailed breakdown of website design and development costs in Singapore — from simple landing pages to custom ecommerce builds, with real pricing in SGD."
 date: 2025-12-05
-author: "Jraft Creative"
+lastModified: 2025-12-05
+author: "Jeremy Cheong"
+authorUrl: "/about/jeremy/"
 category: "Web Design"
 image: "/images/blog/website-cost-singapore-2026.webp"
 imageAlt: "Website cost breakdown for Singapore businesses in 2026"

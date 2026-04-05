@@ -2,7 +2,9 @@
 title: "Why Paid Ads Are Non-Negotiable for Singapore Small Businesses in 2026"
 description: "Organic reach alone won't cut it. Here's why Singapore SMEs need paid advertising — and how Jraft Creative helps businesses get real returns from Google Ads, Meta Ads, and more."
 date: 2026-03-14
-author: "Jraft Creative"
+lastModified: 2026-03-14
+author: "Jeremy Cheong"
+authorUrl: "/about/jeremy/"
 category: "Paid Advertising"
 image: "/images/blog/paid-ads-singapore-small-business.webp"
 imageAlt: "Paid advertising strategy for Singapore small businesses"

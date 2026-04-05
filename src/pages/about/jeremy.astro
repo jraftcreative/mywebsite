@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Jeremy Cheong",
+      "jobTitle": "Co-Founder & Managing Director",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Jraft Creative",
+        "url": "https://jraftcreative.com/"
+      },
+      "url": "https://jraftcreative.com/about/jeremy/",
+      "sameAs": [
+        "https://www.linkedin.com/in/jeremycheong",
+        "https://www.instagram.com/jraftcreative",
+        "https://www.tiktok.com/@jraftcreative"
+      ],
+      "knowsAbout": [
+        "Digital Marketing",
+        "Web Design",
+        "SEO",
+        "Google Ads",
+        "Meta Ads",
+        "Social Media Marketing",
+        "AI Search Optimisation",
+        "Generative Engine Optimisation"
+      ],
+      "description": "Founder of Jraft Creative, a full-service marketing agency in Singapore. Specialises in website development, SEO, paid ads, and AI search optimisation for SMEs."
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://jraftcreative.com/about/" },
+      { "@type": "ListItem", "position": 3, "name": "Jeremy Cheong", "item": "https://jraftcreative.com/about/jeremy/" }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Jeremy Cheong — Co-Founder & Managing Director | Jraft Creative"
+  description="Meet Jeremy Cheong, founder of Jraft Creative — a full-service marketing agency in Singapore specialising in web design, SEO, paid ads, and AI search optimisation."
+  canonical="https://jraftcreative.com/about/jeremy/"
+  ogTitle="Jeremy Cheong — Founder of Jraft Creative"
+  ogDescription="Founder and creative director of Jraft Creative, helping Singapore businesses grow through digital marketing, web design, and AI search optimisation."
+  keywords="Jeremy Cheong, Jraft Creative founder, marketing agency Singapore, digital marketing expert Singapore"
+  schemaData={schemaData}
+>
+
+  <section class="jeremy-hero">
+    <div class="container">
+      <nav class="jeremy-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span aria-hidden="true">/</span>
+        <a href="/about/">About</a> <span aria-hidden="true">/</span>
+        <span>Jeremy Cheong</span>
+      </nav>
+      <div class="jeremy-hero__grid">
+        <div class="jeremy-hero__photo">
+          <img src="/images/founder.webp" alt="Jeremy Cheong, Founder of Jraft Creative" width="800" height="1200" loading="eager">
+        </div>
+        <div class="jeremy-hero__content">
+          <h1>Jeremy Cheong</h1>
+          <p class="jeremy-hero__subtitle">Co-Founder & Managing Director, Jraft Creative</p>
+          <p class="jeremy-hero__intro">I started Jraft Creative because I saw too many small businesses paying premium prices for mediocre marketing — or worse, getting locked into long contracts with agencies that couldn't deliver results.</p>
+          <p class="jeremy-hero__intro">My approach is simple: every dollar you spend on marketing should drive measurable business growth. Whether that's a website that actually converts, SEO that brings in qualified leads, or paid ads with a clear return on investment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 720px;">
+      <div class="blog-post-content">
+        <h2>What I Do</h2>
+        <p>I personally oversee every project at Jraft Creative. My areas of expertise include:</p>
+        <ul>
+          <li><strong>Website Development</strong> — Custom-built sites using modern frameworks (Astro, React) with a focus on speed, mobile responsiveness, and conversion optimisation</li>
+          <li><strong>SEO & Performance</strong> — Technical SEO audits, on-page optimisation, local SEO, and Core Web Vitals tuning</li>
+          <li><strong>Paid Ads</strong> — Google Ads and Meta Ads campaign strategy, setup, and ongoing optimisation</li>
+          <li><strong>AI Search Optimisation (GEO)</strong> — Getting brands cited and recommended by ChatGPT, Gemini, Perplexity, and other AI search platforms</li>
+          <li><strong>Social Media Content</strong> — Strategy, content creation, and community management for Instagram, TikTok, LinkedIn, and Facebook</li>
+        </ul>
+
+        <h2>My Philosophy</h2>
+        <p>I believe in transparency, speed, and ownership. That means no lock-in contracts, clear pricing, fast turnaround (most websites launch in 2 weeks), and you always own everything we create for you.</p>
+
+        <p>I also believe the best marketing doesn't feel like marketing. It feels like genuinely useful content, a beautiful website that's a pleasure to use, or an ad that actually answers the question someone was searching for.</p>
+
+      </div>
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 3rem;">Get in Touch</h2>
+      <p style="color: var(--text-muted); margin-top: 0.5rem;">Have a project in mind? I'd love to hear about it.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <a href="/contact/" class="btn btn-primary">Start a Project</a>
+        <a href="https://wa.me/6582234578?text=Hi%20Jeremy%2C%20I%27d%20like%20to%20discuss%20a%20project." class="btn btn-secondary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/6582234578?text=Hi%20Jeremy%2C%20I%27d%20like%20to%20discuss%20a%20project." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" slot="after-footer">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-2.276 2.106-3.156 2.17-.796.058-1.78.082-2.872-.278a26.3 26.3 0 0 1-2.6-1.074c-4.576-2.186-7.566-6.826-7.796-7.142-.222-.316-1.836-2.478-1.836-4.726 0-2.248 1.162-3.356 1.574-3.814.39-.434.858-.542 1.144-.542.286 0 .572.004.82.014.264.012.618-.1.966.738.39.938 1.294 3.224 1.408 3.458.112.234.19.508.038.82-.15.316-.226.512-.448.79-.222.278-.468.62-.668.832-.222.234-.454.49-.196.962.26.47 1.154 1.906 2.478 3.088 1.702 1.52 3.136 1.99 3.582 2.214.448.222.708.19.968-.114.26-.306 1.118-1.302 1.416-1.75.298-.448.596-.37.998-.222.404.148 2.566 1.21 3.006 1.432.44.222.734.334.844.518.112.186.112 1.074-.278 2.174z"/></svg>
+  </a>
+
+</BaseLayout>
+
+<style>
+  .jeremy-hero {
+    padding: 160px 0 60px;
+  }
+
+  .jeremy-breadcrumb {
+    margin-bottom: 32px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .jeremy-breadcrumb a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .jeremy-breadcrumb a:hover {
+    color: var(--accent);
+  }
+
+  .jeremy-breadcrumb span {
+    margin: 0 8px;
+  }
+
+  .jeremy-hero__grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .jeremy-hero__photo {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+
+  .jeremy-hero__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .jeremy-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .jeremy-hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  .jeremy-hero__intro {
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .jeremy-hero {
+      padding: 140px 0 40px;
+    }
+
+    .jeremy-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+
+    .jeremy-hero__photo {
+      max-width: 220px;
+      margin: 0 auto;
+    }
+  }
+</style>

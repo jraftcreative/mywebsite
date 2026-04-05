@@ -133,6 +133,12 @@ const schemaData = [
       "latitude": 1.3180,
       "longitude": 103.8925
     },
+    "hasMap": "https://maps.google.com/?cid=YOUR_GOOGLE_MAPS_CID",
+    "founder": {
+      "@type": "Person",
+      "name": "Jeremy Cheong",
+      "url": "https://jraftcreative.com/about/jeremy/"
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -153,6 +159,11 @@ const schemaData = [
     "name": "Jraft Creative",
     "alternateName": ["JRaft Creative", "Jraft"],
     "url": "https://jraftcreative.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://jraftcreative.com/blog/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [".section-header h2", ".section-content p", ".hero-subtitle"]
