@@ -167,9 +167,17 @@ const schemaData = [
       btn.disabled = true;
       btn.setAttribute('aria-busy', 'true');
 
-      var data = { name: name, company: company, email: email, phone: phone, message: message };
+      // Capture landing page attribution from sessionStorage
+      var landingPage = '/';
+      var landingReferrer = 'direct';
+      try {
+        landingPage = sessionStorage.getItem('jraft_landing_page') || window.location.pathname;
+        landingReferrer = sessionStorage.getItem('jraft_landing_referrer') || 'direct';
+      } catch (e) {}
 
-      var waText = 'Hi Jraft Creative, I just submitted an enquiry on your website.\n\nName: ' + name + (company ? '\nCompany: ' + company : '') + '\nProject: ' + message;
+      var data = { name: name, company: company, email: email, phone: phone, message: message, landing_page: landingPage, landing_referrer: landingReferrer };
+
+      var waText = 'Hi Jraft Creative, I just submitted an enquiry on your website.\n\nName: ' + name + (company ? '\nCompany: ' + company : '') + '\nProject: ' + message + '\n\nLanding page: ' + landingPage;
       document.getElementById('whatsappFollowUp').href = 'https://wa.me/6582234578?text=' + encodeURIComponent(waText);
 
       if (APPS_SCRIPT_URL !== 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
@@ -179,7 +187,7 @@ const schemaData = [
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         }).then(function () {
-          window.location.href = '/thank-you/';
+          window.location.href = '/thank-you/?lp=' + encodeURIComponent(landingPage) + '&ref=' + encodeURIComponent(landingReferrer);
         }).catch(function () {
           btn.textContent = 'Send Your Message';
           btn.disabled = false;

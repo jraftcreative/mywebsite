@@ -68,11 +68,17 @@ const currentPath = Astro.url.pathname;
   {hreflang.map(h => <link rel="alternate" hreflang={h.lang} href={h.href} />)}
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/images/logo.png">
-  <link rel="apple-touch-icon" href="/images/logo.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
+  <link rel="manifest" href="/site.webmanifest">
 
   <!-- LLM-readable site summary (GEO) -->
   <link rel="alternate" type="text/plain" href="https://jraftcreative.com/llms.txt" title="LLM site summary">
+
+  <!-- RSS feed -->
+  <link rel="alternate" type="application/rss+xml" href="https://jraftcreative.com/rss.xml" title="Jraft Creative Blog">
 
   <!-- Preload critical assets -->
   {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high">}
@@ -90,6 +96,20 @@ const currentPath = Astro.url.pathname;
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7XX5KDQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- Capture first-seen landing page for conversion attribution -->
+  <script is:inline>
+    (function() {
+      try {
+        if (!sessionStorage.getItem('jraft_landing_page')) {
+          sessionStorage.setItem('jraft_landing_page', window.location.pathname + window.location.search);
+        }
+        if (!sessionStorage.getItem('jraft_landing_referrer')) {
+          sessionStorage.setItem('jraft_landing_referrer', document.referrer || 'direct');
+        }
+      } catch (e) { /* sessionStorage unavailable */ }
+    })();
+  </script>
 
   <!-- Animated background -->
   <div class="animated-bg" aria-hidden="true">

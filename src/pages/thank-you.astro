@@ -18,6 +18,40 @@ const schemaData = {
   noindex={true}
   schemaData={schemaData}
 >
+  <script is:inline>
+    (function() {
+      // Read landing page attribution from URL params
+      var params = new URLSearchParams(window.location.search);
+      var landingPage = params.get('lp') || '/';
+      var landingReferrer = params.get('ref') || 'direct';
+
+      // Ensure gtag/dataLayer exist even if GTM hasn't loaded yet
+      window.dataLayer = window.dataLayer || [];
+      var _gtag = (typeof gtag === 'function') ? gtag : function() { window.dataLayer.push(arguments); };
+
+      // Google Ads conversion with landing page as transaction_id for attribution
+      _gtag('event', 'conversion', {
+        'send_to': 'AW-17551276654/sawJCILVuYscEO70jLFB',
+        'transaction_id': landingPage
+      });
+
+      // GA4 custom event with rich attribution data
+      _gtag('event', 'form_submit_lead', {
+        'landing_page': landingPage,
+        'landing_referrer': landingReferrer,
+        'event_category': 'lead',
+        'event_label': landingPage
+      });
+
+      // Also push dataLayer event for GTM custom triggers
+      window.dataLayer.push({
+        'event': 'lead_submitted',
+        'landing_page': landingPage,
+        'landing_referrer': landingReferrer
+      });
+    })();
+  </script>
+
   <section class="section">
     <div class="container">
       <div class="thank-you-wrap">
