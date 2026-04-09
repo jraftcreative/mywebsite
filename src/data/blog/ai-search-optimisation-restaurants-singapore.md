@@ -1,6 +1,6 @@
 ---
 title: "AI Search Optimisation for Restaurants in Singapore: A Practical Guide"
-description: "How Singapore restaurants can get recommended by ChatGPT, Gemini, and Perplexity. Covers structured data, review strategy, Google Business Profile, and the local platforms AI actually references."
+description: "How Singapore restaurants can get recommended by ChatGPT, Gemini, and Perplexity. Structured data, review strategy, Google Business Profile."
 date: 2026-03-19
 lastModified: 2026-03-19
 author: "Jeremy Cheong"

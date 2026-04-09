@@ -1,6 +1,6 @@
 ---
 title: "AI Search Optimisation for Tuition Centres in Singapore: What You Need to Know"
-description: "Singapore parents are using ChatGPT and Gemini to find tuition. Here's how tuition centres can get recommended by AI — with strategies specific to the Singapore education market."
+description: "Singapore parents use ChatGPT and Gemini to find tuition. How tuition centres can get recommended by AI — strategies for the Singapore education market."
 date: 2026-03-19
 lastModified: 2026-03-19
 author: "Jeremy Cheong"

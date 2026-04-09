@@ -1,6 +1,6 @@
 ---
 title: "How to Choose a Digital Marketing Agency in Singapore"
-description: "Hiring a marketing agency is a big decision. Here's what Singapore business owners should look for — and what red flags to watch out for — when choosing an agency partner."
+description: "Hiring a marketing agency is a big decision. What Singapore business owners should look for — and the red flags to watch out for — when choosing one."
 date: 2026-04-01
 lastModified: 2026-04-01
 author: "Jeremy Cheong"
