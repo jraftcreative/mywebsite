@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawCare Veterinary — Modern Pet Clinic Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0C1A14;
+  --bg-card: #132A1E;
+  --bg-card-hover: #1A3828;
+  --orange: #F59E0B;
+  --orange-dark: #D97706;
+  --green: #22C55E;
+  --green-muted: rgba(34,197,94,0.15);
+  --text: #F0F0F0;
+  --text-muted: #8CA89A;
+  --border: rgba(255,255,255,0.07);
+  --radius: 12px;
+  --font: 'Outfit', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; border: none; border-radius: var(--radius); cursor: pointer; transition: all 0.25s; font-family: var(--font); }
+.btn-orange { background: var(--orange); color: #fff; }
+.btn-orange:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(245,158,11,0.25); }
+.btn-ghost { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.15); }
+.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+.btn-green { background: var(--green); color: #fff; }
+.btn-green:hover { background: #16A34A; transform: translateY(-1px); }
+
+/* Nav */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 3rem; display: flex; align-items: center; justify-content: space-between; background: rgba(12,26,20,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
+.nav-logo svg { flex-shrink: 0; }
+.nav-logo span { color: var(--orange); }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; cursor: pointer; }
+.nav-links a:hover { color: var(--text); }
+.nav-links .btn { color: #fff; }
+.nav-links .btn:hover { color: #fff; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.hamburger svg { display: block; }
+
+/* Hero */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 0 5%; padding-top: 80px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); background: var(--green-muted); padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; width: fit-content; }
+.hero-badge svg { flex-shrink: 0; }
+.hero h1 { font-size: 3.6rem; font-weight: 800; line-height: 1.08; margin-bottom: 1.2rem; letter-spacing: -0.02em; }
+.hero h1 .highlight { color: var(--orange); position: relative; }
+.hero-sub { font-size: 1rem; color: var(--text-muted); max-width: 440px; line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; }
+.hero-stat-num { font-size: 1.8rem; font-weight: 700; color: var(--orange); }
+.hero-stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.15rem; }
+.hero-right { position: relative; overflow: hidden; }
+.hero-right img { width: 100%; height: 100%; object-fit: cover; }
+.hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg) 0%, transparent 35%); }
+
+/* Sections */
+.section { padding: 6rem 3rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
+.section-title { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.section-desc { color: var(--text-muted); font-size: 0.92rem; max-width: 480px; font-weight: 300; line-height: 1.7; }
+.section-header { margin-bottom: 3rem; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Services Grid */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.service-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.75rem; transition: all 0.3s; cursor: default; }
+.service-card:hover { background: var(--bg-card-hover); border-color: rgba(34,197,94,0.2); transform: translateY(-3px); }
+.service-icon { width: 48px; height: 48px; background: var(--green-muted); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+.service-icon svg { width: 24px; height: 24px; }
+.service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+.service-card p { font-size: 0.84rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+
+/* Vet Cards */
+.vets-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.vet-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.3s; }
+.vet-card:hover { border-color: rgba(245,158,11,0.25); transform: translateY(-3px); }
+.vet-photo { width: 100%; height: 280px; object-fit: cover; }
+.vet-info { padding: 1.5rem; }
+.vet-info h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.2rem; }
+.vet-specialty { font-size: 0.78rem; color: var(--orange); font-weight: 500; margin-bottom: 0.75rem; }
+.vet-info p { font-size: 0.84rem; color: var(--text-muted); font-weight: 300; line-height: 1.65; }
+
+/* Emergency */
+.emergency { background: linear-gradient(135deg, #7F1D1D 0%, #991B1B 100%); border-radius: var(--radius); padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.emergency-left { display: flex; align-items: center; gap: 1.25rem; }
+.emergency-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.emergency h3 { font-size: 1.5rem; font-weight: 700; }
+.emergency p { font-size: 0.9rem; color: rgba(255,255,255,0.8); font-weight: 300; }
+.emergency .phone { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.03em; white-space: nowrap; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem 2rem; text-align: center; transition: all 0.3s; position: relative; }
+.price-card:hover { border-color: rgba(34,197,94,0.2); transform: translateY(-3px); }
+.price-card.featured { border-color: var(--orange); }
+.price-card.featured::before { content: 'Popular'; position: absolute; top: -0.65rem; left: 50%; transform: translateX(-50%); background: var(--orange); color: #fff; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.9rem; border-radius: 100px; }
+.price-card-icon { width: 48px; height: 48px; background: var(--green-muted); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.price-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+.price-card .price { font-size: 2.4rem; font-weight: 800; color: var(--orange); margin: 0.75rem 0; }
+.price-card .price-note { font-size: 0.78rem; color: var(--text-muted); font-weight: 300; }
+.price-card p { font-size: 0.84rem; color: var(--text-muted); font-weight: 300; line-height: 1.65; margin-top: 1rem; }
+
+/* Testimonials */
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all 0.3s; }
+.testimonial-card:hover { border-color: rgba(245,158,11,0.2); }
+.testimonial-stars { display: flex; gap: 0.2rem; margin-bottom: 1rem; }
+.testimonial-stars svg { width: 16px; height: 16px; }
+.testimonial-card blockquote { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; line-height: 1.75; font-style: normal; margin-bottom: 1.25rem; }
+.testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+.testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--green-muted); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--green); flex-shrink: 0; }
+.testimonial-name { font-size: 0.85rem; font-weight: 600; }
+.testimonial-pet { font-size: 0.75rem; color: var(--text-muted); font-weight: 400; }
+
+/* CTA */
+.cta-section { text-align: center; }
+.cta-box { background: linear-gradient(135deg, var(--bg-card) 0%, #1A3525 100%); border: 1px solid rgba(34,197,94,0.15); border-radius: 20px; padding: 4rem 3rem; }
+.cta-box h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.75rem; }
+.cta-box p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; max-width: 460px; margin: 0 auto 2rem; line-height: 1.7; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* Footer */
+.footer { padding: 3rem; border-top: 1px solid var(--border); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+.footer-logo { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: 1rem; }
+.footer-logo span { color: var(--orange); }
+.footer-links { display: flex; gap: 2rem; }
+.footer-links a { font-size: 0.8rem; color: var(--text-muted); font-weight: 400; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; }
+.footer-copy a { color: var(--orange); font-weight: 500; transition: color 0.2s; }
+.footer-copy a:hover { color: var(--orange-dark); }
+
+/* Mobile */
+@media (max-width: 900px) {
+  .nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 7rem 1.5rem 3rem; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero-right { height: 350px; }
+  .hero-right::after { background: linear-gradient(180deg, var(--bg) 0%, transparent 40%); }
+  .hero-stats { gap: 1.5rem; }
+  .hero-stat-num { font-size: 1.4rem; }
+  .section { padding: 4rem 1.5rem; }
+  .services-grid, .vets-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+  .emergency { flex-direction: column; text-align: center; padding: 2rem; }
+  .emergency-left { flex-direction: column; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+  .cta-box { padding: 3rem 1.5rem; }
+  .cta-box h2 { font-size: 1.6rem; }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .vets-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <circle cx="8" cy="6" r="3.5" fill="#22C55E"/>
+      <circle cx="20" cy="6" r="3.5" fill="#22C55E"/>
+      <circle cx="4" cy="14" r="3.5" fill="#22C55E"/>
+      <circle cx="24" cy="14" r="3.5" fill="#22C55E"/>
+      <ellipse cx="14" cy="19" rx="6" ry="6.5" fill="#22C55E"/>
+    </svg>
+    Paw<span>Care</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#team">Our Vets</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#book" class="btn btn-orange">Book Visit</a>
+  </div>
+  <button class="hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F0F0F0" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="4" cy="3" r="1.8" fill="#22C55E"/><circle cx="10" cy="3" r="1.8" fill="#22C55E"/><circle cx="2" cy="7" r="1.8" fill="#22C55E"/><circle cx="12" cy="7" r="1.8" fill="#22C55E"/><ellipse cx="7" cy="10.5" rx="3" ry="3" fill="#22C55E"/></svg>
+      Trusted Pet Clinic in Singapore
+    </div>
+    <h1>Where Pets<br>Come <span class="highlight">First</span></h1>
+    <p class="hero-sub">Modern veterinary care with heart. From routine checkups to emergency surgery, our experienced vets treat your furry family like our own.</p>
+    <div class="hero-buttons">
+      <a href="#book" class="btn btn-orange">Book Appointment</a>
+      <a href="#services" class="btn btn-ghost">Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">12k+</div>
+        <div class="hero-stat-label">Happy Pets</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">15</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">4.9</div>
+        <div class="hero-stat-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900&h=1000&fit=crop" alt="Happy golden retriever dog" loading="eager">
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-eyebrow">What We Do</div>
+      <h2 class="section-title">Comprehensive Pet Care</h2>
+      <p class="section-desc mx-auto">From wellness visits to complex procedures, we offer everything your pet needs under one roof.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>General Checkup</h3>
+        <p>Thorough nose-to-tail wellness exams to catch health issues early and keep your pet in peak condition.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Vaccinations</h3>
+        <p>Core and non-core vaccines for dogs, cats, and rabbits following AVS Singapore guidelines.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3>Surgery</h3>
+        <p>Sterilisation, tumour removal, orthopaedic, and soft tissue surgeries with advanced monitoring.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Dental Care</h3>
+        <p>Ultrasonic scaling, polishing, extractions, and dental X-rays to protect your pet's oral health.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 0 0 6.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 0 0 6.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5"/></svg>
+        </div>
+        <h3>Grooming</h3>
+        <p>Professional bathing, fur trimming, nail clipping, ear cleaning, and de-shedding treatments.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Pet Boarding</h3>
+        <p>Climate-controlled suites with daily vet check-ins, playtime, and webcam access for peace of mind.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Meet Our Vets -->
+<section class="section" id="team" style="background: rgba(19,42,30,0.3);">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-eyebrow">The Team</div>
+      <h2 class="section-title">Meet Our Vets</h2>
+      <p class="section-desc mx-auto">Compassionate professionals with decades of combined experience in companion animal medicine.</p>
+    </div>
+    <div class="vets-grid">
+
+      <div class="vet-card">
+        <img class="vet-photo" src="https://images.unsplash.com/photo-1758600587683-d86675a2f6e9?w=500&h=560&fit=crop" alt="Dr. Sarah Tan">
+        <div class="vet-info">
+          <h3>Dr. Sarah Tan</h3>
+          <div class="vet-specialty">Internal Medicine &amp; Geriatrics</div>
+          <p>BVSc (Melbourne), 12 years of experience specialising in senior pet wellness and chronic disease management.</p>
+        </div>
+      </div>
+
+      <div class="vet-card">
+        <img class="vet-photo" src="https://images.unsplash.com/photo-1681097561932-36d0df02b379?w=500&h=560&fit=crop" alt="Dr. James Lim">
+        <div class="vet-info">
+          <h3>Dr. James Lim</h3>
+          <div class="vet-specialty">Surgery &amp; Orthopaedics</div>
+          <p>DVM (NUS), fellowship-trained surgeon with expertise in cruciate repair, fracture fixation, and soft tissue surgery.</p>
+        </div>
+      </div>
+
+      <div class="vet-card">
+        <img class="vet-photo" src="https://images.unsplash.com/photo-1635353775931-1a6464be72cb?w=500&h=560&fit=crop" alt="Dr. Priya Nair">
+        <div class="vet-info">
+          <h3>Dr. Priya Nair</h3>
+          <div class="vet-specialty">Dermatology &amp; Exotic Pets</div>
+          <p>BVSc (Sydney), passionate about treating skin conditions and caring for rabbits, birds, and reptiles.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Banner -->
+<section class="section" id="emergency">
+  <div class="container">
+    <div class="emergency">
+      <div class="emergency-left">
+        <div class="emergency-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h3>24/7 Emergency Vet Line</h3>
+          <p>Accidents don't wait. Neither do we.</p>
+        </div>
+      </div>
+      <div class="phone">+65 8888 1234</div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing" style="background: rgba(19,42,30,0.3);">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-eyebrow">Transparent Pricing</div>
+      <h2 class="section-title">Simple, Honest Rates</h2>
+      <p class="section-desc mx-auto">No hidden fees. All prices are inclusive of GST. Payment by NETS, credit card, or PayNow.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Consultation</h3>
+        <div class="price">$60</div>
+        <div class="price-note">per visit</div>
+        <p>Full physical examination, health assessment, and tailored care recommendations.</p>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Vaccination</h3>
+        <div class="price">$45</div>
+        <div class="price-note">from</div>
+        <p>Core vaccines for puppies, kittens, and adults. Includes health check and vaccination card.</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3>Dental Scaling</h3>
+        <div class="price">$180</div>
+        <div class="price-note">per session</div>
+        <p>Ultrasonic scaling under sedation, polishing, and oral health report with photos.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section-header text-center">
+      <div class="section-eyebrow">Pet Parent Love</div>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-desc mx-auto">Real stories from real pet parents across Singapore.</p>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+        </div>
+        <blockquote>"Dr. Tan caught a heart murmur in my 10-year-old Shih Tzu that our previous vet missed. Mochi is now on medication and doing wonderfully. Forever grateful."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">WL</div>
+          <div>
+            <div class="testimonial-name">Wei Lin</div>
+            <div class="testimonial-pet">Pet parent to Mochi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+        </div>
+        <blockquote>"Rushed here at 2am when my cat started vomiting. The emergency team was calm, fast, and so reassuring. Best vet experience we've had in Singapore."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RK</div>
+          <div>
+            <div class="testimonial-name">Ravi Kumar</div>
+            <div class="testimonial-pet">Pet parent to Whiskers</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+          <svg viewBox="0 0 16 16" fill="#F59E0B"><path d="M8 0l2.5 5 5.5.8-4 3.9.9 5.3L8 12.5 3.1 15l.9-5.3-4-3.9L5.5 5z"/></svg>
+        </div>
+        <blockquote>"We board our golden retriever here whenever we travel. The webcam access is brilliant -- we can check on him anytime. He always comes home happy and well-fed."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SN</div>
+          <div>
+            <div class="testimonial-name">Sarah Ng</div>
+            <div class="testimonial-pet">Pet parent to Biscuit</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="book">
+  <div class="container">
+    <div class="cta-box">
+      <div class="section-eyebrow">Ready?</div>
+      <h2>Book Your Pet's Next Visit</h2>
+      <p>Whether it's a routine checkup or something more urgent, we're here for you and your furry family. Walk-ins welcome, appointments preferred.</p>
+      <div class="cta-buttons">
+        <a href="tel:+6588881234" class="btn btn-orange">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call +65 8888 1234
+        </a>
+        <a href="https://wa.me/6588881234" class="btn btn-green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
+        <circle cx="8" cy="6" r="3.5" fill="#22C55E"/>
+        <circle cx="20" cy="6" r="3.5" fill="#22C55E"/>
+        <circle cx="4" cy="14" r="3.5" fill="#22C55E"/>
+        <circle cx="24" cy="14" r="3.5" fill="#22C55E"/>
+        <ellipse cx="14" cy="19" rx="6" ry="6.5" fill="#22C55E"/>
+      </svg>
+      Paw<span>Care</span> Veterinary
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#team">Our Vets</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#emergency">Emergency</a>
+    </div>
+    <div class="footer-copy">
+      Demo by <a href="https://jraftcreative.com" target="_blank">Jraft Creative</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
