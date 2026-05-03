@@ -3,8 +3,8 @@ title: "5 SEO Mistakes Singapore Small Businesses Make"
 description: "Common SEO errors that cost Singapore SMEs organic traffic and leads — and how to fix each one to rank higher on Google."
 date: 2026-01-10
 lastModified: 2026-01-10
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "SEO"
 image: "/images/blog/seo-mistakes-singapore-businesses.webp"
 imageAlt: "SEO mistakes that Singapore businesses should avoid"

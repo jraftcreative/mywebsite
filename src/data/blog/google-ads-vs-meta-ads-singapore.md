@@ -3,8 +3,8 @@ title: "Google Ads vs Meta Ads: Which Should Your Singapore Business Start With?
 description: "Should you spend your ad budget on Google or Meta? A practical breakdown of both platforms — when each works best and what they cost in Singapore."
 date: 2026-03-28
 lastModified: 2026-03-28
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Paid Advertising"
 image: "/images/blog/google-ads-vs-meta-ads-singapore.webp"
 imageAlt: "Laptop showing advertising analytics dashboard for comparing Google Ads and Meta Ads performance"

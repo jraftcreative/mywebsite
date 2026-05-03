@@ -3,8 +3,8 @@ title: "Why AI Search Matters for Singapore Businesses"
 description: "Singapore has the world's second highest AI adoption rate. How AI search is reshaping how customers find businesses — and which industries are hit hardest."
 date: 2026-03-17
 lastModified: 2026-03-17
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "AI & SEO"
 image: "/images/blog/ai-search-singapore-businesses.webp"
 imageAlt: "Singapore business district representing AI search adoption and digital transformation"

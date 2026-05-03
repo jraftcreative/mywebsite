@@ -3,8 +3,8 @@ title: "Why Every F&B Business in Singapore Needs a Website"
 description: "Singapore's F&B industry is fiercely competitive. Here's why restaurants, cafes, and food businesses need their own website — not just a social media page."
 date: 2026-02-03
 lastModified: 2026-02-03
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Industry Insights"
 image: "/images/blog/fnb-business-singapore-website.webp"
 imageAlt: "Singapore F&B business website benefits"

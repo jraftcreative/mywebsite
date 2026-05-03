@@ -3,8 +3,8 @@ title: "Why Your Ads Are Wasting Money Without a Landing Page"
 description: "Sending ad traffic to your homepage is burning your budget. Here's why Singapore businesses need dedicated landing pages — and what a good one looks like."
 date: 2026-05-03
 lastModified: 2026-05-03
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Paid Ads"
 image: "/images/blog/landing-page-ads-wasting-money.webp"
 imageAlt: "Laptop screen showing a high-converting landing page design"

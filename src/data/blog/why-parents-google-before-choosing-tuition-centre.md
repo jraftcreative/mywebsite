@@ -3,8 +3,8 @@ title: "Why Parents Google Before Choosing a Tuition Centre"
 description: "Singapore parents research tuition centres online before visiting. Here's what they search for, what they expect, and what it means for your marketing."
 date: 2026-04-06
 lastModified: 2026-04-06
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Industry Insights"
 image: "/images/blog/parents-google-tuition-centre-singapore.webp"
 imageAlt: "Asian mother helping daughter study online, representing how parents research tuition centres"

@@ -3,8 +3,8 @@ title: "Social Media Marketing for Singapore SMEs: A Practical Guide"
 description: "A no-nonsense guide to social media marketing for Singapore small businesses — which platforms to focus on, what to post, and how to measure results."
 date: 2026-02-18
 lastModified: 2026-02-18
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Social Media"
 image: "/images/blog/social-media-marketing-singapore.webp"
 imageAlt: "Social media marketing guide for Singapore businesses"

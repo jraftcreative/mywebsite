@@ -3,8 +3,8 @@ title: "How Beauty Salons in Singapore Can Get More Bookings Online"
 description: "Beauty clients find and book salons online. Here's what Singapore salons need to capture them — website, SEO, Instagram, and Google Business Profile."
 date: 2026-04-09
 lastModified: 2026-04-09
-author: "Jeremy Cheong"
-authorUrl: "/about/jeremy/"
+author: "Jraft Creative"
+authorUrl: "/about/"
 category: "Industry Insights"
 image: "/images/blog/beauty-salon-bookings-singapore.webp"
 imageAlt: "Hair stylist cutting a client's hair at a modern Singapore beauty salon"

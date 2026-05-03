@@ -32,9 +32,9 @@ const articleSchema = {
   datePublished: isoDate,
   dateModified: isoModified,
   author: {
-    '@type': 'Person',
+    '@type': 'Organization',
     name: author,
-    url: authorUrl || 'https://jraftcreative.com/about/jeremy/',
+    url: authorUrl || 'https://jraftcreative.com/about/',
   },
   publisher: {
     '@type': 'Organization',
@@ -76,6 +76,9 @@ const breadcrumbSchema = {
 >
   <article class="blog-post">
     <div class="blog-post-hero">
+      <div class="blog-post-hero-bg">
+        <img src={image} alt={imageAlt} width="1200" height="630" loading="eager" class="blog-post-hero-img">
+      </div>
       <div class="container">
         <nav class="blog-breadcrumb" aria-label="Breadcrumb">
           <a href="/">Home</a>
@@ -87,14 +90,11 @@ const breadcrumbSchema = {
         <div class="blog-post-meta">
           <span class="blog-post-category">{category}</span>
           <time datetime={isoDate}>{formattedDate}</time>
-          <span class="blog-post-author">By <a href={authorUrl || '/about/jeremy/'}>{author}</a></span>
+          <span class="blog-post-author">By <a href={authorUrl || '/about/'}>{author}</a></span>
         </div>
         <h1>{title}</h1>
         <p class="blog-post-description">{description}</p>
       </div>
-    </div>
-    <div class="blog-post-image">
-      <img src={image} alt={imageAlt} width="1200" height="630" loading="eager">
     </div>
     <div class="container blog-post-content">
       <slot />
