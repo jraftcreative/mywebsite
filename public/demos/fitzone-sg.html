@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitZone SG — Boutique Gym Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #F97316;
+  --primary-light: #FB923C;
+  --cta: #F97316;
+  --cta-hover: #EA580C;
+  --bg: #0F1117;
+  --bg-card: #1A1D27;
+  --bg-alt: #141620;
+  --text: #F8FAFC;
+  --text-muted: #94A3B8;
+  --border: rgba(255,255,255,0.08);
+  --radius: 12px;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Nav */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; background: rgba(15,17,23,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; letter-spacing: 0.02em; }
+.nav-logo span { color: var(--primary); }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; cursor: pointer; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.btn { color: #fff; }
+.nav-links a.btn:hover { color: #fff; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer; transition: all 0.2s; font-family: var(--font-body); }
+.btn-primary { background: var(--cta); color: #fff !important; }
+.btn-primary:hover { background: var(--cta-hover); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Hero */
+.hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0 2rem; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover; opacity: 0.25; }
+.hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,17,23,0.95) 0%, rgba(15,17,23,0.6) 50%, rgba(249,115,22,0.15) 100%); }
+.hero-content { position: relative; z-index: 1; max-width: 700px; margin-left: 8%; }
+.hero-badge { display: inline-block; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; background: rgba(249,115,22,0.15); color: var(--primary); border: 1px solid rgba(249,115,22,0.3); margin-bottom: 1.5rem; }
+.hero h1 { font-family: var(--font-heading); font-size: 4.5rem; font-weight: 800; line-height: 1.05; text-transform: uppercase; margin-bottom: 1.25rem; }
+.hero h1 span { color: var(--primary); }
+.hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 500px; margin-bottom: 2rem; line-height: 1.7; }
+.hero-buttons { display: flex; gap: 1rem; }
+.hero-stats { display: flex; gap: 3rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.hero-stat-number { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--primary); }
+.hero-stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* Sections */
+.section { padding: 6rem 2rem; }
+.section-alt { background: var(--bg-alt); }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--primary); margin-bottom: 0.5rem; }
+.section-title { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.75rem; }
+.section-subtitle { color: var(--text-muted); max-width: 550px; }
+
+/* Classes / Timetable */
+.timetable-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+.class-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: all 0.25s; cursor: pointer; position: relative; overflow: hidden; }
+.class-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--primary); opacity: 0; transition: opacity 0.25s; }
+.class-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.class-card:hover::before { opacity: 1; }
+.class-time { font-size: 0.75rem; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.class-name { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0 0.25rem; text-transform: uppercase; }
+.class-trainer { font-size: 0.8rem; color: var(--text-muted); }
+.class-meta { display: flex; gap: 1rem; margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-muted); }
+.class-tag { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(249,115,22,0.1); color: var(--primary); font-size: 0.7rem; font-weight: 600; margin-top: 0.75rem; }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all 0.25s; position: relative; }
+.price-card.featured { border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary), 0 20px 60px rgba(249,115,22,0.1); }
+.price-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); padding: 0.25rem 1rem; background: var(--primary); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; border-radius: 20px; }
+.price-tier { font-size: 0.8rem; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.price-amount { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; margin: 0.5rem 0; }
+.price-amount span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+.price-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.price-features { list-style: none; margin-bottom: 2rem; }
+.price-features li { font-size: 0.85rem; color: var(--text-muted); padding: 0.4rem 0; padding-left: 1.5rem; position: relative; }
+.price-features li::before { content: ''; position: absolute; left: 0; top: 0.7rem; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); }
+.price-card .btn { width: 100%; justify-content: center; }
+
+/* Trainers */
+.trainer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.trainer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.25s; cursor: pointer; }
+.trainer-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+.trainer-img { height: 280px; background: linear-gradient(135deg, #1a1d27 0%, #2a2d37 100%); position: relative; overflow: hidden; }
+.trainer-img img { width: 100%; height: 100%; object-fit: cover; }
+.trainer-info { padding: 1.25rem; }
+.trainer-name { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; text-transform: uppercase; }
+.trainer-role { font-size: 0.8rem; color: var(--primary); font-weight: 500; margin-top: 0.15rem; }
+.trainer-bio { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem; line-height: 1.5; }
+
+/* CTA */
+.cta-section { padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(249,115,22,0.08) 0%, transparent 50%, rgba(34,197,94,0.05) 100%); }
+.cta-section .container { position: relative; z-index: 1; }
+.cta-section .section-title { margin-bottom: 1rem; }
+.cta-section p { color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+
+/* Testimonials */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.testimonial-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.testimonial-stars { color: #F59E0B; font-size: 0.9rem; margin-bottom: 0.75rem; }
+.testimonial-text { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+.testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+.testimonial-name { font-size: 0.85rem; font-weight: 600; }
+.testimonial-detail { font-size: 0.7rem; color: var(--text-muted); }
+
+/* Footer */
+.footer { padding: 3rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+.footer-logo { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+.footer-logo span { color: var(--primary); }
+.footer p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .timetable-grid, .trainer-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 3.5rem; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero h1 { font-size: 2.8rem; }
+  .hero-content { margin-left: 0; }
+  .hero-stats { gap: 2rem; }
+  .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
+  .timetable-grid, .trainer-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-logo">FIT<span>ZONE</span></div>
+  <div class="nav-links">
+    <a href="#classes">Classes</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#testimonials">Reviews</a>
+    <a class="btn btn-primary" href="#trial">Book Free Trial</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Boutique Gym in Singapore</div>
+    <h1>Train <span>Harder.</span><br>Get <span>Stronger.</span></h1>
+    <p>Singapore's premier boutique gym with expert coaches, small class sizes, and a community that pushes you to be your best. First trial class is free.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#trial">Book Free Trial</a>
+      <a class="btn btn-outline" href="#classes">View Schedule</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-number">500+</div>
+        <div class="hero-stat-label">Active Members</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">12</div>
+        <div class="hero-stat-label">Expert Coaches</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">40+</div>
+        <div class="hero-stat-label">Weekly Classes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Classes -->
+<section class="section section-alt" id="classes">
+  <div class="container">
+    <div class="section-label">This Week's Schedule</div>
+    <div class="section-title">Class Timetable</div>
+    <p class="section-subtitle">Book your spot online — classes fill up fast.</p>
+    <div class="timetable-grid">
+      <div class="class-card">
+        <div class="class-time">Mon · 7:00 AM</div>
+        <div class="class-name">HIIT Burn</div>
+        <div class="class-trainer">Coach Marcus</div>
+        <div class="class-meta"><span>45 min</span><span>16 spots</span></div>
+        <div class="class-tag">High Intensity</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Mon · 12:00 PM</div>
+        <div class="class-name">Power Yoga</div>
+        <div class="class-trainer">Coach Priya</div>
+        <div class="class-meta"><span>60 min</span><span>12 spots</span></div>
+        <div class="class-tag">Flexibility</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Tue · 6:30 PM</div>
+        <div class="class-name">Strength Lab</div>
+        <div class="class-trainer">Coach Daniel</div>
+        <div class="class-meta"><span>50 min</span><span>14 spots</span></div>
+        <div class="class-tag">Strength</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Wed · 7:30 AM</div>
+        <div class="class-name">Boxing Basics</div>
+        <div class="class-trainer">Coach Wei Ling</div>
+        <div class="class-meta"><span>45 min</span><span>10 spots</span></div>
+        <div class="class-tag">Combat</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Thu · 6:00 PM</div>
+        <div class="class-name">CrossFit WOD</div>
+        <div class="class-trainer">Coach Marcus</div>
+        <div class="class-meta"><span>60 min</span><span>16 spots</span></div>
+        <div class="class-tag">High Intensity</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Fri · 12:00 PM</div>
+        <div class="class-name">Spin & Sweat</div>
+        <div class="class-trainer">Coach Sarah</div>
+        <div class="class-meta"><span>45 min</span><span>20 spots</span></div>
+        <div class="class-tag">Cardio</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Sat · 9:00 AM</div>
+        <div class="class-name">Weekend Warrior</div>
+        <div class="class-trainer">Coach Daniel</div>
+        <div class="class-meta"><span>75 min</span><span>18 spots</span></div>
+        <div class="class-tag">Full Body</div>
+      </div>
+      <div class="class-card">
+        <div class="class-time">Sun · 10:00 AM</div>
+        <div class="class-name">Recovery Flow</div>
+        <div class="class-trainer">Coach Priya</div>
+        <div class="class-meta"><span>60 min</span><span>12 spots</span></div>
+        <div class="class-tag">Recovery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-label">Membership Plans</div>
+    <div class="section-title">Simple, Honest Pricing</div>
+    <p class="section-subtitle">No hidden fees. No lock-in contracts. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$99 <span>/mo</span></div>
+        <div class="price-desc">Perfect for getting started with group classes.</div>
+        <ul class="price-features">
+          <li>8 group classes per month</li>
+          <li>Access to all class types</li>
+          <li>Locker room & showers</li>
+          <li>FitZone app access</li>
+        </ul>
+        <a class="btn btn-outline" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Unlimited</div>
+        <div class="price-amount">$189 <span>/mo</span></div>
+        <div class="price-desc">Our most popular plan. Train as much as you want.</div>
+        <ul class="price-features">
+          <li>Unlimited group classes</li>
+          <li>1 personal training session/mo</li>
+          <li>Priority class booking</li>
+          <li>Nutrition consultation</li>
+          <li>Guest pass (1x/month)</li>
+        </ul>
+        <a class="btn btn-primary" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Elite</div>
+        <div class="price-amount">$299 <span>/mo</span></div>
+        <div class="price-desc">For those who want the full premium experience.</div>
+        <ul class="price-features">
+          <li>Everything in Unlimited</li>
+          <li>4 personal training sessions/mo</li>
+          <li>Custom meal plan</li>
+          <li>Body composition tracking</li>
+          <li>Unlimited guest passes</li>
+        </ul>
+        <a class="btn btn-outline" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trainers -->
+<section class="section section-alt" id="trainers">
+  <div class="container">
+    <div class="section-label">Meet the Team</div>
+    <div class="section-title">Our Coaches</div>
+    <p class="section-subtitle">Certified, experienced, and passionate about helping you hit your goals.</p>
+    <div class="trainer-grid">
+      <div class="trainer-card">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1690908719367-01e293f74540?w=400&h=500&fit=crop" alt="Coach Marcus" loading="lazy">
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Marcus Tan</div>
+          <div class="trainer-role">Head Coach · HIIT & CrossFit</div>
+          <div class="trainer-bio">10 years experience. CrossFit L3. Former national athlete.</div>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1525060539736-979c838b7072?w=400&h=500&fit=crop" alt="Coach Priya" loading="lazy">
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Priya Sharma</div>
+          <div class="trainer-role">Yoga & Mobility Coach</div>
+          <div class="trainer-bio">RYT-500 certified. Specialises in power yoga and injury rehab.</div>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1545696968-1a5245650b36?w=400&h=500&fit=crop" alt="Coach Daniel" loading="lazy">
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Daniel Lim</div>
+          <div class="trainer-role">Strength & Conditioning</div>
+          <div class="trainer-bio">CSCS certified. Trains competitive powerlifters and beginners alike.</div>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-img">
+          <img src="https://images.unsplash.com/photo-1624091844772-554661d10173?w=400&h=500&fit=crop" alt="Coach Wei Ling" loading="lazy">
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Wei Ling Goh</div>
+          <div class="trainer-role">Boxing & Combat</div>
+          <div class="trainer-bio">Former SEA Games medallist. Makes boxing fun and accessible for all levels.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-label">What Members Say</div>
+    <div class="section-title">Real Results</div>
+    <p class="section-subtitle">Don't take our word for it — hear from our community.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Best gym I've been to in Singapore. The coaches actually care about your form and progress. Lost 8kg in 3 months."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jason K.</div>
+            <div class="testimonial-detail">Member since 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"The class variety is amazing. I do HIIT on Mondays, yoga on Wednesdays, and boxing on Fridays. Never gets boring."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah L.</div>
+            <div class="testimonial-detail">Unlimited Member</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"Small class sizes mean you actually get attention from the trainer. It's like having a PT but at group class prices."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Raj M.</div>
+            <div class="testimonial-detail">Elite Member</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section section-alt" id="trial">
+  <div class="container">
+    <div class="section-label">Your First Class Is Free</div>
+    <div class="section-title">Ready to Start?</div>
+    <p>Book a free trial class and experience FitZone for yourself. No commitment, no pressure — just a great workout.</p>
+    <div class="cta-buttons">
+      <a class="btn btn-primary" href="#">Book Free Trial</a>
+      <a class="btn btn-outline" href="#">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">FIT<span>ZONE</span></div>
+  <p>123 Orchard Road, Singapore 238888 · hello@fitzone.sg · +65 8123 4567</p>
+  <p style="margin-top: 0.5rem;">© 2026 FitZone SG. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

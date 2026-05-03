@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow Studio — Yoga & Pilates Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --sage: #7C9082;
+  --sage-light: #A3B8A0;
+  --sage-dark: #5A6B5E;
+  --warm: #C4A882;
+  --bg: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --bg-alt: #F3F0EB;
+  --text: #2C2C2C;
+  --text-muted: #7A7A7A;
+  --border: rgba(0,0,0,0.08);
+  --radius: 8px;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* Nav */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 3rem; display: flex; align-items: center; justify-content: space-between; background: rgba(250,248,245,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-logo { font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem; letter-spacing: 0.02em; }
+.nav-logo span { color: var(--sage); }
+.nav-links { display: flex; gap: 2.5rem; align-items: center; }
+.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; cursor: pointer; }
+.nav-links a:hover { color: var(--text); }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.6rem; border-radius: var(--radius); font-weight: 600; font-size: 0.82rem; border: none; cursor: pointer; transition: all 0.25s; font-family: var(--font-body); }
+.btn-sage { background: var(--sage); color: #fff; }
+.btn-sage:hover { background: var(--sage-dark); }
+.nav-links a.btn-sage { color: #fff; }
+.nav-links a.btn-sage:hover { color: #fff; }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); }
+.btn-outline:hover { border-color: var(--sage); color: var(--sage); }
+
+/* Hero */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 0 6%; padding-top: 80px; }
+.hero-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 1.5rem; }
+.hero h1 { font-family: var(--font-serif); font-size: 3.5rem; font-weight: 500; line-height: 1.15; margin-bottom: 1.5rem; }
+.hero h1 em { font-style: italic; color: var(--sage); }
+.hero-desc { font-size: 1rem; color: var(--text-muted); max-width: 420px; line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-buttons { display: flex; gap: 1rem; }
+.hero-right { position: relative; overflow: hidden; }
+.hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Classes */
+.section { padding: 5rem 3rem; }
+.section-alt { background: var(--bg-alt); }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.5rem; }
+.section-title { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 500; margin-bottom: 0.5rem; }
+.section-desc { color: var(--text-muted); font-size: 0.92rem; max-width: 480px; font-weight: 300; }
+.section-center { text-align: center; }
+.section-center .section-desc { margin: 0 auto; }
+
+.class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.class-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.25s; cursor: pointer; }
+.class-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); transform: translateY(-3px); }
+.class-img { height: 200px; overflow: hidden; }
+.class-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.class-card:hover .class-img img { transform: scale(1.04); }
+.class-info { padding: 1.5rem; }
+.class-type { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); }
+.class-name { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; margin: 0.35rem 0; }
+.class-detail { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+.class-meta { display: flex; gap: 1.5rem; margin-top: 0.75rem; font-size: 0.75rem; color: var(--text-muted); }
+
+/* Pricing */
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; position: relative; transition: all 0.25s; }
+.price-card.featured { border-color: var(--sage); box-shadow: 0 0 0 1px var(--sage); }
+.price-card.featured::before { content: 'Most Popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--sage); color: #fff; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.8rem; border-radius: 20px; }
+.price-tier { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); font-weight: 600; }
+.price-amount { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 600; margin: 0.5rem 0 0.25rem; }
+.price-amount span { font-size: 0.9rem; font-weight: 300; color: var(--text-muted); }
+.price-note { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 300; }
+.price-list { list-style: none; text-align: left; margin-bottom: 2rem; }
+.price-list li { font-size: 0.82rem; color: var(--text-muted); padding: 0.5rem 0; padding-left: 1.25rem; position: relative; font-weight: 400; }
+.price-list li::before { content: ''; position: absolute; left: 0; top: 0.85rem; width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
+.price-card .btn { width: 100%; justify-content: center; }
+
+/* Instructors */
+.instructor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.instructor-card { text-align: center; cursor: pointer; }
+.instructor-img { width: 140px; height: 140px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 3px solid var(--bg-alt); }
+.instructor-img img { width: 100%; height: 100%; object-fit: cover; }
+.instructor-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 600; }
+.instructor-role { font-size: 0.78rem; color: var(--sage); margin-top: 0.15rem; }
+.instructor-cert { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem; font-weight: 300; }
+
+/* CTA */
+.cta-section { padding: 6rem 3rem; text-align: center; background: var(--sage); color: #fff; }
+.cta-section .section-eyebrow { color: rgba(255,255,255,0.7); }
+.cta-section .section-title { color: #fff; }
+.cta-section p { color: rgba(255,255,255,0.8); max-width: 450px; margin: 0 auto 2rem; font-weight: 300; }
+.btn-white { background: #fff; color: var(--sage-dark); }
+.btn-white:hover { background: rgba(255,255,255,0.9); }
+.btn-ghost-white { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: var(--radius); }
+.btn-ghost-white:hover { border-color: #fff; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+
+/* Footer */
+.footer { padding: 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); }
+.footer-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; }
+.footer-logo span { color: var(--sage); }
+.footer p { font-size: 0.78rem; color: var(--text-muted); }
+
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .class-grid, .price-grid { grid-template-columns: 1fr; }
+  .instructor-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .section { padding: 3.5rem 1.5rem; }
+  .hero-left { padding: 120px 1.5rem 3rem; }
+  .hero h1 { font-size: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">Flow <span>Studio</span></div>
+  <div class="nav-links">
+    <a href="#classes">Classes</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#instructors">Instructors</a>
+    <a class="btn btn-sage" href="#trial">Book a Class</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Yoga &amp; Pilates &middot; Singapore</div>
+    <h1>Find Your<br><em>Flow</em></h1>
+    <p class="hero-desc">A thoughtful studio for yoga and pilates in the heart of Singapore. Small classes, experienced teachers, and a space designed to help you breathe, stretch, and strengthen.</p>
+    <div class="hero-buttons">
+      <a class="btn btn-sage" href="#trial">Book Your First Class</a>
+      <a class="btn btn-outline" href="#classes">Explore Classes</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1717691509065-970175593cc3?w=900&h=1100&fit=crop" alt="Yoga practice" loading="eager">
+  </div>
+</section>
+
+<section class="section section-alt" id="classes">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-eyebrow">Our Offerings</div>
+      <div class="section-title">Classes</div>
+      <p class="section-desc">From gentle morning stretches to challenging reformer sessions — find what moves you.</p>
+    </div>
+    <div class="class-grid">
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=500&h=350&fit=crop" alt="Vinyasa Flow" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Yoga</div>
+          <div class="class-name">Vinyasa Flow</div>
+          <div class="class-detail">A dynamic, breath-linked practice that builds heat and flexibility. Perfect for all levels.</div>
+          <div class="class-meta"><span>60 min</span><span>All Levels</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&h=350&fit=crop" alt="Reformer Pilates" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Pilates</div>
+          <div class="class-name">Reformer Pilates</div>
+          <div class="class-detail">Strengthen your core, improve posture, and tone muscles on our premium Balanced Body reformers.</div>
+          <div class="class-meta"><span>50 min</span><span>Max 8 pax</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=500&h=350&fit=crop" alt="Yin Yoga" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Yoga</div>
+          <div class="class-name">Yin &amp; Restore</div>
+          <div class="class-detail">Deep, slow stretches held for 3–5 minutes. Release tension, calm the mind, and restore balance.</div>
+          <div class="class-meta"><span>75 min</span><span>Beginner Friendly</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&h=350&fit=crop" alt="Power Yoga" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Yoga</div>
+          <div class="class-name">Power Yoga</div>
+          <div class="class-detail">A fitness-focused yoga practice that builds strength, stamina, and flexibility in equal measure.</div>
+          <div class="class-meta"><span>60 min</span><span>Intermediate</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=500&h=350&fit=crop" alt="Mat Pilates" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Pilates</div>
+          <div class="class-name">Mat Pilates</div>
+          <div class="class-detail">Classic mat work focusing on core control, alignment, and breath. No equipment needed.</div>
+          <div class="class-meta"><span>50 min</span><span>All Levels</span></div>
+        </div>
+      </div>
+      <div class="class-card">
+        <div class="class-img"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=500&h=350&fit=crop" alt="Prenatal Yoga" loading="lazy"></div>
+        <div class="class-info">
+          <div class="class-type">Specialty</div>
+          <div class="class-name">Prenatal Yoga</div>
+          <div class="class-detail">Gentle, safe practice designed for expecting mothers. Focus on breathing, pelvic floor, and comfort.</div>
+          <div class="class-meta"><span>60 min</span><span>All Trimesters</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-eyebrow">Membership</div>
+      <div class="section-title">Pricing</div>
+      <p class="section-desc">Flexible plans that grow with your practice.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="price-tier">Class Pack</div>
+        <div class="price-amount">$200 <span>/ 10 classes</span></div>
+        <div class="price-note">Valid for 3 months. Mix yoga &amp; pilates.</div>
+        <ul class="price-list">
+          <li>10 group classes</li>
+          <li>All class types included</li>
+          <li>Mat &amp; props provided</li>
+          <li>Online booking</li>
+        </ul>
+        <a class="btn btn-outline" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-tier">Unlimited</div>
+        <div class="price-amount">$250 <span>/month</span></div>
+        <div class="price-note">Best value for regular practitioners.</div>
+        <ul class="price-list">
+          <li>Unlimited yoga &amp; mat pilates</li>
+          <li>2 reformer classes per week</li>
+          <li>Priority booking</li>
+          <li>Guest passes (2x/month)</li>
+          <li>Workshop discounts</li>
+        </ul>
+        <a class="btn btn-sage" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Reformer Only</div>
+        <div class="price-amount">$320 <span>/month</span></div>
+        <div class="price-note">For dedicated reformer pilates lovers.</div>
+        <ul class="price-list">
+          <li>Unlimited reformer classes</li>
+          <li>Unlimited yoga &amp; mat pilates</li>
+          <li>Private reformer assessment</li>
+          <li>Priority booking</li>
+        </ul>
+        <a class="btn btn-outline" href="#trial" style="width:100%;justify-content:center;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="instructors">
+  <div class="container">
+    <div class="section-center">
+      <div class="section-eyebrow">Our Teachers</div>
+      <div class="section-title">Instructors</div>
+      <p class="section-desc">Experienced, certified, and genuinely passionate about your practice.</p>
+    </div>
+    <div class="instructor-grid">
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://images.unsplash.com/photo-1624091844772-554661d10173?w=300&h=300&fit=crop" alt="Amanda Lee" loading="lazy"></div>
+        <div class="instructor-name">Amanda Lee</div>
+        <div class="instructor-role">Vinyasa &amp; Power Yoga</div>
+        <div class="instructor-cert">E-RYT 500 &middot; 8 years teaching</div>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://images.unsplash.com/photo-1668049221691-9925a45e2017?w=300&h=300&fit=crop" alt="Rachel Ng" loading="lazy"></div>
+        <div class="instructor-name">Rachel Ng</div>
+        <div class="instructor-role">Reformer &amp; Mat Pilates</div>
+        <div class="instructor-cert">STOTT Certified &middot; 6 years teaching</div>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://images.unsplash.com/photo-1635353775931-1a6464be72cb?w=300&h=300&fit=crop" alt="Mei Lin" loading="lazy"></div>
+        <div class="instructor-name">Mei Lin</div>
+        <div class="instructor-role">Yin &amp; Prenatal Yoga</div>
+        <div class="instructor-cert">RYT 200 &middot; Doula Certified</div>
+      </div>
+      <div class="instructor-card">
+        <div class="instructor-img"><img src="https://images.unsplash.com/photo-1690908719367-01e293f74540?w=300&h=300&fit=crop" alt="James Koh" loading="lazy"></div>
+        <div class="instructor-name">James Koh</div>
+        <div class="instructor-role">Power Yoga &amp; Mobility</div>
+        <div class="instructor-cert">E-RYT 200 &middot; CSCS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="trial">
+  <div class="section-eyebrow">New to Flow?</div>
+  <div class="section-title">Your First Class Is on Us</div>
+  <p>Try any class for free — no commitment, no pressure. Just bring yourself and a water bottle.</p>
+  <div class="cta-buttons">
+    <a class="btn btn-white" href="#">Book Free Class</a>
+    <a class="btn btn-ghost-white" href="#">WhatsApp Us</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">Flow <span>Studio</span></div>
+  <p>18 Duxton Hill, Singapore 089601 &middot; hello@flowstudio.sg</p>
+</footer>
+
+</body>
+</html>

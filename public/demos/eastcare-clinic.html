@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EastCare Family Clinic — Your Neighbourhood Health Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal: #0D9488;
+  --teal-light: #14B8A6;
+  --teal-dark: #0F766E;
+  --teal-50: rgba(13,148,136,0.08);
+  --teal-100: rgba(13,148,136,0.15);
+  --cream: #FBF9F4;
+  --cream-dark: #F5F0E8;
+  --dark: #1C1917;
+  --text: #44403C;
+  --text-muted: #78716C;
+  --white: #FFFFFF;
+  --border: rgba(28,25,23,0.08);
+  --shadow-sm: 0 1px 3px rgba(28,25,23,0.06);
+  --shadow-md: 0 4px 16px rgba(28,25,23,0.08);
+  --shadow-lg: 0 12px 40px rgba(28,25,23,0.1);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 2rem; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(251,249,244,0.88); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-logo {
+  font-family: var(--font-heading); font-size: 1.4rem; color: var(--dark);
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.nav-logo svg { flex-shrink: 0; }
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500; color: var(--text-muted);
+  transition: color 0.2s; cursor: pointer;
+}
+.nav-links a:hover { color: var(--teal); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.4rem; border-radius: 50px;
+  background: var(--teal); color: var(--white) !important;
+  font-weight: 600; font-size: 0.85rem;
+  transition: all 0.2s; border: none; cursor: pointer;
+}
+.nav-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.nav-hamburger {
+  display: none; background: none; border: none; cursor: pointer; padding: 0.5rem;
+}
+.nav-hamburger svg { display: block; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 7rem 2rem 5rem; position: relative; overflow: hidden;
+}
+.hero-container {
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.45rem 1rem; border-radius: 50px;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--teal-50); color: var(--teal); border: 1px solid var(--teal-100);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: var(--font-heading); font-size: 3.6rem; font-weight: 400;
+  line-height: 1.15; color: var(--dark); margin-bottom: 1.25rem;
+}
+.hero h1 .highlight {
+  color: var(--teal); position: relative;
+}
+.hero h1 .highlight::after {
+  content: ''; position: absolute; bottom: 2px; left: 0; right: 0;
+  height: 3px; background: var(--teal); border-radius: 2px; opacity: 0.3;
+}
+.hero p {
+  font-size: 1.1rem; color: var(--text-muted); max-width: 460px;
+  margin-bottom: 2rem; line-height: 1.75;
+}
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-trust {
+  display: flex; gap: 2rem; margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.hero-trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
+.hero-trust-item svg { color: var(--teal); flex-shrink: 0; }
+.hero-image {
+  position: relative; border-radius: 24px; overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.hero-image img {
+  width: 100%; height: 560px; object-fit: cover; display: block;
+}
+.hero-image-badge {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  background: var(--white); border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem; box-shadow: var(--shadow-md);
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.hero-image-badge .dot { width: 10px; height: 10px; border-radius: 50%; background: #22C55E; flex-shrink: 0; }
+.hero-image-badge .label { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
+.hero-image-badge .sublabel { font-size: 0.72rem; color: var(--text-muted); }
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.85rem 1.75rem; border-radius: 50px;
+  font-weight: 600; font-size: 0.9rem; border: none;
+  cursor: pointer; transition: all 0.25s; font-family: var(--font-body);
+}
+.btn-primary { background: var(--teal); color: var(--white); }
+.btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,148,136,0.25); }
+.btn-outline { background: transparent; color: var(--dark); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+.btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 6rem 2rem; }
+.section-alt { background: var(--white); }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; max-width: 600px; margin: 0 auto 3.5rem; }
+.section-label {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--teal); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-heading); font-size: 2.5rem; font-weight: 400;
+  color: var(--dark); margin-bottom: 0.75rem; line-height: 1.2;
+}
+.section-subtitle { color: var(--text-muted); font-size: 1.05rem; }
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;
+}
+.service-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.75rem;
+  display: flex; align-items: flex-start; gap: 1.25rem;
+  transition: all 0.25s; cursor: default;
+}
+.service-card:hover {
+  border-color: rgba(13,148,136,0.2); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.service-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--teal-50); color: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.service-card h3 {
+  font-family: var(--font-heading); font-size: 1.15rem; color: var(--dark);
+  margin-bottom: 0.35rem;
+}
+.service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ===== HOURS ===== */
+.hours-wrapper {
+  max-width: 680px; margin: 0 auto;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.hours-header {
+  background: var(--teal); color: var(--white);
+  padding: 1.25rem 2rem; display: flex; align-items: center; gap: 0.75rem;
+}
+.hours-header h3 { font-family: var(--font-heading); font-size: 1.2rem; }
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid var(--border); }
+.hours-table tr:last-child { border-bottom: none; }
+.hours-table td {
+  padding: 1rem 2rem; font-size: 0.95rem;
+}
+.hours-table td:first-child { font-weight: 600; color: var(--dark); width: 50%; }
+.hours-table td:last-child { color: var(--text-muted); text-align: right; }
+.hours-table tr.today { background: var(--teal-50); }
+.hours-note {
+  padding: 1rem 2rem; background: var(--cream);
+  font-size: 0.82rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: 0.5rem;
+}
+
+/* ===== DOCTORS ===== */
+.doctors-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.doctor-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  transition: all 0.25s;
+}
+.doctor-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.doctor-photo {
+  width: 100%; height: 320px; object-fit: cover;
+  background: var(--cream-dark);
+}
+.doctor-info { padding: 1.75rem; }
+.doctor-info h3 {
+  font-family: var(--font-heading); font-size: 1.3rem; color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+.doctor-role {
+  font-size: 0.85rem; color: var(--teal); font-weight: 600; margin-bottom: 0.75rem;
+}
+.doctor-credentials { list-style: none; padding: 0; }
+.doctor-credentials li {
+  font-size: 0.85rem; color: var(--text-muted); padding: 0.25rem 0;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.doctor-credentials li svg { color: var(--teal); flex-shrink: 0; }
+.doctor-languages {
+  margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.doctor-lang-tag {
+  padding: 0.25rem 0.65rem; border-radius: 50px;
+  background: var(--teal-50); color: var(--teal);
+  font-size: 0.75rem; font-weight: 600;
+}
+
+/* ===== LOCATION ===== */
+.location-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;
+}
+.location-info { padding: 1rem 0; }
+.location-info h3 {
+  font-family: var(--font-heading); font-size: 1.5rem; color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+.location-detail {
+  display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start;
+}
+.location-detail-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--teal-50); color: var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.location-detail h4 { font-size: 0.88rem; font-weight: 600; color: var(--dark); margin-bottom: 0.15rem; }
+.location-detail p { font-size: 0.88rem; color: var(--text-muted); }
+.map-placeholder {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); height: 380px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  overflow: hidden; position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.map-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(13,148,136,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13,148,136,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-pin {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.map-pin svg { filter: drop-shadow(0 4px 8px rgba(13,148,136,0.3)); }
+.map-pin-label {
+  background: var(--white); border-radius: 8px;
+  padding: 0.5rem 1rem; box-shadow: var(--shadow-md);
+  font-size: 0.82rem; font-weight: 600; color: var(--dark);
+  white-space: nowrap;
+}
+.map-roads {
+  position: absolute; inset: 0; z-index: 0;
+}
+.map-roads::before {
+  content: ''; position: absolute;
+  top: 50%; left: 0; right: 0; height: 3px;
+  background: rgba(13,148,136,0.12); transform: translateY(-50%);
+}
+.map-roads::after {
+  content: ''; position: absolute;
+  left: 55%; top: 0; bottom: 0; width: 3px;
+  background: rgba(13,148,136,0.12);
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  background: var(--teal); padding: 5rem 2rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%);
+}
+.cta-content { position: relative; z-index: 1; }
+.cta-section h2 {
+  font-family: var(--font-heading); font-size: 2.8rem;
+  color: var(--white); margin-bottom: 1rem;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.8); font-size: 1.1rem;
+  max-width: 500px; margin: 0 auto 2rem;
+}
+.btn-white {
+  background: var(--white); color: var(--teal); font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.btn-white:hover {
+  background: var(--cream); transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.cta-info {
+  display: flex; justify-content: center; gap: 2.5rem; margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.cta-info-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: rgba(255,255,255,0.85); font-size: 0.88rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--dark); color: rgba(255,255,255,0.6);
+  padding: 4rem 2rem 2rem;
+}
+.footer-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand h3 {
+  font-family: var(--font-heading); font-size: 1.3rem;
+  color: var(--white); margin-bottom: 0.75rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 320px; }
+.footer-col h4 {
+  font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: rgba(255,255,255,0.4); margin-bottom: 1rem;
+}
+.footer-col a {
+  display: block; font-size: 0.88rem; padding: 0.3rem 0;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--teal-light); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  padding-top: 1.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.8rem;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .hero-container { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero { min-height: auto; padding: 7rem 1.5rem 3rem; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero-image img { height: 360px; }
+  .hero-trust { gap: 1.25rem; flex-wrap: wrap; }
+  .services-grid { grid-template-columns: 1fr; }
+  .doctors-grid { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .section-title { font-size: 2rem; }
+  .cta-section h2 { font-size: 2rem; }
+  .cta-info { gap: 1.25rem; }
+}
+@media (max-width: 600px) {
+  .nav { padding: 0 1.25rem; }
+  .section { padding: 4rem 1.25rem; }
+  .hero { padding: 6rem 1.25rem 2.5rem; }
+  .hero h1 { font-size: 2.1rem; }
+  .hero-buttons { flex-direction: column; }
+  .hero-trust { flex-direction: column; gap: 0.75rem; }
+  .hours-table td { padding: 0.85rem 1.25rem; font-size: 0.88rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .doctor-photo { height: 240px; }
+  .map-placeholder { height: 280px; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0; transform: translateY(24px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="8" fill="#0D9488"/>
+      <path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+    EastCare Family Clinic
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#hours">Hours</a>
+    <a href="#doctors">Our Doctors</a>
+    <a href="#location">Location</a>
+    <a href="#book" class="nav-cta">Book Appointment</a>
+  </div>
+  <button class="nav-hamburger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1917" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Trusted by Bedok families since 2012
+      </div>
+      <h1>Your Neighbourhood <span class="highlight">Health Partner</span></h1>
+      <p>Compassionate, affordable healthcare for the whole family. Walk-ins welcome, CHAS and MediSave accepted.</p>
+      <div class="hero-buttons">
+        <a href="#book" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Appointment
+        </a>
+        <a href="tel:+6561234567" class="btn btn-outline btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call 6123 4567
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          CHAS Accepted
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          MediSave Claimable
+        </div>
+        <div class="hero-trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Walk-ins Welcome
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://plus.unsplash.com/premium_photo-1667520580687-a85c9080a9bc?w=900&h=1000&fit=crop" alt="Friendly doctor at EastCare Family Clinic" loading="eager">
+      <div class="hero-image-badge">
+        <div class="dot"></div>
+        <div>
+          <div class="label">Clinic is Open</div>
+          <div class="sublabel">Next available: 10 mins</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Comprehensive Care for Your Family</h2>
+      <p class="section-subtitle">From routine check-ups to chronic disease management, we provide holistic healthcare tailored to your needs.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h3>GP Consultation</h3>
+          <p>General health consultations for cough, cold, fever, allergies, skin conditions, and more. From $20 (before CHAS subsidy).</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+        </div>
+        <div>
+          <h3>Health Screening</h3>
+          <p>Comprehensive health screening packages including blood tests, cholesterol, diabetes, and cancer markers. Screen for Life eligible.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <h3>Vaccinations</h3>
+          <p>Flu, pneumococcal, HPV, Hepatitis B, and childhood immunisations. MediSave claimable for selected vaccinations.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div>
+          <h3>Chronic Disease Management</h3>
+          <p>Long-term care for diabetes, hypertension, high cholesterol, and asthma. CDMP subsidies available for eligible patients.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <h3>Minor Procedures</h3>
+          <p>Wound stitching, abscess drainage, mole and skin tag removal, ear syringing, and ingrown toenail treatment.</p>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+        </div>
+        <div>
+          <h3>Medical Certificates</h3>
+          <p>MC for work or school, pre-employment check-ups, fitness assessments, and referral letters to specialist clinics.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLINIC HOURS ===== -->
+<section class="section" id="hours">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Clinic Hours</div>
+      <h2 class="section-title">We Are Here When You Need Us</h2>
+      <p class="section-subtitle">Extended weekday hours so you can visit after work. Walk-ins welcome, no appointment needed.</p>
+    </div>
+    <div class="hours-wrapper fade-up">
+      <div class="hours-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3>Opening Hours</h3>
+      </div>
+      <table class="hours-table">
+        <tr>
+          <td>Monday</td>
+          <td>8:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>8:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>8:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>8:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>8:00 AM - 10:00 PM</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>8:00 AM - 2:00 PM</td>
+        </tr>
+        <tr>
+          <td>Sunday / Public Holidays</td>
+          <td>9:00 AM - 1:00 PM</td>
+        </tr>
+      </table>
+      <div class="hours-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Last registration 30 minutes before closing. Lunch break: 1:00 PM - 2:00 PM (weekdays).
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCTORS ===== -->
+<section class="section section-alt" id="doctors">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Our Doctors</div>
+      <h2 class="section-title">Experienced, Caring Physicians</h2>
+      <p class="section-subtitle">Our doctors bring decades of combined experience in family medicine and are passionate about community health.</p>
+    </div>
+    <div class="doctors-grid">
+
+      <div class="doctor-card fade-up">
+        <img class="doctor-photo" src="https://images.unsplash.com/photo-1758600587683-d86675a2f6e9?w=600&h=400&fit=crop&crop=top" alt="Dr. Rachel Tan">
+        <div class="doctor-info">
+          <h3>Dr. Rachel Tan Wei Lin</h3>
+          <div class="doctor-role">Medical Director / Family Physician</div>
+          <ul class="doctor-credentials">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              MBBS (NUS), GDFM (NUS)
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              15 years of clinical experience
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              Special interest in women's health
+            </li>
+          </ul>
+          <div class="doctor-languages">
+            <span class="doctor-lang-tag">English</span>
+            <span class="doctor-lang-tag">Mandarin</span>
+            <span class="doctor-lang-tag">Hokkien</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="doctor-card fade-up">
+        <img class="doctor-photo" src="https://images.unsplash.com/photo-1681097561932-36d0df02b379?w=600&h=400&fit=crop&crop=top" alt="Dr. Ahmad Faizal">
+        <div class="doctor-info">
+          <h3>Dr. Ahmad Faizal bin Ismail</h3>
+          <div class="doctor-role">Senior Family Physician</div>
+          <ul class="doctor-credentials">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              MBBS (NUS), MMed Family Medicine
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              12 years of clinical experience
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+              Special interest in chronic disease management
+            </li>
+          </ul>
+          <div class="doctor-languages">
+            <span class="doctor-lang-tag">English</span>
+            <span class="doctor-lang-tag">Malay</span>
+            <span class="doctor-lang-tag">Mandarin</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCATION ===== -->
+<section class="section" id="location">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title">Conveniently Located in Bedok</h2>
+      <p class="section-subtitle">Easy to reach by MRT, bus, or car. Located on the ground floor with barrier-free access.</p>
+    </div>
+    <div class="location-grid fade-up">
+      <div class="location-info">
+        <h3>EastCare Family Clinic</h3>
+
+        <div class="location-detail">
+          <div class="location-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Address</h4>
+            <p>Blk 123 Bedok North Avenue 3<br>#01-456, Singapore 460123</p>
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <div class="location-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Phone</h4>
+            <p>+65 6123 4567</p>
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <div class="location-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg>
+          </div>
+          <div>
+            <h4>Nearest MRT</h4>
+            <p>Bedok MRT (EW5) -- 5 min walk</p>
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <div class="location-detail-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h4>Parking</h4>
+            <p>HDB parking available at Blk 123.<br>Season parking lots at adjacent blocks.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <div class="map-grid"></div>
+        <div class="map-roads"></div>
+        <div class="map-pin">
+          <svg width="40" height="52" viewBox="0 0 40 52" fill="none">
+            <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 32 20 32s20-18 20-32C40 8.954 31.046 0 20 0z" fill="#0D9488"/>
+            <circle cx="20" cy="18" r="8" fill="#fff"/>
+            <path d="M16 18h8M20 14v8" stroke="#0D9488" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="map-pin-label">Blk 123 Bedok North Ave 3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="book">
+  <div class="cta-content fade-up">
+    <h2>Book an Appointment</h2>
+    <p>Skip the wait. Reserve your slot online and see a doctor at a time that suits you.</p>
+    <a href="tel:+6561234567" class="btn btn-white btn-lg">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call Us: 6123 4567
+    </a>
+    <div class="cta-info">
+      <div class="cta-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Walk-ins welcome
+      </div>
+      <div class="cta-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Same-day appointments
+      </div>
+      <div class="cta-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        Open 7 days a week
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#0D9488"/>
+          <path d="M10 16h12M16 10v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        EastCare Family Clinic
+      </h3>
+      <p>Providing compassionate, affordable healthcare to the Bedok community since 2012. Your family's health is our priority.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">GP Consultation</a>
+      <a href="#services">Health Screening</a>
+      <a href="#services">Vaccinations</a>
+      <a href="#services">Chronic Disease</a>
+      <a href="#services">Minor Procedures</a>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <a href="#hours">Clinic Hours</a>
+      <a href="#doctors">Our Doctors</a>
+      <a href="#location">Location</a>
+      <a href="#">Insurance & Subsidies</a>
+      <a href="#">Patient Resources</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+6561234567">+65 6123 4567</a>
+      <a href="mailto:hello@eastcare.sg">hello@eastcare.sg</a>
+      <a href="#">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>2026 EastCare Family Clinic Pte Ltd. All rights reserved.</span>
+    <span>SMC Reg. No. T12FC1234A</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Scroll-triggered fade-up
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Highlight today's row in hours table
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const today = days[new Date().getDay()];
+document.querySelectorAll('.hours-table tr').forEach(row => {
+  const dayCell = row.querySelector('td:first-child');
+  if (dayCell && dayCell.textContent.includes(today)) {
+    row.classList.add('today');
+  }
+});
+</script>
+</body>
+</html>
