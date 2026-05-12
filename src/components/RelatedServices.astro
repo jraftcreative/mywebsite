@@ -1,0 +1,111 @@
+---
+/**
+ * RelatedServices.astro
+ *
+ * Drops a "Related Services" block at the bottom of a landing page.
+ * - You can pass an explicit `links` array, OR
+ * - Pass `topic` (e.g. "seo", "ads", "website", "social") and it'll
+ *   surface 5 contextually-relevant links from a curated map.
+ *
+ * Goal: kill the 110/187 orphaned-long-tail problem flagged in
+ * Ben's audit (C5) by giving every page at least 5 outbound links
+ * to closely-related URLs in the same vertical/intent cluster.
+ */
+
+interface Link {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  heading?: string;
+  label?: string;
+  topic?: 'website' | 'seo' | 'ads' | 'social' | 'branding' | 'content' | 'general';
+  links?: Link[];
+}
+
+const {
+  heading = 'Related Services',
+  label = 'Explore More',
+  topic = 'general',
+  links,
+} = Astro.props;
+
+const curated: Record<string, Link[]> = {
+  website: [
+    { href: '/services/website-development/', label: 'Website Development' },
+    { href: '/ecommerce-website-singapore/', label: 'Ecommerce Websites' },
+    { href: '/landing-page-design-singapore/', label: 'Landing Page Design' },
+    { href: '/small-business-website-singapore/', label: 'Small Business Websites' },
+    { href: '/affordable-website-design-singapore/', label: 'Affordable Website Design' },
+    { href: '/responsive-web-design-singapore/', label: 'Responsive Web Design' },
+  ],
+  seo: [
+    { href: '/services/seo-performance/', label: 'SEO &amp; Performance' },
+    { href: '/services/ai-search-optimisation/', label: 'AI Search Optimisation' },
+    { href: '/chatgpt-optimisation-singapore/', label: 'ChatGPT Optimisation' },
+    { href: '/generative-engine-optimisation-singapore/', label: 'Generative Engine Optimisation' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+    { href: '/content-marketing-agency-singapore/', label: 'Content Marketing' },
+  ],
+  ads: [
+    { href: '/services/paid-ads/', label: 'Paid Performance Marketing' },
+    { href: '/google-ads-agency-singapore/', label: 'Google Ads Agency' },
+    { href: '/facebook-ads-agency-singapore/', label: 'Facebook Ads Agency' },
+    { href: '/tiktok-marketing-agency-singapore/', label: 'TikTok Marketing Agency' },
+    { href: '/landing-page-design-singapore/', label: 'Landing Page Design' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+  ],
+  social: [
+    { href: '/services/social-media/', label: 'Social Media Content' },
+    { href: '/tiktok-marketing-agency-singapore/', label: 'TikTok Marketing Agency' },
+    { href: '/facebook-ads-agency-singapore/', label: 'Facebook Ads Agency' },
+    { href: '/content-marketing-agency-singapore/', label: 'Content Marketing Agency' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+    { href: '/email-marketing-singapore/', label: 'Email Marketing' },
+  ],
+  branding: [
+    { href: '/branding-agency-singapore/', label: 'Branding Agency' },
+    { href: '/services/website-development/', label: 'Website Development' },
+    { href: '/services/social-media/', label: 'Social Media Content' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+    { href: '/content-marketing-agency-singapore/', label: 'Content Marketing Agency' },
+    { href: '/landing-page-design-singapore/', label: 'Landing Page Design' },
+  ],
+  content: [
+    { href: '/content-marketing-agency-singapore/', label: 'Content Marketing Agency' },
+    { href: '/services/seo-performance/', label: 'SEO &amp; Performance' },
+    { href: '/services/social-media/', label: 'Social Media Content' },
+    { href: '/email-marketing-singapore/', label: 'Email Marketing' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+    { href: '/branding-agency-singapore/', label: 'Branding Agency' },
+  ],
+  general: [
+    { href: '/services/website-development/', label: 'Website Development' },
+    { href: '/services/seo-performance/', label: 'SEO &amp; Performance' },
+    { href: '/services/paid-ads/', label: 'Paid Performance Marketing' },
+    { href: '/services/social-media/', label: 'Social Media Content' },
+    { href: '/services/ai-search-optimisation/', label: 'AI Search Optimisation' },
+    { href: '/digital-marketing-agency-singapore/', label: 'Digital Marketing Agency' },
+  ],
+};
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') + '/';
+const resolvedLinks: Link[] = (links && links.length > 0)
+  ? links
+  : (curated[topic] || curated.general).filter(l => l.href !== currentPath).slice(0, 5);
+---
+
+<section class="section" id="related-services" aria-label="Related services">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">{label}</p>
+      <h2>{heading}</h2>
+    </div>
+    <div class="related-services-grid reveal">
+      {resolvedLinks.map(l => (
+        <a href={l.href} class="related-service-link" set:html={l.label} />
+      ))}
+    </div>
+  </div>
+</section>

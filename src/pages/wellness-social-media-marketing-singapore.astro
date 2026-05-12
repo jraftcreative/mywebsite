@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
@@ -45,7 +46,7 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/social-media-marketing-singapore/" },
+      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
       { "@type": "ListItem", "position": 3, "name": "Wellness Social Media Marketing", "item": "https://jraftcreative.com/wellness-social-media-marketing-singapore/" }
     ]
   }
@@ -159,7 +160,7 @@ const schemaData = [
         <div class="service-detail-card reveal reveal-d3">
           <div class="service-detail-card__content">
             <h3>Full-Service Integration</h3>
-            <p>Social media, <a href="/web-design-singapore/" class="inline-link">website design</a>, <a href="/seo-services-singapore/" class="inline-link">SEO</a>, and <a href="/google-ads-agency-singapore/" class="inline-link">paid advertising</a> — all handled by one team. Your brand messaging stays consistent across every channel without the delays of coordinating multiple vendors.</p>
+            <p>Social media, <a href="/services/website-development/" class="inline-link">website design</a>, <a href="/services/seo-performance/" class="inline-link">SEO</a>, and <a href="/google-ads-agency-singapore/" class="inline-link">paid advertising</a> — all handled by one team. Your brand messaging stays consistent across every channel without the delays of coordinating multiple vendors.</p>
           </div>
         </div>
         <div class="service-detail-card reveal reveal-d1">
@@ -263,5 +264,8 @@ const schemaData = [
       </div>
     </div>
   </section>
+
+
+  <RelatedServices topic="social" />
 
 </ServiceLayout>
