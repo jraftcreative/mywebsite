@@ -3793,3 +3793,321 @@ html, body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   Mobile Responsive Polish — May 2026
+   Liam: typography floor, fluid scaling, touch
+   targets, table/aside overflow on landing pages
+   ============================================ */
+
+/* 1. Fluid hero scaling — works at every size from 320px to 1920px */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    letter-spacing: -0.03em;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: clamp(1.9rem, 8.5vw, 2.3rem);
+  }
+  .hero {
+    padding: 130px 0 64px;
+  }
+  .hero p {
+    margin-bottom: 32px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 2. Typography floor — no body text below 14px on mobile.
+   Editorial labels (eyebrow text) stay slightly compact but readable. */
+@media (max-width: 640px) {
+  .hero-label,
+  .section-label,
+  .trust-label,
+  .footer-legal,
+  .footer-legal span,
+  .footer-legal a,
+  .footer-bottom p,
+  .footer-bottom a {
+    font-size: 0.82rem; /* 13.12px → still pill-style but legible */
+    letter-spacing: 0.12em;
+  }
+
+  /* Body-weight text — bump to 14px+ */
+  .pricing-card .pricing-desc,
+  .pricing-features li,
+  .service-pricing-desc,
+  .cs-card-body p,
+  .cs-card-tag,
+  .blog-card-body p,
+  .blog-card-meta,
+  .service-detail-card p,
+  .feature-card p,
+  .industry-hub-card p,
+  .industry-detail-card > p,
+  .industry-detail-services a,
+  .specialised-aside-body,
+  .specialised-aside-link,
+  .specialised-cluster-num,
+  .checklist-grid li,
+  .content-callout p,
+  .stat-highlight-text,
+  .faq-answer,
+  .faq-answer p,
+  .related-service-link,
+  .breadcrumb,
+  .blog-breadcrumb,
+  .blog-post-category,
+  .blog-card-category {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* Editorial chips that need to feel compact but readable */
+  .pricing-card .price span {
+    font-size: 0.9rem;
+  }
+
+  .pricing-card.featured::before,
+  .service-pricing .pricing-card.featured::before {
+    font-size: 0.78rem; /* 12.48px — but it's a tiny badge, not body */
+    padding: 5px 16px;
+  }
+
+  /* Trust-stat label */
+  .trust-stat .label,
+  .trust-stat-label {
+    font-size: 0.88rem;
+  }
+}
+
+/* 3. Pillar/landing page H1 — keep punchy on small phones, never crush */
+@media (max-width: 480px) {
+  .service-hero h1 {
+    font-size: clamp(1.7rem, 7vw, 2rem);
+    line-height: 1.12;
+  }
+  .blog-post-hero h1 {
+    font-size: clamp(1.55rem, 6.5vw, 1.85rem);
+    line-height: 1.18;
+  }
+  .blog-post-description {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+  /* Section header on small screens */
+  .section-header h2 {
+    font-size: clamp(1.65rem, 6vw, 2rem);
+    line-height: 1.2;
+  }
+  .cta-section h2 {
+    font-size: clamp(1.65rem, 6vw, 2rem);
+  }
+}
+
+/* 4. Pricing card badge — avoid clipping on the narrowest screens */
+@media (max-width: 360px) {
+  .pricing-card.featured,
+  .service-pricing .pricing-card.featured {
+    margin-top: 12px;
+  }
+  .pricing-card.featured::before,
+  .service-pricing .pricing-card.featured::before {
+    top: -10px;
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+  .container {
+    padding: 0 18px;
+  }
+}
+
+/* 5. Touch target floors — anything tappable hits 44x44 on mobile.
+   Nav already covered above; this targets in-content links and inline buttons.
+   Inline article links keep their tight line-height — only standalone
+   action links get the upsize. */
+@media (max-width: 640px) {
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .nav-cta,
+  .form-submit,
+  .pricing-card .btn,
+  .hero-buttons .btn {
+    min-height: 48px;
+    padding: 14px 26px;
+  }
+
+  /* FAQ summary needs a deliberate 48px tap target */
+  .faq-item summary {
+    min-height: 56px;
+    padding: 18px 20px;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  .faq-item summary::after {
+    font-size: 1.6rem;
+  }
+
+  /* Related service "pills" — touch-friendly */
+  .related-service-link {
+    padding: 0.7rem 1.1rem;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .industry-detail-services a {
+    padding: 0.5rem 0.85rem;
+    min-height: 36px; /* tight but acceptable for chips */
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* 6. Tablet / landscape phone — bridge the 641-900px gap.
+   The default sm-down nav switch happens at 640px, so 641-900px
+   shows desktop nav. Tighten its spacing to avoid wrap. */
+@media (min-width: 641px) and (max-width: 900px) {
+  .nav .container {
+    padding: 0 24px;
+  }
+  .nav-links {
+    gap: 22px;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+  .nav-cta {
+    padding: 9px 18px;
+  }
+  .nav-logo img {
+    height: 56px;
+  }
+  .nav .container {
+    height: 64px;
+  }
+}
+
+/* 7. Service detail / industry detail grid — improve cramping on
+   narrow phones, since the 220-280px min-height tiles compress copy. */
+@media (max-width: 480px) {
+  .service-detail-card {
+    padding: 24px 20px;
+  }
+  .service-detail-card--overlay .service-detail-card__content,
+  .challenge-card--overlay .challenge-card__content {
+    padding: 22px 18px;
+    min-height: 160px;
+  }
+  .industry-hub-card {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+  .industry-detail-card {
+    padding: 1.4rem;
+  }
+}
+
+/* 8. Mobile aside / stat-highlight — collapse cleanly */
+@media (max-width: 640px) {
+  .specialised-aside {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 22px 22px;
+  }
+  .specialised-aside-link {
+    align-self: flex-start;
+  }
+}
+
+/* 9. Service hero — restore a confident, readable size on mobile.
+   Existing rule sets it to 1.6-2rem clamp, which crushes the
+   pillar pages. Bump and add subtitle scaling. */
+@media (max-width: 640px) {
+  .service-hero h1 {
+    font-size: clamp(1.85rem, 6.5vw, 2.3rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+  .service-hero {
+    padding: 130px 0 56px;
+  }
+}
+
+/* 10. Defend against any new content that drops a wide element
+   (e.g. ASCII tables, code blocks) into pillar prose. */
+.blog-post-content pre,
+.legal-content pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+/* 11. Mobile nav — ensure the menu opens above the orb background
+   and the close (X via CSS transform) is clearly tappable. */
+@media (max-width: 640px) {
+  .nav-toggle {
+    margin-right: -8px; /* pulls the toggle close to edge for thumb reach */
+  }
+  .nav-links {
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 40px;
+  }
+}
+
+/* 12. Prevent inline accent links inside long paragraphs from
+   getting cut off when the underline + descender hits the next line. */
+@media (max-width: 480px) {
+  .blog-post-content p a,
+  .legal-content p a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+}
+
+/* 13. Trust stats — tighten gap on mobile so all 4 fit on two rows */
+@media (max-width: 480px) {
+  .trust-stats {
+    gap: 20px 28px;
+  }
+  .trust-stat .number,
+  .trust-stat-number {
+    font-size: 1.9rem;
+  }
+}
+
+/* 14. Comparison table — already has horizontal-scroll wrap,
+   add a subtle visual hint that it scrolls on touch */
+@media (max-width: 640px) {
+  .comparison-table-wrap,
+  .blog-post-content .table-wrap {
+    position: relative;
+  }
+  .comparison-table-wrap::after,
+  .blog-post-content .table-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 32px;
+    background: linear-gradient(to right, transparent, rgba(8, 8, 13, 0.85));
+    pointer-events: none;
+    opacity: 0.6;
+  }
+}
+
