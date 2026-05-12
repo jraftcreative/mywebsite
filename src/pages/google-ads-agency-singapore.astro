@@ -1,6 +1,5 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
@@ -44,7 +43,7 @@ const schemaData = [
       { "@type": "Question", "name": "What's Performance Max and should I use it?", "acceptedAnswer": { "@type": "Answer", "text": "Performance Max is Google's AI-driven campaign type that runs across Search, Display, YouTube, Gmail, and Discover simultaneously. Strengths: easy setup, broad reach, good for e-commerce. Weaknesses: black-box reporting (you can't see where spend goes), poor performance for lead-gen B2B, and tends to burn budget on irrelevant placements without strong audience signals. We use Performance Max for some e-commerce and lead-gen clients with strong conversion data — but only with audience signals, asset groups, and brand exclusions properly configured." } },
       { "@type": "Question", "name": "Should I run Google Ads or Meta (Facebook + Instagram) Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Both, usually, but order them by intent. Google Ads captures active demand — someone typing \"aesthetic clinic Orchard\" is ready to book. Meta creates demand — showing your service to people who weren't looking yet. For most SG SMEs we recommend starting Google Ads first (faster ROI, immediate qualified leads) then layering Meta for retargeting and demand generation in months 2-3. Industry exceptions: visual product categories (beauty, F&B, fashion) often do better leading with Meta." } },
       { "@type": "Question", "name": "How do you track conversions for Google Ads in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Three layers: (1) Google Ads conversion tags for form submissions, calls, and purchases — fired through Google Tag Manager or Cloudflare Zaraz; (2) GA4 conversion events as a secondary check; (3) offline conversion uploads using GCLID matching — when a lead becomes a booking or sale in your CRM, we push that back to Google Ads so the algorithm optimises for revenue, not just form fills. Layer 3 is what separates an agency that gets you leads from one that gets you customers." } },
-      { "@type": "Question", "name": "What's a free Google Ads strategy session and what do I get?", "acceptedAnswer": { "@type": "Answer", "text": "A 45-minute call with a strategist where we audit your current Google Ads account (if you have one), review your competitors' ad presence, identify your highest-intent keywords, project realistic monthly spend and CPL targets for your category, and walk through what a working campaign would look like. No deck. No pitch. If we're not the right fit, we'll say so. We do these because most SG SMEs are running Ads built by someone who left, an in-house person who never learned the platform properly, or Performance Max on autopilot. Free hour, honest assessment. | Page | Questions | Word count | |---|---|---| | `/ai-seo-singapore/` | 12 | 1,098 | | `/geo-agency-singapore/` | 10 | 866 | | `/google-ads-agency-singapore/` | 11 | 1,007 | | **Total** | **33** | **2,971** | All answers within the 50-100 word target band. No brand-voice violations (checked against the locked list — no \"leverage\", \"synergy\", \"world-class\", \"cutting-edge\", \"passionate\", \"thrilled\", \"delighted\"). All pricing matches the live schema offers on each page. For each pillar page, add: 1. **Visible FAQ section** — accordion or `<details>` blocks on the page, after the pricing/services section, before the final CTA. Mei should style consistent with the existing pillar page system. 2. **JSON-LD FAQPage schema** — emit in the page head, parallel to the existing Service schema. Use https://schema.org/FAQPage structure with each Question containing an acceptedAnswer. 3. **Anchors** — give each question an `id` for direct linking (e.g. `#how-much-ai-seo-cost`). Helps internal linking from blog posts. When Ben signs off the SEO impact, ship as part of the next deploy." } }
+      { "@type": "Question", "name": "What's a free Google Ads strategy session and what do I get?", "acceptedAnswer": { "@type": "Answer", "text": "A 45-minute call with a strategist where we audit your current Google Ads account (if you have one), review your competitors' ad presence, identify your highest-intent keywords, project realistic monthly spend and CPL targets for your category, and walk through what a working campaign would look like. No deck. No pitch. If we're not the right fit, we'll say so. We do these because most SG SMEs are running Ads built by someone who left, an in-house person who never learned the platform properly, or Performance Max on autopilot. Free hour, honest assessment." } }
     ]
   },
   {
@@ -69,129 +68,226 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Google Ads Agency Singapore"
   heroTitle='Google Ads &amp; PPC Management <span class="highlight">in Singapore</span>'
-  heroSubtitle="Stop wasting ad budget on clicks that don't convert. We build, manage, and optimise Google Ads campaigns that drive qualified leads and measurable ROI for Singapore businesses."
+  heroSubtitle="Last month our own Google Ads dashboard said our cost-per-lead was S$50. The real number was S$237.73. Nineteen reported conversions. Four real leads. The other fifteen were job seekers tapping the WhatsApp button on our contact page — Google logged each one as a conversion and the bidding algorithm spent the budget optimising for more of them. If you're running Google Ads in Singapore and you've never reconciled your reported leads against actual booked customers, your CPL is almost certainly higher than you think. We fix it for ourselves and for the businesses we run ads for — same approach, same tracking, same numbers we'd want to see if we were the client."
   heroImage="/images/service-ads.webp"
   heroButtons={[
-    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Google Ads Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: 'DM "AUDIT" on WhatsApp', href: "https://wa.me/6582234578?text=AUDIT", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to enquire about your Google Ads management services."
-  ctaLabel="Maximise Your Ad Returns"
-  ctaTitle="Get a Free Ad Strategy Session"
-  ctaDescription="Book a free consultation and we'll review your current ad performance and identify opportunities for improvement. We'll get back to you within 24 hours with a tailored strategy."
+  ctaLabel="Get the audit"
+  ctaTitle="Get a real-CPL audit of your current Google Ads account"
+  ctaDescription="Send us your account access. We'll run a 30-minute audit looking at: which conversion actions are firing fake conversions, where your wasted spend is going (the negative keyword gaps), what your real CPL probably is once we reconcile reported vs actual, and the three highest-impact fixes. You get a written 1-page snapshot back within the week. No call required unless you want one."
   ctaButtons={[
-    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20Google%20Ads%20management%20services.", class: "btn btn-secondary" }
+    { text: "Book a 15-min discovery call", href: "/contact/", class: "btn btn-primary" },
+    { text: 'DM "AUDIT" on WhatsApp', href: "https://wa.me/6582234578?text=AUDIT", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for Singapore businesses">
+  <!-- ========== SECTION 2 — THE ACTUAL PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="Why SG Google Ads dashboards under-report CPL">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Wasting Ad Budget Without Clear Returns?</h2>
+        <h2>Why most SG Google Ads accounts report CPLs that are mathematically impossible</h2>
       </div>
-      <div class="section-content reveal">
-        <p>Too many Singapore businesses pour money into Google Ads without a proper strategy — running broad-match keywords that attract irrelevant clicks, sending traffic to pages that don't convert, and lacking the tracking needed to measure what's actually working. The result is a growing ad bill with little to show for it.</p>
-        <p>Without expert campaign management, poor targeting eats through your budget, missing conversion tracking leaves you guessing, and competitors with better-optimised ads consistently outrank you. Every dollar wasted on unqualified clicks is a dollar that could have brought a paying customer to your door.</p>
+      <div class="pillar-prose reveal">
+        <p>The pattern shows up in nearly every account we audit. Reported CPL on the Google Ads dashboard: S$30-50. Reported conversion rate: 8-12%. The owner is convinced the account is performing.</p>
+        <p>Then we ask: how many of those conversions became actual customers? Half the time the answer is "I don&rsquo;t know — I never matched them back". The other half it&rsquo;s "fewer than half — most of the form fills are spam, most of the WhatsApp clicks go nowhere".</p>
+        <p>We hit this on our own account in April. Reported CPL S$50.05 across 19 conversions. We ran the reconciliation: matched every reported conversion against actual contacts who reached out, replied to us, and entered the sales process. Four were real leads. Fifteen were noise — mostly job seekers tapping our WhatsApp button after seeing the contact page. Real CPL: S$237.73. The bidding algorithm had been optimising the wrong signal for weeks.</p>
+        <p>The phantom-conversion problem is endemic in SG because of how local SME accounts are structured: WhatsApp-first contact, multi-step lead qualification, no offline conversion upload. Most Google Ads agencies don&rsquo;t fix this because the broken numbers look good on the monthly report. <strong>Reported CPL S$50 is easier to send to a client than real CPL S$237.</strong></p>
+        <p>The fix is technical and unglamorous: demote noisy conversion actions, install GCLID-to-WhatsApp tracking so every ad-driven WhatsApp lead carries a click ID, upload offline conversions weekly so Google&rsquo;s algorithm learns what an actual customer looks like. We built this system on our own account in May. Five weeks later the algorithm started filtering job-seeker traffic on its own.</p>
+        <p>If your agency hasn&rsquo;t done this for you, your campaign is bidding against a fake metric. The traffic is real, the spend is real, but the conversion signal training the bidding is contaminated. Every dollar you spend reinforces the wrong patterns.</p>
+        <p>That&rsquo;s the fix we mean when we say we run Google Ads properly for SG SMEs. The fix. Not the report.</p>
       </div>
+
+      <aside class="pillar-reconcile reveal" aria-label="Reported vs real cost-per-lead reconciliation">
+        <p class="pillar-reconcile__label">April 2026 &mdash; Jraft Creative own Google Ads account</p>
+
+        <div class="pillar-reconcile__rows">
+          <div class="pillar-reconcile__row">
+            <div class="pillar-reconcile__side pillar-reconcile__side--before">
+              <span class="pillar-reconcile__side-label">Reported CPL</span>
+              <span class="pillar-reconcile__side-number">S$50<span class="pillar-reconcile__cents">.05</span></span>
+            </div>
+            <span class="pillar-reconcile__arrow" aria-hidden="true">&rarr;</span>
+            <div class="pillar-reconcile__side pillar-reconcile__side--after">
+              <span class="pillar-reconcile__side-label">Real CPL after reconciliation</span>
+              <span class="pillar-reconcile__side-number">S$237<span class="pillar-reconcile__cents">.73</span></span>
+            </div>
+          </div>
+
+          <div class="pillar-reconcile__row pillar-reconcile__row--mini">
+            <div class="pillar-reconcile__side pillar-reconcile__side--before">
+              <span class="pillar-reconcile__side-label">Reported conversions</span>
+              <span class="pillar-reconcile__side-number pillar-reconcile__side-number--small">19</span>
+            </div>
+            <span class="pillar-reconcile__arrow" aria-hidden="true">&rarr;</span>
+            <div class="pillar-reconcile__side pillar-reconcile__side--after">
+              <span class="pillar-reconcile__side-label">Real leads</span>
+              <span class="pillar-reconcile__side-number pillar-reconcile__side-number--small">4</span>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pillar-reconcile__foot">
+          <span class="pillar-reconcile__pct">79<span class="pillar-reconcile__pct-mark">%</span></span>
+          <span class="pillar-reconcile__pct-text">of reported conversions were phantom &mdash; job seekers tapping WhatsApp, form spam, accidental clicks. The bidding algorithm was optimising for the noise.</span>
+        </footer>
+      </aside>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services we offer">
+  <!-- ========== SECTION 3 — HOW WE SOLVE IT ========== -->
+  <section class="section" id="sub-services" aria-label="What Jraft does differently as a Google Ads agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Google Ads Services</p>
-        <h2>Full-Service PPC Management for Singapore Businesses</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>What Jraft does differently as a Google Ads agency</h2>
       </div>
-      <div class="section-content reveal">
-        <p>As a Google Ads agency in Singapore, we handle every aspect of your paid search campaigns — from keyword research and ad copywriting to bid management and conversion tracking. Every campaign is built around your business goals, whether that's lead generation, e-commerce sales, or brand awareness.</p>
-        <p>Our PPC management covers Google Search, Display Network, YouTube, and remarketing — giving your business maximum visibility across the platforms that matter most to your audience.</p>
-        <p>Pair your Google Ads with a conversion-optimised <a href="/services/website-development/">website</a>, <a href="/services/seo-performance/">SEO for long-term organic growth</a>, or <a href="/services/social-media/">social media marketing</a> for a complete digital strategy.</p>
-      </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
-          <div class="service-detail-card__content">
-            <h3>Google Search Ads</h3>
-            <p>Keyword research, ad copy creation, bid strategy, and landing page alignment to capture high-intent search traffic and drive qualified leads for your Singapore business.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
-          <div class="service-detail-card__content">
-            <h3>Google Display Ads</h3>
-            <p>Visually engaging banner campaigns across Google's Display Network to build brand awareness, reach new audiences, and stay top-of-mind throughout the buyer journey.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-tiktok-ads.webp">
-          <div class="service-detail-card__content">
-            <h3>YouTube Ads</h3>
-            <p>Video ad campaigns on YouTube and Google Video Partners — skippable, non-skippable, and bumper formats to reach your audience with compelling video content.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-retargeting.jpg">
-          <div class="service-detail-card__content">
-            <h3>Remarketing &amp; Retargeting</h3>
-            <p>Re-engage visitors who left your site without converting. Dynamic remarketing campaigns bring them back with personalised ads based on the pages and products they viewed.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-analytics-reporting.webp">
-          <div class="service-detail-card__content">
-            <h3>Campaign Analytics</h3>
-            <p>Full conversion tracking setup, Google Analytics integration, and transparent reporting so you know exactly which campaigns, keywords, and ads are delivering results.</p>
-          </div>
-        </div>
+      <div class="pillar-prose reveal">
+        <p>The work that separates a Google Ads agency that gets you leads from one that gets you customers is the boring layer: tracking, conversion hygiene, and the weekly discipline of feeding the algorithm clean data. Here is what we actually do.</p>
+
+        <h3><span class="pillar-step">01</span>Audit your conversion actions before touching bids</h3>
+        <p>The first thing we do on a new account is open the Conversions tab and look at what Google is calling a "conversion". On nearly every audit we find at least one conversion action that&rsquo;s quietly burning budget — a "WhatsApp Click" action firing every time anyone taps the button, a Google-managed "Lead form - Submit" that double-counts, or a "Page Visit" left over from a past agency that&rsquo;s polluting the bidding signal.</p>
+        <p>We demote everything noisy to secondary. We turn off everything fake. Only verified primary actions remain.</p>
+
+        <h3><span class="pillar-step">02</span>Install GCLID-to-WhatsApp tracking on day one</h3>
+        <p>Three of every four real ad-driven leads in Singapore reach out via WhatsApp, not the form. If your Google Ads account isn&rsquo;t capturing the click ID and passing it through to your WhatsApp messages, you can&rsquo;t attribute a real customer back to the ad that earned them. We install an inline script that captures <code>gclid</code> on landing, stores it for 90 days, and appends a <code>[ref:GCLID]</code> tag to every <code>wa.me/</code> link on the site. Real ad-driven leads arrive in your WhatsApp inbox with the click ID attached.</p>
+
+        <h3><span class="pillar-step">03</span>Upload offline conversions weekly</h3>
+        <p>When a lead becomes an actual customer in your CRM or contact log, we push that back to Google Ads with the original GCLID. The bidding algorithm now optimises for customers, not form fills. This is the single highest-impact thing you can do for a Google Ads account in Singapore. Almost no agency does it because it requires a weekly operational discipline.</p>
+
+        <h3><span class="pillar-step">04</span>Negative keyword work weekly, not quarterly</h3>
+        <p>Most self-managed accounts and most agency-managed accounts in Singapore have 20-40% of spend going to irrelevant clicks because the negative keyword list hasn&rsquo;t been touched since campaign launch. We review the search terms report every week, push new negatives, prune over-blocking ones, and refine match-type strategy. On a typical account we recover 25-35% of wasted spend in the first month from this work alone.</p>
+
+        <p><strong>The pattern:</strong> clean tracking &rarr; clean conversion signal &rarr; clean bidding &rarr; clean negative keyword work &rarr; real customers. Skip any layer and the next one breaks.</p>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for Google Ads">
+  <!-- ========== SECTION 4 — COMPARISON TABLE: DIY vs FREELANCER vs JRAFT ========== -->
+  <section class="section" id="vs-comparison" style="background: var(--bg-alt);" aria-label="DIY vs freelancer vs Jraft-managed Google Ads comparison">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Why Jraft Creative</p>
-        <h2>A Google Ads Agency You Can Trust</h2>
+        <p class="section-label">What You Actually Get</p>
+        <h2>Self-managed vs freelancer vs Jraft-managed &mdash; what you actually get for each</h2>
       </div>
-      <div class="section-content reveal">
-        <p>We treat your ad budget like our own. No inflated spend recommendations, no hidden fees, and no vanity metrics. Here's why Singapore businesses choose us to manage their Google Ads:</p>
+      <p class="pillar-section-intro reveal">The Google Ads management market in Singapore spans a wide range. Below S$500/month you&rsquo;re typically buying automation (Performance Max running unattended). At S$500-S$1,500/month you&rsquo;re typically buying a freelancer with three accounts and limited time. Above S$1,500/month you should be buying weekly optimisation, real tracking, and offline conversion uploads. Most accounts don&rsquo;t get the third even at agency price.</p>
+
+      <div class="pillar-compare pillar-compare--three reveal" data-pillar="google-ads" aria-label="DIY versus freelancer versus Jraft Google Ads comparison table">
+        <header class="pillar-compare__head">
+          <div class="pillar-compare__col-label pillar-compare__col-label--a">DIY (you run it)</div>
+          <div class="pillar-compare__col-label pillar-compare__col-label--mid">Freelancer / cheap agency</div>
+          <div class="pillar-compare__col-label pillar-compare__col-label--b">Jraft-managed</div>
+        </header>
+
+        <div class="pillar-compare__rows">
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Monthly cost</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Just ad spend &mdash; no mgmt fee.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">S$300&ndash;S$800/mo + ad spend.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$1,000&ndash;S$5,000/mo + ad spend.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Time you spend per week</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">6&ndash;10 hours to do it properly.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Under 1 hour.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">30 min review, monthly call.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Campaign structure</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Often Performance Max on autopilot.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Smart Campaigns or PMax + basic Search.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Search + PMax + Display + remarketing, structured by intent stage.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Conversion tracking</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Whatever Google suggests at setup.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Form + WhatsApp click both fire as &ldquo;conversions&rdquo; &mdash; noisy.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Verified primary actions only. GCLID-to-WhatsApp. GA4 cross-check.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Offline conversion upload</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">No.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Almost never.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Weekly, every Friday.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Negative keyword work</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Once at launch, rarely touched.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Quarterly.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Weekly search-terms review.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">A/B testing on ad copy</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Sometimes.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Rarely.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Every 2&ndash;3 weeks on rotation.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Landing page input</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">None.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Generic recommendations.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Specific changes ranked by impact.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Reporting</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Dashboard self-serve.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Templated PDF monthly.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Real-CPL reconciliation, monthly written analysis.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Typical real CPL outcome</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">30&ndash;50% worse than properly managed.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">20&ndash;30% worse.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">The real number &mdash; what you plan the business against, not what flatters the report.</div>
+          </article>
+
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">What you learn from the engagement</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">A lot, slowly, expensively.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--mid">Little &mdash; it&rsquo;s a service contract.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">Account becomes a forecasting tool for the business.</div>
+          </article>
+        </div>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Certified Expertise</h3>
-            <p>Our team holds Google Ads certifications across Search, Display, Video, and Analytics — ensuring your campaigns are built and optimised to Google's best practices.</p>
-          </div>
+
+      <aside class="pillar-callout pillar-callout--single reveal" aria-label="Cheap agency market warning">
+        <div class="pillar-callout__stat">
+          <span class="pillar-callout__number">S$300<span style="font-size: 0.55em; color: var(--text-muted); font-weight: 700;">&ndash;800</span></span>
+          <span class="pillar-callout__unit">monthly</span>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
-          <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google. We never mark up media spend or take a percentage. You see every dollar in your own Google Ads account.</p>
-          </div>
+        <div class="pillar-callout__body">
+          <p class="pillar-callout__lede">is the most common SG agency price point &mdash; and where the phantom-conversion problem lives.</p>
+          <p class="pillar-callout__support">The agency benefits from reported CPL looking better than real CPL. The owner doesn&rsquo;t notice because nobody reconciles dashboard numbers against actual customers.</p>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because the results speak for themselves, not because you're tied to a 12-month agreement.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full-Funnel Approach</h3>
-            <p>We don't just drive clicks — we optimise the entire journey from ad impression to conversion. Landing pages, tracking, and campaign structure all work together to maximise ROI.</p>
-          </div>
-        </div>
-      </div>
+      </aside>
+
+      <!-- TODO: when /insights/meta-ads-vs-google-ads-singapore-sme/ ships (4 Jun 2026), wrap the title below in an <a href> link. -->
+      <p class="pillar-companion-tease reveal">Want the deeper comparison &mdash; Google Ads vs Meta Ads, real CPL benchmarks by vertical, and our decision flowchart for which platform to start with? Read the full essay &mdash; <strong>Meta Ads vs Google Ads: Which Should a Singapore SME Start With?</strong> (companion essay, shipping early June 2026).</p>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Google Ads pricing plans">
+  <!-- ========== SECTION 5 — PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Google Ads management pricing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">PPC Pricing</p>
-        <h2>Google Ads Plans for Every Budget</h2>
-        <p>Monthly management fees. No lock-in contracts. Ad spend billed separately by Google.</p>
+        <h2>Google Ads management pricing &mdash; published in full</h2>
+      </div>
+      <div class="pillar-prose reveal">
+        <p>We publish our fees. The numbers below are real, are what we charge, and reflect the hours the work actually takes.</p>
+        <p>Below S$800/month you&rsquo;re typically getting a freelancer with three accounts and limited weekly time. The SG market range for proper agency management is S$800-S$6,000/month plus ad spend. We don&rsquo;t mark up media spend — every dollar of ad budget goes directly to Google through your own account. Your monthly fee is for the management, the tracking, and the offline conversion work.</p>
       </div>
       <div class="service-pricing">
         <div class="pricing-grid">
@@ -203,7 +299,7 @@ const schemaData = [
               <li>1 advertising platform</li>
               <li>Up to $3K ad spend management</li>
               <li>Keyword research &amp; campaign setup</li>
-              <li>Conversion tracking setup</li>
+              <li>Conversion tracking + GCLID-WhatsApp install</li>
               <li>Monthly performance report</li>
             </ul>
             <a href="/contact/" class="btn btn-secondary">Get Started</a>
@@ -217,7 +313,7 @@ const schemaData = [
               <li>Up to $10K ad spend management</li>
               <li>A/B testing &amp; ad copy optimisation</li>
               <li>Landing page recommendations</li>
-              <li>Competitor ad analysis</li>
+              <li>Weekly negative keyword review</li>
               <li>Bi-weekly reporting</li>
             </ul>
             <a href="/contact/" class="btn btn-primary">Get Started</a>
@@ -234,12 +330,131 @@ const schemaData = [
               <li>Custom audience &amp; remarketing</li>
               <li>Weekly reporting &amp; strategy calls</li>
             </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+            <a href="/contact/" class="btn btn-secondary">Let&rsquo;s Talk</a>
           </div>
         </div>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/paid-ads/" class="inline-link">Paid Ads</a> page.</p>
+      <div class="pillar-prose reveal" style="margin-top: 2rem; text-align: center;">
+        <p>No lock-in. Month-to-month. Minimum ad spend S$1,500/month for the algorithm to have enough conversion data to learn. If we&rsquo;re not the right fit by month three, we say so.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 6 — SG CPL BENCHMARKS ========== -->
+  <section class="section" id="sg-cpl-benchmarks" aria-label="Singapore Google Ads cost-per-lead benchmarks">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">SG Benchmarks</p>
+        <h2>What &ldquo;good&rdquo; cost-per-lead actually looks like in Singapore</h2>
+      </div>
+      <div class="pillar-prose reveal">
+        <p>The honest benchmark conversation is the one most SG agencies avoid because it makes pricing concrete and removes the ability to claim wins on phantom metrics. Here are the real cost-per-lead ranges Jraft has observed across the accounts we&rsquo;ve run, audited, or reviewed in 2025-2026.</p>
+        <p>These numbers are real CPLs (post-reconciliation against actual customer outcomes), not the dashboard numbers. Dashboard CPLs in Singapore typically run 40-80% lower than real CPLs because of the phantom-conversion problem described above.</p>
+      </div>
+
+      <div class="pillar-compare pillar-compare--two reveal" style="max-width: 820px; margin-left: auto; margin-right: auto;" aria-label="SG real cost-per-lead ranges by vertical">
+        <header class="pillar-compare__head">
+          <div class="pillar-compare__col-label pillar-compare__col-label--a">Vertical</div>
+          <div class="pillar-compare__col-label pillar-compare__col-label--b">Real CPL range (SGD)</div>
+        </header>
+        <div class="pillar-compare__rows">
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">F&amp;B (delivery, reservations)</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">High-frequency, low ticket.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$30&ndash;S$80</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Beauty / hair salons</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Mid-frequency, mid ticket.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$40&ndash;S$100</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Fitness / gym memberships</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Subscription LTV.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$50&ndash;S$120</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Tuition centres</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Annual contract LTV.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$60&ndash;S$120</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Preschools / childcare</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Multi-year LTV.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$60&ndash;S$150</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Aesthetic clinics</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">High ticket, repeat treatment.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$80&ndash;S$200</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Dental clinics</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Recurring annual visits.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$80&ndash;S$180</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">Professional services (legal, accounting)</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">High-value engagement.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$150&ndash;S$400</div>
+          </article>
+          <article class="pillar-compare__row">
+            <p class="pillar-compare__dimension">B2B SaaS</p>
+            <div class="pillar-compare__cell pillar-compare__cell--a">Annual contract values.</div>
+            <div class="pillar-compare__cell pillar-compare__cell--b">S$200&ndash;S$600</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="pillar-prose reveal">
+        <p>The right CPL for your business depends on customer lifetime value, not on what&rsquo;s "cheap". A tuition centre that signs a S$3,000 annual customer for S$150 CPL is winning. A B2B SaaS firm closing a S$30,000 annual contract for S$500 CPL is winning. A F&amp;B brand paying S$200 CPL for a S$25 first order is losing — even if the dashboard says CPL is S$50.</p>
+        <p><strong>Phantom conversion rate</strong> across the SG SME accounts we&rsquo;ve audited: typically 40-80% of reported conversions are noise — WhatsApp clicks without follow-through, form spam, accidental phone-number taps. The fix is conversion hygiene, GCLID tracking, and weekly offline conversion upload. We do all three by default.</p>
+      </div>
+
+      <aside class="pillar-callout pillar-callout--row pillar-callout--row-three reveal" aria-label="Singapore Google Ads benchmarks">
+        <div class="pillar-callout__stat-card pillar-callout__stat-card--paired">
+          <span class="pillar-callout__paired">
+            <span class="pillar-callout__paired-before">S$50</span>
+            <span class="pillar-callout__paired-arrow" aria-hidden="true">&rarr;</span>
+            <span class="pillar-callout__paired-after">S$237</span>
+          </span>
+          <span class="pillar-callout__caption">Jraft&rsquo;s own April 2026 reconciliation &mdash; reported vs real CPL.</span>
+        </div>
+        <div class="pillar-callout__stat-card">
+          <span class="pillar-callout__number">40&ndash;80<span class="pillar-callout__pct">%</span></span>
+          <span class="pillar-callout__caption">phantom conversion rate across audited SG SME accounts.</span>
+        </div>
+        <div class="pillar-callout__stat-card">
+          <span class="pillar-callout__number">25&ndash;35<span class="pillar-callout__pct">%</span></span>
+          <span class="pillar-callout__caption">of wasted spend recovered in month one from negative keyword work alone.</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 7 — PROCESS ========== -->
+  <section class="section" id="process" style="background: var(--bg-alt);" aria-label="What a 90-day Google Ads engagement looks like">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Process</p>
+        <h2>What a 90-day Jraft Google Ads engagement actually looks like</h2>
+      </div>
+      <div class="pillar-prose reveal">
+        <p>We run Google Ads in 90-day cycles. Every cycle has stated deliverables at week 2, week 4, week 8, and week 12. If we miss CPL targets by month three, we audit honestly and tell you what changed.</p>
+
+        <h3><span class="pillar-step">Week 1</span>Account audit and tracking install</h3>
+        <p>We pull your existing account (if you have one), audit every conversion action, check for phantom conversions, verify GA4 cross-talk, and install GCLID-to-WhatsApp tracking. Most accounts have at least one tracking issue costing 20-30% of effective budget — we surface it before we touch the campaign.</p>
+
+        <h3><span class="pillar-step">Week 2-3</span>Campaign rebuild or restructure</h3>
+        <p>We rebuild the campaign structure around intent stages (high-intent search, mid-funnel comparison, retargeting). New ad copy, structured ad groups, proper negative keyword lists from day one (we maintain a 200+ keyword negative list for SG-specific job-seeker and irrelevant terms). First ads live within two weeks of kickoff.</p>
+
+        <h3><span class="pillar-step">Week 4-8</span>Optimisation and learning phase</h3>
+        <p>Daily monitoring during the algorithm&rsquo;s learning phase (typically the first 30 conversions). Weekly search-terms review with negative keyword adds. A/B testing on ad copy starts week 6. First offline conversion upload happens Friday of week 4.</p>
+
+        <h3><span class="pillar-step">Week 9-13</span>Stabilisation and CPL reconciliation</h3>
+        <p>Real CPL becomes measurable around week 8-10 — earlier on accounts with high lead volume, later on accounts under S$1.5K/month ad spend. We reconcile reported vs actual, surface phantom-conversion patterns, and adjust the bidding strategy accordingly. Month 3 report includes the honest CPL number — not the dashboard one.</p>
+
+        <p><strong>What we need from you:</strong> Google Ads account access (admin or standard), GA4, your CRM or contact log for weekly reconciliation, and a 30-minute kickoff call. After that, monthly reporting and async approvals.</p>
       </div>
     </div>
   </section>
@@ -249,7 +464,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Google Ads Management — Questions Answered</h2>
+        <h2>Google Ads Management &mdash; Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1" id="how-long-until-my-google-ads-start-getting-leads-in-singapore">
@@ -294,13 +509,44 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2" id="what-s-a-free-google-ads-strategy-session-and-what-do-i-get">
           <summary>What's a free Google Ads strategy session and what do I get?</summary>
-          <div class="faq-answer"><p>A 45-minute call with a strategist where we audit your current Google Ads account (if you have one), review your competitors' ad presence, identify your highest-intent keywords, project realistic monthly spend and CPL targets for your category, and walk through what a working campaign would look like. No deck. No pitch. If we're not the right fit, we'll say so. We do these because most SG SMEs are running Ads built by someone who left, an in-house person who never learned the platform properly, or Performance Max on autopilot. Free hour, honest assessment. | Page | Questions | Word count | |---|---|---| | `/ai-seo-singapore/` | 12 | 1,098 | | `/geo-agency-singapore/` | 10 | 866 | | `/google-ads-agency-singapore/` | 11 | 1,007 | | **Total** | **33** | **2,971** | All answers within the 50-100 word target band. No brand-voice violations (checked against the locked list — no "leverage", "synergy", "world-class", "cutting-edge", "passionate", "thrilled", "delighted"). All pricing matches the live schema offers on each page. For each pillar page, add: 1. **Visible FAQ section** — accordion or `&lt;details&gt;` blocks on the page, after the pricing/services section, before the final CTA. Mei should style consistent with the existing pillar page system. 2. **JSON-LD FAQPage schema** — emit in the page head, parallel to the existing Service schema. Use https://schema.org/FAQPage structure with each Question containing an acceptedAnswer. 3. **Anchors** — give each question an `id` for direct linking (e.g. `#how-much-ai-seo-cost`). Helps internal linking from blog posts. When Ben signs off the SEO impact, ship as part of the next deploy.</p></div>
+          <div class="faq-answer"><p>A 45-minute call with a strategist where we audit your current Google Ads account (if you have one), review your competitors' ad presence, identify your highest-intent keywords, project realistic monthly spend and CPL targets for your category, and walk through what a working campaign would look like. No deck. No pitch. If we're not the right fit, we'll say so. We do these because most SG SMEs are running Ads built by someone who left, an in-house person who never learned the platform properly, or Performance Max on autopilot. Free hour, honest assessment.</p></div>
         </details>
       </div>
     </div>
   </section>
 
+  <!-- ========== SECTION 8 — INDUSTRY CLUSTER ========== -->
+  <section class="section" id="related-services" aria-label="Industry-specific Google Ads playbooks">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Industry Playbooks</p>
+        <h2>Industry-specific Google Ads playbooks</h2>
+      </div>
+      <div class="pillar-prose reveal">
+        <p>Different verticals have different CPL ranges, different ad copy patterns, and different conversion paths. We&rsquo;ve built industry-specific Google Ads programmes for the SG categories where we have the deepest account experience. If you&rsquo;re in one of these, start there.</p>
+      </div>
+      <div class="pillar-cluster reveal">
+        <p class="pillar-cluster__heading">Industry-specific Google Ads pages</p>
+        <ul class="pillar-cluster__list">
+          <li><a href="/aesthetics-clinic-google-ads-singapore/">Google Ads for aesthetic clinics</a></li>
+          <li><a href="/tuition-centre-google-ads-singapore/">Google Ads for tuition centres</a></li>
+          <li><a href="/enrichment-centre-google-ads-singapore/">Google Ads for enrichment centres</a></li>
+          <li><a href="/restaurant-google-ads-singapore/">Google Ads for restaurants</a></li>
+          <li><a href="/beauty-salon-google-ads-singapore/">Google Ads for beauty salons</a></li>
+          <li><a href="/veterinary-clinic-google-ads-singapore/">Google Ads for vet clinics</a></li>
+          <li><a href="/tcm-clinic-google-ads-singapore/">Google Ads for TCM clinics</a></li>
+          <li><a href="/physiotherapy-google-ads-singapore/">Google Ads for physiotherapy practices</a></li>
+        </ul>
 
-  <RelatedServices topic="ads" />
+        <p class="pillar-cluster__heading">Sister service pages</p>
+        <ul class="pillar-cluster__list">
+          <li><a href="/facebook-ads-agency-singapore/">Facebook Ads Agency Singapore &mdash; the Meta side of the same playbook</a></li>
+          <li><a href="/education-google-ads-singapore/">Education Google Ads Singapore &mdash; multi-vertical education ads</a></li>
+          <li><a href="/fnb-google-ads-singapore/">F&amp;B Google Ads Singapore &mdash; F&amp;B-specific</a></li>
+          <li><a href="/wellness-google-ads-singapore/">Wellness Google Ads Singapore &mdash; wellness vertical</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 </ServiceLayout>
