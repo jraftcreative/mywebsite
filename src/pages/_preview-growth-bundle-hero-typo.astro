@@ -26,7 +26,7 @@ const schemaData = [{
   schemaData={schemaData}
 >
 
-<!-- ═══ HERO (TYPOGRAPHIC + CARVED-ARC PHOTO — v19) ═══ -->
+<!-- ═══ HERO (PREVIEW — TYPOGRAPHIC + CARVED-ARC PHOTO) ═══ -->
 <section class="gb-hero gb-hero--typo">
   <!-- Carved-out photo region: full-bleed right, concave-curve left edge.
        Position: absolute so the foreground container can sit beside/over it
@@ -280,15 +280,10 @@ const schemaData = [{
   </div>
 </section>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20marketing%20services%20for%20my%20business." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" slot="after-footer">
-  <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-2.276 2.106-3.156 2.17-.796.058-1.78.082-2.872-.278a26.3 26.3 0 0 1-2.6-1.074c-4.576-2.186-7.566-6.826-7.796-7.142-.222-.316-1.836-2.478-1.836-4.726 0-2.248 1.162-3.356 1.574-3.814.39-.434.858-.542 1.144-.542.286 0 .572.004.82.014.264.012.618-.1.966.738.39.938 1.294 3.224 1.408 3.458.112.234.19.508.038.82-.15.316-.226.512-.448.79-.222.278-.468.62-.668.832-.222.234-.454.49-.196.962.26.47 1.154 1.906 2.478 3.088 1.702 1.52 3.136 1.99 3.582 2.214.448.222.708.19.968-.114.26-.306 1.118-1.302 1.416-1.75.298-.448.596-.37.998-.222.404.148 2.566 1.21 3.006 1.432.44.222.734.334.844.518.112.186.112 1.074-.278 2.174z"/></svg>
-</a>
-
 <style>
-  /* ═══ GROWTH BUNDLE PAGE STYLES (typographic hero + v19 carved-arc photo) ═══ */
+  /* ═══ GROWTH BUNDLE PAGE STYLES (live page mirror + new typographic hero) ═══ */
 
-  /* ── HERO (typographic, DARK-MODE matched to live site) ─────────── */
+  /* ── HERO (typographic preview, DARK-MODE matched to live site) ─────────── */
   .gb-hero--typo {
     position: relative;
     overflow: hidden;
@@ -500,8 +495,8 @@ const schemaData = [{
     margin: 0 0 28px;
   }
 
-  /* CTAs — leave .btn-primary / .btn-secondary to cascade from global.css.
-     Just lay them out here. */
+  /* CTAs — leave .btn-primary / .btn-secondary to cascade from global.css
+     (the live page does the same). Just lay them out here. */
   .gb-hero-typo-ctas {
     display: flex;
     gap: 14px;
@@ -509,7 +504,9 @@ const schemaData = [{
     margin-bottom: 0;
   }
 
-  /* ── EXISTING PAGE STYLES (sections below hero) ─────────────── */
+  /* (Old portrait styles removed — replaced by .gb-hero-photo carved-arc region.) */
+
+  /* ── EXISTING PAGE STYLES (verbatim mirror) ─────────────── */
 
   /* Section labels & headings (used by all sections below hero) */
   .gb-section {
@@ -560,25 +557,10 @@ const schemaData = [{
     background: var(--bg-card);
     transition: border-color 0.3s;
   }
-  .gb-problem-card:hover {
-    border-color: var(--border-accent);
-  }
-  .gb-problem-card svg {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
-    margin-bottom: 14px;
-  }
-  .gb-problem-card h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .gb-problem-card p {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .gb-problem-card:hover { border-color: var(--border-accent); }
+  .gb-problem-card svg { width: 28px; height: 28px; color: var(--accent); margin-bottom: 14px; }
+  .gb-problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .gb-problem-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
   /* Includes */
   .gb-includes-grid {
@@ -594,28 +576,10 @@ const schemaData = [{
     border-radius: var(--radius);
     background: var(--bg-card);
   }
-  .gb-includes-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .gb-includes-header svg {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
-    flex-shrink: 0;
-  }
-  .gb-includes-header h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-  }
-  .gb-includes-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .gb-includes-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .gb-includes-header svg { width: 28px; height: 28px; color: var(--accent); flex-shrink: 0; }
+  .gb-includes-header h3 { font-size: 1.15rem; font-weight: 700; }
+  .gb-includes-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
   .gb-includes-list li {
     font-size: 0.88rem;
     color: var(--text-secondary);
@@ -654,10 +618,7 @@ const schemaData = [{
     transition: all 0.2s;
     cursor: default;
   }
-  .gb-who-tag:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .gb-who-tag:hover { border-color: var(--accent); color: var(--accent); }
 
   /* Steps */
   .gb-steps {
@@ -670,12 +631,7 @@ const schemaData = [{
     margin-left: auto;
     margin-right: auto;
   }
-  .gb-step {
-    text-align: center;
-    flex: 1;
-    max-width: 260px;
-    padding: 0 16px;
-  }
+  .gb-step { text-align: center; flex: 1; max-width: 260px; padding: 0 16px; }
   .gb-step-num {
     display: inline-flex;
     align-items: center;
@@ -689,27 +645,10 @@ const schemaData = [{
     font-size: 1.1rem;
     margin-bottom: 16px;
   }
-  .gb-step h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-  .gb-step p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-  .gb-step-arrow {
-    display: flex;
-    align-items: center;
-    padding-top: 10px;
-    color: var(--text-muted);
-    opacity: 0.3;
-  }
-  .gb-step-arrow svg {
-    width: 28px;
-    height: 28px;
-  }
+  .gb-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+  .gb-step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+  .gb-step-arrow { display: flex; align-items: center; padding-top: 10px; color: var(--text-muted); opacity: 0.3; }
+  .gb-step-arrow svg { width: 28px; height: 28px; }
 
   /* Pricing */
   .gb-pricing-wrap {
@@ -741,51 +680,14 @@ const schemaData = [{
     border-radius: 50px;
     letter-spacing: 0.04em;
   }
-  .gb-pricing-amount {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--text);
-  }
-  .gb-pricing-period {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-  }
-  .gb-pricing-desc {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin: 12px 0 24px;
-    line-height: 1.5;
-  }
-  .gb-pricing-list {
-    list-style: none;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 28px;
-  }
-  .gb-pricing-list li {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    padding-left: 24px;
-    position: relative;
-  }
-  .gb-pricing-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: 700;
-  }
-  .gb-pricing-btn {
-    width: 100%;
-    justify-content: center;
-  }
-  .gb-pricing-note {
-    margin-top: 12px;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
+  .gb-pricing-amount { font-size: 3rem; font-weight: 800; color: var(--text); }
+  .gb-pricing-period { font-size: 1.1rem; color: var(--text-muted); }
+  .gb-pricing-desc { color: var(--text-muted); font-size: 0.9rem; margin: 12px 0 24px; line-height: 1.5; }
+  .gb-pricing-list { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+  .gb-pricing-list li { font-size: 0.88rem; color: var(--text-secondary); padding-left: 24px; position: relative; }
+  .gb-pricing-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .gb-pricing-btn { width: 100%; justify-content: center; }
+  .gb-pricing-note { margin-top: 12px; font-size: 0.75rem; color: var(--text-muted); }
 
   /* Compare */
   .gb-pricing-compare {
@@ -794,12 +696,7 @@ const schemaData = [{
     border-radius: var(--radius);
     background: var(--bg-card);
   }
-  .gb-pricing-compare h3 {
-    font-size: 0.95rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--text-muted);
-  }
+  .gb-pricing-compare h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--text-muted); }
   .gb-compare-row {
     display: flex;
     justify-content: space-between;
@@ -808,10 +705,7 @@ const schemaData = [{
     font-size: 0.88rem;
     color: var(--text-muted);
   }
-  .gb-compare-price {
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
+  .gb-compare-price { color: var(--text-secondary); font-weight: 600; }
   .gb-compare-total {
     display: flex;
     justify-content: space-between;
@@ -821,52 +715,16 @@ const schemaData = [{
     text-decoration: line-through;
     opacity: 0.5;
   }
-  .gb-compare-savings {
-    display: flex;
-    justify-content: space-between;
-    padding: 16px 0 0;
-    font-size: 1rem;
-    font-weight: 700;
-  }
-  .gb-savings-price {
-    color: var(--accent);
-    font-size: 1.1rem;
-  }
-  .gb-compare-note {
-    margin-top: 16px;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
+  .gb-compare-savings { display: flex; justify-content: space-between; padding: 16px 0 0; font-size: 1rem; font-weight: 700; }
+  .gb-savings-price { color: var(--accent); font-size: 1.1rem; }
+  .gb-compare-note { margin-top: 16px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
 
   /* FAQ */
-  .gb-faq-list {
-    max-width: 680px;
-    margin: 40px auto 0;
-  }
-  .gb-faq {
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-    cursor: pointer;
-  }
-  .gb-faq-q {
-    font-weight: 600;
-    font-size: 0.95rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .gb-faq-q svg {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: var(--accent);
-    transition: transform 0.3s;
-  }
-  .gb-faq.open .gb-faq-q svg {
-    transform: rotate(180deg);
-  }
+  .gb-faq-list { max-width: 680px; margin: 40px auto 0; }
+  .gb-faq { border-bottom: 1px solid var(--border); padding: 18px 0; cursor: pointer; }
+  .gb-faq-q { font-weight: 600; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .gb-faq-q svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--accent); transition: transform 0.3s; }
+  .gb-faq.open .gb-faq-q svg { transform: rotate(180deg); }
   .gb-faq-a {
     max-height: 0;
     overflow: hidden;
@@ -875,18 +733,10 @@ const schemaData = [{
     color: var(--text-muted);
     line-height: 1.65;
   }
-  .gb-faq.open .gb-faq-a {
-    max-height: 300px;
-    padding-top: 12px;
-  }
+  .gb-faq.open .gb-faq-a { max-height: 300px; padding-top: 12px; }
 
   /* CTA */
-  .gb-cta {
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
+  .gb-cta { padding: 100px 0; text-align: center; position: relative; overflow: hidden; }
   .gb-cta::before {
     content: '';
     position: absolute;
@@ -894,27 +744,10 @@ const schemaData = [{
     background: radial-gradient(ellipse at 50% 50%, var(--accent-glow) 0%, transparent 60%);
     pointer-events: none;
   }
-  .gb-cta h2 {
-    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-    margin-bottom: 12px;
-    position: relative;
-  }
-  .gb-cta p {
-    color: var(--text-muted);
-    max-width: 480px;
-    margin: 0 auto 28px;
-    position: relative;
-    font-size: 0.95rem;
-  }
-  .gb-cta .btn {
-    position: relative;
-  }
-  .gb-cta-note {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    margin-top: 16px;
-    position: relative;
-  }
+  .gb-cta h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 12px; position: relative; }
+  .gb-cta p { color: var(--text-muted); max-width: 480px; margin: 0 auto 28px; position: relative; font-size: 0.95rem; }
+  .gb-cta .btn { position: relative; }
+  .gb-cta-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 16px; position: relative; }
 
   /* ── MOBILE (≤768px) — FULL-BLEED PHOTO BACKGROUND ──────────────────
      New mobile composition (per Jeremy's directive):
@@ -1071,3 +904,5 @@ const schemaData = [{
 </style>
 
 </BaseLayout>
+</content>
+</invoke>
