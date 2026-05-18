@@ -17,11 +17,12 @@ function isActive(href: string): boolean {
   if (href === '/blog/' && isBlogPage) return true;
   if (href.startsWith('/services/') && currentPath === href) return true;
   if (href.startsWith('/industries/') && currentPath === href) return true;
+  if (href === '/growth-bundle/' && currentPath === '/growth-bundle/') return true;
   return false;
 }
 
 function isServicesActive(): boolean {
-  return isServicePage;
+  return isServicePage || currentPath.startsWith('/growth-bundle');
 }
 
 function isIndustriesActive(): boolean {
@@ -41,6 +42,8 @@ function isIndustriesActive(): boolean {
           <li role="none"><a href="/services/seo-performance/" role="menuitem" class={isActive('/services/seo-performance/') ? 'nav-active' : ''}>SEO &amp; Performance</a></li>
           <li role="none"><a href="/services/paid-ads/" role="menuitem" class={isActive('/services/paid-ads/') ? 'nav-active' : ''}>Paid Ads</a></li>
           <li role="none"><a href="/services/social-media/" role="menuitem" class={isActive('/services/social-media/') ? 'nav-active' : ''}>Social Media</a></li>
+          <li role="separator" class="nav-dropdown-divider" aria-hidden="true"></li>
+          <li role="none"><a href="/growth-bundle/" role="menuitem" class={isActive('/growth-bundle/') ? 'nav-active nav-dropdown-bundle' : 'nav-dropdown-bundle'}>Growth Bundle</a></li>
         </ul>
       </li>
       <li role="none"><a href="/services/website-development/#portfolio" role="menuitem" class={currentPath === '/services/website-development/' ? 'nav-active' : ''}>Work</a></li>
@@ -67,3 +70,27 @@ function isIndustriesActive(): boolean {
     </button>
   </div>
 </nav>
+
+<style>
+  .nav-dropdown-divider {
+    height: 1px;
+    margin: 6px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    list-style: none;
+    padding: 0;
+  }
+  .nav-dropdown li a.nav-dropdown-bundle {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .nav-dropdown li a.nav-dropdown-bundle:hover {
+    color: var(--accent-hover);
+    background: rgba(73, 184, 137, 0.10);
+  }
+  @media (max-width: 900px) {
+    .nav-dropdown-divider {
+      margin: 6px 0;
+    }
+  }
+</style>

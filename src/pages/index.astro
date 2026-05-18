@@ -323,8 +323,211 @@ const socialSubItems = [
           }}
         />
       </div>
+
+      <!-- Bundles subsection — packaged offer, distinct from individual services -->
+      <div class="bundles-block" aria-labelledby="bundles-heading">
+        <div class="bundles-header reveal">
+          <p class="section-label">Bundles</p>
+          <h3 id="bundles-heading">Or get it all in one package.</h3>
+        </div>
+
+        <article class="bundle-card reveal reveal-d1" aria-label="Growth Bundle">
+          <div class="bundle-card-body">
+            <div class="bundle-tag">
+              <span class="bundle-tag-dot" aria-hidden="true"></span>
+              Bundle
+            </div>
+            <h4 class="bundle-title">Growth Bundle</h4>
+            <p class="bundle-desc">Paid ads + social media content — one team, one price. Built for Singapore startups and small businesses.</p>
+            <ul class="bundle-list">
+              <li>Meta + Google Ads management</li>
+              <li>4–6 short videos + 4–6 static posts / month</li>
+              <li>Monthly reporting + strategy call</li>
+            </ul>
+            <p class="bundle-savings">Save vs. buying Ads + Social separately.</p>
+          </div>
+          <div class="bundle-card-aside">
+            <div class="bundle-price">
+              <span class="bundle-price-amount">$2,999</span>
+              <span class="bundle-price-unit">SGD / month</span>
+            </div>
+            <a href="/growth-bundle/" class="btn btn-primary bundle-cta">See the Growth Bundle</a>
+            <p class="bundle-fine">No lock-in. Cancel anytime.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
+
+  <style>
+    /* Bundles subsection — packaged offer, distinct from standard ServiceCards */
+    .bundles-block {
+      margin-top: 80px;
+    }
+    .bundles-header {
+      margin-bottom: 28px;
+    }
+    .bundles-header .section-label {
+      margin-bottom: 8px;
+    }
+    .bundles-header h3 {
+      font-family: 'Ripley Grotesque', 'Inter', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text, #f4f1ea);
+      margin: 0;
+    }
+
+    .bundle-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-sm, 8px);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(73, 184, 137, 0.10), 0 24px 60px -28px rgba(73, 184, 137, 0.25);
+    }
+    .bundle-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(60% 80% at 100% 0%, rgba(73, 184, 137, 0.10), transparent 60%);
+    }
+
+    .bundle-card-body {
+      padding: 40px 40px 36px;
+      position: relative;
+      z-index: 1;
+    }
+    .bundle-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .bundle-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+    .bundle-title {
+      font-family: 'Ripley Grotesque', 'Inter', sans-serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+      color: var(--text, #f4f1ea);
+    }
+    .bundle-desc {
+      font-size: 1.02rem;
+      line-height: 1.55;
+      color: var(--text-muted, #b3b3b8);
+      margin: 0 0 22px;
+      max-width: 56ch;
+    }
+    .bundle-list {
+      list-style: none;
+      margin: 0 0 20px;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .bundle-list li {
+      position: relative;
+      padding-left: 22px;
+      font-size: 0.95rem;
+      color: var(--text, #f4f1ea);
+      line-height: 1.5;
+    }
+    .bundle-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 10px;
+      height: 2px;
+      background: var(--accent);
+    }
+    .bundle-savings {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .bundle-card-aside {
+      padding: 40px 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+      background: linear-gradient(180deg, rgba(73, 184, 137, 0.06) 0%, rgba(73, 184, 137, 0.02) 100%);
+      border-left: 1px solid rgba(73, 184, 137, 0.22);
+      position: relative;
+      z-index: 1;
+    }
+    .bundle-price {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .bundle-price-amount {
+      font-family: 'Ripley Grotesque', 'Inter', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+    }
+    .bundle-price-unit {
+      font-size: 0.85rem;
+      color: var(--text-muted, #b3b3b8);
+      letter-spacing: 0.04em;
+    }
+    .bundle-cta {
+      align-self: flex-start;
+    }
+    .bundle-fine {
+      margin: 0;
+      font-size: 0.78rem;
+      color: var(--text-muted, #b3b3b8);
+      opacity: 0.75;
+    }
+
+    @media (max-width: 820px) {
+      .bundle-card {
+        grid-template-columns: 1fr;
+      }
+      .bundle-card-aside {
+        border-left: none;
+        border-top: 1px solid rgba(73, 184, 137, 0.22);
+        padding-top: 28px;
+      }
+      .bundle-card-body {
+        padding: 32px 28px 24px;
+      }
+      .bundle-card-aside {
+        padding: 28px;
+      }
+    }
+  </style>
 
   <!-- ========== TRUST BAR ========== -->
   <section class="trust-bar" aria-label="Trust statistics">
