@@ -1,6 +1,5 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import GrowthBundleCTA from '../components/GrowthBundleCTA.astro';
 
 const schemaData = [
   {
@@ -23,12 +22,7 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Aesthetics Clinic Digital Marketing",
-    "offers": [
-      { "@type": "Offer", "name": "Essential Aesthetics Marketing", "price": "3000", "priceCurrency": "SGD", "description": "SEO, Google Business Profile management, basic social media content, and monthly performance reporting" },
-      { "@type": "Offer", "name": "Growth Aesthetics Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service marketing with SEO, Google Ads, social media management, content creation, and bi-weekly reporting" },
-      { "@type": "Offer", "name": "Enterprise Aesthetics Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Comprehensive marketing with dedicated strategist, multi-channel campaigns, KOL partnerships, and weekly reporting" }
-    ]
+    "serviceType": "Aesthetics Clinic Digital Marketing"
   },
   {
     "@context": "https://schema.org",
@@ -67,7 +61,7 @@ const schemaData = [
   heroImage="/images/service-aesthetics.webp"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20aesthetics%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need digital marketing for my aesthetics clinic in Singapore."
   ctaLabel="Ready to Get Started?"
@@ -77,11 +71,8 @@ const schemaData = [
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20aesthetics%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  hideDefaultCta={true}
+  hideDefaultCta={false}
 >
-
-  <!-- Growth Bundle — slim hero callout (Plan A pivot, May 2026) -->
-  <GrowthBundleCTA placement="hero" industry="clinic" />
 
   <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Why aesthetics clinics need digital marketing">
@@ -176,65 +167,6 @@ const schemaData = [
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Aesthetics clinic marketing pricing">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Marketing Pricing</p>
-        <h2>Digital Marketing Packages for Aesthetics Clinics</h2>
-        <p>Monthly retainer. Cancel any time.</p>
-      </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For solo practitioners building their online presence.</p>
-            <ul class="pricing-features">
-              <li>Local SEO optimisation</li>
-              <li>Google Business Profile management</li>
-              <li>Basic social media content</li>
-              <li>Review management</li>
-              <li>Monthly performance report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$5,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For clinics scaling patient acquisition and brand authority.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essential</li>
-              <li>Google Ads management</li>
-              <li>Full social media management</li>
-              <li>Doctor branding content</li>
-              <li>Patient nurturing workflows</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$10,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For multi-doctor clinics and aesthetics chains.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Dedicated account strategist</li>
-              <li>Multi-location marketing</li>
-              <li>KOL partnerships</li>
-              <li>Video content production</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
-      </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/digital-marketing-agency-singapore/" class="inline-link">digital marketing</a> page.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics clinic marketing in Singapore">
     <div class="container">
@@ -267,12 +199,6 @@ const schemaData = [
     </div>
   </section>
 
-
-  <!-- Growth Bundle — mid-page card (replaces the default "Get Started" CTA) -->
-  <GrowthBundleCTA placement="midpage" industry="clinic" />
-
-  <!-- Growth Bundle — mobile sticky bottom bar (≤768w only) -->
-  <GrowthBundleCTA placement="stickyMobile" industry="clinic" />
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
