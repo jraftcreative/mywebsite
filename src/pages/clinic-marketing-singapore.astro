@@ -1,6 +1,5 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import GrowthBundleCTA from '../components/GrowthBundleCTA.astro';
 
 const schemaData = [
   {
@@ -66,7 +65,7 @@ const schemaData = [
   heroImage="/images/service-clinic.webp"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See the Growth Bundle", href: "#growth-bundle", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20medical%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing for my medical clinic in Singapore."
   ctaLabel="Ready to talk?"
@@ -76,11 +75,8 @@ const schemaData = [
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20medical%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  hideDefaultCta={true}
+  hideDefaultCta={false}
 >
-
-  <!-- Growth Bundle — slim hero callout (Plan A pivot, May 2026) -->
-  <GrowthBundleCTA placement="hero" industry="clinic" />
 
   <!-- ========== THE PROBLEM ========== -->
   <section class="section" id="problem" aria-label="What GP and medical clinics in Singapore are up against">
@@ -228,10 +224,6 @@ const schemaData = [
   </section>
 
 
-  <!-- Growth Bundle — mid-page card (replaces the default "Get Started" CTA) -->
-  <div id="growth-bundle"></div>
-  <GrowthBundleCTA placement="midpage" industry="clinic" />
-
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about clinic marketing in Singapore">
     <div class="container">
@@ -282,9 +274,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-  <!-- Growth Bundle — mobile sticky bottom bar (≤768w only) -->
-  <GrowthBundleCTA placement="stickyMobile" industry="clinic" />
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">

@@ -1,7 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import RelatedServices from '../components/RelatedServices.astro';
-import GrowthBundleCTA from '../components/GrowthBundleCTA.astro';
 
 const schemaData = [
   {
@@ -26,18 +25,16 @@ const schemaData = [
     "areaServed": { "@type": "Country", "name": "Singapore" },
     "serviceType": "Dental Clinic Website Design",
     "offers": [
-      { "@type": "Offer", "name": "Starter Dental Website", "price": "2500", "priceCurrency": "SGD", "description": "5-page dental clinic website with treatment pages, contact form, Google Maps, and basic SEO setup" },
-      { "@type": "Offer", "name": "Business Dental Website", "price": "5500", "priceCurrency": "SGD", "description": "10-page website with online booking, before/after gallery, blog, advanced SEO, and Google Business Profile optimisation" },
-      { "@type": "Offer", "name": "Premium Dental Website", "price": "10000", "priceCurrency": "SGD", "description": "Fully custom website with multi-location support, patient portal, and priority support" }
+      { "@type": "Offer", "name": "Dental Clinic Website", "priceCurrency": "SGD", "description": "Custom-built websites for dental clinics in Singapore — treatment pages, before/after galleries, online appointment booking, MOH compliance, and local SEO. Scoped and quoted to your clinic." }
     ]
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does a dental clinic website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A professional dental clinic website in Singapore typically costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with treatment pages, contact form, and Google Maps integration. Business and Premium packages add online appointment booking, before/after galleries, and multi-location support." } },
+      { "@type": "Question", "name": "How much does a dental clinic website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A professional dental clinic website in Singapore typically costs between $2,500 and $10,000+ depending on features such as treatment pages, before/after galleries, online appointment booking, and multi-location support. We quote each project custom after a short scoping call." } },
       { "@type": "Question", "name": "Do dental websites need to follow MOH advertising guidelines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Ministry of Health (MOH) and Singapore Dental Council have strict advertising guidelines for dental services. We ensure your website complies with these regulations — avoiding prohibited claims, using approved terminology, and including required disclaimers where necessary." } },
-      { "@type": "Question", "name": "Can you integrate online appointment booking into my dental website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business package ($5,500) and above include online appointment booking integration. Patients can select a dentist, choose a treatment type, pick an available time slot, and receive automated confirmation — reducing phone calls and no-shows for your clinic." } },
+      { "@type": "Question", "name": "Can you integrate online appointment booking into my dental website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer online appointment booking integration on most projects. Patients can select a dentist, choose a treatment type, pick an available time slot, and receive automated confirmation — reducing phone calls and no-shows for your clinic." } },
       { "@type": "Question", "name": "Can you build a before/after gallery for dental treatments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Before/after galleries are one of the most effective features for dental websites. We build filterable galleries organised by treatment type — such as teeth whitening, veneers, or Invisalign — with proper patient consent workflows and MOH-compliant presentation." } },
       { "@type": "Question", "name": "How long does it take to build a dental clinic website?", "acceptedAnswer": { "@type": "Answer", "text": "Most dental clinic websites go live within 2–3 weeks. A simple 5-page site can be ready in as little as 2 weeks, while larger projects with online booking, before/after galleries, or multi-location features may take 3–4 weeks. We provide a clear timeline before starting." } }
     ]
@@ -78,11 +75,8 @@ const schemaData = [
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20dental%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  hideDefaultCta={true}
+  hideDefaultCta={false}
 >
-
-  <!-- Growth Bundle — slim hero callout (Plan A pivot, May 2026) -->
-  <GrowthBundleCTA placement="hero" industry="clinic" />
 
   <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Why dental clinics need a proper website">
@@ -178,66 +172,6 @@ const schemaData = [
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Dental website design pricing">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Dental Website Pricing</p>
-        <h2>Website Packages for Dental Clinics</h2>
-        <p>One-time project fee. No monthly lock-ins.</p>
-      </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$2,500 <span>SGD</span></div>
-            <p class="pricing-desc">For new clinics and solo dental practices.</p>
-            <ul class="pricing-features">
-              <li>Up to 5 pages</li>
-              <li>Treatment service pages</li>
-              <li>Contact page &amp; Google Maps</li>
-              <li>Mobile-responsive design</li>
-              <li>Basic SEO setup</li>
-              <li>2-week delivery</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Business</h3>
-            <div class="price">$5,500 <span>SGD</span></div>
-            <p class="pricing-desc">For clinics ready to grow their patient base.</p>
-            <ul class="pricing-features">
-              <li>Up to 10 pages</li>
-              <li>Online appointment booking</li>
-              <li>Before/after photo gallery</li>
-              <li>Blog / dental tips section</li>
-              <li>Advanced SEO &amp; schema</li>
-              <li>Google Business Profile setup</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Premium</h3>
-            <div class="price">$10,000+ <span>SGD</span></div>
-            <p class="pricing-desc">For multi-branch dental groups and specialist clinics.</p>
-            <ul class="pricing-features">
-              <li>Unlimited pages</li>
-              <li>Custom features &amp; design</li>
-              <li>Multi-location support</li>
-              <li>Patient portal integration</li>
-              <li>Dentist profile system</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
-      </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/website-development/" class="inline-link">website development</a> page.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about dental website design in Singapore">
     <div class="container">
@@ -248,7 +182,7 @@ const schemaData = [
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
           <summary>How much does a dental clinic website cost in Singapore?</summary>
-          <div class="faq-answer"><p>A professional dental clinic website in Singapore typically costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with treatment pages, contact form, and Google Maps integration. Business and Premium packages add online appointment booking, before/after galleries, and multi-location support.</p></div>
+          <div class="faq-answer"><p>A professional dental clinic website in Singapore typically costs between $2,500 and $10,000+ depending on features such as treatment pages, before/after galleries, online appointment booking, and multi-location support. We quote each project custom after a short scoping call.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Do dental websites need to follow MOH advertising guidelines?</summary>
@@ -256,7 +190,7 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Can you integrate online appointment booking into my dental website?</summary>
-          <div class="faq-answer"><p>Yes. Our Business package ($5,500) and above include online appointment booking integration. Patients can select a dentist, choose a treatment type, pick an available time slot, and receive automated confirmation — reducing phone calls and no-shows for your clinic.</p></div>
+          <div class="faq-answer"><p>Yes. We offer online appointment booking integration on most projects. Patients can select a dentist, choose a treatment type, pick an available time slot, and receive automated confirmation — reducing phone calls and no-shows for your clinic.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>Can you build a before/after gallery for dental treatments?</summary>
@@ -270,12 +204,6 @@ const schemaData = [
     </div>
   </section>
 
-
-  <!-- Growth Bundle — mid-page card (replaces the default "Get Started" CTA) -->
-  <GrowthBundleCTA placement="midpage" industry="clinic" />
-
-  <!-- Growth Bundle — mobile sticky bottom bar (≤768w only) -->
-  <GrowthBundleCTA placement="stickyMobile" industry="clinic" />
 
   <RelatedServices topic="website" />
 
