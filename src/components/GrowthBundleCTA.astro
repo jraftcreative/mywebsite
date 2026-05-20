@@ -1,0 +1,605 @@
+---
+/**
+ * GrowthBundleCTA
+ * ----------------------------------------------------------------------------
+ * One component, three placements:
+ *   - placement="hero"          slim band slotted at top of LP content (below hero)
+ *   - placement="midpage"       full-width pricing card that REPLACES the
+ *                               existing generic mid-page CTA on industry LPs
+ *   - placement="stickyMobile"  fixed bottom bar (mobile ≤768w only, hide-on-
+ *                               scroll-down / show-on-scroll-up)
+ *
+ * Industry-customised lead-in is driven by the `industry` prop:
+ *   "clinic" | "tuition" | "property" | "generic"
+ *
+ * WhatsApp link:
+ *   wa.me/6582234578 with a text= prefill AND utm_content=industry-<x>.
+ *   The GCLID auto-injector in BaseLayout (URL/searchParams.set) preserves
+ *   the existing utm_content while appending [ref:<gclid>] to text=, so this
+ *   component does not need to coordinate with that script.
+ *
+ * Brand discipline: dark palette using site CSS vars (var(--bg), var(--accent)
+ * = #49b889, var(--text), var(--border)). No template-y aesthetics, matches
+ * the rest of the live site visually.
+ */
+
+interface Props {
+  placement: 'hero' | 'midpage' | 'stickyMobile';
+  industry?: 'clinic' | 'tuition' | 'property' | 'generic';
+}
+
+const { placement, industry = 'generic' } = Astro.props as Props;
+
+// ── Industry-customised copy ───────────────────────────────────────────────
+const copy: Record<string, {
+  leadIn: string;          // 1-2 sentence framing line (mid-page)
+  heroLine: string;        // short hero band lead-in (≤ ~10 words)
+  whatsappText: string;    // wa.me text= prefill
+}> = {
+  clinic: {
+    leadIn: 'Need a marketing team that actually understands clinics? The Growth Bundle gives you ads, content and reporting in one — built for MOH-compliant healthcare practices.',
+    heroLine: 'Need a marketing team built for clinics?',
+    whatsappText: "Hi Jraft Creative, I'm interested in the Growth Bundle for my clinic. Can we chat?",
+  },
+  tuition: {
+    leadIn: 'Need a marketing team that knows the SG enrolment cycle? The Growth Bundle gives you ads, content and reporting in one — built to fill classrooms term after term.',
+    heroLine: 'Need a marketing team built for tuition centres?',
+    whatsappText: "Hi Jraft Creative, I'm interested in the Growth Bundle for my tuition centre. Can we chat?",
+  },
+  property: {
+    leadIn: 'Need a marketing team that knows how SG agents win leads? The Growth Bundle gives you ads, content and reporting in one — built around the realtor funnel.',
+    heroLine: 'Need a marketing team built for property agents?',
+    whatsappText: "Hi Jraft Creative, I'm interested in the Growth Bundle for my property business. Can we chat?",
+  },
+  generic: {
+    leadIn: 'Want the full marketing stack for one price? The Growth Bundle gives you ads, content and reporting in one — built for Singapore SMEs running lean.',
+    heroLine: 'Want the full marketing stack for one price?',
+    whatsappText: "Hi Jraft Creative, I'm interested in the Growth Bundle. Can we chat?",
+  },
+};
+
+const c = copy[industry] || copy.generic;
+
+// Build wa.me link with utm_content for industry attribution.
+// Note: BaseLayout's GCLID injector uses URL.searchParams.set('text', …),
+// which preserves utm_content untouched.
+const utm = `industry-${industry}`;
+const waLink =
+  `https://wa.me/6582234578?text=${encodeURIComponent(c.whatsappText)}` +
+  `&utm_content=${utm}`;
+---
+
+{placement === 'hero' && (
+  <section class="gbcta-hero" aria-label="Growth Bundle quick callout">
+    <div class="container">
+      <div class="gbcta-hero-band">
+        <div class="gbcta-hero-text">
+          <span class="gbcta-hero-pill">Growth Bundle · $2,999/mo</span>
+          <p class="gbcta-hero-line">
+            <span class="gbcta-hero-leadin">{c.heroLine}</span>
+            <span class="gbcta-hero-sep"> — </span>
+            <span class="gbcta-hero-pitch">Meta + Google Ads + Content, all-in.</span>
+          </p>
+        </div>
+        <a
+          href={waLink}
+          class="gbcta-hero-btn"
+          target="_blank"
+          rel="noopener"
+          data-gbcta-industry={industry}
+          data-gbcta-placement="hero"
+        >
+          <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-2.276 2.106-3.156 2.17-.796.058-1.78.082-2.872-.278a26.3 26.3 0 0 1-2.6-1.074c-4.576-2.186-7.566-6.826-7.796-7.142-.222-.316-1.836-2.478-1.836-4.726 0-2.248 1.162-3.356 1.574-3.814.39-.434.858-.542 1.144-.542.286 0 .572.004.82.014.264.012.618-.1.966.738.39.938 1.294 3.224 1.408 3.458.112.234.19.508.038.82-.15.316-.226.512-.448.79-.222.278-.468.62-.668.832-.222.234-.454.49-.196.962.26.47 1.154 1.906 2.478 3.088 1.702 1.52 3.136 1.99 3.582 2.214.448.222.708.19.968-.114.26-.306 1.118-1.302 1.416-1.75.298-.448.596-.37.998-.222.404.148 2.566 1.21 3.006 1.432.44.222.734.334.844.518.112.186.112 1.074-.278 2.174z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+{placement === 'midpage' && (
+  <section class="gbcta-mid" aria-label="Growth Bundle offer">
+    <div class="container">
+      <p class="gbcta-mid-leadin reveal">{c.leadIn}</p>
+
+      <div class="gbcta-mid-card reveal">
+        <div class="gbcta-mid-card-head">
+          <span class="gbcta-mid-eyebrow">The Growth Bundle</span>
+          <h3 class="gbcta-mid-title">Ads + Content. One team. One price.</h3>
+          <div class="gbcta-mid-price">
+            <span class="gbcta-mid-price-amt">$2,999</span>
+            <span class="gbcta-mid-price-period">/month · all-in</span>
+          </div>
+          <p class="gbcta-mid-price-sub">
+            Meta Ads + Google Ads · 4–6 short-form videos · 4–6 static posts · monthly reporting · monthly strategy call. 3-month minimum. Ad spend separate.
+          </p>
+        </div>
+
+        <ul class="gbcta-mid-list">
+          <li>Meta + Google Ads managed in-house</li>
+          <li>4–6 short-form videos / month (Reels + TikTok)</li>
+          <li>4–6 static posts / month (IG + FB)</li>
+          <li>Monthly performance report + strategy call</li>
+        </ul>
+
+        <div class="gbcta-mid-ctas">
+          <a
+            href={waLink}
+            class="gbcta-mid-btn-primary"
+            target="_blank"
+            rel="noopener"
+            data-gbcta-industry={industry}
+            data-gbcta-placement="midpage"
+          >
+            WhatsApp the Founder
+          </a>
+          <a
+            href="/growth-bundle/"
+            class="gbcta-mid-btn-secondary"
+          >
+            See the full bundle pitch →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+{placement === 'stickyMobile' && (
+  <>
+    <div
+      class="gbcta-sticky"
+      role="region"
+      aria-label="Growth Bundle offer (mobile sticky)"
+      data-gbcta-sticky
+    >
+      <div class="gbcta-sticky-inner">
+        <div class="gbcta-sticky-text">
+          <span class="gbcta-sticky-name">Growth Bundle</span>
+          <span class="gbcta-sticky-price">$2,999/mo</span>
+        </div>
+        <a
+          href={waLink}
+          class="gbcta-sticky-btn"
+          target="_blank"
+          rel="noopener"
+          data-gbcta-industry={industry}
+          data-gbcta-placement="sticky"
+          aria-label="WhatsApp us about the Growth Bundle"
+        >
+          <svg viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16.004c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0 0 16.004 32C24.826 32 32 24.826 32 16.004S24.826 0 16.004 0zm9.302 22.602c-.39 1.1-2.276 2.106-3.156 2.17-.796.058-1.78.082-2.872-.278a26.3 26.3 0 0 1-2.6-1.074c-4.576-2.186-7.566-6.826-7.796-7.142-.222-.316-1.836-2.478-1.836-4.726 0-2.248 1.162-3.356 1.574-3.814.39-.434.858-.542 1.144-.542.286 0 .572.004.82.014.264.012.618-.1.966.738.39.938 1.294 3.224 1.408 3.458.112.234.19.508.038.82-.15.316-.226.512-.448.79-.222.278-.468.62-.668.832-.222.234-.454.49-.196.962.26.47 1.154 1.906 2.478 3.088 1.702 1.52 3.136 1.99 3.582 2.214.448.222.708.19.968-.114.26-.306 1.118-1.302 1.416-1.75.298-.448.596-.37.998-.222.404.148 2.566 1.21 3.006 1.432.44.222.734.334.844.518.112.186.112 1.074-.278 2.174z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        // Scroll-direction-aware sticky bar.
+        // Hides on scroll-DOWN, reveals on scroll-UP — so it never fights the
+        // top mobile nav for visibility, and gets out of the way during read.
+        // Only one bar is needed per page; subsequent script runs no-op.
+        if (window.__gbctaStickyBound) return;
+        window.__gbctaStickyBound = true;
+
+        var els = document.querySelectorAll('[data-gbcta-sticky]');
+        if (!els.length) return;
+
+        var lastY = window.scrollY || 0;
+        var ticking = false;
+        var THRESHOLD = 8;     // px — ignore micro jitter
+        var TOP_GRACE = 80;    // near top: always show
+
+        function update() {
+          var y = window.scrollY || 0;
+          var delta = y - lastY;
+          if (Math.abs(delta) > THRESHOLD) {
+            if (y < TOP_GRACE) {
+              els.forEach(function (el) { el.classList.remove('is-hidden'); });
+            } else if (delta > 0) {
+              // scrolling down → hide
+              els.forEach(function (el) { el.classList.add('is-hidden'); });
+            } else {
+              // scrolling up → show
+              els.forEach(function (el) { el.classList.remove('is-hidden'); });
+            }
+            lastY = y;
+          }
+          ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+          }
+        }, { passive: true });
+      })();
+    </script>
+  </>
+)}
+
+<style>
+  /* ── Common: respect existing site dark palette ──────────────────────── */
+
+  /* =========================================================== *
+   *  HERO BAND  (placement="hero")                              *
+   *  Slim accent band that sits immediately below the LP hero.  *
+   *  Visually attaches to the hero with a top accent rule.      *
+   * =========================================================== */
+  .gbcta-hero {
+    background: var(--bg-alt, rgba(13, 13, 20, 0.6));
+    border-top: 1px solid var(--border-accent, rgba(73, 184, 137, 0.2));
+    border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.06));
+    padding: 18px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .gbcta-hero-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .gbcta-hero-text {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .gbcta-hero-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    background: var(--accent-dim, rgba(73, 184, 137, 0.08));
+    color: var(--accent, #49b889);
+    border: 1px solid var(--border-accent, rgba(73, 184, 137, 0.2));
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .gbcta-hero-line {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--text, #f0f0f2);
+    min-width: 0;
+  }
+
+  .gbcta-hero-leadin {
+    color: var(--text, #f0f0f2);
+    font-weight: 600;
+  }
+
+  .gbcta-hero-sep {
+    color: var(--text-muted, #7a7a8c);
+  }
+
+  .gbcta-hero-pitch {
+    color: var(--text-secondary, #c4c4cc);
+  }
+
+  .gbcta-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: var(--accent, #49b889);
+    color: #08080d;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .gbcta-hero-btn:hover {
+    background: var(--accent-hover, #5dcf9e);
+    transform: translateY(-1px);
+  }
+  .gbcta-hero-btn svg {
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .gbcta-hero {
+      padding: 14px 0;
+    }
+    .gbcta-hero-band {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+    .gbcta-hero-text {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .gbcta-hero-line {
+      font-size: 0.9rem;
+    }
+    .gbcta-hero-sep {
+      display: none;
+    }
+    .gbcta-hero-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 16px;
+    }
+  }
+
+  /* =========================================================== *
+   *  MID-PAGE CARD  (placement="midpage")                       *
+   *  Full-width section, pricing visible. Replaces the generic *
+   *  "Get a Quote" CTA section on industry LPs.                *
+   * =========================================================== */
+  .gbcta-mid {
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .gbcta-mid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, var(--accent-glow, rgba(73, 184, 137, 0.15)) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .gbcta-mid > .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gbcta-mid-leadin {
+    max-width: 720px;
+    margin: 0 auto 32px;
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary, #c4c4cc);
+  }
+
+  .gbcta-mid-card {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 44px 44px 40px;
+    background: var(--bg-card, #12121b);
+    border: 1px solid var(--border-accent, rgba(73, 184, 137, 0.2));
+    border-radius: var(--radius, 16px);
+    position: relative;
+  }
+
+  .gbcta-mid-card-head {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .gbcta-mid-eyebrow {
+    display: inline-block;
+    padding: 5px 14px;
+    background: var(--accent, #49b889);
+    color: #08080d;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 16px;
+  }
+
+  .gbcta-mid-title {
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+    font-weight: 700;
+    color: var(--text, #f0f0f2);
+    letter-spacing: -0.02em;
+    margin: 0 0 18px;
+    line-height: 1.2;
+  }
+
+  .gbcta-mid-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  .gbcta-mid-price-amt {
+    font-size: clamp(2.4rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text, #f0f0f2);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .gbcta-mid-price-period {
+    font-size: 1rem;
+    color: var(--text-muted, #7a7a8c);
+    font-weight: 500;
+  }
+
+  .gbcta-mid-price-sub {
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: var(--text-muted, #7a7a8c);
+    line-height: 1.55;
+  }
+
+  .gbcta-mid-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 32px;
+    max-width: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+  .gbcta-mid-list li {
+    font-size: 0.88rem;
+    color: var(--text-secondary, #c4c4cc);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .gbcta-mid-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent, #49b889);
+    font-weight: 800;
+  }
+
+  .gbcta-mid-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .gbcta-mid-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 36px;
+    background: var(--accent, #49b889);
+    color: #08080d;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    min-width: 240px;
+  }
+  .gbcta-mid-btn-primary:hover {
+    background: var(--accent-hover, #5dcf9e);
+    transform: translateY(-1px);
+  }
+
+  .gbcta-mid-btn-secondary {
+    font-size: 0.85rem;
+    color: var(--text-muted, #7a7a8c);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--border, rgba(255, 255, 255, 0.06));
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .gbcta-mid-btn-secondary:hover {
+    color: var(--accent, #49b889);
+    border-bottom-color: var(--accent, #49b889);
+  }
+
+  @media (max-width: 768px) {
+    .gbcta-mid {
+      padding: 64px 0;
+    }
+    .gbcta-mid-card {
+      padding: 32px 22px 30px;
+    }
+    .gbcta-mid-list {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      max-width: 360px;
+    }
+    .gbcta-mid-btn-primary {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  /* =========================================================== *
+   *  STICKY MOBILE BAR  (placement="stickyMobile")              *
+   *  Fixed bottom bar, ≤768w only. Hides on scroll-down.        *
+   * =========================================================== */
+  .gbcta-sticky {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .gbcta-sticky {
+      display: block;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;       /* below modals / dialogs, above page content */
+      background: rgba(8, 8, 13, 0.96);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid var(--border-accent, rgba(73, 184, 137, 0.2));
+      transition: transform 0.25s ease;
+      transform: translateY(0);
+      /* iOS safe-area for home indicator */
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    .gbcta-sticky.is-hidden {
+      transform: translateY(110%);
+    }
+    .gbcta-sticky-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+    }
+    .gbcta-sticky-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+    .gbcta-sticky-name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent, #49b889);
+      letter-spacing: 0.02em;
+    }
+    .gbcta-sticky-price {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text, #f0f0f2);
+    }
+    .gbcta-sticky-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: var(--accent, #49b889);
+      color: #08080d;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .gbcta-sticky-btn:hover {
+      background: var(--accent-hover, #5dcf9e);
+    }
+    .gbcta-sticky-btn svg {
+      display: inline-block;
+    }
+  }
+
+  /* Respect users who prefer reduced motion — no scroll-driven slide */
+  @media (prefers-reduced-motion: reduce) {
+    .gbcta-sticky {
+      transition: none;
+    }
+    .gbcta-hero-btn,
+    .gbcta-mid-btn-primary {
+      transition: none;
+    }
+  }
+</style>

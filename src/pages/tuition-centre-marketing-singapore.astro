@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import GrowthBundleCTA from '../components/GrowthBundleCTA.astro';
 
 const schemaData = [
   {
@@ -76,7 +77,11 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={true}
 >
+
+  <!-- Growth Bundle — slim hero callout (Plan A pivot, May 2026) -->
+  <GrowthBundleCTA placement="hero" industry="tuition" />
 
   <!-- ========== CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Why tuition centres need full-service marketing">
@@ -261,6 +266,12 @@ const schemaData = [
     </div>
   </section>
 
+
+  <!-- Growth Bundle — mid-page card (replaces the default "Get Started" CTA) -->
+  <GrowthBundleCTA placement="midpage" industry="tuition" />
+
+  <!-- Growth Bundle — mobile sticky bottom bar (≤768w only) -->
+  <GrowthBundleCTA placement="stickyMobile" industry="tuition" />
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">

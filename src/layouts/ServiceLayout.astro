@@ -21,6 +21,14 @@ interface Props {
   ctaTitle: string;
   ctaDescription: string;
   ctaButtons: { text: string; href: string; class: string }[];
+  /**
+   * When true, suppresses the default "Ready to Get Started?" CTA section
+   * that ServiceLayout renders after the slot. Used by the priority industry
+   * LPs where the Growth Bundle midpage CTA replaces it (Plan A pivot, May
+   * 2026 — Tyler / SEM). The page is then responsible for placing its own
+   * mid-page CTA (typically <GrowthBundleCTA placement="midpage" />).
+   */
+  hideDefaultCta?: boolean;
 }
 
 const {
@@ -42,6 +50,7 @@ const {
   ctaTitle,
   ctaDescription,
   ctaButtons,
+  hideDefaultCta = false,
 } = Astro.props;
 ---
 
@@ -67,21 +76,23 @@ const {
 
   <slot />
 
-  <!-- ========== CTA ========== -->
-  <section class="section service-cta-section" aria-label="Call to action">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom: 0;">
-        <p class="section-label">{ctaLabel}</p>
-        <h2>{ctaTitle}</h2>
-        <p>{ctaDescription}</p>
-        <div class="hero-buttons" style="margin-top: 32px;">
-          {ctaButtons.map(btn => (
-            <a href={btn.href} class={btn.class}>{btn.text}</a>
-          ))}
+  {!hideDefaultCta && (
+    <!-- ========== CTA ========== -->
+    <section class="section service-cta-section" aria-label="Call to action">
+      <div class="container">
+        <div class="section-header reveal" style="margin-bottom: 0;">
+          <p class="section-label">{ctaLabel}</p>
+          <h2>{ctaTitle}</h2>
+          <p>{ctaDescription}</p>
+          <div class="hero-buttons" style="margin-top: 32px;">
+            {ctaButtons.map(btn => (
+              <a href={btn.href} class={btn.class}>{btn.text}</a>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  )}
 
   <!-- WhatsApp Button -->
   <a href={`https://wa.me/6582234578?text=${encodeURIComponent(whatsappText)}`} class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" slot="after-footer">
