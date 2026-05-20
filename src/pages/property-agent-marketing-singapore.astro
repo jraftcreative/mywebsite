@@ -1,0 +1,401 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Property Agent Marketing Singapore",
+    "description": "Full-service marketing for CEA-registered property agents and real estate agencies in Singapore. Personal-brand websites with listings and lead capture, Google + Meta ads for HDB / condo / private property buyers, and social media content that establishes authority. Every asset CEA-compliance reviewed before publish.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Property Agent Marketing Services",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Property Agent Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Property Agent Website Design",
+            "description": "Personal-brand websites for CEA-registered agents — listings integration, lead capture, mobile-first, area guide pages, and CEA-compliant credential display."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Paid Ads for Property Agents (Google + Meta)",
+            "description": "Buyer-search ads on HDB, condo and private property keywords, neighbourhood-tight geo targeting, retargeting recent profile visitors, and CEA-compliance review on every ad."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Social Media Marketing for Property Agents",
+            "description": "Listings, neighbourhood market reports, buyer education and short-form video (TikTok / IG Reels) on a cadence that builds authority."
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do your property ads follow CEA advertising guidelines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every ad, caption, listing description and content piece is checked against the Council for Estate Agencies advertising rules and the Practice Guidelines on Advertising before it goes live. No false guarantees, no 'best agent in [area]' superlatives, no naming or comparing to other agents, no testimonials phrased as outcome guarantees, and your CEA registration number and agency licence display correctly on every asset that requires it. We share the compliance check inside the monthly report." } },
+      { "@type": "Question", "name": "I already have a PropertyGuru and 99.co profile. Why do I need my own marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Because the portals own the relationship, not you. Every buyer who taps your listing is shown ten other agents on the same page. You pay per listing, the platform keeps the data, and the day you stop paying, you disappear. A personal-brand site, paid search on your name and area, and a consistent social presence give you somewhere buyers can find you outside the portals — and somewhere your past clients can refer warm leads to." } },
+      { "@type": "Question", "name": "What does property agent marketing in Singapore actually cost?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on which mix you start with. A solo agent kicking off with a personal-brand site and a starter Google + Meta ad budget typically sits between $2,500 and $4,000/month all-in. Agents adding consistent short-form video, area guide content and retargeting usually run between $4,500 and $8,000/month. We scope and quote each engagement after a 30-minute call — no fixed package pushed onto you." } },
+      { "@type": "Question", "name": "Can you target buyers by district or estate?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Geo-targeting on Google and Meta lets us run ads to people in a defined radius around a specific HDB town, condo cluster, or planning area. We pair that with keyword targeting — 'condo for sale District 9', 'HDB resale Punggol', 'landed Bukit Timah' — so the ad shows for the right person in the right area. If you specialise in one or two estates, the geo work is where most of the leverage sits." } },
+      { "@type": "Question", "name": "I'm changing brokerages. Can you handle the rebrand?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is one of the more common engagements we run. New CEA agency licence number, new agency logo lockup, new email and contact details across the website, social channels and ad accounts, redirects from the old domain if you had one, and a launch content plan so your network knows where you've moved. Most rebrands go live cleanly in 2–3 weeks." } },
+      { "@type": "Question", "name": "Do you handle short-form video for TikTok and Instagram Reels?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Property buyers and renters scroll TikTok and Reels constantly — listing walkthroughs, neighbourhood tours, market-report explainers and 'a day in the life of an agent' content all perform well when the cadence is consistent. We script, shoot direction (or remote-direct if you film yourself), edit, caption and publish. All scripts go through the same CEA-compliance check as the ads." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Property Agent Marketing Singapore", "item": "https://jraftcreative.com/property-agent-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Marketing for Property Agents in Singapore — CEA-Compliant"
+  description="Full-service marketing for CEA-registered property agents in SG — personal-brand websites, Google + Meta ads, and social media. CEA-compliance reviewed."
+  canonical="https://jraftcreative.com/property-agent-marketing-singapore/"
+  ogTitle="Marketing for Property Agents in Singapore — CEA-Compliant"
+  ogDescription="Full-service marketing for CEA-registered property agents in SG — personal-brand websites, Google + Meta ads, and social media. CEA-compliance reviewed."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="property agent marketing singapore, real estate marketing agency singapore, property marketing singapore, real estate agent marketing, property agent ads singapore, property agent social media, cea compliant marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Property Agent Marketing"
+  heroTitle='Marketing for <span class="highlight">Property Agents in Singapore</span>'
+  heroSubtitle="Built for how SG buyers actually find a property — search, scroll, then shortlist one agent. We run the website, the paid ads and the social content that puts you in front of buyers, sellers and tenants searching tonight. Every asset CEA-compliance reviewed before it goes live."
+  heroImage="/property-hero.jpg"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20property%20agent%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my property agent business in Singapore."
+  ctaLabel="Ready to talk?"
+  ctaTitle="Let's look at where your buyer leads are coming from"
+  ctaDescription="Tell us your CEA number, the estates you cover, your current PropertyGuru / 99.co spend, and what your buyer-vs-seller mix looks like. We'll come back inside 24 hours with where we'd start."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20property%20agent%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE PROBLEM ========== -->
+  <section class="section" id="problem" aria-label="What CEA-registered property agents in Singapore are up against">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Problem</p>
+        <h2>Why your PropertyGuru profile isn't winning you the listing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>There are 36,816 CEA-registered active salespersons in Singapore (CEA Industry Statistics, 1 January 2026). Every one of them has a PropertyGuru profile, a 99.co profile, and the same template "professional, dedicated, results-driven" intro line. The agents winning consistent buyer and seller mandates aren't necessarily the best closers — they're the ones a buyer can actually find, remember, and trust before the first WhatsApp.</p>
+        <p>Here's what we usually find when we audit a solo agent or small team's marketing:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Indistinguishable from 36,000 other agents</h3>
+            <p>The PropertyGuru and 99.co profile is identical in shape to every other agent's. Same headshot crop, same agency logo, same generic blurb. A buyer scrolling ten listings tonight has zero reason to remember you tomorrow. Personal-brand marketing fixes that — but most agents never build any.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Competing with the chain brokerages</h3>
+            <p>PropNex, ERA, Huttons and OrangeTee run firm-wide brand campaigns. As a solo agent or small team, you can't out-spend them — but you can out-specialise them. Tighter geo, sharper niche (HDB upgraders, expat rentals, GCB landed, new launch), and content that proves you actually know the estate.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>CEA advertising rules quietly broken</h3>
+            <p>"Top 1% agent." "Guaranteed sale in 30 days." "Better than [named competitor]." All three break CEA practice guidelines — no superlatives without verifiable basis, no false guarantees, no comparing to named agents. We've audited agent ad accounts where every third creative is non-compliant. One CEA complaint and the campaign comes down.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Feast-or-famine lead flow</h3>
+            <p>One viral listing closes in a week, then three months of silence. The cycle is exhausting and the bank doesn't care about your last commission. A proper marketing engine — ads running daily, content shipped weekly, retargeting catching repeat visitors — flattens the curve so the calendar isn't empty after every close.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEBSITE DESIGN ========== -->
+  <section class="section" id="website" style="background: var(--bg-alt);" aria-label="Property agent website design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Service 1 — Website Design</p>
+        <h2>A website that's actually yours, not a portal sub-page</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Your PropertyGuru profile belongs to PropertyGuru. Your 99.co profile belongs to 99.co. The day either platform changes its algorithm, raises its listing fees, or de-prioritises solo agents, you're back to zero. A personal-brand website is the one piece of marketing real estate you actually own — and for property agents it carries real conversion weight, not just vanity.</p>
+        <p>We build mobile-first, fast-loading personal-brand sites with active listings integration, structured lead capture on every page, area guide content for the estates you specialise in, and your CEA registration number, agency licence and salesperson credentials displayed exactly the way the Council for Estate Agencies advertising rules require. Buyers searching "[your name] property agent" or "condo specialist [area]" land somewhere that looks like a professional operator, not a Wix template. The same shell scales as you grow — solo agent today, 5-person team next year, no rebuild.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Listings integration that stays in sync</h3>
+            <p>Active listings displayed with photos, floor plans, tenure, price and key facts. Either a manual listings manager you control, or a feed-driven sync with PropertyGuru / 99.co / SRX exports so the site never shows a sold unit.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Area guide pages that rank</h3>
+            <p>Dedicated SEO pages for the estates you cover — "condos in District 10", "HDB resale Punggol", "landed Bukit Timah" — with local market data, amenities, MRT links and your active listings in that area embedded directly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Lead capture on every listing</h3>
+            <p>Enquiry forms with WhatsApp deep-link, tap-to-call buttons, viewing-request scheduler, and CRM connection so every enquiry is logged, tagged and followed up — not stuck in a Gmail tab you forgot to refresh.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-local-seo.webp">
+          <div class="service-detail-card__content">
+            <h3>CEA-compliant credential display</h3>
+            <p>CEA registration number, agency licence number, salesperson name, agency name and contact details displayed correctly on the homepage footer, every listing page and the contact page — the way the CEA advertising rules require. No accidental violations on day one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PAID ADS ========== -->
+  <section class="section" id="paid-ads" aria-label="Paid ads for property agents">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Service 2 — Paid Ads</p>
+        <h2>Google &amp; Meta ads that hit real buyer-search intent</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Property buyers in Singapore search before they scroll. "HDB resale Bedok", "new launch condo D15", "landed property under 5m Bukit Timah", "rental condo near MRT" — these are typed into Google daily by people three to six weeks away from signing an Option to Purchase. The agents catching those queries with Google Search ads — and then retargeting the visitor on Meta — are the ones whose enquiry forms fill up while everyone else is refreshing PropertyGuru analytics.</p>
+        <p>We run Google Search and Performance Max for buyer-intent keywords on HDB, condo and private property terms. Meta and Instagram for awareness and retargeting in the same postal codes, and short-form video ads for active listings on TikTok where the demographic skews toward upgraders and first-time buyers. Geo tightened to the estates you actually cover — no Singapore-wide blasts wasting budget on districts you don't serve. Every ad creative, headline and description is run past the CEA advertising rules before it goes live, with a compliance log shared inside the monthly report.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Search — buyer-intent keywords</h3>
+            <p>"HDB resale [estate]", "condo for sale District [X]", "landed property [area]", "new launch [development]", "property agent [estate]". Geo-radius tight to your actual catchment, negative keywords filtering tyre-kicker traffic, and conversion tracking calibrated to enquiry quality, not click volume.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Meta &amp; Instagram — retargeting that closes</h3>
+            <p>Buyer-intent visitors don't enquire on the first visit — they come back two or three times across two weeks. Meta retargeting keeps your listings and your face in front of them across IG Reels and Stories until the form fills out. Lookalike audiences seeded off your past closers extend reach without burning budget.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>TikTok ads on active listings</h3>
+            <p>Short-form vertical walkthroughs of active listings, ad-promoted to buyers in the right age and geo. Performs especially well for HDB upgraders, first-time condo buyers and en-bloc replacement segments. We script, edit and run the full media buy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>CEA-compliance review on every ad</h3>
+            <p>No "top agent" superlatives without verifiable basis. No "guaranteed sale" claims. No naming or comparing to other agents. CEA registration and agency licence visible where required. Every ad is checked and logged before publish so a CEA complaint never takes the campaign down.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL MEDIA MARKETING ========== -->
+  <section class="section" id="social-media" style="background: var(--bg-alt);" aria-label="Social media marketing for property agents">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Service 3 — Social Media Marketing</p>
+        <h2>Content that proves you know the estate</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Buyers don't choose an agent on a single ad. They choose the agent whose face has already shown up four times in their feed — walking through a new launch, breaking down the latest URA cooling measure, explaining the Punggol vs. Tampines resale spread, or quietly demonstrating they actually know District 9 better than the agent two doors down. That's not the work of one viral video. It's the work of a content cadence that runs every week, all year.</p>
+        <p>We plan, write and ship a monthly content stack across Instagram, TikTok and Facebook — listings, neighbourhood market reports, buyer education explainers (BTO vs. resale, ABSD basics, en-bloc mechanics, foreigner buying rules), and short-form vertical video where the algorithm actually rewards effort. The mix is roughly half listings, a quarter education, a quarter neighbourhood and you-personally content — enough listings to drive enquiries, enough non-listing content to establish authority. Every script and caption runs through the same CEA-compliance check as the paid ads.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Listings content — beyond the portal photo dump</h3>
+            <p>Vertical-video walkthroughs of active listings, Reels-format key-feature highlights, carousel posts breaking down floor plan and unit positioning. The listings content most agents skip because the portal photos "are already there" — and which is exactly why posting it puts you ahead.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood market reports</h3>
+            <p>Monthly "what sold and at what PSF" posts for the estates you cover. URA data, transacted prices, days-on-market trends, supply pipeline. The exact content sellers WhatsApp their agent to ask about — except now you're the one publishing it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Buyer education — BTO, ABSD, en-bloc, cooling measures</h3>
+            <p>The questions every first-time buyer and upgrader actually has but doesn't want to ask their agent on the phone. Loan tenure calculations, ABSD remission, decoupling mechanics, en-bloc tender process, the latest cooling-measure round. Authority content that earns the next mandate.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Short-form video cadence — TikTok &amp; Reels</h3>
+            <p>The platform that's actually moving the needle for property right now. We script, direct (or remote-direct if you self-film), edit, caption and publish. Cadence built around your shoot availability — most agents we work with film once or twice a month and we cut it into four to six weeks of content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section class="section" id="who-this-is-for" aria-label="Who this is for">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Who this is for</p>
+        <h2>Right fit if you're one of these</h2>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Solo CEA-registered agent</h3>
+            <p>You're licensed under one of the chain agencies (PropNex, ERA, Huttons, OrangeTee, Realstar Premier, etc.) but the brand campaign isn't your brand campaign — it's the agency's. You want lead flow that comes to your name, not the firm's call centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Small team — 2 to 5 agents</h3>
+            <p>You run a small division or pod inside a larger agency, or an independent team. One shared website, one ad account, one social content engine — leads routed by area or speciality. Most teams at this size don't have a dedicated marketer; we sit in that seat.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Agent rebranding after a brokerage move</h3>
+            <p>You're switching from one agency to another (PropNex to ERA, ERA to Huttons, chain to boutique). New CEA agency licence, new logo lockup, new contact details across every channel, redirects from the old site, and a launch plan so your network knows where you've moved.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Niche specialist — GCB, expat rental, new launch, en-bloc</h3>
+            <p>You don't sell everything in every estate — you specialise. Good Class Bungalows, expat condo rentals, new launch units, en-bloc consolidation. Niche-tight marketing outperforms generalist marketing here, and that's where we want to be.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section" id="how-it-works" style="background: var(--bg-alt);" aria-label="How property agent marketing engagement runs">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How it works</p>
+        <h2>Three steps. No 90-day onboarding theatre.</h2>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>1. 30-minute scoping call</h3>
+            <p>You walk us through your CEA registration, the estates you cover, your buyer-vs-seller mix, current portal spend, and what your past 12 months of closings looked like. We tell you which of the three services to start with. No deck, no sales pressure.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>2. Week 1–2: setup</h3>
+            <p>Website wireframes (if applicable), ad accounts, conversion tracking, content plan, CEA-compliance review of every starter asset. Ads typically go live by day 10. Website usually goes live in 2–3 weeks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>3. Month 2 onwards: run and report</h3>
+            <p>Ads optimised weekly, content shipped on schedule, listings updated as you close and pick up new ones, monthly call and monthly report. No lock-in. Leave at the end of any month, no penalty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about property agent marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Questions property agents actually ask us</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do your property ads follow CEA advertising guidelines?</summary>
+          <div class="faq-answer"><p>Yes. Every ad, caption, listing description and content piece is checked against the Council for Estate Agencies advertising rules and the Practice Guidelines on Advertising before it goes live. No false guarantees, no "best agent in [area]" superlatives, no naming or comparing to other agents, no testimonials phrased as outcome guarantees, and your CEA registration number and agency licence display correctly on every asset that requires it. We share the compliance check inside the monthly report.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>I already have a PropertyGuru and 99.co profile. Why do I need my own marketing?</summary>
+          <div class="faq-answer"><p>Because the portals own the relationship, not you. Every buyer who taps your listing is shown ten other agents on the same page. You pay per listing, the platform keeps the data, and the day you stop paying, you disappear. A personal-brand site, paid search on your name and area, and a consistent social presence give you somewhere buyers can find you outside the portals — and somewhere your past clients can refer warm leads to.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What does property agent marketing in Singapore actually cost?</summary>
+          <div class="faq-answer"><p>It depends on which mix you start with. A solo agent kicking off with a personal-brand site and a starter Google + Meta ad budget typically sits between $2,500 and $4,000/month all-in. Agents adding consistent short-form video, area guide content and retargeting usually run between $4,500 and $8,000/month. We scope and quote each engagement after a 30-minute call — no fixed package pushed onto you.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you target buyers by district or estate?</summary>
+          <div class="faq-answer"><p>Yes. Geo-targeting on Google and Meta lets us run ads to people in a defined radius around a specific HDB town, condo cluster, or planning area. We pair that with keyword targeting — "condo for sale District 9", "HDB resale Punggol", "landed Bukit Timah" — so the ad shows for the right person in the right area. If you specialise in one or two estates, the geo work is where most of the leverage sits.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>I'm changing brokerages. Can you handle the rebrand?</summary>
+          <div class="faq-answer"><p>Yes — this is one of the more common engagements we run. New CEA agency licence number, new agency logo lockup, new email and contact details across the website, social channels and ad accounts, redirects from the old domain if you had one, and a launch content plan so your network knows where you've moved. Most rebrands go live cleanly in 2–3 weeks.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you handle short-form video for TikTok and Instagram Reels?</summary>
+          <div class="faq-answer"><p>Yes. Property buyers and renters scroll TikTok and Reels constantly — listing walkthroughs, neighbourhood tours, market-report explainers and "a day in the life of an agent" content all perform well when the cadence is consistent. We script, shoot direction (or remote-direct if you film yourself), edit, caption and publish. All scripts go through the same CEA-compliance check as the ads.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="section" id="final-cta" aria-label="Talk to us about your property business">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <p class="section-label">Next step</p>
+        <h2>Tell us about your patch</h2>
+        <p>30 minutes on the phone, no slide deck, no obligation. You'll leave with a clearer view of which of the three services to start with and whether we're the right team to run it.</p>
+        <div class="hero-buttons" style="margin-top: 32px;">
+          <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+          <a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20property%20agent%20business%20in%20Singapore." class="btn btn-secondary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore more</p>
+        <h2>More for property agents</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/property-agent-website-singapore/" class="related-service-link">Property Agent Website Design</a>
+          <a href="/services/paid-ads/" class="related-service-link">Paid Ads Management</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Marketing</a>
+          <a href="/digital-marketing-agency-singapore/" class="related-service-link">Digital Marketing Agency</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
