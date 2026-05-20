@@ -1,0 +1,304 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import GrowthBundleCTA from '../components/GrowthBundleCTA.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dental Marketing Singapore",
+    "description": "Digital marketing for dental clinics in Singapore. Google Ads, social content, and Google Business Profile work built around the SG dental patient journey — CHAS panels, insurance integrations, and MOH-compliant ad creative. From S$2,999/month with the Growth Bundle.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Dental Clinic Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Growth Bundle for Dental Clinics", "price": "2999", "priceCurrency": "SGD", "description": "Paid ads (Google + Meta), 12 pieces of social content per month, GBP management, and one consolidated monthly report — MOH-reviewed before every publish." }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do your dental clinic ads follow MOH advertising rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every ad, caption and content piece is reviewed against the MOH Private Hospitals and Medical Clinics Act advertising rules and the Singapore Dental Council ethical code before publication. That means no superlatives like 'best dentist', no outcome guarantees, no before-and-after used as a results claim, and no patient testimonials phrased as treatment endorsements. We share the compliance check inside the monthly report." } },
+      { "@type": "Question", "name": "What does dental marketing in Singapore actually cost?", "acceptedAnswer": { "@type": "Answer", "text": "Our Growth Bundle for dental clinics is $2,999 SGD/month, no lock-in. It covers paid ads on Google and Meta, 12 social posts a month, Google Business Profile management, and a single monthly report. Larger clinics or groups running multi-location campaigns and video content typically sit between $5,500 and $10,000/month depending on ad spend and content volume." } },
+      { "@type": "Question", "name": "Can you help us get found by patients moving into a new neighbourhood?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is most of what we do for dental clinics. We run Google Ads on neighbourhood-level searches like 'dentist Tampines' or 'wisdom tooth Bukit Timah', tighten the Google Business Profile so the clinic shows up in the local map pack, and build social content that gives new residents a reason to pick you over the closest chain clinic." } },
+      { "@type": "Question", "name": "Can you handle CHAS, insurance panel and Sunday-hours messaging?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. CHAS Blue, Orange and Green positioning, major insurance panel mentions (AIA, Great Eastern, Aetna and the local insurers), and Sunday or public holiday operating hours are all common targeting and creative angles we run for dental clients. We treat them as factual operational details, not promotional claims, which keeps them on the right side of MOH rules." } },
+      { "@type": "Question", "name": "How do you reduce no-shows from new-patient bookings?", "acceptedAnswer": { "@type": "Answer", "text": "No-show rates drop when the patient is warm before they book. We do that with retargeting (so they see the clinic 3–5 times before they call), content that shows the actual clinic environment and team, and ad creative that filters out price-shoppers earlier in the funnel. We don't run the reminder system itself — that sits inside your PMS — but our work upstream is what makes those reminders convert." } },
+      { "@type": "Question", "name": "How long before we see new patient enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads usually produces the first enquiries within the first 7–14 days, once conversion tracking is calibrated. Social content takes 4–8 weeks to build familiarity in the neighbourhood. Google Business Profile and local SEO movement shows up in months 2–4. We report enquiry volume monthly, not impressions." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Dental Marketing Singapore", "item": "https://jraftcreative.com/dental-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Dental Marketing in Singapore — MOH-Compliant Ads & Content"
+  description="Digital marketing for SG dental clinics. Google Ads, neighbourhood social content, GBP, CHAS & insurance angles — every asset MOH-reviewed. From $2,999/month."
+  canonical="https://jraftcreative.com/dental-marketing-singapore/"
+  ogTitle="Dental Marketing in Singapore — MOH-Compliant Ads & Content"
+  ogDescription="Digital marketing for SG dental clinics. Google Ads, neighbourhood social content, GBP, CHAS & insurance angles — every asset MOH-reviewed. From $2,999/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="dental marketing singapore, dental clinic marketing, dental clinic digital marketing singapore, dental google ads singapore, marketing agency for dentists singapore, dental social media singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Dental Marketing"
+  heroTitle='Marketing for <span class="highlight">Dental Clinics in Singapore</span> — built around how patients actually pick a dentist'
+  heroSubtitle="People moving into a new HDB or condo block don't know your clinic exists. They open Google Maps, see three chain clinics ahead of you, and book whichever one has the most reviews. We fix that — with Google Ads, neighbourhood-level social content, and a Google Business Profile that's actually managed. Every asset MOH-reviewed before it goes live."
+  heroImage="/images/service-dental.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "See the Growth Bundle", href: "#growth-bundle", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my dental clinic in Singapore."
+  ctaLabel="Ready to talk?"
+  ctaTitle="Let's look at your patient pipeline"
+  ctaDescription="Tell us your clinic's location, the chains you're competing with, and a rough idea of your monthly new-patient volume. We'll come back inside 24 hours with where we'd start."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20dental%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={true}
+>
+
+  <!-- Growth Bundle — slim hero callout (Plan A pivot, May 2026) -->
+  <GrowthBundleCTA placement="hero" industry="clinic" />
+
+  <!-- ========== THE PROBLEM ========== -->
+  <section class="section" id="problem" aria-label="What dental clinics in Singapore are actually up against">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Problem</p>
+        <h2>The honest version of why your appointment book has gaps</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most dental clinics in Singapore don't have a treatment problem. They have a visibility problem, and a few operational ones that compound it. The clinics filling their chairs aren't necessarily better — they're just being seen at the right moment, by the right person, in the right neighbourhood.</p>
+        <p>Here's what we see when we audit a dental practice's marketing:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible to new movers</h3>
+            <p>A family moves into a new BTO or condo and types "dentist near me". If you're not in the top three of Google Maps for that estate, you don't exist to them. Most clinics have never optimised their Google Business Profile beyond putting up the address.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Chain clinics dominating the map pack</h3>
+            <p>Large dental chain groups own a disproportionate share of Maps results — partly through volume of reviews, partly because they treat the GBP as a marketing channel. Independents who treat it as a phonebook listing lose by default.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Price-shoppers, not relationship patients</h3>
+            <p>Lazy ad creative attracts people comparing five clinics on price. Better creative — showing the team, the clinic environment, the actual process — filters those out earlier and brings in patients who are deciding on fit, not dollar amount.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>CHAS and insurance angles left on the table</h3>
+            <p>CHAS Blue/Orange/Green eligibility, major insurer panel status, Sunday and public holiday hours — these are real differentiators most clinics either don't mention or bury inside the website footer. They belong in ad copy and GBP posts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DO ========== -->
+  <section class="section" id="what-we-do" style="background: var(--bg-alt);" aria-label="What dental marketing actually looks like at Jraft">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What we do</p>
+        <h2>What marketing for a dental practice actually looks like</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Two channels run the show for SG dental clinics — paid ads and social content — sitting on top of a properly managed Google Business Profile. Everything below is what's inside the Growth Bundle ($2,999/month). Bigger setups add multi-location ad accounts, video, and dedicated strategist time.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3>Google &amp; Meta ads — neighbourhood-tight</h3>
+            <p>Search ads on "dentist near me", "wisdom tooth removal [estate]", "scaling and polishing Singapore" and the procedure-specific queries patients actually type. Geo-radius tightened to the catchment area you can realistically serve. Meta ads layered on top for awareness in the same postal codes — not the whole island.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Social content that shows the practice</h3>
+            <p>Twelve pieces a month across Instagram, TikTok and Facebook. The clinic environment, the team, how a first visit actually runs, what a scaling appointment involves, equipment introductions, CHAS and panel info. No outcome claims, no whitening hype, no before-and-afters used as marketing — just useful, factual content that builds familiarity in your neighbourhood.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+          <div class="service-detail-card__content">
+            <h3>Google Business Profile, managed</h3>
+            <p>Weekly GBP posts, photo refresh, service list maintenance, review responses, Q&amp;A monitoring, and operating-hours updates around long weekends and public holidays. This is the single highest-leverage asset for a dental clinic, and almost nobody runs it properly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>One monthly report you'll actually read</h3>
+            <p>Enquiries, calls and form fills by channel. Cost per enquiry. What we changed last month and what we're changing next month. MOH-compliance log of every asset published. No 40-page slide deck — one page, the numbers that move the practice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHO THIS IS FOR ========== -->
+  <section class="section" id="who-this-is-for" aria-label="Who this is for">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Who this is for</p>
+        <h2>Right fit if you're running one of these</h2>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Solo dentist, one chair, one location</h3>
+            <p>You're competing against the chain clinic two MRT stops away and another chain dental group in the same mall. You need consistent new-patient flow into a single practice without spending your evenings learning Google Ads.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>2–5 dentist independent clinic</h3>
+            <p>A growing partnership or family-run group with a few chairs across one or two locations. You've outgrown word-of-mouth and CHAS walk-ins, and the patient pipeline needs a system, not a hire.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Small dental group, 2–4 locations</h3>
+            <p>You run a handful of clinics under one brand and need each location marketed to its own catchment, without rebuilding a marketing function in-house. Multi-location GBP, separate ad geos per branch, shared content engine.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Not for you if…</h3>
+            <p>You're a high-volume cosmetic-dentistry-only operator chasing aesthetic before/after results claims — go talk to a specialist agency that's willing to push those compliance lines. We're not the right fit, and we'll tell you on the call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section class="section" id="how-it-works" style="background: var(--bg-alt);" aria-label="How dental marketing engagement runs">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How it works</p>
+        <h2>Three steps. No 90-day onboarding theatre.</h2>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>1. 30-minute scoping call</h3>
+            <p>You walk us through the clinic, the catchment, current new-patient sources, and the chains nearby. We tell you whether the Growth Bundle is the right starting point or whether you need something larger. No deck.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>2. Week 1–2: setup</h3>
+            <p>Ad accounts, conversion tracking, GBP audit and cleanup, first content shoot brief, MOH-compliance review of every asset. Ads typically go live by day 10.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>3. Month 2 onwards: run and report</h3>
+            <p>Ads optimised weekly, content shipped on schedule, GBP managed continuously. One monthly call, one monthly report. No lock-in. Leave at the end of any month, no penalty.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Growth Bundle — mid-page card (replaces the default "Get Started" CTA) -->
+  <div id="growth-bundle"></div>
+  <GrowthBundleCTA placement="midpage" industry="clinic" />
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about dental marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Questions dental clinic owners actually ask us</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do your dental clinic ads follow MOH advertising rules?</summary>
+          <div class="faq-answer"><p>Yes. Every ad, caption and content piece is reviewed against the MOH Private Hospitals and Medical Clinics Act advertising rules and the Singapore Dental Council ethical code before publication. That means no superlatives like "best dentist", no outcome guarantees, no before-and-after used as a results claim, and no patient testimonials phrased as treatment endorsements. We share the compliance check inside the monthly report.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What does dental marketing in Singapore actually cost?</summary>
+          <div class="faq-answer"><p>Our Growth Bundle for dental clinics is $2,999 SGD/month, no lock-in. It covers paid ads on Google and Meta, 12 social posts a month, Google Business Profile management, and a single monthly report. Larger clinics or groups running multi-location campaigns and video content typically sit between $5,500 and $10,000/month depending on ad spend and content volume.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you help us get found by patients moving into a new neighbourhood?</summary>
+          <div class="faq-answer"><p>Yes — this is most of what we do for dental clinics. We run Google Ads on neighbourhood-level searches like "dentist Tampines" or "wisdom tooth Bukit Timah", tighten the Google Business Profile so the clinic shows up in the local map pack, and build social content that gives new residents a reason to pick you over the closest chain clinic.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you handle CHAS, insurance panel and Sunday-hours messaging?</summary>
+          <div class="faq-answer"><p>Yes. CHAS Blue, Orange and Green positioning, major insurance panel mentions (AIA, Great Eastern, Aetna and the local insurers), and Sunday or public holiday operating hours are all common targeting and creative angles we run for dental clients. We treat them as factual operational details, not promotional claims, which keeps them on the right side of MOH rules.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you reduce no-shows from new-patient bookings?</summary>
+          <div class="faq-answer"><p>No-show rates drop when the patient is warm before they book. We do that with retargeting (so they see the clinic 3–5 times before they call), content that shows the actual clinic environment and team, and ad creative that filters out price-shoppers earlier in the funnel. We don't run the reminder system itself — that sits inside your PMS — but our work upstream is what makes those reminders convert.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before we see new patient enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads usually produces the first enquiries within the first 7–14 days, once conversion tracking is calibrated. Social content takes 4–8 weeks to build familiarity in the neighbourhood. Google Business Profile and local SEO movement shows up in months 2–4. We report enquiry volume monthly, not impressions.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="section" id="final-cta" aria-label="Talk to us about your dental practice">
+    <div class="container">
+      <div class="section-header reveal" style="margin-bottom: 0;">
+        <p class="section-label">Next step</p>
+        <h2>Tell us about your clinic</h2>
+        <p>30 minutes on the phone, no slide deck, no obligation. You'll leave with a clearer view of where the patient pipeline is leaking and whether we're the right team to fix it.</p>
+        <div class="hero-buttons" style="margin-top: 32px;">
+          <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
+          <a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20dental%20clinic%20in%20Singapore." class="btn btn-secondary" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Growth Bundle — mobile sticky bottom bar (≤768w only) -->
+  <GrowthBundleCTA placement="stickyMobile" industry="clinic" />
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore more</p>
+        <h2>More for dental clinics</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/dental-website-design-singapore/" class="related-service-link">Dental Website Design</a>
+          <a href="/clinic-marketing-singapore/" class="related-service-link">General Clinic Marketing</a>
+          <a href="/aesthetics-clinic-marketing-singapore/" class="related-service-link">Aesthetics Clinic Marketing</a>
+          <a href="/digital-marketing-agency-singapore/" class="related-service-link">Digital Marketing Agency</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
