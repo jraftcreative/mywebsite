@@ -208,7 +208,7 @@ const schemaData = [
         <p class="section-label">Who this is for</p>
         <h2>Right fit if you're one of these</h2>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <div class="service-detail-card reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Solo CEA-registered agent</h3>
@@ -223,16 +223,14 @@ const schemaData = [
         </div>
         <div class="service-detail-card reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Agent rebranding after a brokerage move</h3>
-            <p>You're switching from one agency to another (PropNex to ERA, ERA to Huttons, chain to boutique). New CEA agency licence, new logo lockup, new contact details across every channel, redirects from the old site, and a launch plan so your network knows where you've moved.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
             <h3>Niche specialist — GCB, expat rental, new launch, en-bloc</h3>
             <p>You don't sell everything in every estate — you specialise. Good Class Bungalows, expat condo rentals, new launch units, en-bloc consolidation. Niche-tight marketing outperforms generalist marketing here, and that's where we want to be.</p>
           </div>
         </div>
+      </div>
+      <div class="who-cta reveal">
+        <p class="who-cta__text">Not sure which one is you? That's exactly what the first call is for.</p>
+        <a href="/contact/" class="btn btn-primary">Get a Free Quote</a>
       </div>
     </div>
   </section>
@@ -561,5 +559,26 @@ const schemaData = [
       padding: 32px 24px 28px;
       min-height: 260px;
     }
+  }
+
+  /* ============================================================
+     Section 4 — "Who this is for" CTA below the 3 cards
+     Centred prompt + single primary button.
+     ============================================================ */
+  .who-cta {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .who-cta__text {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 540px;
   }
 </style>
