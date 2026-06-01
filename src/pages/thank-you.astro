@@ -20,6 +20,15 @@ const schemaData = {
 >
   <script is:inline>
     (function() {
+      // Gate: only fire conversion if a real submit just happened.
+      // Token set by contact.astro on successful fetch resolve; must be <60s old.
+      // Direct/bot/prefetch visits to /thank-you/ have no token → no conversion fires.
+      var token, fresh;
+      try { token = sessionStorage.getItem('jraft_lead_ok'); } catch (e) { token = null; }
+      fresh = token && (Date.now() - parseInt(token, 10) < 60000);
+      if (!fresh) { return; }
+      try { sessionStorage.removeItem('jraft_lead_ok'); } catch (e) { /* ignore */ }
+
       // Read landing page attribution from URL params
       var params = new URLSearchParams(window.location.search);
       var landingPage = params.get('lp') || '/';

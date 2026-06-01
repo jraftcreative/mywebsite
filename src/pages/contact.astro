@@ -187,6 +187,10 @@ const schemaData = [
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         }).then(function () {
+          // Set one-time token so /thank-you/ knows this was a real submit.
+          // Gate prevents phantom conversions from direct/bot/prefetch hits on /thank-you/.
+          // Fail open (sessionStorage blocked → redirect still proceeds; old phantom risk for that small slice).
+          try { sessionStorage.setItem('jraft_lead_ok', String(Date.now())); } catch (e) { /* sessionStorage unavailable; allow redirect anyway */ }
           window.location.href = '/thank-you/?lp=' + encodeURIComponent(landingPage) + '&ref=' + encodeURIComponent(landingReferrer);
         }).catch(function () {
           btn.textContent = 'Send Your Message';
