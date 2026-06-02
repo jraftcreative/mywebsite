@@ -177,3 +177,11 @@ Schema markup is no longer optional for businesses that want to be visible in AI
 If you need help implementing schema markup that's optimised for AI visibility, our [AI SEO services](/ai-seo-singapore/) include full schema audits and implementation. For a broader AI search strategy that covers schema, content, and authority building, explore our [AI search optimisation service](/services/ai-search-optimisation/) or work with our [GEO team](/geo-agency-singapore/) for end-to-end management.
 
 *Not sure where your schema stands? [Get in touch](/contact/) for a free structured data audit — we'll review your current implementation and show you exactly what's missing.*
+
+---
+
+### Want this handled for you?
+
+Getting your business cited in AI Overviews requires the schema + content depth this post walks through, deployed at scale across your site — our GEO agency Singapore service is built for exactly this. **[GEO Agency Singapore →](/geo-agency-singapore/)**
+
+---

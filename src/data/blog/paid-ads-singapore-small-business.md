@@ -122,3 +122,11 @@ If you're a Singapore business owner considering paid advertising, here's what J
 Jraft Creative offers paid advertising management starting from $1,000/month, including campaign setup, creative production, and ongoing optimisation. Every campaign comes with transparent reporting so you know exactly where your money is going and what it's producing.
 
 [Get in touch with Jraft Creative](/contact/) to discuss whether paid ads are the right move for your business right now. No hard sell — just an honest assessment of where you are and what makes sense.
+
+---
+
+### Want this handled for you?
+
+Building a Google Ads account that actually converts SG small-business traffic takes proper structure, GCLID offline tracking and ongoing optimisation — our Google Ads agency Singapore service is built for exactly this. **[Google Ads Agency Singapore →](/google-ads-agency-singapore/)**
+
+---

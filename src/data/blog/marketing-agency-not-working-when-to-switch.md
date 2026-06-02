@@ -71,3 +71,11 @@ If the agency built everything under *their* accounts and won't hand it over, th
 Switching agencies isn't failure — staying with one that isn't working is. If you've read this and recognised your own setup, you probably already know.
 
 When clients move to us, we make the switch boring on purpose: everything in your name, reporting tied to real results, month-to-month so we have to earn it, and a senior who actually picks up. If that's what you're after, [tell us what's not working](/contact/) and we'll give you an honest read — including whether your current agency just needs a kick rather than replacing.
+
+---
+
+### Want this handled for you?
+
+If you're ready to make the switch, we run full-service marketing for SG SMBs end-to-end — built around what your business actually needs, not a templated retainer. **[Digital Marketing Agency Singapore →](/digital-marketing-agency-singapore/)**
+
+---

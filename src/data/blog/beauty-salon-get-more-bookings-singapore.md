@@ -191,3 +191,11 @@ At Jraft Creative, we work with beauty salons, hair salons, nail studios, spas, 
 Every salon is different. We start every engagement with an honest assessment of where you are and what'll give you the fastest path to more bookings.
 
 [Get in touch](/contact/) for a free consultation. No hard sell, just practical advice on where to focus next.
+
+---
+
+### Want this handled for you?
+
+Filling your chairs week-on-week takes Google Maps + Meta + bookings-platform integration working as one funnel — our beauty salon marketing Singapore service is built for exactly this. **[Beauty Salon Marketing Singapore →](/beauty-salon-marketing-singapore/)**
+
+---
