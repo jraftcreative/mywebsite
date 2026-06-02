@@ -169,3 +169,11 @@ If you're ready to act, explore our [AI SEO services](/ai-seo-singapore/) that b
 *Coming next: How AI Models Decide Who to Recommend — a platform-by-platform breakdown of what ChatGPT, Gemini, Perplexity, and Copilot actually look for.*
 
 *Ready to check your AI visibility? [Book a free audit](/contact/) with Jraft Creative — we'll test your brand across all major AI platforms and show you exactly where you stand.*
+
+---
+
+### Want this handled for you?
+
+Showing up in ChatGPT, Perplexity and Google AI Overviews is a multi-channel push, not a one-time fix — our GEO agency Singapore service is built for exactly this. **[GEO Agency Singapore →](/geo-agency-singapore/)**
+
+---
