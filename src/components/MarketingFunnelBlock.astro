@@ -12,9 +12,10 @@
  * Inserted at the BOTTOM of the slot on industry website pages, just above
  * the page's final contact CTA section.
  *
- * Brand: #39BB9D accent on light-background callout (deliberately quieter
- * than the GrowthBundleCTA midpage card — this is a sibling-page funnel,
- * not a primary product CTA).
+ * Brand: #49b889 accent on the site's dark palette — mirrors the colour
+ * vocabulary of GrowthBundleCTA (--bg-alt / --accent / muted-light text)
+ * so it reads as a quieter sibling-page funnel rather than a primary
+ * product CTA.
  */
 interface Props {
   industry: string;        // displayed in-copy, e.g. "clinic", "law firm"
@@ -38,8 +39,11 @@ const { industry, marketingHref, outcomeLine, ctaText } = Astro.props;
 
 <style>
 .marketing-funnel-block {
-  background: #f8f9fa;
-  border-left: 4px solid #39BB9D;
+  background: var(--bg-alt, rgba(13, 13, 20, 0.6));
+  border-left: 4px solid var(--accent, #49b889);
+  border-top: 1px solid var(--border, rgba(255, 255, 255, 0.06));
+  border-right: 1px solid var(--border, rgba(255, 255, 255, 0.06));
+  border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.06));
   padding: 1.5rem 1.75rem;
   margin: 2.5rem auto;
   border-radius: 4px;
@@ -48,23 +52,23 @@ const { industry, marketingHref, outcomeLine, ctaText } = Astro.props;
 .mfb-eyebrow {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #1F1F1F;
+  color: var(--text, #ffffff);
   margin: 0 0 0.5rem;
   letter-spacing: 0.01em;
 }
 .mfb-line {
   font-size: 1rem;
   line-height: 1.55;
-  color: #4a4a4a;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.75));
   margin: 0 0 1rem;
 }
 .mfb-cta {
   display: inline-block;
   font-weight: 600;
-  color: #39BB9D;
+  color: var(--accent, #49b889);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.15s;
 }
-.mfb-cta:hover { color: #1F1F1F; }
+.mfb-cta:hover { color: var(--text, #ffffff); }
 </style>
