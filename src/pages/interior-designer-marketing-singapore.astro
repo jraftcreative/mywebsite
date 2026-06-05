@@ -1,0 +1,296 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Interior Designers Singapore",
+    "description": "Full-service marketing agency for interior designers in Singapore. SEO, Google Ads, social, branding, websites — built for renovation firms. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Interior Designer Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential ID Firm Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (SEO or Social), Qanvast/Houzz profile setup, monthly content, and reporting for solo and boutique ID firms" },
+      { "@type": "Offer", "name": "Growth ID Firm Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Multi-channel: SEO + Google Ads + IG/TikTok, before-after content production, GCLID lead tracking, bi-weekly reporting for established renovation firms" },
+      { "@type": "Offer", "name": "Enterprise ID Firm Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service across all 5 channels, dedicated strategist, video production for walkthrough Reels, brand refresh, and weekly reporting for multi-location ID firms" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for an interior designer in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Interior designer marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with lead tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist. Renovation firms with multiple branches or premium positioning typically need the Growth tier minimum to compete with Qanvast and Renonation aggregator listings." } },
+      { "@type": "Question", "name": "Why can't I just rely on Qanvast and Renonation for leads?", "acceptedAnswer": { "@type": "Answer", "text": "Aggregator platforms like Qanvast and Renonation send high-volume but low-margin leads — homeowners are typically comparing 5-8 firms simultaneously, and you pay per lead or per quote. Direct-to-firm marketing (SEO, Google Ads, IG, TikTok) builds a brand that homeowners search for by name, reducing lead cost over time and capturing higher-value clients who skip aggregator shortlists entirely." } },
+      { "@type": "Question", "name": "What's the buyer journey for an HDB or condo renovation in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "HDB and condo renovation buyers research online for 3-6 weeks before shortlisting. The journey is: Inspiration (Pinterest, IG Reels, TikTok walkthroughs) → Shortlist (Qanvast/Renonation, Google searches like 'interior designer Punggol') → Quote (3-5 firm consultations) → Site Visit → Sign. Marketing for ID firms needs to show up at every stage — not just the bottom-of-funnel lead form." } },
+      { "@type": "Question", "name": "Which marketing channels work best for interior designers in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Five channels in priority order for most ID firms: (1) SEO for HDB/condo catchment searches ('interior designer Punggol', 'BTO renovation Sengkang'), (2) Google Ads for high-intent terms during BTO key collection seasons, (3) Instagram Reels for completed project walkthroughs, (4) TikTok for behind-the-scenes and design-trend content, (5) a portfolio website that converts visits into quote enquiries. We build cross-channel plans based on your firm's stage and budget." } },
+      { "@type": "Question", "name": "How long before marketing brings renovation leads?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate quote requests within the first 7-14 days once tracking is set up. Social media content compounds over 8-12 weeks. SEO typically shows ranking improvements within 3-6 months for catchment-area keywords. Renovation buyers research extensively before signing, so a multi-channel presence shortens the consideration window from 6 weeks to 3-4 weeks for many firms." } },
+      { "@type": "Question", "name": "Do you handle before-and-after content production?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Growth and Enterprise tiers include before-after photo and video production rights handover from completed projects. We coordinate the shoot brief, frame the walkthrough for IG Reels and TikTok formats, and write the captions/voiceover scripts. Most ID firms have a portfolio sitting on a hard drive — we turn that into rankable, citable content that fuels both organic and paid channels." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Interior Designers Singapore", "item": "https://jraftcreative.com/interior-designer-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Marketing Agency for Interior Designers Singapore | Jraft"
+  description="Full-service marketing agency for interior designers in Singapore. SEO, Google Ads, social, branding, websites — built for renovation firms. From $3,000/mo."
+  canonical="https://jraftcreative.com/interior-designer-marketing-singapore/"
+  ogTitle="Marketing Agency for Interior Designers Singapore | Jraft"
+  ogDescription="Full-service marketing agency for interior designers in Singapore. SEO, Google Ads, social, branding, websites — built for renovation firms. From $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for interior designers singapore, interior design digital marketing singapore, interior designer lead generation singapore, marketing for renovation firms singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Interior Designers"
+  heroTitle='Marketing Agency for <span class="highlight">Interior Designers in Singapore</span>'
+  heroSubtitle="HDB and condo renovation buyers research online for 3 to 6 weeks before shortlisting an ID firm — and most ID firms are invisible during those weeks. We build full-service marketing strategies (SEO, Google Ads, IG/TikTok, branding, websites) designed for how Singapore homeowners actually choose who renovates their home."
+  heroImage="/images/service-aesthetics.webp"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20interior%20design%20firm%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an interior design firm in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Let Us Grow Your Renovation Pipeline"
+  ctaDescription="Book a free consultation and tell us about your ID firm — your niche, your project mix, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel marketing plan."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20interior%20design%20firm%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why interior design firms need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Best ID Firms Are Still Losing Quotes to Firms with Better Marketing</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's renovation market runs on shortlists. When an HDB or condo owner gets their keys, the first thing they do is open Pinterest, then Qanvast, then Instagram, then Google. By the time they call your firm, they have already spent three to six weeks comparing portfolios, watching walkthrough Reels, and reading reviews. They have already decided you are one of three firms worth quoting. Or — more often — they have already decided you are not.</p>
+        <p>Interior design is one of Singapore's most aggregator-dominated verticals. Qanvast and Renonation own the discovery layer. Firms that rely on aggregator leads pay per quote, compete on price against four other firms in every enquiry, and never build the kind of brand recognition that drives direct enquiries. The firms winning the higher-margin projects — the landed renovations, the boutique condos, the design-led HDBs — are the firms that show up directly in Google search, dominate IG Reels in their catchment area, and have portfolio websites that close the visit.</p>
+        <p>A specialist marketing approach for ID firms solves the aggregator problem. We build multi-channel strategies that combine local SEO for catchment-area searches (Punggol, Sengkang, Tampines, Bukit Timah), Google Ads for high-intent renovation queries during BTO key-collection waves, IG and TikTok content built around your actual completed projects, and a portfolio site that turns research-stage visitors into quote enquiries. Five channels, one plan, one agency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" aria-label="Marketing services for interior designers in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>5 Marketing Channels Every ID Firm Needs</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for interior designers — combining catchment-area SEO, paid search, social content, branding, and portfolio web design. Every channel works together to move renovation buyers through The Renovation Buyer Funnel: Inspiration → Shortlist → Quote → Site Visit → Sign. <strong>From S$3,000/mo.</strong></p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3><a href="/interior-designer-seo-singapore/">SEO for Interior Designers</a></h3>
+            <p>Rank for catchment-area searches like "interior designer Punggol", "BTO renovation Sengkang", and "HDB design Tampines". Beat Qanvast and Renonation aggregator listings on long-tail searches where homeowners are actively shortlisting. Google Business Profile optimisation, catchment SEO, and project-type landing pages.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-google-ads.webp">
+          <div class="service-detail-card__content">
+            <h3><a href="/interior-designer-google-ads-singapore/">Google Ads for ID Firms</a></h3>
+            <p>High-intent campaigns timed to BTO key-collection seasons. HDB and condo renovation targeting, GCLID offline tracking from click to signed contract, and treatment-specific ad groups (kitchen renovation, full-home overhaul, landed restoration). Industry benchmarks: S$30 to S$80 cost-per-lead for ID-specific targeting.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-reels-video.webp">
+          <div class="service-detail-card__content">
+            <h3><a href="/interior-designer-social-media-singapore/">IG &amp; TikTok for ID Firms</a></h3>
+            <p>The Renovation Reel Formula — 30-second walkthrough Reels, 60-second design-process TikToks, Pinterest pins built from your completed projects. Platform-specific cadence and content built for how Singapore homeowners actually scroll during the inspiration phase. Reels-first strategy that compounds for months.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3><a href="/interior-designer-branding-singapore/">Branding for ID Firms</a></h3>
+            <p>The brand system that differentiates you from the 50 other ID firms in your catchment. Logo, palette, typography, portfolio template, and photo direction — built to position your firm by niche (HDB-first, luxury landed, F&amp;B commercial, office). This is a digital brand system, not spatial branding.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3><a href="/interior-design-website-singapore/">Portfolio Websites for ID Firms</a></h3>
+            <p>The site that closes the visit. Portfolio-led design, project filtering by HDB/condo/landed type, before-after galleries, integrated quote forms, and fast mobile performance for homeowners scrolling on their commute. We build websites that turn shortlist visitors into booked consultations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Lead Pipeline &amp; Analytics</h3>
+            <p>End-to-end tracking from ad click to signed contract. GCLID offline conversion uploads (we built this for our music school client when their CSP was silently blocking conversion beacons). Monthly reporting on cost-per-quote, cost-per-signed-project, and pipeline value by channel — not vanity metrics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for interior designer marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Marketing Built for How Renovation Buyers Actually Decide</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most marketing agencies pitching ID firms are PR-led generalists. They produce nice-looking decks, send press releases nobody reads, and bill retainers without ever tracking a single signed contract back to a campaign. We are the opposite — full-service, performance-led, and built around the renovation buyer journey rather than around press placements.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Visual Portfolio Understanding</h3>
+            <p>Interior design is a visual category. We treat your completed projects as the marketing asset they are — shot lists, format-by-format reformatting (IG Reel vs TikTok vs Pinterest), before-after framing, and integration into your portfolio site. No stock photos, no generic renovation imagery.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Aggregator-Aware Strategy</h3>
+            <p>We understand the Qanvast and Renonation dynamic — when to use them, when to compete around them, and how to build direct demand that does not depend on aggregator lead pools. Most agencies do not even mention the aggregator question. We make it the second slide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Unlike PR-Led Agencies</h3>
+            <p>We measure pipeline, not press. Every campaign ties to a signed-contract number. GCLID offline tracking proves which ad click became which quote became which signed deal. Press is welcome; press as a strategy is not enough.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, Google Ads, IG, TikTok, branding, websites, lead nurturing — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, consistent design, consistent measurement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Interior designer marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Interior Designer Marketing Pricing</p>
+        <h2>Plans for ID Firms of Every Size</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For solo and boutique ID firms building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO or Social)</li>
+              <li>Qanvast/Houzz profile optimisation</li>
+              <li>Google Business Profile setup</li>
+              <li>4 pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established renovation firms scaling pipeline.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + IG/TikTok</li>
+              <li>Before-after content production rights</li>
+              <li>GCLID lead tracking setup</li>
+              <li>Catchment-area landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location and premium ID firms.</p>
+            <ul class="pricing-features">
+              <li>Full 5-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Video production for walkthrough Reels</li>
+              <li>Brand refresh / portfolio template</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about marketing for interior designers in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Interior Designer Marketing — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for an interior designer in Singapore?</summary>
+          <div class="faq-answer"><p>Interior designer marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with lead tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist. Renovation firms with multiple branches or premium positioning typically need the Growth tier minimum to compete with Qanvast and Renonation aggregator listings.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why can't I just rely on Qanvast and Renonation for leads?</summary>
+          <div class="faq-answer"><p>Aggregator platforms like Qanvast and Renonation send high-volume but low-margin leads — homeowners are typically comparing 5-8 firms simultaneously, and you pay per lead or per quote. Direct-to-firm marketing (SEO, Google Ads, IG, TikTok) builds a brand that homeowners search for by name, reducing lead cost over time and capturing higher-value clients who skip aggregator shortlists entirely.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What's the buyer journey for an HDB or condo renovation in Singapore?</summary>
+          <div class="faq-answer"><p>HDB and condo renovation buyers research online for 3-6 weeks before shortlisting. The journey is: Inspiration (Pinterest, IG Reels, TikTok walkthroughs) → Shortlist (Qanvast/Renonation, Google searches like "interior designer Punggol") → Quote (3-5 firm consultations) → Site Visit → Sign. Marketing for ID firms needs to show up at every stage — not just the bottom-of-funnel lead form.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which marketing channels work best for interior designers in Singapore?</summary>
+          <div class="faq-answer"><p>Five channels in priority order for most ID firms: (1) SEO for HDB/condo catchment searches ("interior designer Punggol", "BTO renovation Sengkang"), (2) Google Ads for high-intent terms during BTO key collection seasons, (3) Instagram Reels for completed project walkthroughs, (4) TikTok for behind-the-scenes and design-trend content, (5) a portfolio website that converts visits into quote enquiries. We build cross-channel plans based on your firm's stage and budget.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings renovation leads?</summary>
+          <div class="faq-answer"><p>Google Ads can generate quote requests within the first 7-14 days once tracking is set up. Social media content compounds over 8-12 weeks. SEO typically shows ranking improvements within 3-6 months for catchment-area keywords. Renovation buyers research extensively before signing, so a multi-channel presence shortens the consideration window from 6 weeks to 3-4 weeks for many firms.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you handle before-and-after content production?</summary>
+          <div class="faq-answer"><p>Yes. Our Growth and Enterprise tiers include before-after photo and video production rights handover from completed projects. We coordinate the shoot brief, frame the walkthrough for IG Reels and TikTok formats, and write the captions/voiceover scripts. Most ID firms have a portfolio sitting on a hard drive — we turn that into rankable, citable content that fuels both organic and paid channels.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Interior Designer Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/interior-designer-seo-singapore/" class="related-service-link">SEO for Interior Designers</a>
+          <a href="/interior-designer-google-ads-singapore/" class="related-service-link">Google Ads for ID Firms</a>
+          <a href="/interior-designer-social-media-singapore/" class="related-service-link">Social Media for ID Firms</a>
+          <a href="/interior-designer-branding-singapore/" class="related-service-link">ID Firm Branding</a>
+          <a href="/interior-design-website-singapore/" class="related-service-link">Interior Design Websites</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

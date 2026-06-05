@@ -1,0 +1,286 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Social Media for Interior Designers Singapore",
+    "description": "Social media marketing for interior designers in Singapore. IG Reels, TikTok walkthroughs, Pinterest pins that convert browsers into renovation enquiries. From S$2,500/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Interior Designer Social Media Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential ID Firm Social", "price": "2500", "priceCurrency": "SGD", "description": "8 posts/mo across IG + TikTok, 2 Reels, content calendar, copywriting, monthly reporting for boutique ID firms" },
+      { "@type": "Offer", "name": "Professional ID Firm Social", "price": "3800", "priceCurrency": "SGD", "description": "12 posts/mo across IG + TikTok + Pinterest, 4 Reels, community management, Renovation Reel Formula scripts, bi-weekly reporting" },
+      { "@type": "Offer", "name": "Full-Service ID Firm Social", "price": "6000", "priceCurrency": "SGD", "description": "20 posts/mo across all platforms, 8+ Reels, dedicated creative team, on-site shoots, KOL coordination, weekly reporting" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does social media marketing cost for interior designers in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Interior designer social media in Singapore ranges from S$2,500 to S$6,000+ per month. Our Essential plan starts at S$2,500/month for 8 posts across IG + TikTok with 2 walkthrough Reels. Professional and Full-Service plans add Pinterest, more Reels, community management, on-site shoots, and KOL coordination." } },
+      { "@type": "Question", "name": "Why do ID firms plateau on Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "It is rarely the algorithm. Most ID firms post once a week, post static portfolio shots instead of Reels, recycle the same 5 angles per project, and never repurpose content for TikTok or Pinterest. Renovation buyers are not scrolling for static portfolios — they are scrolling for walkthrough Reels, before-after transitions, and design-process videos. Cadence, format, and platform-fit are usually the problem, not the algorithm." } },
+      { "@type": "Question", "name": "What is The Renovation Reel Formula?", "acceptedAnswer": { "@type": "Answer", "text": "The Renovation Reel Formula is our named framework for short-form video specific to ID firms. Structure: (1) Hook — the 'before' shot in the first 2 seconds; (2) Reveal — the 'after' transition at 3-4 seconds; (3) Walk-through — slow pan through 3 key spaces (kitchen, living, bedroom) at 5-15 seconds; (4) Detail close-ups — 2-3 design choices that show your firm's eye at 16-22 seconds; (5) CTA — verbal or text overlay 'DM us for a quote' at 23-30 seconds. Total 30 seconds. We script and direct it; you shoot or we coordinate the shoot." } },
+      { "@type": "Question", "name": "What are the 7 IG content types that drive renovation enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "The seven content types we rotate for ID firms: (1) Walkthrough Reels (the Renovation Reel Formula); (2) Before-after transition Reels; (3) Design-process TikToks (3D plan → site progress → final reveal); (4) Designer Q&A Reels (answering homeowner questions); (5) Carousel posts with floor-plan annotations; (6) Pinterest pins (vertical stills with style + town tags); (7) Stories with poll + DM-driven enquiry flows. Each content type targets a different phase of the renovation buyer funnel — Inspiration, Shortlist, or Quote." } },
+      { "@type": "Question", "name": "Which platforms work best for ID firms in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Three platforms in priority order: (1) Instagram — the primary platform for ID firms in Singapore; Reels (30s walkthroughs) drive most enquiries, carousels and Stories support shortlisting; (2) TikTok — growing fast for renovation content; longer walkthroughs (60s) and behind-the-scenes work well; (3) Pinterest — the underrated channel; SG homeowners use Pinterest heavily for inspiration, and pins keep driving traffic for months. Facebook still matters for older homeowners considering resale-flat renovations. We tailor platform mix to your firm's positioning." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
+      { "@type": "ListItem", "position": 3, "name": "Social Media for Interior Designers", "item": "https://jraftcreative.com/interior-designer-social-media-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Social Media for Interior Designers Singapore | Jraft"
+  description="Social media for interior designers in Singapore. IG Reels, TikTok walkthroughs, Pinterest pins that convert browsers into renovation enquiries. From $2,500/mo."
+  canonical="https://jraftcreative.com/interior-designer-social-media-singapore/"
+  ogTitle="Social Media for Interior Designers Singapore | Jraft"
+  ogDescription="Social media for interior designers in Singapore. The Renovation Reel Formula — IG Reels, TikTok, Pinterest built for renovation buyers. Plans from $2,500/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="social media for interior designers singapore, instagram for interior designers singapore, tiktok interior design sg, reels for id firms, interior designer content marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Social Media for Interior Designers"
+  heroTitle='Social Media for <span class="highlight">Interior Designers in Singapore</span>'
+  heroSubtitle="HDB and condo renovation buyers spend the inspiration phase on Instagram Reels, TikTok walkthroughs, and Pinterest boards. If your firm is not consistently producing the content they are scrolling for, you are losing them before the shortlist. We run the entire social content engine — IG, TikTok, Pinterest — built around your completed projects and The Renovation Reel Formula."
+  heroImage="/images/service-aesthetics.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "View Our Plans", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need social media marketing for my interior design firm in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle="Grow Your ID Firm with Social Media"
+  ctaDescription="Book a free consultation and tell us about your firm — your design niche, your completed projects, your current social presence. We will get back to you within 24 hours with a Renovation Reel Formula content plan and platform-mix recommendation."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== PROBLEM ========== -->
+  <section class="section" id="challenge" aria-label="Why ID firms plateau on Instagram">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Why ID Firms Plateau on IG — It Is Not the Algorithm, It Is the Content Cadence</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's renovation market lives on Instagram during the inspiration phase. When a homeowner gets their HDB keys, the first thing they do is open IG and search "BTO renovation Singapore", "Scandi HDB", or their estate name. They scroll for hours. They save dozens of Reels. They follow ten firms before they enquire with three. The firms that show up consistently — with walkthrough Reels, before-after transitions, design-process content — get into that saved-and-followed list. The firms posting once a week with static portfolio shots do not.</p>
+        <p>Most ID firms in Singapore are not failing at social media because of the algorithm. They are failing because the content cadence is wrong: too few posts, too many statics, no Reels, no TikTok repurposing, no Pinterest pinning. Renovation buyers are not scrolling for static portfolios — they are scrolling for short-form video that shows the space in motion, the design process unfolding, and the designer behind the firm. Without that, your IG looks like a brochure, not a working studio.</p>
+        <p>The PR-led incumbents pitching ID firms in Singapore (Papercut, Majorform, Offing Media) often default to a brand-PR cadence — slow, polished, magazine-style posting. That is the wrong cadence for renovation buyers actively shortlisting in 2026. We use the opposite: high-cadence, walkthrough-first, platform-native content that meets buyers where they are scrolling — Reels, TikTok, Pinterest.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Social media services for interior designers">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Do</p>
+        <h2>Platform Stack: IG + TikTok + Pinterest</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We manage your entire social presence — from monthly content calendars to walkthrough shoot direction to community DMs. Every post is crafted for a specific stage of the renovation buyer funnel: Inspiration (Pinterest, Reels), Shortlist (carousels, Stories), Quote (DM-driven enquiry flows).</p>
+        <p>Our team scripts and directs walkthrough Reels using The Renovation Reel Formula, creates before-after transitions from your completed projects, runs design-process TikToks, and pins vertical stills to Pinterest with style + catchment tags. We position your designers as the face of the firm, building the personal trust homeowners need before they enquire.</p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+          <div class="service-detail-card__content">
+            <h3>Walkthrough Reels (30s)</h3>
+            <p>The Renovation Reel Formula — hook + before-after transition + 3-space walkthrough + detail close-ups + CTA, all in 30 seconds. Built for IG Reels first, reformatted for TikTok. Drives saves, follows, and DM enquiries during the inspiration phase.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+          <div class="service-detail-card__content">
+            <h3>Design-Process TikToks (60s)</h3>
+            <p>Longer-form behind-the-scenes content — 3D plan to site progress to final reveal, designer voiceovers, before-after transitions stretched into proper storytelling. TikTok rewards the longer format; we use the extra 30 seconds to show design thinking, not just outcomes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Pinterest Pins + Carousels</h3>
+            <p>The underrated channel. SG homeowners pin renovation inspiration for months before signing. We produce vertical stills with style + town tags ("Scandi HDB Punggol", "Muji 4-room Sengkang"), interlinked back to your portfolio site. Pins keep driving traffic for 6-12 months from a single upload.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+          <div class="service-detail-card__content">
+            <h3>Community Management &amp; DM Funnels</h3>
+            <p>Professional management of DMs, comments, and enquiries. We respond to prospective clients promptly, route project-type questions to the right designer, and nurture leads from first save to first quote consultation. The "DM us for a quote" CTA is only useful if someone is actually responding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for interior designer social media">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Social Media That Drives Renovation Enquiries, Not Just Likes</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with service-business categories where social is the inspiration layer — music schools, aesthetics, enrichment, real estate, ID firms. We understand how SG homeowners actually use IG, TikTok, and Pinterest during the renovation research phase. Here is why ID firms choose us:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Reels + TikTok Specialism</h3>
+            <p>We are not a PR-led agency producing magazine-style statics. We are a short-form video specialist. Reels, TikTok, and walkthrough scripting are the centre of our offer — exactly the formats renovation buyers are scrolling for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Designer-Centric Content</h3>
+            <p>We position your designers as the face of the firm's social. Designer-led content builds personal trust far more effectively than brand-only posts, driving higher enquiry conversion rates during the shortlist phase.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Approval Before Publishing</h3>
+            <p>You and your principal designer review and approve every post, caption, and Reel script before it goes live. Nothing is published without your sign-off — your brand, your voice, your call.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>No Lock-in Contracts</h3>
+            <p>Month-to-month plans with no binding agreements. Stay because your enquiry pipeline is growing and your saves and follows are compounding — not because of a contract clause.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Interior designer social media marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Social Media Pricing</p>
+        <h2>Plans for ID Firms of Every Size</h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$2,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For boutique ID firms building a consistent social presence.</p>
+            <ul class="pricing-features">
+              <li>8 posts per month</li>
+              <li>IG + TikTok</li>
+              <li>2 Walkthrough Reels (Renovation Reel Formula)</li>
+              <li>Content calendar &amp; strategy</li>
+              <li>Copywriting &amp; hashtags</li>
+              <li>Monthly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Professional</h3>
+            <div class="price">$3,800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For growing ID firms scaling enquiries.</p>
+            <ul class="pricing-features">
+              <li>12 posts per month</li>
+              <li>IG + TikTok + Pinterest</li>
+              <li>4 Reels &amp; design-process TikToks</li>
+              <li>Pinterest pinning strategy</li>
+              <li>Community management</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Full-Service</h3>
+            <div class="price">$6,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-designer firms that want a complete social team.</p>
+            <ul class="pricing-features">
+              <li>20 posts per month</li>
+              <li>All platforms</li>
+              <li>8+ Reels / short-form videos</li>
+              <li>On-site shoot coordination</li>
+              <li>KOL / homeowner-collab coordination</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/social-media/" class="inline-link">social media marketing</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about interior designer social media marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>ID Firm Social Media — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does social media marketing cost for interior designers in Singapore?</summary>
+          <div class="faq-answer"><p>Interior designer social media in Singapore ranges from S$2,500 to S$6,000+ per month. Our Essential plan starts at S$2,500/month for 8 posts across IG + TikTok with 2 walkthrough Reels. Professional and Full-Service plans add Pinterest, more Reels, community management, on-site shoots, and KOL coordination.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why do ID firms plateau on Instagram?</summary>
+          <div class="faq-answer"><p>It is rarely the algorithm. Most ID firms post once a week, post static portfolio shots instead of Reels, recycle the same 5 angles per project, and never repurpose content for TikTok or Pinterest. Renovation buyers are not scrolling for static portfolios — they are scrolling for walkthrough Reels, before-after transitions, and design-process videos. Cadence, format, and platform-fit are usually the problem, not the algorithm.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What is The Renovation Reel Formula?</summary>
+          <div class="faq-answer"><p>The Renovation Reel Formula is our named framework for short-form video specific to ID firms. Structure: (1) Hook — the "before" shot in the first 2 seconds; (2) Reveal — the "after" transition at 3-4 seconds; (3) Walk-through — slow pan through 3 key spaces (kitchen, living, bedroom) at 5-15 seconds; (4) Detail close-ups — 2-3 design choices that show your firm's eye at 16-22 seconds; (5) CTA — verbal or text overlay "DM us for a quote" at 23-30 seconds. Total 30 seconds. We script and direct it; you shoot or we coordinate the shoot.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What are the 7 IG content types that drive renovation enquiries?</summary>
+          <div class="faq-answer"><p>The seven content types we rotate for ID firms: (1) Walkthrough Reels (the Renovation Reel Formula); (2) Before-after transition Reels; (3) Design-process TikToks (3D plan → site progress → final reveal); (4) Designer Q&A Reels (answering homeowner questions); (5) Carousel posts with floor-plan annotations; (6) Pinterest pins (vertical stills with style + town tags); (7) Stories with poll + DM-driven enquiry flows. Each content type targets a different phase of the renovation buyer funnel — Inspiration, Shortlist, or Quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which platforms work best for ID firms in Singapore?</summary>
+          <div class="faq-answer"><p>Three platforms in priority order: (1) Instagram — the primary platform for ID firms in Singapore; Reels (30s walkthroughs) drive most enquiries, carousels and Stories support shortlisting; (2) TikTok — growing fast for renovation content; longer walkthroughs (60s) and behind-the-scenes work well; (3) Pinterest — the underrated channel; SG homeowners use Pinterest heavily for inspiration, and pins keep driving traffic for months. Facebook still matters for older homeowners considering resale-flat renovations. We tailor platform mix to your firm's positioning.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Interior Designer Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/interior-designer-marketing-singapore/" class="related-service-link">Marketing for Interior Designers</a>
+          <a href="/interior-designer-seo-singapore/" class="related-service-link">SEO for Interior Designers</a>
+          <a href="/interior-designer-google-ads-singapore/" class="related-service-link">Google Ads for ID Firms</a>
+          <a href="/interior-designer-branding-singapore/" class="related-service-link">ID Firm Branding</a>
+          <a href="/interior-design-website-singapore/" class="related-service-link">Interior Design Websites</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
