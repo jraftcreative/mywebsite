@@ -52,6 +52,127 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Renovation Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Social Media for Interior Designers Singapore | Jraft"
   description="Social media for interior designers in Singapore. IG Reels, TikTok walkthroughs, Pinterest pins that convert browsers into renovation enquiries. From $2,500/mo."
@@ -64,181 +185,180 @@ const schemaData = [
   heroLabel="Social Media for Interior Designers"
   heroTitle='Social Media for <span class="highlight">Interior Designers in Singapore</span>'
   heroSubtitle="HDB and condo renovation buyers spend the inspiration phase on Instagram Reels, TikTok walkthroughs, and Pinterest boards. If your firm is not consistently producing the content they are scrolling for, you are losing them before the shortlist. We run the entire social content engine — IG, TikTok, Pinterest — built around your completed projects and The Renovation Reel Formula."
-  heroImage="/images/service-aesthetics.webp"
+  heroImage="/images/service-social.webp"
+  heroImageAlt="Social media for interior designers in Singapore — IG Reels, TikTok walkthroughs, Pinterest pins"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Our Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need social media marketing for my interior design firm in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your ID Firm with Social Media"
+  ctaTitle='Grow Your ID Firm with <span class="highlight">Social Media</span> That <span class="highlight">Drives Enquiries</span>'
   ctaDescription="Book a free consultation and tell us about your firm — your design niche, your completed projects, your current social presence. We will get back to you within 24 hours with a Renovation Reel Formula content plan and platform-mix recommendation."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Why ID firms plateau on Instagram">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Why ID Firms Plateau on IG — It Is Not the Algorithm, It Is the Content Cadence</h2>
+        <h2>Why ID Firms <span class="highlight">Plateau</span> on IG — It Is Not the <span class="highlight">Algorithm</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's renovation market lives on Instagram during the inspiration phase. When a homeowner gets their HDB keys, the first thing they do is open IG and search "BTO renovation Singapore", "Scandi HDB", or their estate name. They scroll for hours. They save dozens of Reels. They follow ten firms before they enquire with three. The firms that show up consistently — with walkthrough Reels, before-after transitions, design-process content — get into that saved-and-followed list. The firms posting once a week with static portfolio shots do not.</p>
-        <p>Most ID firms in Singapore are not failing at social media because of the algorithm. They are failing because the content cadence is wrong: too few posts, too many statics, no Reels, no TikTok repurposing, no Pinterest pinning. Renovation buyers are not scrolling for static portfolios — they are scrolling for short-form video that shows the space in motion, the design process unfolding, and the designer behind the firm. Without that, your IG looks like a brochure, not a working studio.</p>
-        <p>The PR-led incumbents pitching ID firms in Singapore (Papercut, Majorform, Offing Media) often default to a brand-PR cadence — slow, polished, magazine-style posting. That is the wrong cadence for renovation buyers actively shortlisting in 2026. We use the opposite: high-cadence, walkthrough-first, platform-native content that meets buyers where they are scrolling — Reels, TikTok, Pinterest.</p>
+        <p>Singapore renovation buyers live on Instagram, TikTok, and Pinterest during the inspiration phase. The firms that show up consistently with walkthrough Reels and before-after transitions get into their saved-and-followed list. The firms posting once a week with static portfolios do not.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Cadence Problem</h3>
+            <p>Most ID firms post once a week with static portfolio shots and recycled angles. Renovation buyers are not scrolling for brochures — they are scrolling for walkthrough Reels, before-after transitions, and design-process videos that show the space in motion.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Platform Mismatch</h3>
+            <p>Magazine-style posting is the wrong cadence for renovation buyers actively shortlisting in 2026. They follow ten firms before enquiring with three — and they pick the firms producing native short-form video, not the ones recycling portfolio shots into Stories.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Designer-Invisible Trap</h3>
+            <p>Brand-only accounts do not build the personal trust homeowners need before enquiring. Firms whose designers show up on camera — explaining choices, walking through projects — convert shortlist views to DM enquiries at materially higher rates.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for interior designers">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for interior designers in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Platform Stack: IG + TikTok + Pinterest</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Engines</span> Every ID Firm <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We manage your entire social presence — from monthly content calendars to walkthrough shoot direction to community DMs. Every post is crafted for a specific stage of the renovation buyer funnel: Inspiration (Pinterest, Reels), Shortlist (carousels, Stories), Quote (DM-driven enquiry flows).</p>
-        <p>Our team scripts and directs walkthrough Reels using The Renovation Reel Formula, creates before-after transitions from your completed projects, runs design-process TikToks, and pins vertical stills to Pinterest with style + catchment tags. We position your designers as the face of the firm, building the personal trust homeowners need before they enquire.</p>
+        <p>We manage your entire social presence — from monthly content calendars to walkthrough shoot direction to community DMs. Every post is crafted for a specific stage of the renovation buyer funnel.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
             <h3>Walkthrough Reels (30s)</h3>
-            <p>The Renovation Reel Formula — hook + before-after transition + 3-space walkthrough + detail close-ups + CTA, all in 30 seconds. Built for IG Reels first, reformatted for TikTok. Drives saves, follows, and DM enquiries during the inspiration phase.</p>
+            <p>The Renovation Reel Formula — hook, before-after transition, three-space walkthrough, detail close-ups, CTA, all in thirty seconds. Built for IG, reformatted for TikTok. Drives saves and DM enquiries during inspiration.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
             <h3>Design-Process TikToks (60s)</h3>
-            <p>Longer-form behind-the-scenes content — 3D plan to site progress to final reveal, designer voiceovers, before-after transitions stretched into proper storytelling. TikTok rewards the longer format; we use the extra 30 seconds to show design thinking, not just outcomes.</p>
+            <p>Longer-form behind-the-scenes content — 3D plan to site progress to final reveal, designer voiceovers, before-after transitions stretched into proper storytelling. TikTok rewards the longer format with reach.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Pinterest Pins + Carousels</h3>
-            <p>The underrated channel. SG homeowners pin renovation inspiration for months before signing. We produce vertical stills with style + town tags ("Scandi HDB Punggol", "Muji 4-room Sengkang"), interlinked back to your portfolio site. Pins keep driving traffic for 6-12 months from a single upload.</p>
+            <h3>Pinterest Pins &amp; Carousels</h3>
+            <p>The underrated channel. SG homeowners pin renovation inspiration for months before signing. Vertical stills with style and town tags, interlinked back to your site. Pins drive traffic for six to twelve months from one upload.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Community Management &amp; DM Funnels</h3>
-            <p>Professional management of DMs, comments, and enquiries. We respond to prospective clients promptly, route project-type questions to the right designer, and nurture leads from first save to first quote consultation. The "DM us for a quote" CTA is only useful if someone is actually responding.</p>
+            <h3>Community &amp; DM Funnels</h3>
+            <p>Professional management of DMs, comments, and enquiries. We respond to prospects promptly, route project-type questions to the right designer, and nurture leads from first save to first quote consultation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Calendar &amp; Strategy</h3>
+            <p>Monthly content calendar mapped to the renovation buyer funnel — Inspiration, Shortlist, Quote — with platform-by-platform formats, captions, hashtags, and approval workflow. Every post earns its slot.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Designer-Led Content</h3>
+            <p>We position your designers as the face of the firm — designer Q&amp;A Reels, talking-head explainers, on-site walkthroughs. Personal trust converts shortlist views into DM enquiries faster than brand-only posts ever will.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for interior designer social media">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for interior designer social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Social Media That Drives Renovation Enquiries, Not Just Likes</h2>
+        <h2><span class="highlight">Social Media</span> Built for <span class="highlight">Renovation Enquiries</span>, Not Just Likes</h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with service-business categories where social is the inspiration layer — music schools, aesthetics, enrichment, real estate, ID firms. We understand how SG homeowners actually use IG, TikTok, and Pinterest during the renovation research phase. Here is why ID firms choose us:</p>
+        <p>We work with service-business categories where social is the inspiration layer — music schools, aesthetics, enrichment, real estate, ID firms. We understand how SG homeowners actually use IG, TikTok, and Pinterest during the renovation research phase.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Reels + TikTok Specialism</h3>
             <p>We are not a PR-led agency producing magazine-style statics. We are a short-form video specialist. Reels, TikTok, and walkthrough scripting are the centre of our offer — exactly the formats renovation buyers are scrolling for.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Designer-Centric Content</h3>
             <p>We position your designers as the face of the firm's social. Designer-led content builds personal trust far more effectively than brand-only posts, driving higher enquiry conversion rates during the shortlist phase.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
             <h3>Approval Before Publishing</h3>
             <p>You and your principal designer review and approve every post, caption, and Reel script before it goes live. Nothing is published without your sign-off — your brand, your voice, your call.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your enquiry pipeline is growing and your saves and follows are compounding — not because of a contract clause.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Interior designer social media marketing pricing">
+  <!-- ========== RENOVATION BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Renovation Buyer Funnel — how Singapore homeowners decide on an ID firm">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Social Media Pricing</p>
-        <h2>Plans for ID Firms of Every Size</h2>
-        <p>Monthly retainer plans. No lock-in contracts.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>How <span class="highlight">Renovation Buyers</span> Actually <span class="highlight">Decide</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$2,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For boutique ID firms building a consistent social presence.</p>
-            <ul class="pricing-features">
-              <li>8 posts per month</li>
-              <li>IG + TikTok</li>
-              <li>2 Walkthrough Reels (Renovation Reel Formula)</li>
-              <li>Content calendar &amp; strategy</li>
-              <li>Copywriting &amp; hashtags</li>
-              <li>Monthly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Professional</h3>
-            <div class="price">$3,800 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For growing ID firms scaling enquiries.</p>
-            <ul class="pricing-features">
-              <li>12 posts per month</li>
-              <li>IG + TikTok + Pinterest</li>
-              <li>4 Reels &amp; design-process TikToks</li>
-              <li>Pinterest pinning strategy</li>
-              <li>Community management</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Full-Service</h3>
-            <div class="price">$6,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For multi-designer firms that want a complete social team.</p>
-            <ul class="pricing-features">
-              <li>20 posts per month</li>
-              <li>All platforms</li>
-              <li>8+ Reels / short-form videos</li>
-              <li>On-site shoot coordination</li>
-              <li>KOL / homeowner-collab coordination</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From BTO key collection to a signed contract, every HDB and condo renovation buyer in Singapore moves through the same five stages. We build social campaigns that show up at each one — from inspiration scrolling through to signed quote.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/social-media/" class="inline-link">social media marketing</a> page.</p>
-      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Inspiration</h3>
+          <p>Pinterest, IG Reels, TikTok walkthroughs</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Qanvast, Renonation, Google, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Quote</h3>
+          <p>3–5 firm consultations</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Site Visit</h3>
+          <p>Walkthroughs with shortlisted firms</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Sign</h3>
+          <p>Contract awarded</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about interior designer social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about interior designer social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>ID Firm Social Media — Questions Answered</h2>
+        <h2><span class="highlight">ID Firm Social Media</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -271,7 +391,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Interior Designer Services</h2>
+        <h2>More <span class="highlight">Interior Designer</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
           <a href="/interior-designer-marketing-singapore/" class="related-service-link">Marketing for Interior Designers</a>
