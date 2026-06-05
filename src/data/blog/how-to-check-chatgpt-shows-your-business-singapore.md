@@ -1,8 +1,8 @@
 ---
-title: "How to Check If Your Business Shows Up in ChatGPT"
-description: "A 5-minute self-test for Singapore business owners — exact prompts to ask ChatGPT, Gemini and Perplexity, and what to do if your brand doesn't show up."
-date: 2026-05-30
-lastModified: 2026-05-30
+title: "How to Check If Your Business Shows Up in ChatGPT (Singapore, 2026)"
+description: "A 10-minute self-check to see if ChatGPT recommends your business — plus what to do if it doesn't. Works for Gemini and Perplexity too. Singapore-focused, no fluff."
+date: 2026-06-06
+lastModified: 2026-06-06
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "AI & SEO"
@@ -18,8 +18,9 @@ keywords:
   - GEO Singapore
   - get recommended by ChatGPT
   - AI SEO Singapore
-draft: false
 ---
+
+We're using ChatGPT as the lens because it's what most people search by name — but the same checks work for Gemini, Perplexity, Google AI Mode, and Claude.
 
 There's a question Singapore business owners are starting to ask in discovery calls that they weren't asking six months ago:
 
