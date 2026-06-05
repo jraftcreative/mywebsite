@@ -4134,6 +4134,78 @@ html, body {
   }
 }
 
+/* 6b. Wide-wordmark logo overflows desktop nav at 641-768px.
+   Force hamburger in that range — keep rest of mobile layout intact. */
+@media (min-width: 641px) and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(8, 8, 13, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 28px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links a:not(.nav-cta)::after {
+    display: none;
+  }
+  .nav-links li {
+    width: 100%;
+  }
+  .nav-links a {
+    display: block;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+  .nav-links .nav-cta {
+    text-align: center;
+    margin-top: 8px;
+    padding: 14px 24px !important;
+    border-radius: var(--radius-sm);
+    display: block;
+    width: 100%;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-dropdown {
+    position: static;
+    transform: none;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    margin: 0;
+    min-width: auto;
+  }
+  .nav-dropdown-wrap.open .nav-dropdown {
+    display: block;
+  }
+  .nav-dropdown-wrap:hover .nav-dropdown {
+    display: none;
+  }
+  .nav-dropdown-wrap.open:hover .nav-dropdown {
+    display: block;
+  }
+  .nav-dropdown li a {
+    padding: 8px 0 8px 20px;
+    font-size: 0.92rem;
+  }
+  .nav-dropdown-wrap.open .nav-dropdown-toggle svg {
+    transform: rotate(180deg);
+  }
+}
+
 /* 7. Service detail / industry detail grid — improve cramping on
    narrow phones, since the 220-280px min-height tiles compress copy. */
 @media (max-width: 480px) {
