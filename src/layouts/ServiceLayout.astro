@@ -15,6 +15,7 @@ interface Props {
   heroTitle: string;
   heroSubtitle: string;
   heroImage: string;
+  heroImageAlt?: string;
   heroButtons: { text: string; href: string; class: string }[];
   whatsappText: string;
   ctaLabel: string;
@@ -44,6 +45,7 @@ const {
   heroTitle,
   heroSubtitle,
   heroImage,
+  heroImageAlt = '',
   heroButtons,
   whatsappText,
   ctaLabel,
@@ -69,6 +71,7 @@ const {
     title={heroTitle}
     subtitle={heroSubtitle}
     backgroundImage={heroImage}
+    backgroundImageAlt={heroImageAlt}
     heroLabel={heroLabel}
     heroClass="service-hero"
     buttons={heroButtons}
@@ -82,7 +85,7 @@ const {
       <div class="container">
         <div class="section-header reveal" style="margin-bottom: 0;">
           <p class="section-label">{ctaLabel}</p>
-          <h2>{ctaTitle}</h2>
+          <h2 set:html={ctaTitle}></h2>
           <p>{ctaDescription}</p>
           <div class="hero-buttons" style="margin-top: 32px;">
             {ctaButtons.map(btn => (
