@@ -1,0 +1,282 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Interior Design Branding Agency Singapore",
+    "description": "Branding agency for interior designers in Singapore — brand strategy, logos, portfolio templates, photography direction. Digital brand systems for ID firms (not spatial branding). From S$4,500 one-time.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Interior Design Firm Branding",
+    "offers": [
+      { "@type": "Offer", "name": "Starter ID Firm Branding", "price": "4500", "priceCurrency": "SGD", "description": "Logo design (3 concepts), colour palette, typography, basic brand guidelines, portfolio template — for new and boutique ID firms" },
+      { "@type": "Offer", "name": "Business ID Firm Branding", "price": "9500", "priceCurrency": "SGD", "description": "Full brand identity system with logo suite, brand guidelines, portfolio template, designer profile branding, photo direction, social templates" },
+      { "@type": "Offer", "name": "Premium ID Firm Branding", "price": "18000", "priceCurrency": "SGD", "description": "End-to-end brand strategy, niche positioning, full visual identity, portfolio template, photo direction, collateral suite, multi-designer rollout" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does branding cost for an interior design firm in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Interior design firm branding in Singapore ranges from S$4,500 to S$18,000+. A Starter package with logo, palette, basic guidelines, and a portfolio template starts at S$4,500. A Business brand identity with designer profile branding and photography direction starts from S$9,500. Premium branding with strategy, niche positioning, full collateral, and multi-designer rollout starts from S$18,000." } },
+      { "@type": "Question", "name": "What is the difference between spatial branding and a digital brand system for ID firms?", "acceptedAnswer": { "@type": "Answer", "text": "Most agencies positioning as 'interior design branding' in Singapore (SPARK, Foreign Policy, DB&B, Ministry of Design) are spatial-experience branding firms — they design retail interiors, exhibition spaces, and F&B environments. That is different work from what an ID firm needs. ID firms need a digital brand system: logo, palette, typography, portfolio template, photo direction, social templates, and a brand voice that translates across IG, TikTok, Pinterest, Google, and the portfolio site. We do the digital brand system. We do not do spatial branding." } },
+      { "@type": "Question", "name": "What are the 5 brand mistakes ID firms make competing with aggregators?", "acceptedAnswer": { "@type": "Answer", "text": "The five most common ID-firm brand mistakes: (1) logo and palette that look identical to every other Scandi-minimal ID firm in Singapore; (2) no niche positioning — trying to win HDB BTO, condo, landed, and F&B fit-out simultaneously, so nothing sticks; (3) portfolio template that copies Qanvast's listing format instead of differentiating; (4) photo direction that varies project-by-project, breaking visual cohesion across the site; (5) social handles, website, business cards, and proposals that look like three different firms. We fix all five with one consistent brand system." } },
+      { "@type": "Question", "name": "How do you position ID firms by niche?", "acceptedAnswer": { "@type": "Answer", "text": "Our positioning framework segments ID firms into four niches with distinct brand cues: (1) HDB-First — accessible, story-led, walkthrough-Reel-heavy, $40K-$80K project size; (2) Landed-Luxury — restraint, slow reveals, magazine-style photography, $200K+ project size; (3) F&B Commercial — bold, signage-led, MOH/SFA-aware messaging, $80K-$300K project size; (4) Office / Corporate — calm, functional, ROI-led copy, $100K-$500K project size. Most ID firms try to look like all four — and end up looking like none. We pick one (sometimes two) and build the brand around it." } },
+      { "@type": "Question", "name": "How long does the ID firm branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most ID-firm branding projects take 4 to 8 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with portfolio templates, designer profile branding, and photo direction take 5 to 8 weeks. We coordinate timelines with your portfolio site launch or rebrand campaign." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
+      { "@type": "ListItem", "position": 3, "name": "Interior Design Branding Agency", "item": "https://jraftcreative.com/interior-designer-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<ServiceLayout
+  title="Interior Design Branding Agency Singapore | Jraft"
+  description="Branding agency for interior designers in Singapore. Brand strategy, logos, portfolio templates, photography direction — built for ID firms. From $4,500 one-time."
+  canonical="https://jraftcreative.com/interior-designer-branding-singapore/"
+  ogTitle="Interior Design Branding Agency Singapore | Jraft"
+  ogDescription="Digital brand systems for interior design firms in Singapore. Logo, palette, portfolio template, photo direction. Niche positioning that beats aggregators."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="interior design branding agency singapore, id firm logo design, interior designer brand identity sg, renovation brand strategy singapore, brand guidelines for id firms, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Branding for Interior Design Firms"
+  heroTitle='Branding for <span class="highlight">Interior Design Firms in Singapore</span>'
+  heroSubtitle="Good design work used to be enough. In an aggregator-dominated market, it no longer is. We build digital brand systems for ID firms — logo, palette, portfolio template, photo direction, niche positioning — that differentiate your firm from the 50 other Scandi-minimal studios in your catchment and the aggregator listings on every search."
+  heroImage="/images/service-aesthetics.webp"
+  heroButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my interior design firm in Singapore."
+  ctaLabel="Ready to Differentiate Your Firm?"
+  ctaTitle="Get a Brand That Pre-Qualifies Renovation Buyers"
+  ctaDescription="Book a free consultation and tell us about your ID firm. We will put together a tailored branding proposal — niche positioning, brand system, portfolio template — with no obligations and no hard sell."
+  ctaButtons={[
+    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for interior design firms in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Why "Good Design Work" Is Not Enough Anymore</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore's interior design market is one of the most visually-undifferentiated service categories in the country. Walk through Qanvast or Renonation listings, and the firms blur together — same neutral-toned logos, same Scandi-minimal photography, same vague "we craft beautiful homes" taglines, same magazine-template portfolio sites. Hundreds of firms compete for the same HDB BTO buyers, the same condo TOP cycles, the same landed restorations. When every firm looks the same, homeowners cannot tell a thoughtful boutique studio from a high-volume contractor — and they default to choosing on price or aggregator-listing order.</p>
+        <p>This is an existential commercial problem. Firms that compete on price get the worst clients — squeezed budgets, scope creep, late payments, negative reviews when expectations were never aligned. A strong brand identity pre-qualifies your homeowners. When your visual presence communicates a clear niche (HDB-first, landed-luxury, F&amp;B commercial, office) and a distinct design point of view, you attract clients who value your specific expertise and pay accordingly. These clients trust your design recommendations, refer friends, and become the portfolio you build the next 5 years on.</p>
+        <p>The ID firms dominating in Singapore — the ones with 6-month waitlists and signature projects in lifestyle magazines — all share one thing: they invested in a digital brand system that positions them unmistakably within one niche. Whether you focus on Scandi BTOs, restorations of pre-war shophouses, or commercial F&amp;B fit-outs, your brand should make your specialism obvious in the first three seconds a homeowner lands on your IG or your site. That is the difference between a thriving studio and one constantly chasing the next price-comparison enquiry.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUB-SERVICES ========== -->
+  <section class="section" id="sub-services" aria-label="Interior design firm branding services overview">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>The ID Firm Brand System</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build digital brand systems for interior design firms — logo, palette, typography, photo direction, portfolio template, and niche positioning. Every element is designed to differentiate your firm in the aggregator-dominated discovery layer and to translate consistently across IG, TikTok, Pinterest, your portfolio site, and your client proposals. <strong>This is digital brand identity, not spatial branding.</strong></p>
+      </div>
+      <div class="service-details-grid">
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+          <div class="service-detail-card__content">
+            <h3>Logo, Palette &amp; Typography</h3>
+            <p>A visual identity system that balances design-studio sophistication with the warmth renovation buyers actually want from someone working on their home. Includes primary, monochrome, and Reel-overlay versions designed for IG profile pictures, business cards, portfolio sites, and DM headers — establishing recognition across every touchpoint.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+          <div class="service-detail-card__content">
+            <h3>Portfolio Template &amp; Photo Direction</h3>
+            <p>The portfolio template that turns your completed projects into a coherent visual library — not a hard-drive dump. Includes shot-list templates per project type (HDB BTO, condo, landed), framing standards (wide / detail / before-after), and a photographer brief you can hand to any contractor. The same project, shot consistently, looks worth twice as much.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+          <div class="service-detail-card__content">
+            <h3>Designer Profile Branding</h3>
+            <p>Professional profile design for each designer in your firm — headshot direction, biography writing, project specialisation positioning, and personal brand elements. Designer-led trust is the strongest conversion lever during the shortlist phase, especially for landed and premium condo projects where homeowners want to know who is actually designing their home.</p>
+          </div>
+        </div>
+        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+          <div class="service-detail-card__content">
+            <h3>Niche Positioning Strategy</h3>
+            <p>The strategy work that decides what your firm is for and (more importantly) what it is not for. We segment ID firms into four niches — HDB-First, Landed-Luxury, F&amp;B Commercial, Office / Corporate — and pick one (or at most two) for your brand to own. Trying to win all four is the single biggest reason ID-firm brands fail to stick.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for interior design firm branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why ID Firms Choose Us for Branding</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build digital brand systems — logo, palette, typography, portfolio template, photo direction. We do not do spatial branding (retail interiors, exhibition spaces, F&amp;B environments). That is a different discipline owned by SPARK, Foreign Policy, DB&amp;B, and Ministry of Design. We focus on the digital brand system that lives on your IG, TikTok, portfolio site, and proposals. Here is why ID firms trust us with that work:</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Service-Business Brand Specialism</h3>
+            <p>We design for service-business categories where positioning is the single biggest commercial lever — ID firms, music schools, aesthetics clinics, enrichment centres, real estate. We understand niche pre-qualification and how brand drives premium pricing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Full-Service Integration</h3>
+            <p>Branding flows directly into your <a href="/interior-design-website-singapore/" class="inline-link">portfolio site</a>, <a href="/interior-designer-social-media-singapore/" class="inline-link">IG / TikTok content</a>, and <a href="/interior-designer-google-ads-singapore/" class="inline-link">paid ad creative</a> — all handled by one team. Your brand is implemented consistently from day one, not handed off across three vendors.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing &amp; Full Ownership</h3>
+            <p>Fixed-price packages with no hidden fees. You own every asset we create — logos, guidelines, portfolio templates, source files. No monthly retainers for the branding project itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Singapore Renovation Market Knowledge</h3>
+            <p>We know the SG ID landscape — Qanvast and Renonation dynamics, BTO key-collection waves, condo TOP cycles, landed-restoration niches. We research your specific catchment, design competitors, and target homeowner demographic before designing — so your brand captures the right niche, not a generic one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Interior design firm branding pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Branding Pricing</p>
+        <h2>ID Firm Branding Packages</h2>
+        <p>One-time project fee. No monthly lock-ins.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Starter</h3>
+            <div class="price">$4,500 <span>SGD</span></div>
+            <p class="pricing-desc">For new and boutique ID firms establishing their brand.</p>
+            <ul class="pricing-features">
+              <li>Custom logo design (3 concepts)</li>
+              <li>Primary &amp; secondary logo versions</li>
+              <li>Colour palette &amp; typography</li>
+              <li>Basic brand guidelines (PDF)</li>
+              <li>Portfolio template (Figma + PDF)</li>
+              <li>Source files &amp; web-ready exports</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Business</h3>
+            <div class="price">$9,500 <span>SGD</span></div>
+            <p class="pricing-desc">For established ID firms ready for a complete brand system.</p>
+            <ul class="pricing-features">
+              <li>Custom logo suite (5 concepts)</li>
+              <li>Full brand guidelines document</li>
+              <li>Portfolio template + shot-list briefs</li>
+              <li>Designer profile branding</li>
+              <li>Photo direction &amp; photographer brief</li>
+              <li>Social media profile templates</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Premium</h3>
+            <div class="price">$18,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For multi-designer firms and premium ID brands.</p>
+            <ul class="pricing-features">
+              <li>Niche positioning strategy</li>
+              <li>Full visual identity system</li>
+              <li>Complete collateral suite</li>
+              <li>Portfolio template + shoot direction</li>
+              <li>Multi-designer profile system</li>
+              <li>Proposal and pitch templates</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about interior design firm branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>ID Firm Branding Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does branding cost for an interior design firm in Singapore?</summary>
+          <div class="faq-answer"><p>Interior design firm branding in Singapore ranges from S$4,500 to S$18,000+. A Starter package with logo, palette, basic guidelines, and a portfolio template starts at S$4,500. A Business brand identity with designer profile branding and photography direction starts from S$9,500. Premium branding with strategy, niche positioning, full collateral, and multi-designer rollout starts from S$18,000.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What is the difference between spatial branding and a digital brand system for ID firms?</summary>
+          <div class="faq-answer"><p>Most agencies positioning as "interior design branding" in Singapore (SPARK, Foreign Policy, DB&B, Ministry of Design) are spatial-experience branding firms — they design retail interiors, exhibition spaces, and F&B environments. That is different work from what an ID firm needs. ID firms need a digital brand system: logo, palette, typography, portfolio template, photo direction, social templates, and a brand voice that translates across IG, TikTok, Pinterest, Google, and the portfolio site. We do the digital brand system. We do not do spatial branding.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What are the 5 brand mistakes ID firms make competing with aggregators?</summary>
+          <div class="faq-answer"><p>The five most common ID-firm brand mistakes: (1) logo and palette that look identical to every other Scandi-minimal ID firm in Singapore; (2) no niche positioning — trying to win HDB BTO, condo, landed, and F&B fit-out simultaneously, so nothing sticks; (3) portfolio template that copies Qanvast's listing format instead of differentiating; (4) photo direction that varies project-by-project, breaking visual cohesion across the site; (5) social handles, website, business cards, and proposals that look like three different firms. We fix all five with one consistent brand system.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you position ID firms by niche?</summary>
+          <div class="faq-answer"><p>Our positioning framework segments ID firms into four niches with distinct brand cues: (1) HDB-First — accessible, story-led, walkthrough-Reel-heavy, $40K-$80K project size; (2) Landed-Luxury — restraint, slow reveals, magazine-style photography, $200K+ project size; (3) F&B Commercial — bold, signage-led, MOH/SFA-aware messaging, $80K-$300K project size; (4) Office / Corporate — calm, functional, ROI-led copy, $100K-$500K project size. Most ID firms try to look like all four — and end up looking like none. We pick one (sometimes two) and build the brand around it.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does the ID firm branding process take?</summary>
+          <div class="faq-answer"><p>Most ID-firm branding projects take 4 to 8 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with portfolio templates, designer profile branding, and photo direction take 5 to 8 weeks. We coordinate timelines with your portfolio site launch or rebrand campaign.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Interior Designer Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/interior-designer-marketing-singapore/" class="related-service-link">Marketing for Interior Designers</a>
+          <a href="/interior-designer-seo-singapore/" class="related-service-link">SEO for Interior Designers</a>
+          <a href="/interior-designer-google-ads-singapore/" class="related-service-link">Google Ads for ID Firms</a>
+          <a href="/interior-designer-social-media-singapore/" class="related-service-link">Social Media for ID Firms</a>
+          <a href="/interior-design-website-singapore/" class="related-service-link">Interior Design Websites</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
