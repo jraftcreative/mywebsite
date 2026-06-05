@@ -81,6 +81,33 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+</style>
+
 <ServiceLayout
   title="GEO Agency Singapore — Rank in ChatGPT & Gemini | Jraft"
   description="Specialist GEO agency in Singapore. We get your brand recommended by ChatGPT, Gemini, Perplexity, and AI Overviews — from S$3,000/mo."
@@ -94,13 +121,14 @@ const schemaData = [
   heroTitle='GEO for the <span class="highlight">2.5-billion-user</span> search surface.'
   heroSubtitle="At Google I/O 2026, AI Overviews crossed 2.5 billion monthly users. AI Mode crossed 1 billion. The Singapore prospect who used to type 'best aesthetic clinic in Orchard' into Google now asks an AI that names three brands — and increasingly, none of them are the brands ranking on Google. GEO is what gets your business into that three-brand answer, across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews. Same discipline; different signals; entirely different competitive game."
   heroImage="/images/service-seo.webp"
+  heroImageAlt="GEO agency Singapore — getting brands cited inside ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews"
   heroButtons={[
     { text: "Audit my AI visibility · S$1,000", href: "/ai-visibility-audit-singapore/", class: "btn btn-primary" },
     { text: 'DM "AUDIT" on WhatsApp', href: "https://wa.me/6582234578?text=AUDIT", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to learn about your GEO services in Singapore."
   ctaLabel="Start with the audit"
-  ctaTitle="Find out which of your competitors ChatGPT names instead of you"
+  ctaTitle='Find out which of your <span class="highlight">competitors ChatGPT names</span> instead of you'
   ctaDescription="The AI Visibility Audit runs 20–30 commercial prompts across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews against your business and two named SG competitors. You get an 8–12 page report with the top 5 prioritised gaps, plus a 60-minute delivery call. 5–7 day delivery, 12-day ceiling. S$1,000 one-time — and 100% of that fee credits to month one if you sign onto a GEO retainer within 30 days of the delivery call."
   ctaButtons={[
     { text: "Buy the audit · S$1,000", href: "/ai-visibility-audit-singapore/", class: "btn btn-primary" },
@@ -118,11 +146,11 @@ const schemaData = [
   </section>
 
   <!-- ========== SECTION 2 — THE ACTUAL PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="The split SG search market">
+  <section class="section" id="challenge" style="background: var(--bg-alt);" aria-label="The split SG search market">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>The SG search market has split in two, and most agencies still only work one half</h2>
+        <h2>The <span class="highlight">SG Search Market</span> Has <span class="highlight">Split in Two</span> — and Most Agencies Still Only Work One Half</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>When a customer in Singapore researches a purchase in 2026, they ask twice. Once on Google. Once on ChatGPT, Perplexity, or Gemini. The two queries can return completely different brands. The brands that get cited inside the AI answer are not the same brands that rank on Google — across the audits we run, the overlap is under 20%.</p>
@@ -158,7 +186,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>What Jraft does as a GEO agency &mdash; the four moves that move citation rate</h2>
+        <h2>What Jraft Does as a <span class="highlight">GEO Agency</span> &mdash; the Four Moves That <span class="highlight">Move Citation Rate</span></h2>
       </div>
       <div class="pillar-prose reveal">
         <p>Most "GEO agencies" in Singapore are SEO agencies that added the term to their service menu in late 2024. The work is different. Here is what Jraft actually ships when you sign an engagement.</p>
@@ -187,7 +215,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">GEO vs SEO</p>
-        <h2>GEO vs SEO &mdash; the operator&rsquo;s comparison</h2>
+        <h2><span class="highlight">GEO vs SEO</span> &mdash; the Operator&rsquo;s Comparison</h2>
       </div>
       <p class="pillar-section-intro reveal">GEO and SEO share technical foundations and diverge at every layer above that. Here is the comparison we walk new clients through in the first hour of engagement.</p>
 
@@ -287,7 +315,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">GEO Pricing</p>
-        <h2>GEO pricing &mdash; published in full</h2>
+        <h2><span class="highlight">GEO Pricing</span> &mdash; Published in Full</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>We publish our fees. A GEO agency that publishes its pricing is also publishing the labour math behind it &mdash; which is the point. The SG market range for GEO retainers is currently S$2,500-S$15,000 per month depending on scope and how many AI platforms you&rsquo;re monitoring. Anything quoted under S$2,000/month is almost always traditional SEO with "AI" or "GEO" added to the package name. Schema implementation done correctly on a 30-page site is 8-12 hours. Answer-engine content is 4-6 hours per page. Citation building takes outreach hours that don&rsquo;t compress with software.</p>
@@ -346,11 +374,11 @@ const schemaData = [
   </section>
 
   <!-- ========== SECTION 6 — SG GEO BENCHMARKS ========== -->
-  <section class="section" id="sg-geo-benchmarks" aria-label="Singapore GEO market benchmarks">
+  <section class="section" id="sg-geo-benchmarks" style="background: var(--bg-alt);" aria-label="Singapore GEO market benchmarks">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">SG Benchmarks</p>
-        <h2>What GEO actually looks like in the Singapore market right now</h2>
+        <h2>What <span class="highlight">GEO</span> Actually Looks Like in the <span class="highlight">Singapore Market</span> Right Now</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>The numbers being thrown around in most AI-search pitches are mostly global. Singapore is its own AI search market with its own dynamics. Here is what we observe across the audits and accounts Jraft runs.</p>
@@ -386,11 +414,11 @@ const schemaData = [
   </section>
 
   <!-- ========== SECTION 7 — PROCESS ========== -->
-  <section class="section" id="process" style="background: var(--bg-alt);" aria-label="What a 90-day GEO engagement looks like">
+  <section class="section" id="process" aria-label="What a 90-day GEO engagement looks like">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Our Process</p>
-        <h2>What a 90-day Jraft GEO engagement actually looks like</h2>
+        <h2>What a <span class="highlight">90-Day Jraft GEO Engagement</span> Actually Looks Like</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>We run engagements in 90-day cycles with stated deliverables at week 4, week 8, and week 12. You see what we shipped, what it moved, and what the next cycle prioritises.</p>
@@ -413,11 +441,11 @@ const schemaData = [
   </section>
 
   <!-- ========== RECEIPTS GRID (added per Ben scope 5 Jun 2026) ========== -->
-  <section class="section" id="receipts" aria-label="AI Mode citation receipts by industry">
+  <section class="section" id="receipts" style="background: var(--bg-alt);" aria-label="AI Mode citation receipts by industry">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Receipts</p>
-        <h2>Where Jraft has been cited inside AI Mode &mdash; named, dated, and screen-shotted</h2>
+        <h2>Where Jraft Has Been <span class="highlight">Cited Inside AI Mode</span> &mdash; Named, Dated, and Screen-Shotted</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>We do not ask you to trust the framework — we publish the evidence. Below is the live citation log of AI Mode (ChatGPT / Gemini / Perplexity / Google AI Overviews) responses where Jraft Creative or a Jraft-managed client has been named in the answer set. Each receipt is dated. We refresh this grid monthly. This is the differentiator no agency without operating history can fake.</p>
@@ -469,11 +497,11 @@ const schemaData = [
   </section>
 
   <!-- ========== POSITIONING MATRIX (added per Ben scope 5 Jun 2026) ========== -->
-  <section class="section" id="positioning-matrix" style="background: var(--bg-alt);" aria-label="GEO agency positioning matrix vs Singapore incumbents">
+  <section class="section" id="positioning-matrix" aria-label="GEO agency positioning matrix vs Singapore incumbents">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Positioning Matrix</p>
-        <h2>How we sit against the four SG agencies currently owning the AI-search citation pool</h2>
+        <h2>How We Sit Against the <span class="highlight">Four SG Agencies</span> Currently Owning the <span class="highlight">AI-Search Citation Pool</span></h2>
       </div>
       <div class="pillar-prose reveal">
         <p>The four SG agencies most consistently cited today when a buyer asks ChatGPT / Gemini / Perplexity / AI Mode for an AI-search optimisation partner are Hashmeta, OOm, PurpleClick, and Upscaled. This is a factual reading of the current AI citation pool &mdash; not a competitor takedown. The matrix below is how we position our offer relative to theirs. Use it to decide which approach fits your firm.</p>
@@ -595,11 +623,11 @@ const schemaData = [
   </style>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about GEO agencies in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about GEO agencies in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>GEO Agency Questions Answered</h2>
+        <h2><span class="highlight">GEO Agency</span> Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1" id="what-is-geo-and-how-is-it-different-from-seo">
@@ -651,7 +679,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Industry Playbooks</p>
-        <h2>Industry-specific GEO playbooks for Singapore</h2>
+        <h2><span class="highlight">Industry-Specific GEO Playbooks</span> for Singapore</h2>
       </div>
       <div class="pillar-prose reveal">
         <p>The signals that get a clinic cited by ChatGPT are different from the signals that get an enrichment centre cited. We&rsquo;ve built vertical-specific programmes for the SG categories with the highest AI search adoption. If you&rsquo;re in one of these, start there.</p>
