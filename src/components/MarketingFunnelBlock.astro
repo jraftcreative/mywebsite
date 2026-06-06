@@ -22,14 +22,25 @@ interface Props {
   marketingHref: string;   // target URL, e.g. "/clinic-marketing-singapore/"
   outcomeLine: string;     // outcome promise, e.g. "See how we'd fill your appointment book"
   ctaText: string;         // anchor text, e.g. "Clinic Marketing Singapore"
+  eyebrow?: string;        // override eyebrow line for non-website parent pages
+  leadInLine?: string;     // override lead-in sentence; defaults to website-context wording
 }
-const { industry, marketingHref, outcomeLine, ctaText } = Astro.props;
+const {
+  industry,
+  marketingHref,
+  outcomeLine,
+  ctaText,
+  eyebrow,
+  leadInLine,
+} = Astro.props;
+const eyebrowText = eyebrow ?? `Already have a ${industry} website?`;
+const leadIn = leadInLine ?? `A website doesn't grow a ${industry} — marketing does.`;
 ---
 <aside class="marketing-funnel-block">
   <div class="mfb-inner">
-    <p class="mfb-eyebrow">Already have a {industry} website?</p>
+    <p class="mfb-eyebrow">{eyebrowText}</p>
     <p class="mfb-line">
-      A website doesn't grow a {industry} — marketing does. {outcomeLine}.
+      {leadIn} {outcomeLine}
     </p>
     <a href={marketingHref} class="mfb-cta">
       → {ctaText}
