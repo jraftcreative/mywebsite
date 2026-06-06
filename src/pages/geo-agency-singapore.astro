@@ -106,6 +106,59 @@ const schemaData = [
   .service-cta-section {
     background: var(--bg-alt) !important;
   }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* AVA receipt strip — single-row call-out with the multi-niche citation list */
+  .ava-receipts {
+    margin: 56px 0 0;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .ava-receipts__label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .ava-receipts__body {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--text);
+    margin: 0;
+  }
+  .ava-receipts__body strong { color: var(--accent); font-weight: 600; }
+  @media (max-width: 700px) {
+    .ava-receipts { grid-template-columns: 1fr; gap: 12px; padding: 22px 22px; }
+  }
 </style>
 
 <ServiceLayout
@@ -118,8 +171,8 @@ const schemaData = [
   keywords="geo agency singapore, generative engine optimisation agency, GEO services singapore, AI search agency, AI optimisation agency singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="GEO Agency · Singapore"
-  heroTitle='GEO for the <span class="highlight">2.5-billion-user</span> search surface.'
-  heroSubtitle="At Google I/O 2026, AI Overviews crossed 2.5 billion monthly users. AI Mode crossed 1 billion. The Singapore prospect who used to type 'best aesthetic clinic in Orchard' into Google now asks an AI that names three brands — and increasingly, none of them are the brands ranking on Google. GEO is what gets your business into that three-brand answer, across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews. Same discipline; different signals; entirely different competitive game."
+  heroTitle='Get Your Brand <span class="highlight">Named</span> Inside <span class="highlight">ChatGPT, Gemini &amp; AI Mode</span>'
+  heroSubtitle="AI Overviews now reach 2.5 billion monthly users. AI Mode reached 1 billion. The SG buyer who used to type your category into Google now asks an AI that names three brands — and most of the time, none of them rank page-one on Google. GEO is what gets your business into that three-brand answer."
   heroImage="/images/service-seo.webp"
   heroImageAlt="GEO agency Singapore — getting brands cited inside ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews"
   heroButtons={[
@@ -128,197 +181,144 @@ const schemaData = [
   ]}
   whatsappText="Hi Jraft Creative, I'd like to learn about your GEO services in Singapore."
   ctaLabel="Start with the audit"
-  ctaTitle='Find out which of your <span class="highlight">competitors ChatGPT names</span> instead of you'
-  ctaDescription="The AI Visibility Audit runs 20–30 commercial prompts across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews against your business and two named SG competitors. You get an 8–12 page report with the top 5 prioritised gaps, plus a 60-minute delivery call. 5–7 day delivery, 12-day ceiling. S$1,000 one-time — and 100% of that fee credits to month one if you sign onto a GEO retainer within 30 days of the delivery call."
+  ctaTitle='Find Out Which <span class="highlight">Competitors ChatGPT Names</span> Instead of <span class="highlight">You</span>'
+  ctaDescription="The AI Visibility Audit (AVA) runs 20–30 commercial prompts across ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews against your brand and two named SG competitors. 8–12 page report, top 5 prioritised gaps, 60-minute delivery call. 5–7 day delivery. S$1,000 one-time — credits 100% to month one if you sign onto a GEO retainer within 30 days."
   ctaButtons={[
     { text: "Buy the audit · S$1,000", href: "/ai-visibility-audit-singapore/", class: "btn btn-primary" },
     { text: 'DM "AUDIT" on WhatsApp', href: "https://wa.me/6582234578?text=AUDIT", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== INTRO — WHY THIS MATTERS IN 2026 (post Google I/O 2026 splice) ========== -->
-  <section class="section" id="why-2026" aria-label="Why GEO matters in 2026 — Google I/O update">
-    <div class="container">
-      <div class="pillar-prose reveal">
-        <p><strong>Why this matters in 2026.</strong> Three weeks ago at Google I/O, the numbers shifted in a way that should change how every Singapore business thinks about being found. AI Overviews now run on <strong>2.5 billion monthly active users</strong>. AI Mode runs on 1 billion. The new Search box takes text, images, files, video, and Chrome tabs as a single query &mdash; Google&rsquo;s own description was &ldquo;the biggest change to Search in 25 years.&rdquo; Search Agents launch this summer. For the SG business owner, the practical translation is short: the answer surface your customer now uses to decide who to call is no longer ten blue links. It&rsquo;s three brand names inside an AI summary. Either you&rsquo;re one of them, or you&rsquo;re not in the consideration set for that customer.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SECTION 2 — THE ACTUAL PROBLEM ========== -->
-  <section class="section" id="challenge" style="background: var(--bg-alt);" aria-label="The split SG search market">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="The split SG search market">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>The <span class="highlight">SG Search Market</span> Has <span class="highlight">Split in Two</span> — and Most Agencies Still Only Work One Half</h2>
+        <h2>The SG Search Market Has <span class="highlight">Split in Two</span> — and Most Agencies Still Only Work <span class="highlight">One Half</span></h2>
       </div>
-      <div class="pillar-prose reveal">
-        <p>When a customer in Singapore researches a purchase in 2026, they ask twice. Once on Google. Once on ChatGPT, Perplexity, or Gemini. The two queries can return completely different brands. The brands that get cited inside the AI answer are not the same brands that rank on Google — across the audits we run, the overlap is under 20%.</p>
-        <p>What that means in practice: a clinic ranking position three on Google for "aesthetic clinic Orchard" can get zero mentions when a real prospect asks ChatGPT the same question. The clinics getting cited are smaller, newer, sometimes with worse Google rankings — but with stronger entity definition, denser third-party citations, and content shaped for LLM extraction rather than keyword density.</p>
-        <p>The owners we talk to keep asking the wrong question. "Why am I not ranking?" is the 2018 question. The 2026 question is: when ChatGPT names three businesses in my category, is one of them mine? Most aren&rsquo;t checking. Some don&rsquo;t realise they can check. A handful have checked, seen they&rsquo;re invisible, and don&rsquo;t know what to do about it because their SEO agency is still running 2018 playbooks. What to look for in a GEO agency is the opposite: someone running 2026 audits against the LLMs your customers actually use, not someone retro-fitting last decade&rsquo;s checklist.</p>
-        <p>There&rsquo;s a Singapore-specific timing dimension here too. SG has one of the highest AI adoption rates globally — over 60% of the population uses generative AI for research at least monthly. ChatGPT crossed one million weekly active users in Singapore in late 2025. Meanwhile, fewer than 30% of SG SME websites have correctly implemented the schema markup that&rsquo;s table-stakes for AI citation. The competitive field will tighten as more agencies catch up, but the gap between the SG sites that are doing this work today and the sites that aren&rsquo;t is the widest it&rsquo;s likely to be.</p>
-        <p>If you start GEO now, you compound. If you wait, you catch up.</p>
+      <div class="section-content reveal">
+        <p>SG buyers research twice in 2026 — once on Google, once on an AI. Across the audits we run, fewer than 20% of the brands cited inside AI answers are the same brands ranking page one on Google. Two surfaces. Two competitive games. Most agencies still only play the old one.</p>
       </div>
-
-      <aside class="pillar-callout pillar-callout--row reveal" aria-label="SG GEO market signal callout">
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">60.9<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">of Singaporeans use generative AI monthly to research purchases.</span>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The AI Podium Problem</h3>
+            <p>Ten blue links is gone. AI answers name 3–4 brands and stop. If your business is not in that podium, you are not in the consideration set — no matter how well you rank on Google.</p>
+          </div>
         </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">&lt;20<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">overlap between Google rankings and AI citations.</span>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Sub-20% Overlap</h3>
+            <p>Across SG audits we run, fewer than 20% of brands cited inside AI answers also rank page-one on Google for the same query. Different signals. Different content shape. Different game entirely.</p>
+          </div>
         </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">&lt;30<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">of SG SME sites have correct schema markup &mdash; the gap between brands doing this work and brands not doing it is wider than it will be in 18 months. That&rsquo;s the window.</span>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The SG Schema Gap</h3>
+            <p>Under 30% of SG SME sites have correct FAQPage, Organization, or Service schema. The technical bar to outrank competitors inside AI answers is the lowest it will ever be. Compound now or catch up later.</p>
+          </div>
         </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">1M<span class="pillar-callout__pct">+</span></span>
-          <span class="pillar-callout__caption">weekly ChatGPT users in Singapore (late 2025).</span>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
 
-  <!-- ========== SECTION 3 — HOW WE SOLVE IT ========== -->
-  <section class="section" id="sub-services" aria-label="How Jraft runs GEO">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What Jraft delivers as a GEO agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>What Jraft Does as a <span class="highlight">GEO Agency</span> &mdash; the Four Moves That <span class="highlight">Move Citation Rate</span></h2>
+        <h2>Six <span class="highlight">GEO Moves</span> That Move <span class="highlight">Citation Rate</span></h2>
       </div>
-      <div class="pillar-prose reveal">
-        <p>Most "GEO agencies" in Singapore are SEO agencies that added the term to their service menu in late 2024. The work is different. Here is what Jraft actually ships when you sign an engagement.</p>
-
-        <h3><span class="pillar-step">01</span>Run the 20-prompt audit before writing anything</h3>
-        <p>We test 20-30 commercial prompts across ChatGPT, Gemini, Perplexity, Claude, Google AI Overviews, and Copilot. For each prompt we log which brands the AI cites, what sources it quotes, what it says about your business if anything, and where your closest three competitors appear. The output is a 12-page baseline. Everything that ships afterwards is justified against this document.</p>
-        <p>This audit catches the failures that kill AI search programmes early — like the AI describing your business as the wrong category, citing a six-year-old article that no longer reflects what you do, or recommending a competitor by name when asked about you specifically.</p>
-
-        <h3><span class="pillar-step">02</span>Ship the schema and entity layer first</h3>
-        <p>Schema markup (Organization, Service, FAQPage, Speakable, Person for founders, BreadcrumbList) across every commercial page. <code>llms.txt</code> deployed to the root of your domain — the spec is still evolving but major LLMs honour it and getting it live in 2026 puts you ahead of ~95% of SG sites. Internal linking restructured so AI crawlers can map your service tree in one pass.</p>
-        <p>This is the layer that&rsquo;s invisible to your customers and decides whether the AI can even parse you as a business.</p>
-
-        <h3><span class="pillar-step">03</span>Rewrite content for answer extraction</h3>
-        <p>LLMs cite the page that opens with a definitional sentence, follows with a specific or number, then offers a comparison or condition. We restructure your top commercial pages in that shape — without losing the depth and length Google still rewards. Comparison tables (the kind you&rsquo;re reading on this page), proper FAQ blocks with schema, and answer-first paragraphs become the quotable units. Same content, both surfaces.</p>
-
-        <h3><span class="pillar-step">04</span>Build citation density across the sources LLMs trust</h3>
-        <p>This is the long compounding lever. AI models weight Wikipedia, established SG media (Business Times, CNA, The Edge Singapore), industry directories, and genuine review platforms above any single brand domain. We run the outreach programme — earned media positioning, directory cleanup, third-party citation building — over months three through six. Citations land slowly and stay.</p>
-
-        <p><strong>The order matters:</strong> audit &rarr; technical foundation &rarr; content rewrite &rarr; citation building. Anything that skips a step is selling you the deck.</p>
+      <div class="section-content reveal">
+        <p>The work behind every retainer. Audit, technical foundation, content rewrite, authority building — plus the AVA SKU and monitoring layer that keep the engine measurable.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit (AVA)</h3>
+            <p>20–30 prompts across ChatGPT, Gemini, Perplexity, Claude, AI Overviews. 8–12 page report, citation map, schema audit, two competitor benchmarks, top 5 prioritised gaps. S$1,000 one-time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Layer</h3>
+            <p>Organization, Service, FAQPage, Speakable, Person, BreadcrumbList across every commercial page. llms.txt deployed to root. Internal linking restructured so AI crawlers map your service tree in one pass.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Answer-First Content Rewrite</h3>
+            <p>LLMs cite definitional opening, specific number, comparison or condition. We rewrite your top commercial pages in that shape without losing the depth and length Google still rewards. Same content, both surfaces.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Citation &amp; Authority Building</h3>
+            <p>Earned media, directory cleanup, third-party citation work across the sources LLMs trust — Wikipedia, .gov.sg, Business Times, CNA, The Edge, industry directories. The slow compounding lever.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt &amp; Share-of-Voice Monitoring</h3>
+            <p>4 to 50+ tracked prompts across ChatGPT, Gemini, Perplexity, Claude, AI Overviews. Monthly citation reporting with competitor share-of-voice. You see what moved versus baseline, not just what shipped.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Sentiment Defence &amp; Crisis Alerts</h3>
+            <p>Enterprise layer. Defensive monitoring catches the AI describing your business wrong, citing a six-year-old article, or recommending a competitor by name when asked about you. We flag and fix.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SECTION 4 — COMPARISON TABLE: GEO vs SEO ========== -->
-  <section class="section" id="geo-vs-seo" style="background: var(--bg-alt);" aria-label="GEO vs SEO comparison">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your GEO agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">GEO vs SEO</p>
-        <h2><span class="highlight">GEO vs SEO</span> &mdash; the Operator&rsquo;s Comparison</h2>
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Receipts, Not Decks</span> — Cited Inside AI Mode Across <span class="highlight">Five SG Verticals</span></h2>
       </div>
-      <p class="pillar-section-intro reveal">GEO and SEO share technical foundations and diverge at every layer above that. Here is the comparison we walk new clients through in the first hour of engagement.</p>
-
-      <div class="pillar-compare pillar-compare--two reveal" data-pillar="geo" role="region" aria-label="GEO versus SEO comparison">
-        <header class="pillar-compare__head">
-          <div class="pillar-compare__col-label pillar-compare__col-label--a">SEO (Traditional)</div>
-          <div class="pillar-compare__col-label pillar-compare__col-label--b">GEO (Generative Engine Optimisation)</div>
-        </header>
-
-        <div class="pillar-compare__rows">
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Goal</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Rank on Google&rsquo;s blue-link SERP.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Get cited inside AI answers &mdash; ChatGPT, Gemini, Perplexity, Claude, AI Overviews.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">What you compete for</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">One of 10 positions on page one.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">One of 3&ndash;4 brands named in the AI&rsquo;s answer.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Primary ranking signal</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Backlinks + on-page + technical.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Entity clarity + structured data + third-party citation density.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Content shape that wins</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Long-form, keyword-rich, comprehensive.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Definitional, fact-dense, answer-first, comparison-heavy.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Refresh cadence</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Quarterly for most pages.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Every 7&ndash;14 days for top commercial pages.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Measurement</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">SERP position, organic traffic, click-through.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Citation rate, share-of-voice across LLMs, AI-referred traffic.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Time to first result</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">3&ndash;6 months for meaningful rankings.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">2&ndash;4 weeks technical, 8&ndash;12 weeks first AI citations.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">What &ldquo;winning at 90 days&rdquo; looks like</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">First page on 5&ndash;15 keywords.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Brand cited in 3&ndash;8 AI answers across tracked prompts.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">SG-specific lever</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Google Business Profile + local backlinks.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Citations in <code>.gov.sg</code>, established SG media, industry directories.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Cost (SG monthly retainer)</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">S$800&ndash;3,000.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">S$3,000&ndash;10,000+.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Risk if done badly</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Lost ranking, slow recovery.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">AI describes your business wrong &mdash; compounds across every future query.</div>
-          </article>
+      <div class="section-content reveal">
+        <p>Most "GEO agencies" in Singapore added the term to their service menu in late 2024. We built our agency around it. The receipts are what separate operators from rebrands.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Multi-Niche AI Mode Citations</h3>
+            <p>Jraft has been named inside AI Mode answers across aesthetics clinics, education, preschool and enrichment, beauty salons, and tuition — five SG verticals, dated screenshots logged. The strongest receipt no rebrand can fake.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Productised SKU Stack</h3>
+            <p>S$1,000 AVA as the entry point. S$3K / S$5K / S$10K+ retainers above it. Pricing published in full. The audit fee credits 100% to month one if you sign onto a retainer within 30 days of delivery.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Vertical-Specific Playbooks</h3>
+            <p>The signals citing a clinic differ from those citing an enrichment centre. We run vertical-specific programmes across aesthetics, tuition, preschool, beauty, F&amp;B, clinics, gyms, e-commerce, and law firms.</p>
+          </div>
         </div>
       </div>
 
-      <aside class="pillar-callout pillar-callout--single reveal" aria-label="AI answer podium statistic">
-        <div class="pillar-callout__stat">
-          <span class="pillar-callout__number">3&ndash;4</span>
-          <span class="pillar-callout__unit">brands</span>
-        </div>
-        <div class="pillar-callout__body">
-          <p class="pillar-callout__lede">named.</p>
-          <p class="pillar-callout__support">10 blue links is gone. AI answers are a podium. If you&rsquo;re not on the podium, you&rsquo;re not in the answer.</p>
-        </div>
-      </aside>
-
-      <!-- TODO: when /blog/geo-vs-seo-singapore-2026/ ships (6 Jun 2026), wrap the title below in an <a href> link. -->
-      <p class="pillar-companion-tease reveal">Want the deeper breakdown &mdash; when each one wins, the practical 5-step GEO playbook, and how to evaluate a GEO agency honestly? Read the full essay &mdash; <strong>GEO vs SEO in 2026: What Singapore Businesses Need to Know About AI Search</strong> (companion essay, shipping early June 2026).</p>
+      <!-- AVA multi-niche receipt strip — preserves the cross-vertical citation receipts per Ben scope -->
+      <div class="ava-receipts reveal" role="note" aria-label="Multi-niche AI Mode citation receipts">
+        <p class="ava-receipts__label">AI Mode Citations · Logged</p>
+        <p class="ava-receipts__body">Jraft Creative has been named inside <strong>AI Mode answer sets</strong> for queries across <strong>aesthetics clinics, education, preschool and enrichment, beauty salons, and tuition centres</strong> in Singapore — dated screenshots in the live citation log, refreshed monthly. <a href="/ai-visibility-audit-singapore/" style="color: var(--accent); text-decoration: underline;">Buy the AVA</a> to see where your business sits today.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ========== SECTION 5 — PRICING ========== -->
-  <section class="section" id="pricing" aria-label="GEO agency pricing">
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" style="background: var(--bg-alt);" aria-label="GEO agency pricing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">GEO Pricing</p>
-        <h2><span class="highlight">GEO Pricing</span> &mdash; Published in Full</h2>
-      </div>
-      <div class="pillar-prose reveal">
-        <p>We publish our fees. A GEO agency that publishes its pricing is also publishing the labour math behind it &mdash; which is the point. The SG market range for GEO retainers is currently S$2,500-S$15,000 per month depending on scope and how many AI platforms you&rsquo;re monitoring. Anything quoted under S$2,000/month is almost always traditional SEO with "AI" or "GEO" added to the package name. Schema implementation done correctly on a 30-page site is 8-12 hours. Answer-engine content is 4-6 hours per page. Citation building takes outreach hours that don&rsquo;t compress with software.</p>
+        <h2><span class="highlight">GEO Pricing</span> — Published in Full</h2>
+        <p>Monthly retainers. No lock-in. SG market range is S$2,500–S$15,000/mo; anything under S$2,000 is usually traditional SEO rebranded.</p>
       </div>
       <div class="service-pricing">
         <div class="pricing-grid">
@@ -343,11 +343,10 @@ const schemaData = [
             <ul class="pricing-features">
               <li>Everything in Essentials</li>
               <li>Content optimisation (20 pages/mo)</li>
-              <li>Authority building &amp; directory registrations</li>
-              <li>Answer Engine content creation</li>
-              <li>Bi-weekly reporting with competitor benchmarks</li>
+              <li>Authority building &amp; directory work</li>
+              <li>Answer-engine content creation</li>
+              <li>Bi-weekly reporting + competitor benchmarks</li>
               <li>Dedicated GEO strategist</li>
-              <li>Content freshness programme</li>
             </ul>
             <a href="/contact/" class="btn btn-primary">Get Started</a>
           </div>
@@ -359,275 +358,23 @@ const schemaData = [
               <li>Everything in Growth</li>
               <li>Multi-platform defensive monitoring</li>
               <li>Wikipedia presence strategy</li>
-              <li>Weekly strategy calls &amp; real-time dashboard</li>
-              <li>Custom prompt monitoring (50+ prompts daily)</li>
+              <li>Custom prompt monitoring (50+ daily)</li>
               <li>Sentiment defence &amp; crisis alerts</li>
+              <li>Weekly strategy calls + real-time dashboard</li>
             </ul>
-            <a href="/contact/" class="btn btn-secondary">Let&rsquo;s Talk</a>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
           </div>
         </div>
       </div>
-      <div class="pillar-prose reveal" style="margin-top: 2rem; text-align: center;">
-        <p>No lock-in. Month-to-month. If we&rsquo;re not the right fit by month three, we tell you.</p>
-      </div>
     </div>
   </section>
-
-  <!-- ========== SECTION 6 — SG GEO BENCHMARKS ========== -->
-  <section class="section" id="sg-geo-benchmarks" style="background: var(--bg-alt);" aria-label="Singapore GEO market benchmarks">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">SG Benchmarks</p>
-        <h2>What <span class="highlight">GEO</span> Actually Looks Like in the <span class="highlight">Singapore Market</span> Right Now</h2>
-      </div>
-      <div class="pillar-prose reveal">
-        <p>The numbers being thrown around in most AI-search pitches are mostly global. Singapore is its own AI search market with its own dynamics. Here is what we observe across the audits and accounts Jraft runs.</p>
-
-        <p><strong>AI search adoption in SG.</strong> 60.9% of Singapore consumers use generative AI for research at least monthly (NUS / Microsoft Asia 2025 disclosure). ChatGPT crossed one million weekly active users in Singapore in late 2025. The SG ChatGPT user base is older and more commercial in intent than the global average — heavy use by procurement managers, parents researching education, and patients researching healthcare.</p>
-
-        <p><strong>AI citation overlap with Google.</strong> Below 20%. The brands AI cites for commercial queries in SG are not the brands ranking page one on Google for the same queries. The two surfaces use different signals and reward different content.</p>
-
-        <p><strong>SG-specific citation sources LLMs trust.</strong> Wikipedia (English and Mandarin), <code>.gov.sg</code> domains, established SG business media (Business Times, CNA, The Edge Singapore, SBR), Tripadvisor for hospitality, Google reviews above 4.5 stars with detailed text, and category-specific directories (SMA for clinics, MOE-listed centres for education). The trust hierarchy is similar to Google&rsquo;s but the weights differ — LLMs weight Wikipedia and third-party media higher than Google does.</p>
-
-        <p><strong>Schema implementation in SG SME.</strong> From the audits we run, fewer than 30% of SG SME sites have FAQPage, Organization, or Service schema correctly implemented. Of those who do, fewer than half have <code>llms.txt</code> deployed. The technical bar to outrank competitors in AI answers is currently lower than it will ever be again.</p>
-      </div>
-
-      <aside class="pillar-callout pillar-callout--row reveal" aria-label="Singapore GEO market benchmarks">
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">60.9<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">of Singaporeans use generative AI monthly.</span>
-        </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">1M<span class="pillar-callout__pct">+</span></span>
-          <span class="pillar-callout__caption">weekly ChatGPT users in SG.</span>
-        </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">&lt;20<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">overlap between Google top-10 and AI citations.</span>
-        </div>
-        <div class="pillar-callout__stat-card">
-          <span class="pillar-callout__number">&lt;30<span class="pillar-callout__pct">%</span></span>
-          <span class="pillar-callout__caption">of SG SME sites have correct schema.</span>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ========== SECTION 7 — PROCESS ========== -->
-  <section class="section" id="process" aria-label="What a 90-day GEO engagement looks like">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Our Process</p>
-        <h2>What a <span class="highlight">90-Day Jraft GEO Engagement</span> Actually Looks Like</h2>
-      </div>
-      <div class="pillar-prose reveal">
-        <p>We run engagements in 90-day cycles with stated deliverables at week 4, week 8, and week 12. You see what we shipped, what it moved, and what the next cycle prioritises.</p>
-
-        <h3><span class="pillar-step">Week 1-2</span>Kickoff and AI visibility audit</h3>
-        <p>Every retainer engagement opens with the <a href="/ai-visibility-audit-singapore/">AI Visibility Audit</a> &mdash; the same paid 8&ndash;12 page report we sell as a standalone S$1,000 SKU. We pull your GA4, Google Search Console, Google Business Profile, and existing schema. We run the 20&ndash;30 prompt audit across ChatGPT, Gemini, Perplexity, and Google AI Overviews. We benchmark your top three competitors. You get the baseline document with gaps ranked by impact. No content work starts until it&rsquo;s signed off. If you bought the audit first, that S$1,000 credits to month one of the retainer in full.</p>
-
-        <h3><span class="pillar-step">Week 3-6</span>Technical foundation</h3>
-        <p>Schema markup ships across all commercial pages (Organization, Service, FAQPage, Speakable, BreadcrumbList). <code>llms.txt</code> deployed to root. Internal linking restructured for crawler clarity. We rewrite the first batch of pages (5 on Essentials, 20 on Growth) for answer extraction. Google&rsquo;s reindexing typically completes in 2-3 weeks; LLM training updates lag further.</p>
-
-        <h3><span class="pillar-step">Week 7-10</span>Citation and authority building</h3>
-        <p>Outreach programme begins. Earned media positioning, directory cleanup, third-party citation building. This is the slow compounding layer — most AI citation movement shows up in months four and five from this work, not from the technical foundation. We start it on day one because of the lag, not despite it.</p>
-
-        <h3><span class="pillar-step">Week 11-13</span>Report, audit, plan the next cycle</h3>
-        <p>First proper citation tracking report across all monitored prompts. Re-run the audit, measure what moved versus baseline, recommend the next 90 days. If something isn&rsquo;t working, we say so before you ask. The decision at end of cycle one is yours: continue with us, change scope, or walk &mdash; we&rsquo;d rather be the right GEO agency for your business or step aside cleanly than keep a misfit account on the books.</p>
-
-        <p><strong>What we need from you:</strong> CMS access, GA4, GSC, GBP. One 30-minute kickoff. Monthly reporting and async approvals.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== RECEIPTS GRID (added per Ben scope 5 Jun 2026) ========== -->
-  <section class="section" id="receipts" style="background: var(--bg-alt);" aria-label="AI Mode citation receipts by industry">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Receipts</p>
-        <h2>Where Jraft Has Been <span class="highlight">Cited Inside AI Mode</span> &mdash; Named, Dated, and Screen-Shotted</h2>
-      </div>
-      <div class="pillar-prose reveal">
-        <p>We do not ask you to trust the framework — we publish the evidence. Below is the live citation log of AI Mode (ChatGPT / Gemini / Perplexity / Google AI Overviews) responses where Jraft Creative or a Jraft-managed client has been named in the answer set. Each receipt is dated. We refresh this grid monthly. This is the differentiator no agency without operating history can fake.</p>
-      </div>
-
-      <div class="receipts-grid reveal">
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Aesthetics Clinics</p>
-          <p class="receipt-card__caption">Cited when an SG prospect asked AI Mode for an aesthetics marketing agency. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Education &amp; Tuition</p>
-          <p class="receipt-card__caption">Cited inside AI Mode answer set for tuition-centre marketing in Singapore. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Preschool &amp; Enrichment</p>
-          <p class="receipt-card__caption">Surfaced in AI Mode when an SG parent asked for a preschool-marketing agency. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Beauty Salons</p>
-          <p class="receipt-card__caption">Cited in the AI answer set for beauty-salon marketing in Singapore. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Tuition Centres &mdash; Catchment</p>
-          <p class="receipt-card__caption">Named when AI Mode was asked for top tuition centres in a specific SG catchment. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-        <div class="receipt-card">
-          <div class="receipt-card__placeholder">[AI Mode citation screenshot]</div>
-          <p class="receipt-card__industry">Healthcare &mdash; Specialist Clinics</p>
-          <p class="receipt-card__caption">Cited in an AI Mode answer about clinic digital-marketing partners in Singapore. Screenshot pending from Jeremy / Mei.</p>
-          <p class="receipt-card__date">Pending capture &middot; June 2026</p>
-        </div>
-      </div>
-
-      <div class="pillar-prose reveal" style="margin-top: 2rem;">
-        <p><strong>Note &mdash; receipts pending capture.</strong> The six placeholder cards above will be replaced with the live dated screenshots Jeremy and Mei are pulling this week. The credibility of this grid lives in the receipts being real, dated, and replicable by the reader. We are deliberately not publishing fabricated examples while the captures are being collected.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== POSITIONING MATRIX (added per Ben scope 5 Jun 2026) ========== -->
-  <section class="section" id="positioning-matrix" aria-label="GEO agency positioning matrix vs Singapore incumbents">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Positioning Matrix</p>
-        <h2>How We Sit Against the <span class="highlight">Four SG Agencies</span> Currently Owning the <span class="highlight">AI-Search Citation Pool</span></h2>
-      </div>
-      <div class="pillar-prose reveal">
-        <p>The four SG agencies most consistently cited today when a buyer asks ChatGPT / Gemini / Perplexity / AI Mode for an AI-search optimisation partner are Hashmeta, OOm, PurpleClick, and Upscaled. This is a factual reading of the current AI citation pool &mdash; not a competitor takedown. The matrix below is how we position our offer relative to theirs. Use it to decide which approach fits your firm.</p>
-      </div>
-
-      <div class="pillar-compare pillar-compare--two reveal" data-pillar="geo" role="region" aria-label="GEO agency positioning matrix">
-        <header class="pillar-compare__head">
-          <div class="pillar-compare__col-label pillar-compare__col-label--a">Hashmeta / OOm / PurpleClick / Upscaled</div>
-          <div class="pillar-compare__col-label pillar-compare__col-label--b">Jraft Creative (GEO)</div>
-        </header>
-
-        <div class="pillar-compare__rows">
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Primary positioning</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Full-funnel digital agency &mdash; AI search is one service among 12.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Full-service marketing agency for SMBs &mdash; AI search is the productised GEO retainer with its own SKU stack.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Entry product</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Discovery call &rarr; multi-service retainer (typically S$5K&ndash;S$15K/month).</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">S$1,000 AI Visibility Audit (AVA) &mdash; one-time, 8&ndash;12 page report, 100% credits to month one of a GEO retainer.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Pricing published</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Mostly on-request. Pricing pages typically empty or vague.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Three tiers published in full: S$3K Essentials, S$5K Growth, S$10K+ Enterprise. AVA SKU at S$1K one-time.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Receipts disclosed</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Logos in a row, occasional case-study PDF behind a form.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Dated AI Mode citation screenshots by industry (above), GCLID offline-conversion infrastructure receipts, and a Cloudflare CSP fix case study.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Vertical specialism</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">Generalist by design. Will take any vertical with a budget.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">Stacked vertical pages (aesthetics, clinics, ID firms, music, tuition, preschool, beauty salons, F&amp;B) with industry-specific GEO playbooks.</div>
-          </article>
-
-          <article class="pillar-compare__row">
-            <p class="pillar-compare__dimension">Best fit if you are&hellip;</p>
-            <div class="pillar-compare__cell pillar-compare__cell--a">A mid-large SG corporate buying a bundled digital-agency retainer.</div>
-            <div class="pillar-compare__cell pillar-compare__cell--b">An SMB in a regulated or aggregator-dominated vertical that wants AI citation as a measurable, productised service with a S$1K entry point.</div>
-          </article>
-        </div>
-      </div>
-
-      <div class="pillar-prose reveal" style="margin-top: 2rem;">
-        <p>If you fit row 6 left, talk to one of the named incumbents &mdash; they will serve you well. If you fit row 6 right, the AVA is the right first step.</p>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    .receipts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .receipt-card {
-      background: var(--bg-card, #fff);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-radius: 12px;
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .receipt-card__placeholder {
-      aspect-ratio: 16 / 10;
-      border: 2px dashed rgba(0, 0, 0, 0.18);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(0, 0, 0, 0.45);
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
-      background: rgba(0, 0, 0, 0.02);
-    }
-    .receipt-card__industry {
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin: 0;
-    }
-    .receipt-card__caption {
-      font-size: 0.92rem;
-      line-height: 1.5;
-      margin: 0;
-      color: rgba(0, 0, 0, 0.72);
-    }
-    .receipt-card__date {
-      font-size: 0.82rem;
-      color: rgba(0, 0, 0, 0.5);
-      margin: 0;
-      letter-spacing: 0.02em;
-    }
-    @media (prefers-color-scheme: dark) {
-      .receipt-card {
-        background: rgba(255, 255, 255, 0.04);
-        border-color: rgba(255, 255, 255, 0.08);
-      }
-      .receipt-card__placeholder {
-        background: rgba(255, 255, 255, 0.03);
-        border-color: rgba(255, 255, 255, 0.2);
-        color: rgba(255, 255, 255, 0.55);
-      }
-      .receipt-card__caption {
-        color: rgba(255, 255, 255, 0.75);
-      }
-      .receipt-card__date {
-        color: rgba(255, 255, 255, 0.5);
-      }
-    }
-  </style>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about GEO agencies in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about GEO agencies in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2><span class="highlight">GEO Agency</span> Questions <span class="highlight">Answered</span></h2>
+        <h2><span class="highlight">GEO Agency</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1" id="what-is-geo-and-how-is-it-different-from-seo">
@@ -674,37 +421,23 @@ const schemaData = [
     </div>
   </section>
 
-  <!-- ========== SECTION 8 — INDUSTRY CLUSTER ========== -->
-  <section class="section" id="related-services" aria-label="Industry-specific GEO playbooks for Singapore">
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Industry-specific GEO playbooks">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Industry Playbooks</p>
-        <h2><span class="highlight">Industry-Specific GEO Playbooks</span> for Singapore</h2>
+        <h2>GEO Built for <span class="highlight">Your Vertical</span></h2>
       </div>
-      <div class="pillar-prose reveal">
-        <p>The signals that get a clinic cited by ChatGPT are different from the signals that get an enrichment centre cited. We&rsquo;ve built vertical-specific programmes for the SG categories with the highest AI search adoption. If you&rsquo;re in one of these, start there.</p>
-      </div>
-      <div class="pillar-cluster reveal">
-        <p class="pillar-cluster__heading">Industry-specific AI search pages</p>
-        <ul class="pillar-cluster__list">
-          <li><a href="/clinic-ai-search-optimisation-singapore/">GEO for medical and dental clinics</a></li>
-          <li><a href="/aesthetics-clinic-seo-singapore/">GEO for aesthetic clinics</a></li>
-          <li><a href="/tuition-centre-ai-search-optimisation-singapore/">GEO for tuition centres</a></li>
-          <li><a href="/restaurant-ai-search-optimisation-singapore/">GEO for restaurants</a></li>
-          <li><a href="/beauty-salon-ai-search-optimisation-singapore/">GEO for beauty salons</a></li>
-          <li><a href="/gym-ai-search-optimisation-singapore/">GEO for gyms and fitness studios</a></li>
-          <li><a href="/ecommerce-ai-search-optimisation-singapore/">GEO for e-commerce stores</a></li>
-          <li><a href="/law-firm-ai-search-optimisation-singapore/">GEO for law firms</a></li>
-        </ul>
-
-        <p class="pillar-cluster__heading">Sister pillar pages</p>
-        <ul class="pillar-cluster__list">
-          <li><a href="/ai-seo-singapore/">AI SEO Singapore &mdash; the broader pillar covering both AI SEO and traditional SEO</a></li>
-          <li><a href="/llmo-services-singapore/">LLMO Services Singapore &mdash; same discipline, technology-focused framing</a></li>
-          <li><a href="/chatgpt-optimisation-singapore/">ChatGPT Optimisation Singapore &mdash; single-platform deep dive</a></li>
-          <li><a href="/ai-visibility-singapore/">AI Visibility Singapore &mdash; the diagnostic-stage pillar</a></li>
-          <li><a href="/generative-engine-optimisation-singapore/">Generative Engine Optimisation Singapore &mdash; the GEO service-detail page</a></li>
-        </ul>
+      <div class="related-services-grid reveal">
+        <a href="/clinic-ai-search-optimisation-singapore/" class="related-service-link">GEO for Clinics</a>
+        <a href="/aesthetics-clinic-seo-singapore/" class="related-service-link">GEO for Aesthetic Clinics</a>
+        <a href="/tuition-centre-ai-search-optimisation-singapore/" class="related-service-link">GEO for Tuition Centres</a>
+        <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">GEO for Restaurants</a>
+        <a href="/beauty-salon-ai-search-optimisation-singapore/" class="related-service-link">GEO for Beauty Salons</a>
+        <a href="/gym-ai-search-optimisation-singapore/" class="related-service-link">GEO for Gyms</a>
+        <a href="/ecommerce-ai-search-optimisation-singapore/" class="related-service-link">GEO for E-commerce</a>
+        <a href="/law-firm-ai-search-optimisation-singapore/" class="related-service-link">GEO for Law Firms</a>
+        <a href="/ai-visibility-audit-singapore/" class="related-service-link">AI Visibility Audit · S$1,000</a>
       </div>
     </div>
   </section>
