@@ -1,0 +1,451 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Insurance & FA Marketing Agency Singapore",
+    "description": "MAS-compliant marketing for insurance agents and financial advisors in Singapore. SEO, Google Ads, LinkedIn, TikTok, conversion mechanism design — from S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Insurance and Financial Advisory Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Insurance & FA Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (SEO or TikTok/Reels), LinkedIn profile optimisation, Google Business Profile setup, 4 compliance-reviewed pieces of content per month, and monthly performance reporting for solo advisors and boutique FA firms" },
+      { "@type": "Offer", "name": "Growth Insurance & FA Marketing", "price": "5500", "priceCurrency": "SGD", "description": "SEO + Google Ads + TikTok/Reels, GCLID offline conversion tracking, DM-gated lead capture mechanism setup, compliance-cleared landing pages, and bi-weekly reporting for established FA firms scaling consumer plus recruitment pipelines" },
+      { "@type": "Offer", "name": "Enterprise Insurance & FA Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full 5-channel coverage, dedicated strategist, recruitment-pillar production on LinkedIn and TikTok, senior advisor personal branding, and weekly reporting and strategy calls for multi-advisor firms and FA leadership teams" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does insurance marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Insurance and FA marketing in Singapore starts at S$3,000 per month for single-channel work — typically SEO with compliance-reviewed content production, or a TikTok/Reels pillar with monthly post production. Growth packages at S$5,500/month combine SEO, Google Ads with GCLID offline conversion tracking, and consumer-education social content. Enterprise packages at S$10,000+/month add recruitment-pillar production on LinkedIn and TikTok, senior advisor personal branding, and a dedicated strategist. Most established FA firms need the Growth tier minimum to run consumer acquisition and recruitment in parallel — they're separate audiences and they don't share content." } },
+      { "@type": "Question", "name": "Are you MAS-compliant?", "acceptedAnswer": { "@type": "Answer", "text": "We produce content to FAA-N03 and FAA-G14 disclosure standards — covering representative number display, product-comparison disclaimers, and prohibited-statement screening. The final compliance approval always sits with your appointed compliance officer or principal — we don't replace that step, we route into it cleanly. Every piece of copy, every ad headline, and every social caption is delivered with disclaimers and disclosure footers in place, so your compliance review is a sign-off, not a rewrite. We're not a brokerage and we're not licensed advisers — what we are is the marketing team that writes for your compliance review the way an in-house team would." } },
+      { "@type": "Question", "name": "Do you work with single advisors or whole FA firms?", "acceptedAnswer": { "@type": "Answer", "text": "Both. Solo advisors typically start on the Essential tier with a single-channel pillar — usually personal branding on LinkedIn and TikTok, or local SEO around their catchment area. Multi-advisor FA firms run on Growth or Enterprise, where we coordinate firm-level brand content with individual advisor amplification. We also handle senior-advisor personal branding when the firm wants to position one or two MDRT-tier advisors as the public face. The pricing scales with the number of advisors we're producing content for, not just the channel count." } },
+      { "@type": "Question", "name": "Can you help with advisor recruitment, not just consumer acquisition?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — this is one of the two pillars we currently produce for Kairos Advisory. Recruitment-pillar content runs on LinkedIn and TikTok, anchored on contrarian-honest advisor traits (tenure-agnostic, product-neutral, transparent on payout) rather than firm-policy MLM-style hooks. The mechanism converts through DM-gated triggers — prospective advisors comment a keyword, get the firm's actual 'first 24 months' cashflow PDF in DM, and self-qualify before the first call. We don't produce performance metrics for Kairos's recruitment funnel publicly; the data sits with them. What we produce is the content engine." } },
+      { "@type": "Question", "name": "How long before marketing brings insurance enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate quote requests and consultation bookings within the first 7–14 days once GCLID tracking and compliance-cleared ad copy are live. Compliance review on the first batch of ads typically adds a week of upfront timeline — worth flagging at kickoff. Social media content compounds over 8–12 weeks as the algorithm learns who saves and shares your education content. SEO and GEO take 3–6 months for ranking and AI-citation improvements on consumer-education long-tail queries. The buyer journey is long in this vertical — multi-channel presence is what shortens consideration, not any single channel run alone." } },
+      { "@type": "Question", "name": "Do you sell insurance products yourself?", "acceptedAnswer": { "@type": "Answer", "text": "No. We are not a licensed insurance broker, not a financial advisory firm, and not an introducer. We do not earn commissions on policies, we do not get paid on policy volume, and we have no incentive tied to which products you recommend. Jraft Creative is a digital marketing agency — we produce the SEO, ads, social content, and conversion mechanisms that send qualified enquiries to your licensed advisors. Every commercial relationship with prospects, every needs analysis, and every product recommendation runs through your licensed team under your firm's MAS authorisations." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Insurance & FA Marketing Agency Singapore", "item": "https://jraftcreative.com/insurance-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Insurance Buyer Journey — 5-stage horizontal flow with green accents (mirrors .renovation-funnel) */
+  .insurance-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .insurance-funnel .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .insurance-funnel .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .insurance-funnel .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .insurance-funnel .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .insurance-funnel .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .insurance-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .insurance-funnel .funnel-stage:nth-child(2n)::after,
+    .insurance-funnel .funnel-stage:last-child::after {
+      display: none;
+    }
+    .insurance-funnel .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .insurance-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .insurance-funnel .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Insurance & FA Marketing Agency Singapore | Jraft Creative"
+  description="MAS-compliant marketing for insurance agents and financial advisors in Singapore. SEO, Google Ads, social, recruitment funnels — from S$3,000/mo."
+  canonical="https://jraftcreative.com/insurance-marketing-singapore/"
+  ogTitle="Insurance & FA Marketing Agency Singapore | Jraft Creative"
+  ogDescription="Full-service marketing built for FAA-N03 / FAA-G14 disclosure standards. SEO, Google Ads, LinkedIn, TikTok, conversion mechanism design — from S$3,000/mo."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for insurance agents singapore, financial advisor marketing singapore, MAS-compliant marketing, FAA-N03 marketing, FA recruitment marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Insurance & FA Firms"
+  heroTitle='Marketing Agency for <span class="highlight">Insurance Agents & Financial Advisors in Singapore</span>'
+  heroSubtitle="Every line of copy that goes out for an insurance agent or FA in Singapore has to clear FAA-N03 and FAA-G14 before it ever reaches a prospect. We're the agency that writes for compliance first — and builds the SEO, ads, social, and recruitment engine that turns approved content into real enquiries. We don't sell policies. We build the marketing that does. From S$3,000/mo."
+  heroImage="/images/service-insurance.webp"
+  heroImageAlt="Singapore financial advisor in a client consultation — insurance and FA firm marketing"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20insurance%20or%20FA%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an insurance or FA business in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Build</span> Your <span class="highlight">Compliant Marketing Engine</span>'
+  ctaDescription="Book a free consultation and tell us about your insurance or FA practice — your licence type, your product mix, your current marketing setup, and your compliance review process. We'll come back within 24 hours with a tailored, channel-by-channel marketing plan written for how your principal actually reviews copy."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20insurance%20or%20FA%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why insurance agents and FA firms need MAS-compliant marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> Advisors in Singapore Are Still <span class="highlight">Losing Clients</span> to Firms with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Insurance and FA buyers in Singapore are educated, cautious, and slow to commit — and the agencies that pitch this vertical mostly treat it like a generic small-business retainer.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Compliance Bottleneck</h3>
+            <p>Every headline, hook, and CTA has to survive your compliance officer's review before it ships. Most agencies write copy that fails first-pass, burns weeks in revision, and quietly stops trying.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Aggregator Trap</h3>
+            <p>MoneyOwl, SingSaver, and comparison sites own the bottom of the funnel. The leads they send are price-shopping five plans simultaneously — and your name barely registers before the quote does.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Trust Gap</h3>
+            <p>Most prospects assume every advisor is the same. Until your content proves otherwise — with real conviction, not policy summaries — you're competing on commission rebates instead of credibility.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Two-Audience Problem</h3>
+            <p>Consumer-acquisition content and advisor-recruitment content speak different languages, run on different platforms, and convert through different mechanisms. Most agencies pick one and quietly underdeliver on the other.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for insurance agents and financial advisors in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Five <span class="highlight">Marketing Channels</span> Every Insurance & FA Firm <span class="highlight">Needs in Singapore</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each channel covers a different stage of how Singaporean prospects research, compare, and finally commit to an advisor — and every one of them runs through MAS-aligned copy review.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>SEO for Insurance & FA Searches</h3>
+            <p>Singapore prospects search "best term life Singapore," "ILP vs term," "CPF top-up advice," and "financial advisor Bishan" — not "buy insurance." We build pages that rank for those long-tail education queries: plan explainers, comparison guides, advisor profile pages with credentials and FA licence numbers, and catchment-area content. The goal isn't to sell on the page — it's to be the answer the prospect finds at 11pm when they're stress-researching, and to make sure your name is the one they Google again when they're ready to talk.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Google Ads with FAA-N03 Review Baked In</h3>
+            <p>"Term life insurance quote Singapore" is a $15+ CPC keyword and the bidding is brutal — which is exactly why most agents waste budget on broad-match campaigns that route nowhere useful. We build tightly scoped campaigns around quote-intent and need-state keywords (Medishield top-ups, ECI claims, retirement planning), route every ad through your compliance officer before it goes live, and use GCLID offline conversion tracking to tie every click back to a signed policy. You see which keyword wrote the business — not just which keyword got clicks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>LinkedIn for Advisor Recruitment & B2B</h3>
+            <p>LinkedIn is where MDRT advisors, FA managers, and second-career professionals make their next move — and where corporate solutions partnerships start. We run two parallel motions on it: recruitment content that pulls the right kind of advisor towards your firm (tenure-honest, transparent on payout, no MLM-flex), and B2B outreach for SME group insurance and corporate wellness deals. Both motions use the same profile, the same voice, and the same CRM — so your senior advisors aren't running three separate playbooks for three separate goals.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Social Media for Consumer Education</h3>
+            <p>The Singapore audience that will eventually buy from you is already on TikTok and Reels — and they trust contrarian-honest education far more than policy-pushing reels. This is the pillar we currently produce for Kairos Advisory: MB50 episodes on compounding, recruitment-pillar series breaking down what to look for in an FA, and consumer-education content on inflation, diversification, and risk management. Every script is written for FAA-G14 disclosure standards and routed through their compliance officer before production. We do not cite Kairos performance metrics — that data sits with the client.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Conversion Mechanism Design</h3>
+            <p>The CTA "DM me to learn more" is dead. We design conversion mechanisms that work inside compliance: gated DM trigger words (comment a keyword → automated DM with the lead magnet), WhatsApp routing with disclosure boilerplate baked into the welcome message, and compliance-cleared landing pages with the right disclaimer placement. Every mechanism is built so the comment, the DM keyword, or the form submission IS the qualified lead — not a vague engagement metric you can't action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for insurance and financial advisor marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Singapore Buys Financial Advice</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching insurance and FA firms treat compliance as a friction to route around. We treat it as the spec the work is written to — because that's what makes the difference between a campaign that ships and a campaign that gets stuck in your principal's inbox for six weeks.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>MAS-Compliant Content Production</h3>
+            <p>We currently produce TikTok content for Kairos Advisory across recruitment and consumer-education pillars, written to FAA-G14 disclosure standards and routed through their compliance officer before every shoot.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Transparent Pricing, No Surprise Scopes</h3>
+            <p>S$3,000, S$5,500, or S$10,000 monthly retainers. Everything in scope is on the page. No commission-share, no policy-volume tie-ins, no "performance bonus" billed retroactively when a campaign works.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>GCLID Offline Conversion Tracking</h3>
+            <p>We tie every Google Ads click back to your signed-policy CRM via GCLID offline conversions. You stop reporting on form-fills and start reporting on closed business per keyword.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>One Team Across Every Channel</h3>
+            <p>SEO, Google Ads, LinkedIn, TikTok, Instagram, and conversion mechanism design all under one roof. One compliance review thread instead of three vendors arguing about whose copy broke the rules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== INSURANCE BUYER JOURNEY ========== -->
+  <section class="section" id="buyer-journey" style="background: var(--bg-alt);" aria-label="The Insurance Buyer Journey in Singapore — how Singaporean buyers move from awareness to purchase">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Buyer Journey</p>
+        <h2>The <span class="highlight">Insurance Buyer Journey</span> in <span class="highlight">Singapore</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first "should I get insurance?" search to the signed proposal form, every Singaporean buyer moves through the same five stages — and we build marketing that shows up at each one.</p>
+      </div>
+      <ol class="insurance-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Awareness</h3>
+          <p>Life event triggers — new job, baby, BTO, parents aging</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Education</h3>
+          <p>TikTok, Reels, Google, AI tools — researching plan types</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Comparison</h3>
+          <p>SingSaver, MoneyOwl, FA blogs — narrowing 5+ plans</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advisor Meeting</h3>
+          <p>1–3 advisor consultations, needs analysis, proposals</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Proposal signed, free-look period, policy issued</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Insurance and financial advisor marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Insurance & FA Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for FA Firms of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For solo advisors and boutique FA firms building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO or TikTok/Reels)</li>
+              <li>LinkedIn profile optimisation</li>
+              <li>Google Business Profile setup</li>
+              <li>4 compliance-reviewed pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established FA firms scaling consumer + recruitment pipelines.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + TikTok/Reels</li>
+              <li>GCLID offline conversion tracking</li>
+              <li>DM-gated lead capture mechanism setup</li>
+              <li>Compliance-cleared landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-advisor firms and FA leadership teams.</p>
+            <ul class="pricing-features">
+              <li>Full 5-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Recruitment pillar production (LinkedIn + TikTok)</li>
+              <li>Senior advisor personal branding</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about insurance and FA marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Insurance & FA</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does insurance marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Insurance and FA marketing in Singapore starts at S$3,000 per month for single-channel work — typically SEO with compliance-reviewed content production, or a TikTok/Reels pillar with monthly post production. Growth packages at S$5,500/month combine SEO, Google Ads with GCLID offline conversion tracking, and consumer-education social content. Enterprise packages at S$10,000+/month add recruitment-pillar production on LinkedIn and TikTok, senior advisor personal branding, and a dedicated strategist. Most established FA firms need the Growth tier minimum to run consumer acquisition and recruitment in parallel — they're separate audiences and they don't share content.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Are you MAS-compliant?</summary>
+          <div class="faq-answer"><p>We produce content to FAA-N03 and FAA-G14 disclosure standards — covering representative number display, product-comparison disclaimers, and prohibited-statement screening. The final compliance approval always sits with your appointed compliance officer or principal — we don't replace that step, we route into it cleanly. Every piece of copy, every ad headline, and every social caption is delivered with disclaimers and disclosure footers in place, so your compliance review is a sign-off, not a rewrite. We're not a brokerage and we're not licensed advisers — what we are is the marketing team that writes for your compliance review the way an in-house team would.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you work with single advisors or whole FA firms?</summary>
+          <div class="faq-answer"><p>Both. Solo advisors typically start on the Essential tier with a single-channel pillar — usually personal branding on LinkedIn and TikTok, or local SEO around their catchment area. Multi-advisor FA firms run on Growth or Enterprise, where we coordinate firm-level brand content with individual advisor amplification. We also handle senior-advisor personal branding when the firm wants to position one or two MDRT-tier advisors as the public face. The pricing scales with the number of advisors we're producing content for, not just the channel count.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you help with advisor recruitment, not just consumer acquisition?</summary>
+          <div class="faq-answer"><p>Yes — this is one of the two pillars we currently produce for Kairos Advisory. Recruitment-pillar content runs on LinkedIn and TikTok, anchored on contrarian-honest advisor traits (tenure-agnostic, product-neutral, transparent on payout) rather than firm-policy MLM-style hooks. The mechanism converts through DM-gated triggers — prospective advisors comment a keyword, get the firm's actual 'first 24 months' cashflow PDF in DM, and self-qualify before the first call. We don't produce performance metrics for Kairos's recruitment funnel publicly; the data sits with them. What we produce is the content engine.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings insurance enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads can generate quote requests and consultation bookings within the first 7–14 days once GCLID tracking and compliance-cleared ad copy are live. Compliance review on the first batch of ads typically adds a week of upfront timeline — worth flagging at kickoff. Social media content compounds over 8–12 weeks as the algorithm learns who saves and shares your education content. SEO and GEO take 3–6 months for ranking and AI-citation improvements on consumer-education long-tail queries. The buyer journey is long in this vertical — multi-channel presence is what shortens consideration, not any single channel run alone.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you sell insurance products yourself?</summary>
+          <div class="faq-answer"><p>No. We are not a licensed insurance broker, not a financial advisory firm, and not an introducer. We do not earn commissions on policies, we do not get paid on policy volume, and we have no incentive tied to which products you recommend. Jraft Creative is a digital marketing agency — we produce the SEO, ads, social content, and conversion mechanisms that send qualified enquiries to your licensed advisors. Every commercial relationship with prospects, every needs analysis, and every product recommendation runs through your licensed team under your firm's MAS authorisations.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Jraft Creative</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/insurance-agent-website-singapore/" class="related-service-link">Insurance Agent Websites</a>
+          <a href="/services/seo-performance/" class="related-service-link">SEO Services</a>
+          <a href="/services/paid-ads/" class="related-service-link">Google Ads Management</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Marketing</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
+</content>
+</invoke>
