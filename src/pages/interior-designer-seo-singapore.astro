@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
+import MarketingFunnelBlock from '../components/MarketingFunnelBlock.astro';
 
 const schemaData = [
   {
@@ -22,7 +23,12 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Interior Designer SEO"
+    "serviceType": "Interior Designer SEO",
+    "offers": [
+      { "@type": "Offer", "name": "Essential ID SEO", "price": "3000", "priceCurrency": "SGD", "description": "Technical SEO, on-page optimisation, Google Business Profile setup, and 1 catchment-area landing page per quarter for solo and boutique ID firms" },
+      { "@type": "Offer", "name": "Growth ID SEO", "price": "5500", "priceCurrency": "SGD", "description": "Multi-catchment SEO build (Punggol, Sengkang, Tampines etc.), Qanvast/Houzz profile optimisation, monthly blog content, and bi-weekly ranking reporting for established renovation firms" },
+      { "@type": "Offer", "name": "Enterprise ID SEO", "price": "10000", "priceCurrency": "SGD", "description": "Full catchment-SEO programme, designer-profile schema, condo-project landing pages, weekly content production, and dedicated SEO strategist for multi-location ID firms" }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -402,6 +408,15 @@ const schemaData = [
       </div>
     </div>
   </section>
+
+  <MarketingFunnelBlock
+    industry="ID firm"
+    marketingHref="/interior-designer-marketing-singapore/"
+    eyebrow="Already investing in SEO for your ID firm?"
+    leadInLine="SEO alone doesn't sign the renovation — full marketing does."
+    outcomeLine="SEO gets you found — marketing closes the renovation contract."
+    ctaText="Interior Designer Marketing Singapore"
+  />
 </ServiceLayout>
 </content>
 </invoke>
