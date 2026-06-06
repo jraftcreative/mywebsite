@@ -51,193 +51,313 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Renovation Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Google Ads for Interior Designers Singapore | Jraft"
   description="Google Ads built for interior designers in Singapore. HDB & condo renovation targeting, GCLID lead tracking, S$30–80 CPL benchmark. From $1,500/mo + ad spend."
   canonical="https://jraftcreative.com/interior-designer-google-ads-singapore/"
   ogTitle="Google Ads for Interior Designers Singapore | Jraft"
-  ogDescription="Google Ads for interior designers in Singapore. HDB and condo renovation targeting, GCLID lead tracking, industry-benchmark CPL. Plans from $1,500 SGD/month."
+  ogDescription="Google Ads for interior designers in Singapore. HDB and condo renovation targeting, GCLID lead tracking, industry-benchmark CPL."
   ogImage="https://jraftcreative.com/images/og-ads.jpg"
   keywords="google ads for interior designers singapore, interior design ppc singapore, renovation google ads, interior designer lead ads singapore, hdb renovation ads, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Google Ads for Interior Designers"
   heroTitle='Google Ads for <span class="highlight">Interior Designers in Singapore</span>'
-  heroSubtitle="Homeowners are searching for renovation help right now — during their BTO key collection wave, after their condo TOP, the week they sign their resale OTP. We build and manage Google Ads that position your firm at the top of high-intent searches and drive quote requests for HDB, condo, and landed renovations."
-  heroImage="/images/service-aesthetics.webp"
+  heroSubtitle="BTO key collections cluster quarterly. Condo TOP dates cluster by district. Resale OTPs spike in seasonal windows. The ID firms running catchment-targeted Google Ads during those waves capture the lion's share of quote requests. We build campaigns that show up at the exact moment homeowners are searching for renovation help — and we track every click through to a signed contract."
+  heroImage="/images/service-ads.webp"
+  heroImageAlt="Google Ads for interior designers in Singapore — HDB and condo renovation campaigns with GCLID tracking"
   heroButtons={[
-    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need Google Ads for my interior design firm in Singapore."
-  ctaLabel="Grow Your Renovation Pipeline"
-  ctaTitle="Get a Free ID Firm Google Ads Strategy Session"
-  ctaDescription="Book a free consultation and we will review your current ad performance, analyse the competitive and aggregator landscape, and identify the highest-converting catchment + project-type keywords for your firm. We will get back to you within 24 hours."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Grow Your <span class="highlight">Renovation Pipeline</span> with <span class="highlight">Google Ads</span> Built for ID Firms'
+  ctaDescription="Book a free consultation and tell us about your firm — your catchment, your project mix, your current ad performance. We will get back to you within 24 hours with a campaign structure, keyword shortlist, and CPL projection tailored to your firm."
   ctaButtons={[
-    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20interior%20design%20firm%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for interior designers in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why ID firms burn budget on Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>The ID Google Ads Reality — S$30 to S$80 CPL Is Achievable, S$200+ If You Run Generic</h2>
+        <h2>Why ID Firms <span class="highlight">Burn Budget</span> on Google Ads — and the <span class="highlight">CPL Gap</span> That Separates Winners</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's renovation market runs in waves. HDB BTO key collections happen quarterly. Condo TOP dates cluster in major districts. Resale OTP signings spike during specific windows. When a wave hits, hundreds of homeowners in the same catchment area start searching "interior designer Punggol" or "BTO renovation Sengkang" in the same week. The ID firms running targeted Google Ads during those waves capture the lion's share of quote requests. If your firm does not appear, homeowners shortlist a competitor — even if your portfolio is stronger.</p>
-        <p>Interior design advertising in Singapore comes with two challenges that kill most firms' Google Ads campaigns. First, head terms like "interior designer Singapore" and "renovation contractor Singapore" are expensive and broad — many of the clicks come from researchers and students, not buyers. Industry benchmarks suggest ID firms running poorly-segmented head-term campaigns see CPLs above S$200. Second, most ID-firm websites are not built for paid traffic conversion — they are portfolios, not landing pages.</p>
-        <p>Done right — catchment + project-type segmentation, dedicated landing pages, BTO key-collection timing, and GCLID offline conversion uploads — industry benchmarks place achievable CPL at S$30-S$80 for ID firms in Singapore. The gap between the firms running it correctly and the firms burning budget on head terms is the difference between a profitable channel and a write-off. We build the former.</p>
+        <p>Done right, ID firms in Singapore hit S$30–S$80 cost-per-lead on Google Ads. Done badly, the same firms burn S$200+ per lead on head terms. The gap between the two is structural, not tactical.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Head-Term Trap</h3>
+            <p>"Interior designer Singapore" looks like the obvious keyword. It is also the most expensive, lowest-intent term in the category. Researchers and students click. Buyers shortlist by catchment plus project type — not by city.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Portfolio Landing Page</h3>
+            <p>Most ID firms send paid traffic to a homepage portfolio. Beautiful, off-message. A Sengkang BTO buyer needs a Sengkang BTO landing page — not a gallery of landed homes in Bukit Timah.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Quote-Not-Contract Problem</h3>
+            <p>Without GCLID offline uploads, the algorithm optimises on quote volume — not signed deals. You scale the ad groups that produce tyre-kicker enquiries and starve the ones producing real renovation contracts.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for interior designers">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for interior designers in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Campaign Structure for ID Firms</p>
-        <h2>Google Ads Built for Renovation Quote Bookings</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Campaign Engines</span> Built for <span class="highlight">Renovation Quote Bookings</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in Google Ads for interior designers across Singapore — from boutique studios to multi-designer firms. Every campaign is segmented by catchment, project type, and intent stage; built around BTO and condo TOP timing; and designed to drive qualified quote requests, not casual clicks.</p>
-        <p>Our campaign structure: <strong>Brand</strong> (defend your firm name), <strong>Treatment-Specific</strong> (kitchen, full-home, landed by project type), <strong>Catchment</strong> (Punggol, Sengkang, Tampines, Bukit Timah), and <strong>Retargeting</strong> (re-engage site visitors who did not enquire). All four work together.</p>
-        <p>Complement your paid ads with a professional <a href="/interior-design-website-singapore/">portfolio website</a>, <a href="/interior-designer-seo-singapore/">catchment SEO</a> for organic visibility, or <a href="/interior-designer-social-media-singapore/">IG and TikTok content</a> to build trust during the inspiration phase.</p>
+        <p>Brand defence, catchment + project-type campaigns, competitor and aggregator bidding, retargeting, GCLID tracking, and landing pages tuned for quote enquiries. The structure that compresses CPL.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
             <h3>Catchment + Project-Type Campaigns</h3>
-            <p>Keyword campaigns targeting what homeowners actually search — "interior designer Punggol BTO", "5-room renovation Sengkang", "landed kitchen renovation Bukit Timah" — capturing high-intent traffic ready to request a quote.</p>
+            <p>"Interior designer Punggol BTO", "5-room renovation Sengkang", "kitchen renovation Bukit Timah." Ad groups segmented by town plus project type plus flat size. High relevance, low CPL.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
             <h3>Competitor &amp; Aggregator Bidding</h3>
-            <p>Strategic bidding on competitor firm names and aggregator search terms to intercept homeowners comparing options — positioning your firm as the better alternative before they land in Qanvast's or Renonation's quote pool.</p>
+            <p>Strategic bidding on competitor firm names and aggregator terms. We intercept homeowners comparing options before they land in the Qanvast or Renonation quote pool.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
             <h3>GCLID Offline Conversion Tracking</h3>
-            <p>We capture the GCLID with every lead and upload signed-contract conversions back to Google Ads. The algorithm optimises on revenue per click, not quotes per click — and you see exactly which keyword drove which deal. We built this stack for our music school client after discovering their CSP was silently blocking the default Google beacon.</p>
+            <p>We capture the GCLID on every lead and upload signed-contract conversions back to Google Ads. The algorithm optimises on revenue per click, not quotes per click. You see which keyword built which deal.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
+          <div class="service-detail-card__content">
+            <h3>Catchment Landing Pages</h3>
+            <p>Project-type-specific landing pages — Punggol BTO, Sengkang resale, Bukit Timah landed, condo overhauls. Every ad group lands somewhere relevant. Quality Score rises, CPL drops.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-retargeting.jpg');">
           <div class="service-detail-card__content">
             <h3>Retargeting &amp; Quote Funnels</h3>
-            <p>Retargeting campaigns that re-engage homeowners who visited your portfolio but did not enquire. Display and search remarketing keeps your firm top-of-mind during the 3-6 week research window until they are ready to request a quote.</p>
+            <p>Display and search remarketing for the 95% of homeowners who visit but do not enquire on the first session. Stay top-of-mind through the 3–6 week shortlist phase until they request a quote.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Wave-Timed Budget Pacing</h3>
+            <p>BTO key collections, condo TOP dates, resale OTP cycles. We scale spend into the wave and throttle it out — your budget compounds against the calendar that matters for renovation buyers.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for interior designer Google Ads">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for interior designer Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand Singapore's Renovation Market</h2>
+        <h2><span class="highlight">Renovation-Market</span> Google Ads — Measured to <span class="highlight">Signed Contract</span>, Not Just Clicks</h2>
       </div>
       <div class="section-content reveal">
-        <p>We have managed ad campaigns for service businesses across Singapore — music schools, clinics, enrichment centres, real estate — and understand the local-buyer behaviour and aggregator dynamics that drive ID-firm quote bookings. Here is why ID firms choose us:</p>
+        <p>We have run ad campaigns for service businesses across SG — music schools, clinics, enrichment centres, real estate. The renovation buyer journey is more complex than most. We built our stack for it.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Renovation-Market Expertise</h3>
-            <p>We understand BTO key-collection timing, condo TOP windows, HDB resale cycles, and the 3-6 week homeowner research journey. Your campaigns are built by a team that knows when to scale spend and when to throttle it.</p>
+            <h3>Renovation-Market Timing</h3>
+            <p>We pace budgets to BTO key collections, condo TOP waves, and resale cycles. You scale into the wave and throttle out — instead of running flat spend against a seasonal demand curve.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You see every dollar in your own Google Ads account and know exactly what each quote request and each signed contract costs.</p>
+            <h3>GCLID-to-Contract Stack</h3>
+            <p>We built the offline-conversion infrastructure ourselves after fixing a CSP bug that silently blocked the default Google beacon on a music-school client. You optimise on signed-deal value, not quote volume.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Scale budgets for BTO key-collection waves or seasonal promotions and adjust as needed — you are never locked into a fixed term.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Signed-Contract Tracking</h3>
-            <p>We track the full journey from ad click to signed renovation contract via GCLID offline uploads. You will know exactly which catchment, keyword, and campaign generates the best return on ad spend — not just quote volume.</p>
+            <h3>Transparent Spend, No Lock-In</h3>
+            <p>Ad budget goes direct to Google — never marked up. Month-to-month management. Every dollar visible in your own Ads account. You see exactly what each quote and each signed contract costs.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Interior designer Google Ads pricing plans">
+  <!-- ========== RENOVATION BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Renovation Buyer Funnel — how Singapore homeowners decide on an ID firm">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">ID Firm Ads Pricing</p>
-        <h2>Google Ads Plans for Interior Designers</h2>
-        <p>Monthly management fees. No lock-in contracts. Ad spend billed separately by Google.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>How <span class="highlight">Renovation Buyers</span> Actually <span class="highlight">Decide</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$1,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For ID firms launching their first ad campaigns.</p>
-            <ul class="pricing-features">
-              <li>1 advertising platform (Google Search)</li>
-              <li>Up to $3K ad spend management</li>
-              <li>Catchment + project-type keyword research</li>
-              <li>GCLID conversion tracking setup</li>
-              <li>Monthly performance report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For ID firms scaling across catchments.</p>
-            <ul class="pricing-features">
-              <li>2 advertising platforms (Search + Display)</li>
-              <li>Up to $10K ad spend management</li>
-              <li>A/B testing &amp; ad copy optimisation</li>
-              <li>Catchment landing page recommendations</li>
-              <li>Competitor &amp; aggregator analysis</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Scale</h3>
-            <div class="price">$5,500+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For multi-designer firms maximising pipeline.</p>
-            <ul class="pricing-features">
-              <li>All advertising platforms</li>
-              <li>Unlimited ad spend management</li>
-              <li>Dedicated account strategist</li>
-              <li>Conversion rate optimisation</li>
-              <li>Offline conversion uploads (GCLID → contract)</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From BTO key collection to a signed contract, every HDB and condo renovation buyer in Singapore moves through the same five stages. We build Google Ads campaigns that show up at each one — inspiration through to signed quote.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/paid-ads/" class="inline-link">Paid Ads</a> page.</p>
-      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Inspiration</h3>
+          <p>Pinterest, IG Reels, TikTok walkthroughs</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Qanvast, Renonation, Google, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Quote</h3>
+          <p>3–5 firm consultations</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Site Visit</h3>
+          <p>Walkthroughs with shortlisted firms</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Sign</h3>
+          <p>Contract awarded</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for interior designers">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for interior designers in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Google Ads for Interior Designers — Questions Answered</h2>
+        <h2><span class="highlight">ID Firm Google Ads</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -264,13 +384,12 @@ const schemaData = [
     </div>
   </section>
 
-
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Interior Designer Services</h2>
+        <h2>More <span class="highlight">Interior Designer</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
           <a href="/interior-designer-marketing-singapore/" class="related-service-link">Marketing for Interior Designers</a>
