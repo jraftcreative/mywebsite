@@ -23,6 +23,45 @@ const formattedDate = date.toLocaleDateString('en-SG', { year: 'numeric', month:
 const isoDate = date.toISOString();
 const isoModified = lastModified ? lastModified.toISOString() : isoDate;
 
+// Author lookup — maps frontmatter author string to a Person (or Organization) schema record.
+// Add a new entry here when a new named author joins. If author isn't in the table,
+// we fall back to the Jraft Creative Organization — never fabricate a Person.
+const orgRef = {
+  '@type': 'Organization',
+  name: 'Jraft Creative Pte. Ltd.',
+  url: 'https://jraftcreative.com/',
+};
+
+const authorRecords: Record<string, Record<string, unknown>> = {
+  'Jeremy Cheong': {
+    '@type': 'Person',
+    '@id': 'https://jraftcreative.com/about/#jeremy-cheong',
+    name: 'Jeremy Cheong',
+    jobTitle: 'Founder',
+    url: 'https://jraftcreative.com/about/jeremy/',
+    worksFor: orgRef,
+    sameAs: ['https://www.linkedin.com/in/jeremycheong'],
+  },
+  'Jeevan Aurol': {
+    '@type': 'Person',
+    '@id': 'https://jraftcreative.com/about/#jeevan-aurol',
+    name: 'Jeevan Aurol',
+    jobTitle: 'Account Director',
+    url: 'https://jraftcreative.com/about/',
+    worksFor: orgRef,
+  },
+};
+
+const orgAuthor = {
+  '@type': 'Organization',
+  name: 'Jraft Creative',
+  url: authorUrl
+    ? (authorUrl.startsWith('http') ? authorUrl : `https://jraftcreative.com${authorUrl}`)
+    : 'https://jraftcreative.com/about/',
+};
+
+const authorSchema = authorRecords[author] ?? orgAuthor;
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -31,11 +70,7 @@ const articleSchema = {
   image: ogImage,
   datePublished: isoDate,
   dateModified: isoModified,
-  author: {
-    '@type': 'Organization',
-    name: author,
-    url: authorUrl || 'https://jraftcreative.com/about/',
-  },
+  author: authorSchema,
   publisher: {
     '@type': 'Organization',
     name: 'Jraft Creative',
