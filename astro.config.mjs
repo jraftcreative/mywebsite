@@ -26,6 +26,8 @@ export default defineConfig({
       !page.includes('/portfolio/') &&
       !page.includes('/thank-you/') &&
       !page.includes('/services/#') &&
+      !page.includes('/about-preview/') &&
+      !page.includes('/_preview-') &&
       page !== 'https://jraftcreative.com/services/' &&
       // Exclude cannibalisation-redirect source URLs from sitemap.
       page !== 'https://jraftcreative.com/seo-services-singapore/' &&
