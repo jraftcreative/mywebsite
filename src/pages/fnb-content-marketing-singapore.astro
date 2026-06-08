@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "F&B Content Marketing Singapore",
-    "description": "Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, behind-the-scenes stories, and SEO-driven content strategy — from S$1,500/month.",
+    "description": "Content marketing agency for F&B brands in Singapore. Editorial blog content, signature dish hub pages, AI-search-ready content, email newsletters, and content built to rank on Google and get cited by ChatGPT, Gemini, and Perplexity.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "F&B Content Marketing",
-    "offers": [
-      { "@type": "Offer", "name": "Essential Content", "price": "1500", "priceCurrency": "SGD", "description": "4 SEO blog articles per month, content calendar, keyword research, and monthly performance reporting" },
-      { "@type": "Offer", "name": "Growth Content", "price": "3000", "priceCurrency": "SGD", "description": "8 articles per month, email newsletter, recipe content, social media content repurposing, and bi-weekly reporting" },
-      { "@type": "Offer", "name": "Enterprise Content", "price": "5000", "priceCurrency": "SGD", "description": "12+ articles per month, full content strategy, video content, influencer collaboration, link building, and weekly reporting" }
-    ]
+    "serviceType": "F&B Content Marketing"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does content marketing cost for an F&B business?", "acceptedAnswer": { "@type": "Answer", "text": "F&B content marketing starts at $1,500 SGD per month for 4 blog articles with keyword research and a content calendar. Growth plans at $3,000/month add email newsletters and recipe content. Enterprise plans at $5,000+/month include video content, influencer collaboration, and comprehensive link building." } },
-      { "@type": "Question", "name": "What kind of content works for F&B businesses?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective F&B content includes 'best of' food guides (e.g., 'best brunch in Tiong Bahru'), recipe articles, chef profiles, behind-the-scenes stories, seasonal menu features, food trend articles, and neighbourhood dining guides. All content is SEO-optimised to drive organic traffic from food-related searches." } },
-      { "@type": "Question", "name": "How does content marketing help my restaurant get more customers?", "acceptedAnswer": { "@type": "Answer", "text": "Content marketing builds organic search traffic over time. When your blog ranks for food-related searches, it brings potential diners to your website who are actively looking for dining options. It also builds brand authority, supports social media with shareable content, and earns backlinks that improve your overall SEO." } },
-      { "@type": "Question", "name": "How long before content marketing shows results?", "acceptedAnswer": { "@type": "Answer", "text": "Blog content typically takes 2–4 months to rank and drive meaningful organic traffic. However, content also has immediate value for social media sharing, email newsletters, and brand building. The compounding effect of consistent content means results accelerate over time." } },
-      { "@type": "Question", "name": "Do you create content for social media as well?", "acceptedAnswer": { "@type": "Answer", "text": "Our Growth plan ($3,000/month) and above include social media content repurposing — taking blog articles and turning them into Instagram carousels, short-form video scripts, and social media posts. For full social media management, we recommend pairing content marketing with our social media service." } }
+      { "@type": "Question", "name": "What does F&B content marketing cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B content marketing in Singapore covers editorial blog content (cuisine guides, neighbourhood roundups, behind-the-scenes founder stories), signature dish hub pages designed to rank for '[dish name] [neighbourhood]' searches, AI-search-ready content built to get cited by ChatGPT, Gemini, and Perplexity, email newsletters for regulars, and long-form content that supports SEO without being a generic SEO blog. The goal is content that compounds — not content that fills a calendar." } },
+      { "@type": "Question", "name": "How is F&B content marketing different from social media?", "acceptedAnswer": { "@type": "Answer", "text": "Social media (IG, TikTok) is short-form, real-time, and lives inside the platform. Content marketing is long-form, evergreen, lives on your own site, and compounds via SEO and AI search citations. Both matter — but content marketing builds an asset that keeps driving traffic for years, while social drives this week's reservations. Most F&B brands need both, with content feeding SEO and social driving discovery." } },
+      { "@type": "Question", "name": "How long before F&B content marketing drives results?", "acceptedAnswer": { "@type": "Answer", "text": "F&B content typically takes 3-6 months to start ranking and driving organic traffic. AI search citations can appear faster — within 4-8 weeks for well-structured content on cuisine, neighbourhood, and signature-dish topics. The compounding effect kicks in around month 6-9 once the editorial library, hub pages, and AI-ready content stack are all in place. Email content drives reservations and orders immediately from month one." } },
+      { "@type": "Question", "name": "Do you handle AI search (GEO) content for F&B?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI search is a core part of our F&B content marketing — every content piece is built with structured answers, clear factual claims, and cite-friendly framing so ChatGPT, Gemini, Perplexity, and Google AI Mode can quote and link it when SG diners ask 'best ramen in Tampines' or 'where to take parents for dim sum.' This is a real differentiator versus most SG content agencies who still write for 2020 SEO only." } },
+      { "@type": "Question", "name": "Do you handle email and newsletter content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. F&B email content (welcome flows, weekly or monthly newsletters, seasonal launches, loyalty and birthday flows, win-back sequences) is part of the content marketing scope. We integrate with Mailchimp, Klaviyo, HubSpot, or your existing email platform, and we tie email opens and clicks back to in-store and online order conversions where possible." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="F&B Content Marketing Singapore — Jraft Creative"
-  description="Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, behind-the-scenes stories, and SEO-driven content strategy."
+  title="F&B Content Marketing Singapore | Jraft Creative"
+  description="F&B content marketing agency in Singapore. Editorial blog, signature dish hubs, AI-search-ready content, email newsletters — for restaurants, cafes, bars, hawkers."
   canonical="https://jraftcreative.com/fnb-content-marketing-singapore/"
-  ogTitle="F&B Content Marketing Singapore — Jraft Creative"
-  ogDescription="Content marketing for F&B businesses in Singapore. Food blog content, recipe articles, and SEO content strategy — from $1,500 SGD/month."
+  ogTitle="F&B Content Marketing Singapore | Jraft Creative"
+  ogDescription="F&B content marketing agency in Singapore. SEO blog, hub pages, AI-search-ready content, email newsletters."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="fnb content marketing singapore, food content marketing, restaurant blog content, f&b blog strategy, food seo content, restaurant content strategy, Jraft Creative"
+  keywords="fnb content marketing singapore, restaurant content marketing singapore, cafe content marketing, fnb blog content, fnb email marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="F&B Content Marketing"
-  heroTitle='Content Marketing for <span class="highlight">F&amp;B Businesses in Singapore</span>'
-  heroSubtitle="Great food deserves great content. We create SEO-driven blog articles, recipe content, food guides, and brand stories that bring hungry customers to your website and keep them coming back for more."
+  heroLabel="F&B Content Marketing Singapore"
+  heroTitle='Content Marketing Agency for <span class="highlight">F&amp;B Brands in Singapore</span>'
+  heroSubtitle="Content marketing for F&amp;B is no longer a generic SEO blog. It is signature-dish hub pages that rank, AI-search-ready content that gets cited by ChatGPT, and email flows that bring regulars back. We build the long-form content engine that compounds while the social channel handles this week's posts."
   heroImage="/images/service-fnb.webp"
+  heroImageAlt="Singapore F&B content marketing — F&B content marketing agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20content%20marketing%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need content marketing for my F&B business in Singapore."
+  whatsappText="Hi Jraft Creative, I need F&B content marketing in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Feed Your Website with Great Content"
-  ctaDescription="Book a free consultation and we'll show you the content opportunities your F&B business is missing. We'll respond within 24 hours."
+  ctaTitle='Let Us <span class="highlight">Build</span> Your <span class="highlight">F&amp;B Content Engine</span>'
+  ctaDescription="Book a free consultation and tell us about your F&amp;B brand — current content, SEO position, AI search visibility, email list size. We'll respond within 24 hours with a tailored content marketing plan."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20content%20marketing%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why F&B businesses need content marketing">
+  <section class="section" id="challenge" aria-label="Why F&B brands need specialised content marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Competitors Are Ranking for the Searches Your Customers Make</h2>
+        <h2>Most <span class="highlight">F&amp;B Content</span> Is Written for <span class="highlight">2020 SEO</span> — and Diners Now Ask AI</h2>
       </div>
       <div class="section-content reveal">
-        <p>Every day, thousands of people in Singapore search Google for food-related content: "best brunch spots in Singapore", "where to eat in Tanjong Pagar", "best Italian restaurant CBD". The businesses that produce content targeting these searches capture organic traffic from diners actively looking for somewhere to eat.</p>
-        <p>Without a content strategy, your website is static — a homepage and a menu that Google has no reason to rank above competitors. Content marketing gives Google fresh, relevant pages to index, builds your authority as a dining destination, and creates a compounding asset that drives traffic for months and years after publication.</p>
-        <p>Social media posts disappear in hours. Paid ads stop working when you stop paying. But a well-written blog article ranking for "best cafe in Tiong Bahru" keeps bringing new customers to your website every single day — for free. That's the power of content marketing for F&B.</p>
+        <p>SG diners increasingly ask ChatGPT, Gemini, Perplexity, and Google AI Mode for "best [cuisine] in [neighbourhood]" instead of scrolling Google. Most F&amp;B content is still padded SEO blog posts written for an algorithm that no longer drives the recommendation. Content marketing has to be rebuilt for both Google AND AI search.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Padded SEO Blog Posts</h3>
+            <p>Most F&amp;B blogs run "10 Tips For Better Marketing" listicles nobody reads, padded to 2,000 words for keyword density. They rank for nothing useful and do not get cited by AI tools. Pure calendar-filler with no compounding value.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>No Hub Pages for Signature Dishes</h3>
+            <p>Restaurants known for a signature dish have no dedicated hub page for it. Diners search "[dish] [neighbourhood]" and a competitor's listicle ranks instead — turning your signature into someone else's traffic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Email Treated as Promo Blast</h3>
+            <p>Email lists used twice a quarter for a promo blast. No welcome flow, no birthday flow, no win-back. The single highest-ROI F&amp;B channel left untouched while ad budget bleeds — and the regulars churn unnoticed.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="F&B content marketing services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="F&B content marketing services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Content Marketing for Food &amp; Beverage</h2>
+        <h2>Six <span class="highlight">F&amp;B Content Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create SEO-optimised content that drives organic traffic and positions your F&B business as a go-to dining destination. Every piece of content is researched, written, and published with the goal of attracting hungry customers searching Google.</p>
-        <p>Content marketing works best alongside <a href="/services/seo-performance/">technical SEO</a> for maximum ranking power, <a href="/services/social-media/">social media marketing</a> for content distribution, and a well-designed <a href="/fnb-website-design-singapore/">F&B website</a> that converts readers into diners.</p>
+        <p>We run F&amp;B content as a six-workstream system — editorial blog, signature-dish hub pages, AI-search-ready content, neighbourhood and cuisine guides, email flows, and content distribution. Built to compound across SEO, AI search, and CRM.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO Blog Articles</h3>
-            <p>Keyword-researched blog articles targeting food searches in Singapore. Food guides, neighbourhood dining features, seasonal menu stories, and cuisine deep-dives that rank on Google and drive hungry readers to your website.</p>
+            <h3>Editorial Blog Content</h3>
+            <p>Cuisine guides, neighbourhood roundups, behind-the-scenes founder stories, dish provenance pieces — written for diners, structured for SEO, and edited to a standard a food publication would print, not a generic SEO mill.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Recipe &amp; Food Content</h3>
-            <p>Recipe articles, chef profiles, ingredient stories, and behind-the-scenes content that showcases your culinary expertise and builds an emotional connection with your audience.</p>
+            <h3>Signature Dish Hub Pages</h3>
+            <p>Dedicated SEO pages for your signature dishes ("the laksa," "the croissant," "the bibimbap"), built to rank for "[dish] [neighbourhood]" and own the search instead of letting a competitor listicle take it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Content Strategy &amp; Calendar</h3>
-            <p>Data-driven content calendar based on keyword research, seasonal trends, and competitive gaps. Every piece of content is planned to target specific search terms and support your business goals.</p>
+            <h3>AI-Search-Ready Content</h3>
+            <p>Content built with structured answers, clear factual claims, and cite-friendly framing — designed to get quoted by ChatGPT, Gemini, Perplexity, and Google AI Mode when SG diners ask "best [cuisine] [neighbourhood]" or "where to take parents."</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Performance Tracking</h3>
-            <p>Monthly reports showing organic traffic growth, keyword rankings, engagement metrics, and content ROI. We track which articles drive the most visitors and adjust strategy based on real data.</p>
+            <h3>Neighbourhood &amp; Cuisine Guides</h3>
+            <p>"Best dim sum in Chinatown," "Italian restaurants in Tanjong Pagar," "specialty coffee Tiong Bahru" — guide-format content positioning your brand as the local authority and capturing high-intent catchment traffic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Email &amp; Newsletter Flows</h3>
+            <p>Welcome flow, monthly newsletter, seasonal launches, loyalty and birthday flows, win-back sequences. Wired into Mailchimp, Klaviyo, or HubSpot and tied back to in-store and online order conversions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Distribution</h3>
+            <p>Editorial outreach to SG food publications and bloggers, repurposing blog content into IG and TikTok formats, and content syndication where it earns real authority. Content does not just sit on your site — it travels.</p>
           </div>
         </div>
       </div>
@@ -134,100 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for F&B content marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for F&B content marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Content Writers Who Know F&amp;B</h2>
+        <h2><span class="highlight">F&amp;B Content</span> Built for <span class="highlight">2026 Search</span>, Not <span class="highlight">2020 SEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We combine F&B industry knowledge with SEO expertise to create content that ranks and converts. Our writers understand Singapore's food culture and know how to write content that resonates with local diners.</p>
+        <p>Most content agencies pitching F&amp;B still write generic SEO blog posts for an algorithm that no longer drives the recommendation. We write for both Google AND AI search — every piece structured so it ranks classically AND gets cited by ChatGPT, Gemini, Perplexity. This is a real 2026 differentiator most SG agencies have not caught up to.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Content Expertise</h3>
-            <p>We know food. Our writers understand cuisines, dining trends, and Singapore's food culture. Your content reads like it was written by someone who actually eats here — because it was.</p>
+            <h3>Editorial-Standard Writing</h3>
+            <p>Every piece is edited to a standard a food publication would print — clear voice, real reporting, no padding. Content that diners actually read end-to-end and AI tools cite as authoritative.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>SEO-First Approach</h3>
-            <p>Every article starts with keyword research. We target the searches your potential customers make and write content that Google wants to rank. No fluff — just strategic content that drives organic traffic.</p>
+            <h3>SEO + AI Search in One Brief</h3>
+            <p>Every content piece is briefed against both classical SEO keywords AND AI-search prompts. The same content earns both Google rankings and AI citations — instead of running two separate content programmes.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Consistent Publishing</h3>
-            <p>Content marketing only works with consistency. We handle everything — research, writing, editing, and publishing — so your blog grows steadily without adding work to your team.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Marketing Integration</h3>
-            <p>Content feeds into SEO, social media, email, and ads. We integrate content with your broader marketing strategy so every article supports multiple channels simultaneously.</p>
+            <h3>You Own the Content Library</h3>
+            <p>Every piece, every brief, every email template — all in your name. No agency lock-in. If you ever leave, you take the full editorial archive and the email infrastructure with you.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="F&B content marketing pricing">
+  <!-- ========== F&B BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The F&B Buyer Funnel — and where content marketing shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Content Marketing Pricing</p>
-        <h2>Content Marketing Packages for F&amp;B</h2>
-        <p>Monthly retainer. Cancel any time.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Content Marketing</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$1,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&B businesses starting their content strategy.</p>
-            <ul class="pricing-features">
-              <li>Content strategy &amp; keyword research</li>
-              <li>4 SEO blog posts per month</li>
-              <li>F&amp;B menu &amp; food articles</li>
-              <li>On-page optimisation per post</li>
-              <li>Monthly traffic &amp; ranking report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&amp;B businesses scaling their content presence.</p>
-            <ul class="pricing-features">
-              <li>Full content strategy &amp; competitor analysis</li>
-              <li>8 SEO blog posts per month</li>
-              <li>Recipe &amp; food experience guides</li>
-              <li>Newsletter content (2x per month)</li>
-              <li>Video content scripts</li>
-              <li>Monthly performance reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$5,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&amp;B groups with ambitious content goals.</p>
-            <ul class="pricing-features">
-              <li>Dedicated content strategist</li>
-              <li>12+ SEO blog posts per month</li>
-              <li>F&amp;B thought leadership content</li>
-              <li>Downloadable dining resources</li>
-              <li>Email campaign management</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore F&amp;B diners move through five stages. Content marketing compounds across Discover and Choose (SEO and AI-cited content does the shortlisting) and Return (email and loyalty flows bring regulars back).</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>Guides and AI citations seed first impressions (Content-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>Hub pages and signature-dish content close the shortlist (Content-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Provenance and behind-the-scenes content build anticipation</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Return</h3>
+          <p>Email flows, newsletters, loyalty bring regulars back (Content-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Content gives diners something to share beyond a dish photo</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -236,48 +260,47 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>F&amp;B Content Marketing Questions Answered</h2>
+        <h2><span class="highlight">F&amp;B Content Marketing</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does content marketing cost for an F&amp;B business?</summary>
-          <div class="faq-answer"><p>F&B content marketing starts at $1,500 SGD per month for 4 blog articles with keyword research and a content calendar. Growth plans at $3,000/month add email newsletters and recipe content. Enterprise plans at $5,000+/month include video content, influencer collaboration, and comprehensive link building.</p></div>
+          <summary>What does F&amp;B content marketing cover in Singapore?</summary>
+          <div class="faq-answer"><p>F&B content marketing in Singapore covers editorial blog content (cuisine guides, neighbourhood roundups, founder stories), signature dish hub pages designed to rank for "[dish name] [neighbourhood]" searches, AI-search-ready content built to get cited by ChatGPT, Gemini, and Perplexity, email newsletters for regulars, and long-form content that supports SEO without being a generic SEO blog. The goal is content that compounds — not content that fills a calendar.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What kind of content works for F&amp;B businesses?</summary>
-          <div class="faq-answer"><p>The most effective F&B content includes "best of" food guides (e.g., "best brunch in Tiong Bahru"), recipe articles, chef profiles, behind-the-scenes stories, seasonal menu features, food trend articles, and neighbourhood dining guides. All content is SEO-optimised to drive organic traffic from food-related searches.</p></div>
+          <summary>How is F&amp;B content marketing different from social media?</summary>
+          <div class="faq-answer"><p>Social media (IG, TikTok) is short-form, real-time, and lives inside the platform. Content marketing is long-form, evergreen, lives on your own site, and compounds via SEO and AI search citations. Both matter — but content marketing builds an asset that keeps driving traffic for years, while social drives this week's reservations. Most F&B brands need both, with content feeding SEO and social driving discovery.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How does content marketing help my restaurant get more customers?</summary>
-          <div class="faq-answer"><p>Content marketing builds organic search traffic over time. When your blog ranks for food-related searches, it brings potential diners to your website who are actively looking for dining options. It also builds brand authority, supports social media with shareable content, and earns backlinks that improve your overall SEO.</p></div>
+          <summary>How long before F&amp;B content marketing drives results?</summary>
+          <div class="faq-answer"><p>F&B content typically takes 3-6 months to start ranking and driving organic traffic. AI search citations can appear faster — within 4-8 weeks for well-structured content on cuisine, neighbourhood, and signature-dish topics. The compounding effect kicks in around month 6-9 once the editorial library, hub pages, and AI-ready content stack are all in place. Email content drives reservations and orders immediately from month one.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before content marketing shows results?</summary>
-          <div class="faq-answer"><p>Blog content typically takes 2–4 months to rank and drive meaningful organic traffic. However, content also has immediate value for social media sharing, email newsletters, and brand building. The compounding effect of consistent content means results accelerate over time.</p></div>
+          <summary>Do you handle AI search (GEO) content for F&amp;B?</summary>
+          <div class="faq-answer"><p>Yes. AI search is a core part of our F&B content marketing — every content piece is built with structured answers, clear factual claims, and cite-friendly framing so ChatGPT, Gemini, Perplexity, and Google AI Mode can quote and link it when SG diners ask "best ramen in Tampines" or "where to take parents for dim sum." This is a real differentiator versus most SG content agencies who still write for 2020 SEO only.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you create content for social media as well?</summary>
-          <div class="faq-answer"><p>Our Growth plan ($3,000/month) and above include social media content repurposing — taking blog articles and turning them into Instagram carousels, short-form video scripts, and social media posts. For full social media management, we recommend pairing content marketing with our social media service.</p></div>
+          <summary>Do you handle email and newsletter content?</summary>
+          <div class="faq-answer"><p>Yes. F&B email content (welcome flows, weekly or monthly newsletters, seasonal launches, loyalty and birthday flows, win-back sequences) is part of the content marketing scope. We integrate with Mailchimp, Klaviyo, HubSpot, or your existing email platform, and we tie email opens and clicks back to in-store and online order conversions where possible.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related F&B services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More F&B Services</h2>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/fnb-website-design-singapore/" class="related-service-link">F&B Website Design</a>
-          <a href="/fnb-seo-singapore/" class="related-service-link">F&B SEO</a>
-          <a href="/fnb-marketing-agency-singapore/" class="related-service-link">F&B Marketing</a>
-          <a href="/fnb-social-media-singapore/" class="related-service-link">F&B Social Media</a>
-          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&B Google Ads</a>
-          <a href="/fnb-branding-singapore/" class="related-service-link">F&B Branding</a>
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-seo-singapore/" class="related-service-link">F&amp;B SEO</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>

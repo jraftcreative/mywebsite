@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Restaurant SEO Singapore",
-    "description": "SEO services for restaurants in Singapore. Local search optimisation, Google Maps ranking, menu page SEO, and review management — from S$800/month.",
+    "description": "SEO agency for restaurants in Singapore. Google Business Profile, Maps three-pack optimisation, catchment SEO, multi-outlet local SEO, and review-velocity playbook — for dine-in, delivery, and multi-outlet restaurants.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Restaurant SEO",
-    "offers": [
-      { "@type": "Offer", "name": "Essential Restaurant SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, and monthly reporting" },
-      { "@type": "Offer", "name": "Growth Restaurant SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus content strategy, local citation building, review management, competitor monitoring, and bi-weekly reporting" },
-      { "@type": "Offer", "name": "Enterprise Restaurant SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location restaurant SEO, content creation, advanced link building, and weekly reporting" }
-    ]
+    "serviceType": "Restaurant SEO"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for a restaurant in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content strategy, review management, and multi-location SEO for restaurant groups." } },
-      { "@type": "Question", "name": "How long does it take for restaurant SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most restaurants see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation can produce quick wins in weeks. Location-specific keywords like 'Italian restaurant Tanjong Pagar' or 'best ramen Bugis' rank faster than broad competitive terms like 'restaurant Singapore'." } },
-      { "@type": "Question", "name": "Can SEO help my restaurant rank on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Maps ranking is central to our restaurant SEO service. We optimise your Google Business Profile with correct categories, professional food photos, menu uploads, review management, and local citation building to get your restaurant into the Maps 3-pack for 'restaurant near me' searches." } },
-      { "@type": "Question", "name": "Do you help with review management for restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google reviews directly impact your local search ranking. Our Growth plan and above include review generation strategy, response templates, and monitoring. We help you systematically collect genuine reviews from satisfied diners and respond professionally to all feedback." } },
-      { "@type": "Question", "name": "Can you do SEO for multiple restaurant locations?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our Enterprise plan specialises in multi-location restaurant SEO. We create unique, optimised pages for each outlet, manage individual Google Business Profiles, and build location-specific citations so each branch ranks independently in its own neighbourhood." } }
+      { "@type": "Question", "name": "What does restaurant SEO actually do in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant SEO in Singapore is dominated by two surfaces: the Google Maps three-pack and traditional organic results for searches like 'best Italian Tanjong Pagar' or 'dim sum Chinatown.' Our restaurant SEO work covers Google Business Profile optimisation, review-velocity playbooks to climb the three-pack, catchment-area landing pages, Restaurant/Menu/Reservation schema markup, technical site fixes, and a content strategy targeting cuisine-by-neighbourhood searches. The goal is reservations and direct online orders — not vanity rankings." } },
+      { "@type": "Question", "name": "Why is the Google Maps three-pack so important for SG restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "When SG diners search for a restaurant, the Maps three-pack drives the calls, the direction requests, and the reservation clicks. Review count, recency, photo cadence, posts, response rate, and category accuracy decide which three restaurants surface. Most restaurants leave Google Business Profile underbuilt, so even outlets with great food lose covers to weaker competitors with better-optimised profiles." } },
+      { "@type": "Question", "name": "How long before restaurant SEO brings more covers?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile work and review velocity can lift three-pack rankings within 2-4 weeks for easier catchments. Catchment landing pages and content show ranking improvements within 3-6 months. Multi-outlet restaurant SEO compounds over 6-12 months as each outlet gains authority. Most restaurants see measurable reservation and online-order lift inside the first quarter once GBP, reviews, and core landing pages are in place." } },
+      { "@type": "Question", "name": "Do you handle multi-outlet restaurant SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet restaurant SEO is a core strength. Each outlet gets its own Google Business Profile, its own catchment landing page, geo-specific schema, and a unique review-velocity plan — while the master brand stays consistent. We handle new outlet launches, franchise rollouts, and existing-chain consolidation under one strategy." } },
+      { "@type": "Question", "name": "Can restaurant SEO reduce my dependence on delivery platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Delivery platforms charge 25-30% commission per order. By ranking organically for 'food delivery [neighbourhood]' and cuisine-specific delivery searches — plus a strong GBP and direct ordering flow on your site — you drive orders to your own website and keep the full margin. Over 12-18 months this typically becomes one of the highest-ROI channels for established restaurants." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Restaurant SEO Singapore — Jraft Creative"
-  description="SEO services for restaurants in Singapore. Local search optimisation, Google Maps ranking, menu page SEO, and review management — from S$800/month."
+  title="Restaurant SEO Singapore | Jraft Creative"
+  description="Restaurant SEO agency in Singapore. Google Business Profile, Maps three-pack, catchment SEO, multi-outlet local SEO, review-velocity playbook."
   canonical="https://jraftcreative.com/restaurant-seo-singapore/"
-  ogTitle="Restaurant SEO Singapore — Jraft Creative"
-  ogDescription="SEO for restaurants in Singapore. Local search, Google Maps ranking, review management, and menu page optimisation — from $800 SGD/month."
+  ogTitle="Restaurant SEO Singapore | Jraft Creative"
+  ogDescription="Restaurant SEO agency in Singapore. Google Maps three-pack, GBP, catchment SEO, multi-outlet SEO."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="restaurant seo singapore, seo for restaurants, restaurant google ranking, restaurant local seo, restaurant near me seo, google maps restaurant, Jraft Creative"
+  keywords="restaurant seo singapore, restaurant seo agency, google business profile restaurant singapore, restaurant local seo, multi outlet restaurant seo, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Restaurant SEO"
-  heroTitle='SEO Services for <span class="highlight">Restaurants in Singapore</span>'
-  heroSubtitle="Every day, thousands of people in Singapore search Google for where to eat. If your restaurant doesn't rank on page one, those diners are walking into your competitor's door instead. We build SEO strategies that put your restaurant at the top of local search."
+  heroLabel="Restaurant SEO Singapore"
+  heroTitle='SEO Agency for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="When diners search 'best Italian Tanjong Pagar' or 'dim sum Chinatown,' the Google Maps three-pack decides who gets the call. We build restaurant SEO that wins the three-pack, ranks for cuisine-by-neighbourhood searches, and turns Google Business Profile into a measurable reservation and direct-order channel."
   heroImage="/images/service-restaurant.webp"
+  heroImageAlt="Singapore restaurant interior — restaurant SEO agency"
   heroButtons={[
-    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20SEO%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need SEO for my restaurant in Singapore."
-  ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Restaurant Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your restaurant stands in local search. We'll respond within 24 hours."
+  whatsappText="Hi Jraft Creative, I need restaurant SEO in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Rank</span> Your <span class="highlight">Restaurant</span>'
+  ctaDescription="Book a free consultation and tell us about your restaurant — outlets, current GBP and rankings, target catchments. We'll get back to you within 24 hours with a tailored restaurant SEO plan."
   ctaButtons={[
-    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20restaurant%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20SEO%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why restaurants need SEO">
+  <section class="section" id="challenge" aria-label="Why restaurants need specialised SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Thousands of Restaurants — Can Diners Find Yours?</h2>
+        <h2>The <span class="highlight">Three-Pack</span> Decides — and Most <span class="highlight">Restaurants</span> Are Not <span class="highlight">In It</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 7,000 restaurants competing for the same pool of diners. When someone searches "best Italian restaurant Tanjong Pagar" or "dinner near me" on their phone, the top three results on Google Maps capture the overwhelming majority of walk-in traffic. If your restaurant isn't ranking, you're invisible to hungry customers ready to spend.</p>
-        <p>Relying solely on food delivery platforms means giving up 30% of every order in commissions. Organic search is the most cost-effective channel for driving direct reservations, dine-in traffic, and takeaway orders — but only if your website is properly optimised for the terms your potential customers actually search.</p>
-        <p>Most restaurant websites are thin — a homepage, an "About" page, and a PDF menu. Without dedicated pages for your cuisine, location, and services, without schema markup that tells Google you're a restaurant, and without a properly managed Google Business Profile, even the best food in the neighbourhood stays undiscovered online.</p>
+        <p>SG diners do not scroll past the Google Maps three-pack. Whichever three restaurants appear get the calls, the directions, the reservation clicks, and the covers. Everyone below is essentially invisible — and most restaurants have left the levers that control that result untouched for years.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Branded but Invisible</h3>
+            <p>You rank for your own restaurant name. You do not rank for "best Italian Tanjong Pagar," "dim sum Chinatown," or "Japanese Orchard." That is where new diners search — and where every booking that does not start with your brand name comes from.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>GBP Left Half-Built</h3>
+            <p>Most restaurant GBPs are missing categories, recent posts, fresh photos, menu items, and a consistent response rate. The three-pack ranking algorithm reads all of those signals. Leave them flat and a weaker competitor takes your three-pack spot.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Delivery Commission Drag</h3>
+            <p>GrabFood, Foodpanda, and Deliveroo charge 25-30% per order. Without organic rankings for "[cuisine] delivery [neighbourhood]" and a direct ordering flow on your site, you rent your customer base from the aggregators every month — forever.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Restaurant SEO services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Restaurant SEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Restaurants</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Restaurant SEO Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Restaurant SEO is a specialist discipline. Diners search by cuisine type, neighbourhood, occasion, and price range — creating dozens of keyword combinations that need dedicated pages and strong local signals. We build SEO strategies specifically for how Singapore diners research and choose where to eat.</p>
-        <p>Pair SEO with a professionally designed <a href="/fnb-website-design-singapore/">restaurant website</a>, <a href="/services/social-media/">social media marketing</a> for food content that drives engagement, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent diners during peak periods.</p>
+        <p>We run restaurant SEO as a six-workstream system — Google Business Profile, three-pack ranking, catchment SEO, schema and technical, content, and multi-outlet local SEO. Every workstream is wired to a measurable reservation or delivery outcome.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your restaurant website to find indexing issues, broken links, missing structured data, slow load times, and mobile usability problems that stop Google from ranking your restaurant for local searches.</p>
+            <h3>Google Business Profile Build-Out</h3>
+            <p>Full GBP rebuild: category accuracy, attributes, services, opening hours, menu items, photo cadence, weekly posts, Q&amp;A, and a response-rate workflow. The foundation every other workstream loads onto.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
-            <h3>Menu &amp; Page Optimisation</h3>
-            <p>Keyword-optimised pages for your cuisine, location, and dining experiences. Proper meta titles, descriptions, heading structures, and Restaurant schema markup so Google understands exactly what you serve and where.</p>
+            <h3>Three-Pack Ranking Push</h3>
+            <p>Review-velocity playbook (volume, recency, response rate, photo reviews), citation building, and local link signals — the four levers that move you into the Google Maps three-pack for your priority catchments.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO &amp; Google Maps</h3>
-            <p>Google Business Profile optimisation with correct restaurant categories, food photos, menu uploads, review management, and local citation building to rank in the Maps 3-pack for "restaurant near me" searches.</p>
+            <h3>Catchment Landing Pages</h3>
+            <p>Dedicated pages for "best [cuisine] [neighbourhood]" queries across Tanjong Pagar, Orchard, Chinatown, Bukit Timah, and every priority SG catchment — optimised for both organic and three-pack ranking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Review &amp; Reputation Management</h3>
-            <p>Systematic review generation from satisfied diners, professional response templates, and monitoring across Google, TripAdvisor, and other platforms. More positive reviews mean higher local rankings and more bookings.</p>
+            <h3>Schema &amp; Technical SEO</h3>
+            <p>Restaurant, LocalBusiness, Menu, MenuItem, and Reservation schema. Site-speed, mobile, indexing, and crawl fixes so Google reads every outlet, menu item, and reservation as a structured signal — not just text.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Restaurant Content Strategy</h3>
+            <p>Editorial calendar built around catchment, cuisine, occasion, and dietary search intent. Signature-dish hub pages and seasonal launch coverage — written to rank, not to pad a blog.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Outlet Local SEO</h3>
+            <p>One GBP per outlet, one catchment page per location, location-specific schema, and per-outlet ranking dashboards. Built for chains, franchises, and existing multi-outlet consolidations.</p>
           </div>
         </div>
       </div>
@@ -134,100 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for restaurant SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands Restaurants</h2>
+        <h2><span class="highlight">Restaurant SEO</span> Built for <span class="highlight">Three-Pack Ranking</span> and <span class="highlight">Direct Reservations</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with restaurants and F&B businesses across Singapore. We know which search terms drive reservations, how diners decide where to eat, and what turns a Google search into a paying customer at your table.</p>
+        <p>Most SEO agencies pitching restaurants treat it like every other vertical — generic backlinks, generic content, generic "SEO score" reports. Restaurant SEO in Singapore is a different game: three-pack ranking, GBP signals, catchment intent, and direct reservation and delivery orders. We run that specific playbook.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Industry Knowledge</h3>
-            <p>We understand seasonal menus, cuisine-specific searches, neighbourhood dining behaviour, and how Singapore diners research restaurants. Your SEO strategy reflects that industry knowledge.</p>
+            <h3>Three-Pack-First Methodology</h3>
+            <p>We do not treat GBP as an afterthought. Three-pack ranking is the primary KPI for most restaurant briefs, and we engineer every workstream — reviews, photos, posts, citations — to move that one number first.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Neighbourhood-Level Targeting</h3>
-            <p>Most diners want a restaurant within walking distance or a short ride. We optimise for neighbourhood-level searches — Orchard, Tanjong Pagar, Bugis, Holland Village, Katong — so your restaurant ranks where your diners are.</p>
+            <h3>You Own Every Asset</h3>
+            <p>Your GBP, your domain, your content, your review playbook templates — all in your name from day one. No agency lock-in. If you ever leave, you take the full restaurant SEO stack with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Monthly Reporting</h3>
-            <p>Every month you see keyword rankings, organic traffic, Google Maps performance, and reservation trends. We show data tied to actual business results — not vanity metrics.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence</h3>
-            <p>SEO is one piece. We also handle restaurant website design, social media, and paid ads — so your entire digital marketing works together to fill tables every night.</p>
+            <h3>SEO Wired to GEO</h3>
+            <p>Restaurant SEO no longer ends at Google. We connect classical SEO work to AI-search citations (ChatGPT, Gemini, Perplexity) — so the same content infrastructure that ranks on Google also gets you cited by AI tools diners now use.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Restaurant SEO pricing">
+  <!-- ========== RESTAURANT BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Restaurant Buyer Funnel — and where SEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Restaurant SEO Pricing</p>
-        <h2>SEO Plans for Restaurants</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Restaurant SEO</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$800 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For single-location restaurants building search visibility.</p>
-            <ul class="pricing-features">
-              <li>Technical SEO audit</li>
-              <li>On-page optimisation (10 pages)</li>
-              <li>Google Business Profile setup</li>
-              <li>Restaurant schema markup</li>
-              <li>Monthly performance report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$1,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants ready to dominate local search.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essential</li>
-              <li>Content strategy &amp; blog posts</li>
-              <li>Local citation building</li>
-              <li>Review management strategy</li>
-              <li>Competitor monitoring</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$3,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurant groups and multi-outlet operators.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Dedicated SEO strategist</li>
-              <li>Multi-location local SEO</li>
-              <li>Content creation &amp; publishing</li>
-              <li>Advanced link building</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore restaurant diners move through five stages. SEO is the dominant channel in the middle two — Choose and First Visit — where diners shortlist on Google Maps and decide which restaurant to actually book or walk into.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok, friend recs (Social-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>Maps three-pack, reviews, AI search (SEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>First Visit</h3>
+          <p>GBP photos, menu, reviews convert intent (SEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Experience, follow-up content, loyalty</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>UGC posts, fresh Google reviews feed SEO</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -236,48 +260,47 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Restaurant SEO Questions Answered</h2>
+        <h2><span class="highlight">Restaurant SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for a restaurant in Singapore?</summary>
-          <div class="faq-answer"><p>Restaurant SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content strategy, review management, and multi-location SEO for restaurant groups.</p></div>
+          <summary>What does restaurant SEO actually do in Singapore?</summary>
+          <div class="faq-answer"><p>Restaurant SEO in Singapore is dominated by two surfaces: the Google Maps three-pack and traditional organic results for "best Italian Tanjong Pagar" or "dim sum Chinatown." Our work covers Google Business Profile optimisation, review-velocity playbooks to climb the three-pack, catchment-area landing pages, Restaurant/Menu/Reservation schema, technical site fixes, and content strategy targeting cuisine-by-neighbourhood searches. The goal is reservations and direct online orders — not vanity rankings.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for restaurant SEO to show results?</summary>
-          <div class="faq-answer"><p>Most restaurants see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation can produce quick wins in weeks. Location-specific keywords like "Italian restaurant Tanjong Pagar" or "best ramen Bugis" rank faster than broad competitive terms like "restaurant Singapore".</p></div>
+          <summary>Why is the Google Maps three-pack so important?</summary>
+          <div class="faq-answer"><p>The three-pack drives the calls, the direction requests, and the reservation clicks. Review count, recency, photo cadence, posts, response rate, and category accuracy decide which three restaurants surface. Most restaurants leave GBP underbuilt, so even outlets with great food lose covers to weaker competitors with better-optimised profiles.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can SEO help my restaurant rank on Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Google Maps ranking is central to our restaurant SEO service. We optimise your Google Business Profile with correct categories, professional food photos, menu uploads, review management, and local citation building to get your restaurant into the Maps 3-pack for "restaurant near me" searches.</p></div>
+          <summary>How long before restaurant SEO brings more covers?</summary>
+          <div class="faq-answer"><p>GBP work and review velocity can lift three-pack rankings within 2-4 weeks for easier catchments. Catchment landing pages and content show ranking improvements within 3-6 months. Multi-outlet SEO compounds over 6-12 months. Most restaurants see measurable reservation and online-order lift inside the first quarter once GBP, reviews, and core landing pages are in place.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Do you help with review management for restaurants?</summary>
-          <div class="faq-answer"><p>Yes. Google reviews directly impact your local search ranking. Our Growth plan and above include review generation strategy, response templates, and monitoring. We help you systematically collect genuine reviews from satisfied diners and respond professionally to all feedback.</p></div>
+          <summary>Do you handle multi-outlet restaurant SEO?</summary>
+          <div class="faq-answer"><p>Yes. Each outlet gets its own GBP, its own catchment landing page, geo-specific schema, and a unique review-velocity plan — while the master brand stays consistent. We handle new outlet launches, franchise rollouts, and existing-chain consolidation under one strategy.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you do SEO for multiple restaurant locations?</summary>
-          <div class="faq-answer"><p>Absolutely. Our Enterprise plan specialises in multi-location restaurant SEO. We create unique, optimised pages for each outlet, manage individual Google Business Profiles, and build location-specific citations so each branch ranks independently in its own neighbourhood.</p></div>
+          <summary>Can restaurant SEO reduce my dependence on delivery platforms?</summary>
+          <div class="faq-answer"><p>Yes. Delivery platforms charge 25-30% commission per order. By ranking organically for "food delivery [neighbourhood]" and cuisine-specific delivery searches — plus a strong GBP and direct ordering flow — you drive orders to your own website and keep the full margin. Over 12-18 months this typically becomes one of the highest-ROI channels for established restaurants.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related restaurant services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Restaurant Services</h2>
+        <h2>More <span class="highlight">Restaurant</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
           <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
-          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
           <a href="/restaurant-google-ads-singapore/" class="related-service-link">Restaurant Google Ads</a>
           <a href="/restaurant-facebook-ads-singapore/" class="related-service-link">Restaurant Facebook Ads</a>
+          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
           <a href="/restaurant-branding-singapore/" class="related-service-link">Restaurant Branding</a>
-          <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">Restaurant AI Search Optimisation</a>
+          <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">Restaurant AI Search</a>
       </div>
     </div>
   </section>

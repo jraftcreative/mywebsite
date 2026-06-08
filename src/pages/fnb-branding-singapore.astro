@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "F&B Branding Singapore",
-    "description": "Branding services for F&B businesses in Singapore. Brand strategy, logo design, menu design, packaging, and multi-outlet brand systems — from S$3,500.",
+    "description": "F&B branding agency in Singapore. Visual identity, menu design, packaging, signage, in-store collateral, and brand systems for restaurants, cafes, bars, and hawker brands.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "F&B Branding",
-    "offers": [
-      { "@type": "Offer", "name": "Starter F&B Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography, basic brand guidelines, and business card design" },
-      { "@type": "Offer", "name": "Business F&B Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full visual identity with logo, brand guidelines, menu design, packaging, signage, and social media templates" },
-      { "@type": "Offer", "name": "Premium F&B Branding", "price": "15000", "priceCurrency": "SGD", "description": "Complete brand strategy with positioning, full visual identity, multi-outlet system, interior direction, and launch campaign" }
-    ]
+    "serviceType": "F&B Branding"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does F&B branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B branding in Singapore ranges from $3,500 to $15,000+ depending on scope. Our Starter package at $3,500 SGD covers logo design and basic brand guidelines. Business and Premium packages add menu design, packaging, signage, multi-outlet brand systems, and brand strategy." } },
-      { "@type": "Question", "name": "What types of F&B businesses do you brand?", "acceptedAnswer": { "@type": "Answer", "text": "We work with restaurants, cafes, bars, bakeries, cloud kitchens, food halls, catering companies, and packaged food brands. Whether you're a single hawker concept or a multi-outlet F&B group, we create brand identities tailored to your specific business model and target audience." } },
-      { "@type": "Question", "name": "How long does F&B branding take?", "acceptedAnswer": { "@type": "Answer", "text": "Starter packages take 2–3 weeks. Business packages with menu and packaging design take 4–6 weeks. Premium packages with full strategy and multi-outlet systems take 6–8 weeks. We provide a detailed timeline before any work begins." } },
-      { "@type": "Question", "name": "Can you create a brand system for multiple F&B outlets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet brand systems are a core capability. We create flexible brand architectures that maintain consistency across outlets while allowing individual personality. This includes shared visual elements, outlet-specific adaptations, and comprehensive guidelines for staff and vendors." } },
-      { "@type": "Question", "name": "Do you handle food packaging design?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Food packaging design is included in our Business package ($7,500) and above. We design takeaway containers, bags, cups, boxes, and labels that reinforce your brand identity. For packaged food products, we also handle retail packaging design with all required labelling." } }
+      { "@type": "Question", "name": "What does F&B branding cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B branding in Singapore covers visual identity (logo, typography, palette, photography direction), menu design, packaging (takeaway boxes, cup sleeves, paper bags), signage and storefront treatment, in-store collateral (table cards, posters, A-frames), uniforms, and the brand guidelines that keep everything consistent from menu card to IG grid to delivery packaging. Strong F&B branding survives the customer-photo loop — every diner photo reinforces the brand instead of accidentally hiding it." } },
+      { "@type": "Question", "name": "Why does branding matter so much for SG F&B?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore F&B is hyper-competitive and visually saturated — IG and Maps feeds are crowded with cafes that look interchangeable. A strong brand system creates the recognition that lets a diner remember you specifically from a feed of fifty options, and the consistency that compounds across every touchpoint: storefront, menu, delivery packaging, Stories, the GBP photo grid. Without a defined brand, every channel reads as 'another nice cafe' rather than your cafe." } },
+      { "@type": "Question", "name": "How long does an F&B branding project take?", "acceptedAnswer": { "@type": "Answer", "text": "A standalone F&B brand identity project typically runs 6-10 weeks: 1-2 weeks discovery and positioning, 2-3 weeks identity direction (2-3 options, narrow to one), 2-3 weeks system build (logo lockups, typography, palette, photography direction, brand guidelines), and 1-2 weeks application across menu, packaging, signage, and digital. Brand refresh projects on existing brands typically run faster." } },
+      { "@type": "Question", "name": "Do you handle menu design and packaging?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Menu design (dine-in cards, web menu, takeaway inserts, seasonal inserts) and packaging (takeaway boxes, cup sleeves, paper bags, delivery boxes, gift packaging) are core deliverables. We work with your printer or recommend SG-based F&B-experienced print partners to ensure spec, finish, and cost work for the volume you actually need." } },
+      { "@type": "Question", "name": "Do you work with existing F&B brands on refresh, not just from scratch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. F&B brand refresh — keeping the equity of an established name while updating the visual system, photography direction, menu design, packaging, or signage — is often higher-leverage than a full rebrand. We audit the existing system, identify the elements worth keeping, and rebuild the rest around a tighter, more competitive 2026 positioning." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="F&B Branding Singapore — Jraft Creative"
-  description="Branding services for F&B businesses in Singapore. Brand strategy, logo design, menu design, packaging, and multi-outlet brand systems — from S$3,500."
+  title="F&B Branding Singapore | Jraft Creative"
+  description="F&B branding agency in Singapore. Visual identity, menu design, packaging, signage, in-store collateral, brand systems — for restaurants, cafes, bars, hawkers."
   canonical="https://jraftcreative.com/fnb-branding-singapore/"
-  ogTitle="F&B Branding Singapore — Jraft Creative"
-  ogDescription="Branding for F&B businesses in Singapore. Logo, menu design, packaging, signage, and multi-outlet brand systems — from $3,500 SGD."
+  ogTitle="F&B Branding Singapore | Jraft Creative"
+  ogDescription="F&B branding agency in Singapore. Visual identity, menu design, packaging, signage, brand systems for restaurants, cafes, bars."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="fnb branding singapore, f&b brand identity, food and beverage branding, restaurant branding, cafe branding, food brand design, Jraft Creative"
+  keywords="fnb branding singapore, restaurant branding singapore, cafe branding singapore, fnb visual identity, restaurant logo design singapore, menu design singapore, fnb packaging design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="F&B Branding"
-  heroTitle='Branding Services for <span class="highlight">F&amp;B Businesses in Singapore</span>'
-  heroSubtitle="In Singapore's crowded food and beverage market, your brand is what separates a forgettable meal from a memorable experience. We create distinctive brand identities for F&B businesses — from single outlets to multi-location food empires."
+  heroLabel="F&B Branding Singapore"
+  heroTitle='Branding Agency for <span class="highlight">F&amp;B Brands in Singapore</span>'
+  heroSubtitle="In a feed of fifty cafes that look the same, your brand is the reason a diner remembers you. We build F&amp;B brand systems — visual identity, menu, packaging, signage, in-store — designed to survive the customer-photo loop, so every diner photo reinforces the brand instead of hiding it."
   heroImage="/images/service-fnb.webp"
+  heroImageAlt="Singapore F&B brand mockup — F&B branding agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/portfolio/", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20branding%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my F&B business in Singapore."
+  whatsappText="Hi Jraft Creative, I need F&B branding in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Build an F&amp;B Brand That Stands Out"
-  ctaDescription="Book a free consultation and tell us about your food concept. We'll get back to you within 24 hours with a tailored branding proposal."
+  ctaTitle='Let Us <span class="highlight">Brand</span> Your <span class="highlight">F&amp;B Concept</span>'
+  ctaDescription="Book a free consultation and tell us about your F&amp;B brand — concept, positioning, current identity, what's working and what isn't. We'll respond within 24 hours with a tailored branding plan."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20branding%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why F&B businesses need strong branding">
+  <section class="section" id="challenge" aria-label="Why F&B brands need specialised branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Good Food Alone Won't Build a Loyal Following</h2>
+        <h2>In a Feed of <span class="highlight">Fifty Cafes</span> That Look the Same, <span class="highlight">Memory</span> Decides</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's F&B industry is worth over $12 billion, with thousands of restaurants, cafes, bars, and food brands competing for the same customers. The businesses that thrive long-term aren't just the ones with great food — they're the ones with brands that people recognise, trust, and seek out repeatedly.</p>
-        <p>Think about the F&B brands you love in Singapore. They have a consistent look across their storefront, menu, packaging, social media, and website. That consistency didn't happen by accident — it's the result of intentional branding that creates recognition and trust at every touchpoint.</p>
-        <p>Without cohesive branding, your F&B business looks like every other generic food outlet. Your takeaway bags are plain, your social media lacks visual consistency, and diners can't tell your brand apart from the competition. In a market this crowded, that's a recipe for being forgotten.</p>
+        <p>Singapore F&amp;B is visually saturated. White tiles, wood counters, minimalist sans-serif menu, neutral palette — the template has been copied for a decade. Brands that win are remembered. Brands that look like everyone else compete on price, location, and luck.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Sameness Trap</h3>
+            <p>Most SG cafes and restaurants pick from the same template — light wood, minimalist type, neutral palette. The look is safe, but it makes you invisible in a Maps three-pack or IG feed where every neighbouring brand looks identical.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Inconsistent Application</h3>
+            <p>Logo on the menu does not match the packaging. Signage uses a different font. Delivery boxes are unbranded. Each touchpoint dilutes recognition instead of compounding it — and diners walk away with no consistent visual memory of the brand.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Brand Hides in Diner Photos</h3>
+            <p>A diner posts a photo and the brand is nowhere — no signage in frame, packaging is plain, no recognisable colour or mark. The free UGC reaches their followers as an unattributed photo. Strong F&amp;B branding stays visible inside the customer-photo crop.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="F&B branding services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="F&B branding services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for F&amp;B Businesses</h2>
+        <h2>Six <span class="highlight">F&amp;B Branding Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build complete brand identities for food and beverage businesses — from strategic brand positioning to every visual element your customers see. Every deliverable is designed to work as part of a cohesive system across digital and physical touchpoints.</p>
-        <p>Pair your brand with a <a href="/fnb-website-design-singapore/">custom F&B website</a>, <a href="/services/social-media/">social media marketing</a> for branded content, and <a href="/services/seo-performance/">SEO</a> to get your newly branded business found on Google.</p>
+        <p>We build F&amp;B brand systems as a six-workstream package — visual identity, menu design, packaging, signage and in-store, photography direction, and brand guidelines. Every workstream is designed to survive the customer-photo loop.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Logo &amp; Visual Identity</h3>
-            <p>Custom logo, colour palette, typography system, and brand guidelines. A visual identity that captures your food concept's personality and works beautifully across every medium — from signage to social media.</p>
+            <h3>Visual Identity System</h3>
+            <p>Logo, typography, colour palette, secondary marks, iconography, and pattern system — designed to differentiate you from the SG cafe template, not safely blend into it. Tested at small Maps-thumbnail size and full storefront scale.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Menu &amp; Packaging Design</h3>
-            <p>Professional menu design for print and digital, plus branded packaging for takeaway and delivery. Every physical touchpoint reinforces your brand and creates a premium customer experience.</p>
+            <h3>Menu Design</h3>
+            <p>Dine-in menu cards, web menu layout, takeaway inserts, and seasonal inserts. Hierarchy that guides ordering, photography integration where it lifts conversion, and print-ready production specs handed off clean.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ecommerce.webp');">
           <div class="service-detail-card__content">
-            <h3>Brand Strategy &amp; Positioning</h3>
-            <p>Competitive analysis, target audience definition, brand positioning, naming, and messaging framework. We define what makes your F&B business different and how to communicate that consistently everywhere.</p>
+            <h3>Packaging Design</h3>
+            <p>Takeaway boxes, cup sleeves, paper bags, delivery boxes, gift packaging, retail product packaging. Designed for the IG-and-delivery moment where packaging is the brand experience the diner shares.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Multi-Outlet Brand Systems</h3>
-            <p>Flexible brand architectures for F&B groups with multiple outlets or concepts. Shared visual DNA with room for individual personality — plus guidelines so every location stays on-brand.</p>
+            <h3>Signage &amp; Storefront</h3>
+            <p>Main signage, secondary signage, A-frame and pavement collateral, window vinyl, and any wayfinding. Designed for legibility from across a corridor or street while remaining recognisable in a phone photo.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>In-Store Collateral</h3>
+            <p>Table cards, QR menus, loyalty cards, posters, staff uniforms, name tags, branded tote bags. Every touchpoint a diner sees in-store is treated as a brand surface — not an afterthought print job.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A practical brand guide your team can actually use — not a 60-page PDF nobody opens. Defines logo lockups, type usage, palette, photography direction, voice, and dos-and-donts for social, packaging, and signage.</p>
           </div>
         </div>
       </div>
@@ -134,100 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for F&B branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for F&B branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for F&amp;B Branding</h2>
+        <h2><span class="highlight">F&amp;B Branding</span> Built for the <span class="highlight">Customer-Photo Loop</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in branding for food and beverage businesses in Singapore. We understand the industry, the competitive landscape, and what makes F&B brands stick in customers' minds.</p>
+        <p>Most branding agencies pitching F&amp;B sell a logo and a colour palette and call it a brand. We sell a system — one that holds up at storefront scale, IG thumbnail size, takeaway box surface, and delivery packaging. The brand has to survive the diner photo crop. That is the test we design against.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Branding Specialists</h3>
-            <p>We know how diners choose where to eat and what makes food brands memorable. Your brand is built by a team that understands the F&B industry — not generic designers guessing.</p>
+            <h3>Designed for Diner Photos</h3>
+            <p>Every element is tested in the actual context it lives in — IG Reel thumbnail, packaging in a customer's hand, signage in a phone photo. Brand recognition that compounds across UGC, not branding that dies in the crop.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Physical + Digital</h3>
-            <p>F&B brands live in both worlds. We design for menus, packaging, and signage as well as websites, social media, and delivery apps. Every channel gets the same level of attention.</p>
+            <h3>You Own Every File</h3>
+            <p>Logo source files, typography licenses, design system files, packaging artwork, photography rights — all handed over in your name. No agency lock-in. If you ever leave, you take the full brand system with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Scalable Brand Systems</h3>
-            <p>Whether you have one outlet or ten, we build brand systems that scale. Consistent enough to be recognisable, flexible enough to adapt to new locations and concepts.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Marketing Support</h3>
-            <p>We don't just design your brand and walk away. We offer website development, SEO, social media, and paid ads to launch and grow your brand from day one.</p>
+            <h3>Brand Wired to Channels</h3>
+            <p>The brand is built knowing it will live on IG, TikTok, GBP, Google Ads, your website, your packaging, and your storefront. Every touchpoint is anticipated in the system — so the brand stays consistent when the marketing team ships it.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="F&B branding pricing">
+  <!-- ========== F&B BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The F&B Buyer Funnel — and where branding shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">F&amp;B Branding Pricing</p>
-        <h2>Branding Packages for F&amp;B Businesses</h2>
-        <p>One-time project fee. No monthly lock-ins.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Branding</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$3,500 <span>SGD</span></div>
-            <p class="pricing-desc">For new F&B businesses building their brand.</p>
-            <ul class="pricing-features">
-              <li>Logo design (3 concepts)</li>
-              <li>Colour palette &amp; typography</li>
-              <li>Basic brand guidelines</li>
-              <li>Business card design</li>
-              <li>Social media profile assets</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Business</h3>
-            <div class="price">$7,500 <span>SGD</span></div>
-            <p class="pricing-desc">For F&B businesses building a complete identity.</p>
-            <ul class="pricing-features">
-              <li>Everything in Starter</li>
-              <li>Menu design (print &amp; digital)</li>
-              <li>Packaging design</li>
-              <li>Signage concepts</li>
-              <li>Social media templates</li>
-              <li>Comprehensive brand book</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Premium</h3>
-            <div class="price">$15,000+ <span>SGD</span></div>
-            <p class="pricing-desc">For F&B groups and multi-outlet brands.</p>
-            <ul class="pricing-features">
-              <li>Everything in Business</li>
-              <li>Brand strategy &amp; positioning</li>
-              <li>Interior design direction</li>
-              <li>Multi-outlet brand system</li>
-              <li>Launch campaign assets</li>
-              <li>Photography art direction</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore F&amp;B diners move through five stages. Branding shows up at every single one — but it compounds hardest at Discover (recognition in the feed) and Advocate (recognition in the customer photo).</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/contact/" class="inline-link">branding &amp; strategy</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>Brand recognition in feeds and Maps (Brand-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Menu, packaging, signage cement decision</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Storefront and in-store deliver brand promise</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Loyalty, gift cards, packaging build memory</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Advocate</h3>
+          <p>Brand visible in every diner photo (Brand-led)</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -236,48 +260,47 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>F&amp;B Branding Questions Answered</h2>
+        <h2><span class="highlight">F&amp;B Branding</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does F&amp;B branding cost in Singapore?</summary>
-          <div class="faq-answer"><p>F&B branding in Singapore ranges from $3,500 to $15,000+ depending on scope. Our Starter package at $3,500 SGD covers logo design and basic brand guidelines. Business and Premium packages add menu design, packaging, signage, multi-outlet brand systems, and brand strategy.</p></div>
+          <summary>What does F&amp;B branding cover in Singapore?</summary>
+          <div class="faq-answer"><p>F&B branding in Singapore covers visual identity (logo, typography, palette, photography direction), menu design, packaging (takeaway boxes, cup sleeves, paper bags), signage and storefront treatment, in-store collateral (table cards, posters, A-frames), uniforms, and the brand guidelines that keep everything consistent from menu card to IG grid to delivery packaging. Strong F&B branding survives the customer-photo loop — every diner photo reinforces the brand instead of accidentally hiding it.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of F&amp;B businesses do you brand?</summary>
-          <div class="faq-answer"><p>We work with restaurants, cafes, bars, bakeries, cloud kitchens, food halls, catering companies, and packaged food brands. Whether you're a single hawker concept or a multi-outlet F&B group, we create brand identities tailored to your specific business model and target audience.</p></div>
+          <summary>Why does branding matter so much for SG F&amp;B?</summary>
+          <div class="faq-answer"><p>Singapore F&B is hyper-competitive and visually saturated — IG and Maps feeds are crowded with cafes that look interchangeable. A strong brand system creates the recognition that lets a diner remember you specifically from a feed of fifty options, and the consistency that compounds across every touchpoint: storefront, menu, delivery packaging, Stories, the GBP photo grid. Without a defined brand, every channel reads as 'another nice cafe' rather than your cafe.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How long does F&amp;B branding take?</summary>
-          <div class="faq-answer"><p>Starter packages take 2–3 weeks. Business packages with menu and packaging design take 4–6 weeks. Premium packages with full strategy and multi-outlet systems take 6–8 weeks. We provide a detailed timeline before any work begins.</p></div>
+          <summary>How long does an F&amp;B branding project take?</summary>
+          <div class="faq-answer"><p>A standalone F&B brand identity project typically runs 6-10 weeks: 1-2 weeks discovery and positioning, 2-3 weeks identity direction (2-3 options, narrow to one), 2-3 weeks system build (logo lockups, typography, palette, photography direction, brand guidelines), and 1-2 weeks application across menu, packaging, signage, and digital. Brand refresh projects on existing brands typically run faster.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can you create a brand system for multiple F&amp;B outlets?</summary>
-          <div class="faq-answer"><p>Yes. Multi-outlet brand systems are a core capability. We create flexible brand architectures that maintain consistency across outlets while allowing individual personality. This includes shared visual elements, outlet-specific adaptations, and comprehensive guidelines for staff and vendors.</p></div>
+          <summary>Do you handle menu design and packaging?</summary>
+          <div class="faq-answer"><p>Yes. Menu design (dine-in cards, web menu, takeaway inserts, seasonal inserts) and packaging (takeaway boxes, cup sleeves, paper bags, delivery boxes, gift packaging) are core deliverables. We work with your printer or recommend SG-based F&B-experienced print partners to ensure spec, finish, and cost work for the volume you actually need.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you handle food packaging design?</summary>
-          <div class="faq-answer"><p>Yes. Food packaging design is included in our Business package ($7,500) and above. We design takeaway containers, bags, cups, boxes, and labels that reinforce your brand identity. For packaged food products, we also handle retail packaging design with all required labelling.</p></div>
+          <summary>Do you work with existing F&amp;B brands on refresh, not just from scratch?</summary>
+          <div class="faq-answer"><p>Yes. F&B brand refresh — keeping the equity of an established name while updating the visual system, photography direction, menu design, packaging, or signage — is often higher-leverage than a full rebrand. We audit the existing system, identify the elements worth keeping, and rebuild the rest around a tighter, more competitive 2026 positioning.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related F&B services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More F&B Services</h2>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/fnb-website-design-singapore/" class="related-service-link">F&B Website Design</a>
-          <a href="/fnb-seo-singapore/" class="related-service-link">F&B SEO</a>
-          <a href="/fnb-marketing-agency-singapore/" class="related-service-link">F&B Marketing</a>
-          <a href="/fnb-social-media-singapore/" class="related-service-link">F&B Social Media</a>
-          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&B Google Ads</a>
-          <a href="/fnb-content-marketing-singapore/" class="related-service-link">F&B Content Marketing</a>
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-seo-singapore/" class="related-service-link">F&amp;B SEO</a>
+          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&amp;B Google Ads</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
+          <a href="/fnb-content-marketing-singapore/" class="related-service-link">F&amp;B Content Marketing</a>
       </div>
     </div>
   </section>

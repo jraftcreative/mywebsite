@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "F&B SEO Singapore",
-    "description": "SEO services for F&B businesses in Singapore. Local search domination, Google Maps ranking, multi-location SEO, and food delivery keyword strategy — from S$800/month.",
+    "description": "SEO agency for F&B businesses in Singapore. Google Business Profile, Maps three-pack optimisation, catchment SEO, multi-outlet local SEO, and review-velocity playbook for restaurants, cafes, bars, and hawker brands.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "F&B SEO",
-    "offers": [
-      { "@type": "Offer", "name": "Essential F&B SEO", "price": "800", "priceCurrency": "SGD", "description": "Technical SEO audit, on-page optimisation for 10 pages, Google Business Profile setup, and monthly reporting" },
-      { "@type": "Offer", "name": "Growth F&B SEO", "price": "1500", "priceCurrency": "SGD", "description": "Everything in Essential plus content strategy, local citation building, review management, competitor monitoring, and bi-weekly reporting" },
-      { "@type": "Offer", "name": "Enterprise F&B SEO", "price": "3000", "priceCurrency": "SGD", "description": "Full-service SEO with dedicated strategist, multi-location F&B SEO, content creation, advanced link building, and weekly reporting" }
-    ]
+    "serviceType": "F&B SEO"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for an F&B business in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content strategy, review management, and multi-location SEO for F&B groups." } },
-      { "@type": "Question", "name": "How long does F&B SEO take to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most F&B businesses see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location and cuisine-specific keywords typically rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "Can SEO reduce my reliance on food delivery platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. By ranking for 'food delivery near me' and cuisine-specific delivery searches, you can drive orders directly to your own website — avoiding the 25–30% commission that platforms like GrabFood and Deliveroo charge. SEO is a long-term strategy to own your customer relationships." } },
-      { "@type": "Question", "name": "Do you handle SEO for F&B businesses with multiple outlets?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Multi-location F&B SEO is a core strength. We create unique pages for each outlet, manage individual Google Business Profiles, build location-specific citations, and ensure each location ranks independently in its own neighbourhood." } },
-      { "@type": "Question", "name": "What types of F&B businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work with restaurants, cafes, bars, bakeries, cloud kitchens, food halls, catering companies, and food product brands across Singapore. Whether you're a single hawker stall or a multi-outlet F&B group, we tailor our SEO strategy to your specific business model." } }
+      { "@type": "Question", "name": "What does F&B SEO actually do in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B SEO in Singapore is dominated by two surfaces: the Google Maps three-pack (the top three results that appear on the map) and traditional organic results for searches like 'best ramen Tampines' or 'cafe Tanjong Pagar.' Our F&B SEO work covers Google Business Profile optimisation, review-velocity playbooks to climb the three-pack, catchment-area landing pages, Restaurant/LocalBusiness schema markup, technical site fixes, and a content strategy targeting cuisine-by-neighbourhood searches. The goal is foot traffic and direct online orders — not vanity rankings." } },
+      { "@type": "Question", "name": "Why is the Google Maps three-pack so important for SG F&B?", "acceptedAnswer": { "@type": "Answer", "text": "When Singapore diners search for food on Google or Google Maps, the three-pack drives most of the click-throughs and direction requests. Review count, review recency, photo cadence, posts, response rate, and category accuracy decide which three outlets show up. Most F&B operators leave GBP underbuilt, so even outlets with great food lose covers to weaker competitors with better-optimised profiles. SEO for F&B in Singapore is largely a three-pack discipline." } },
+      { "@type": "Question", "name": "How long before F&B SEO brings more foot traffic and orders?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile work and review velocity can lift three-pack rankings within 2-4 weeks for the easier catchments. Catchment-area landing pages and content typically show ranking improvements within 3-6 months. Multi-outlet SEO with location pages compounds over 6-12 months as each outlet's profile gains authority. Most F&B operators see measurable foot-traffic and online-order lift inside the first quarter once GBP, reviews, and core landing pages are in place." } },
+      { "@type": "Question", "name": "Do you handle multi-outlet F&B SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet F&B SEO is a core strength. Each outlet gets its own Google Business Profile, its own catchment landing page, geo-specific schema, and a unique review-velocity plan — while the master brand stays consistent across the chain. We handle new outlet launches, franchise rollouts, and existing-chain consolidation under one strategy." } },
+      { "@type": "Question", "name": "Can F&B SEO reduce my dependence on delivery platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Delivery platforms charge 25-30% commission per order. By ranking organically for 'food delivery [neighbourhood]' and cuisine-specific delivery searches — plus a strong GBP and direct ordering flow on your site — you drive orders to your own website and keep the full margin. Over 12-18 months this typically becomes one of the highest-ROI channels for established F&B operators." } }
     ]
   },
   {
@@ -51,82 +46,170 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  .fnb-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7;
+  }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) {
+    .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .fnb-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
-  title="F&B SEO Singapore — Jraft Creative"
-  description="SEO services for F&B businesses in Singapore. Local search domination, Google Maps ranking, multi-location SEO, and food delivery keyword strategy."
+  title="F&B SEO Singapore | Jraft Creative"
+  description="F&B SEO agency in Singapore. Google Business Profile, Maps three-pack, catchment SEO, multi-outlet local SEO, review-velocity playbook — for restaurants, cafes, bars, and hawker brands."
   canonical="https://jraftcreative.com/fnb-seo-singapore/"
-  ogTitle="F&B SEO Singapore — Jraft Creative"
-  ogDescription="SEO for F&B businesses in Singapore. Local search, Google Maps, multi-location SEO, and food delivery keywords — from $800 SGD/month."
+  ogTitle="F&B SEO Singapore | Jraft Creative"
+  ogDescription="F&B SEO agency in Singapore. Google Maps three-pack, GBP, catchment SEO, multi-outlet SEO — built for restaurants, cafes, bars, hawkers."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="fnb seo singapore, f&b seo, food and beverage seo, restaurant seo singapore, cafe seo, food delivery seo, local seo fnb, Jraft Creative"
+  keywords="fnb seo singapore, f&b seo agency singapore, restaurant seo singapore, cafe seo singapore, google business profile fnb singapore, local seo restaurant singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="F&B SEO"
-  heroTitle='SEO Services for <span class="highlight">F&amp;B Businesses in Singapore</span>'
-  heroSubtitle="Singapore's food and beverage industry is worth over $12 billion — and the competition for online visibility has never been fiercer. We build SEO strategies that help restaurants, cafes, bars, and food brands dominate local search and reduce reliance on commission-hungry delivery platforms."
+  heroLabel="F&B SEO Singapore"
+  heroTitle='SEO Agency for <span class="highlight">F&amp;B Brands in Singapore</span>'
+  heroSubtitle="You rank for your own brand name — but not for 'best ramen Tampines' or 'cafe Tanjong Pagar.' That is the discovery layer where Singapore diners actually decide where to eat. We build F&amp;B SEO that wins the Google Maps three-pack, ranks for catchment-and-cuisine searches, and turns Google Business Profile into a measurable channel."
   heroImage="/images/service-fnb.webp"
+  heroImageAlt="Singapore F&B venue — F&B SEO agency"
   heroButtons={[
-    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20SEO%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need SEO for my F&B business in Singapore."
-  ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your F&amp;B Business Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your F&B business stands in local search. We'll respond within 24 hours."
+  whatsappText="Hi Jraft Creative, I need F&B SEO in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Rank</span> Your <span class="highlight">F&amp;B Brand</span>'
+  ctaDescription="Book a free consultation and tell us about your F&amp;B brand — your concept, your catchment, your current GBP and rankings. We'll get back to you within 24 hours with a tailored F&amp;B SEO plan."
   ctaButtons={[
-    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20SEO%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why F&B businesses need SEO">
+  <section class="section" id="challenge" aria-label="Why F&B brands need specialised SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Delivery Platforms Take 30% — SEO Gives It Back</h2>
+        <h2>The <span class="highlight">Three-Pack</span> Decides — and <span class="highlight">Most F&amp;B Brands</span> Are Not <span class="highlight">In It</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's F&B industry is one of the most competitive in the world. With over 7,000 restaurants, thousands of cafes, and hundreds of bars, getting found online is no longer optional — it's survival. When someone searches "food near me" or "best [cuisine] in [neighbourhood]", the businesses at the top of Google capture the foot traffic and delivery orders.</p>
-        <p>Food delivery platforms like GrabFood and Deliveroo charge 25–30% commission on every order. That's money straight off your margin. SEO lets you rank for the same food delivery searches and drive orders directly to your own website, where you keep the full revenue. It's the most cost-effective long-term channel for F&B customer acquisition.</p>
-        <p>But most F&B websites are thin and unoptimised. A homepage, a basic menu, and a location page aren't enough to compete. Without dedicated landing pages for your cuisine, services, and locations — and without a properly managed Google Business Profile — your business is invisible to the thousands of hungry customers searching Google every day in Singapore.</p>
+        <p>Singapore diners do not scroll past the Google Maps three-pack. Whichever three outlets appear get the calls, the directions, the website clicks, and the foot traffic. Everyone below is essentially invisible — and most F&amp;B brands have left the levers that control that result untouched for years.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Branded but Invisible</h3>
+            <p>You rank for your own name. You do not rank for "best laksa Bedok," "Italian Tanjong Pagar," or "cafe Tiong Bahru." That is where new diners search — and where every direct enquiry that does not start with your brand name comes from.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>GBP Left Half-Built</h3>
+            <p>Most F&amp;B GBPs are missing categories, recent posts, fresh photos, and a consistent response rate. The three-pack ranking algorithm reads all of those signals. Leave them flat and a weaker competitor with better signals takes your spot.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Delivery Commission Drag</h3>
+            <p>GrabFood, Foodpanda, and Deliveroo charge 25-30% per order. Without organic rankings for "[cuisine] delivery [neighbourhood]" and a direct ordering flow on your site, you rent your customer base from the aggregators every month — forever.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="F&B SEO services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="F&B SEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Food &amp; Beverage</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">F&amp;B SEO Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>F&B SEO is a specialist discipline. Customers search by cuisine, neighbourhood, occasion, price range, and dietary requirements — creating hundreds of keyword combinations. We build comprehensive SEO strategies tailored to how Singapore residents discover and choose where to eat, drink, and order.</p>
-        <p>Pair SEO with a professionally designed <a href="/fnb-website-design-singapore/">F&B website</a>, <a href="/services/social-media/">social media marketing</a> for food content, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searchers during peak meal times.</p>
+        <p>We run F&amp;B SEO as a six-workstream system — Google Business Profile, three-pack ranking, catchment SEO, schema and technical, content, and multi-outlet local SEO. Every workstream is wired to a measurable diner outcome.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your F&B website to find indexing issues, broken links, missing structured data, slow load times, and mobile problems. We fix the technical barriers preventing Google from ranking your business for local food searches.</p>
+            <h3>Google Business Profile Build-Out</h3>
+            <p>Full GBP rebuild: category accuracy, attributes, services, opening hours, photo cadence, weekly posts, Q&amp;A, and a response-rate workflow. This is the foundation every other workstream loads onto.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
-            <h3>On-Page &amp; Menu Optimisation</h3>
-            <p>Keyword-optimised pages for your cuisine, menu, locations, and services. Restaurant and LocalBusiness schema markup, meta optimisation, and internal linking designed to dominate food-related searches in your area.</p>
+            <h3>Three-Pack Ranking Push</h3>
+            <p>Review-velocity playbook (volume, recency, response rate, photo reviews), citation building, and local link signals — the four levers that move you into the Google Maps three-pack for your priority catchments.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO &amp; Google Maps</h3>
-            <p>Google Business Profile optimisation with correct F&B categories, food photography, menu uploads, review management, and citation building. Designed to get every outlet into the Maps 3-pack for local food searches.</p>
+            <h3>Catchment Landing Pages</h3>
+            <p>Dedicated landing pages for "best [cuisine] [neighbourhood]" queries across Bedok, Tanjong Pagar, Holland Village, Tiong Bahru, and every other priority SG catchment — optimised for both organic and three-pack ranking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Content &amp; Review Strategy</h3>
-            <p>Blog content targeting food guides and "best of" searches, plus systematic review generation and management across Google, TripAdvisor, and food review platforms. More reviews and content mean higher rankings and more trust.</p>
+            <h3>Schema &amp; Technical SEO</h3>
+            <p>Restaurant, LocalBusiness, Menu, and Reservation schema. Site-speed, mobile, indexing, and crawl fixes so Google can read every outlet, menu item, and offer as a structured signal — not just text.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>F&amp;B Content Strategy</h3>
+            <p>Editorial calendar built around catchment, cuisine, occasion, and dietary search intents. Menu-led content, signature-dish hub pages, and seasonal launch coverage — written to rank, not to pad a blog.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Outlet Local SEO</h3>
+            <p>One Google Business Profile per outlet, one catchment page per location, location-specific schema, and a per-outlet ranking dashboard. Built for chains, franchises, and existing-multi-outlet consolidations.</p>
           </div>
         </div>
       </div>
@@ -134,100 +217,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for F&B SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for F&B SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency Built for F&amp;B</h2>
+        <h2><span class="highlight">F&amp;B SEO</span> Built for <span class="highlight">Three-Pack Ranking</span> and <span class="highlight">Direct Orders</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in SEO for food and beverage businesses in Singapore. From single-outlet cafes to multi-location restaurant groups, we understand the F&B industry and build strategies that drive real business results.</p>
+        <p>Most SEO agencies pitching F&amp;B treat it like every other vertical — generic backlinks, generic content, generic "SEO score" reports. F&amp;B SEO in Singapore is a different game: three-pack ranking, GBP signals, catchment intent, and direct delivery orders. We run that specific playbook.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Industry Specialists</h3>
-            <p>We understand cuisine-specific searches, seasonal menus, delivery vs dine-in behaviour, and how Singapore food lovers decide where to eat. Your SEO strategy reflects deep industry knowledge.</p>
+            <h3>Three-Pack-First Methodology</h3>
+            <p>We do not treat GBP as an afterthought. Three-pack ranking is the primary KPI for most F&amp;B briefs, and we engineer every workstream — reviews, photos, posts, citations — to move that one number first.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Multi-Location Expertise</h3>
-            <p>Running multiple outlets? We build location-specific SEO strategies so each branch ranks in its own neighbourhood. Individual Google Business Profiles, unique landing pages, and location-targeted citations.</p>
+            <h3>You Own Every Asset</h3>
+            <p>Your GBP, your domain, your content, your review playbook templates — all in your name from day one. No agency lock-in. If you ever leave, you take the full SEO stack with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Reporting</h3>
-            <p>Monthly reports showing keyword rankings, organic traffic, Google Maps performance, and revenue impact. We show metrics tied to actual customers — not vanity numbers.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>SEO, website design, social media, and paid ads under one roof. Your entire digital marketing working as one system to fill seats and grow orders.</p>
+            <h3>SEO Wired to GEO</h3>
+            <p>F&amp;B SEO no longer ends at Google. We connect classical SEO work to AI-search citations (ChatGPT, Gemini, Perplexity) — so the same content infrastructure that ranks on Google also gets you cited by AI tools diners now use.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="F&B SEO pricing">
+  <!-- ========== F&B BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The F&B Buyer Funnel — and where SEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">F&amp;B SEO Pricing</p>
-        <h2>SEO Plans for F&amp;B Businesses</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">F&amp;B SEO</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$800 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For single-outlet F&B businesses building search visibility.</p>
-            <ul class="pricing-features">
-              <li>Technical SEO audit</li>
-              <li>On-page optimisation (10 pages)</li>
-              <li>Google Business Profile setup</li>
-              <li>F&amp;B schema markup</li>
-              <li>Monthly performance report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$1,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&B businesses ready to dominate local search.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essential</li>
-              <li>Content strategy &amp; blog posts</li>
-              <li>Local citation building</li>
-              <li>Review management</li>
-              <li>Competitor monitoring</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$3,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&B groups and multi-location operators.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Dedicated SEO strategist</li>
-              <li>Multi-location local SEO</li>
-              <li>Content creation &amp; publishing</li>
-              <li>Advanced link building</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore F&amp;B diners move through five stages. SEO is the dominant channel in the middle two — Choose and First Visit — where diners shortlist on Google Maps and decide which outlet to actually walk into.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/seo-performance/" class="inline-link">SEO &amp; Performance</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok, friend recs (Social-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>Maps three-pack, reviews, AI search (SEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>First Visit</h3>
+          <p>GBP photos, menu, reviews convert intent (SEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Experience, follow-up content, loyalty</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>UGC posts, fresh Google reviews feed SEO</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -236,48 +289,47 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>F&amp;B SEO Questions Answered</h2>
+        <h2><span class="highlight">F&amp;B SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for an F&amp;B business in Singapore?</summary>
-          <div class="faq-answer"><p>F&B SEO in Singapore ranges from $800 to $3,000+ per month. Our Essential plan at $800 SGD/month covers technical SEO, on-page optimisation, and Google Business Profile setup. Growth and Enterprise plans add content strategy, review management, and multi-location SEO for F&B groups.</p></div>
+          <summary>What does F&amp;B SEO actually do in Singapore?</summary>
+          <div class="faq-answer"><p>F&B SEO in Singapore is dominated by two surfaces: the Google Maps three-pack and traditional organic results for "best ramen Tampines" or "cafe Tanjong Pagar." Our F&B SEO work covers Google Business Profile optimisation, review-velocity playbooks to climb the three-pack, catchment-area landing pages, Restaurant/LocalBusiness schema markup, technical site fixes, and a content strategy targeting cuisine-by-neighbourhood searches. The goal is foot traffic and direct online orders — not vanity rankings.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does F&amp;B SEO take to show results?</summary>
-          <div class="faq-answer"><p>Most F&B businesses see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location and cuisine-specific keywords typically rank faster than broad competitive terms.</p></div>
+          <summary>Why is the Google Maps three-pack so important?</summary>
+          <div class="faq-answer"><p>When SG diners search for food on Google or Google Maps, the three-pack drives most click-throughs and direction requests. Review count, recency, photo cadence, posts, response rate, and category accuracy decide which three outlets show up. Most F&B operators leave GBP underbuilt, so even outlets with great food lose covers to weaker competitors with better-optimised profiles. SEO for F&B in Singapore is largely a three-pack discipline.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can SEO reduce my reliance on food delivery platforms?</summary>
-          <div class="faq-answer"><p>Yes. By ranking for "food delivery near me" and cuisine-specific delivery searches, you can drive orders directly to your own website — avoiding the 25–30% commission that platforms like GrabFood and Deliveroo charge. SEO is a long-term strategy to own your customer relationships.</p></div>
+          <summary>How long before F&amp;B SEO brings more foot traffic and orders?</summary>
+          <div class="faq-answer"><p>GBP work and review velocity can lift three-pack rankings within 2-4 weeks for easier catchments. Catchment landing pages and content show ranking improvements within 3-6 months. Multi-outlet SEO compounds over 6-12 months as each outlet gains authority. Most operators see measurable foot-traffic and online-order lift inside the first quarter once GBP, reviews, and core landing pages are in place.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Do you handle SEO for F&amp;B businesses with multiple outlets?</summary>
-          <div class="faq-answer"><p>Absolutely. Multi-location F&B SEO is a core strength. We create unique pages for each outlet, manage individual Google Business Profiles, build location-specific citations, and ensure each location ranks independently in its own neighbourhood.</p></div>
+          <summary>Do you handle multi-outlet F&amp;B SEO?</summary>
+          <div class="faq-answer"><p>Yes. Each outlet gets its own Google Business Profile, its own catchment landing page, geo-specific schema, and a unique review-velocity plan — while the master brand stays consistent across the chain. We handle new outlet launches, franchise rollouts, and existing-chain consolidation under one strategy.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of F&amp;B businesses do you work with?</summary>
-          <div class="faq-answer"><p>We work with restaurants, cafes, bars, bakeries, cloud kitchens, food halls, catering companies, and food product brands across Singapore. Whether you're a single hawker stall or a multi-outlet F&B group, we tailor our SEO strategy to your specific business model.</p></div>
+          <summary>Can F&amp;B SEO reduce my dependence on delivery platforms?</summary>
+          <div class="faq-answer"><p>Yes. Delivery platforms charge 25-30% commission per order. By ranking organically for "food delivery [neighbourhood]" and cuisine-specific delivery searches — plus a strong GBP and direct ordering flow on your site — you drive orders to your own website and keep the full margin. Over 12-18 months this typically becomes one of the highest-ROI channels for established operators.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related F&B services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More F&B Services</h2>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/fnb-website-design-singapore/" class="related-service-link">F&B Website Design</a>
-          <a href="/fnb-marketing-agency-singapore/" class="related-service-link">F&B Marketing</a>
-          <a href="/fnb-social-media-singapore/" class="related-service-link">F&B Social Media</a>
-          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&B Google Ads</a>
-          <a href="/fnb-branding-singapore/" class="related-service-link">F&B Branding</a>
-          <a href="/fnb-content-marketing-singapore/" class="related-service-link">F&B Content Marketing</a>
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&amp;B Google Ads</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>

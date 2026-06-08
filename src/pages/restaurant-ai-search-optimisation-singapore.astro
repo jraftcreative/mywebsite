@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Restaurant AI Search Optimisation Singapore",
-    "description": "Specialist AI search optimisation for restaurants in Singapore. Get your restaurant recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews when diners ask for the best places to eat. From S$3,000/month.",
+    "description": "AI search optimisation (GEO) agency for restaurants in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when SG diners ask AI where to eat. Restaurant schema, citable content, multi-platform authority building.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Restaurant Generative Engine Optimisation (GEO)",
-    "offers": [
-      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
-      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
-      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
-    ]
+    "serviceType": "Restaurant AI Search Optimisation (GEO)"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How do diners find restaurants through AI?", "acceptedAnswer": { "@type": "Answer", "text": "Diners ask ChatGPT, Gemini, and Perplexity questions like 'best Japanese restaurant in Orchard Road' or 'romantic dinner spots in Singapore.' AI platforms analyse reviews, menus, authority signals, and structured data to recommend 3-4 restaurants per query. If your restaurant isn't optimised for these signals, AI won't mention you." } },
-      { "@type": "Question", "name": "Will GEO replace my Google Maps listing?", "acceptedAnswer": { "@type": "Answer", "text": "No — GEO works alongside your Google Maps presence, not instead of it. However, the overlap between Google rankings and AI citations has dropped below 20%. A strong Google Maps listing alone no longer guarantees that ChatGPT or Gemini will recommend your restaurant." } },
-      { "@type": "Question", "name": "Which AI platforms recommend restaurants in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer restaurant recommendation queries. Each platform pulls from different data sources, so we optimise your restaurant's presence across all of them for maximum coverage." } },
-      { "@type": "Question", "name": "How long before AI starts recommending my restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "Most restaurants see measurable changes in AI citation rates within 30 to 90 days. Quick wins like schema markup for your menu, cuisine type, and location can improve visibility within weeks. Review authority and content freshness programmes build stronger signals over time." } },
-      { "@type": "Question", "name": "How much does restaurant AI search optimisation cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our GEO plans for restaurants start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination." } }
+      { "@type": "Question", "name": "What is restaurant AI search optimisation (GEO)?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant GEO (Generative Engine Optimisation) is the discipline of getting your restaurant cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when diners ask 'best [cuisine] in [neighbourhood]' or 'where to take parents for dim sum.' It covers AI visibility audits across the platforms, restaurant-specific schema (Restaurant, Menu, MenuItem, AggregateRating), citable answer-first content, and authority building on the third-party sources AI models pull from (Google Reviews, TripAdvisor, Burpple, HungryGoWhere)." } },
+      { "@type": "Question", "name": "Why is GEO important for restaurants in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "SG diners increasingly ask ChatGPT, Gemini, and Perplexity for restaurant recommendations instead of scrolling Google Maps. When AI answers these queries, it names three to four restaurants — and if yours is not one of them, that is a reservation that goes to a competitor. Most SG restaurants still focus only on Google Maps SEO and ignore AI, leaving an open lane for restaurants that invest in GEO now." } },
+      { "@type": "Question", "name": "How is GEO different from regular restaurant SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant SEO is built for the Google Maps three-pack and organic blue-link rankings. GEO is built for AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also evaluates content structure (answer-first writing), third-party citations (Burpple, HungryGoWhere, TripAdvisor presence), and entity-level signals (Restaurant and MenuItem schema) that classical SEO does not directly reward. Most restaurants need both — SEO for the three-pack, GEO for the AI mention." } },
+      { "@type": "Question", "name": "How long before restaurant GEO results appear?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant GEO citations can start appearing in ChatGPT, Gemini, and Perplexity within 4-8 weeks of content and schema work going live. The compounding effect — your restaurant becoming the default mention for a specific cuisine-and-neighbourhood combination — builds over 3-6 months as more sources cite you and AI models update their training and retrieval data." } },
+      { "@type": "Question", "name": "Which AI platforms do you optimise for?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise for ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot. Each platform pulls restaurant recommendations from different sources — Perplexity favours fresh web content and Burpple-style listings; ChatGPT leans on training-data-era reviews and structured content; Google AI Mode prioritises GBP signals and AI-friendly schema. Our work covers all five so your restaurant gets cited regardless of which AI tool the diner asks." } }
     ]
   },
   {
@@ -51,99 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Restaurant AI Search Optimisation Singapore — Jraft Creative"
-  description="Get your restaurant recommended by ChatGPT and Gemini when diners search for the best places to eat in Singapore — from S$3,000/mo."
+  title="Restaurant AI Search Optimisation Singapore | Jraft Creative"
+  description="Restaurant GEO agency in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when diners ask AI where to eat. Restaurant schema, citable content, authority building."
   canonical="https://jraftcreative.com/restaurant-ai-search-optimisation-singapore/"
-  ogTitle="Restaurant AI Search Optimisation Singapore — Jraft Creative"
-  ogDescription="Get your restaurant recommended by ChatGPT, Gemini, and Perplexity when diners ask for the best places to eat in Singapore."
-  ogImage="https://jraftcreative.com/images/og-seo.jpg"
-  keywords="restaurant ai search optimisation singapore, restaurant GEO singapore, AI restaurant marketing, restaurant chatgpt optimisation, F&B AI visibility singapore, Jraft Creative"
+  ogTitle="Restaurant AI Search Optimisation Singapore | Jraft Creative"
+  ogDescription="Restaurant GEO agency in Singapore. ChatGPT, Gemini, Perplexity, Google AI Mode citations for restaurants."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="restaurant ai search optimisation singapore, restaurant geo singapore, restaurant generative engine optimisation, chatgpt restaurant singapore, gemini restaurant ranking, perplexity restaurant citation, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Restaurant GEO"
-  heroTitle='Restaurant AI Search Optimisation in <span class="highlight">Singapore</span>'
-  heroSubtitle="Diners now ask ChatGPT 'best laksa in Katong' or 'romantic Italian restaurant in Singapore.' If AI doesn't recommend your restaurant, you're losing covers to the 3-4 places it does. We use Generative Engine Optimisation to get your restaurant into AI answers — across ChatGPT, Gemini, Perplexity, and AI Overviews."
-  heroImage="/images/service-seo.webp"
+  heroLabel="Restaurant AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="When a diner asks ChatGPT 'best dim sum Chinatown' or tells Gemini 'recommend an Italian restaurant for date night Tanjong Pagar,' the AI names three to four restaurants. If yours is not one of them, that is a reservation that went to a competitor. We build restaurant GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/service-restaurant.webp"
+  heroImageAlt="Singapore restaurant cited by AI — restaurant GEO agency"
   heroButtons={[
-    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20AI%20search%20optimisation%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my restaurant in Singapore."
+  whatsappText="Hi Jraft Creative, I need restaurant AI search optimisation in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Restaurant Into AI Answers"
-  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when diners ask for restaurants like yours — and how to make sure your name comes up. We'll respond within 24 hours."
+  ctaTitle='Let Us Get Your <span class="highlight">Restaurant Cited</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free consultation and tell us about your restaurant — concept, catchment, current AI visibility. We'll respond within 24 hours with a tailored restaurant GEO plan."
   ctaButtons={[
-    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20restaurant.", class: "btn btn-secondary" }
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20AI%20search%20optimisation%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why restaurants need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why restaurants need AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Diners Are Asking AI — Not Just Scrolling Google Maps</h2>
+        <h2>Diners Are Asking <span class="highlight">AI</span> — Not Just <span class="highlight">Scrolling Google Maps</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>The way people choose where to eat has changed. Instead of scrolling through Google Maps reviews, a growing number of diners ask ChatGPT "best Thai restaurant in Tiong Bahru" or tell Gemini "recommend a family-friendly brunch spot in Singapore." When AI answers these queries, it names 3-4 restaurants — and if yours isn't one of them, that's a table that goes to a competitor. Diners who find your restaurant through AI convert at 4.4x the rate of traditional search.</p>
-        <p>Singapore's AI adoption rate sits at 60.9%, and the overlap between Google rankings and AI citations has dropped below 20%. Your five-star Google Maps listing and strong search ranking no longer guarantee that AI will recommend your restaurant. ChatGPT and Gemini evaluate different signals — review sentiment, menu structured data, content authority, and third-party mentions — to decide which restaurants make the cut.</p>
-        <p>Most F&B marketing agencies still focus exclusively on Google Maps SEO and social media. They ignore the fact that AI platforms are becoming the new front door for restaurant discovery. Restaurants that invest in Generative Engine Optimisation now will capture the diners who are already asking AI where to eat — before every competitor catches on.</p>
+        <p>The way SG diners choose where to eat has shifted. Instead of scrolling Google Maps reviews, a growing share ask ChatGPT "best Thai restaurant Tiong Bahru" or tell Gemini "recommend a family-friendly brunch Singapore." When AI answers, it names three to four restaurants — and if yours is not one of them, the booking goes elsewhere. Most SG restaurants are still optimising only for Google.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW DINERS USE AI ========== -->
-  <section class="section" id="how-diners-use-ai" style="background: var(--bg-alt);" aria-label="How diners use AI to choose restaurants in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Diner Behaviour</p>
-        <h2>How Diners Use AI to Choose Restaurants in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>Understanding what diners actually ask AI is the foundation of any effective restaurant GEO strategy. The prompts are specific, location-driven, and loaded with intent. Diners type "best laksa near me," "romantic Italian restaurant in Singapore," "halal brunch spots CBD," or "cheap hawker alternatives in Tanjong Pagar." These are not casual browsing queries. A diner asking AI for a restaurant recommendation has already decided to eat out — they just need a name. That makes every AI answer a direct pipeline to a booking.</p>
-        <p>The AI landscape for restaurant discovery extends well beyond ChatGPT and Gemini. In Singapore, platforms like Burpple and HungryGoWhere function as major review ecosystems that AI models actively pull from when generating recommendations. When a diner asks Perplexity for "best Japanese omakase in Singapore," the AI cross-references Google Reviews, TripAdvisor, Burpple ratings, and HungryGoWhere listings to assemble its answer. Restaurants with strong, consistent profiles across these Singapore-specific platforms get cited more frequently and more confidently than those with a presence on only one or two channels.</p>
-        <p>The data backs up the urgency. Restaurant searches have seen a +387% growth in AI Overviews, meaning Google itself is increasingly answering dining queries with AI-generated summaries rather than traditional blue links. Diners who find restaurants through AI make decisions faster because they have been pre-qualified by the recommendation — AI has already filtered based on cuisine, location, price range, and review sentiment. These are not browsers comparing ten options. They are ready-to-book customers who trust the AI's shortlist.</p>
-        <p>What many restaurant owners overlook is the role of structured menu data. AI does not just read your homepage — it extracts structured information about cuisine type, price range, dietary options, opening hours, and specific dishes. Restaurants that publish this data in machine-readable formats (Menu schema, FoodEstablishment markup, dietary tags) give AI the raw material it needs to recommend them for precise queries. A restaurant without structured menu data is functionally invisible to AI, even if it has hundreds of five-star reviews. The AI simply cannot match it to the diner's specific request.</p>
-        <p>If your restaurant is ready to build a broader AI presence beyond just restaurant-specific platforms, our <a href="/geo-agency-singapore/">GEO agency services</a> cover multi-platform AI visibility strategy. For restaurants that also need stronger traditional search performance, our <a href="/restaurant-seo-singapore/">restaurant SEO</a> programme works alongside GEO to cover both channels.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most restaurant marketing agencies still focus only on Google Maps SEO and social. They leave AI search untouched — even though ChatGPT, Gemini, and Perplexity are becoming the new front door for restaurant discovery, especially for occasion and dietary-specific queries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A five-star Google Maps listing does not guarantee an AI citation. ChatGPT and Gemini evaluate menu structured data, content authority, review sentiment across Burpple and HungryGoWhere, and third-party mentions. Different signal set — different optimisation work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most SG restaurants are not yet investing in GEO. The brands that invest in 2026 own AI citations for their cuisine and neighbourhood before competitors catch on — building defensible visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Restaurant GEO services we deliver">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Restaurant GEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Restaurants</h2>
+        <h2>Six <span class="highlight">Restaurant GEO Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We optimise every signal that determines whether ChatGPT, Gemini, or Perplexity recommends your restaurant — from menu schema markup to cuisine-specific content and review authority across the platforms AI trusts most.</p>
-        <p>Pair GEO with our <a href="/restaurant-seo-singapore/">restaurant SEO</a> for maximum search visibility, or combine with <a href="/restaurant-marketing-singapore/">restaurant marketing</a> for a complete digital strategy that fills tables.</p>
+        <p>We run restaurant GEO as a six-workstream system — AI visibility audit, restaurant schema, citable answer-first content, third-party authority building, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your cuisine and catchment.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 restaurant-specific prompts across ChatGPT, Gemini, Perplexity, Copilot, and AI Overviews — queries like "best [cuisine] in [neighbourhood]" and "top restaurants for [occasion] in Singapore." You'll see exactly which restaurants AI recommends instead of yours and why.</p>
+            <p>Test 20-30 restaurant prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best [cuisine] [neighbourhood]," "where to take parents for [occasion]." Reveals exactly which restaurants AI recommends instead of yours.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Restaurant-specific structured data including Menu, FoodEstablishment, Review, and AggregateRating schemas. We define your cuisine type, price range, location, and dining attributes so AI platforms understand exactly what your restaurant offers and who it's for.</p>
+            <h3>Restaurant Schema &amp; Entity</h3>
+            <p>Restaurant, Menu, MenuItem, FoodEstablishment, Review, and AggregateRating schema. Defines cuisine, price range, location, dietary attributes, and signature dishes so AI tools understand exactly what your restaurant offers and who it suits.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
             <h3>Citation-Ready Content</h3>
-            <p>Content structured for AI consumption — answer-first descriptions of your cuisine, signature dishes, dining experience, and location advantages. We create the fact-dense, comparison-friendly content that AI models pull from when recommending restaurants to diners.</p>
+            <p>Answer-first descriptions of your cuisine, signature dishes, dining experience, and location advantages. The fact-dense, comparison-friendly content AI models pull from when recommending restaurants to diners.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models assess restaurant credibility through review platforms, food blogs, and directory listings. We strengthen your presence on the sources AI trusts most — from Google Reviews and TripAdvisor to Burpple, HungryGoWhere, and Singapore food authority sites.</p>
+            <h3>Third-Party Authority Building</h3>
+            <p>Strengthen presence on the sources AI trusts most — Google Reviews, TripAdvisor, Burpple, HungryGoWhere, and SG food authority sites. Citations from these sources are what AI models use to rank trust.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your restaurant's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform every month. Quantify exactly how often AI recommends your restaurant versus competitors.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each pulls recommendations from different sources — our work covers all five so your restaurant gets cited regardless of which AI tool the diner asks.</p>
           </div>
         </div>
       </div>
@@ -151,102 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for restaurant AI search optimisation">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Restaurant GEO That Fills Tables</h2>
+        <h2><span class="highlight">Restaurant GEO</span> That <span class="highlight">Fills Tables</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand both the F&B industry and how AI decides which restaurants to recommend. Our GEO strategies are built specifically for the signals that matter in restaurant discovery — cuisine targeting, location relevance, review authority, and dining intent matching.</p>
+        <p>We run the GEO playbook for our own agency — and the same methodology for restaurant clients. We map the exact cuisine-and-neighbourhood prompts SG diners use, build the schema and content stack that earns the citation, and track Brand Visibility Score across all five major AI platforms monthly.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Industry Expertise</h3>
-            <p>We know how diners search — by cuisine, neighbourhood, occasion, and price point. Our prompt research covers the exact queries Singapore diners ask AI, from "best dim sum in Chinatown" to "Michelin-recommended restaurants under $100."</p>
+            <h3>Restaurant-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG diners use — "best Korean BBQ Tanjong Pagar," "halal Western Tampines," "where to take parents for dim sum" — and optimise against those specific queries, not generic GEO templates.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
-          <div class="service-detail-card__content">
-            <h3>Multi-Platform Coverage</h3>
-            <p>We optimise across ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Copilot. Each platform pulls restaurant recommendations from different sources — our strategies ensure your restaurant shows up everywhere diners are asking.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>Cuisine &amp; Location Targeting</h3>
-            <p>We map the specific cuisine-plus-location prompts that drive diner decisions in Singapore — "best Korean BBQ in Tanjong Pagar," "halal Western food in Tampines." Your restaurant gets optimised for the exact queries your target diners use.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Measurable AI Metrics</h3>
-            <p>We track your restaurant's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform. You see exactly how often AI recommends your restaurant versus competitors — with real data, not guesswork.</p>
+            <p>Brand Visibility Score, Citation Rate, Share of Voice across ChatGPT, Gemini, Perplexity, Copilot, Google AI Mode — tracked monthly with the actual prompts and citations. Not vanity "AI score" reports.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>GEO Wired to SEO</h3>
+            <p>We do not run GEO in isolation. The same schema, content, and authority signals that earn AI citations also strengthen classical SEO — so the investment compounds across both channels rather than splitting effort.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Restaurant AI search optimisation pricing">
+  <!-- ========== RESTAURANT BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Restaurant Buyer Funnel — and where GEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">GEO Pricing</p>
-        <h2>Restaurant AI Search Optimisation Plans</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essentials</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants starting their AI visibility journey.</p>
-            <ul class="pricing-features">
-              <li>AI visibility audit &amp; baseline</li>
-              <li>Schema markup implementation</li>
-              <li>Content optimisation (5 pages/mo)</li>
-              <li>llms.txt setup &amp; maintenance</li>
-              <li>Monthly AI visibility report</li>
-              <li>Quarterly strategy review</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$5,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants ready to dominate AI recommendations.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essentials</li>
-              <li>Content optimisation (20 pages/mo)</li>
-              <li>Authority building &amp; directory registrations</li>
-              <li>Answer Engine content creation</li>
-              <li>Bi-weekly reporting with competitor benchmarks</li>
-              <li>Dedicated GEO strategist</li>
-              <li>Content freshness programme</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$10,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">Full-service AI search domination for restaurant groups.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Multi-platform defensive monitoring</li>
-              <li>Wikipedia presence strategy</li>
-              <li>Weekly strategy calls &amp; real-time dashboard</li>
-              <li>Custom prompt monitoring (50+ prompts daily)</li>
-              <li>Sentiment defence &amp; crisis alerts</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore diners move through five stages. GEO is the emerging dominant channel in Choose — the moment a diner asks AI for a recommendation and the AI returns three to four restaurant names. AI citations also reinforce Discover when diners follow up on a friend rec by asking ChatGPT to "tell me more about [restaurant]."</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>AI surfaces unprompted restaurant mentions (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>AI returns 3-4 names to the diner prompt (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>AI-cited diners convert at high intent (pre-qualified)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Brand recall reinforces next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews and UGC compound back into AI training data</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -255,45 +260,48 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Restaurant AI Search Optimisation — Questions Answered</h2>
+        <h2><span class="highlight">Restaurant GEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How do diners find restaurants through AI?</summary>
-          <div class="faq-answer"><p>Diners ask ChatGPT, Gemini, and Perplexity questions like "best Japanese restaurant in Orchard Road" or "romantic dinner spots in Singapore." AI platforms analyse reviews, menus, authority signals, and structured data to recommend 3-4 restaurants per query. If your restaurant isn't optimised for these signals, AI won't mention you.</p></div>
+          <summary>What is restaurant AI search optimisation (GEO)?</summary>
+          <div class="faq-answer"><p>Restaurant GEO (Generative Engine Optimisation) is the discipline of getting your restaurant cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when diners ask "best [cuisine] in [neighbourhood]" or "where to take parents for dim sum." It covers AI visibility audits across the platforms, restaurant-specific schema (Restaurant, Menu, MenuItem, AggregateRating), citable answer-first content, and authority building on the third-party sources AI models pull from (Google Reviews, TripAdvisor, Burpple, HungryGoWhere).</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Will GEO replace my Google Maps listing?</summary>
-          <div class="faq-answer"><p>No — GEO works alongside your Google Maps presence, not instead of it. However, the overlap between Google rankings and AI citations has dropped below 20%. A strong Google Maps listing alone no longer guarantees that ChatGPT or Gemini will recommend your restaurant.</p></div>
+          <summary>Why is GEO important for restaurants in Singapore?</summary>
+          <div class="faq-answer"><p>SG diners increasingly ask ChatGPT, Gemini, and Perplexity for restaurant recommendations instead of scrolling Google Maps. When AI answers these queries, it names three to four restaurants — and if yours is not one of them, that is a reservation that goes to a competitor. Most SG restaurants still focus only on Google Maps SEO and ignore AI, leaving an open lane for restaurants that invest in GEO now.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Which AI platforms recommend restaurants in Singapore?</summary>
-          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer restaurant recommendation queries. Each platform pulls from different data sources, so we optimise your restaurant's presence across all of them for maximum coverage.</p></div>
+          <summary>How is GEO different from regular restaurant SEO?</summary>
+          <div class="faq-answer"><p>Restaurant SEO is built for the Google Maps three-pack and organic blue-link rankings. GEO is built for AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also evaluates content structure (answer-first writing), third-party citations (Burpple, HungryGoWhere, TripAdvisor presence), and entity-level signals (Restaurant and MenuItem schema) that classical SEO does not directly reward. Most restaurants need both — SEO for the three-pack, GEO for the AI mention.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before AI starts recommending my restaurant?</summary>
-          <div class="faq-answer"><p>Most restaurants see measurable changes in AI citation rates within 30 to 90 days. Quick wins like schema markup for your menu, cuisine type, and location can improve visibility within weeks. Review authority and content freshness programmes build stronger signals over time.</p></div>
+          <summary>How long before restaurant GEO results appear?</summary>
+          <div class="faq-answer"><p>Restaurant GEO citations can start appearing in ChatGPT, Gemini, and Perplexity within 4-8 weeks of content and schema work going live. The compounding effect — your restaurant becoming the default mention for a specific cuisine-and-neighbourhood combination — builds over 3-6 months as more sources cite you and AI models update their training and retrieval data.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How much does restaurant AI search optimisation cost in Singapore?</summary>
-          <div class="faq-answer"><p>Our GEO plans for restaurants start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination.</p></div>
+          <summary>Which AI platforms do you optimise for?</summary>
+          <div class="faq-answer"><p>We optimise for ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot. Each platform pulls restaurant recommendations from different sources — Perplexity favours fresh web content and Burpple-style listings; ChatGPT leans on training-data-era reviews and structured content; Google AI Mode prioritises GBP signals and AI-friendly schema. Our work covers all five so your restaurant gets cited regardless of which AI tool the diner asks.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related restaurant services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Related Services for Restaurants</h2>
+        <h2>More <span class="highlight">Restaurant</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-        <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO Singapore</a>
-        <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing Singapore</a>
-        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
-        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+          <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
+          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
+          <a href="/restaurant-google-ads-singapore/" class="related-service-link">Restaurant Google Ads</a>
+          <a href="/restaurant-facebook-ads-singapore/" class="related-service-link">Restaurant Facebook Ads</a>
+          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
+          <a href="/restaurant-branding-singapore/" class="related-service-link">Restaurant Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>

@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Restaurant Branding Singapore",
-    "description": "Branding services for restaurants in Singapore. Logo design, visual identity, menu design, and interior branding — from S$3,500.",
+    "description": "Restaurant branding agency in Singapore. Visual identity, menu design, packaging, signage, in-store collateral, and brand systems built for dine-in, delivery, and multi-outlet restaurants.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Restaurant Branding",
-    "offers": [
-      { "@type": "Offer", "name": "Starter Branding", "price": "3500", "priceCurrency": "SGD", "description": "Logo design, colour palette, typography selection, basic brand guidelines, and business card design for new restaurants" },
-      { "@type": "Offer", "name": "Business Branding", "price": "7500", "priceCurrency": "SGD", "description": "Full visual identity with logo, brand guidelines, menu design, packaging design, signage concepts, and social media templates" },
-      { "@type": "Offer", "name": "Premium Branding", "price": "15000", "priceCurrency": "SGD", "description": "Complete brand strategy with naming, positioning, full visual identity, interior design direction, multi-outlet brand system, and launch campaign" }
-    ]
+    "serviceType": "Restaurant Branding"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does restaurant branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant branding in Singapore ranges from $3,500 to $15,000+ depending on scope. Our Starter package at $3,500 SGD covers logo design, colour palette, typography, and basic brand guidelines. Business and Premium packages add menu design, packaging, signage, interior direction, and multi-outlet brand systems." } },
-      { "@type": "Question", "name": "What's included in restaurant branding?", "acceptedAnswer": { "@type": "Answer", "text": "Our restaurant branding includes logo design, colour palette, typography system, brand guidelines document, and business card design at minimum. Higher packages add menu design, food packaging, signage concepts, social media templates, interior branding direction, and brand photography art direction." } },
-      { "@type": "Question", "name": "How long does restaurant branding take?", "acceptedAnswer": { "@type": "Answer", "text": "A Starter branding package typically takes 2–3 weeks. Business packages take 4–6 weeks to include menu design and additional collateral. Premium packages with full brand strategy, naming, and interior direction take 6–8 weeks. We provide a clear timeline before starting." } },
-      { "@type": "Question", "name": "Can you rebrand an existing restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Rebranding is one of our most requested services. We help restaurants update their visual identity while preserving the equity they've built. Whether it's a full rebrand or a brand refresh, we'll assess what's working and what needs to change." } },
-      { "@type": "Question", "name": "Do you design restaurant menus?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Menu design is a core part of our restaurant branding service. We design menus that align with your brand identity, guide diners toward high-margin items, and look beautiful in print and digital formats. Menu design is included in our Business package ($7,500) and above." } }
+      { "@type": "Question", "name": "What does restaurant branding cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant branding in Singapore covers visual identity (logo, typography, palette, photography direction), menu design, packaging (takeaway boxes, delivery packaging, gift packaging), signage and storefront treatment, in-store collateral (table cards, posters, A-frames), uniforms, and the brand guidelines that keep everything consistent from menu card to IG grid to delivery packaging. Strong restaurant branding survives the customer-photo loop — every diner photo reinforces the brand instead of accidentally hiding it." } },
+      { "@type": "Question", "name": "Why does branding matter so much for SG restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore restaurant scene is hyper-competitive and visually saturated — IG and Maps feeds are crowded with restaurants that look interchangeable. A strong brand system creates the recognition that lets a diner remember you specifically from a feed of fifty options, and the consistency that compounds across every touchpoint: storefront, menu, delivery packaging, Stories, the GBP photo grid. Without a defined brand, every channel reads as 'another nice restaurant' rather than your restaurant." } },
+      { "@type": "Question", "name": "How long does a restaurant branding project take?", "acceptedAnswer": { "@type": "Answer", "text": "A standalone restaurant brand identity project typically runs 6-10 weeks: 1-2 weeks discovery and positioning, 2-3 weeks identity direction (2-3 options, narrow to one), 2-3 weeks system build (logo lockups, typography, palette, photography direction, brand guidelines), and 1-2 weeks application across menu, packaging, signage, and digital. Brand refresh projects on existing restaurants typically run faster." } },
+      { "@type": "Question", "name": "Do you handle menu design and delivery packaging?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Menu design (dine-in cards, web menu, takeaway inserts, seasonal inserts) and packaging (takeaway boxes, delivery boxes, paper bags, gift packaging) are core deliverables. We work with your printer or recommend SG-based F&B-experienced print partners to ensure spec, finish, and cost work for the volume you actually need." } },
+      { "@type": "Question", "name": "Do you work with existing restaurants on refresh, not just from scratch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Restaurant brand refresh — keeping the equity of an established name while updating the visual system, photography direction, menu design, packaging, or signage — is often higher-leverage than a full rebrand. We audit the existing system, identify the elements worth keeping, and rebuild the rest around a tighter, more competitive 2026 positioning." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Restaurant Branding Singapore — Logo, Menu & Identity"
-  description="Distinctive brand identity for Singapore restaurants — logo, menu design, packaging, signage & interior branding. From S$3,500."
+  title="Restaurant Branding Singapore | Jraft Creative"
+  description="Restaurant branding agency in Singapore. Visual identity, menu design, packaging, signage, in-store collateral, brand systems for dine-in, delivery, multi-outlet."
   canonical="https://jraftcreative.com/restaurant-branding-singapore/"
-  ogTitle="Restaurant Branding Singapore — Logo, Menu & Identity"
-  ogDescription="Distinctive brand identity for Singapore restaurants — logo, menu design, packaging, signage & interior branding. From S$3,500."
+  ogTitle="Restaurant Branding Singapore | Jraft Creative"
+  ogDescription="Restaurant branding agency in Singapore. Visual identity, menu, packaging, signage, in-store collateral."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="restaurant branding singapore, restaurant logo design, restaurant identity, restaurant menu design, f&b branding, restaurant brand agency, Jraft Creative"
+  keywords="restaurant branding singapore, restaurant visual identity, restaurant logo design singapore, menu design singapore, restaurant packaging design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Restaurant Branding"
-  heroTitle='Branding Services for <span class="highlight">Restaurants in Singapore</span>'
-  heroSubtitle="Your restaurant's brand is more than a logo — it's the first impression diners get before they taste a single dish. We create distinctive brand identities for restaurants in Singapore, from logo and menu design to packaging and interior branding."
+  heroLabel="Restaurant Branding Singapore"
+  heroTitle='Branding Agency for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="In a feed of fifty restaurants that look the same, your brand is the reason a diner remembers you. We build restaurant brand systems — visual identity, menu, packaging, signage, in-store — designed to survive the customer-photo loop, so every diner photo reinforces the brand instead of hiding it."
   heroImage="/images/service-restaurant.webp"
+  heroImageAlt="Singapore restaurant brand mockup — restaurant branding agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/portfolio/", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20branding%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my restaurant in Singapore."
+  whatsappText="Hi Jraft Creative, I need restaurant branding in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Build a Brand Diners Remember"
-  ctaDescription="Book a free consultation and tell us about your restaurant concept. We'll get back to you within 24 hours with a tailored branding proposal."
+  ctaTitle='Let Us <span class="highlight">Brand</span> Your <span class="highlight">Restaurant</span>'
+  ctaDescription="Book a free consultation and tell us about your restaurant — concept, positioning, current identity, what's working and what isn't. We'll respond within 24 hours with a tailored branding plan."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20restaurant%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20branding%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why restaurants need strong branding">
+  <section class="section" id="challenge" aria-label="Why restaurants need specialised branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Great Food Isn't Enough — You Need a Brand</h2>
+        <h2>In a Feed of <span class="highlight">Fifty Restaurants</span> That Look the Same, <span class="highlight">Memory</span> Decides</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's dining scene is among the most competitive in the world. Over 7,000 restaurants fight for the same pool of diners, and the ones that stand out aren't always the ones with the best food — they're the ones with the strongest brand. A clear, memorable identity makes the difference between being a neighbourhood favourite and being forgettable.</p>
-        <p>Your brand touches every part of the dining experience: the logo on the storefront, the typography on the menu, the colours on your Instagram feed, the packaging on your takeaway bags. When these elements are inconsistent or generic, diners perceive your restaurant as less professional — even if the food is exceptional.</p>
-        <p>Whether you're launching a new concept, rebranding an established restaurant, or expanding to multiple outlets, a cohesive brand identity gives you the foundation to stand out, build loyalty, and command the prices your food deserves.</p>
+        <p>Singapore restaurant scene is visually saturated. Brands that win are remembered. Brands that look like everyone else compete on price, location, and luck — and lose the occasion meal to the restaurant that has earned visual recognition.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Sameness Trap</h3>
+            <p>Most SG restaurants pick from the same identity template — wood and brass, minimalist serif, neutral palette. The look is safe, but it makes you invisible in a Maps three-pack or IG feed where every neighbouring restaurant looks identical.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Inconsistent Application</h3>
+            <p>Logo on the menu does not match the packaging. Signage uses a different font. Delivery boxes are unbranded. Each touchpoint dilutes recognition — and diners walk away with no consistent visual memory of the restaurant.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Brand Hides in Diner Photos</h3>
+            <p>A diner posts a photo and the brand is nowhere — no signage in frame, packaging is plain, no recognisable colour or mark. The free UGC reaches followers as an unattributed photo. Strong restaurant branding stays visible inside the customer-photo crop.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Restaurant branding services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Restaurant branding services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Restaurants</h2>
+        <h2>Six <span class="highlight">Restaurant Branding Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build complete brand identities for restaurants — from the strategic foundation to every visual touchpoint your diners see. Each element is designed to work together as a cohesive system that elevates your restaurant and creates a lasting impression.</p>
-        <p>Pair your new brand with a <a href="/fnb-website-design-singapore/">restaurant website</a>, <a href="/services/social-media/">social media marketing</a> for consistent brand content, and <a href="/services/seo-performance/">SEO</a> to get your newly branded restaurant found on Google.</p>
+        <p>We build restaurant brand systems as a six-workstream package — visual identity, menu design, packaging, signage and in-store, photography direction, and brand guidelines. Every workstream is designed to survive the customer-photo loop.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Logo &amp; Visual Identity</h3>
-            <p>Custom logo design, colour palette, typography system, and visual language that captures your restaurant's personality. Delivered with comprehensive brand guidelines so every touchpoint stays consistent.</p>
+            <h3>Visual Identity System</h3>
+            <p>Logo, typography, colour palette, secondary marks, iconography, and pattern system — designed to differentiate you from the SG restaurant template, not safely blend into it. Tested at small Maps-thumbnail size and full storefront scale.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
             <h3>Menu Design</h3>
-            <p>Beautifully designed menus for print and digital that align with your brand identity. Strategic layout that guides diners toward high-margin items, with typography and imagery that reflect your restaurant's character.</p>
+            <p>Dine-in menu cards, web menu layout, takeaway inserts, and seasonal inserts. Hierarchy that guides ordering, photography integration where it lifts conversion, and print-ready production specs handed off clean.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ecommerce.webp');">
           <div class="service-detail-card__content">
-            <h3>Packaging &amp; Collateral</h3>
-            <p>Branded takeaway packaging, business cards, loyalty cards, signage concepts, and stationery. Every physical touchpoint reinforces your restaurant's identity and creates a premium experience.</p>
+            <h3>Packaging Design</h3>
+            <p>Takeaway boxes, delivery boxes, paper bags, gift packaging, retail product packaging. Designed for the IG-and-delivery moment where packaging is the brand experience the diner shares.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Brand Strategy &amp; Positioning</h3>
-            <p>Competitive analysis, target audience definition, brand positioning, and messaging framework. We define what makes your restaurant different and how to communicate that consistently across every channel.</p>
+            <h3>Signage &amp; Storefront</h3>
+            <p>Main signage, secondary signage, A-frame and pavement collateral, window vinyl, and any wayfinding. Designed for legibility from across a corridor or street while remaining recognisable in a phone photo.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>In-Store Collateral</h3>
+            <p>Table cards, QR menus, loyalty cards, posters, staff uniforms, name tags, branded tote bags. Every touchpoint a diner sees in-store is treated as a brand surface — not an afterthought print job.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A practical brand guide your team can actually use — not a 60-page PDF nobody opens. Defines logo lockups, type usage, palette, photography direction, voice, and dos-and-donts for social, packaging, and signage.</p>
           </div>
         </div>
       </div>
@@ -134,100 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for restaurant branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Restaurant Branding</h2>
+        <h2><span class="highlight">Restaurant Branding</span> Built for the <span class="highlight">Customer-Photo Loop</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've branded restaurants across Singapore — from casual neighbourhood eateries to premium dining concepts. We understand what makes diners choose one restaurant over another and build brands around those decisions.</p>
+        <p>Most branding agencies pitching restaurants sell a logo and a colour palette and call it a brand. We sell a system — one that holds up at storefront scale, IG thumbnail size, takeaway box surface, and delivery packaging. The brand has to survive the diner photo crop. That is the test we design against.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Branding Specialists</h3>
-            <p>We understand the restaurant industry — dining trends, competitive positioning, menu psychology, and how branding translates from digital to physical spaces. Your brand is built by people who know food businesses.</p>
+            <h3>Designed for Diner Photos</h3>
+            <p>Every element is tested in the actual context it lives in — IG Reel thumbnail, packaging in a customer's hand, signage in a phone photo. Brand recognition that compounds across UGC, not branding that dies in the crop.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>End-to-End Delivery</h3>
-            <p>From strategy and logo design to menu layouts, packaging, and signage — we deliver everything under one roof. No coordinating between multiple agencies.</p>
+            <h3>You Own Every File</h3>
+            <p>Logo source files, typography licenses, design system files, packaging artwork, photography rights — all handed over in your name. No agency lock-in. If you ever leave, you take the full brand system with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Digital-Ready Brands</h3>
-            <p>Every brand we create works across digital and physical channels. Your logo, colours, and templates are optimised for website, social media, delivery apps, and print from day one.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Marketing Support</h3>
-            <p>Branding is the foundation. We also handle website design, SEO, social media, and paid ads — so your brand launches with the marketing support it needs to attract diners from day one.</p>
+            <h3>Brand Wired to Channels</h3>
+            <p>The brand is built knowing it will live on IG, TikTok, GBP, Google Ads, your website, your packaging, and your storefront. Every touchpoint is anticipated in the system — so the brand stays consistent when the marketing team ships it.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Restaurant branding pricing">
+  <!-- ========== RESTAURANT BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Restaurant Buyer Funnel — and where branding shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Branding Pricing</p>
-        <h2>Branding Packages for Restaurants</h2>
-        <p>One-time project fee. No monthly lock-ins.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Branding</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$3,500 <span>SGD</span></div>
-            <p class="pricing-desc">For new restaurants building their brand foundation.</p>
-            <ul class="pricing-features">
-              <li>Logo design (3 concepts)</li>
-              <li>Colour palette &amp; typography</li>
-              <li>Basic brand guidelines</li>
-              <li>Business card design</li>
-              <li>Social media profile assets</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Business</h3>
-            <div class="price">$7,500 <span>SGD</span></div>
-            <p class="pricing-desc">For restaurants building a complete visual identity.</p>
-            <ul class="pricing-features">
-              <li>Everything in Starter</li>
-              <li>Menu design (print &amp; digital)</li>
-              <li>Packaging design</li>
-              <li>Signage concepts</li>
-              <li>Social media templates</li>
-              <li>Comprehensive brand book</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Premium</h3>
-            <div class="price">$15,000+ <span>SGD</span></div>
-            <p class="pricing-desc">For restaurant groups and premium dining concepts.</p>
-            <ul class="pricing-features">
-              <li>Everything in Business</li>
-              <li>Brand strategy &amp; positioning</li>
-              <li>Interior design direction</li>
-              <li>Multi-outlet brand system</li>
-              <li>Launch campaign assets</li>
-              <li>Photography art direction</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore restaurant diners move through five stages. Branding shows up at every single one — but it compounds hardest at Discover (recognition in the feed) and Advocate (recognition in the customer photo).</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/contact/" class="inline-link">branding &amp; strategy</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>Brand recognition in feeds and Maps (Brand-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Menu, packaging, signage cement decision</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Storefront and in-store deliver brand promise</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Loyalty, gift cards, packaging build memory</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Advocate</h3>
+          <p>Brand visible in every diner photo (Brand-led)</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -236,47 +260,47 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Restaurant Branding Questions Answered</h2>
+        <h2><span class="highlight">Restaurant Branding</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does restaurant branding cost in Singapore?</summary>
-          <div class="faq-answer"><p>Restaurant branding in Singapore ranges from $3,500 to $15,000+ depending on scope. Our Starter package at $3,500 SGD covers logo design, colour palette, typography, and basic brand guidelines. Business and Premium packages add menu design, packaging, signage, interior direction, and multi-outlet brand systems.</p></div>
+          <summary>What does restaurant branding cover in Singapore?</summary>
+          <div class="faq-answer"><p>Restaurant branding in Singapore covers visual identity (logo, typography, palette, photography direction), menu design, packaging (takeaway boxes, delivery packaging, gift packaging), signage and storefront treatment, in-store collateral (table cards, posters, A-frames), uniforms, and the brand guidelines that keep everything consistent from menu card to IG grid to delivery packaging.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What's included in restaurant branding?</summary>
-          <div class="faq-answer"><p>Our restaurant branding includes logo design, colour palette, typography system, brand guidelines document, and business card design at minimum. Higher packages add menu design, food packaging, signage concepts, social media templates, interior branding direction, and brand photography art direction.</p></div>
+          <summary>Why does branding matter so much for SG restaurants?</summary>
+          <div class="faq-answer"><p>Singapore restaurant scene is hyper-competitive and visually saturated — IG and Maps feeds are crowded with restaurants that look interchangeable. A strong brand system creates the recognition that lets a diner remember you specifically from a feed of fifty options, and the consistency that compounds across every touchpoint.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How long does restaurant branding take?</summary>
-          <div class="faq-answer"><p>A Starter branding package typically takes 2–3 weeks. Business packages take 4–6 weeks to include menu design and additional collateral. Premium packages with full brand strategy, naming, and interior direction take 6–8 weeks. We provide a clear timeline before starting.</p></div>
+          <summary>How long does a restaurant branding project take?</summary>
+          <div class="faq-answer"><p>A standalone restaurant brand identity project typically runs 6-10 weeks: 1-2 weeks discovery and positioning, 2-3 weeks identity direction, 2-3 weeks system build, and 1-2 weeks application across menu, packaging, signage, and digital. Brand refresh projects on existing restaurants typically run faster.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can you rebrand an existing restaurant?</summary>
-          <div class="faq-answer"><p>Absolutely. Rebranding is one of our most requested services. We help restaurants update their visual identity while preserving the equity they've built. Whether it's a full rebrand or a brand refresh, we'll assess what's working and what needs to change.</p></div>
+          <summary>Do you handle menu design and delivery packaging?</summary>
+          <div class="faq-answer"><p>Yes. Menu design (dine-in cards, web menu, takeaway inserts, seasonal inserts) and packaging (takeaway boxes, delivery boxes, paper bags, gift packaging) are core deliverables. We work with your printer or recommend SG-based F&B-experienced print partners.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you design restaurant menus?</summary>
-          <div class="faq-answer"><p>Yes. Menu design is a core part of our restaurant branding service. We design menus that align with your brand identity, guide diners toward high-margin items, and look beautiful in print and digital formats. Menu design is included in our Business package ($7,500) and above.</p></div>
+          <summary>Do you work with existing restaurants on refresh, not just from scratch?</summary>
+          <div class="faq-answer"><p>Yes. Restaurant brand refresh — keeping the equity of an established name while updating the visual system, photography direction, menu design, packaging, or signage — is often higher-leverage than a full rebrand. We audit the existing system, identify the elements worth keeping, and rebuild the rest around a tighter, more competitive 2026 positioning.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related restaurant services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Restaurant Services</h2>
+        <h2>More <span class="highlight">Restaurant</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
           <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
-          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
+          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
           <a href="/restaurant-google-ads-singapore/" class="related-service-link">Restaurant Google Ads</a>
           <a href="/restaurant-facebook-ads-singapore/" class="related-service-link">Restaurant Facebook Ads</a>
+          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
+          <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">Restaurant AI Search</a>
       </div>
     </div>
   </section>

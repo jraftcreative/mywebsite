@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Restaurant Facebook Ads Singapore",
-    "description": "Facebook and Instagram ads management for restaurants in Singapore. Food photography ads, event promotions, and retargeting campaigns — from S$1,000/month.",
+    "description": "Meta Ads agency for restaurants in Singapore. Facebook and Instagram campaigns for event nights, set lunches, weekend brunch, and reservations. Catchment-radius targeting, retargeting, creator-style creative.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Restaurant Facebook Ads Management",
-    "offers": [
-      { "@type": "Offer", "name": "Starter Ads", "price": "1000", "priceCurrency": "SGD", "description": "Facebook and Instagram ads setup for single-location restaurants with audience targeting and monthly reporting" },
-      { "@type": "Offer", "name": "Growth Ads", "price": "2500", "priceCurrency": "SGD", "description": "Multi-format Facebook and Instagram ads with retargeting, event promotion, and conversion optimisation" },
-      { "@type": "Offer", "name": "Scale Ads", "price": "5000", "priceCurrency": "SGD", "description": "Full-scale Meta ads management for restaurant groups with dedicated strategist and advanced analytics" }
-    ]
+    "serviceType": "Restaurant Facebook Ads"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much do Facebook Ads cost for a restaurant in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Management fees start at $1,000 SGD per month, plus your ad spend budget. Most Singapore restaurants see strong results with a total monthly investment of $2,000–$4,000 including ad spend. Facebook's targeting options let you reach local diners cost-effectively even with modest budgets." } },
-      { "@type": "Question", "name": "Which works better for restaurants — Facebook or Instagram ads?", "acceptedAnswer": { "@type": "Answer", "text": "We run campaigns across both platforms simultaneously through Meta Ads Manager. Instagram typically performs best for food photography and Reels content, while Facebook excels at event promotion and driving reservations for an older demographic. We optimise placement based on your restaurant's target audience." } },
-      { "@type": "Question", "name": "Can you promote my restaurant's opening or special events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Event promotion is one of the strongest use cases for Facebook Ads. We create dedicated campaigns for grand openings, seasonal menus, festive promotions, and special events — reaching people in your area who are likely to attend and building buzz before the event date." } },
-      { "@type": "Question", "name": "How do you target people near my restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "We use Meta's location-based targeting to reach people who live in, recently visited, or are currently near your restaurant's area. Combined with interest targeting for food, dining, and cuisine-specific audiences, we ensure your ads reach the people most likely to visit your restaurant." } },
-      { "@type": "Question", "name": "Can Facebook Ads bring back previous customers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We set up retargeting campaigns that show ads to people who have visited your website, engaged with your social media, or interacted with previous ads. This keeps your restaurant top of mind and encourages repeat visits — especially effective for promoting new menus or seasonal specials." } }
+      { "@type": "Question", "name": "What does restaurant Facebook and Instagram Ads cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant Meta Ads in Singapore cover Reels and Story ads for discovery, catchment-radius prospecting for reservations and walk-ins, retargeting for site visitors and IG followers, event-night and seasonal-launch campaigns, and creator-style ad formats. We run Pixel and Conversions API setup, Advantage+ Catalog campaigns where the menu supports it, and audience layering against your reservation and CRM data." } },
+      { "@type": "Question", "name": "Should I prioritise Facebook or Instagram ads for my restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "Both — but with different roles. Instagram (Reels, Stories, Grid) reaches SG diners aged 25-45 and produces the visual discovery and shortlist moments. Facebook reaches older demographics, parents, and tighter geo audiences with longer copy formats. Most restaurants run a unified Meta strategy with platform-specific creative — not separate campaigns per platform." } },
+      { "@type": "Question", "name": "How long before restaurant Facebook Ads brings more covers?", "acceptedAnswer": { "@type": "Answer", "text": "Reservation and walk-in conversions typically appear within 7-14 days of launch once Pixel and Conversions API are wired. Awareness and discovery campaigns compound over 4-6 weeks as remarketing audiences build. Performance stabilises by week 6-8 once Meta has enough conversion signal. Most restaurants see measurable booking and walk-in lift inside the first month." } },
+      { "@type": "Question", "name": "Do you handle Pixel and Conversions API setup?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Pixel install plus Conversions API (server-side tracking) is part of every restaurant Meta Ads launch — without it, post-iOS 14 tracking is too lossy for any meaningful optimisation. We wire it through Cloudflare Zaraz, GTM, or direct platform integration depending on your stack, and validate it before campaigns launch." } },
+      { "@type": "Question", "name": "Can I run Meta Ads for multiple restaurant outlets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each outlet gets its own geo-fenced audience, location-specific creative, and per-outlet performance dashboard — while the master Business Manager and Ad Account stay clean. Built for chains, franchises, and existing multi-outlet groups." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Restaurant Facebook Ads Singapore — Jraft Creative"
-  description="Facebook and Instagram ads management for restaurants in Singapore. Food photography ads, event promotions, and retargeting campaigns — from S$1,000/month."
+  title="Restaurant Facebook Ads Singapore | Jraft Creative"
+  description="Restaurant Meta Ads agency in Singapore. Facebook + Instagram for reservations, event nights, weekend brunch, retargeting — catchment-radius and creator-style creative."
   canonical="https://jraftcreative.com/restaurant-facebook-ads-singapore/"
-  ogTitle="Restaurant Facebook Ads Singapore — Jraft Creative"
-  ogDescription="Facebook and Instagram ads for restaurants in Singapore. Food photography campaigns, event promotions, and retargeting — from $1,000 SGD/month."
-  ogImage="https://jraftcreative.com/images/og-ads.jpg"
-  keywords="restaurant facebook ads singapore, facebook ads for restaurants, instagram ads restaurant singapore, restaurant social media advertising, meta ads restaurant, Jraft Creative"
+  ogTitle="Restaurant Facebook Ads Singapore | Jraft Creative"
+  ogDescription="Restaurant Meta Ads agency in Singapore. Facebook + Instagram campaigns for reservations, events, walk-ins."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="restaurant facebook ads singapore, restaurant instagram ads, restaurant meta ads, restaurant social ads agency, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Restaurant Facebook Ads"
-  heroTitle='Facebook Ads for <span class="highlight">Restaurants in Singapore</span>'
-  heroSubtitle="Your dishes look incredible — now put them in front of the right audience. We run Facebook and Instagram ad campaigns that turn scroll-stopping food content into reservations and orders for your restaurant."
+  heroLabel="Restaurant Facebook Ads Singapore"
+  heroTitle='Meta Ads Agency for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="The SG diner deciding where to take their parents this weekend will see ten Reels ads on the way there. We run Facebook and Instagram Ads built for that moment — catchment-radius prospecting, retargeting, creator-style creative, and Pixel-plus-CAPI tracking wired to reservations and walk-ins."
   heroImage="/images/service-restaurant.webp"
+  heroImageAlt="Singapore restaurant on Instagram — restaurant Meta Ads agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/paid-ads/#portfolio", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20Facebook%20Ads%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need Facebook Ads for my restaurant in Singapore."
+  whatsappText="Hi Jraft Creative, I need restaurant Facebook Ads in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Turn Scrollers into Diners"
-  ctaDescription="Book a free consultation and tell us about your restaurant. We'll get back to you within 24 hours with a tailored Facebook Ads strategy."
+  ctaTitle='Let Us <span class="highlight">Run</span> Your <span class="highlight">Meta Ads</span>'
+  ctaDescription="Book a free consultation and tell us about your restaurant — outlets, current ad spend, Pixel and CAPI setup, target CPL. We'll respond within 24 hours with a Meta Ads plan tailored to your goals."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Facebook%20Ads%20for%20my%20restaurant%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20Facebook%20Ads%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why restaurants need Facebook Ads">
+  <section class="section" id="challenge" aria-label="Why restaurants need specialised Meta Ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Organic Reach Alone Won't Fill Your Tables</h2>
+        <h2>Most <span class="highlight">Restaurant Meta Ads</span> Are <span class="highlight">Boosted Posts</span> in Disguise</h2>
       </div>
       <div class="section-content reveal">
-        <p>You're posting beautiful food photos on Instagram and sharing updates on Facebook, but organic reach keeps declining. The algorithm shows your content to a fraction of your followers, and new customers rarely discover your restaurant through unpaid posts alone.</p>
-        <p>Meanwhile, your competitors are running targeted ads that appear in the feeds of food lovers living within a few kilometres of their restaurant. They're promoting weekend brunches, new menu launches, and delivery deals to people who are already interested in dining out — and they're filling their tables because of it.</p>
-        <p>Facebook and Instagram ads give you the ability to reach exactly the right audience at exactly the right moment. But poorly targeted campaigns with generic creative waste budget fast. Singapore's food scene demands ads that match the quality of the food — with precise location targeting, compelling visuals, and clear calls to action.</p>
+        <p>Meta is where SG diners discover restaurants for occasion meals — anniversaries, parents visiting, group dinners, weekend brunch. Most restaurants boost the occasional dish photo, call it a Meta strategy, and never wire Pixel or CAPI properly. Real Meta Ads is a different muscle.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Boosted Post Theatre</h3>
+            <p>"Boost this post" hands Meta your money to optimise against engagement — likes and comments, not reservations. The result feels productive but generates no measurable bookings, no remarketing pool, and no audience signal Meta can learn from.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Pixel and CAPI Half-Built</h3>
+            <p>Without Conversions API, post-iOS 14 tracking is too lossy for Meta to optimise reliably. Most restaurant Meta accounts run with browser-Pixel only and wonder why CPL is double the benchmark — the platform is bidding blind.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Template Creative, No Hook</h3>
+            <p>Stock dish photo, generic "Book Now" headline, no hook. SG diners scroll past in 1.5 seconds. Restaurants winning on Meta use creator-style cuts, founder face-pieces, BTS Reels, and signature-dish hooks engineered for the stop-scroll.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Restaurant Facebook Ads services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Restaurant Meta Ads services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Facebook &amp; Instagram Ads for Restaurants</h2>
+        <h2>Six <span class="highlight">Restaurant Meta Ads Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create scroll-stopping ad campaigns on Facebook and Instagram built specifically for the restaurant industry. From mouth-watering food photography carousel ads to event promotion campaigns, every ad is designed to drive reservations, orders, and foot traffic to your restaurant.</p>
-        <p>Our Meta ads campaigns integrate with your broader digital strategy. Combine paid social with <a href="/services/social-media/">organic social media management</a>, <a href="/services/seo-performance/">local SEO</a> for Google visibility, and a <a href="/services/website-development/">high-converting restaurant website</a> to maximise every marketing dollar.</p>
+        <p>We run restaurant Meta Ads as a six-workstream system — Reels and Story prospecting, catchment-radius campaigns, retargeting, event and launch campaigns, Pixel and CAPI tracking, and creator-style creative production.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Food Photography Ads</h3>
-            <p>Carousel ads, single-image ads, and video ads featuring your best dishes. We craft ad creative that makes people stop scrolling and start craving what you serve.</p>
+            <h3>Reels &amp; Story Prospecting</h3>
+            <p>Vertical-video-first prospecting campaigns optimised for IG Reels and Stories — the placements driving the cheapest reach and the strongest SG diner attention in 2026.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Event &amp; Opening Promotions</h3>
-            <p>Dedicated campaigns for grand openings, seasonal menus, festive specials, and private dining events. Build buzz and drive attendance with targeted reach in your local area.</p>
+            <h3>Catchment-Radius Campaigns</h3>
+            <p>Geo-fenced campaigns within each outlet's catchment radius — typically 3-7km depending on cuisine and competition density. Built to reach the SG diner who can actually walk in.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-retargeting.jpg');">
           <div class="service-detail-card__content">
-            <h3>Retargeting &amp; Lookalike Audiences</h3>
-            <p>Re-engage website visitors and past customers with retargeting ads. Expand your reach with lookalike audiences modelled on your best diners to find new customers who match their profile.</p>
+            <h3>Retargeting Audiences</h3>
+            <p>Site-visitor, IG-engager, video-viewer, and CRM customer-list retargeting layers — converting the diner who has already shown intent into a booking rather than letting them go cold.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Location-Based Targeting</h3>
-            <p>Reach people who live near, work near, or are currently visiting the area around your restaurant. Perfect for lunch specials, happy hour promotions, and weekend brunch campaigns.</p>
+            <h3>Event &amp; Seasonal Launch Campaigns</h3>
+            <p>Mother's Day, CNY, Christmas, anniversary weekends, set-lunch launches, omakase nights — calendar-driven campaigns with creative built for the specific occasion and audience.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Pixel &amp; Conversions API</h3>
+            <p>Pixel install plus server-side Conversions API via Cloudflare Zaraz, GTM, or direct integration. Validated before launch so Meta optimises against real reservations — not browser-only ghost signals.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Creator-Style Ad Creative</h3>
+            <p>Vertical-video ads in the visual language of organic Reels — creator-style cuts, founder face-pieces, BTS, signature-dish hooks. Built to stop scroll in the SG diner feed, not to look like a TV commercial.</p>
           </div>
         </div>
       </div>
@@ -134,150 +188,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant Facebook Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for restaurant Meta Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Restaurant Facebook Ads</h2>
+        <h2><span class="highlight">Restaurant Meta Ads</span> Built for <span class="highlight">Reservations</span>, Not <span class="highlight">Likes</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We combine deep knowledge of Singapore's dining landscape with proven Meta Ads expertise. We know what makes food content perform on Facebook and Instagram — and we turn that into campaigns that consistently deliver diners to your restaurant.</p>
+        <p>Most agencies running Meta Ads for restaurants optimise against engagement and "post reach." We optimise against reservations, walk-ins, and CRM growth — the only numbers that matter. Pixel-plus-CAPI is non-negotiable. Creator-style creative is standard. Per-outlet attribution is built in.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Food Content Expertise</h3>
-            <p>We know what makes food content perform on social media. From ad creative direction to copywriting, every element is designed to trigger cravings and drive action.</p>
+            <h3>Conversion-First Bidding</h3>
+            <p>We will not run a campaign without Pixel and Conversions API validated and conversion events firing. Every dollar bid is optimised against real reservations and walk-ins — not vanity likes or comments.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Singapore Audience Insights</h3>
-            <p>We understand how Singaporeans discover and choose restaurants. Our targeting leverages local dining behaviours, food interests, and neighbourhood-level location data.</p>
+            <h3>You Own Business Manager</h3>
+            <p>Your Business Manager, your Pixel, your ad account, your Custom Audiences — all in your name from day one. No agency lock-in. If you ever leave, you take the full audience pool and creative library with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear ROI Tracking</h3>
-            <p>Full conversion tracking with Meta Pixel and CAPI integration. You'll see exactly how many reservations, website visits, and orders your ad spend generates each month.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Ads + Organic Combined</h3>
-            <p>We can manage both your paid and organic social media. This means consistent branding, coordinated content calendars, and ad creative that amplifies your best-performing posts.</p>
+            <h3>Creator-Style Native Creative</h3>
+            <p>We produce ads in the visual language of organic Reels — because SG diners ignore anything that looks like a TV commercial. The result: higher hook rate, lower CPM, better thumb-stop rate.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Restaurant Facebook Ads pricing">
+  <!-- ========== RESTAURANT BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Restaurant Buyer Funnel — and where Meta Ads shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Facebook Ads Pricing</p>
-        <h2>Facebook Ads Packages for Restaurants</h2>
-        <p>Monthly management fee. Ad spend billed separately by Meta.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Meta Ads</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$1,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For single-location restaurants building brand awareness.</p>
-            <ul class="pricing-features">
-              <li>Facebook &amp; Instagram ads setup</li>
-              <li>Audience research &amp; targeting</li>
-              <li>Ad creative (image + copy)</li>
-              <li>Location-based targeting</li>
-              <li>Monthly performance report</li>
-              <li>Meta Pixel installation</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$2,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants driving reservations and repeat visits.</p>
-            <ul class="pricing-features">
-              <li>Multi-format ad campaigns</li>
-              <li>Retargeting &amp; lookalike audiences</li>
-              <li>Event &amp; promotion campaigns</li>
-              <li>A/B testing &amp; optimisation</li>
-              <li>Video &amp; carousel ad creative</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Scale</h3>
-            <div class="price">$5,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurant groups and high-volume F&B brands.</p>
-            <ul class="pricing-features">
-              <li>Multi-location campaigns</li>
-              <li>Full-funnel ad strategy</li>
-              <li>Dedicated account strategist</li>
-              <li>Advanced audience segmentation</li>
-              <li>Influencer ad amplification</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore diners move through five stages. Meta Ads dominates Discover (Reels prospecting puts your restaurant on the shortlist) and Return (CRM and retargeting bring diners back for the next occasion).</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/paid-ads/" class="inline-link">paid ads management</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>Reels prospecting introduces the restaurant (Meta-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Retargeting reinforces the shortlist</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>First Visit</h3>
+          <p>Conversion campaigns drive reservation (Meta-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Return</h3>
+          <p>CRM and customer-list audiences re-engage (Meta-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>UGC and tagged Stories feed Meta audiences</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Facebook Ads for restaurants in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about restaurant Meta Ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Restaurant Facebook Ads Questions Answered</h2>
+        <h2><span class="highlight">Restaurant Facebook Ads</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much do Facebook Ads cost for a restaurant in Singapore?</summary>
-          <div class="faq-answer"><p>Management fees start at $1,000 SGD per month, plus your ad spend budget. Most Singapore restaurants see strong results with a total monthly investment of $2,000–$4,000 including ad spend. Facebook's targeting options let you reach local diners cost-effectively even with modest budgets.</p></div>
+          <summary>What does restaurant Facebook and Instagram Ads cover in Singapore?</summary>
+          <div class="faq-answer"><p>Restaurant Meta Ads in Singapore cover Reels and Story ads for discovery, catchment-radius prospecting for reservations and walk-ins, retargeting for site visitors and IG followers, event-night and seasonal-launch campaigns, and creator-style ad formats. We run Pixel and Conversions API setup, Advantage+ Catalog campaigns where the menu supports it, and audience layering against your reservation and CRM data.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which works better for restaurants — Facebook or Instagram ads?</summary>
-          <div class="faq-answer"><p>We run campaigns across both platforms simultaneously through Meta Ads Manager. Instagram typically performs best for food photography and Reels content, while Facebook excels at event promotion and driving reservations for an older demographic. We optimise placement based on your restaurant's target audience.</p></div>
+          <summary>Should I prioritise Facebook or Instagram ads?</summary>
+          <div class="faq-answer"><p>Both — but with different roles. Instagram (Reels, Stories, Grid) reaches SG diners aged 25-45 and produces the visual discovery and shortlist moments. Facebook reaches older demographics, parents, and tighter geo audiences with longer copy formats. Most restaurants run a unified Meta strategy with platform-specific creative — not separate campaigns per platform.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can you promote my restaurant's opening or special events?</summary>
-          <div class="faq-answer"><p>Yes. Event promotion is one of the strongest use cases for Facebook Ads. We create dedicated campaigns for grand openings, seasonal menus, festive promotions, and special events — reaching people in your area who are likely to attend and building buzz before the event date.</p></div>
+          <summary>How long before restaurant Facebook Ads brings more covers?</summary>
+          <div class="faq-answer"><p>Reservation and walk-in conversions typically appear within 7-14 days of launch once Pixel and CAPI are wired. Awareness and discovery campaigns compound over 4-6 weeks. Performance stabilises by week 6-8 once Meta has enough conversion signal. Most restaurants see measurable booking and walk-in lift inside the first month.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you target people near my restaurant?</summary>
-          <div class="faq-answer"><p>We use Meta's location-based targeting to reach people who live in, recently visited, or are currently near your restaurant's area. Combined with interest targeting for food, dining, and cuisine-specific audiences, we ensure your ads reach the people most likely to visit your restaurant.</p></div>
+          <summary>Do you handle Pixel and Conversions API setup?</summary>
+          <div class="faq-answer"><p>Yes. Pixel install plus Conversions API (server-side tracking) is part of every restaurant Meta Ads launch — without it, post-iOS 14 tracking is too lossy for any meaningful optimisation. We wire it through Cloudflare Zaraz, GTM, or direct platform integration depending on your stack, and validate it before campaigns launch.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can Facebook Ads bring back previous customers?</summary>
-          <div class="faq-answer"><p>Yes. We set up retargeting campaigns that show ads to people who have visited your website, engaged with your social media, or interacted with previous ads. This keeps your restaurant top of mind and encourages repeat visits — especially effective for promoting new menus or seasonal specials.</p></div>
+          <summary>Can I run Meta Ads for multiple restaurant outlets?</summary>
+          <div class="faq-answer"><p>Yes. Each outlet gets its own geo-fenced audience, location-specific creative, and per-outlet performance dashboard — while the master Business Manager and Ad Account stay clean. Built for chains, franchises, and existing multi-outlet groups.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related restaurant services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Restaurant Services</h2>
+        <h2>More <span class="highlight">Restaurant</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
           <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
-          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
           <a href="/restaurant-google-ads-singapore/" class="related-service-link">Restaurant Google Ads</a>
+          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
+          <a href="/restaurant-social-media-singapore/" class="related-service-link">Restaurant Social Media</a>
           <a href="/restaurant-branding-singapore/" class="related-service-link">Restaurant Branding</a>
+          <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">Restaurant AI Search</a>
       </div>
     </div>
   </section>

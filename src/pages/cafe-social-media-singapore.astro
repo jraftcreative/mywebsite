@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Cafe Social Media Singapore",
-    "description": "Social media marketing for cafes in Singapore. Latte art content, brunch photography, Instagram aesthetics, and local cafe community building — from S$2,500/month.",
+    "description": "Social media agency for cafes in Singapore. IG and TikTok content cadence, coffee and food photography direction, UGC frameworks, creator collaborations — built for specialty cafes, brunch spots, dessert cafes, and bubble tea brands.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Cafe Social Media Marketing",
-    "offers": [
-      { "@type": "Offer", "name": "Essential Social Media", "price": "2500", "priceCurrency": "SGD", "description": "8 posts per month with cafe photography content, caption writing, and community management" },
-      { "@type": "Offer", "name": "Professional Social Media", "price": "3500", "priceCurrency": "SGD", "description": "12 posts per month with Reels, stories, cafe interior content, and local community engagement" },
-      { "@type": "Offer", "name": "Full-Service Social Media", "price": "5000", "priceCurrency": "SGD", "description": "20 posts per month with influencer collaborations, video production, and full community management for cafe brands" }
-    ]
+    "serviceType": "Cafe Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for a cafe in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our cafe social media packages start at $2,500 SGD per month for 8 posts. The Professional package at $3,500/month includes 12 posts with Reels and stories, while the Full-Service package at $5,000+/month covers 20 posts with influencer collaborations and video production." } },
-      { "@type": "Question", "name": "What type of content works best for cafes on Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "Cafe content that performs best on Instagram includes latte art close-ups, brunch flat lays, interior aesthetics shots, and behind-the-scenes barista content. Reels showing coffee preparation, new menu reveals, and cafe ambience videos consistently drive the highest engagement for Singapore cafes." } },
-      { "@type": "Question", "name": "Can you help my cafe get featured by food bloggers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Full-Service package includes influencer collaboration management. We connect your cafe with Singapore food bloggers, lifestyle influencers, and coffee enthusiasts who align with your brand. We handle outreach, negotiate partnerships, and coordinate content creation visits." } },
-      { "@type": "Question", "name": "How often should a cafe post on Instagram and TikTok?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend 2–3 feed posts per week, daily stories, and 2–4 Reels or TikToks per week. Singapore's cafe scene moves fast — consistent posting ensures your cafe stays visible in feeds and discoverable through hashtags like #sgcafe and #cafehopping." } },
-      { "@type": "Question", "name": "Do you create content for cafe seasonal promotions?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We plan content calendars around seasonal moments — holiday specials, new menu launches, anniversary celebrations, and local events. Seasonal content is prepared in advance so your cafe captures attention at the right time with polished, on-brand posts and stories." } }
+      { "@type": "Question", "name": "What does cafe social media management cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Cafe social media in Singapore covers IG and TikTok content cadence, branded coffee, food, and interior photography direction, short-form Reels and TikToks (latte art, signature dishes, behind-the-scenes), UGC frameworks, cafe-hopping creator collaborations, paid social boosting, and community management across DMs and comments. Cafes are an IG-first vertical — the social engine is the discovery engine." } },
+      { "@type": "Question", "name": "Should a cafe prioritise Instagram or TikTok?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the primary platform for SG cafe discovery — the brunch crowd, work-from-cafe community, and specialty coffee audience all live there. TikTok is the cafe-hopping virality engine and reaches a younger 18-32 audience. Most cafes run a primary IG cadence (Reels + Grid + Stories) with a TikTok cut-down strategy plus paid boosts on the top-performing organic posts." } },
+      { "@type": "Question", "name": "How long before cafe social media drives more walk-ins?", "acceptedAnswer": { "@type": "Answer", "text": "Branded cafe social content compounds over 8-12 weeks as following grows and UGC starts feeding back. Paid social boosting on top-performing Reels and TikToks can drive measurable weekend walk-ins within the first 2-3 weeks. Most cafes see consistent weekend foot-traffic lift inside the first quarter once the content cadence, paid boosting, and creator collaborations are running together." } },
+      { "@type": "Question", "name": "Do you handle coffee and food photography content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We coordinate the shoot brief, frame latte art, dishes, and interior for IG Reels and TikTok formats, write captions and voiceover scripts, and brief UGC creators where relevant. We replace the inconsistent phone-photo grid with a branded asset library that fuels social, the website, GBP, and ads in parallel." } },
+      { "@type": "Question", "name": "Do you run cafe-hopping creator collaborations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We brief, source, and manage SG cafe-hopping creator and food-blogger collaborations — UGC-only deals plus integrated launch campaigns. Every collaboration is briefed against a specific signature drink, dish, or moment and tracked against measurable outcomes — not free coffee for hopeful reach." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Cafe Social Media Singapore — Jraft Creative"
-  description="Social media for Singapore cafes — latte art content, brunch photography, IG aesthetics, and local community building. From S$2,500/month."
+  title="Cafe Social Media Singapore | Jraft Creative"
+  description="Cafe social media agency in Singapore. IG/TikTok content cadence, coffee and food photography, UGC frameworks, creator collaborations."
   canonical="https://jraftcreative.com/cafe-social-media-singapore/"
-  ogTitle="Cafe Social Media Singapore — Jraft Creative"
-  ogDescription="Social media for Singapore cafes — latte art content, brunch photography, IG aesthetics, and local community building. From S$2,500/month."
-  ogImage="https://jraftcreative.com/images/og-social.jpg"
-  keywords="cafe social media singapore, social media marketing cafe, instagram marketing cafe singapore, cafe content creation, cafe tiktok singapore, cafe photography content, Jraft Creative"
+  ogTitle="Cafe Social Media Singapore | Jraft Creative"
+  ogDescription="Cafe social media agency in Singapore. IG/TikTok content, coffee and food photography, UGC, creator collaborations."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="cafe social media singapore, cafe instagram management, cafe tiktok agency, cafe content singapore, coffee photography agency, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Cafe Social Media"
-  heroTitle='Social Media Marketing for <span class="highlight">Cafes in Singapore</span>'
-  heroSubtitle="Your cafe has the aesthetic — now show it to every coffee lover in Singapore. We create Instagram-worthy content, build your online community, and turn cafe-hoppers into loyal regulars."
+  heroLabel="Cafe Social Media Singapore"
+  heroTitle='Social Media Agency for <span class="highlight">Cafes &amp; Coffee Shops in Singapore</span>'
+  heroSubtitle="Cafes are an IG-first vertical. Singapore brunch-goers and specialty coffee fans discover their next weekend stop on Reels and TikTok before they ever Google. Winning cafes run a branded content cadence, on-brand UGC, and creator collaborations as a monthly system — not random pretty posts."
   heroImage="/images/service-cafe.webp"
+  heroImageAlt="Singapore cafe on social media — cafe social media agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/social-media/#portfolio", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20cafe%20social%20media%20help%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my cafe in Singapore."
+  whatsappText="Hi Jraft Creative, I need cafe social media help in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Make Your Cafe the Next Must-Visit"
-  ctaDescription="Book a free consultation and tell us about your cafe. We'll get back to you within 24 hours with a tailored social media strategy."
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Cafe Social Engine</span>'
+  ctaDescription="Book a free consultation and tell us about your cafe — current IG/TikTok presence, content cadence, audience. We'll respond within 24 hours with a tailored social media plan."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20cafe%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20cafe%20social%20media%20help%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why cafes need social media marketing">
+  <section class="section" id="challenge" aria-label="Why cafes need specialised social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Singapore's Cafe Scene Is Fiercely Visual</h2>
+        <h2>SG <span class="highlight">Cafe Social</span> Is the Discovery Engine — and Most Cafes <span class="highlight">Post Hopefully</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's cafe-hopping culture is driven almost entirely by social media. Before visiting a new cafe, most customers check Instagram for interior photos, latte art shots, and brunch spreads. If your social media presence doesn't match the experience you offer in person, you're losing foot traffic to cafes that look better online.</p>
-        <p>New cafes are opening every month across Tiong Bahru, Bugis, Tanjong Pagar, and beyond. Each one launches with a polished Instagram feed and a content strategy designed to go viral. Without consistent, high-quality content, your cafe becomes invisible in a feed crowded with competitors posting daily.</p>
-        <p>Running a cafe is demanding enough without having to plan, shoot, edit, and post content multiple times a week. Between managing baristas, sourcing beans, and perfecting your brunch menu, social media often falls to the bottom of the list — and your online presence suffers because of it.</p>
+        <p>Brunch-goers and specialty coffee fans in Singapore discover almost everything on IG Reels and TikTok cafe-hopping content. The cafe that wins the weekend tables is the cafe that has built a deliberate content system — not the one with the prettiest single hero shot or the most random posts.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Inconsistent-Grid Problem</h3>
+            <p>Mixed-lighting phone photos, accidental crops, and random Stories signal "amateur" to a cafe-goer choosing where to brunch. The grid is the storefront before the storefront — and most cafe grids look like a barista's camera roll.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>No Cafe-Hopping Hook</h3>
+            <p>Cafe-hopping content is its own format — fast-cut tour, signature drink reveal, Latte-art-and-vibes Reel. Cafes posting only static dish photos miss the entire algorithm format that actually drives SG cafe discovery in 2026.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>UGC Left to Chance</h3>
+            <p>Most cafes wait for customers to tag them. Winning cafes engineer UGC moments — latte art reveal, signature drink moment, photogenic seating, interior backdrops, prompts and hashtags that turn diners into a content distribution channel.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Cafe social media services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Cafe social media services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Social Media Services for Cafes</h2>
+        <h2>Six <span class="highlight">Cafe Social Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create the kind of content that makes people tag their friends and plan their next weekend visit. From latte art Reels to brunch flat lays, every piece of content is crafted to reflect your cafe's unique personality and bring cafe-hoppers through your door.</p>
-        <p>Your social media presence is one part of a complete digital strategy. Combine it with <a href="/services/paid-ads/">paid social ads</a> to reach new audiences, <a href="/services/seo-performance/">local SEO</a> so you appear when people search "cafe near me," and a <a href="/services/website-development/">stunning cafe website</a> that turns online interest into real visits.</p>
+        <p>We run cafe social as a six-workstream system — IG and TikTok content cadence, coffee and food photography direction, Reels and TikTok production, UGC frameworks, cafe-hopping creator collaborations, and community management. Built as a monthly engine.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Latte Art &amp; Coffee Content</h3>
-            <p>Mesmerising latte art pours, espresso shots in slow motion, and barista craft videos. We create the coffee content that Singapore's cafe lovers can't stop watching and sharing.</p>
+            <h3>IG &amp; TikTok Content Cadence</h3>
+            <p>Monthly content calendar across Reels, Grid, Stories, and TikTok — pillared around signature drinks, brunch dishes, latte art, interior, behind-the-scenes, and seasonal launches. Built once, executed weekly.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Community &amp; Review Management</h3>
-            <p>We manage your DMs, comments, and reviews across platforms. Every question about your opening hours, menu, or seating gets a prompt, friendly response that reflects your cafe's personality.</p>
+            <h3>Coffee, Food &amp; Interior Photography</h3>
+            <p>Shoot briefs, lighting and styling direction, and post-production for menu, social, GBP, and ads. One branded asset library — not phone-camera improvisation across five different baristas.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Brunch &amp; Interior Photography</h3>
-            <p>Styled brunch flat lays, cosy interior shots, and seasonal decor content that captures the ambience of your cafe. Every photo is edited to match your brand's aesthetic and colour palette.</p>
+            <h3>Cafe-Hopping Reels &amp; TikTok</h3>
+            <p>Short-form video shooting, editing, captions, hooks, and trend integration. Cafe-tour Reels, latte-art TikToks, signature-drink reveals — built for SG cafe-goer scroll behaviour in 2026.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Local Cafe Community Building</h3>
-            <p>We position your cafe within Singapore's cafe-hopping community through strategic hashtags, location tags, collaborations with nearby businesses, and engagement with local food accounts.</p>
+            <h3>UGC Frameworks</h3>
+            <p>Engineered moments that make cafe-goers want to post — latte art reveal, signature drink moment, interior backdrops, prompts and hashtags, plus a reposting workflow that turns UGC into compounding reach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Cafe-Hopping Creator Collabs</h3>
+            <p>SG cafe-hopping creator and food-blogger sourcing, briefing, content rights, paid amplification on winning posts, and outcome tracking. Briefed against specific drinks, dishes, or moments — not free coffee for hopeful reach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>DM response, comment moderation, sentiment monitoring, and review escalation — handled to your brand voice within your response-time window. Critical for the cafe-goer who DMs to ask about Saturday seating or dietary options.</p>
           </div>
         </div>
       </div>
@@ -134,148 +188,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for cafe social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for cafe social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Cafe Social Media</h2>
+        <h2><span class="highlight">Cafe Social</span> Built for <span class="highlight">Weekend Walk-Ins</span>, Not <span class="highlight">Likes</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We live and breathe Singapore's cafe culture. We know which content gets saved, shared, and screenshotted by cafe-hoppers — and we create that content consistently for your brand so you never fall off the radar.</p>
+        <p>Most social agencies pitching cafes sell follower growth and "engagement" — neither of which fill seats. We sell a system tied to weekend walk-ins, regulars, and GBP three-pack signal feedback, with paid social boosting on the organic winners and creator collaborations briefed against outcomes.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Cafe Aesthetic Expertise</h3>
-            <p>We understand the visual language of Singapore's cafe scene — from minimalist Scandinavian interiors to lush tropical vibes. Your content will match the aesthetic that your target audience loves.</p>
+            <h3>System, Not Random Posts</h3>
+            <p>Monthly calendars built from a pillar framework — so the grid stays on-brand, the cadence stays consistent, and the barista team knows what is shooting that week. Output that survives a busy Saturday brunch.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Local Trend Awareness</h3>
-            <p>We stay on top of trending hashtags, viral formats, and seasonal moments in Singapore's cafe community. Your content always feels current, relevant, and in tune with what people are searching for.</p>
+            <h3>Paid Boosting on Winners</h3>
+            <p>We do not let a viral Reel die organically. Every winning post gets a paid boost on Meta or TikTok against geo-targeted catchment audiences — turning organic reach into measurable walk-ins.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Consistent Brand Voice</h3>
-            <p>Your cafe has a personality — cosy, quirky, refined, playful. We develop a distinct brand voice for your social media and maintain it consistently across every post, story, and reply.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Support</h3>
-            <p>Social media, website, SEO, and paid ads — all under one roof. We can manage your entire digital presence so you can focus on perfecting your cold brew and croissants.</p>
+            <h3>You Own Every Asset</h3>
+            <p>Your IG account, your TikTok, your photo library, your Reels source files — all in your name. No agency lock-in. If you ever leave, you take the full content library with you.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Cafe social media pricing">
+  <!-- ========== CAFE BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Cafe Buyer Funnel — and where social media shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Social Media Pricing</p>
-        <h2>Social Media Packages for Cafes</h2>
-        <p>Monthly retainer. Cancel anytime.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Social Media</span> Shows Up in the <span class="highlight">Cafe-Goer Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$2,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For cafes building a polished social presence.</p>
-            <ul class="pricing-features">
-              <li>8 posts per month</li>
-              <li>Cafe photography content</li>
-              <li>Caption writing &amp; hashtags</li>
-              <li>2 platforms (IG + FB or TikTok)</li>
-              <li>Basic community management</li>
-              <li>Monthly analytics report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Professional</h3>
-            <div class="price">$3,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For cafes growing their audience and cafe-hopper reach.</p>
-            <ul class="pricing-features">
-              <li>12 posts per month</li>
-              <li>Reels &amp; short-form video</li>
-              <li>Stories content (weekly)</li>
-              <li>3 platforms managed</li>
-              <li>Review response management</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Full-Service</h3>
-            <div class="price">$5,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For cafe brands wanting full content and community management.</p>
-            <ul class="pricing-features">
-              <li>20 posts per month</li>
-              <li>Professional video production</li>
-              <li>Influencer collaborations</li>
-              <li>Seasonal campaign content</li>
-              <li>Full community management</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore cafe-goers move through five stages. Social media dominates Discover and Advocate — the first IG impression that puts you on the weekend brunch shortlist, and the UGC loop that recruits the next cafe-goer.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/social-media/" class="inline-link">social media marketing</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok cafe-hopping, creator posts (Social-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Grid acts as the storefront before the storefront</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Stories and Reels convert intent to weekend walk-in</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Follow-up content, weekly regulars, loyalty</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Advocate</h3>
+          <p>UGC, Stories, tags compound reach (Social-led)</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about social media marketing for cafes in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about cafe social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Cafe Social Media Questions Answered</h2>
+        <h2><span class="highlight">Cafe Social Media</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for a cafe in Singapore?</summary>
-          <div class="faq-answer"><p>Our cafe social media packages start at $2,500 SGD per month for 8 posts. The Professional package at $3,500/month includes 12 posts with Reels and stories, while the Full-Service package at $5,000+/month covers 20 posts with influencer collaborations and video production.</p></div>
+          <summary>What does cafe social media management cover in Singapore?</summary>
+          <div class="faq-answer"><p>Cafe social media in Singapore covers IG and TikTok content cadence, branded coffee, food, and interior photography direction, short-form Reels and TikToks (latte art, signature dishes, behind-the-scenes), UGC frameworks, cafe-hopping creator collaborations, paid social boosting, and community management across DMs and comments. Cafes are an IG-first vertical — the social engine is the discovery engine.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What type of content works best for cafes on Instagram?</summary>
-          <div class="faq-answer"><p>Cafe content that performs best on Instagram includes latte art close-ups, brunch flat lays, interior aesthetics shots, and behind-the-scenes barista content. Reels showing coffee preparation, new menu reveals, and cafe ambience videos consistently drive the highest engagement for Singapore cafes.</p></div>
+          <summary>Should a cafe prioritise Instagram or TikTok?</summary>
+          <div class="faq-answer"><p>Instagram is the primary platform for SG cafe discovery — the brunch crowd, work-from-cafe community, and specialty coffee audience all live there. TikTok is the cafe-hopping virality engine and reaches a younger 18-32 audience. Most cafes run a primary IG cadence with a TikTok cut-down strategy plus paid boosts on the top-performing organic posts.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can you help my cafe get featured by food bloggers?</summary>
-          <div class="faq-answer"><p>Yes. Our Full-Service package includes influencer collaboration management. We connect your cafe with Singapore food bloggers, lifestyle influencers, and coffee enthusiasts who align with your brand. We handle outreach, negotiate partnerships, and coordinate content creation visits.</p></div>
+          <summary>How long before cafe social media drives more walk-ins?</summary>
+          <div class="faq-answer"><p>Branded cafe social content compounds over 8-12 weeks. Paid social boosting on top-performing Reels and TikToks can drive measurable weekend walk-ins within the first 2-3 weeks. Most cafes see consistent weekend foot-traffic lift inside the first quarter once the content cadence, paid boosting, and creator collaborations are running together.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How often should a cafe post on Instagram and TikTok?</summary>
-          <div class="faq-answer"><p>We recommend 2–3 feed posts per week, daily stories, and 2–4 Reels or TikToks per week. Singapore's cafe scene moves fast — consistent posting ensures your cafe stays visible in feeds and discoverable through hashtags like #sgcafe and #cafehopping.</p></div>
+          <summary>Do you handle coffee and food photography content?</summary>
+          <div class="faq-answer"><p>Yes. We coordinate the shoot brief, frame latte art, dishes, and interior for IG Reels and TikTok formats, write captions and voiceover scripts, and brief UGC creators where relevant. We replace the inconsistent phone-photo grid with a branded asset library that fuels social, the website, GBP, and ads in parallel.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you create content for cafe seasonal promotions?</summary>
-          <div class="faq-answer"><p>Yes. We plan content calendars around seasonal moments — holiday specials, new menu launches, anniversary celebrations, and local events. Seasonal content is prepared in advance so your cafe captures attention at the right time with polished, on-brand posts and stories.</p></div>
+          <summary>Do you run cafe-hopping creator collaborations?</summary>
+          <div class="faq-answer"><p>Yes. We brief, source, and manage SG cafe-hopping creator and food-blogger collaborations — UGC-only deals plus integrated launch campaigns. Every collaboration is briefed against a specific signature drink, dish, or moment and tracked against measurable outcomes — not free coffee for hopeful reach.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related cafe services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Cafe Services</h2>
+        <h2>More <span class="highlight">Cafe</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/cafe-website-design-singapore/" class="related-service-link">Cafe Website Design</a>
-          <a href="/cafe-seo-singapore/" class="related-service-link">Cafe SEO</a>
           <a href="/cafe-marketing-singapore/" class="related-service-link">Cafe Marketing</a>
+          <a href="/cafe-seo-singapore/" class="related-service-link">Cafe SEO</a>
+          <a href="/cafe-website-design-singapore/" class="related-service-link">Cafe Website Design</a>
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
       </div>
     </div>
   </section>

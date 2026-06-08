@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Bar Website Design Singapore",
-    "description": "Professional website design for bars, pubs, and cocktail lounges in Singapore. Events calendar, cocktail menus, and reservation systems — from S$2,500.",
+    "description": "Bar and lounge web design and development agency in Singapore. Cocktail menu, event calendar, reservation flow, age-gate and licensing compliance, mobile-first conversion design — built for cocktail bars, wine bars, lounges, and rooftop venues.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Bar Website Design",
-    "offers": [
-      { "@type": "Offer", "name": "Starter Bar Website", "price": "2500", "priceCurrency": "SGD", "description": "5-page bar website with cocktail menu, events page, contact form, Google Maps, and basic SEO setup" },
-      { "@type": "Offer", "name": "Business Bar Website", "price": "5500", "priceCurrency": "SGD", "description": "10-page website with reservation system, events calendar, blog, advanced SEO, and Google Business Profile optimisation" },
-      { "@type": "Offer", "name": "Premium Bar Website", "price": "10000", "priceCurrency": "SGD", "description": "Fully custom website with multi-venue support, membership portal, loyalty programme integration, and priority support" }
-    ]
+    "serviceType": "Bar Website Design"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does a bar website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A professional bar website in Singapore typically costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with cocktail menu, events page, contact form, and Google Maps integration. Business and Premium packages add reservation systems, events calendars, and membership portals." } },
-      { "@type": "Question", "name": "Can you add a reservation system to my bar website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business package ($5,500) and above include reservation system integration. We can connect to platforms like Chope or build a custom booking system that handles table reservations, VIP bookings, and private event enquiries directly through your website." } },
-      { "@type": "Question", "name": "Do you build events pages for bar websites?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Events are a major draw for bars in Singapore. We build dynamic events pages with upcoming listings, past highlights, and easy-to-update calendar systems so you can promote live music, DJ nights, happy hours, and themed events without needing a developer." } },
-      { "@type": "Question", "name": "Will my bar show up on Google when people search nearby?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise your website for local SEO and set up your Google Business Profile so your bar appears in Google Maps and local search results. When people search 'bars near me' or 'cocktail bar Clarke Quay', your venue will have the best chance of showing up." } },
-      { "@type": "Question", "name": "How long does it take to build a bar website?", "acceptedAnswer": { "@type": "Answer", "text": "Most bar websites go live within 2–3 weeks. A simple 5-page site can be ready in 2 weeks, while larger projects with reservation systems or membership features may take 3–4 weeks. We provide a clear timeline before starting." } }
+      { "@type": "Question", "name": "What should a bar website include in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "A bar website in Singapore should include: a live cocktail and bar menu (not a PDF), an event calendar (DJ nights, happy hour, themed events, private hire), reservation and private-hire enquiry flow (SevenRooms, Chope, custom WhatsApp), location and hours per outlet, signature cocktail and interior photography, age-gate where required, alcohol licensing compliance, BarOrPub schema markup, and mobile-first conversion design. The goal is converting the bar-goer who already decided you are the Friday night plan." } },
+      { "@type": "Question", "name": "Do you handle event and private-hire booking flows?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Event flows (DJ nights, happy hour RSVP, themed event tickets) and private-hire enquiry flows are core deliverables. We wire SevenRooms, Chope, Eventbrite, WhatsApp Business, and your own CRM where relevant. Multi-event bars also get a self-managed event calendar so your team can publish new nights without touching code." } },
+      { "@type": "Question", "name": "How long does a bar website build take?", "acceptedAnswer": { "@type": "Answer", "text": "Most single-outlet bar websites build in 4-6 weeks: 1 week discovery and content gather, 1 week wireframe and design direction, 2 weeks build, 1 week QA and launch. Multi-outlet and event-heavy bars run 6-10 weeks. We work in fortnightly review cycles so you see and steer the design as it builds." } },
+      { "@type": "Question", "name": "Do you handle age-gates and alcohol licensing compliance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We implement age-gate flows where the brief requires them, Singapore alcohol licensing notices, responsible drinking copy, and Liquor Control Act compliance for promotional content. We do not handle the licensing application itself — but the site is built to support whatever compliance posture your venue operates under." } },
+      { "@type": "Question", "name": "Do you handle multi-outlet bar website structure?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet bar sites get a dedicated page per outlet (each with its own catchment SEO, hours, photos, GBP embed, event calendar, and reservation flow) plus a clean parent navigation that lets bar-goers filter by area, concept, or event type. Each outlet page is treated as a landing page in its own right." } }
     ]
   },
   {
@@ -52,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Bar Website Design Singapore — Jraft Creative"
-  description="Professional website design for bars, pubs, and cocktail lounges in Singapore. Events calendar, cocktail menus, and reservation systems — from S$2,500."
+  title="Bar Website Design Singapore | Jraft Creative"
+  description="Bar web design agency in Singapore. Cocktail menu, event calendar, reservation flow, age-gate compliance, mobile-first conversion design — for cocktail bars, wine bars, lounges, rooftops."
   canonical="https://jraftcreative.com/bar-website-design-singapore/"
-  ogTitle="Bar Website Design Singapore — Jraft Creative"
-  ogDescription="Website design for bars and cocktail lounges in Singapore. Events calendar, cocktail menus, reservations — from $2,500 SGD."
+  ogTitle="Bar Website Design Singapore | Jraft Creative"
+  ogDescription="Bar web design in Singapore. Cocktail menu, event calendar, reservation flow, mobile-first design, multi-outlet support."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="bar website design singapore, cocktail bar website singapore, pub website design, bar web design singapore, nightlife website singapore, Jraft Creative"
+  keywords="bar website design singapore, cocktail bar website, lounge web design singapore, rooftop bar website, wine bar website singapore, bar reservation system, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Bar Website Design"
-  heroTitle='Website Design for <span class="highlight">Bars in Singapore</span>'
-  heroSubtitle="Your bar's atmosphere shouldn't stop at the door. We build websites for bars, pubs, and cocktail lounges in Singapore — with cocktail menus, events calendars, reservations, and local SEO that brings people through the door."
+  heroLabel="Bar Website Design Singapore"
+  heroTitle='Web Design Agency for <span class="highlight">Bars &amp; Lounges in Singapore</span>'
+  heroSubtitle="Your bar needs more than an Instagram page and a Linktree. We build bar and lounge websites that convert the Friday-night planner — cocktail menu, event calendar, reservation flow, private-hire enquiry, and licensing compliance — all mobile-first and built for the SG nightlife audience."
   heroImage="/images/service-bar.webp"
+  heroImageAlt="Singapore bar interior — bar web design agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20bar%20website%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need a website for my bar in Singapore."
+  whatsappText="Hi Jraft Creative, I need a bar website in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Bar Online"
-  ctaDescription="Book a free consultation and tell us about your bar or cocktail lounge. We'll get back to you within 24 hours with a tailored proposal."
+  ctaTitle='Let Us <span class="highlight">Build</span> Your <span class="highlight">Bar Website</span>'
+  ctaDescription="Book a free consultation and tell us about your bar — outlets, current site, event cadence, reservation and private-hire flow. We'll respond within 24 hours with a tailored website plan and scope."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20bar%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20bar%20website%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why bars need a proper website">
+  <section class="section" id="challenge" aria-label="Why bars need a real website in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Bar Needs More Than an Instagram Page</h2>
+        <h2>An <span class="highlight">Instagram Page</span> and a <span class="highlight">Linktree</span> Is Not a <span class="highlight">Bar Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's nightlife scene is packed with options — from speakeasies on Ann Siang Hill to rooftop bars on the Marina Bay waterfront. When someone searches "bars near me" or "cocktail bar Clarke Quay" on a Friday night, you need to be the first result they see. An Instagram page alone isn't enough.</p>
-        <p>Without a proper website, you're invisible to Google search, missing out on reservation enquiries, and losing event bookings to competitors who make it easy for guests to browse cocktail menus, check upcoming events, and reserve a table from their phone in seconds.</p>
-        <p>Whether you run a craft cocktail bar, a neighbourhood pub, a rooftop lounge, or a live music venue, your website is the digital front door to your business. It needs to capture the vibe of your venue and make it effortless for guests to visit, book, and come back.</p>
+        <p>Most bars in Singapore run their digital presence off an IG bio and a Linktree to Chope. That works until you want to publish an event, take a private-hire booking, run a happy hour, or convert a high-intent Friday-night planner who needs to see the cocktail menu before deciding. The site is supposed to do that conversion job.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The IG-and-Linktree Trap</h3>
+            <p>Linktree is rented real estate that strips the brand, kills SEO, and gives every event the same generic-link experience. The bar-goer who clicked through deserves a venue site that does justice to the concept — not a list of links.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Events Buried or Invisible</h3>
+            <p>DJ nights, themed evenings, happy hour, private hire — most bar sites bury these in a footer or skip them entirely. A live event calendar with RSVP flow is one of the highest-converting elements a bar website can ship.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Private Hire Left to DMs</h3>
+            <p>Corporate Christmas, birthday buyouts, wedding receptions — private hire is high-margin bar revenue. Most bars handle it as a chaotic DM thread. A structured private-hire enquiry flow on the site captures those leads cleanly.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Bar website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Bar website design services we deliver">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>What We Build for Bars &amp; Lounges</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Bar Website Workstreams</span> Every Venue <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every bar website we deliver is built to capture your venue's identity and convert visitors into guests. From cocktail menus and events calendars to reservation systems and local SEO — your site will work as hard as your bartenders do on a Saturday night.</p>
-        <p>We also offer a full digital package: pair your new site with <a href="/services/seo-performance/">SEO services</a> to rank for nightlife searches, <a href="/services/social-media/">social media marketing</a> for cocktail and event content, and <a href="/services/paid-ads/">paid ads management</a> to promote events and happy hours.</p>
+        <p>We build bar and lounge websites as a six-workstream system — cocktail menu, event calendar, reservation flow, private-hire enquiry, licensing compliance, and mobile-first conversion design. Every workstream is wired to a measurable nightlife outcome.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Cocktail Menu &amp; Drinks Showcase</h3>
-            <p>Beautifully designed menu pages with cocktail descriptions, pricing, and photography. Easy to update when you rotate seasonal drinks or launch new signature cocktails.</p>
+            <h3>Cocktail &amp; Bar Menu</h3>
+            <p>Live HTML menu, signature cocktails with photography, sections for wine, beer, NA, bar food, and seasonal lists. Filterable by spirit, style, or occasion — built for the bar-goer who shortlists by cocktail before venue.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Events Calendar &amp; Promotions</h3>
-            <p>Dynamic events pages for live music, DJ nights, happy hours, and private bookings. Guests can browse upcoming events and share them directly from your site.</p>
+            <h3>Event Calendar</h3>
+            <p>Self-managed event calendar your team can publish to — DJ nights, happy hour, themed evenings, residencies, ticket events. RSVP and ticket flow wired into the site so events stop living in IG Stories alone.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Reservations &amp; VIP Booking</h3>
-            <p>Integrated reservation system for table bookings, VIP areas, and private events. Reduce no-shows with automated confirmations and let guests book 24/7 from any device.</p>
+            <h3>Reservation Flow</h3>
+            <p>SevenRooms, Chope, Eventbrite, WhatsApp, or custom — wired into above-the-fold CTAs on every outlet page. Date and party-size pickers, table preference, and confirmation flow built for mobile-first nightlife booking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Atmosphere &amp; Photography</h3>
-            <p>Full-bleed hero shots, gallery pages, and video backgrounds that capture the ambience of your bar. Your website should feel like stepping through the door.</p>
+            <h3>Private Hire &amp; Buyout Enquiry</h3>
+            <p>Structured enquiry flow for corporate events, birthday buyouts, wedding receptions, and private hire. Date pickers, party size, F&amp;B preferences, and bespoke-quote routing into your CRM or sales inbox.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Licensing Compliance</h3>
+            <p>Age-gate where required, Liquor Control Act compliance for promotional copy, responsible drinking notices, and Singapore-specific alcohol licensing posture. Built so your venue stays compliant as you publish events.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First Conversion Design</h3>
+            <p>Built mobile-first because most bar traffic comes from a planner on a phone deciding in the next two hours. Core Web Vitals green, sub-2s load, dark-mode-friendly, and CTAs sized for thumb-tap nightlife booking.</p>
           </div>
         </div>
       </div>
@@ -135,101 +188,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for bar website design">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for bar website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Bar Website Design</h2>
+        <h2><span class="highlight">Bar Websites</span> Built for <span class="highlight">Friday-Night Bookings</span> and <span class="highlight">Private Hire</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build websites for nightlife venues that look the part and drive real results. From cocktail bars to neighbourhood pubs, we understand what makes guests click "Reserve" instead of scrolling past.</p>
+        <p>Most web agencies pitching bars build pretty venue pages with no event calendar, no private-hire flow, and no reservation integration. We build the inverse — sites engineered to convert nightlife intent into bookings and event RSVPs, with measurable handoffs to SevenRooms, Chope, your CRM, and your private-hire sales workflow.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Nightlife Industry Experience</h3>
-            <p>We know what bar-goers look for — events, menus, location, vibe. Every element of your site is designed around how guests discover, evaluate, and choose bars in Singapore.</p>
+            <h3>Event-First Architecture</h3>
+            <p>Event calendar is treated as the primary conversion surface, not a footer link. Built to be team-edited weekly so the site stays as fresh as the IG and DJ schedule.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most bar websites go live within 2 weeks. Whether you're opening a new venue or refreshing an existing one, we move fast without cutting corners.</p>
+            <h3>You Own the Site and Stack</h3>
+            <p>Your domain, your hosting, your CMS, your design files — all in your name from day one. No agency lock-in. If you ever leave, you take the full stack and source files with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Design</h3>
-            <p>Most guests check bar websites on their phone while deciding where to go. Every site is optimised for mobile with fast load times, tap-to-call, and easy navigation.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire digital presence so you can focus on creating great drinks and memorable nights.</p>
+            <h3>SEO and Speed at Launch</h3>
+            <p>Core Web Vitals green at handover. BarOrPub and LocalBusiness schema live. Per-outlet pages already wired for catchment SEO ("cocktail bar Tanjong Pagar," "rooftop bar Orchard"). The site ranks from week one.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Bar website design pricing">
+  <!-- ========== BAR BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Bar Buyer Funnel — and where the website shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Bar Website Pricing</p>
-        <h2>Website Packages for Bars &amp; Lounges</h2>
-        <p>One-time project fee. No monthly lock-ins.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where the <span class="highlight">Website</span> Shows Up in the <span class="highlight">Bar-Goer Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$2,500 <span>SGD</span></div>
-            <p class="pricing-desc">For new bars and pubs getting online.</p>
-            <ul class="pricing-features">
-              <li>Up to 5 pages</li>
-              <li>Cocktail / drinks menu</li>
-              <li>Events page</li>
-              <li>Contact page &amp; Google Maps</li>
-              <li>Mobile-responsive design</li>
-              <li>Basic SEO setup</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Business</h3>
-            <div class="price">$5,500 <span>SGD</span></div>
-            <p class="pricing-desc">For bars ready to grow their bookings.</p>
-            <ul class="pricing-features">
-              <li>Up to 10 pages</li>
-              <li>Reservation system integration</li>
-              <li>Events calendar</li>
-              <li>Advanced SEO &amp; schema</li>
-              <li>Google Business Profile setup</li>
-              <li>Photo &amp; video gallery</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Premium</h3>
-            <div class="price">$10,000+ <span>SGD</span></div>
-            <p class="pricing-desc">For multi-venue or high-end cocktail bars.</p>
-            <ul class="pricing-features">
-              <li>Unlimited pages</li>
-              <li>Custom features &amp; design</li>
-              <li>Multi-venue support</li>
-              <li>Membership / loyalty portal</li>
-              <li>Private event booking system</li>
-              <li>Priority support</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore bar-goers move through five stages. The website is the conversion point at Choose and First Visit — where IG discovery and friend recs translate into a Friday-night booking, an event RSVP, or a private-hire enquiry.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/website-development/" class="inline-link">website development</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>IG Reels, friend recs, event flyers (Social-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>Site cements the venue with menu, vibe, events (Web-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>First Visit</h3>
+          <p>Reservation, RSVP, private hire convert (Web-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Event calendar, email capture, loyalty flow</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Share-friendly event pages, UGC hooks</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -238,34 +260,48 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Bar Website Design Questions Answered</h2>
+        <h2><span class="highlight">Bar Website Design</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does a bar website cost in Singapore?</summary>
-          <div class="faq-answer"><p>A professional bar website in Singapore typically costs between $2,500 and $10,000+ depending on features. Our Starter package at $2,500 SGD includes a 5-page site with cocktail menu, events page, contact form, and Google Maps integration. Business and Premium packages add reservation systems, events calendars, and membership portals.</p></div>
+          <summary>What should a bar website include in Singapore?</summary>
+          <div class="faq-answer"><p>A bar website in Singapore should include: a live cocktail and bar menu (not a PDF), an event calendar (DJ nights, happy hour, themed events, private hire), reservation and private-hire enquiry flow (SevenRooms, Chope, custom WhatsApp), location and hours per outlet, signature cocktail and interior photography, age-gate where required, alcohol licensing compliance, BarOrPub schema markup, and mobile-first conversion design.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you add a reservation system to my bar website?</summary>
-          <div class="faq-answer"><p>Yes. Our Business package ($5,500) and above include reservation system integration. We can connect to platforms like Chope or build a custom booking system that handles table reservations, VIP bookings, and private event enquiries directly through your website.</p></div>
+          <summary>Do you handle event and private-hire booking flows?</summary>
+          <div class="faq-answer"><p>Yes. Event flows (DJ nights, happy hour RSVP, themed event tickets) and private-hire enquiry flows are core deliverables. We wire SevenRooms, Chope, Eventbrite, WhatsApp Business, and your own CRM where relevant. Multi-event bars also get a self-managed event calendar so your team can publish new nights without touching code.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you build events pages for bar websites?</summary>
-          <div class="faq-answer"><p>Absolutely. Events are a major draw for bars in Singapore. We build dynamic events pages with upcoming listings, past highlights, and easy-to-update calendar systems so you can promote live music, DJ nights, happy hours, and themed events without needing a developer.</p></div>
+          <summary>How long does a bar website build take?</summary>
+          <div class="faq-answer"><p>Most single-outlet bar websites build in 4-6 weeks: 1 week discovery and content gather, 1 week wireframe and design direction, 2 weeks build, 1 week QA and launch. Multi-outlet and event-heavy bars run 6-10 weeks. We work in fortnightly review cycles so you see and steer the design as it builds.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Will my bar show up on Google when people search nearby?</summary>
-          <div class="faq-answer"><p>We optimise your website for local SEO and set up your Google Business Profile so your bar appears in Google Maps and local search results. When people search "bars near me" or "cocktail bar Clarke Quay", your venue will have the best chance of showing up.</p></div>
+          <summary>Do you handle age-gates and alcohol licensing compliance?</summary>
+          <div class="faq-answer"><p>Yes. We implement age-gate flows where the brief requires them, Singapore alcohol licensing notices, responsible drinking copy, and Liquor Control Act compliance for promotional content. We do not handle the licensing application itself — but the site is built to support whatever compliance posture your venue operates under.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take to build a bar website?</summary>
-          <div class="faq-answer"><p>Most bar websites go live within 2–3 weeks. A simple 5-page site can be ready in 2 weeks, while larger projects with reservation systems or membership features may take 3–4 weeks. We provide a clear timeline before starting.</p></div>
+          <summary>Do you handle multi-outlet bar website structure?</summary>
+          <div class="faq-answer"><p>Yes. Multi-outlet bar sites get a dedicated page per outlet (each with its own catchment SEO, hours, photos, GBP embed, event calendar, and reservation flow) plus a clean parent navigation that lets bar-goers filter by area, concept, or event type. Each outlet page is treated as a landing page in its own right.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="website" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related F&B services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-seo-singapore/" class="related-service-link">F&amp;B SEO</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/fnb-google-ads-singapore/" class="related-service-link">F&amp;B Google Ads</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
