@@ -25,12 +25,7 @@ const schemaData = [
       "@type": "Country",
       "name": "Singapore"
     },
-    "serviceType": "Website Development",
-    "offers": [
-      { "@type": "Offer", "name": "Starter Website", "price": "2500", "priceCurrency": "SGD", "description": "Up to 5 pages, mobile responsive design, contact form, basic SEO setup" },
-      { "@type": "Offer", "name": "Business Website", "price": "5500", "priceCurrency": "SGD", "description": "Up to 12 pages, custom design & animations, CMS / blog integration, booking or enquiry system" },
-      { "@type": "Offer", "name": "Premium Website", "price": "10000", "priceCurrency": "SGD", "description": "Unlimited pages, ecommerce / web app, payment integration, user accounts & dashboards" }
-    ]
+    "serviceType": "Website Development"
   },
   {
     "@context": "https://schema.org",
@@ -38,7 +33,7 @@ const schemaData = [
     "mainEntity": [
       { "@type": "Question", "name": "How long does it take to build a website?", "acceptedAnswer": { "@type": "Answer", "text": "A typical business website takes 4–6 weeks from kickoff to launch. Ecommerce stores and web applications may take 8–12 weeks depending on complexity. We provide a detailed timeline during our free consultation." } },
       { "@type": "Question", "name": "Can I update the website content myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build most websites with a content management system (CMS) so you can edit text, images, and blog posts without any coding knowledge. We also provide a training session after launch." } },
-      { "@type": "Question", "name": "Do you offer website maintenance after launch?", "acceptedAnswer": { "@type": "Answer", "text": "All packages include post-launch support (1–6 months depending on your plan). After that, we offer monthly maintenance plans starting from S$200/month covering updates, backups, security, and minor changes." } },
+      { "@type": "Question", "name": "Do you offer website maintenance after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every project includes a post-launch support window, and we offer ongoing maintenance retainers covering updates, backups, security, and minor changes after that. Maintenance scope and cadence are agreed when we hand the site over." } },
       { "@type": "Question", "name": "What platforms do you build websites on?", "acceptedAnswer": { "@type": "Answer", "text": "We use modern frameworks like Astro, Next.js, and WordPress depending on your needs. For ecommerce, we work with Shopify and WooCommerce. We recommend the best platform for your specific requirements during the consultation." } },
       { "@type": "Question", "name": "Do you provide hosting?", "acceptedAnswer": { "@type": "Answer", "text": "We help set up hosting on reliable platforms like Cloudflare, Vercel, or managed WordPress hosting with Singapore-based servers for fast load times. Hosting costs are separate and typically range from S$10–S$50 per month." } }
     ]
@@ -57,10 +52,10 @@ const schemaData = [
 
 <ServiceLayout
   title="Web Design & Development Singapore — Jraft Creative"
-  description="Jraft Creative builds custom websites in Singapore — business sites, ecommerce stores, web apps, and landing pages. Starting from $2,500 SGD."
+  description="Jraft Creative builds custom websites in Singapore — business sites, ecommerce stores, web apps, and landing pages. Book a free consultation."
   canonical="https://jraftcreative.com/services/website-development/"
   ogTitle="Web Design & Development Singapore — Jraft Creative"
-  ogDescription="Custom websites, ecommerce stores, and web applications designed to convert and built to scale. Starting from $2,500 SGD."
+  ogDescription="Custom websites, ecommerce stores, and web applications designed to convert and built to scale. Book a free consultation."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="website development singapore, web design agency singapore, custom website singapore, ecommerce development, web application, landing page design, Jraft Creative"
   schemaData={schemaData}
@@ -70,7 +65,7 @@ const schemaData = [
   heroImage="/images/service-webdev.webp"
   heroButtons={[
     { text: "Start Your Project", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20website%20development%20services.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to enquire about your website development services."
   ctaLabel="Ready to Get Started?"
@@ -299,63 +294,6 @@ const schemaData = [
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Pricing plans">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Pricing</p>
-        <h2>Transparent Website Pricing</h2>
-        <p>No hidden fees. Choose the package that fits your needs.</p>
-      </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$2,500 <span>SGD</span></div>
-            <p class="pricing-desc">Perfect for small businesses needing a professional online presence.</p>
-            <ul class="pricing-features">
-              <li>Up to 5 pages</li>
-              <li>Mobile responsive design</li>
-              <li>Contact form</li>
-              <li>Basic SEO setup</li>
-              <li>2 rounds of revisions</li>
-              <li>1 month support</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Business</h3>
-            <div class="price">$5,500 <span>SGD</span></div>
-            <p class="pricing-desc">For growing businesses that need more functionality and polish.</p>
-            <ul class="pricing-features">
-              <li>Up to 12 pages</li>
-              <li>Custom design &amp; animations</li>
-              <li>CMS / blog integration</li>
-              <li>Booking or enquiry system</li>
-              <li>Advanced SEO &amp; analytics</li>
-              <li>3 months support</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Premium</h3>
-            <div class="price">$10,000+ <span>SGD</span></div>
-            <p class="pricing-desc">Full ecommerce, web apps, and complex custom builds.</p>
-            <ul class="pricing-features">
-              <li>Unlimited pages</li>
-              <li>Ecommerce / web app</li>
-              <li>Payment integration</li>
-              <li>User accounts &amp; dashboards</li>
-              <li>API integrations</li>
-              <li>6 months support</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
     <div class="container">
@@ -374,7 +312,7 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Do you offer website maintenance after launch?</summary>
-          <div class="faq-answer"><p>All packages include post-launch support (1–6 months depending on your plan). After that, we offer monthly maintenance plans starting from S$200/month covering updates, backups, security, and minor changes.</p></div>
+          <div class="faq-answer"><p>Yes. Every project includes a post-launch support window, and we offer ongoing maintenance retainers covering updates, backups, security, and minor changes after that. Maintenance scope and cadence are agreed when we hand the site over.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>What platforms do you build websites on?</summary>
