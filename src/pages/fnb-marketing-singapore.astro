@@ -1,0 +1,446 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "F&B Marketing Agency Singapore",
+    "description": "Full-service marketing agency for restaurants, cafes, bars, hawker stalls, QSR, and catering brands in Singapore. SEO, Google Ads, social, branding, websites, and AI search optimisation. From S$1,800/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "F&B Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential F&B Marketing", "price": "1800", "priceCurrency": "SGD", "description": "Single-channel focus (SEO + GBP or Social), Google Business Profile optimisation, monthly content, and reporting for single-outlet cafes, hawker stalls, and dessert brands" },
+      { "@type": "Offer", "name": "Growth F&B Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Multi-channel: SEO + Google Ads + IG/TikTok, food photography direction, review-velocity playbook, and bi-weekly reporting for established restaurants and small chains" },
+      { "@type": "Offer", "name": "Enterprise F&B Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Full-service across all 6 channels, dedicated strategist, video production for Reels and TikTok, brand refresh, in-store collateral, and weekly reporting for multi-outlet F&B groups" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does F&B marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B marketing in Singapore starts at S$1,800/month for essential single-channel work (typically Google Business Profile plus SEO or social content). Growth packages at S$3,000/month combine SEO, Google Ads, and IG/TikTok with food photography direction. Enterprise packages at S$5,500+/month add video production, brand refresh, and a dedicated strategist for multi-outlet F&B groups. Single-outlet cafes and hawker stalls typically start at Essential, while restaurants and small chains running 2-5 outlets fit the Growth tier." } },
+      { "@type": "Question", "name": "Why is Google Business Profile so important for F&B in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "In Singapore, diners searching 'best ramen near Bedok' or 'cafe Tanjong Pagar' decide based on the Google Maps three-pack — the top three results that appear on the map. Google Business Profile signals (review count, review recency, photos, posts, response rate, and category accuracy) determine which outlets land in that three-pack. Most F&B operators leave GBP underbuilt, which means even outlets with great food lose foot traffic to weaker competitors with better-optimised profiles." } },
+      { "@type": "Question", "name": "What's the buyer journey for an F&B diner in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore F&B diners move through five stages: Discover (IG/TikTok scrolling, friend recommendations, food blogger content) → Choose (Google Maps three-pack, reviews, ChatGPT/AI search, Burpple/Chope listings) → First Visit (decision based on menu, photos, and reviews) → Return (loyalty driven by experience, follow-up content, and IG/TikTok presence) → Advocate (UGC posts, Google reviews, word-of-mouth). Marketing for F&B operators needs to show up at every stage — not just the bottom-of-funnel reservation form." } },
+      { "@type": "Question", "name": "Which marketing channels work best for restaurants and cafes in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most F&B operators: (1) Google Business Profile plus catchment SEO for 'best [cuisine] [neighbourhood]' searches, (2) Instagram and TikTok content cadence with branded food photography, (3) Google Ads for neighbourhood radius and Performance Max campaigns, (4) AI search (GEO) optimisation for ChatGPT and Perplexity citations, (5) the website as menu, ordering, and reservation hub, (6) branding and in-store collateral. We build cross-channel plans based on your outlet count and budget." } },
+      { "@type": "Question", "name": "How long before F&B marketing brings more covers and orders?", "acceptedAnswer": { "@type": "Answer", "text": "Google Business Profile work and Google Ads can lift discovery and bookings within the first 2-4 weeks. Social media content cadence compounds over 8-12 weeks as branded content builds following and UGC. SEO and AI search citations typically show ranking improvements within 3-6 months for neighbourhood and cuisine-specific keywords. Most F&B operators see measurable foot-traffic and online-order lift inside the first quarter once GBP, reviews, and social are running together." } },
+      { "@type": "Question", "name": "Do you handle food photography and video content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Growth and Enterprise tiers include food photography direction and video production for Reels and TikTok. We coordinate the shoot brief, frame dishes for menu and social formats, write the captions and voiceover scripts, and brief UGC creators where relevant. Most F&B operators have a phone full of inconsistent dish photos — we replace that with a branded asset library that fuels social, the website, GBP, and ads in parallel." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "F&B Marketing Singapore", "item": "https://jraftcreative.com/fnb-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* F&B Buyer Funnel — 5-stage horizontal flow with green accents */
+  .fnb-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .fnb-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .fnb-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="F&B Marketing Agency Singapore | Jraft Creative"
+  description="Full-service F&B marketing agency in Singapore. SEO, Google Ads, IG/TikTok, branding, websites, and AI search — built for restaurants, cafes, bars, and hawker stalls. From $1,800/mo."
+  canonical="https://jraftcreative.com/fnb-marketing-singapore/"
+  ogTitle="F&B Marketing Agency Singapore | Jraft Creative"
+  ogDescription="Full-service F&B marketing agency in Singapore. SEO, Google Ads, IG/TikTok, branding, websites, and AI search — built for restaurants, cafes, bars, and hawker stalls. From $1,800 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="f&b marketing singapore, fnb marketing agency singapore, restaurant marketing singapore, cafe marketing singapore, hawker marketing singapore, food and beverage marketing agency singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="F&B Marketing Singapore"
+  heroTitle='F&amp;B Marketing Agency for <span class="highlight">Restaurants, Cafes &amp; Hawkers in Singapore</span>'
+  heroSubtitle="Singapore F&amp;B is a S$28.9B market with sales growing 2.3% year-on-year and 20.6% now flowing through online channels — yet most operators still leave Google Business Profile underbuilt and rely on word-of-mouth. We build full-service marketing strategies (Google Business Profile, SEO, GEO, Google Ads, IG/TikTok, branding, websites) designed for how Singapore diners actually choose where to eat."
+  heroImage="/images/service-fnb.webp"
+  heroImageAlt="Singapore F&B venue interior — F&B marketing agency"
+  heroButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20F%26B%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an F&B business in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">F&amp;B Pipeline</span>'
+  ctaDescription="Book a free consultation and tell us about your F&amp;B brand — your concept, your catchment, your outlet count, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel marketing plan."
+  ctaButtons={[
+    { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20F%26B%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why F&B brands need specialised marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> F&amp;B Brands Are Still <span class="highlight">Losing Covers</span> to Operators with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>The Singapore F&amp;B market is worth roughly S$28.9 billion in 2025, with sales up 2.3% year-on-year and 20.6% of all F&amp;B sales now flowing through online channels. The operators winning that growth are not always the ones with the best food — they are the ones showing up where diners actually decide.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Three-Pack Decides</h3>
+            <p>When diners search "best laksa Bedok" or "cafe Tanjong Pagar," the Google Maps three-pack drives the foot traffic. Review count, recency, photos, and category signals decide which outlets show up — and most F&amp;B operators leave Google Business Profile half-built.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Content Flood</h3>
+            <p>Singapore IG and TikTok are saturated with food content. Operators winning followers are not the ones with the prettiest hero shot — they are the ones with consistent, branded content cadence, on-brand UGC, and creator collaborations baked into a monthly system.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Aggregator Trap</h3>
+            <p>Burpple, Chope, GrabFood, and Foodpanda own the discovery layer for most SG operators. Relying on aggregator listings means competing on price and visibility against every other outlet on the platform — while Google and Meta acquisition channels sit wide open.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for F&B brands in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every F&amp;B Operator <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for F&amp;B brands — combining Google Business Profile and catchment SEO, AI search optimisation, paid search, social content, branding, and conversion-focused F&amp;B websites.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO for F&amp;B</a></h3>
+            <p>Rank for "best [cuisine] [neighbourhood]" searches across Bedok, Tanjong Pagar, Holland Village, Tiong Bahru, and every other SG catchment. Google Business Profile optimisation plus a review-velocity playbook to land the three-pack.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google Ads for F&amp;B</a></h3>
+            <p>Neighbourhood radius Search campaigns and Performance Max built for foot traffic, reservations, and online orders. GCLID tracking from click to booked cover. Industry benchmark CPL: S$8–S$25.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media for F&amp;B</a></h3>
+            <p>IG and TikTok content cadence with food photography direction, UGC frameworks, and creator collaborations. Reels formats built for SG diner scroll behaviour — not template content recycled from a US restaurant.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/fnb-website-design-singapore/">F&amp;B Websites</a></h3>
+            <p>Menu, online ordering integration (Oddle, Chope, Burpple), reservations, and mobile-first design. Built to convert the diner who already decided you are the shortlist — into a booking or order.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/fnb-branding-singapore/">F&amp;B Branding</a></h3>
+            <p>Visual identity, menu design, packaging, signage, and in-store collateral that travels from the storefront into every diner photo. Built so your brand stays consistent from menu card to IG grid.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">AI Search (GEO) for F&amp;B</a></h3>
+            <p>Get cited when SG diners ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best ramen near Bedok" or "best brunch Tanjong Pagar." AI-friendly schema, citable content, and the GEO playbook we use for our own agency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for F&B marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Singapore Diners</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most marketing agencies pitching F&amp;B operators are either content shops that produce pretty grids without measuring covers, or PR-led generalists that pitch press placements nobody reads. We are the opposite — full-service, performance-led, and built around the Singapore diner journey. We work across restaurants, cafes, bars, hawker stalls, QSR, dessert and bubble tea brands, cloud kitchens, and catering operators in every SG catchment.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>GBP, SEO, GEO, Google Ads, IG, TikTok, branding, websites — under one roof. No bolting six agencies together for what should be one operator. Every channel delivers consistent positioning, design, and measurement.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>You Own Every Asset From Day One</h3>
+            <p>Your Business Manager, your Pixel, your ad account, your GBP, your domain — all set up in your name from day one. No agency lock-in. If you ever leave, you take the whole marketing engine with you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>GEO and AI-Search Ready</h3>
+            <p>Very few SG agencies are competent on AI search yet. We run the GEO playbook for our own brand and ship it for clients — a real differentiator for any F&amp;B operator playing for the next 24 months of diner-decision behaviour.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== F&B BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The F&B Buyer Funnel — how Singapore diners decide where to eat">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>How <span class="highlight">Singapore Diners</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From scroll to repeat visit, every Singapore F&amp;B diner moves through the same five stages. We build marketing campaigns that show up at each one — from a first IG impression through to an advocate posting their dish to their stories.</p>
+      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok, friend recs, food bloggers</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Google Maps three-pack, reviews, AI search, Chope</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Menu, photos, reviews convert intent to walk-in</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Experience, follow-up content, loyalty triggers</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>UGC posts, Google reviews, word-of-mouth</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="F&B marketing pricing Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">F&amp;B Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for F&amp;B Brands of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$1,800 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-outlet cafes, hawker stalls, and dessert brands.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO + GBP or Social)</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Review-velocity playbook</li>
+              <li>4 pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established restaurants and small chains.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + IG/TikTok</li>
+              <li>Food photography direction</li>
+              <li>GCLID lead and reservation tracking</li>
+              <li>Catchment-area landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$5,500+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-outlet F&amp;B groups and premium concepts.</p>
+            <ul class="pricing-features">
+              <li>Full 6-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Video production for Reels &amp; TikTok</li>
+              <li>Brand refresh / in-store collateral</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about F&B marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">F&amp;B</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does F&amp;B marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>F&amp;B marketing in Singapore starts at S$1,800/month for essential single-channel work (typically Google Business Profile plus SEO or social content). Growth packages at S$3,000/month combine SEO, Google Ads, and IG/TikTok with food photography direction. Enterprise packages at S$5,500+/month add video production, brand refresh, and a dedicated strategist for multi-outlet F&amp;B groups. Single-outlet cafes and hawker stalls typically start at Essential, while restaurants and small chains running 2-5 outlets fit the Growth tier.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why is Google Business Profile so important for F&amp;B in Singapore?</summary>
+          <div class="faq-answer"><p>In Singapore, diners searching "best ramen near Bedok" or "cafe Tanjong Pagar" decide based on the Google Maps three-pack — the top three results that appear on the map. Google Business Profile signals (review count, review recency, photos, posts, response rate, and category accuracy) determine which outlets land in that three-pack. Most F&amp;B operators leave GBP underbuilt, which means even outlets with great food lose foot traffic to weaker competitors with better-optimised profiles.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What's the buyer journey for an F&amp;B diner in Singapore?</summary>
+          <div class="faq-answer"><p>Singapore F&amp;B diners move through five stages: Discover (IG/TikTok scrolling, friend recommendations, food blogger content) → Choose (Google Maps three-pack, reviews, ChatGPT/AI search, Burpple/Chope listings) → First Visit (decision based on menu, photos, and reviews) → Return (loyalty driven by experience, follow-up content, and IG/TikTok presence) → Advocate (UGC posts, Google reviews, word-of-mouth). Marketing for F&amp;B operators needs to show up at every stage — not just the bottom-of-funnel reservation form.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which marketing channels work best for restaurants and cafes in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most F&amp;B operators: (1) Google Business Profile plus catchment SEO for "best [cuisine] [neighbourhood]" searches, (2) Instagram and TikTok content cadence with branded food photography, (3) Google Ads for neighbourhood radius and Performance Max campaigns, (4) AI search (GEO) optimisation for ChatGPT and Perplexity citations, (5) the website as menu, ordering, and reservation hub, (6) branding and in-store collateral. We build cross-channel plans based on your outlet count and budget.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before F&amp;B marketing brings more covers and orders?</summary>
+          <div class="faq-answer"><p>Google Business Profile work and Google Ads can lift discovery and bookings within the first 2-4 weeks. Social media content cadence compounds over 8-12 weeks as branded content builds following and UGC. SEO and AI search citations typically show ranking improvements within 3-6 months for neighbourhood and cuisine-specific keywords. Most F&amp;B operators see measurable foot-traffic and online-order lift inside the first quarter once GBP, reviews, and social are running together.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you handle food photography and video content?</summary>
+          <div class="faq-answer"><p>Yes. Our Growth and Enterprise tiers include food photography direction and video production for Reels and TikTok. We coordinate the shoot brief, frame dishes for menu and social formats, write the captions and voiceover scripts, and brief UGC creators where relevant. Most F&amp;B operators have a phone full of inconsistent dish photos — we replace that with a branded asset library that fuels social, the website, GBP, and ads in parallel.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related F&B services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
+          <a href="/cafe-marketing-singapore/" class="related-service-link">Cafe Marketing</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-content-marketing-singapore/" class="related-service-link">F&amp;B Content Marketing</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
+</content>
+</invoke>
