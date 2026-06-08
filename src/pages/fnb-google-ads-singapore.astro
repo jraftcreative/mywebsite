@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "F&B Google Ads Singapore",
-    "description": "Google Ads management for F&B businesses in Singapore. Multi-outlet campaigns, delivery platform competition, and seasonal promotions — from S$1,000/month.",
+    "description": "Google Ads agency for F&B brands in Singapore. Neighbourhood-radius Search campaigns, Performance Max for foot traffic and online orders, GCLID tracking, and creative built for restaurants, cafes, bars, and delivery brands.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "F&B Google Ads Management",
-    "offers": [
-      { "@type": "Offer", "name": "Starter Ads", "price": "1000", "priceCurrency": "SGD", "description": "Google Ads setup and management for single-outlet F&B businesses with keyword research and monthly reporting" },
-      { "@type": "Offer", "name": "Growth Ads", "price": "2500", "priceCurrency": "SGD", "description": "Multi-campaign Google Ads management with remarketing, seasonal promotions, and conversion tracking for F&B brands" },
-      { "@type": "Offer", "name": "Scale Ads", "price": "5000", "priceCurrency": "SGD", "description": "Full-scale Google Ads management for F&B chains with dedicated strategist and advanced analytics" }
-    ]
+    "serviceType": "F&B Google Ads"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much do Google Ads cost for an F&B business in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Management fees start at $1,000 SGD per month, plus your ad spend budget. Most F&B businesses in Singapore achieve solid results with a total monthly investment of $2,000–$5,000 including ad spend. The right budget depends on your number of outlets, delivery coverage area, and growth targets." } },
-      { "@type": "Question", "name": "Can Google Ads help my F&B brand compete with delivery platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run campaigns that intercept searches like 'food delivery near me' and drive orders directly to your own website or ordering system. This reduces your dependence on platforms like GrabFood and Deliveroo, which charge commissions of 25–35% per order." } },
-      { "@type": "Question", "name": "Do you manage Google Ads for multi-outlet F&B businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Scale package is designed for F&B chains and multi-outlet brands. We create location-specific campaigns for each outlet, manage budgets across locations, and provide consolidated reporting so you can compare performance across your entire network." } },
-      { "@type": "Question", "name": "How do you handle seasonal promotions in Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We build campaign calendars around Singapore's F&B calendar — Chinese New Year set menus, Ramadan promotions, National Day specials, Christmas dining packages, and more. Seasonal campaigns are planned in advance and activated on schedule so you capture demand at the right moment." } },
-      { "@type": "Question", "name": "What types of Google Ads work best for F&B businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Search ads targeting food-related keywords perform consistently well. We also use local campaigns for Google Maps visibility, display ads for brand awareness, and Performance Max campaigns for multi-channel reach. The right mix depends on whether you're driving dine-in, delivery, or catering leads." } }
+      { "@type": "Question", "name": "What does F&B Google Ads cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B Google Ads in Singapore is dominated by three campaign types: Search (high-intent 'best [cuisine] [neighbourhood]' and 'food delivery near me' queries), Performance Max (asset-led campaigns blending Search, Maps, YouTube, and Display), and Local Search Ads on Google Maps that boost the three-pack with paid spots. We build all three around neighbourhood radius targeting, GCLID conversion tracking from click to reservation or order, and creative built for the SG diner — not template restaurant ads." } },
+      { "@type": "Question", "name": "What CPL should I expect for F&B Google Ads in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "F&B Google Ads CPL in Singapore typically lands in the S$8-S$25 range depending on cuisine, neighbourhood competition, and offer. High-competition CBD cuisines (Italian Tanjong Pagar, Japanese Orchard) trend toward the upper end; suburban catchments and niche cuisines trend lower. We benchmark against your current organic and aggregator-platform per-lead cost as the comparison, not against vanity industry averages." } },
+      { "@type": "Question", "name": "How long before F&B Google Ads brings more covers?", "acceptedAnswer": { "@type": "Answer", "text": "F&B Google Ads typically generates first reservation or order requests within 7-14 days of launch once tracking is wired. Performance Max needs 2-4 weeks of learning-phase data before bidding optimises. Performance reliably stabilises by week 6-8 once GCLID closed-loop data is feeding back. Most operators see measurable booking and order lift inside the first month." } },
+      { "@type": "Question", "name": "Do you handle delivery-platform conversion tracking?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We track direct-site orders, reservation conversions, calls, direction requests, and where possible the post-click handoff to GrabFood, Foodpanda, Deliveroo, and Chope. Where the platform blocks closed-loop tracking, we use proxy conversions (e.g. menu-page time-on-page, click-to-order button) tuned against your sales data so bidding still optimises against real revenue signals." } },
+      { "@type": "Question", "name": "Can I run Google Ads for multiple outlets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet F&B Google Ads is a core strength. Each outlet gets its own location extension, geo-targeted Search campaigns, location-specific Performance Max creative, and per-outlet performance dashboard — while the master account stays clean and consolidated. Built for chains, franchises, and existing multi-outlet groups." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="F&B Google Ads Singapore — Jraft Creative"
-  description="Google Ads management for F&B businesses in Singapore. Multi-outlet campaigns, delivery platform competition, and seasonal promotions — from S$1,000/month."
+  title="F&B Google Ads Singapore | Jraft Creative"
+  description="F&B Google Ads agency in Singapore. Neighbourhood-radius Search, Performance Max, GCLID tracking, multi-outlet campaigns — built for restaurants, cafes, bars, and delivery brands."
   canonical="https://jraftcreative.com/fnb-google-ads-singapore/"
-  ogTitle="F&B Google Ads Singapore — Jraft Creative"
-  ogDescription="Google Ads for F&B businesses in Singapore. Multi-outlet campaigns, delivery ads, and seasonal promotions — from $1,000 SGD/month."
-  ogImage="https://jraftcreative.com/images/og-ads.jpg"
-  keywords="fnb google ads singapore, f&b google ads, food and beverage ppc singapore, fnb advertising singapore, f&b digital marketing ads, Jraft Creative"
+  ogTitle="F&B Google Ads Singapore | Jraft Creative"
+  ogDescription="F&B Google Ads agency in Singapore. Search + Performance Max + Local Maps Ads, GCLID tracking, multi-outlet campaigns."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="fnb google ads singapore, restaurant google ads singapore, cafe google ads singapore, performance max fnb, food delivery google ads, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="F&B Google Ads"
-  heroTitle='Google Ads for <span class="highlight">F&amp;B Businesses in Singapore</span>'
-  heroSubtitle="From hawker concepts to restaurant chains, we build Google Ads campaigns that capture food search intent and drive orders, reservations, and catering leads for F&B businesses across Singapore."
+  heroLabel="F&B Google Ads Singapore"
+  heroTitle='Google Ads Agency for <span class="highlight">F&amp;B Brands in Singapore</span>'
+  heroSubtitle="When a hungry Singapore diner searches 'best ramen near me' at 7pm, the brand that buys that intent gets the cover. We run F&amp;B Google Ads built around neighbourhood-radius Search, Performance Max, Local Maps Ads, and GCLID tracking — wired to reservations, direct orders, and walk-ins, not vanity clicks."
   heroImage="/images/service-fnb.webp"
+  heroImageAlt="Singapore F&B venue — F&B Google Ads agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/paid-ads/#portfolio", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20Google%20Ads%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need Google Ads for my F&B business in Singapore."
+  whatsappText="Hi Jraft Creative, I need F&B Google Ads in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your F&B Business with Google Ads"
-  ctaDescription="Book a free consultation and tell us about your F&B business. We'll get back to you within 24 hours with a tailored Google Ads strategy."
+  ctaTitle='Let Us <span class="highlight">Bid</span> on the <span class="highlight">High-Intent F&amp;B Searches</span>'
+  ctaDescription="Book a free consultation and tell us about your F&amp;B brand — outlets, current ad spend, conversion tracking setup, target CPL. We'll respond within 24 hours with a Google Ads plan tailored to your goals."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20F%26B%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20F%26B%20Google%20Ads%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why F&B businesses need Google Ads">
+  <section class="section" id="challenge" aria-label="Why F&B brands need specialised Google Ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Delivery Platforms Are Eating Your Margins</h2>
+        <h2>The <span class="highlight">Hungry Diner</span> at 7pm Buys Whoever <span class="highlight">Shows Up First</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's F&B industry is one of the most competitive in Southeast Asia. With over 7,000 food establishments across the island, standing out in search results is no longer optional — it's survival. Every day, potential customers are searching for food options near them, and the businesses that show up first win the order.</p>
-        <p>Delivery platforms like GrabFood and Deliveroo charge commissions of 25–35% on every order. That's money taken directly from your bottom line. Google Ads gives you a way to intercept those same hungry customers and send them to your own website or ordering system — where you keep the full margin.</p>
-        <p>But F&B advertising on Google is different from other industries. Meal-period timing matters, location radius needs to be precise, and seasonal demand shifts throughout the year. Generic ad campaigns built by someone who doesn't understand the F&B industry waste budget on irrelevant clicks and broad keywords that never convert.</p>
+        <p>Google Ads for F&amp;B is a high-intent channel — the searcher is already deciding where to eat or order in the next thirty minutes. Most operators either let aggregator platforms intercept that intent, or run generic broad-match campaigns that burn budget on irrelevant terms.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Aggregators Buy Your Brand Terms</h3>
+            <p>GrabFood, Foodpanda, and Deliveroo bid on your own brand name plus generic cuisine searches. If you are not actively defending those terms, every click is filtered through a platform charging 25-30% before it reaches you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Conversion Tracking Half-Built</h3>
+            <p>Most F&amp;B Google Ads accounts count form fills and ignore calls, direction requests, reservations, and delivery handoffs. Without GCLID closed-loop tracking back to actual revenue, bidding optimises against the wrong signal — and budget bleeds for months.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Template Ads, No Local Context</h3>
+            <p>Generic "Best Restaurant in Singapore — Book Now" copy converts poorly. SG diners respond to neighbourhood-specific, cuisine-specific, occasion-specific creative — and most F&amp;B ad accounts run the same five generic headlines on every campaign.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="F&B Google Ads services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="F&B Google Ads services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Google Ads Services for F&amp;B Businesses</h2>
+        <h2>Six <span class="highlight">F&amp;B Google Ads Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build Google Ads campaigns designed specifically for the food and beverage industry. Whether you're a single-outlet cafe, a growing restaurant group, or a cloud kitchen focused on delivery, we structure campaigns around how Singapore consumers search for and order food.</p>
-        <p>Google Ads deliver the best results when combined with a strong digital foundation. Pair your campaigns with <a href="/services/website-development/">a fast, mobile-friendly website</a>, <a href="/services/seo-performance/">SEO for organic food searches</a>, and <a href="/services/social-media/">social media content</a> to build a complete customer acquisition system.</p>
+        <p>We run F&amp;B Google Ads as a six-workstream system — Search, Performance Max, Local Maps Ads, GCLID tracking, multi-outlet structure, and creative production. Every workstream is wired to a measurable diner outcome.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Food Search Intent Campaigns</h3>
-            <p>Capture high-intent searches for cuisine types, meal periods, and "near me" queries. We target the exact terms Singapore diners use when they're ready to eat, order, or book.</p>
+            <h3>High-Intent Search Campaigns</h3>
+            <p>Cuisine-by-neighbourhood Search campaigns ("best ramen Tampines," "Italian Tanjong Pagar"), branded defence against aggregators, and reservation-intent and delivery-intent keyword clusters — tightly match-typed, not broad-match guesswork.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Multi-Outlet Campaign Management</h3>
-            <p>Location-specific campaigns for each outlet with tailored budgets, keywords, and ad copy. Consolidated reporting so you can compare performance across your entire F&B network.</p>
+            <h3>Performance Max for F&amp;B</h3>
+            <p>Asset-led campaigns blending Search, Maps, YouTube, Discover, and Display. Audience signals from your booking and order data, geo-fenced to your catchments, with creative built specifically for the F&amp;B intent.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Seasonal &amp; Festive Promotions</h3>
-            <p>Planned campaigns for Chinese New Year, Hari Raya, Christmas, and other peak periods. We activate promotions on schedule so you capture seasonal demand before your competitors do.</p>
+            <h3>Local Maps Ads</h3>
+            <p>Paid placements on Google Maps that boost your outlet into the three-pack with sponsored visibility — even before your organic GBP signals are strong enough to rank there organically.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Direct Ordering Campaigns</h3>
-            <p>Drive delivery and takeaway orders directly to your website. Reduce platform commission fees by owning the customer relationship and keeping more margin on every order.</p>
+            <h3>GCLID Conversion Tracking</h3>
+            <p>Closed-loop tracking from ad click to reservation, call, direction request, online order, or delivery-platform handoff. Bidding optimises against real revenue signals — not form fills or clicks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Outlet Account Structure</h3>
+            <p>Per-outlet campaigns, location extensions, geo-fenced creative, and per-location performance dashboards — while keeping the master account clean. Built for chains, franchises, and existing multi-outlet groups.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>F&amp;B Ad Creative Production</h3>
+            <p>Headlines, RSAs, image assets, and short-form video assets for Performance Max and Demand Gen — written for SG diner intent, not generic US restaurant ad templates. Includes UGC-style and signature-dish creative.</p>
           </div>
         </div>
       </div>
@@ -134,151 +188,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for F&B Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for F&B Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for F&amp;B Google Ads</h2>
+        <h2><span class="highlight">F&amp;B Google Ads</span> Built for <span class="highlight">Real Revenue Signals</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've built and managed Google Ads campaigns for F&B businesses across Singapore — from independent outlets to multi-location brands. We understand the margins, the timing, and the competition that define this industry.</p>
+        <p>Most agencies running Google Ads for F&amp;B optimise against clicks and form fills. We optimise against reservations, delivery orders, and walk-ins — because that is the only number that actually matters. We run GCLID offline conversion uploads, sales-data feedback loops, and per-outlet performance reporting as standard.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Industry Specialists</h3>
-            <p>We understand food business economics — tight margins, peak periods, delivery vs dine-in dynamics, and the seasonal calendar that drives Singapore's F&B industry.</p>
+            <h3>Conversion-First Bidding</h3>
+            <p>We will not run a campaign without GCLID closed-loop tracking in place. Every dollar bid is optimised against real bookings, calls, orders, or walk-ins — not vanity click metrics that look good in reports.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Data-Driven Optimisation</h3>
-            <p>We optimise campaigns based on actual business metrics — cost per order, cost per reservation, and return on ad spend. Not vanity metrics like impressions and clicks.</p>
+            <h3>You Own the Ad Account</h3>
+            <p>Your Google Ads account, your conversion actions, your audiences — all in your name from day one. No agency lock-in. If you ever leave, you take the full bidding history, audience data, and creative library with you.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Scalable Campaigns</h3>
-            <p>Start with one outlet and scale to ten. Our campaign structure is built to grow with your F&B business, with templates and processes that make multi-location expansion seamless.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Integrated Marketing</h3>
-            <p>Google Ads, SEO, social media, and website under one agency. We coordinate every channel so your F&B brand has a unified digital presence that drives consistent results.</p>
+            <h3>Defended Against Aggregators</h3>
+            <p>Branded-term defence campaigns are non-negotiable for any F&amp;B brand serious about owning their funnel. We will not let GrabFood or Foodpanda bid on your brand name without a paid defence that intercepts and converts directly.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="F&B Google Ads pricing">
+  <!-- ========== F&B BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The F&B Buyer Funnel — and where Google Ads shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Google Ads Pricing</p>
-        <h2>Google Ads Packages for F&amp;B Businesses</h2>
-        <p>Monthly management fee. Ad spend billed separately by Google.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Google Ads</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Starter</h3>
-            <div class="price">$1,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For single-outlet F&B businesses starting with paid search.</p>
-            <ul class="pricing-features">
-              <li>Google Search Ads setup</li>
-              <li>Food keyword research</li>
-              <li>Ad copywriting &amp; extensions</li>
-              <li>Location-based targeting</li>
-              <li>Monthly performance report</li>
-              <li>Conversion tracking setup</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$2,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For F&B brands scaling orders and reducing platform fees.</p>
-            <ul class="pricing-features">
-              <li>Search + Display campaigns</li>
-              <li>Remarketing to past visitors</li>
-              <li>Seasonal promotion campaigns</li>
-              <li>A/B testing &amp; optimisation</li>
-              <li>Direct ordering campaigns</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Scale</h3>
-            <div class="price">$5,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For multi-outlet F&B chains and high-volume brands.</p>
-            <ul class="pricing-features">
-              <li>Multi-location campaigns</li>
-              <li>Performance Max campaigns</li>
-              <li>Dedicated account strategist</li>
-              <li>Advanced audience targeting</li>
-              <li>Competitor bidding strategy</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore F&amp;B diners move through five stages. Google Ads is the dominant channel in Choose and First Visit — the high-intent moments when a hungry diner is actively searching for somewhere to eat or order from in the next thirty minutes.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/paid-ads/" class="inline-link">paid ads management</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok (Social-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>Search + Local Maps Ads intercept intent (Ads-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>First Visit</h3>
+          <p>Reservation, call, order conversions tracked (Ads-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Remarketing, customer-list audiences for repeat</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>UGC and reviews compound across all paid channels</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for F&B businesses in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about F&B Google Ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>F&amp;B Google Ads Questions Answered</h2>
+        <h2><span class="highlight">F&amp;B Google Ads</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much do Google Ads cost for an F&amp;B business in Singapore?</summary>
-          <div class="faq-answer"><p>Management fees start at $1,000 SGD per month, plus your ad spend budget. Most F&B businesses in Singapore achieve solid results with a total monthly investment of $2,000–$5,000 including ad spend. The right budget depends on your number of outlets, delivery coverage area, and growth targets.</p></div>
+          <summary>What does F&amp;B Google Ads cover in Singapore?</summary>
+          <div class="faq-answer"><p>F&B Google Ads in Singapore covers three campaign types: Search (high-intent "best [cuisine] [neighbourhood]" and "food delivery near me" queries), Performance Max (asset-led campaigns blending Search, Maps, YouTube, and Display), and Local Search Ads on Google Maps that boost the three-pack with paid spots. We build all three around neighbourhood radius targeting, GCLID conversion tracking from click to reservation or order, and creative built for the SG diner.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can Google Ads help my F&amp;B brand compete with delivery platforms?</summary>
-          <div class="faq-answer"><p>Yes. We run campaigns that intercept searches like "food delivery near me" and drive orders directly to your own website or ordering system. This reduces your dependence on platforms like GrabFood and Deliveroo, which charge commissions of 25–35% per order.</p></div>
+          <summary>What CPL should I expect for F&amp;B Google Ads?</summary>
+          <div class="faq-answer"><p>F&B Google Ads CPL in Singapore typically lands in the S$8-S$25 range depending on cuisine, neighbourhood competition, and offer. High-competition CBD cuisines trend toward the upper end; suburban catchments and niche cuisines trend lower. We benchmark against your current organic and aggregator-platform per-lead cost as the comparison, not against vanity industry averages.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you manage Google Ads for multi-outlet F&amp;B businesses?</summary>
-          <div class="faq-answer"><p>Yes. Our Scale package is designed for F&B chains and multi-outlet brands. We create location-specific campaigns for each outlet, manage budgets across locations, and provide consolidated reporting so you can compare performance across your entire network.</p></div>
+          <summary>How long before F&amp;B Google Ads brings more covers?</summary>
+          <div class="faq-answer"><p>F&B Google Ads typically generates first reservation or order requests within 7-14 days of launch once tracking is wired. Performance Max needs 2-4 weeks of learning-phase data before bidding optimises. Performance reliably stabilises by week 6-8 once GCLID closed-loop data is feeding back. Most operators see measurable booking and order lift inside the first month.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you handle seasonal promotions in Google Ads?</summary>
-          <div class="faq-answer"><p>We build campaign calendars around Singapore's F&B calendar — Chinese New Year set menus, Ramadan promotions, National Day specials, Christmas dining packages, and more. Seasonal campaigns are planned in advance and activated on schedule so you capture demand at the right moment.</p></div>
+          <summary>Do you handle delivery-platform conversion tracking?</summary>
+          <div class="faq-answer"><p>Yes. We track direct-site orders, reservation conversions, calls, direction requests, and where possible the post-click handoff to GrabFood, Foodpanda, Deliveroo, and Chope. Where the platform blocks closed-loop tracking, we use proxy conversions (e.g. menu-page time-on-page, click-to-order button) tuned against your sales data so bidding still optimises against real revenue signals.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of Google Ads work best for F&amp;B businesses?</summary>
-          <div class="faq-answer"><p>Search ads targeting food-related keywords perform consistently well. We also use local campaigns for Google Maps visibility, display ads for brand awareness, and Performance Max campaigns for multi-channel reach. The right mix depends on whether you're driving dine-in, delivery, or catering leads.</p></div>
+          <summary>Can I run Google Ads for multiple outlets?</summary>
+          <div class="faq-answer"><p>Yes. Each outlet gets its own location extension, geo-targeted Search campaigns, location-specific Performance Max creative, and per-outlet performance dashboard — while the master account stays clean and consolidated. Built for chains, franchises, and existing multi-outlet groups.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related F&B services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More F&B Services</h2>
+        <h2>More <span class="highlight">F&amp;B</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/fnb-website-design-singapore/" class="related-service-link">F&B Website Design</a>
-          <a href="/fnb-seo-singapore/" class="related-service-link">F&B SEO</a>
-          <a href="/fnb-marketing-agency-singapore/" class="related-service-link">F&B Marketing</a>
-          <a href="/fnb-social-media-singapore/" class="related-service-link">F&B Social Media</a>
-          <a href="/fnb-branding-singapore/" class="related-service-link">F&B Branding</a>
-          <a href="/fnb-content-marketing-singapore/" class="related-service-link">F&B Content Marketing</a>
+          <a href="/fnb-marketing-singapore/" class="related-service-link">F&amp;B Marketing</a>
+          <a href="/fnb-seo-singapore/" class="related-service-link">F&amp;B SEO</a>
+          <a href="/fnb-social-media-singapore/" class="related-service-link">F&amp;B Social Media</a>
+          <a href="/fnb-website-design-singapore/" class="related-service-link">F&amp;B Website Design</a>
+          <a href="/fnb-branding-singapore/" class="related-service-link">F&amp;B Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>

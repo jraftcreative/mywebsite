@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Restaurant Social Media Singapore",
-    "description": "Social media marketing for restaurants in Singapore. Food photography content, Instagram Reels, TikTok, influencer collaborations, and review management — from S$2,500/month.",
+    "description": "Social media agency for restaurants in Singapore. IG and TikTok content cadence, food photography direction, UGC frameworks, creator collaborations, community management.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Restaurant Social Media Marketing",
-    "offers": [
-      { "@type": "Offer", "name": "Essential Social Media", "price": "2500", "priceCurrency": "SGD", "description": "8 posts per month with food photography content, caption writing, and community management for restaurants" },
-      { "@type": "Offer", "name": "Professional Social Media", "price": "3500", "priceCurrency": "SGD", "description": "12 posts per month with Reels, stories, UGC campaigns, and review management for restaurants" },
-      { "@type": "Offer", "name": "Full-Service Social Media", "price": "5000", "priceCurrency": "SGD", "description": "20 posts per month with influencer collaborations, video production, and full community management for restaurant brands" }
-    ]
+    "serviceType": "Restaurant Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for a restaurant in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our restaurant social media packages start at $2,500 SGD per month for 8 posts. The Professional package at $3,500/month includes 12 posts with Reels and stories, while the Full-Service package at $5,000+/month covers 20 posts with influencer collaborations and video production." } },
-      { "@type": "Question", "name": "How many times per week should a restaurant post on social media?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend a minimum of 2 feed posts per week for restaurants, supplemented with daily stories and 2–3 Reels per week. Consistency matters more than frequency — a steady posting schedule keeps your restaurant visible in feeds and builds a loyal following of food lovers." } },
-      { "@type": "Question", "name": "Do you handle food photography for social media?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We coordinate professional food photography sessions and can also work with your existing photos. Our content team knows how to style, shoot, and edit food content that performs on Instagram and TikTok — from flat lays and close-ups to behind-the-scenes kitchen footage." } },
-      { "@type": "Question", "name": "Can you help with influencer partnerships for my restaurant?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Full-Service package includes influencer collaboration management. We identify and connect with Singapore food bloggers and influencers who match your brand, negotiate partnerships, coordinate visits, and ensure content meets your quality standards before it goes live." } },
-      { "@type": "Question", "name": "How do you measure social media ROI for restaurants?", "acceptedAnswer": { "@type": "Answer", "text": "We track engagement rate, follower growth, website clicks, reservation link clicks, and direct messages that convert to bookings. Monthly reports show exactly how social media drives real business results — not just likes and comments, but tangible metrics tied to diners walking through your door." } }
+      { "@type": "Question", "name": "What does restaurant social media management cover in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Restaurant social media in Singapore covers IG and TikTok content cadence, branded food and interior photography direction, short-form Reels and TikToks (signature dishes, behind-the-scenes, chef stories), UGC frameworks, food creator and food-blogger collaborations, paid social boosting, and community management across DMs and comments. We build a monthly content system so output stays consistent even when the kitchen is busy." } },
+      { "@type": "Question", "name": "Should a restaurant prioritise Instagram or TikTok in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Both — but with different roles. IG Reels and Grid are the discovery and shortlist engine for SG diners aged 25-45, especially the occasion-meal and date-night crowd. TikTok skews younger (18-32), reaches the food-trend and BTS audience, and produces faster cold-reach virality. Most restaurants run a primary IG cadence with a TikTok cut-down strategy, plus paid boosts on the top-performing organic posts." } },
+      { "@type": "Question", "name": "How long before restaurant social media drives more covers?", "acceptedAnswer": { "@type": "Answer", "text": "Branded social content compounds over 8-12 weeks as following grows and UGC starts feeding back. Paid social boosting on top-performing Reels and TikToks can drive measurable reservations within the first 2-3 weeks. Most restaurants see consistent reservation and walk-in lift inside the first quarter once the content cadence, paid boosting, and creator collaborations are running together." } },
+      { "@type": "Question", "name": "Do you handle food photography and video content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We coordinate the shoot brief, frame dishes and interior for IG Reels and TikTok formats, write captions and voiceover scripts, and brief UGC creators where relevant. We replace the inconsistent phone-photo grid with a branded asset library that fuels social, the website, GBP, and ads in parallel." } },
+      { "@type": "Question", "name": "Do you run food creator and food-blogger collaborations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We brief, source, and manage SG food creator and food-blogger collaborations — including UGC-only deals (creator posts to their audience plus delivers content rights) and integrated launch campaigns. We do not run influencer 'spray and pray' — every collaboration is briefed against a specific dish, occasion, or launch and tracked against measurable outcomes." } }
     ]
   },
   {
@@ -51,82 +46,141 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .fnb-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .fnb-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .fnb-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Restaurant Social Media Singapore — Jraft Creative"
-  description="Social media marketing for restaurants in Singapore. Food photography content, Instagram Reels, TikTok, influencer collaborations, and review management."
+  title="Restaurant Social Media Singapore | Jraft Creative"
+  description="Restaurant social media agency in Singapore. IG/TikTok content cadence, food photography, UGC frameworks, creator collaborations, community management."
   canonical="https://jraftcreative.com/restaurant-social-media-singapore/"
-  ogTitle="Restaurant Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing for restaurants in Singapore. Food photography, Reels, TikTok, influencer partnerships — from $2,500 SGD/month."
-  ogImage="https://jraftcreative.com/images/og-social.jpg"
-  keywords="restaurant social media singapore, social media marketing restaurant, instagram marketing restaurant singapore, restaurant tiktok marketing, food content creation singapore, Jraft Creative"
+  ogTitle="Restaurant Social Media Singapore | Jraft Creative"
+  ogDescription="Restaurant social media agency in Singapore. IG/TikTok content cadence, food photography, UGC, creator collaborations."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="restaurant social media singapore, restaurant instagram management, restaurant tiktok agency, restaurant content singapore, food photography agency singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Restaurant Social Media"
-  heroTitle='Social Media Marketing for <span class="highlight">Restaurants in Singapore</span>'
-  heroSubtitle="Your food speaks for itself — but your social media should be speaking to thousands. We create mouth-watering content, manage your community, and turn followers into diners at your restaurant."
+  heroLabel="Restaurant Social Media Singapore"
+  heroTitle='Social Media Agency for <span class="highlight">Restaurants in Singapore</span>'
+  heroSubtitle="Singapore restaurant social is saturated. Winning restaurants are not the ones with the prettiest hero shot — they are the ones running a branded content cadence, on-brand UGC, and creator collaborations as a monthly system. We build the IG and TikTok engines that put SG diners in the seat."
   heroImage="/images/service-restaurant.webp"
+  heroImageAlt="Singapore restaurant on social media — restaurant social media agency"
   heroButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/social-media/#portfolio", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20social%20media%20help%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my restaurant in Singapore."
+  whatsappText="Hi Jraft Creative, I need restaurant social media help in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Let Your Food Go Viral"
-  ctaDescription="Book a free consultation and tell us about your restaurant. We'll get back to you within 24 hours with a tailored social media strategy."
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Restaurant Social Engine</span>'
+  ctaDescription="Book a free consultation and tell us about your restaurant — current IG/TikTok presence, content cadence, audience. We'll respond within 24 hours with a tailored social media plan."
   ctaButtons={[
     { text: "Get a Free Quote", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20restaurant%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20restaurant%20social%20media%20help%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why restaurants need social media marketing">
+  <section class="section" id="challenge" aria-label="Why restaurants need specialised social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Great Food Doesn't Market Itself</h2>
+        <h2>SG <span class="highlight">Restaurant Social</span> Is Saturated — <span class="highlight">Hopeful Posting</span> Loses</h2>
       </div>
       <div class="section-content reveal">
-        <p>You're running a kitchen, managing staff, and keeping customers happy — and somehow you're also expected to be a full-time content creator. Posting consistently, creating Reels, responding to reviews, and keeping up with trends is a full-time job on its own. Most restaurant owners in Singapore simply don't have the bandwidth.</p>
-        <p>The result? An Instagram feed that hasn't been updated in weeks, missed opportunities when food trends go viral, and competitors with polished content stealing your potential diners. In Singapore's food-obsessed culture, restaurants that show up consistently on social media stay top of mind — those that don't get forgotten between meals.</p>
-        <p>Social media for restaurants isn't just about pretty food photos. It's about building a community of regulars, responding to reviews that influence new customers, creating video content that the algorithm rewards, and turning online engagement into real bookings and walk-ins at your restaurant.</p>
+        <p>Every restaurant in Singapore is on Instagram. The restaurants actually filling weekend tables are not the ones posting most often — they are the ones running a deliberate content system: branded photography, signature-dish Reels, UGC engineered to be shareable, and creator collaborations against a real plan.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Inconsistent-Grid Problem</h3>
+            <p>Phone photos of mixed lighting, half-eaten dishes, and rushed Stories signal "amateur" to a SG diner deciding whether to book. The grid is the menu before the menu — and most restaurant grids look like a hard drive dump.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>UGC Left to Chance</h3>
+            <p>Most restaurants wait for customers to tag them. Winning restaurants plan UGC as a system — signature dish framing, in-store moments engineered for the camera, and prompts that make diners actually want to post.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Creator Collabs Run Blind</h3>
+            <p>Restaurants hand creators a free meal, get a single post, and call it marketing. Without briefing, content rights, paid amplification on the winning post, and outcome tracking, creator spend stays a hopeful gesture rather than a measurable channel.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Restaurant social media services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Restaurant social media services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Social Media Services for Restaurants</h2>
+        <h2>Six <span class="highlight">Restaurant Social Workstreams</span> Every Operator <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your restaurant's social media presence — from content creation and posting to community management and influencer partnerships. You focus on the kitchen; we'll make sure the world sees what comes out of it.</p>
-        <p>Social media works best as part of a complete digital strategy. Pair your content with <a href="/services/paid-ads/">paid social ads</a> to amplify reach, <a href="/services/seo-performance/">local SEO</a> for Google visibility, and a <a href="/services/website-development/">high-converting restaurant website</a> where your followers can book and order.</p>
+        <p>We run restaurant social as a six-workstream system — IG and TikTok content cadence, photography direction, Reels and TikTok production, UGC frameworks, creator collaborations, and community management. Built as a monthly engine, not random posting.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Food Photography &amp; Reels</h3>
-            <p>Professional food content shot specifically for social media. Instagram Reels, TikTok videos, and scroll-stopping photography that makes your dishes the star of every feed.</p>
+            <h3>IG &amp; TikTok Content Cadence</h3>
+            <p>Monthly content calendar across Reels, Grid, Stories, and TikTok — pillared around signature dishes, behind-the-scenes, chef story, occasion content, and seasonal launches. Built once, executed weekly.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Community &amp; Review Management</h3>
-            <p>We respond to comments, messages, and reviews on your behalf. Positive reviews get amplified, negative feedback gets handled professionally, and your community feels heard.</p>
+            <h3>Food &amp; Interior Photography Direction</h3>
+            <p>Shoot briefs, lighting and styling direction, and post-production for menu, social, GBP, and ads. One branded asset library — not phone-camera improvisation across five different staff members.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>UGC &amp; User Content Campaigns</h3>
-            <p>We create campaigns that encourage diners to share their experience. Branded hashtags, photo-worthy moments, and UGC curation turn your customers into your best content creators.</p>
+            <h3>Reels &amp; TikTok Production</h3>
+            <p>Short-form video shooting, editing, captions, hooks, and trend integration. Signature dish Reels, BTS chef content, day-in-the-kitchen TikToks — built for SG diner scroll, not US restaurant templates.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Influencer Collaborations</h3>
-            <p>We connect your restaurant with Singapore food bloggers and influencers who match your brand. From micro-influencers to established food critics, we manage the entire partnership process.</p>
+            <h3>UGC Frameworks</h3>
+            <p>Engineered moments that make diners want to post — signature dish framing, in-store backdrops, prompts and hashtags, and a reposting workflow that turns UGC into a compounding content source.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Creator &amp; Food-Blogger Collabs</h3>
+            <p>SG food creator and food-blogger sourcing, briefing, content rights, paid amplification on winning posts, and outcome tracking. UGC-only deals plus integrated launch campaigns — not free meals for hopeful reach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>DM response, comment moderation, sentiment monitoring, and review escalation — handled to your brand voice within your response-time window. Critical for the SG diner who DMs to book or ask about dietary needs.</p>
           </div>
         </div>
       </div>
@@ -134,150 +188,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for restaurant social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for restaurant social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Restaurant Social Media</h2>
+        <h2><span class="highlight">Restaurant Social</span> Built for <span class="highlight">Covers</span>, Not <span class="highlight">Vanity Likes</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand Singapore's food culture inside and out. We know which content formats drive engagement, which hashtags reach local foodies, and how to turn a restaurant's social media into a steady stream of new and returning diners.</p>
+        <p>Most social agencies pitching restaurants sell follower growth and "engagement" — neither of which fill seats. We sell a system tied to reservations, walk-ins, and CRM growth, with paid social boosting on the organic winners, creator collaborations briefed against outcomes, and a content cadence the kitchen can actually sustain.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>F&amp;B Content Specialists</h3>
-            <p>Food content is our speciality. We know how to light a dish, write a caption that drives engagement, and create Reels that the algorithm pushes to thousands of local food lovers.</p>
+            <h3>System, Not Random Posts</h3>
+            <p>Monthly calendars built from a pillar framework — so the grid stays on-brand, the cadence stays consistent, and the kitchen knows what is shooting that week. Output that survives a busy Saturday service.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Local Food Culture Knowledge</h3>
-            <p>We understand Singapore's food trends, seasonal peaks, and what local foodies respond to. From hawker culture to fine dining, our content resonates with the audience that matters to your restaurant.</p>
+            <h3>Paid Boosting on Winners</h3>
+            <p>We do not let a viral Reel die organically. Every winning post gets a paid boost on Meta or TikTok against geo-targeted catchment audiences — turning organic reach into measurable reservations.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Consistent Posting Schedule</h3>
-            <p>No more weeks of silence on your feed. We maintain a consistent content calendar with scheduled posts, stories, and Reels so your restaurant stays visible and top of mind every single day.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Real Business Results</h3>
-            <p>We track metrics that matter — reservation clicks, website visits, DM conversions, and foot traffic. Monthly reports show exactly how social media is contributing to your restaurant's bottom line.</p>
+            <h3>You Own Every Asset</h3>
+            <p>Your IG account, your TikTok, your photo library, your Reels source files — all in your name. No agency lock-in. If you ever leave, you take the full content library with you.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Restaurant social media pricing">
+  <!-- ========== RESTAURANT BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Restaurant Buyer Funnel — and where social media shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Social Media Pricing</p>
-        <h2>Social Media Packages for Restaurants</h2>
-        <p>Monthly retainer. Cancel anytime.</p>
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>Where <span class="highlight">Social Media</span> Shows Up in the <span class="highlight">Diner Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essential</h3>
-            <div class="price">$2,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants building a consistent social presence.</p>
-            <ul class="pricing-features">
-              <li>8 posts per month</li>
-              <li>Food photography content</li>
-              <li>Caption writing &amp; hashtags</li>
-              <li>2 platforms (IG + FB or TikTok)</li>
-              <li>Basic community management</li>
-              <li>Monthly analytics report</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Professional</h3>
-            <div class="price">$3,500 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants ready to grow their audience and engagement.</p>
-            <ul class="pricing-features">
-              <li>12 posts per month</li>
-              <li>Reels &amp; short-form video</li>
-              <li>Stories content (weekly)</li>
-              <li>3 platforms managed</li>
-              <li>Review response management</li>
-              <li>Bi-weekly reporting</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Full-Service</h3>
-            <div class="price">$5,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">For restaurants and groups wanting a complete social strategy.</p>
-            <ul class="pricing-features">
-              <li>20 posts per month</li>
-              <li>Professional video production</li>
-              <li>Influencer collaborations</li>
-              <li>UGC campaign management</li>
-              <li>Full community management</li>
-              <li>Weekly reporting &amp; strategy calls</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore restaurant diners move through five stages. Social media dominates Discover and Advocate — the first impression that puts you on the shortlist, and the UGC loop that recruits the next diner.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See full service details on our <a href="/services/social-media/" class="inline-link">social media marketing</a> page.</p>
-      </div>
+      <ol class="fnb-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>IG Reels, TikTok, creator posts (Social-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>Grid acts as the menu before the menu</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>Stories and Reels convert intent to booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Follow-up content, weekly regulars, loyalty</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Advocate</h3>
+          <p>UGC, Stories, tags compound reach (Social-led)</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about social media marketing for restaurants in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about restaurant social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Restaurant Social Media Questions Answered</h2>
+        <h2><span class="highlight">Restaurant Social Media</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for a restaurant in Singapore?</summary>
-          <div class="faq-answer"><p>Our restaurant social media packages start at $2,500 SGD per month for 8 posts. The Professional package at $3,500/month includes 12 posts with Reels and stories, while the Full-Service package at $5,000+/month covers 20 posts with influencer collaborations and video production.</p></div>
+          <summary>What does restaurant social media management cover in Singapore?</summary>
+          <div class="faq-answer"><p>Restaurant social media in Singapore covers IG and TikTok content cadence, branded food and interior photography direction, short-form Reels and TikToks (signature dishes, behind-the-scenes, chef stories), UGC frameworks, food creator and food-blogger collaborations, paid social boosting, and community management across DMs and comments. We build a monthly content system so output stays consistent even when the kitchen is busy.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How many times per week should a restaurant post on social media?</summary>
-          <div class="faq-answer"><p>We recommend a minimum of 2 feed posts per week for restaurants, supplemented with daily stories and 2–3 Reels per week. Consistency matters more than frequency — a steady posting schedule keeps your restaurant visible in feeds and builds a loyal following of food lovers.</p></div>
+          <summary>Should a restaurant prioritise Instagram or TikTok?</summary>
+          <div class="faq-answer"><p>Both — but with different roles. IG Reels and Grid are the discovery and shortlist engine for SG diners aged 25-45, especially the occasion-meal and date-night crowd. TikTok skews younger (18-32), reaches the food-trend and BTS audience, and produces faster cold-reach virality. Most restaurants run a primary IG cadence with a TikTok cut-down strategy, plus paid boosts on the top-performing organic posts.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you handle food photography for social media?</summary>
-          <div class="faq-answer"><p>Yes. We coordinate professional food photography sessions and can also work with your existing photos. Our content team knows how to style, shoot, and edit food content that performs on Instagram and TikTok — from flat lays and close-ups to behind-the-scenes kitchen footage.</p></div>
+          <summary>How long before restaurant social media drives more covers?</summary>
+          <div class="faq-answer"><p>Branded social content compounds over 8-12 weeks as following grows and UGC starts feeding back. Paid social boosting on top-performing Reels and TikToks can drive measurable reservations within the first 2-3 weeks. Most restaurants see consistent reservation and walk-in lift inside the first quarter once the content cadence, paid boosting, and creator collaborations are running together.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can you help with influencer partnerships for my restaurant?</summary>
-          <div class="faq-answer"><p>Yes. Our Full-Service package includes influencer collaboration management. We identify and connect with Singapore food bloggers and influencers who match your brand, negotiate partnerships, coordinate visits, and ensure content meets your quality standards before it goes live.</p></div>
+          <summary>Do you handle food photography and video content?</summary>
+          <div class="faq-answer"><p>Yes. We coordinate the shoot brief, frame dishes and interior for IG Reels and TikTok formats, write captions and voiceover scripts, and brief UGC creators where relevant. We replace the inconsistent phone-photo grid with a branded asset library that fuels social, the website, GBP, and ads in parallel.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you measure social media ROI for restaurants?</summary>
-          <div class="faq-answer"><p>We track engagement rate, follower growth, website clicks, reservation link clicks, and direct messages that convert to bookings. Monthly reports show exactly how social media drives real business results — not just likes and comments, but tangible metrics tied to diners walking through your door.</p></div>
+          <summary>Do you run food creator and food-blogger collaborations?</summary>
+          <div class="faq-answer"><p>Yes. We brief, source, and manage SG food creator and food-blogger collaborations — including UGC-only deals (creator posts to their audience plus delivers content rights) and integrated launch campaigns. We do not run influencer 'spray and pray' — every collaboration is briefed against a specific dish, occasion, or launch and tracked against measurable outcomes.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
   <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related restaurant services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Restaurant Services</h2>
+        <h2>More <span class="highlight">Restaurant</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
           <a href="/restaurant-marketing-singapore/" class="related-service-link">Restaurant Marketing</a>
+          <a href="/restaurant-seo-singapore/" class="related-service-link">Restaurant SEO</a>
           <a href="/restaurant-google-ads-singapore/" class="related-service-link">Restaurant Google Ads</a>
           <a href="/restaurant-facebook-ads-singapore/" class="related-service-link">Restaurant Facebook Ads</a>
           <a href="/restaurant-branding-singapore/" class="related-service-link">Restaurant Branding</a>
+          <a href="/restaurant-ai-search-optimisation-singapore/" class="related-service-link">Restaurant AI Search</a>
       </div>
     </div>
   </section>
