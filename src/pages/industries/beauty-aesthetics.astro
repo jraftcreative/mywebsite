@@ -1,86 +1,30 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const subIndustries = [
-  {
-    name: "Beauty Salon",
-    href: "/beauty-salon-website-singapore/",
-    description: "Full-service beauty salons offering facials, waxing, and beauty treatments.",
-    image: "/images/service-beauty.webp",
-    services: [
-      { label: "Website", href: "/beauty-salon-website-singapore/" },
-      { label: "SEO", href: "/beauty-salon-seo-singapore/" },
-      { label: "Marketing", href: "/beauty-salon-marketing-singapore/" },
-      { label: "Social Media", href: "/beauty-salon-social-media-singapore/" },
-      { label: "Google Ads", href: "/beauty-salon-google-ads-singapore/" },
-      { label: "Facebook Ads", href: "/beauty-salon-facebook-ads-singapore/" },
-      { label: "Branding", href: "/beauty-salon-branding-singapore/" },
-    ],
-  },
-  {
-    name: "Hair Salon",
-    href: "/hair-salon-website-singapore/",
-    description: "Hair salons, barbershops, and styling studios.",
-    image: "/images/service-hairsalon.webp",
-    services: [
-      { label: "Website", href: "/hair-salon-website-singapore/" },
-      { label: "SEO", href: "/hair-salon-seo-singapore/" },
-      { label: "Marketing", href: "/hair-salon-marketing-singapore/" },
-      { label: "Social Media", href: "/hair-salon-social-media-singapore/" },
-    ],
-  },
-  {
-    name: "Nail Salon",
-    href: "/nail-salon-website-singapore/",
-    description: "Nail studios, manicure and pedicure specialists.",
-    image: "/images/service-nailsalon.webp",
-    services: [
-      { label: "Website", href: "/nail-salon-website-singapore/" },
-      { label: "Marketing", href: "/nail-salon-marketing-singapore/" },
-    ],
-  },
-  {
-    name: "Spa",
-    href: "/spa-website-design-singapore/",
-    description: "Day spas, wellness retreats, and massage centres.",
-    image: "/images/service-spa.webp",
-    services: [
-      { label: "Website", href: "/spa-website-design-singapore/" },
-      { label: "SEO", href: "/spa-seo-singapore/" },
-      { label: "Marketing", href: "/spa-marketing-singapore/" },
-      { label: "Social Media", href: "/spa-social-media-singapore/" },
-      { label: "Google Ads", href: "/spa-google-ads-singapore/" },
-      { label: "Branding", href: "/spa-branding-singapore/" },
-    ],
-  },
-  {
-    name: "Aesthetics Clinic",
-    href: "/aesthetics-clinic-website-singapore/",
-    description: "Medical aesthetics clinics offering non-surgical treatments.",
-    image: "/images/service-aesthetics.webp",
-    services: [
-      { label: "Website", href: "/aesthetics-clinic-website-singapore/" },
-      { label: "SEO", href: "/aesthetics-clinic-seo-singapore/" },
-      { label: "Marketing", href: "/aesthetics-clinic-marketing-singapore/" },
-      { label: "Social Media", href: "/aesthetics-clinic-social-media-singapore/" },
-      { label: "Google Ads", href: "/aesthetics-clinic-google-ads-singapore/" },
-      { label: "Branding", href: "/aesthetics-clinic-branding-singapore/" },
-    ],
-  },
-];
-
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Beauty & Aesthetics Marketing Singapore — Jraft Creative",
-    "description": "Digital marketing services for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads.",
+    "name": "Beauty & Aesthetics Industry — Marketing for Singapore Salons, Spas & Clinics",
+    "description": "Jraft Creative's industry-overview view of beauty and aesthetics marketing in Singapore — who we serve, the discovery-to-booking journey, and the pattern recognition we apply across aesthetic clinics, beauty salons, hair salons, nail studios, spas, and MedSpa hybrids.",
     "url": "https://jraftcreative.com/industries/beauty-aesthetics/",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
       "url": "https://jraftcreative.com/"
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which beauty and aesthetics segments do you specialise in?", "acceptedAnswer": { "@type": "Answer", "text": "We work across doctor-led aesthetic clinics (HIFU, RF, lasers, fillers, injectables), beauty salons (facials, waxing, lashes, brows), hair salons and barbershops, nail studios, day spas and wellness centres, and MedSpa hybrid clinic-spa offerings. The discovery-to-booking journey rhymes across all of them — research on Instagram, validate via reviews, compare three to five places, book a trial, then become a repeat client. We bring the cross-segment pattern recognition that single-vertical agencies and generalist agencies both miss." } },
+      { "@type": "Question", "name": "What's the discovery-to-booking journey for beauty buyers in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore beauty buyers typically research for two to six weeks before their first appointment. The journey is: Discover (Instagram, TikTok, Google searches like 'best HydraFacial Orchard', AI tools, friend recommendations) → Validate (read Google reviews, scan IG before-and-afters, check the brand's content cadence) → Compare (shortlist three to five places, compare pricing or 'from $X' transparency) → Book (online form, WhatsApp, or call) → Return (rebook within four to eight weeks if the experience held up). Beauty marketing has to show up at every stage — not just the booking form." } },
+      { "@type": "Question", "name": "How does MOH and HCSR compliance shape aesthetic clinic marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Doctor-led aesthetic clinics are regulated under MOH and the Healthcare Services Regulations (HCSR). Before-and-after photos, testimonials, and outcome claims all face specific advertising rules — patient consent, no superlatives like 'best' or 'no.1', no inducement-style language, and restrictions on which List A and List B procedures can be promoted in public-facing content. We build clinic marketing inside these rules from day one, instead of writing copy that has to be torn up at legal review. Beauty salons, hair salons, nail studios, and spas are not under HCSR but still need PDPA-compliant consent flows for any client photo use." } },
+      { "@type": "Question", "name": "Do you understand catchment-area marketing for Singapore beauty businesses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — it's our default lens. Beauty buyers search for 'nail salon Orchard', 'eyebrow embroidery Tampines', or 'HydraFacial Bugis', not 'beauty salon Singapore'. They scroll Instagram by neighbourhood and walk in from the nearest MRT exit. Every campaign we build is structured around the mall, MRT cluster, or neighbourhood the business actually draws from — paired with a Google Business Profile strategy that owns the local map pack for the treatments you most want to be known for." } },
+      { "@type": "Question", "name": "How do independent clinics and salons compete with brand chains like Porcelain, Allure, or Beyond Medispa?", "acceptedAnswer": { "@type": "Answer", "text": "Independents don't out-spend the chains on broad terms like 'aesthetic clinic Singapore' — they out-flank them on long-tail treatment-plus-neighbourhood terms, named-doctor or named-therapist content, and trust signals (Google reviews, IG video testimonials, before-and-after grids built within HCSR rules). We build SEO around 'HydraFacial Tiong Bahru' instead of 'HydraFacial Singapore', invest in Google reviews and practitioner-led IG and TikTok, and use Google Ads timed to seasonal demand spikes (pre-CNY, pre-wedding-season, year-end party season) where chain budgets get diluted across nationals." } },
+      { "@type": "Question", "name": "Do you work with multi-outlet beauty groups and chains?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet beauty businesses need location-specific SEO landing pages, a separate Google Business Profile for each outlet with reviews managed per location, localised Google Ads campaigns with distinct budgets per neighbourhood, and unified brand messaging across all branches. Multi-outlet engagements include per-location performance tracking, multi-branch GBP optimisation, and centralised content production that can be deployed across every outlet without losing the local nuance." } }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -94,79 +38,339 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Beauty Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Beauty & Aesthetics Marketing Singapore — Jraft Creative"
-  description="Digital marketing for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media."
+  title="Beauty & Aesthetics Industry — Marketing for Singapore Salons, Spas & Clinics | Jraft Creative"
+  description="The Singapore beauty and aesthetics market we serve — aesthetic clinics, beauty salons, hair salons, nail studios, spas, and MedSpa hybrids. Our angle, our pattern recognition, our discovery-to-booking lens."
   canonical="https://jraftcreative.com/industries/beauty-aesthetics/"
-  ogTitle="Beauty & Aesthetics Marketing Singapore — Jraft Creative"
-  ogDescription="Digital marketing for beauty salons, hair salons, nail studios, spas, and aesthetics clinics in Singapore. Website design, SEO, social media, and paid ads tailored to the beauty industry."
-  keywords="beauty salon marketing Singapore, aesthetics clinic marketing Singapore, hair salon SEO Singapore, spa digital marketing Singapore, nail salon website Singapore"
-  ogImage="https://jraftcreative.com/images/industry-beauty.webp"
+  ogTitle="Beauty & Aesthetics Industry — Marketing for Singapore Salons, Spas & Clinics | Jraft Creative"
+  ogDescription="Industry-overview view of Singapore beauty and aesthetics marketing — the segments we serve, the discovery-to-booking journey, and the pattern recognition we apply across every salon, spa, and clinic format."
+  ogImage="https://jraftcreative.com/images/service-beauty.webp"
+  keywords="beauty industry singapore, aesthetics marketing singapore, beauty salon marketing singapore, aesthetic clinic marketing singapore, hair salon marketing singapore, nail salon marketing singapore, spa marketing singapore, MedSpa marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Beauty & Aesthetics"
-  heroTitle='Marketing for <span class="highlight">Beauty &amp; Aesthetics</span> in Singapore'
-  heroSubtitle="The beauty industry in Singapore is competitive and highly visual. We help salons, spas, and aesthetics clinics grow online — through websites built for bookings, SEO that targets high-intent searches, and social media content that converts browsers into clients."
+  heroLabel="Industries We Serve — Beauty & Aesthetics"
+  heroTitle='The <span class="highlight">Singapore Beauty &amp; Aesthetics</span> Industry — <span class="highlight">As We See It</span>'
+  heroSubtitle="Aesthetic clinics, beauty salons, hair salons, nail studios, day spas, MedSpa hybrids — six beauty segments, one discovery-to-booking journey. We bring HCSR-aware copy for clinics, Instagram-first content for salons, and Google Business Profile discipline for every outlet that lives or dies on the local map pack. This is the industry view that shapes how we approach every beauty brief."
   heroImage="/images/service-beauty.webp"
+  heroImageAlt="Singapore beauty and aesthetics industry — the segments and buyer journey we serve"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Services", href: "/#services", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20beauty%20or%20aesthetics%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need marketing help for my beauty business in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Beauty Business"
-  ctaDescription="Book a free consultation and tell us about your salon, spa, or aesthetics clinic. We'll get back to you within 24 hours with a tailored proposal."
+  whatsappText="Hi Jraft Creative, I run a beauty or aesthetics business in Singapore and need marketing help."
+  ctaLabel="Ready to Fill Your Booking Calendar?"
+  ctaTitle='Let Us <span class="highlight">Fill</span> Your <span class="highlight">Treatment Chairs</span>'
+  ctaDescription="Book a free consultation and tell us about your clinic, salon, or spa — your treatments, your catchment, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel growth plan built around your next intake window."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20beauty%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20beauty%20or%20aesthetics%20business%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
-  <section class="section bg-alt">
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why beauty and aesthetics businesses need a specialist industry view">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Why It Matters</p>
-        <h2>Why Beauty Businesses Need Specialised Marketing</h2>
-        <p>Generic digital marketing does not work for beauty and aesthetics. The sector has unique demands — from visually driven discovery on Instagram to the need for seamless online booking integration — that require a focused approach.</p>
+        <p class="section-label">The Industry Reality</p>
+        <h2>Singapore's <span class="highlight">Beauty &amp; Aesthetics Market</span> Runs on <span class="highlight">Visual Trust</span>, Not <span class="highlight">Generic Funnels</span></h2>
       </div>
-      <div class="features-grid" style="margin-top: 2rem;">
-        <div class="feature-card reveal">
-          <h3>Online Booking Integration</h3>
-          <p>We build websites that connect directly with booking platforms such as Fresha and Booksy, so clients can schedule appointments without calling or messaging on WhatsApp.</p>
+      <div class="section-content reveal">
+        <p>Singapore has one of the most saturated beauty markets in Asia — every new mall opens with three or more clinics and salons, every Orchard side-street has a HydraFacial offer, and every Instagram scroll surfaces another aesthetic doctor or lash artist. Most marketing agencies treat the sector like e-commerce. We don't. Here's what makes the industry actually different.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Acquisition Cost Is Climbing</h3>
+            <p>Every new mall opens with three or more clinics or salons. Generic offer ads cannot rescue an undifferentiated brand in a saturated market — positioning and trust signals are the actual unit economics.</p>
+          </div>
         </div>
-        <div class="feature-card reveal reveal-d1">
-          <h3>Before &amp; After Galleries</h3>
-          <p>Visual proof is the most effective conversion tool in beauty. We design gallery sections that showcase your work and give prospective clients confidence to book.</p>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Decision Lives on Instagram</h3>
+            <p>Most beauty buyers shortlist on Instagram and TikTok before they ever Google a brand name. Before-and-after grids, named-therapist content, and Google reviews close the booking — a static treatment menu cannot do that work alone.</p>
+          </div>
         </div>
-        <div class="feature-card reveal reveal-d2">
-          <h3>Instagram &amp; Social Presence</h3>
-          <p>Beauty is one of the most searched categories on Instagram in Singapore. We manage content strategies that build following, drive saves, and translate engagement into bookings.</p>
-        </div>
-        <div class="feature-card reveal reveal-d3">
-          <h3>Treatment Menus &amp; Pricing Pages</h3>
-          <p>Clearly structured treatment menus reduce friction and improve search visibility. We write and optimise service pages that rank for the specific treatments your clients are searching for.</p>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Rules Are Real for Clinics</h3>
+            <p>Doctor-led clinics work under MOH and HCSR advertising rules — patient consent, no superlatives, restrictions on List A and B procedures. Marketing that ignores these constraints gets torn up at legal review.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="The six marketing channels we deliver for beauty and aesthetics businesses">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Specialisations</p>
-        <h2>Beauty &amp; Aesthetics Businesses We Work With</h2>
-        <p>Select your business type to see the specific services available for your industry.</p>
+        <p class="section-label">Channels We Cover</p>
+        <h2>Six <span class="highlight">Channels</span>, Sequenced for the <span class="highlight">Booking Journey</span></h2>
       </div>
-      <div class="industry-detail-grid" style="margin-top: 2rem;">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map(service => (
-                <a href={service.href}>{service.label}</a>
-              ))}
-            </div>
+      <div class="section-content reveal">
+        <p>Different beauty segments need different channel mixes. Aesthetic clinics skew Google Ads and HCSR-aware content. Beauty salons skew Instagram cadence and Google Business Profile. Spas skew SEO for high-intent treatment searches. Nail and hair salons skew local map-pack and review velocity. The six channels below are the toolkit — what we deploy depends on your segment, outlet count, and catchment.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-seo-singapore/">SEO for Beauty &amp; Aesthetics</a></h3>
+            <p>Local rankings and treatment-specific long-tails like "HydraFacial Orchard" or "eyebrow embroidery Tampines." Google Business Profile optimisation for the map pack that drives walk-ins from the nearest MRT exit.</p>
           </div>
-        ))}
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-google-ads-singapore/">Google Ads for Beauty</a></h3>
+            <p>Treatment-specific paid search for HIFU, RF, lasers, fillers, facials, and hair services. GCLID conversion tracking from click to booked appointment, timed to seasonal spikes around CNY, wedding season, and year-end.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-social-media-singapore/">Social Media for Beauty</a></h3>
+            <p>Instagram and TikTok cadence built around treatment education, named-practitioner content, and before-and-after grids inside MOH and PDPA consent rules. The visual proof engine the sector lives or dies on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-website-singapore/">Beauty Websites</a></h3>
+            <p>Booking integration with Fresha, Vagaro, Mindbody, or your local SG system. Consultation forms, treatment menus, mobile-first speed, and the conversion architecture that turns IG taps into actual booked appointments.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-branding-singapore/">Beauty Branding</a></h3>
+            <p>Visual identity, treatment menu design, in-clinic collateral, and the MedSpa positioning that separates you from the fifty other places in your mall or street. Brand systems built to scale across multiple outlets.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">AI Search / GEO</a></h3>
+            <p>Citations in ChatGPT, Gemini, Perplexity, and Google AI Mode for queries like "best HydraFacial in Singapore" or "aesthetic clinic Orchard." AI-friendly schema and the same playbook used for our own agency's discoverability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why Jraft Creative for the Singapore beauty and aesthetics industry">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our Industry Lens</p>
+        <h2>We Work With <span class="highlight">Beauty Operators</span> on the <span class="highlight">Same Side of the Table</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Six beauty sub-segments, one discovery-to-booking journey. The HCSR-aware copy discipline that protects an aesthetic clinic is the same trust-signal logic that wins a nail salon its first hundred Google reviews. We treat clinic owners, salon founders, and spa operators as operators first — busy, hands-on, splitting their week between treatment rooms and the marketing inbox. The brief that comes back reflects that reality.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cross-Segment Pattern Recognition</h3>
+            <p>Six beauty segments, one journey. The map-pack discipline that wins a nail salon in Tampines is the same playbook a MedSpa in Orchard needs. We bring that pattern recognition to every brief from day one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>HCSR &amp; PDPA Fluency</h3>
+            <p>Aesthetic clinics live inside HCSR advertising rules. Every salon, spa, and clinic needs PDPA-compliant client photo consent. We build creative inside these constraints from the first draft, not after legal review.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Booking-Tied Measurement</h3>
+            <p>We measure booked appointments and rebookings — not impressions, not vanity reach. GCLID offline conversion uploads tie every ad click back to the client who walked in. Every report ties spend to bookings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BEAUTY BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Beauty Buyer Funnel — how Singapore beauty clients decide on a clinic, salon, or spa">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Beauty Buyer Funnel</p>
+        <h2>How <span class="highlight">Singapore Beauty Buyers</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first Instagram scroll to a repeat booking, every Singapore beauty buyer moves through the same five stages. We build marketing campaigns that show up at each one — from discovery scrolling through to the rebook that turns a trial into lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Instagram, TikTok, Google, AI tools, friend referrals</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Google reviews, IG grid, before-and-after proof</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 places, price and treatment match</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Online form, WhatsApp, or phone booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Rebook in 4–8 weeks, refer friends</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about the Singapore beauty and aesthetics industry and marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Beauty &amp; Aesthetics Industry</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which beauty and aesthetics segments do you specialise in?</summary>
+          <div class="faq-answer"><p>We work across doctor-led aesthetic clinics (HIFU, RF, lasers, fillers, injectables), beauty salons (facials, waxing, lashes, brows), hair salons and barbershops, nail studios, day spas and wellness centres, and MedSpa hybrid clinic-spa offerings. The discovery-to-booking journey rhymes across all of them — research on Instagram, validate via reviews, compare three to five places, book a trial, then become a repeat client. We bring the cross-segment pattern recognition that single-vertical agencies and generalist agencies both miss.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What's the discovery-to-booking journey for beauty buyers in Singapore?</summary>
+          <div class="faq-answer"><p>Singapore beauty buyers typically research for two to six weeks before their first appointment. The journey is: Discover (Instagram, TikTok, Google searches like "best HydraFacial Orchard", AI tools, friend recommendations) → Validate (read Google reviews, scan IG before-and-afters, check the brand's content cadence) → Compare (shortlist three to five places, compare pricing or "from $X" transparency) → Book (online form, WhatsApp, or call) → Return (rebook within four to eight weeks if the experience held up). Beauty marketing has to show up at every stage — not just the booking form.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How does MOH and HCSR compliance shape aesthetic clinic marketing?</summary>
+          <div class="faq-answer"><p>Doctor-led aesthetic clinics are regulated under MOH and the Healthcare Services Regulations (HCSR). Before-and-after photos, testimonials, and outcome claims all face specific advertising rules — patient consent, no superlatives like "best" or "no.1", no inducement-style language, and restrictions on which List A and List B procedures can be promoted in public-facing content. We build clinic marketing inside these rules from day one, instead of writing copy that has to be torn up at legal review. Beauty salons, hair salons, nail studios, and spas are not under HCSR but still need PDPA-compliant consent flows for any client photo use.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you understand catchment-area marketing for Singapore beauty businesses?</summary>
+          <div class="faq-answer"><p>Yes — it's our default lens. Beauty buyers search for "nail salon Orchard", "eyebrow embroidery Tampines", or "HydraFacial Bugis", not "beauty salon Singapore". They scroll Instagram by neighbourhood and walk in from the nearest MRT exit. Every campaign we build is structured around the mall, MRT cluster, or neighbourhood the business actually draws from — paired with a Google Business Profile strategy that owns the local map pack for the treatments you most want to be known for.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do independent clinics and salons compete with brand chains?</summary>
+          <div class="faq-answer"><p>Independents don't out-spend the chains on broad terms like "aesthetic clinic Singapore" — they out-flank them on long-tail treatment-plus-neighbourhood terms, named-doctor or named-therapist content, and trust signals (Google reviews, IG video testimonials, before-and-after grids built within HCSR rules). We build SEO around "HydraFacial Tiong Bahru" instead of "HydraFacial Singapore", invest in Google reviews and practitioner-led IG and TikTok, and use Google Ads timed to seasonal demand spikes (pre-CNY, pre-wedding-season, year-end party season) where chain budgets get diluted across nationals.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you work with multi-outlet beauty groups and chains?</summary>
+          <div class="faq-answer"><p>Yes. Multi-outlet beauty businesses need location-specific SEO landing pages, a separate Google Business Profile for each outlet with reviews managed per location, localised Google Ads campaigns with distinct budgets per neighbourhood, and unified brand messaging across all branches. Multi-outlet engagements include per-location performance tracking, multi-branch GBP optimisation, and centralised content production that can be deployed across every outlet without losing the local nuance.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Beauty &amp; Aesthetics</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/beauty-marketing-agency-singapore/" class="related-service-link">Full-Service Beauty Marketing</a>
+          <a href="/aesthetics-clinic-marketing-singapore/" class="related-service-link">Aesthetics Clinic Marketing</a>
+          <a href="/beauty-salon-marketing-singapore/" class="related-service-link">Beauty Salon Marketing</a>
+          <a href="/hair-salon-marketing-singapore/" class="related-service-link">Hair Salon Marketing</a>
+          <a href="/nail-salon-marketing-singapore/" class="related-service-link">Nail Salon Marketing</a>
+          <a href="/spa-marketing-singapore/" class="related-service-link">Spa Marketing</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>
