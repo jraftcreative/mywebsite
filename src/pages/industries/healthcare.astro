@@ -42,6 +42,36 @@ const schemaData = [
   /* Hide the global background grid pattern on this page only */
   .animated-bg__grid { display: none; }
 
+  /* ===== Slimmer hero + tighter section rhythm (healthcare page only) =====
+     This page's is:global block is only emitted on /industries/healthcare/,
+     so these overrides are page-scoped despite naming shared classes.
+     .hero.service-hero (two classes) reliably beats the global
+     .service-hero { min-height: 100vh } without needing !important. */
+  .hero.service-hero {
+    min-height: auto;
+    padding: clamp(124px, 16vh, 176px) 0 clamp(64px, 8vh, 96px);
+  }
+  /* Keep the long hero subtitle from sprawling — tighter measure reads less bulky */
+  .hero.service-hero p {
+    max-width: 600px;
+    margin-bottom: 36px;
+  }
+  /* Tighten vertical rhythm so sections sit closer to the window, less dead space.
+     body .section (0,1,1) beats global .section (0,1,0) regardless of order. */
+  body .section {
+    padding-top: 88px;
+    padding-bottom: 88px;
+  }
+  @media (max-width: 768px) {
+    .hero.service-hero {
+      padding: 116px 0 48px;
+    }
+    body .section {
+      padding-top: 56px;
+      padding-bottom: 56px;
+    }
+  }
+
   /* More-prominent related-service pills — match challenge-card-v2 green treatment */
   #related-services .related-service-link {
     background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
