@@ -329,7 +329,12 @@ img {
 
 /* Service page hero */
 .service-hero {
-  min-height: 100vh;
+  /* Slim hero (rolled site-wide 22 Jun 2026) — was min-height:100vh, which made
+     every ServiceLayout hero fill the full screen. Auto height + clamped padding
+     keeps it compact so the next section peeks into view. Mobile padding is
+     handled by the existing responsive .service-hero blocks below. */
+  min-height: auto;
+  padding: clamp(124px, 16vh, 176px) 0 clamp(64px, 8vh, 96px);
   display: flex;
   align-items: center;
 }
