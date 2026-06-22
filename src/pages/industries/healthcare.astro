@@ -1,97 +1,30 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const subIndustries = [
-  {
-    name: "General Clinic",
-    href: "/clinic-website-design-singapore/",
-    description: "GP clinics, polyclinics, and family medicine practices.",
-    image: "/images/service-clinic.webp",
-    services: [
-      { label: "Website", href: "/clinic-website-design-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Google Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-      { label: "AI Search (GEO)", href: "/clinic-ai-search-optimisation-singapore/" },
-    ],
-  },
-  {
-    name: "Dental Clinic",
-    href: "/dental-website-design-singapore/",
-    description: "General dentistry, orthodontics, and cosmetic dental practices.",
-    image: "/images/service-dental.webp",
-    services: [
-      { label: "Website", href: "/dental-website-design-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Google Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-    ],
-  },
-  {
-    name: "TCM Clinic",
-    href: "/tcm-clinic-website-singapore/",
-    description: "Traditional Chinese Medicine clinics and acupuncture centres.",
-    image: "/images/service-tcm.webp",
-    services: [
-      { label: "Website", href: "/tcm-clinic-website-singapore/" },
-      { label: "SEO", href: "/tcm-clinic-seo-singapore/" },
-      { label: "Marketing", href: "/tcm-marketing-singapore/" },
-      { label: "Google Ads", href: "/tcm-clinic-google-ads-singapore/" },
-    ],
-  },
-  {
-    name: "Physiotherapy",
-    href: "/physiotherapy-website-singapore/",
-    description: "Physiotherapy clinics and rehabilitation centres.",
-    image: "/images/service-physiotherapy.webp",
-    services: [
-      { label: "Website", href: "/physiotherapy-website-singapore/" },
-      { label: "SEO", href: "/physiotherapy-seo-singapore/" },
-      { label: "Marketing", href: "/physiotherapy-marketing-singapore/" },
-      { label: "Social Media", href: "/physiotherapy-social-media-singapore/" },
-      { label: "Google Ads", href: "/physiotherapy-google-ads-singapore/" },
-      { label: "Content Marketing", href: "/physiotherapy-content-marketing-singapore/" },
-    ],
-  },
-  {
-    name: "Mental Health",
-    href: "/mental-health-clinic-website-singapore/",
-    description: "Psychology practices, counselling centres, and psychiatric clinics.",
-    image: "/images/service-mentalhealth.webp",
-    services: [
-      { label: "Website", href: "/mental-health-clinic-website-singapore/" },
-      { label: "Marketing", href: "/mental-health-marketing-singapore/" },
-      { label: "Social Media", href: "/mental-health-social-media-singapore/" },
-      { label: "Google Ads", href: "/mental-health-google-ads-singapore/" },
-    ],
-  },
-  {
-    name: "Veterinary Clinic",
-    href: "/veterinary-clinic-website-singapore/",
-    description: "Animal hospitals, vet clinics, and pet care centres.",
-    image: "/images/service-veterinary.webp",
-    services: [
-      { label: "Website", href: "/veterinary-clinic-website-singapore/" },
-      { label: "SEO", href: "/veterinary-clinic-seo-singapore/" },
-      { label: "Marketing", href: "/veterinary-clinic-marketing-singapore/" },
-      { label: "Social Media", href: "/veterinary-clinic-social-media-singapore/" },
-      { label: "Google Ads", href: "/veterinary-clinic-google-ads-singapore/" },
-    ],
-  },
-];
-
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Healthcare Marketing Services — Jraft Creative",
-    "description": "Marketing services for clinics, dental practices, TCM, physiotherapy, mental health, and veterinary businesses in Singapore. Website design, SEO, social media, and Google Ads tailored to the healthcare industry.",
+    "name": "Healthcare Industry — Marketing for Singapore Clinics & Medical Practices",
+    "description": "Jraft Creative's industry-overview view of healthcare marketing in Singapore — who we serve, the discover-to-book patient journey, and the MOH advertising, HCSA licensing, and PDPA discipline we apply across aesthetic clinics, GP and specialist clinics, dental, mental health, physiotherapy, TCM, and veterinary practices.",
     "url": "https://jraftcreative.com/industries/healthcare/",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
       "url": "https://jraftcreative.com/"
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which healthcare segments do you specialise in?", "acceptedAnswer": { "@type": "Answer", "text": "We work across doctor-led aesthetic clinics, GP and family clinics, dental practices (general, orthodontic, cosmetic), mental health and counselling practices, physiotherapy and rehabilitation centres, TCM and acupuncture clinics, and veterinary clinics. The discover-to-book journey rhymes across all of them — a patient searches a symptom or treatment, validates the clinic through Google reviews and credentials, shortlists two to four options, then books. We bring cross-vertical pattern recognition that single-vertical agencies and generalist agencies both miss, all inside the MOH advertising and HCSA framework that governs Singapore healthcare." } },
+      { "@type": "Question", "name": "How do MOH advertising guidelines shape what you can do for clinics?", "acceptedAnswer": { "@type": "Answer", "text": "Healthcare advertising in Singapore is governed by the MOH advertising regulations under the Healthcare Services Act (HCSA), which replaced the old PHMCA framework. That means no superlative or comparative claims ('best', 'No.1', 'most advanced'), no inducement-style discounting on certain services, restrictions on which procedures and outcomes can be promoted publicly, and strict rules on testimonials and before-and-after imagery — all requiring documented patient consent. We build clinic campaigns inside these rules from the first draft, instead of writing copy and creative that gets torn up at legal or compliance review. The constraint is the strategy: trust signals, credentials, and education do the persuading where claims cannot." } },
+      { "@type": "Question", "name": "What's the discover-to-book journey for healthcare patients in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore patients move through five stages: Discover (symptom search on Google, a GP referral, or a specialist recommendation) → Validate (Google reviews, MOH-listed credentials, clinic photos, the doctor's track record and qualifications) → Compare (shortlist two to four clinics, check insurance and Medisave/MediShield acceptance, weigh location and clinic hours against convenience) → Book (consultation form, WhatsApp, phone call, or walk-in) → Return (follow-up appointments, completing a treatment course, and referring family and friends). Healthcare marketing has to show up at every stage — credibility at Validate and friction-free booking at Book matter far more than top-of-funnel reach alone." } },
+      { "@type": "Question", "name": "How does PDPA affect handling patient data in marketing campaigns?", "acceptedAnswer": { "@type": "Answer", "text": "Clinics handle sensitive personal data, so the Personal Data Protection Act applies more strictly than it does to retail. Consent must be explicit and purpose-bound, retention periods need to be defined and enforced, and patient information cannot be repurposed for marketing without a clear lawful basis. In practice that shapes how we build enquiry forms, how WhatsApp and call data is stored, how remarketing audiences are constructed, and how patient photos or testimonials are collected and used. We design consent flows, privacy notices, and data handling into every campaign — not bolted on after a complaint or a PDPC query." } },
+      { "@type": "Question", "name": "Do you work with multi-outlet clinic groups?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet clinic groups need location-specific SEO landing pages, a separate Google Business Profile per branch with reviews managed for each location, localised Google Ads campaigns with distinct budgets per catchment, and unified brand messaging across every outlet. Engagements include per-location performance tracking, multi-branch GBP optimisation, and centralised content production that can be deployed across all branches without losing local nuance — all kept consistent with MOH advertising rules and PDPA obligations across every site." } },
+      { "@type": "Question", "name": "How do independent clinics compete with chain groups like Q&M, Healthway, and Raffles Medical?", "acceptedAnswer": { "@type": "Answer", "text": "Independents don't out-spend the chains on broad terms like 'dental clinic Singapore' or 'GP clinic Singapore' — they out-flank them on long-tail treatment-plus-neighbourhood searches, named-doctor content, and trust signals the chains struggle to personalise. We build SEO around 'wisdom tooth extraction Tampines' or 'physiotherapy Bukit Timah' instead of national head terms, invest in Google reviews and practitioner-led content, own the local map pack via Google Business Profile, and time Google Ads to the moments a chain's budget is diluted across every outlet. The independent's advantage is the named, trusted clinician and the neighbourhood relationship — we make that legible online." } }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -105,213 +38,340 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Healthcare Patient Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Healthcare Marketing Singapore — Jraft Creative"
-  description="Marketing services for clinics, dental practices, TCM, physiotherapy, mental health, and veterinary businesses in Singapore. Website design, SEO."
+  title="Healthcare Industry — Marketing for Singapore Clinics & Medical Practices | Jraft Creative"
+  description="The Singapore healthcare market we serve — aesthetic, GP, dental, mental health, physiotherapy, TCM, and veterinary clinics. MOH-aware, HCSA-compliant, PDPA-disciplined marketing built around how patients actually choose a clinic."
   canonical="https://jraftcreative.com/industries/healthcare/"
-  ogTitle="Healthcare Marketing Singapore — Jraft Creative"
-  ogDescription="Marketing services for clinics, dental practices, TCM, physiotherapy, mental health, and veterinary businesses in Singapore. Website design, SEO, social media, and Google Ads tailored to the healthcare industry."
-  keywords="healthcare marketing Singapore, clinic website design Singapore, medical practice marketing, dental marketing Singapore, physiotherapy marketing Singapore, mental health marketing Singapore"
-  ogImage="/images/service-clinic.webp"
+  ogTitle="Healthcare Industry — Marketing for Singapore Clinics & Medical Practices | Jraft Creative"
+  ogDescription="Industry-overview view of Singapore healthcare marketing — the clinic types we serve, the discover-to-book patient journey, and the MOH advertising, HCSA, and PDPA discipline we apply to every brief."
+  ogImage="https://jraftcreative.com/images/service-clinic.webp"
+  keywords="healthcare marketing singapore, clinic marketing singapore, medical practice marketing singapore, MOH advertising guidelines, HCSA compliance, dental marketing singapore, physiotherapy marketing singapore, mental health marketing singapore, TCM clinic marketing singapore, veterinary clinic marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Healthcare"
-  heroTitle='Marketing for <span class="highlight">Healthcare</span> in Singapore'
-  heroSubtitle="We help clinics and medical practices in Singapore attract more patients, build trust in their communities, and grow sustainably — with marketing strategies designed around how Singaporeans search for and choose healthcare providers."
+  heroLabel="Industries We Serve — Healthcare"
+  heroTitle='The <span class="highlight">Singapore Healthcare</span> Industry — <span class="highlight">As We See It</span>'
+  heroSubtitle="Aesthetic clinics, GP and dental practices, mental health, physiotherapy, TCM, and veterinary clinics — seven healthcare segments, one discover-to-book patient journey. We bring MOH-aware copy, HCSA-compliant campaigns, and PDPA-disciplined data handling to every clinic brief, paired with the Google Business Profile and review strategy that healthcare discovery lives or dies on. This is the industry view that shapes how we approach every healthcare brief."
   heroImage="/images/hero-healthcare.webp"
+  heroImageAlt="Singapore healthcare industry — the clinic segments and patient journey we serve"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "View Services", href: "#services", class: "btn btn-secondary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20clinic%20or%20healthcare%20practice%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need marketing help for my healthcare practice in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Healthcare Practice"
-  ctaDescription="Get a free consultation and a marketing plan tailored to your clinic or medical practice."
+  whatsappText="Hi Jraft Creative, I run a clinic or healthcare practice in Singapore and need marketing help."
+  ctaLabel="Ready to Fill Your Appointment Book?"
+  ctaTitle='Let Us <span class="highlight">Fill</span> Your <span class="highlight">Consultation Calendar</span>'
+  ctaDescription="Book a free consultation and tell us about your clinic — your services, your catchment, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel growth plan built inside MOH advertising rules and around your patient intake goals."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20healthcare%20practice%20in%20Singapore.", class: "btn btn-secondary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20clinic%20or%20healthcare%20practice%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
-  <section class="section bg-alt">
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why healthcare practices need a specialist industry view">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Approach</p>
-        <h2>Why Healthcare Marketing Needs <span class="highlight">Specialised</span> Expertise</h2>
-        <p>Healthcare marketing in Singapore operates within a distinct regulatory and cultural context that general agencies aren't equipped to handle.</p>
+        <p class="section-label">The Industry Reality</p>
+        <h2>Healthcare Marketing in Singapore Runs Inside <span class="highlight">MOH Rules</span>, Not <span class="highlight">Generic Playbooks</span></h2>
       </div>
-      <div class="features-grid" style="margin-top: 2rem;">
-        <div class="feature-card reveal">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="section-content reveal">
+        <p>Healthcare marketing in Singapore can't follow generic agency playbooks. The MOH advertising guidelines, HCSA licensing and registration requirements, and PDPA's stricter rules for sensitive health data govern what you can say, where you can say it, and which claims you can make. The agencies that ignore this end up rewriting every campaign at legal review. The constraint isn't a footnote — it's the strategy.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>MOH + HCSA Compliance Is Non-Negotiable</h3>
+            <p>The regulatory ceiling decides what claims are allowed, which before-and-afters can be shown, and which testimonials work. No superlatives, no comparative claims, no inducement language — campaigns are built inside the rules from the first draft, not rescued at legal review.</p>
           </div>
-          <h3>MOH Compliant</h3>
-          <p>Every piece of content is reviewed against MOH advertising guidelines — factual claims only, no prohibited testimonials, no comparative advertising.</p>
         </div>
-        <div class="feature-card reveal reveal-d1">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Patients Validate Before They Book</h3>
+            <p>Google Reviews, MOH-listed credentials, and the doctor's track record decide the click. The clinic website and profile carry the burden of proof — when claims are restricted, trust signals and education do the persuading that ads cannot.</p>
           </div>
-          <h3>Trust-First Design</h3>
-          <p>Patients make decisions about their health and families. Your marketing needs to project competence, transparency, and care — not aggressive sales tactics.</p>
         </div>
-        <div class="feature-card reveal reveal-d2">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>PDPA Is Stricter for Health Data</h3>
+            <p>Clinics handle sensitive personal data, so consent flows, retention policies, and storage rules are tighter than retail. Enquiry forms, WhatsApp data, remarketing audiences, and patient photos all need a lawful basis built in — not bolted on after a PDPC query.</p>
           </div>
-          <h3>Local SEO Focus</h3>
-          <p>Patients search "clinic near me" and "dentist in Tampines." We specialise in Google Maps rankings and local search that drive new patient appointments.</p>
-        </div>
-        <div class="feature-card reveal reveal-d3">
-          <div class="feature-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <h3>PDPA Compliant</h3>
-          <p>All digital strategies are built around Singapore's Personal Data Protection Act — patient data handling, consent forms, and privacy policies done right.</p>
         </div>
       </div>
-
-      <style>
-        .feature-icon {
-          width: 48px;
-          height: 48px;
-          border-radius: 10px;
-          background: rgba(73, 184, 137, 0.1);
-          border: 1px solid rgba(73, 184, 137, 0.2);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 1rem;
-          color: var(--accent);
-        }
-      </style>
     </div>
   </section>
 
-  <section class="section">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="The six marketing channels we deliver for healthcare practices">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>Healthcare Website <span class="highlight">Showcase</span></h2>
-        <p>Concept websites designed to demonstrate what high-converting healthcare sites look like.</p>
+        <p class="section-label">Channels We Cover</p>
+        <h2>Six <span class="highlight">Channels</span>, Sequenced for the <span class="highlight">Patient Journey</span></h2>
       </div>
-
-      <div class="cf-wrap reveal reveal-d1" id="cfWrap">
-        <div class="cf-track">
-          <div class="cf-slide" data-name="EastCare Family Clinic" data-type="GP Clinic &middot; Website Concept" data-desc="A neighbourhood GP clinic site with CHAS/MediSave info, clinic hours, doctor profiles, and location map." data-href="/demos/eastcare-clinic.html">
-            <a href="/demos/eastcare-clinic.html" target="_blank" rel="noopener"><img src="/images/portfolio-clinic.webp" alt="EastCare Family Clinic" width="1200" height="700" loading="lazy"></a>
-          </div>
-          <div class="cf-slide" data-name="PawCare Veterinary" data-type="Vet Clinic &middot; Website Concept" data-desc="A modern pet clinic site with emergency hotline, vet profiles, service cards, and online appointment booking." data-href="/demos/pawcare-vet.html">
-            <a href="/demos/pawcare-vet.html" target="_blank" rel="noopener"><img src="/images/portfolio-vet.webp" alt="PawCare Veterinary" width="1200" height="700" loading="lazy"></a>
-          </div>
-          <div class="cf-slide" data-name="Yong He TCM" data-type="TCM Clinic &middot; Website Concept" data-desc="A premium TCM clinic site with treatment pages, physician credentials, pricing, and cultural design elements." data-href="/demos/yonghe-tcm.html">
-            <a href="/demos/yonghe-tcm.html" target="_blank" rel="noopener"><img src="/images/portfolio-tcm.webp" alt="Yong He TCM" width="1200" height="700" loading="lazy"></a>
-          </div>
-          <div class="cf-slide" data-name="Clarity Counselling" data-type="Mental Health &middot; Website Concept" data-desc="A calming counselling practice site with therapist profiles, service areas, session pricing, and gentle CTAs." data-href="/demos/clarity-counselling.html">
-            <a href="/demos/clarity-counselling.html" target="_blank" rel="noopener"><img src="/images/portfolio-mental.webp" alt="Clarity Counselling" width="1200" height="700" loading="lazy"></a>
+      <div class="section-content reveal">
+        <p>Different healthcare segments need different channel mixes. Aesthetic and dental clinics skew Google Ads and credential-led content. GP and physiotherapy clinics skew local SEO for symptom and "near me" searches. Mental health and TCM skew trust-building education and reviews. The six channels below are the toolkit — what we deploy depends on your segment, outlet count, and catchment, and all of it is built inside MOH advertising rules and PDPA.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/clinic-marketing-singapore/">SEO for Healthcare</a></h3>
+            <p>Local rankings and symptom-plus-neighbourhood long-tails like "GP clinic Tampines" or "wisdom tooth extraction Bukit Timah." Google Business Profile optimisation for the map pack that drives appointments from the nearest MRT and HDB catchment.</p>
           </div>
         </div>
-        <div class="cf-arrows">
-          <button class="cf-btn cf-prev" aria-label="Previous">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="cf-btn cf-next" aria-label="Next">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-google-ads-singapore/">Google Ads for Healthcare</a></h3>
+            <p>Treatment- and condition-specific paid search built inside MOH advertising rules. GCLID conversion tracking from click to booked consultation, with negative-keyword discipline that keeps spend on genuine patient intent, not browsers.</p>
+          </div>
         </div>
-      </div>
-      <div class="cf-info reveal reveal-d2" id="cfInfo">
-        <span class="portfolio-type" id="cfType">GP Clinic &middot; Website Concept</span>
-        <h3 id="cfName">EastCare Family Clinic</h3>
-        <p id="cfDesc">A neighbourhood GP clinic site with CHAS/MediSave info, clinic hours, doctor profiles, and location map.</p>
-        <a id="cfLink" href="/demos/eastcare-clinic.html" target="_blank" rel="noopener" class="cf-demo-link">View Live Demo →</a>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-social-media-singapore/">Social Media for Healthcare</a></h3>
+            <p>Instagram and TikTok cadence built around patient education, named-clinician content, and credentials — inside MOH advertising and PDPA consent rules. The trust engine that warms patients long before they reach the booking form.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/clinic-website-design-singapore/">Healthcare Websites</a></h3>
+            <p>Consultation forms, doctor profiles, CHAS/Medisave and insurance info, clinic hours, and location maps. Mobile-first speed and the conversion architecture that turns a symptom search into a booked appointment — with PDPA-compliant forms.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/aesthetics-clinic-branding-singapore/">Healthcare Branding</a></h3>
+            <p>Visual identity that projects competence and care, clinic collateral, and the positioning that separates an independent practice from the chain down the road. Brand systems built to stay consistent and compliant across multiple outlets.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/clinic-ai-search-optimisation-singapore/">AI Search / GEO for Healthcare</a></h3>
+            <p>Citations in ChatGPT, Gemini, Perplexity, and Google AI Mode for queries like "best GP clinic near Tampines" or "dentist that accepts CHAS." AI-friendly schema and the same playbook used for our own agency's discoverability.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <style>
-      .cf-wrap { position: relative; max-width: 850px; margin: 0 auto; padding: 0.5rem 0; }
-      .cf-track { display: flex; align-items: center; justify-content: center; gap: 1rem; perspective: 900px; height: 280px; position: relative; }
-      .cf-slide { flex: 0 0 52%; max-width: 52%; height: 100%; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); transform: scale(0.8); opacity: 0.35; filter: brightness(0.5); cursor: pointer; z-index: 1; }
-      .cf-slide.active { transform: scale(1); opacity: 1; filter: brightness(1); z-index: 3; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); border-color: var(--border-accent); }
-      .cf-slide.prev { transform: scale(0.8) translateX(18%) rotateY(6deg); opacity: 0.45; filter: brightness(0.55); z-index: 2; }
-      .cf-slide.next { transform: scale(0.8) translateX(-18%) rotateY(-6deg); opacity: 0.45; filter: brightness(0.55); z-index: 2; }
-      .cf-slide a { display: block; height: 100%; }
-      .cf-slide img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-      .cf-arrows { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; padding: 0 0.25rem; pointer-events: none; z-index: 10; }
-      .cf-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: rgba(18, 18, 27, 0.85); backdrop-filter: blur(6px); color: var(--text-muted); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; pointer-events: all; }
-      .cf-btn:hover { border-color: var(--accent); color: var(--accent); }
-      .cf-info { text-align: center; margin-top: 1.25rem; max-width: 520px; margin-left: auto; margin-right: auto; }
-      .cf-info h3 { font-size: 1.2rem; font-weight: 700; margin: 0.3rem 0; }
-      .cf-info p { color: var(--text-muted); line-height: 1.7; font-size: 0.85rem; }
-      .cf-demo-link { display: inline-block; margin-top: 0.5rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); cursor: pointer; transition: opacity 0.2s; }
-      .cf-demo-link:hover { opacity: 0.8; }
-      @media (max-width: 768px) { .cf-track { height: 200px; } .cf-slide { flex: 0 0 70%; max-width: 70%; } .cf-slide.prev, .cf-slide.next { transform: scale(0.75); } }
-    </style>
-
-    <script is:inline>
-      (function() {
-        var slides = document.querySelectorAll('.cf-slide');
-        var nameEl = document.getElementById('cfName');
-        var typeEl = document.getElementById('cfType');
-        var descEl = document.getElementById('cfDesc');
-        var linkEl = document.getElementById('cfLink');
-        var current = 0;
-        var total = slides.length;
-
-        function update() {
-          var prevIdx = (current - 1 + total) % total;
-          var nextIdx = (current + 1) % total;
-          slides.forEach(function(s, i) {
-            s.classList.remove('active', 'prev', 'next');
-            s.style.order = '';
-            s.style.display = '';
-            if (i === current) { s.classList.add('active'); s.style.order = '2'; }
-            else if (i === prevIdx) { s.classList.add('prev'); s.style.order = '1'; }
-            else if (i === nextIdx) { s.classList.add('next'); s.style.order = '3'; }
-            else { s.style.display = 'none'; }
-          });
-          var s = slides[current];
-          nameEl.textContent = s.dataset.name;
-          typeEl.innerHTML = s.dataset.type;
-          descEl.textContent = s.dataset.desc;
-          linkEl.href = s.dataset.href;
-        }
-
-        function goTo(i) { current = (i + total) % total; update(); }
-
-        slides.forEach(function(s, i) {
-          s.addEventListener('click', function(e) { if (i !== current) { e.preventDefault(); goTo(i); } });
-        });
-        document.querySelector('.cf-prev').addEventListener('click', function() { goTo(current - 1); });
-        document.querySelector('.cf-next').addEventListener('click', function() { goTo(current + 1); });
-        update();
-
-        var timer = setInterval(function() { goTo(current + 1); }, 3000);
-        document.getElementById('cfWrap').addEventListener('mouseenter', function() { clearInterval(timer); });
-        document.getElementById('cfWrap').addEventListener('mouseleave', function() {
-          timer = setInterval(function() { goTo(current + 1); }, 3000);
-        });
-      })();
-    </script>
   </section>
 
-  <section class="section" id="services">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why Jraft Creative for the Singapore healthcare industry">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Cover</p>
-        <h2>Services by Healthcare Type</h2>
-        <p>Select your practice type to see the full range of services available.</p>
+        <p class="section-label">Our Industry Lens</p>
+        <h2>We Work With <span class="highlight">Clinic Operators</span> on the <span class="highlight">Same Side of the Table</span></h2>
       </div>
-      <div class="industry-detail-grid">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map((svc) => (
-                <a href={svc.href}>{svc.label}</a>
-              ))}
-            </div>
+      <div class="section-content reveal">
+        <p>Seven healthcare sub-segments, one discover-to-book journey. The MOH-aware copy discipline that protects an aesthetic clinic is the same trust-signal logic that wins a GP practice its first hundred Google reviews. We treat clinic owners and clinicians as operators first — busy, hands-on, splitting their week between consultation rooms and the practice inbox. The brief that comes back reflects that reality, and it's compliant before it's clever.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>MOH + HCSA + PDPA Fluency From Day One</h3>
+            <p>Compliance is built into the brief, not bolted on at review. Advertising rules, licensing constraints, and sensitive-data handling shape the first draft of every campaign — so creative ships instead of getting torn up.</p>
           </div>
-        ))}
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Cross-Vertical Pattern Recognition</h3>
+            <p>Aesthetic, dental, physio, mental health, TCM, vet, and GP clinics all share the same buyer-validation pattern. We apply that lens to every brief — the map-pack discipline that wins a physio clinic is the playbook a dental practice needs too.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Outcome-Tied Measurement</h3>
+            <p>We measure booked consultations and treatment starts — not impressions, not vanity reach. GCLID offline conversion uploads tie every ad click back to the patient who walked in. Every report ties spend to appointments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HEALTHCARE PATIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Healthcare Patient Funnel — how Singapore patients decide on a clinic">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Funnel</p>
+        <h2>How <span class="highlight">Singapore Patients</span> Actually <span class="highlight">Choose a Clinic</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first symptom search to a returning patient, every Singapore healthcare decision moves through the same five stages. We build marketing that shows up at each one — from discovery through to the follow-up and family referral that turn one visit into lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Symptom search, GP referral, specialist recommendation</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Google reviews, MOH-listed credentials, doctor's track record</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 2–4 clinics, insurance/Medisave, location</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Consultation form, WhatsApp, phone, walk-in</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Follow-ups, course completion, family referrals</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about the Singapore healthcare industry and marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Healthcare Industry</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which healthcare segments do you specialise in?</summary>
+          <div class="faq-answer"><p>We work across doctor-led aesthetic clinics, GP and family clinics, dental practices (general, orthodontic, cosmetic), mental health and counselling practices, physiotherapy and rehabilitation centres, TCM and acupuncture clinics, and veterinary clinics. The discover-to-book journey rhymes across all of them — a patient searches a symptom or treatment, validates the clinic through Google reviews and credentials, shortlists two to four options, then books. We bring cross-vertical pattern recognition that single-vertical agencies and generalist agencies both miss, all inside the MOH advertising and HCSA framework that governs Singapore healthcare.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do MOH advertising guidelines shape what you can do for clinics?</summary>
+          <div class="faq-answer"><p>Healthcare advertising in Singapore is governed by the MOH advertising regulations under the Healthcare Services Act (HCSA), which replaced the old PHMCA framework. That means no superlative or comparative claims ("best", "No.1", "most advanced"), no inducement-style discounting on certain services, restrictions on which procedures and outcomes can be promoted publicly, and strict rules on testimonials and before-and-after imagery — all requiring documented patient consent. We build clinic campaigns inside these rules from the first draft, instead of writing copy and creative that gets torn up at legal or compliance review. The constraint is the strategy: trust signals, credentials, and education do the persuading where claims cannot.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What's the discover-to-book journey for healthcare patients in Singapore?</summary>
+          <div class="faq-answer"><p>Singapore patients move through five stages: Discover (symptom search on Google, a GP referral, or a specialist recommendation) → Validate (Google reviews, MOH-listed credentials, clinic photos, the doctor's track record and qualifications) → Compare (shortlist two to four clinics, check insurance and Medisave/MediShield acceptance, weigh location and clinic hours against convenience) → Book (consultation form, WhatsApp, phone call, or walk-in) → Return (follow-up appointments, completing a treatment course, and referring family and friends). Healthcare marketing has to show up at every stage — credibility at Validate and friction-free booking at Book matter far more than top-of-funnel reach alone.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How does PDPA affect handling patient data in marketing campaigns?</summary>
+          <div class="faq-answer"><p>Clinics handle sensitive personal data, so the Personal Data Protection Act applies more strictly than it does to retail. Consent must be explicit and purpose-bound, retention periods need to be defined and enforced, and patient information cannot be repurposed for marketing without a clear lawful basis. In practice that shapes how we build enquiry forms, how WhatsApp and call data is stored, how remarketing audiences are constructed, and how patient photos or testimonials are collected and used. We design consent flows, privacy notices, and data handling into every campaign — not bolted on after a complaint or a PDPC query.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you work with multi-outlet clinic groups?</summary>
+          <div class="faq-answer"><p>Yes. Multi-outlet clinic groups need location-specific SEO landing pages, a separate Google Business Profile per branch with reviews managed for each location, localised Google Ads campaigns with distinct budgets per catchment, and unified brand messaging across every outlet. Engagements include per-location performance tracking, multi-branch GBP optimisation, and centralised content production that can be deployed across all branches without losing local nuance — all kept consistent with MOH advertising rules and PDPA obligations across every site.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do independent clinics compete with chain groups like Q&amp;M, Healthway, and Raffles Medical?</summary>
+          <div class="faq-answer"><p>Independents don't out-spend the chains on broad terms like "dental clinic Singapore" or "GP clinic Singapore" — they out-flank them on long-tail treatment-plus-neighbourhood searches, named-doctor content, and trust signals the chains struggle to personalise. We build SEO around "wisdom tooth extraction Tampines" or "physiotherapy Bukit Timah" instead of national head terms, invest in Google reviews and practitioner-led content, own the local map pack via Google Business Profile, and time Google Ads to the moments a chain's budget is diluted across every outlet. The independent's advantage is the named, trusted clinician and the neighbourhood relationship — we make that legible online.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Marketing by <span class="highlight">Healthcare Vertical</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/aesthetics-clinic-marketing-singapore/" class="related-service-link">Aesthetics Clinic Marketing</a>
+          <a href="/clinic-marketing-singapore/" class="related-service-link">General Clinic Marketing</a>
+          <a href="/dental-marketing-singapore/" class="related-service-link">Dental Clinic Marketing</a>
+          <a href="/mental-health-marketing-singapore/" class="related-service-link">Mental Health Marketing</a>
+          <a href="/physiotherapy-marketing-singapore/" class="related-service-link">Physiotherapy Marketing</a>
+          <a href="/tcm-marketing-singapore/" class="related-service-link">TCM Clinic Marketing</a>
+          <a href="/veterinary-clinic-marketing-singapore/" class="related-service-link">Veterinary Clinic Marketing</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>
