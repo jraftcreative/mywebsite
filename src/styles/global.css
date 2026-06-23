@@ -334,35 +334,30 @@ img {
 }
 
 /* Hero padding lives on .hero.service-hero (two classes) so it beats the
-   generic .hero { padding: 180px 0 140px } rule — which wins on source order
-   and kept every service hero too tall (180px top + content = CTA buttons
-   landing ~806px down, below the fold on any laptop window shorter than that).
-   Slimmer top padding moves the content up so the full-size hero — headline,
-   subtitle and CTA buttons — sits within the window, consistently on every
-   ServiceLayout page. Full font sizes retained. (23 Jun 2026) */
+   generic .hero { padding: 180px 0 140px } rule, which otherwise wins on
+   source order. Mobile base = slim (content moved up so CTA buttons stay in
+   the window). Desktop = full-window (below). (23–24 Jun 2026) */
 .hero.service-hero {
   min-height: auto;
-  padding: 100px 0 76px;
+  padding: 104px 0 52px;
 }
 
 .service-hero h1 {
   font-size: 3.2rem;
 }
 
-@media (max-width: 768px) {
+/* LOCKED JRAFT HERO STANDARD (24 Jun 2026): on laptop/desktop EVERY
+   ServiceLayout hero fills the window — hero = 100vh, content vertically
+   centred (long content top-aligns from the 100px pad and still clears the
+   fixed nav), CTA buttons in-window, next section below the fold. Applies to
+   industry hubs, vertical/marketing pages, and /services/* alike. Heroes must
+   fit the window — no next-section bleed, no clipped buttons. */
+@media (min-width: 769px) {
   .hero.service-hero {
-    padding: 104px 0 52px;
+    min-height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 56px;
   }
-}
-
-/* Industry-hub directory pages (/industries/*) get a full-window hero — they're
-   landing/directory pages, so the hero should fill the viewport with content
-   vertically centred and the next section below the fold, rather than the slim
-   marketing-page treatment. Body class set in BaseLayout. (24 Jun 2026) */
-body.is-industries-hub .hero.service-hero {
-  min-height: 100vh;
-  padding-top: 100px;
-  padding-bottom: 56px;
 }
 
 /* Service page detail cards */
