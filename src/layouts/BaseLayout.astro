@@ -269,17 +269,34 @@ const currentPath = Astro.url.pathname;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Scroll reveal
+    // Scroll reveal.
+    // threshold 0 + positive bottom rootMargin: any element that touches the
+    // viewport (or sits just below it) reveals immediately — including content
+    // already on screen at initial load. Previously threshold 0.1 with a
+    // negative bottom margin left near-fold content stuck at opacity:0 (a blank
+    // void) until the user scrolled. Surfaced site-wide once heroes were slimmed.
     var revealObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px 10% 0px' });
 
     document.querySelectorAll('.reveal').forEach(function (el) {
       revealObserver.observe(el);
+    });
+
+    // Safety net: if anything is still hidden after load (e.g. observer
+    // edge cases), reveal everything within the first viewport immediately so
+    // there is never a blank void on screen.
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
     });
   </script>
 </body>
