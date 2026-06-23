@@ -329,18 +329,30 @@ img {
 
 /* Service page hero */
 .service-hero {
-  /* Slim hero (rolled site-wide 22 Jun 2026) — was min-height:100vh, which made
-     every ServiceLayout hero fill the full screen. Auto height + clamped padding
-     keeps it compact so the next section peeks into view. Mobile padding is
-     handled by the existing responsive .service-hero blocks below. */
-  min-height: auto;
-  padding: clamp(124px, 16vh, 176px) 0 clamp(64px, 8vh, 96px);
   display: flex;
   align-items: center;
 }
 
+/* Hero padding lives on .hero.service-hero (two classes) so it beats the
+   generic .hero { padding: 180px 0 140px } rule — which wins on source order
+   and kept every service hero too tall (180px top + content = CTA buttons
+   landing ~806px down, below the fold on any laptop window shorter than that).
+   Slimmer top padding moves the content up so the full-size hero — headline,
+   subtitle and CTA buttons — sits within the window, consistently on every
+   ServiceLayout page. Full font sizes retained. (23 Jun 2026) */
+.hero.service-hero {
+  min-height: auto;
+  padding: 100px 0 76px;
+}
+
 .service-hero h1 {
   font-size: 3.2rem;
+}
+
+@media (max-width: 768px) {
+  .hero.service-hero {
+    padding: 104px 0 52px;
+  }
 }
 
 /* Service page detail cards */
