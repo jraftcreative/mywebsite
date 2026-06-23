@@ -63,6 +63,19 @@ const schemaData = [
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20discuss%20marketing%20for%20my%20business.", class: "btn btn-secondary" }
   ]}
 >
+  <style is:global>
+    /* Industries directory hero fills the window — this is a hub/landing page,
+       so the hero should stand on its own with the card grid beginning below
+       the fold, rather than the slim hub/marketing-page treatment that lets the
+       next section peek. Page-scoped (this is:global block only ships on
+       /industries/). Overrides the global .hero.service-hero slim padding. */
+    body .hero.service-hero {
+      min-height: 100vh;
+      padding-top: 100px;
+      padding-bottom: 56px;
+    }
+  </style>
+
   <section class="section bg-alt" style="margin-top: -2px; border-top: none;">
     <div class="container">
       <div class="industries-hub-grid">
