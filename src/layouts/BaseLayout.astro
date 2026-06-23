@@ -93,7 +93,7 @@ const currentPath = Astro.url.pathname;
       : <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
   )}
 </head>
-<body>
+<body class={currentPath.startsWith('/industries/') ? 'is-industries-hub' : undefined}>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7XX5KDQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 

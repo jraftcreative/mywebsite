@@ -355,6 +355,16 @@ img {
   }
 }
 
+/* Industry-hub directory pages (/industries/*) get a full-window hero — they're
+   landing/directory pages, so the hero should fill the viewport with content
+   vertically centred and the next section below the fold, rather than the slim
+   marketing-page treatment. Body class set in BaseLayout. (24 Jun 2026) */
+body.is-industries-hub .hero.service-hero {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 56px;
+}
+
 /* Service page detail cards */
 .service-details-grid {
   display: grid;
