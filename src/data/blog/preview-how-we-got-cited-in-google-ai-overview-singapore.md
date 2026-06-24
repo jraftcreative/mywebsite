@@ -4,8 +4,8 @@ description: "Google's AI Overview now cites Jraft Creative directly for two nic
 date: 2026-06-24
 author: "Jraft Creative"
 category: "AI & SEO"
-image: "/images/blog/what-is-geo-ai-search.webp"
-imageAlt: "Conceptual illustration of generative AI search results, with floating connection lines representing how AI engines decide which brands to cite"
+image: "/images/blog/google-ai-overview-hero.webp"
+imageAlt: "Close-up of a Google search homepage on a computer screen, illustrating the moment a buyer types a query that surfaces an AI Overview response"
 keywords:
   - how to get cited in Google AI Overview
   - Google AI Overview Singapore
@@ -128,7 +128,3 @@ The audit is paid upfront because the audit IS the work — there's no abbreviat
 [Start with the AI Visibility Audit →](/ai-visibility-audit-singapore/)
 
 Or, if you want to understand the broader picture first, our [GEO agency Singapore service overview](/geo-agency-singapore/) walks through the full scope of what AI visibility work looks like end-to-end.
-
----
-
-*This article was written by Jeremy Cheong, Founder & Managing Director of Jraft Creative — a Singapore-based marketing agency specialising in AI search optimisation, performance marketing, and full-funnel growth for Singapore businesses.*
