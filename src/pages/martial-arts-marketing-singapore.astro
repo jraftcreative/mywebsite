@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Martial Arts Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Martial Arts Marketing Singapore | Trial-to-Member Funnel"
   description="Martial arts studio marketing in Singapore — trial-to-member funnels, parent-led campaigns for kids' classes, adult fitness conversion."
@@ -60,114 +160,175 @@ const schemaData = [
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="martial arts marketing singapore, martial arts school advertising, BJJ marketing singapore, muay thai marketing, martial arts digital marketing, taekwondo marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Martial Arts Marketing Singapore"
+  heroLabel="Marketing for Martial Arts Schools"
   heroTitle='Full-Service Marketing for <span class="highlight">Martial Arts Schools in Singapore</span>'
-  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your mats. Stop juggling freelancers and start running a unified student acquisition strategy."
+  heroSubtitle="BJJ, Muay Thai, taekwondo, boxing and MMA schools are all competing for the same students — and parents and adults compare three to five before booking a trial. We build full-service marketing (SEO, GEO, Google Ads, IG/TikTok, branding, websites) that fills your mats."
   heroImage="/images/service-martialarts.webp"
+  heroImageAlt="Martial arts school training in Singapore — martial arts marketing"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing for my martial arts school in Singapore."
   ctaLabel="Ready to Fill Your Mats?"
-  ctaTitle="Get Your Free Martial Arts Marketing Audit"
+  ctaTitle='Get Your Free <span class="highlight">Martial Arts Marketing</span> Audit'
   ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your school's enrolment goals. No obligations."
   ctaButtons={[
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20martial%20arts%20school%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why martial arts schools need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why martial arts schools need full-service marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Great Training Alone Will Not Fill Your School</h2>
+        <h2>Great <span class="highlight">Training</span> Alone Won't <span class="highlight">Fill Your Mats</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's martial arts scene is thriving — Brazilian Jiu-Jitsu gyms, Muay Thai camps, taekwondo dojangs, boxing studios, and multi-discipline academies are competing for the same pool of students. From Bugis to Jurong, new schools are opening regularly while established ones fight to retain members. Parents searching for kids martial arts classes and adults looking for self-defence or combat fitness have more options than ever before.</p>
-        <p>Many martial arts schools rely on word-of-mouth, competition results, and Instagram clips of sparring sessions. While community reputation matters, it does not scale. A parent searching "kids martial arts Tampines" on Google will not find your school through word-of-mouth — they will find whichever competitor ranks on page one. An adult searching "muay thai classes near me" will book a trial at the first school that shows up with a professional website and clear pricing.</p>
-        <p>Full-service marketing solves this by building visibility across every channel your potential students use — a professional website that communicates your school's values and offerings, SEO that captures search traffic by discipline and location, ads that drive immediate trial bookings, and social content that showcases your training culture and builds credibility.</p>
+        <p>Singapore's martial arts scene is crowded — BJJ gyms, Muay Thai camps, taekwondo dojangs, boxing studios and multi-discipline academies all fighting for the same students. Reputation matters, but it doesn't scale to the parents and adults deciding online.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Word-of-Mouth Ceiling</h3>
+            <p>Community reputation and competition results matter — but they don't scale. A parent Googling "kids martial arts Tampines" won't find you through word of mouth; they'll find whichever school ranks on page one and looks credible.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Dual-Audience Split</h3>
+            <p>Kids programmes are sold to parents; adult programmes are sold to the trainee directly. They search differently, decide differently, and respond to different messaging. One generic campaign reaches neither audience properly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The "Classes Near Me" Booking</h3>
+            <p>An adult searching "muay thai near me" books a trial at the first school with a professional website, clear pricing, and easy booking. If that's not you, the discipline and the coaching never even get a look.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for martial arts schools">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for martial arts schools in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your Martial Arts School Needs to Grow</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Martial Arts School <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your martial arts school's marketing in-house — from designing a website that converts visitors into trial bookings, to ranking your school on Google for every discipline you teach, running targeted ads for both kids and adult programmes, and creating social content that captures the energy of your training. No outsourcing, no subcontractors. One team, one strategy, measurable student growth.</p>
+        <p>We build marketing strategies specifically for martial arts schools — combining catchment SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design, with separate plays for your kids and adult programmes.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A professional, mobile-responsive website that communicates your school's philosophy, showcases your disciplines, presents instructor credentials, and makes it easy to book a trial class. Dedicated pages for each programme — kids BJJ, adult Muay Thai, self-defence workshops — designed for how Singapore families and individuals evaluate martial arts schools.</p>
+            <h3><a href="/martial-arts-seo-singapore/">SEO for Martial Arts Schools</a></h3>
+            <p>Rank for discipline-plus-neighbourhood searches like "BJJ Bugis" or "kids taekwondo Bukit Timah." Google Business Profile and map-pack optimisation that wins trial bookings from your catchment.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for every discipline and location your school serves — "Brazilian Jiu-Jitsu Singapore," "kids taekwondo Bukit Timah," "Muay Thai classes Tanjong Pagar." Google Business Profile optimisation, local citations, and discipline-specific content that drives organic trial bookings month after month.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when students ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best Muay Thai gym Singapore" or "kids martial arts near me." The same AI-citation playbook we use for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Social</h3>
-            <p>Targeted ad campaigns on Google, Instagram, Facebook, and TikTok. Separate campaigns for kids programmes (targeting parents) and adult programmes (targeting individuals). We manage budgets by discipline and audience, optimise for cost-per-trial, and scale spend during peak enrolment periods like school holidays and New Year.</p>
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads</a></h3>
+            <p>Separate high-intent campaigns for kids programmes (targeting parents) and adult programmes (targeting trainees), scaled during school holidays and New Year. GCLID tracking from click to booked trial.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Content Marketing</h3>
-            <p>Instagram, TikTok, and Facebook content that captures your school's training culture — sparring highlights, technique breakdowns, student progress stories, belt promotions, and competition results. Martial arts content performs exceptionally well on social media, and we create content that builds your community while driving trial sign-ups.</p>
+            <h3><a href="/services/social-media/">Social Media for Martial Arts</a></h3>
+            <p>Instagram, TikTok and Facebook content that captures your training culture — sparring highlights, technique breakdowns, belt promotions, and student progress. Martial arts content performs exceptionally well on social.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Martial Arts</a></h3>
+            <p>A brand system that signals credibility to parents and intensity to adults — logo, palette, kit and photo direction that positions your school above the cheaper option down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/martial-arts-website-singapore/">Websites for Martial Arts Schools</a></h3>
+            <p>The site that closes the trial. Dedicated pages per discipline and programme (kids BJJ, adult Muay Thai), instructor credentials, transparent pricing, class schedule, and a single-field trial booking form.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for martial arts marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for martial arts marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Understands Martial Arts</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Martial Arts Students</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with martial arts schools, fitness businesses, and wellness brands across Singapore. We understand the dual-audience challenge of marketing to both parents and adults, the seasonal enrolment patterns, and the community-driven nature of martial arts marketing:</p>
+        <p>We work with martial arts schools, fitness businesses, and wellness brands across Singapore — and we build around the dual kids-and-adults audience, the seasonal enrolment patterns, and the community-driven way students discover and choose a school. Not generic templates, and not vanity-metric retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Fitness &amp; Combat Sports Expertise</h3>
-            <p>We know the Singapore martial arts market — discipline-specific audiences, the kids vs adult split, competitive positioning against large franchises, and how potential students discover and evaluate schools. Your marketing strategy is built on industry knowledge, not guesswork.</p>
+            <h3>Combat Sports Expertise</h3>
+            <p>We know the Singapore martial arts market — discipline-specific audiences, the kids-vs-adult split, competing with large franchises, and how students discover and evaluate schools. Strategy built on category knowledge, not guesswork.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same brand message, targeting the right audience for each discipline with a unified strategy.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, IG, TikTok, branding, websites — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, design, and measurement.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Enrolment-Focused Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on trial bookings, student sign-ups, cost per lead by discipline, and channel performance — the numbers that directly impact your school's mat occupancy and revenue.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+            <h3>Pipeline, Not Vanity Metrics</h3>
+            <p>We measure trial bookings, enrolments, and cost per lead by discipline — not impressions. Month-to-month retainers with no lock-in, because you should stay for the results, not a 12-month contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== MARTIAL ARTS MEMBER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Martial Arts Member Funnel — how Singapore students decide on a school">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Member Funnel</p>
+        <h2>How <span class="highlight">Singapore Students</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first search to long-term member, every martial arts student in Singapore moves through the same five stages. We build marketing that shows up at each one — from discovery through to the referral that fills your mats.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, Instagram, TikTok, parent referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Trial class or intro week booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Sign-up</h3>
+          <p>Programme enrolment &amp; membership</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Retention</h3>
+          <p>Belt progression, engagement, attendance</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Referral</h3>
+          <p>Family &amp; training-partner word of mouth</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -176,7 +337,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Pricing</p>
-        <h2>Monthly Marketing Plans for Martial Arts Schools</h2>
+        <h2><span class="highlight">Monthly Marketing Plans</span> for Martial Arts Schools</h2>
         <p>Month-to-month retainer. No lock-in contracts.</p>
       </div>
       <div class="service-pricing">
@@ -227,11 +388,11 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about martial arts marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about martial arts marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Martial Arts Marketing — Questions Answered</h2>
+        <h2><span class="highlight">Martial Arts Marketing</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -257,7 +418,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
 
 
   <!-- Related Services -->

@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Yoga Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Yoga Studio Marketing Singapore | Fill Your Mat Slots"
   description="Singapore yoga studio marketing that fills mat slots — bookings funnels, Meta + Google retargeting, GBP. From small studios to multi-location."
@@ -60,114 +160,175 @@ const schemaData = [
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="yoga studio marketing singapore, yoga marketing agency, yoga studio advertising singapore, yoga digital marketing, yoga studio promotion singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Yoga Studio Marketing Singapore"
+  heroLabel="Marketing for Yoga Studios"
   heroTitle='Full-Service Marketing for <span class="highlight">Yoga Studios in Singapore</span>'
-  heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your classes. Stop juggling freelancers and start running a unified membership growth strategy."
+  heroSubtitle="Most students compare three to five studios online before booking a trial — and most yoga studios are invisible in that window. We build full-service marketing (SEO, GEO, Google Ads, IG/TikTok, branding, websites) designed for how Singapore yogis actually choose where to practise."
   heroImage="/images/service-yoga.webp"
+  heroImageAlt="Yoga studio in Singapore — yoga studio marketing"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing for my yoga studio in Singapore."
   ctaLabel="Ready to Fill Your Classes?"
-  ctaTitle="Get Your Free Yoga Studio Marketing Audit"
+  ctaTitle='Get Your Free <span class="highlight">Yoga Studio Marketing</span> Audit'
   ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your studio's membership goals. No obligations."
   ctaButtons={[
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why yoga studios need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why yoga studios need full-service marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Beautiful Classes Are Not Enough to Fill Your Studio</h2>
+        <h2>Beautiful <span class="highlight">Classes</span> Aren't Enough to <span class="highlight">Fill the Mat</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 300 yoga studios, ranging from boutique hot yoga spaces in Tanjong Pagar to large multi-discipline wellness centres in the suburbs. Add ClassPass, freelance instructors, and online yoga platforms to the mix, and the competition for members is intense. A stunning studio with skilled instructors means nothing if potential students cannot find you when they search "yoga classes near me" or "hot yoga Singapore."</p>
-        <p>Many yoga studios rely on Instagram alone for marketing. While Instagram is important for the yoga community, it does not capture high-intent search traffic. Someone searching Google for "beginner yoga class Bukit Timah" is ready to book — but if your studio does not rank, that booking goes to a competitor. Meanwhile, studios without a professional website lose credibility with potential members who expect online class schedules, pricing transparency, and easy booking.</p>
-        <p>Full-service marketing solves this by building visibility across every channel your potential members use — a professional website with integrated booking, SEO that captures search traffic for your class types and location, ads that drive immediate trial bookings, and social content that builds community and keeps your studio top-of-mind.</p>
+        <p>Singapore has 300-plus yoga studios — plus ClassPass, freelance instructors, and online platforms all competing for the same students. A stunning space with skilled teachers means nothing if students can't find you in the window where they decide.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Instagram-Only Trap</h3>
+            <p>Most studios market on Instagram alone. It builds community, but it misses the high-intent student Googling "hot yoga Tanjong Pagar" or "prenatal yoga Bukit Timah" — someone ready to book today, who goes to whoever ranks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The ClassPass Discount Spiral</h3>
+            <p>ClassPass fills off-peak mats with class-hoppers on discounted credits, takes a cut of every visit, and keeps the student relationship. Studios that lean on it never build the full-fee members and direct bookings that actually pay the rent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Empty Off-Peak Slot</h3>
+            <p>Weekday mornings and lunchtime classes run half-empty while evenings overflow. Without marketing that targets the right student for the right slot, that unsold capacity is pure lost revenue — every single day.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for yoga studios">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for yoga studios in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your Yoga Studio Needs to Grow</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Yoga Studio <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your yoga studio's marketing in-house — from designing a website that converts visitors into trial bookings, to ranking your studio on Google, running targeted ads to fill off-peak classes, and creating social media content that builds your community. No outsourcing, no subcontractors. One team, one strategy, measurable membership growth.</p>
+        <p>We build marketing strategies specifically for yoga studios — combining catchment SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design that turns a scroll into a booked trial.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A professional, mobile-responsive website that showcases your studio's atmosphere, class schedule, instructor profiles, and pricing. Integrated with your booking system, designed for how Singapore yoga students evaluate studios — visual, fast, and easy to navigate from mobile.</p>
+            <h3><a href="/yoga-studio-seo-singapore/">SEO for Yoga Studios</a></h3>
+            <p>Rank for class-plus-neighbourhood searches like "hot yoga Orchard" or "prenatal yoga Toa Payoh." Google Business Profile and map-pack optimisation that wins trial bookings from the nearest MRT and HDB catchment.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the yoga styles and locations your studio covers — "hot yoga Orchard Road," "vinyasa yoga classes Singapore," "prenatal yoga Toa Payoh." Google Business Profile optimisation, local citations, and keyword-targeted content that drives organic trial bookings month after month.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when students ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best beginner yoga studio Singapore." The same AI-citation playbook we use for our own agency's discoverability.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Social</h3>
-            <p>Targeted ad campaigns on Google, Instagram, and Facebook that put your studio in front of people actively searching for yoga classes. We build campaigns around high-intent keywords, target by location and demographics, and manage budgets to maximise cost-per-trial-booking across peak and off-peak periods.</p>
+            <h3><a href="/yoga-studio-google-ads-singapore/">Google Ads for Yoga Studios</a></h3>
+            <p>High-intent paid search plus off-peak fillers — lunchtime classes targeted at CBD workers, weekday mornings at stay-at-home parents. GCLID tracking from click to booked trial.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Content Marketing</h3>
-            <p>Instagram, Facebook, and TikTok content that captures your studio's energy — class highlights, instructor stories, student transformations, wellness tips, and community events. We create content that builds the engaged following yoga studios need while driving trial bookings and membership renewals.</p>
+            <h3><a href="/yoga-studio-social-media-singapore/">Social Media for Yoga Studios</a></h3>
+            <p>Instagram and TikTok content that captures your studio's energy — class clips, instructor stories, student journeys, and community moments. The visual proof engine the yoga category lives on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/yoga-studio-branding-singapore/">Branding for Yoga Studios</a></h3>
+            <p>The brand system that lifts you out of price-and-ClassPass comparisons. Visual identity, class-menu and pricing design, and photo direction that makes students choose you on more than discount.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/yoga-studio-website-singapore/">Websites for Yoga Studios</a></h3>
+            <p>The site that closes the trial. Mindbody, ClassPass or Momence booking integration, live class schedule, instructor profiles, transparent pricing, and fast mobile performance for students comparing options.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for yoga studio marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Understands Yoga Studios</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Yoga Students</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with yoga studios, fitness businesses, and wellness brands across Singapore. We understand the membership model, seasonal patterns, and the unique community-driven nature of yoga studio marketing:</p>
+        <p>We work with yoga studios, fitness businesses, and wellness brands across Singapore — and we build around the membership model, the seasonal rushes, and the community-driven way students discover and choose a studio. Not generic templates, and not vanity-metric retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Wellness Industry Expertise</h3>
-            <p>We know the Singapore yoga and wellness market — class formats, pricing expectations, seasonal trends like New Year rushes and post-holiday fitness surges, and how students discover and evaluate studios. Your marketing strategy is built on industry knowledge, not generic templates.</p>
+            <p>We know the Singapore yoga market — class formats, pricing expectations, the New Year and post-holiday surges, and how students discover and evaluate studios. Strategy built on category knowledge, not a recycled template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same message, targeting the same audience with a unified brand presence.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, IG, TikTok, branding, websites — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, design, and measurement.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Membership-Focused Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on trial bookings, membership sign-ups, cost per lead, and channel performance — the numbers that directly impact your studio's occupancy and revenue.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+            <h3>Pipeline, Not Vanity Metrics</h3>
+            <p>We measure trial bookings, sign-ups, and cost per lead — not impressions. Month-to-month retainers with no lock-in, because you should stay for the results, not a 12-month contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== YOGA MEMBER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Yoga Member Funnel — how Singapore students decide on a studio">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Member Funnel</p>
+        <h2>How <span class="highlight">Singapore Students</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first scroll to long-term member, every yoga student in Singapore moves through the same five stages. We build marketing that shows up at each one — from discovery through to the referral that fills your mats.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Instagram, Google, ClassPass, friend referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Trial class or intro pack booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Sign-up</h3>
+          <p>Class pack or membership conversion</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Retention</h3>
+          <p>First 90 days, rebooking &amp; engagement</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Referral</h3>
+          <p>Bring-a-friend &amp; community word of mouth</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -176,7 +337,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Pricing</p>
-        <h2>Monthly Marketing Plans for Yoga Studios</h2>
+        <h2><span class="highlight">Monthly Marketing Plans</span> for Yoga Studios</h2>
         <p>Month-to-month retainer. No lock-in contracts.</p>
       </div>
       <div class="service-pricing">
@@ -227,11 +388,11 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about yoga studio marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Yoga Studio Marketing — Questions Answered</h2>
+        <h2><span class="highlight">Yoga Studio Marketing</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -257,8 +418,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
