@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Beauty Booking Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Hair Salon Marketing Singapore | Bookings, Reviews & GBP"
   description="Singapore hair salon marketing — Google Business Profile + review velocity + Meta ads. Built to drive walk-ins and online bookings."
@@ -64,6 +164,7 @@ const schemaData = [
   heroTitle='Digital Marketing for <span class="highlight">Hair Salons in Singapore</span>'
   heroSubtitle="Your stylists are talented — but talent alone doesn't fill chairs. We build multi-channel marketing strategies that put your salon in front of the right clients, promote your stylists as experts, and keep your booking calendar full."
   heroImage="/images/service-hairsalon.webp"
+  heroImageAlt="Stylist at work in a Singapore hair salon — hair salon marketing"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
@@ -76,56 +177,87 @@ const schemaData = [
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20digital%20marketing%20for%20my%20hair%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why hair salons need digital marketing">
+  <section class="section" id="challenge" aria-label="Why hair salons need digital marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Great Stylists Need Great Marketing</h2>
+        <h2>Talented <span class="highlight">Stylists</span> Mean Nothing If <span class="highlight">No One Finds the Chair</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's hair salon market is fiercely competitive. From Japanese-style salons in Bugis to Korean-inspired studios in Tanjong Pagar, clients have thousands of options. The salons that thrive are the ones dominating Google search results, building Instagram followings with stunning transformation content, and making it effortless for new clients to book online.</p>
-        <p>The challenge is that most salon owners are stylists first and marketers second. Running Google Ads, creating consistent Instagram Reels, managing Google reviews, and optimising for local search requires time and expertise that takes you away from the chair. Hiring separate freelancers for each channel leads to fragmented messaging and wasted spend.</p>
-        <p>A unified marketing strategy changes everything. When your SEO, paid ads, social content, and stylist branding all work together, you stop competing on price and start competing on reputation. Clients find you, trust you, and book without shopping around.</p>
+        <p>From Japanese-style salons in Bugis to Korean-inspired studios in Tanjong Pagar, Singapore clients have thousands of hair salons to choose from. Walk-ins and stylist loyalty aren't enough when most clients now scroll Instagram and read Google reviews before booking a cut, colour, or perm.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Saturated Street</h3>
+            <p>Every mall and HDB cluster has a salon — and a cheaper colour offer two doors down. Walk-in traffic and referrals alone can't keep chairs full when there are five comparable studios within a five-minute walk of your client.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Instagram-Scroll Decision</h3>
+            <p>Clients shortlist on Instagram and Google before they book — judging transformation Reels, colour reveals, Google reviews, and your posting cadence. Posting sporadically without a strategy loses the booking to a sharper-looking competitor.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Empty Off-Peak Chair</h3>
+            <p>Weekday afternoons run quiet while weekends overflow. Empty chairs don't pay the rent — and chasing every channel at once, without a plan, just spreads the budget too thin to fill them.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Hair salon marketing services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Hair salon marketing services in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Multi-Channel Hair Salon Marketing</h2>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Hair Salon <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We combine SEO, paid advertising, social media, and stylist branding into one coordinated strategy. Every channel reinforces the others — so your salon builds authority, attracts ideal clients, and keeps chairs filled consistently.</p>
+        <p>We build marketing strategies specifically for hair salons — combining catchment SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design that turns a scroll into a booked appointment.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank for searches like "hair salon near me," "balayage Singapore," and "Korean perm Orchard." Google Business Profile optimisation, local citations, and treatment-specific landing pages that capture high-intent traffic.</p>
+            <h3><a href="/hair-salon-seo-singapore/">SEO for Hair Salons</a></h3>
+            <p>Rank for treatment-plus-neighbourhood searches like "balayage Tanjong Pagar" or "Korean perm Orchard." Google Business Profile and map-pack optimisation that drives walk-ins from the nearest MRT exit.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Media</h3>
-            <p>Targeted search and display campaigns for specific hair services. Geo-targeted ads by neighbourhood, service-specific ad groups for cuts, colour, treatments, and keratin — all tracked to cost-per-booking.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when clients ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best balayage in Singapore" or "Japanese hair straightening near me." AI-friendly schema and the same playbook we use for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Instagram &amp; Social Media</h3>
-            <p>Transformation Reels, colour reveal videos, stylist spotlights, and trending hairstyle content. We build content calendars that showcase your team's talent and create a visual portfolio that drives enquiries.</p>
+            <h3><a href="/services/paid-ads/">Google Ads for Hair Salons</a></h3>
+            <p>Service-specific paid search with neighbourhood geo-targeting across cuts, colour, treatments, and keratin. GCLID tracking from click to booked appointment, so every dollar is tied to a real booking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Stylist Branding &amp; Analytics</h3>
-            <p>Individual stylist promotion strategies that build personal followings while driving salon bookings. Comprehensive analytics tracking appointments, revenue per channel, and marketing ROI.</p>
+            <h3><a href="/hair-salon-social-media-singapore/">Social Media for Hair Salons</a></h3>
+            <p>Instagram and TikTok built around transformation Reels, colour reveals, and stylist spotlights. The visual proof engine the hair category lives or dies on — and where premium clients shortlist their stylist.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Hair Salons</a></h3>
+            <p>Visual identity, service-menu design, and in-salon collateral that separates you from the fifty other studios in your mall or street — and lifts you out of price-only comparisons.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/hair-salon-website-singapore/">Websites for Hair Salons</a></h3>
+            <p>Booking integration, stylist profiles, service menus, consultation forms, and mobile-first speed — the conversion architecture that turns an Instagram tap into a booked appointment.</p>
           </div>
         </div>
       </div>
@@ -133,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for hair salon marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for hair salon marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Gets Hair</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Hair Clients</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with hair salons across Singapore and understand what motivates clients — from trend-driven colour changes to trust-driven stylist loyalty. Our strategies are built for how the hair industry actually works.</p>
+        <p>We work with hair salons across Singapore and build around what actually drives bookings — from trend-driven colour changes to trust-driven stylist loyalty. Strategy built on real salon business models and service seasonality, not generic templates or vanity-metric retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Hair Industry Knowledge</h3>
-            <p>We understand seasonal trends, service margins, stylist-client relationships, and what makes someone choose a salon in Singapore. Your marketing is built by people who know the business inside out.</p>
+            <h3>Hair Industry Expertise</h3>
+            <p>We understand service margins, seasonal trends, and the stylist-client relationships that drive repeat bookings. Campaigns built by people who know what converts in the Singapore hair market — not a recycled template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>One Agency, All Channels</h3>
-            <p>SEO, ads, social media, and content under one roof. No coordinating between freelancers. Every channel works together as part of a single, coherent strategy with consistent brand messaging.</p>
+            <p>SEO, GEO, ads, social, branding, websites, and stylist promotion under one roof. No coordinating between vendors. Every channel works together as part of a single, coherent strategy.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Appointment-Driven Metrics</h3>
-            <p>We track what matters — new client bookings, cost per acquisition, stylist utilisation, and revenue impact. Real business metrics that show whether your marketing investment is paying off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-In Contracts</h3>
-            <p>We earn your business every month. If we're not delivering results, you're free to leave. Most salon clients stay because the chairs keep filling up.</p>
+            <h3>Booking-Focused Metrics</h3>
+            <p>We measure appointments booked, cost per acquisition, stylist utilisation, and revenue — not impressions and likes. Month-to-month retainers with no lock-in, because you should stay for the bookings, not a contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== HAIR BOOKING FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Hair Booking Funnel — how Singapore clients decide on a salon">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Funnel</p>
+        <h2>How <span class="highlight">Singapore Hair Clients</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first Instagram scroll to a repeat booking, every Singapore hair client moves through the same five stages. We build marketing that shows up at each one — from discovery through to the rebook that turns a first cut into lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Instagram, TikTok, Google, friend referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Google reviews, transformation grid, stylist work</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 salons, price &amp; stylist match</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Online form, WhatsApp, or phone</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Rebook in 6–8 weeks, refer friends</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -231,7 +392,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about hair salon marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about hair salon marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

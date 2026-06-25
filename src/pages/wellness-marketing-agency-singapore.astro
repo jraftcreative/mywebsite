@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Beauty Booking Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Wellness Marketing Agency Singapore — Jraft Creative"
   description="Full-service digital marketing agency for wellness businesses in Singapore — website, SEO, Google Ads, social media, and content marketing across all."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='The <span class="highlight">Wellness Marketing Agency</span> Singapore Trusts'
   heroSubtitle="We are a full-service digital marketing agency that specialises in health, wellness, and fitness businesses in Singapore. Website, SEO, Google Ads, social media, and content — all managed by one team that knows your industry."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness studio in Singapore — wellness marketing agency"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -77,98 +178,158 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why wellness businesses need a specialist marketing agency">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why wellness businesses need a specialist marketing agency in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Generic Marketing Agencies Do Not Understand Wellness</h2>
+        <h2>Generic Agencies Don't Understand How <span class="highlight">Wellness Clients</span> Actually <span class="highlight">Choose</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry is projected to reach $3.5 billion by 2027. From yoga studios and pilates centres to physiotherapy clinics and mental health practices, the market is expanding rapidly — and so is competition. Every wellness business is fighting for visibility among health-conscious Singaporeans who increasingly research, compare, and book online.</p>
-        <p>Many wellness businesses hire general marketing agencies that treat them the same as an e-commerce store or a restaurant. These agencies do not understand the trust requirements of healthcare marketing, the community dynamics of fitness businesses, the seasonal patterns of wellness trends, or the specific search behaviour of people seeking health and fitness services in Singapore. The result is generic campaigns that waste budget and produce mediocre results.</p>
-        <p>Jraft Creative is different. We specialise in the wellness industry. We understand that a physiotherapy clinic requires different marketing sensitivity than a gym. That a yoga studio's member acquisition differs from a mental health practice's client journey. That TCM marketing needs to bridge traditional medicine with modern accessibility. This specialisation means faster results, less wasted spend, and marketing that actually resonates with your target clients.</p>
+        <p>From yoga studios and pilates centres to physiotherapy, TCM, and mental health clinics, Singapore's wellness market is crowded — and health-conscious Singaporeans research, compare, and book online before they ever walk in. Most wellness businesses are invisible during that window, and most agencies treat them like any other client.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Saturated Market</h3>
+            <p>Every neighbourhood, mall, and HDB cluster has a studio, clinic, or practice competing for the same health-conscious clients. Walk-ins and word-of-mouth alone can't fill the schedule when there are comparable options within a few minutes of your door.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust-Led Decision</h3>
+            <p>Wellness is a credibility category. Clients vet you on Google reviews, before-and-after proof, practitioner credentials, and content cadence before they commit. Generic agencies don't grasp the trust and compliance sensitivity that healthcare and fitness marketing demand.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Fragmented Marketing</h3>
+            <p>One vendor for SEO, another for ads, a freelancer for social, and a separate web team — none of them talking to each other. The budget spreads thin, the messaging drifts, and nobody ties a single enquiry back to a campaign that actually worked.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Wellness marketing services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Wellness marketing services in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Full-Service Marketing for Every Wellness Vertical</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Wellness Brand <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your wellness business's marketing in-house. Whether you run a yoga studio, a physiotherapy clinic, a gym, or a mental health practice, we build and execute a comprehensive marketing strategy tailored to your specific vertical, audience, and growth goals. No outsourcing, no subcontractors. One team, one strategy, measurable results.</p>
+        <p>We build marketing strategies specifically for wellness businesses — combining local SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design that turns a search into a booked session.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>Professional, mobile-responsive websites tailored to your wellness vertical — booking-integrated studio sites, condition-specific healthcare clinic sites, member-focused gym platforms. Every website is designed for how your specific audience evaluates and chooses a wellness provider in Singapore.</p>
+            <h3><a href="/wellness-seo-singapore/">SEO for Wellness Businesses</a></h3>
+            <p>Rank for service-plus-neighbourhood searches like "physiotherapy Tanjong Pagar" or "yoga classes near me." Google Business Profile and map-pack optimisation that drives bookings from the nearest MRT exit.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the services, conditions, and locations your business covers. Google Business Profile optimisation with review management, local citations, and vertical-specific content. We target the exact search terms that drive bookings in your wellness segment — from "yoga classes near me" to "physiotherapy for back pain Singapore."</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when clients ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best physiotherapy clinic Singapore" or "pilates studio near me." AI-friendly schema and the same playbook we use for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Social</h3>
-            <p>Targeted ad campaigns on Google, Instagram, Facebook, and TikTok tailored to your wellness vertical. We understand the different conversion paths — urgent healthcare searches vs considered fitness decisions — and build campaigns that match your audience's intent, timing, and platform behaviour.</p>
+            <h3><a href="/wellness-google-ads-singapore/">Google Ads for Wellness Businesses</a></h3>
+            <p>High-intent paid search with neighbourhood geo-targeting that captures clients the moment they search for your service. GCLID tracking from click to booked appointment, so every dollar maps to a real enquiry.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Content Marketing</h3>
-            <p>Platform-specific social media strategies and content marketing programmes for wellness businesses. Educational health content, community-building fitness posts, practitioner thought leadership, and client success stories — all calibrated to the tone, compliance requirements, and audience expectations of your specific wellness vertical.</p>
+            <h3><a href="/wellness-social-media-marketing-singapore/">Social Media for Wellness Businesses</a></h3>
+            <p>Instagram and TikTok built around educational health content, treatment and class walkthroughs, practitioner thought leadership, and client success stories — the trust-building proof engine the wellness category runs on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/wellness-branding-agency-singapore/">Branding for Wellness Businesses</a></h3>
+            <p>Visual identity, service-menu design, and collateral that signals credibility and care — separating you from the other studios and clinics nearby, and lifting you out of price-only comparisons.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Websites for Wellness Businesses</a></h3>
+            <p>Booking integration, service menus, condition and class pages, consultation forms, and mobile-first speed — the conversion architecture that turns a search or an Instagram tap into a booked session.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your wellness marketing agency">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your wellness marketing agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Singapore's Specialist Wellness Marketing Agency</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Wellness Clients</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We built our agency around a single focus: helping health, wellness, and fitness businesses in Singapore grow through strategic digital marketing. Here is what that specialisation delivers for you:</p>
+        <p>We built our agency around a single focus: helping health, wellness, and fitness businesses in Singapore grow through strategic digital marketing. Strategy built on real wellness business models, trust dynamics, and seasonality — not generic templates or vanity-metric retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Wellness Industry Specialisation</h3>
-            <p>We work with yoga studios, gyms, physiotherapy clinics, TCM practices, mental health clinics, veterinary clinics, and holistic health providers across Singapore. We understand the unique audience, compliance needs, seasonal patterns, and competitive dynamics of each vertical — no learning curve, no generic templates.</p>
+            <p>We work with yoga studios, gyms, physiotherapy clinics, TCM practices, mental health clinics, veterinary clinics, and holistic health providers. We understand the audience, compliance needs, and competitive dynamics of each vertical — no learning curve, no generic templates.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, content, and social media all managed by one team. No outsourcing to freelancers. No subcontractors. One team that understands your industry manages every touchpoint, ensuring consistent messaging and efficient budget allocation across channels.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, social, branding, and websites under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, design, and measurement as part of a single, coherent strategy.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Results-Focused Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on bookings, memberships, patient enquiries, cost per acquisition, and channel performance — the numbers that directly impact your revenue. Every report is contextualised with wellness industry benchmarks.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month through transparent reporting and measurable outcomes.</p>
+            <h3>Bookings, Not Vanity Metrics</h3>
+            <p>We measure bookings, enquiries, and cost per acquisition — not impressions and likes. GCLID offline tracking and WhatsApp-routed enquiries prove which click became which booking. Month-to-month retainers, no lock-in.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== WELLNESS BOOKING FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Booking Funnel — how Singapore wellness clients decide">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Funnel</p>
+        <h2>How <span class="highlight">Singapore Wellness Clients</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first search to a repeat booking, every Singapore wellness client moves through the same five stages. We build marketing that shows up at each one — from discovery through to the rebook that turns a first visit into lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, Instagram, TikTok, friend referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Google reviews, credentials, content, results</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 providers, price &amp; service match</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Online form, booking app, WhatsApp, or phone</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Rebook, subscribe, refer friends</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -228,7 +389,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about wellness marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
