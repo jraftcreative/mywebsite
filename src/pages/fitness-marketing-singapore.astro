@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Fitness Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Fitness Marketing Singapore — Jraft Creative"
   description="Full-service digital marketing for fitness businesses in Singapore — gyms, studios, personal trainers, and boutique fitness. Website, SEO, Google Ads."
@@ -60,9 +160,9 @@ const schemaData = [
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="fitness marketing singapore, fitness marketing agency, gym marketing singapore, personal trainer marketing, boutique fitness marketing, fitness digital marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Fitness Marketing Singapore"
+  heroLabel="Full-Service Fitness Marketing"
   heroTitle='Full-Service Marketing for <span class="highlight">Fitness Businesses in Singapore</span>'
-  heroSubtitle="Gyms, studios, personal trainers, and boutique fitness — one agency that understands how Singaporeans discover, evaluate, and commit to fitness. Website, SEO, ads, social media, and content under one roof."
+  heroSubtitle="Gyms, studios, personal trainers, boutique fitness — one agency that understands how Singaporeans discover, compare, and commit to fitness. SEO, GEO, Google Ads, social, branding, and websites under one roof, built for the member journey."
   heroImage="/images/hero-fitness-marketing.webp"
   heroImageAlt="Two people doing kettlebell push-ups in a Singapore gym"
   heroButtons={[
@@ -71,104 +171,164 @@ const schemaData = [
   ]}
   whatsappText="Hi Jraft Creative, I need marketing for my fitness business in Singapore."
   ctaLabel="Ready to Grow Your Fitness Business?"
-  ctaTitle="Get Your Free Fitness Marketing Audit"
+  ctaTitle='Get Your Free <span class="highlight">Fitness Marketing</span> Audit'
   ctaDescription="Book a free consultation and we will review your current marketing, identify gaps, and recommend a strategy tailored to your fitness business's growth goals. No obligations."
   ctaButtons={[
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20fitness%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why fitness businesses need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why fitness businesses need full-service marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>The Fitness Market Is More Competitive Than Ever</h2>
+        <h2>Singapore Fitness Is <span class="highlight">More Competitive</span> Than <span class="highlight">Ever</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's fitness industry generates over $600 million annually and continues to grow. But so does the competition. Budget gym chains have made fitness accessible to the masses. Boutique studios have raised the bar on experience and specialisation. ClassPass and pay-per-session models let consumers hop between providers without committing. Online coaching and home workout platforms have expanded the competition beyond physical locations entirely.</p>
-        <p>Whether you run a commercial gym in Clementi, a boutique HIIT studio in Tiong Bahru, a personal training practice in the CBD, or a CrossFit box in Jurong — you are competing for the same health-conscious Singaporeans. These potential members and clients start their fitness journey online. They search "gym near me," compare Instagram feeds for facility vibes, read Google reviews, and evaluate pricing on your website. If any of these touchpoints is missing or underwhelming, you lose them to a competitor who invested in their digital presence.</p>
-        <p>Full-service marketing addresses every stage of this journey — a professional website that presents your unique value proposition and makes joining easy, SEO that captures local search traffic, ads that drive trial visits during peak sign-up periods, and social content that builds the aspirational community fitness brands need. One coordinated strategy instead of scattered, disconnected efforts.</p>
+        <p>Budget chains made fitness mass-market, boutique studios raised the experience bar, and ClassPass plus online coaching let consumers hop between providers without committing. Whatever your format, the member starts their journey online — and most fitness businesses are invisible at the moment of decision.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Comparison Window</h3>
+            <p>Members search "gym near me," compare Instagram feeds for the vibe, read Google reviews, and check your pricing — all before they ever walk in. If any touchpoint is missing or weak, you lose them to a competitor who invested in their digital presence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Pay-Per-Session Trap</h3>
+            <p>ClassPass and pay-per-session models let consumers sample five providers a week on discounted credits, taking a cut and keeping the relationship. Leaning on them builds traffic but never the full-fee members and direct bookings that pay the rent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Competition Beyond Four Walls</h3>
+            <p>Online coaching and home-workout platforms expanded the competition past physical locations entirely. To win, your brand has to show up and convert across search, social, and AI — not just rely on the catchment walking past your door.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for fitness businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for fitness businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your Fitness Business Needs to Grow</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Fitness Business <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your fitness business's marketing in-house — from designing a website that converts visitors into trial sign-ups, to ranking your business on Google, running targeted ads across platforms, and creating the high-energy social content fitness brands need to thrive. No outsourcing, no subcontractors. One team, one strategy, measurable membership and client growth.</p>
+        <p>We build marketing strategies for the full spectrum of fitness — gyms, studios, PTs, and boutique formats — combining catchment SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design under one roof.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>Professional, mobile-responsive websites tailored to your fitness format — booking-integrated studio sites, membership-focused gym platforms, personal brand sites for independent trainers. Class schedules, trainer profiles, pricing transparency, and virtual tours — designed for how Singaporeans evaluate fitness providers before visiting.</p>
+            <h3><a href="/services/seo-performance/">SEO for Fitness</a></h3>
+            <p>Rank for catchment searches like "gym near me", "personal trainer Orchard", or "HIIT classes Tiong Bahru." Google Business Profile and map-pack optimisation that drives trial visits from your neighbourhood.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the searches that drive fitness sign-ups — "gym near me," "personal trainer Orchard," "HIIT classes Singapore," "CrossFit Bukit Timah." Google Business Profile optimisation with review management, local citations, and fitness-focused content that drives organic trial visits and membership enquiries month after month.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when members ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best gym for strength training Singapore." The same AI-citation playbook we use for our own agency's discoverability.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Social</h3>
-            <p>Targeted ad campaigns on Google, Instagram, Facebook, and TikTok. Format-specific campaigns — gym membership promotions, studio class packages, PT intro sessions, boot camp sign-ups. We target by location, demographics, and fitness interests, and scale spend during peak periods like January, post-Chinese New Year, and pre-summer.</p>
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads</a></h3>
+            <p>High-intent paid search and social, scaled during the January, post-CNY, and pre-summer sign-up peaks. GCLID tracking from click through to a booked trial or membership enquiry.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Content Marketing</h3>
-            <p>Instagram, TikTok, and Facebook content built for the fitness industry — workout clips, transformation stories, trainer spotlights, class previews, nutrition tips, and member community highlights. Fitness content has natural social media virality, and we create the kind of content that builds the aspirational brand that drives sign-ups and referrals.</p>
+            <h3><a href="/services/social-media/">Social Media for Fitness</a></h3>
+            <p>Instagram and TikTok built around transformations, trainer personalities, class previews, and member community. The high-energy content engine fitness brands grow on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Fitness</a></h3>
+            <p>The brand system that lifts you out of price-only and ClassPass comparisons — logo, palette, kit and photo direction, positioned by format so members pick you over the cheaper option.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Websites for Fitness</a></h3>
+            <p>The site that closes the trial — booking integration with Mindbody, ClassPass or Glofox, class schedules, trainer profiles, transparent pricing, and fast mobile performance.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for fitness marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for fitness marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Lives and Breathes Fitness</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Fitness Members</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with gyms, studios, personal trainers, and fitness brands across Singapore. We understand the business models, seasonal dynamics, and competitive pressures unique to the fitness industry:</p>
+        <p>We work with gyms, studios, personal trainers, and fitness brands across Singapore — building around the membership vs pay-per-class models, the ClassPass dynamic, seasonal sign-up patterns, and the member journey. Not generic templates, and not vanity-metric retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Fitness Industry Specialisation</h3>
-            <p>We know the Singapore fitness market — membership vs pay-per-class models, the ClassPass dynamic, seasonal sign-up patterns, the difference between marketing a commercial gym and a boutique studio, and how personal trainers build independent client bases. Your strategy is built on genuine industry expertise.</p>
+            <p>We know the Singapore fitness market — membership vs pay-per-class economics, the ClassPass dynamic, seasonal sign-up spikes, and the difference between marketing a commercial gym, a boutique studio, and an independent PT. Strategy built on category knowledge.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, and social media all managed by one team. No coordinating between vendors. Every channel works together — your Instagram content feeds your ads, your blog posts boost your SEO, and your website converts the traffic every channel drives.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, IG, TikTok, branding, websites — under one roof. No coordinating between vendors. Your social feeds your ads, your content boosts your SEO, and your website converts the traffic every channel drives.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Growth-Focused Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on trial sign-ups, membership conversions, cost per acquisition, retention rates, and channel performance — the numbers that directly impact your fitness business's bottom line.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month through measurable outcomes.</p>
+            <h3>Pipeline, Not Vanity Metrics</h3>
+            <p>We measure trial sign-ups, membership conversions, retention, and cost per acquisition — not impressions. Month-to-month retainers with no lock-in, because you should stay for the results, not a 12-month contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== FITNESS MEMBER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Fitness Member Funnel — how Singapore members decide on a fitness business">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Member Funnel</p>
+        <h2>How <span class="highlight">Singapore Members</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first scroll to long-term member, every fitness joiner in Singapore moves through the same five stages. We build marketing that shows up at each one — from awareness through to the referral that compounds your growth.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Awareness</h3>
+          <p>IG/TikTok, Google, AI tools, referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Free session, trial pass, or intro offer</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Sign-up</h3>
+          <p>Membership or package conversion</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Retention</h3>
+          <p>First 90 days, engagement campaigns</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Referral</h3>
+          <p>Member word of mouth &amp; advocacy</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -177,7 +337,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Pricing</p>
-        <h2>Monthly Marketing Plans for Fitness Businesses</h2>
+        <h2><span class="highlight">Monthly Marketing Plans</span> for Fitness Businesses</h2>
         <p>Month-to-month retainer. No lock-in contracts.</p>
       </div>
       <div class="service-pricing">
@@ -228,11 +388,11 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about fitness marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about fitness marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Fitness Marketing — Questions Answered</h2>
+        <h2><span class="highlight">Fitness Marketing</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -258,8 +418,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
