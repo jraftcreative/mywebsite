@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="TCM Marketing Singapore — Jraft Creative"
   description="Full-service digital marketing for TCM clinics in Singapore — website, SEO, Google Ads, social media, and content marketing."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='Full-Service Marketing for <span class="highlight">TCM Clinics in Singapore</span>'
   heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: filling your appointment book. Stop relying on walk-ins and referrals alone. Start building a patient acquisition engine."
   heroImage="/images/service-tcm.webp"
+  heroImageAlt="TCM clinic treatment room in Singapore — TCM clinic marketing"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -77,98 +178,158 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20TCM%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why TCM clinics need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why TCM clinics need marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Walk-ins and Referrals Cannot Scale Your Practice</h2>
+        <h2>The <span class="highlight">Best</span> TCM Clinics Are Still <span class="highlight">Losing Patients</span> to Clinics with <span class="highlight">Better Marketing</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 2,500 registered TCM practitioners and hundreds of clinics — from neighbourhood shophouse practices to modern wellness-integrated TCM centres in Orchard and Marina Bay. Competition is intense, and the traditional model of relying on neighbourhood foot traffic and word-of-mouth is no longer sufficient for clinics that want to grow.</p>
-        <p>A growing segment of Singapore's population is discovering TCM for the first time — younger professionals seeking acupuncture for stress, couples exploring fertility support, athletes using cupping for recovery. These patients search Google before they walk in. "Acupuncture for back pain Singapore," "TCM fertility treatment review," "cupping therapy near me" — if your clinic does not appear in these search results, these new patients are booking with competitors who have invested in their online presence.</p>
-        <p>Full-service marketing solves this by building visibility across every channel your patients use — a modern website that presents TCM as accessible and professional, SEO that ranks your clinic for treatment-specific and location-based searches, ads that capture patients ready to book, and content that educates and builds trust with both traditional and new-to-TCM audiences.</p>
+        <p>Singapore has thousands of registered TCM practitioners and hundreds of clinics — from neighbourhood shophouse practices to modern wellness-integrated centres. Walk-ins and word-of-mouth no longer fill the appointment book, and the clinics winning new patients aren't always the most experienced. They're the ones patients find, trust, and book — within Singapore's healthcare advertising rules.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Compliance Tightrope</h3>
+            <p>TCM Practitioners Board registration and MOH advertising rules govern how clinics can promote treatments, claims, and testimonials. Generic agencies don't know these boundaries — and non-compliant content puts your registration and reputation at risk.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust Threshold</h3>
+            <p>Health is a high-consideration decision. Before booking acupuncture or herbal treatment, patients validate clinics through Google reviews and physician credentials. Without visible reviews and a credible practitioner profile, you stay a faceless listing patients scroll past.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Local Search Window</h3>
+            <p>New patients search "TCM clinic near me," "acupuncture Singapore," and treatment-specific terms before they ever walk in. If you're not visible on those catchment and acupuncture local searches, the booking goes to the clinic that showed up first.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for TCM clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for TCM clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your TCM Clinic Needs to Grow</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every TCM Clinic <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your TCM clinic's marketing in-house — from designing a modern website that appeals to both traditional and new patients, to ranking your clinic on Google for every treatment you offer, running targeted ads that capture patients searching for TCM, and creating content that educates and builds authority. No outsourcing, no subcontractors. One team, one strategy, measurable patient growth.</p>
+        <p>We build marketing strategies specifically for TCM clinics — combining local SEO, AI search optimisation (GEO), paid search, educational social content, branding, and conversion-focused web design, all framed for both traditional and new-to-TCM patients.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A modern, mobile-responsive website that presents your TCM clinic as professional and approachable. Treatment pages for acupuncture, tuina, cupping, herbal medicine, and specialised services. Practitioner profiles, patient testimonials, and online booking — designed for both traditional patients and younger Singaporeans exploring TCM for the first time.</p>
+            <h3><a href="/tcm-clinic-seo-singapore/">SEO for TCM Clinics</a></h3>
+            <p>Rank for treatment and catchment searches like "acupuncture Singapore," "TCM fertility treatment," and "cupping therapy near me." Google Business Profile, review management, and treatment landing pages that capture patients ready to book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the treatments and locations your clinic covers — "acupuncture Ang Mo Kio," "TCM fertility treatment Singapore," "cupping therapy near me." Google Business Profile optimisation with review management, local citations, and treatment-specific content that drives organic patient bookings month after month.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when patients ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best TCM clinic Singapore" or "does acupuncture help back pain." AI-friendly schema and the same citation playbook we use for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Search</h3>
-            <p>Targeted Google Ads campaigns that capture patients actively searching for TCM treatments in Singapore. We build campaigns around condition-specific and treatment-specific keywords, manage budgets to maximise cost-per-booking, and run seasonal campaigns during peak periods like post-Chinese New Year wellness resets and pre-winter tonic seasons.</p>
+            <h3><a href="/tcm-clinic-google-ads-singapore/">Google Ads for TCM Clinics</a></h3>
+            <p>High-intent paid search on condition- and treatment-specific terms, geo-targeted around your clinic locations. GCLID tracking from click to booked appointment, measured to a real cost-per-booking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Content Marketing &amp; Social Media</h3>
-            <p>Educational content that demystifies TCM — treatment explainers, wellness tips based on TCM principles, seasonal health guides, and practitioner insights. Instagram, Facebook, and Xiaohongshu content that reaches both English-speaking and Chinese-speaking audiences in Singapore, building trust and positioning your clinic as a modern TCM authority.</p>
+            <h3><a href="/services/social-media/">Social Media for TCM Clinics</a></h3>
+            <p>Educational Reels, treatment explainers, and seasonal wellness content for Instagram, Facebook, and Xiaohongshu — reaching both English- and Chinese-speaking audiences and demystifying TCM for younger patients.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for TCM Clinics</a></h3>
+            <p>Clinic identity, practitioner positioning, and treatment-menu design that bridges heritage with accessibility — lifting you out of price-only comparisons and into the clinic patients feel confident choosing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/tcm-clinic-website-singapore/">Websites for TCM Clinics</a></h3>
+            <p>Treatment pages, practitioner profiles, online booking, and mobile-first speed — the conversion architecture that turns a researching patient into a booked appointment for both traditional and new-to-TCM audiences.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for TCM marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for TCM marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Understands TCM</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">TCM Patients</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with TCM clinics, healthcare practices, and wellness businesses across Singapore. We understand the unique challenges of marketing traditional medicine to a modern audience — bridging heritage with accessibility:</p>
+        <p>Most agencies pitching clinics are generalists who don't understand TCM's bilingual patient base, the advertising rules, or the trust-intensive patient journey. We are the opposite — full-service, compliance-aware, and built around how TCM patients in Singapore research, validate, and choose their clinic.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare &amp; TCM Expertise</h3>
-            <p>We understand Singapore's TCM market — the bilingual patient base, the mix of traditional and new-to-TCM audiences, treatment-specific search behaviour, and the credibility signals that matter. Your marketing is built on genuine understanding of how patients discover and choose TCM clinics.</p>
+            <h3>Healthcare &amp; TCM Knowledge</h3>
+            <p>We understand the bilingual patient base, the mix of traditional and new-to-TCM audiences, treatment-specific search behaviour, and the credibility signals that matter — so your marketing is built on how patients actually discover and choose TCM clinics.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, content, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same brand — modern, professional, and trustworthy — targeting the right patients with a cohesive message.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, social, branding, and websites under one roof. No coordinating between vendors. Every channel reinforces the same modern, trustworthy positioning as part of a single strategy.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Patient Acquisition Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on appointment bookings, patient enquiries, cost per lead by treatment, and channel performance — the numbers that directly impact your clinic's patient volume and revenue.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+            <h3>Bookings, Not Vanity Metrics</h3>
+            <p>We track appointment bookings, patient enquiries, and cost per lead by treatment — not likes. Month-to-month retainers with no lock-in, because clinics should stay for the pipeline, not a contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== THE PATIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Patient Funnel — how Singapore patients decide on a TCM clinic">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Funnel</p>
+        <h2>How <span class="highlight">Singapore TCM Patients</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first symptom search to a repeat visit, every TCM patient in Singapore moves through the same five stages. We build marketing that shows up at each one — from discovery through to the return visit that builds lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, Instagram, Xiaohongshu, AI search, referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, practitioner credentials, educational content</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 clinics, treatment &amp; trust match</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Online booking, WhatsApp, or phone enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Repeat treatment, ongoing care, refer friends</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -228,7 +389,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about TCM marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about TCM marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

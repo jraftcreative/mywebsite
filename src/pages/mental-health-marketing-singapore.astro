@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Mental Health Marketing Singapore — Jraft Creative"
   description="Full-service digital marketing for mental health practices in Singapore — website, SEO, Google Ads, social media, and content marketing."
@@ -64,6 +164,7 @@ const schemaData = [
   heroTitle='Full-Service Marketing for <span class="highlight">Mental Health Practices in Singapore</span>'
   heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency that understands the sensitivity and ethics mental health marketing demands. Help more people find the support they need."
   heroImage="/images/service-mentalhealth.webp"
+  heroImageAlt="Calm, welcoming therapy room in Singapore — mental health practice marketing"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -76,98 +177,158 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20mental%20health%20practice%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why mental health practices need marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why mental health practices need marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>People Need Your Help But Cannot Find You</h2>
+        <h2>People Need Your <span class="highlight">Help</span> — But They <span class="highlight">Can't Find You</span>, and They Won't <span class="highlight">Ask Twice</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Mental health awareness in Singapore has grown significantly in recent years, but a persistent gap remains between people who need support and practitioners who can provide it. Studies show that while one in seven Singaporeans has experienced a mental health condition, many delay seeking help because they do not know where to start or which practitioner is right for them. They turn to Google — searching for "psychologist Singapore," "anxiety counselling near me," or "therapist for depression."</p>
-        <p>Many mental health practitioners rely on directory listings, insurance panel referrals, and word-of-mouth. While these channels produce some clients, they are limited and inconsistent. A person searching Google at midnight for help with anxiety is not going to browse a directory — they are going to click the first practitioner or practice that appears with a professional website, clear service descriptions, and an easy way to book an initial consultation.</p>
-        <p>Ethical, sensitive marketing solves this by making your practice visible to people who are actively seeking help. A warm, professional website that explains your approach and services. SEO that ensures your practice appears when someone searches for help with their specific concern. Content that educates, reduces stigma, and builds trust. Ads that reach people in need at the exact moment they decide to seek support.</p>
+        <p>Someone searching at midnight for help with anxiety is in a fragile, private moment. They won't browse a directory or call around. They click the first practice that feels safe, professional, and discreet — and they decide quickly. Most mental health practices are invisible at exactly that moment, for reasons that have nothing to do with the quality of their care.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Stigma &amp; Discretion</h3>
+            <p>Seeking therapy still carries stigma in Singapore. People want privacy and reassurance before they reach out — and they expect it of you too. Enquiry forms, ad copy, and follow-up that mishandle sensitive personal data, or feel clinical and exposing, lose the very people who needed the most care to take the first step. Discretion and proper PDPA-aware handling are non-negotiable.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust Threshold</h3>
+            <p>Choosing a therapist or psychologist is a deeply personal, high-trust decision. People scrutinise credentials, specialisations, and approach before they book. Without clear practitioner profiles, professional accreditations, and educational content that demonstrates genuine expertise, your practice reads as a faceless listing — and trust goes to whoever made theirs visible.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Discreet Local &amp; Online Discovery</h3>
+            <p>People search quietly — "psychologist near me," "anxiety counselling Novena," "therapist Singapore online sessions." They weigh in-person versus teletherapy, location, and availability. If you're not visible across local search, AI answers, and a calm, easy-to-navigate website, you're absent from the only window where the decision is actually made.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for mental health practices">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for mental health practices in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your Practice Needs to Reach More People</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Mental Health <span class="highlight">Practice Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your mental health practice's marketing in-house — from designing a website that feels safe and welcoming, to ranking your practice on Google for the concerns your clients search for, running sensitive ad campaigns, and creating content that educates and destigmatises. No outsourcing, no subcontractors. One team with the sensitivity your practice requires.</p>
+        <p>We build marketing strategies specifically for mental health practices — combining local SEO, AI search optimisation (GEO), paid search, sensitive social content, branding, and conversion-focused web design. Every channel is handled with the discretion, person-first language, and PDPA-aware data care that mental health work demands.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A warm, professional, mobile-responsive website that communicates safety and competence. Practitioner profiles, service descriptions, therapy approach explainers, fee transparency, and easy appointment booking — designed for people who may be visiting a mental health practice website for the first time and need reassurance at every step.</p>
+            <h3><a href="/services/seo-performance/">SEO for Mental Health Practices</a></h3>
+            <p>Rank for the concerns people quietly search — "anxiety counselling Singapore," "couples therapy Novena," "child psychologist near me." Google Business Profile, condition-specific pages, and local SEO that helps people find your practice at the exact moment they decide to seek help.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the concerns and services people search for — "anxiety counselling Singapore," "couples therapy Novena," "child psychologist near me," "ADHD assessment Singapore." Google Business Profile optimisation, local citations, and condition-specific content that helps people find your practice when they need it most.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when people ask ChatGPT, Gemini, Perplexity, or Google AI Mode "how do I find a therapist in Singapore" or "best counselling for anxiety." AI-friendly schema and the same citation playbook we use for our own agency — so your practice is part of the answer.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Search</h3>
-            <p>Carefully crafted Google Ads campaigns that reach people searching for mental health support. We write ad copy that is empathetic and non-clinical, target condition-specific and service-specific keywords, and manage budgets to maximise cost-per-consultation while maintaining the sensitive tone your practice demands.</p>
+            <h3><a href="/mental-health-google-ads-singapore/">Google Ads for Mental Health Practices</a></h3>
+            <p>Empathetic, non-clinical paid search on high-intent terms, reaching people the moment they decide to seek support. GCLID tracking from click to booked consultation, measured to a real cost-per-enquiry — with sensitive copy and careful keyword choices throughout.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Content Marketing &amp; Social Media</h3>
-            <p>Educational content that raises awareness, reduces stigma, and positions your practitioners as trusted experts — articles on managing anxiety, understanding therapy types, navigating workplace burnout, and supporting children's mental health. Instagram and LinkedIn content that normalises seeking help and keeps your practice visible to the community.</p>
+            <h3><a href="/mental-health-social-media-singapore/">Social Media for Mental Health Practices</a></h3>
+            <p>Practitioner-led educational content that reduces stigma and builds trust on Instagram and LinkedIn — managing anxiety, understanding therapy types, navigating burnout. Warm, person-first, and never sensational, so the community sees your practice as a safe place to turn.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Mental Health Practices</a></h3>
+            <p>A calm, professional identity that signals safety and competence — practice positioning, practitioner presentation, and design that feels reassuring rather than clinical. The difference between a faceless listing and the practice someone feels confident reaching out to.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/mental-health-clinic-website-singapore/">Websites for Mental Health Practices</a></h3>
+            <p>A warm, welcoming, mobile-first website with practitioner profiles, approach explainers, fee transparency, and a discreet, PDPA-aware booking form — the conversion hub that turns a hesitant first-time visitor into a booked initial consultation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for mental health marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for mental health practice marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Respects Your Profession</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">People Seeking Help</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with mental health practices, healthcare providers, and wellness businesses across Singapore. We understand that marketing mental health services requires a fundamentally different approach — one built on sensitivity, ethics, and genuine care:</p>
+        <p>Most agencies pitching practices are generalists who treat mental health like any other lead-gen funnel. We are the opposite — full-service, sensitivity-led, and built around how people in Singapore quietly research, validate, and choose a therapist or counsellor. Person-first language, absolute confidentiality, and PDPA-aware handling of sensitive enquiry data are built into everything we produce.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Sensitive, Ethical Marketing</h3>
-            <p>We understand that mental health marketing cannot follow standard playbooks. We use person-first language, avoid sensationalism, respect confidentiality absolutely, and ensure every piece of content is empathetic and aligned with your professional ethics. Marketing should help people find help — never exploit vulnerability.</p>
+            <p>Mental health marketing cannot follow standard playbooks. We use person-first language, avoid sensationalism, respect confidentiality absolutely, and handle every enquiry with PDPA-aware care. Marketing should help people find help — never exploit a vulnerable moment.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, content, and social media all managed by one team that understands the nuances of mental health marketing. No coordinating between vendors who may not have the sensitivity required. Every channel maintains the same warm, professional tone.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, social, branding, and websites under one roof. No coordinating between vendors who may not have the sensitivity required. Every channel delivers the same warm, professional, non-stigmatising tone as part of a single strategy.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Client Acquisition Reporting</h3>
-            <p>We provide clear data on consultation bookings, enquiries, cost per new client, and channel performance — while maintaining strict privacy standards. You see the numbers that matter for your practice's growth without compromising client confidentiality.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your trust every month.</p>
+            <h3>Bookings, Not Vanity Metrics</h3>
+            <p>We measure consultation enquiries and cost per new client — not likes — while maintaining strict privacy standards. Month-to-month retainers with no lock-in, because a practice should stay for the people we help it reach, not because of a contract.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== THE PATIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Patient Funnel — how Singapore clients decide on a mental health practice">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Funnel</p>
+        <h2>How <span class="highlight">Singapore Clients</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From a quiet first search to a returning client, every person seeking support in Singapore moves through the same five stages. We build sensitive marketing that shows up at each one — from discreet discovery through to the continuity of care that supports lasting wellbeing.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, AI search, social, referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Credentials, approach, educational content</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Specialisation, location, in-person vs online</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Discreet form, WhatsApp, or phone enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Continued sessions &amp; trusted referrals</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -227,7 +388,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about mental health practice marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about mental health practice marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

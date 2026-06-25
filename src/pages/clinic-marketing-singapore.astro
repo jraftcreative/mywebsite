@@ -50,6 +50,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Patient Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Clinic Marketing in Singapore — GP & Specialist Practice Ads"
   description="Digital marketing for SG GP, family practice and specialist clinics. Google Ads, neighbourhood content, CHAS angles, multi-language, MOH-reviewed. From $2,999/mo."
@@ -63,6 +163,7 @@ const schemaData = [
   heroTitle='Marketing for <span class="highlight">GP &amp; Medical Clinics in Singapore</span>'
   heroSubtitle="Built for how SG patients actually find a doctor — Google Maps, GBP, and a clear shortlist. We run the ads, social content and Google Business Profile work that puts your practice in front of patients searching tonight. Every asset MOH-reviewed before it goes live."
   heroImage="/images/service-clinic.webp"
+  heroImageAlt="GP and family medical clinic in Singapore — clinic marketing"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20medical%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
@@ -78,154 +179,214 @@ const schemaData = [
   hideDefaultCta={false}
 >
 
-  <!-- ========== THE PROBLEM ========== -->
-  <section class="section" id="problem" aria-label="What GP and medical clinics in Singapore are up against">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why GP and medical clinics need marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">The Problem</p>
-        <h2>Why your clinic is full at 9am and empty by 3pm</h2>
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best Doctor</span> in the Estate Still Loses Patients to the <span class="highlight">Clinic That's Easier to Find</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has more than 1,800 GP clinics, more telemedicine apps than most patients can name, and hospital outpatient marketing teams running paid campaigns against you every day. The clinics holding steady patient volume aren't necessarily delivering better care — they're being seen at the moments that matter and making the next step obvious.</p>
-        <p>Here's what we usually find when we audit a clinic's marketing:</p>
+        <p>Singapore has more than 1,800 GP clinics, a wall of telemedicine apps, and hospital outpatient teams running paid campaigns against you every day. The clinics holding steady patient volume aren't necessarily delivering better care — they're being seen at the moments that matter, and they're doing it inside MOH's advertising rules.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Losing to the HDB-block walk-in</h3>
-            <p>The GP on the ground floor of the next block gets the walk-ins by geography. If you're a few hundred metres away — or one floor up — most residents don't know you exist. The fix isn't worse medicine; it's local visibility through Google Maps, GBP and neighbourhood-tight ads.</p>
+            <h3>The Compliance Line</h3>
+            <p>Clinic advertising is governed by MOH rules under the Healthcare Services Act (HCSA) and the Singapore Medical Council ethical code — no superlatives, no outcome claims, no testimonials as endorsements. Generalist agencies don't know these limits, and one careless post creates real regulatory exposure for your practice.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Telemedicine eating the easy consults</h3>
-            <p>Doctor Anywhere, WhiteCoat, MaNaDr and Speedoc are taking the simple consults — MC, low-acuity coughs, common skin issues. You're not going to out-convenience an app. You compete on the things an app can't do, and your marketing needs to spell that out.</p>
+            <h3>The Validation Step</h3>
+            <p>Before a patient calls, they read your Google reviews, check your hours, scan your doctor credentials, and decide whether you look like a practice they can trust. A thin, abandoned Google Business Profile and a silent social feed quietly send that patient to the clinic that looks more cared-for.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Hospital outpatient clinics outspending you</h3>
-            <p>Mount Elizabeth, Parkway, Raffles and the public restructured hospitals all run paid digital. Specialist clinics in the same condition area are competing with that budget. The answer is not matching their spend — it's running tighter, more specific ad geos and content positioning.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>CHAS, Medisave and multi-language angles ignored</h3>
-            <p>CHAS Blue/Orange/Green eligibility, Medisave-claimable procedures, MediShield integrations, chronic disease management subsidies, Mandarin/Malay/Tamil patient communication — these matter for real SG patients and almost nobody puts them in their ads or GBP posts.</p>
+            <h3>The "Clinic Near Me" Moment</h3>
+            <p>Most clinic demand is local and immediate — "clinic near me", "GP [estate]", "paediatrician [area]" — searched on a phone, often the same day. The GP on the ground floor of the next block wins by geography. If you're not in the map pack and the neighbourhood ads, residents don't know you exist.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE DO ========== -->
-  <section class="section" id="what-we-do" style="background: var(--bg-alt);" aria-label="What clinic marketing actually looks like at Jraft Creative">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for medical clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What we do</p>
-        <h2>What marketing for a GP or specialist clinic actually looks like</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Clinic <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Two channels do the heavy lifting — paid ads and social content — sitting on top of a Google Business Profile that's actively managed, not abandoned. The Growth Bundle ($2,999/month) gives you the full stack on one invoice. Larger practices add multi-doctor content, video, and multi-language campaigns on top.</p>
+        <p>We build marketing strategies specifically for GP, family and specialist clinics — combining local SEO, AI search optimisation (GEO), paid search, neighbourhood social content, branding, and conversion-focused web design, all reviewed against Singapore's healthcare advertising rules before anything goes live.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Google &amp; Meta ads — neighbourhood-tight</h3>
-            <p>Search ads on "clinic near me", "GP [estate]", "paediatrician [area]", "family doctor [neighbourhood]" — the queries patients actually type when they need a clinic that day. Geo-radius tightened to your real catchment, not a generic Singapore-wide blast. Meta ads layered on top for awareness in the same postal codes.</p>
+            <h3><a href="/services/seo-performance/">SEO &amp; Google Business Profile</a></h3>
+            <p>Rank for "clinic near me", "GP [estate]" and treatment searches across your real catchment. Actively managed GBP — weekly posts, photo refresh, review responses, accurate holiday hours — so you show up in the local map pack instead of an abandoned listing.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Social content that builds neighbourhood familiarity</h3>
-            <p>Twelve pieces a month across Instagram, TikTok and Facebook. The doctor introductions, the clinic environment, what to expect at a first visit, vaccination schedules, chronic disease programmes, CHAS information, MediShield/Medisave eligibility explainers. Factual, useful, no outcome claims, no testimonial-as-results-claim language.</p>
+            <h3><a href="/clinic-ai-search-optimisation-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when patients ask ChatGPT, Gemini, Perplexity or Google AI Mode for "family clinic in [estate]" or "GP open now near me." AI-friendly schema and the same citation playbook we use for our own agency, kept factual and MOH-compliant.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Business Profile, actually managed</h3>
-            <p>Weekly GBP posts, photo refresh, service list maintenance, review responses (the same week, not three months later), Q&amp;A monitoring, and accurate operating hours around Hari Raya, Deepavali, Chinese New Year and long weekends. The single highest-leverage asset for a neighbourhood clinic.</p>
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads</a></h3>
+            <p>Search ads on the queries patients type when they need a clinic that day, with the geo-radius tightened to your real catchment — not a Singapore-wide blast. Meta ads layered on for awareness in the same postal codes, with conversion tracking from click to enquiry.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>One monthly report you'll actually read</h3>
-            <p>Enquiries, calls and form fills by channel. Cost per enquiry. What we changed last month and what we're changing next month. MOH-compliance log of every asset published. One page. The numbers that move the practice — not a 40-slide marketing deck.</p>
+            <h3><a href="/services/social-media/">Social Media for Clinics</a></h3>
+            <p>Doctor introductions, what to expect at a first visit, vaccination schedules, chronic disease and CHAS explainers across Instagram, TikTok and Facebook. Factual, useful content that builds neighbourhood familiarity — no outcome claims, no testimonial-as-results language.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Clinics</a></h3>
+            <p>Clinic identity, doctor positioning, and a consistent look across signage, GBP, ads and social — the trust signals that tell a researching patient your practice is established and credible, not a faceless name on a directory listing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/clinic-website-design-singapore/">Websites for Clinics</a></h3>
+            <p>Service pages, doctor profiles, clear hours and location, CHAS and panel information, and a single-step enquiry path — built mobile-first and fast, so the patient who found you on their phone actually books.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHO THIS IS FOR ========== -->
-  <section class="section" id="who-this-is-for" aria-label="Who this is for">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for clinic marketing">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Who this is for</p>
-        <h2>Right fit if you're running one of these</h2>
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">SG Patients</span> Actually <span class="highlight">Choose a Clinic</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching clinics are generalists who don't understand MOH advertising rules or the way Singapore patients pick a doctor. We are the opposite — full-service, compliance-aware, and built around real catchment behaviour: Google Maps, reviews, CHAS and panel eligibility, and the neighbourhood-tight visibility that actually moves new-patient flow.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Solo GP / family practice</h3>
-            <p>One doctor, one location. You want consistent new-patient flow into a single practice without losing your evenings to ads dashboards. CHAS-eligible patients, walk-ins from the neighbourhood, and a steady chronic-disease base.</p>
+            <h3>MOH-Reviewed Before Publish</h3>
+            <p>Every ad, caption and post is checked against MOH advertising rules and the SMC ethical code before it goes live — no superlatives, no outcome claims, no testimonials as endorsements. You build authority without putting your clinic's standing at risk, and the compliance log sits inside your monthly report.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>2–5 doctor family clinic</h3>
-            <p>A multi-doctor independent practice serving an HDB estate or condo cluster. You've outgrown word-of-mouth, and the patient mix needs to broaden beyond the regulars who've been with you for years.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, Meta, social, branding and websites under one roof — plus CHAS, Medisave and Mandarin/Malay/Tamil angles handled properly. No coordinating between three vendors; every channel carries the same compliant positioning.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Specialist clinic (non-aesthetic)</h3>
-            <p>Paediatrics, psychiatry, geriatric, ENT, dermatology (medical, not cosmetic), women's health, men's health, occupational medicine — practices that depend on direct patient enquiries and GP referrals. We treat both audiences as separate funnels.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Small clinic group, 2–4 locations</h3>
-            <p>An independent group running a handful of locations under one brand. Multi-location GBP setup, separate ad geos per branch, and one shared content engine. Most groups at this size don't have an in-house marketer — we sit in that seat.</p>
+            <h3>Enquiries, Not Vanity Metrics</h3>
+            <p>We report calls, form fills and enquiries by channel and the cost per enquiry — not likes. One page a month, no lock-in, no 40-slide deck. Clinics stay for the patient pipeline, not because they're trapped in a contract.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== HOW IT WORKS ========== -->
-  <section class="section" id="how-it-works" style="background: var(--bg-alt);" aria-label="How clinic marketing engagement runs">
+  <!-- ========== PATIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Patient Funnel — how Singapore patients decide on a clinic">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">How it works</p>
-        <h2>Three steps. No 90-day onboarding theatre.</h2>
+        <p class="section-label">The Patient Funnel</p>
+        <h2>How <span class="highlight">Singapore Patients</span> Actually <span class="highlight">Choose a Clinic</span></h2>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>1. 30-minute scoping call</h3>
-            <p>You walk us through the clinic, the catchment, your CHAS and panel mix, current new-patient sources, and the clinics nearby. We tell you whether the Growth Bundle is the right starting point or whether you need something larger. No deck, no sales pressure.</p>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first "clinic near me" search to a regular family doctor, every patient in Singapore moves through the same five stages. We build compliant marketing that shows up at each one — from discovery through to the return visit that builds a loyal patient base.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google Maps, "clinic near me", GBP, referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, doctor credentials, hours, CHAS panel</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist nearby clinics — convenience &amp; trust</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Call, WhatsApp, form, or simply walk in</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Repeat visits, chronic care, family &amp; referrals</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Clinic marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Clinic Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for Clinics of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card featured reveal reveal-d1">
+            <h3>Growth Bundle</h3>
+            <div class="price">$2,999 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For solo GP and family practices building consistent new-patient flow.</p>
+            <ul class="pricing-features">
+              <li>Paid ads (Google + Meta)</li>
+              <li>12 social content pieces / month</li>
+              <li>Google Business Profile management</li>
+              <li>One consolidated monthly report</li>
+              <li>MOH-reviewed before every publish</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
           </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d2">
-          <div class="service-detail-card__content">
-            <h3>2. Week 1–2: setup</h3>
-            <p>Ad accounts, conversion tracking, GBP audit and cleanup, first content shoot brief, MOH-compliance review of every asset, language mix confirmed (English, Mandarin, Malay, Tamil as needed). Ads typically go live by day 10.</p>
+          <div class="pricing-card reveal reveal-d2">
+            <h3>Multi-Doctor</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For 2–5 doctor clinics and specialist practices scaling enquiries.</p>
+            <ul class="pricing-features">
+              <li>Everything in the Growth Bundle</li>
+              <li>Multi-doctor &amp; specialist content</li>
+              <li>Video content production</li>
+              <li>Dual-language campaigns (Mandarin / Malay / Tamil)</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
           </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>3. Month 2 onwards: run and report</h3>
-            <p>Ads optimised weekly, content shipped on schedule, GBP managed continuously, monthly call and monthly report. No lock-in. Leave at the end of any month, no penalty.</p>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Group / Specialist</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For specialist clinics and small clinic groups across multiple locations.</p>
+            <ul class="pricing-features">
+              <li>Everything in Multi-Doctor</li>
+              <li>KOL doctor content</li>
+              <li>Multi-location GBP &amp; per-branch ad geos</li>
+              <li>Dedicated account strategist</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about clinic marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about clinic marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -256,21 +417,6 @@ const schemaData = [
           <summary>How do we compete with telemedicine apps like Doctor Anywhere or WhiteCoat?</summary>
           <div class="faq-answer"><p>You don't beat telemedicine on convenience — you beat it on the things telemedicine can't do. Same-day in-person appointments, physical examinations, vaccinations, chronic disease monitoring, paediatric care, and continuity with a doctor who knows the family. The marketing job is making those advantages obvious in ads and content. We've found this works better than trying to out-discount the apps on consultation price.</p></div>
         </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FINAL CTA ========== -->
-  <section class="section" id="final-cta" aria-label="Talk to us about your clinic">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom: 0;">
-        <p class="section-label">Next step</p>
-        <h2>Tell us about your clinic</h2>
-        <p>30 minutes on the phone, no slide deck, no obligation. You'll leave with a clearer view of where the patient pipeline is leaking and whether we're the right team to fix it.</p>
-        <div class="hero-buttons" style="margin-top: 32px;">
-          <a href="/contact/" class="btn btn-primary">Book Your Consultation</a>
-          <a href="https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20medical%20clinic%20in%20Singapore." class="btn btn-secondary" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        </div>
       </div>
     </div>
   </section>

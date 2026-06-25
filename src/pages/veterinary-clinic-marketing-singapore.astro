@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Pet-Owner Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Veterinary Clinic Marketing Singapore — Jraft Creative"
   description="Full-service digital marketing for veterinary clinics in Singapore — website, SEO, Google Ads, social media, and content marketing."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='Full-Service Marketing for <span class="highlight">Veterinary Clinics in Singapore</span>'
   heroSubtitle="Website, SEO, Google Ads, social media, and content — managed by one agency with one goal: growing your client base. Stop relying on foot traffic alone and start building a patient acquisition engine for your practice."
   heroImage="/images/service-veterinary.webp"
+  heroImageAlt="Veterinary clinic examination room in Singapore — veterinary clinic marketing"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -77,98 +178,158 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20veterinary%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why veterinary clinics need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why veterinary clinics need full-service marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Location Alone Is No Longer Enough to Build a Practice</h2>
+        <h2>Great <span class="highlight">Care</span> Means Nothing If Pet Owners <span class="highlight">Can't Find or Trust You First</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 100 veterinary clinics, and pet ownership is at an all-time high — nearly one in three households owns a pet. The pet care market is projected to exceed $500 million annually, attracting new clinics, corporate veterinary chains, and specialised practices that intensify competition for every pet owner in your area.</p>
-        <p>Pet owners today research veterinary clinics online before committing. They read Google reviews, compare clinic websites, check social media for patient stories, and search for specific services — "cat dental cleaning Singapore," "24-hour emergency vet near me," "vet clinic with exotic pet experience." If your clinic is invisible in these searches, new pet owners in your neighbourhood will register with the competitor who has the stronger online presence.</p>
-        <p>Full-service marketing solves this by building visibility across every channel pet owners use — a professional website that showcases your services and team, SEO that ranks your clinic for location-based and service-specific searches, ads that capture pet owners with urgent needs, and social media content that builds the emotional connection pet owners seek from their vet.</p>
+        <p>Singapore's pet ownership is booming, and new clinics, corporate chains, and specialist practices are all competing for every pet owner in your catchment. The clinics that win aren't always the ones with the best vets — they're the ones pet owners find, trust, and book before they ever walk in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Research Window</h3>
+            <p>Pet owners treat their animals like family, and choosing a vet is an emotional decision. Before they commit, they read reviews, compare clinic websites, and scroll Instagram for weeks. If you're invisible during that research window, the booking goes to whoever showed up.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust Threshold</h3>
+            <p>A vet visit means handing over a family member. Pet owners validate you through Google reviews, visible credentials, team profiles, and educational content before they ever enquire. Without that proof on display, you stay a faceless name on a directory listing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The "Vet Near Me" Moment</h3>
+            <p>When a pet is unwell or it's an emergency, owners search "vet near me" or "24-hour emergency vet Singapore" with immediate booking intent. If your clinic doesn't surface in that local search, the urgent — and often lifelong — client registers with whoever did.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for veterinary clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for veterinary clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Everything Your Veterinary Clinic Needs to Grow</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Veterinary Clinic <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle every aspect of your veterinary clinic's marketing in-house — from designing a website that converts visitors into registered clients, to ranking your clinic on Google for every service you offer, running targeted ads that capture pet owners in your area, and creating social media content that builds the trust and emotional connection pet care demands. No outsourcing, no subcontractors. One team, one strategy, measurable client growth.</p>
+        <p>We build marketing strategies specifically for veterinary clinics — combining local SEO, AI search optimisation (GEO), paid search, pet-owner social content, branding, and conversion-focused web design, all built around how Singapore pet owners discover and choose their vet.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A professional, mobile-responsive website that showcases your clinic's services, veterinary team, facilities, and makes booking appointments seamless. Service-specific pages for vaccinations, dental care, surgery, emergency services, and grooming — designed for how Singapore pet owners evaluate and choose their vet.</p>
+            <h3><a href="/veterinary-clinic-seo-singapore/">SEO for Veterinary Clinics</a></h3>
+            <p>Rank for local searches like "vet clinic near me," "cat dental Pasir Ris," and "emergency vet Singapore." Google Business Profile, review management, and service pages that capture pet owners ready to register.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Rank on Google for the services and locations your clinic covers — "vet clinic Punggol," "cat grooming Pasir Ris," "emergency vet Singapore." Google Business Profile optimisation with review management, local citations, and service-specific content that drives organic client registrations month after month.</p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when pet owners ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best vet in Singapore" or "is my dog's symptom an emergency." Same citation playbook we've used for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Search</h3>
-            <p>Targeted Google Ads campaigns that capture pet owners actively searching for veterinary services. Emergency and urgent-care keywords drive immediate bookings. We build campaigns around service-specific and location-based keywords, manage budgets to maximise cost-per-new-client, and adjust targeting by pet type and neighbourhood.</p>
+            <h3><a href="/veterinary-clinic-google-ads-singapore/">Google Ads for Veterinary Clinics</a></h3>
+            <p>High-intent campaigns on urgent and service-specific terms, geo-targeted to your catchment. GCLID tracking from click to booked appointment, measured to a real cost-per-new-client.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Content Marketing</h3>
-            <p>Instagram, Facebook, and TikTok content that showcases your clinic's compassionate care — patient recovery stories, pet health tips, team introductions, seasonal pet care advice, and behind-the-scenes moments. Pet content has natural social media appeal, and we leverage this to build the community and trust that drives client loyalty and referrals.</p>
+            <h3><a href="/veterinary-clinic-social-media-singapore/">Social Media for Veterinary Clinics</a></h3>
+            <p>Patient recovery stories (with owner permission), pet health tips, team intros, and behind-the-scenes Reels for Instagram, TikTok, and Facebook — the community engine that drives referrals and client loyalty.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/veterinary-clinic-branding-singapore/">Branding for Veterinary Clinics</a></h3>
+            <p>Clinic identity, team positioning, and signage that signals warmth, safety, and expertise — lifting you out of price-only comparisons and into the clinic pet owners feel confident choosing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/veterinary-clinic-website-singapore/">Websites for Veterinary Clinics</a></h3>
+            <p>Service pages, team profiles, booking forms, and mobile-first speed — the conversion architecture that turns a researching pet owner into a registered client.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for veterinary marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for veterinary clinic marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner That Understands Pet Care</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Pet Owners</span> Actually <span class="highlight">Decide</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with veterinary clinics, healthcare practices, and wellness businesses across Singapore. We understand the emotional nature of pet care marketing, the importance of trust-building, and the local dynamics of Singapore's growing pet ownership market:</p>
+        <p>Most agencies pitching clinics are generalists who don't understand the emotional, trust-intensive way pet owners choose a vet. We are the opposite — full-service, performance-led, and built around how pet owners in Singapore research, validate, and book their clinic. We understand the local dynamics of a growing pet-care market across Punggol, Pasir Ris, Bukit Timah, and every neighbourhood in between.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare &amp; Pet Industry Expertise</h3>
-            <p>We understand Singapore's pet care market — the emotional decision-making of pet owners, the importance of Google reviews in veterinary selection, seasonal patterns like tick season and year-end boarding rushes, and how new pet owners discover and evaluate clinics.</p>
+            <h3>Pet Care &amp; Local Market Knowledge</h3>
+            <p>We understand Singapore's pet care market — the emotional decision-making of pet owners, the weight of Google reviews in vet selection, seasonal patterns like tick season and year-end boarding rushes, and how new pet owners discover and evaluate clinics.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service, In-House</h3>
-            <p>Website, SEO, ads, content, and social media all managed by one team. No coordinating between separate vendors. Every channel reinforces the same caring, professional brand — building the trust that pet owners need before entrusting their pets to your team.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, Instagram, TikTok, Facebook, branding, and websites under one roof. No coordinating between separate vendors. Every channel reinforces the same caring, professional brand as part of a single strategy.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Client Acquisition Reporting</h3>
-            <p>We do not report on vanity metrics. You get clear data on new client registrations, appointment bookings, cost per new client, and channel performance — the numbers that directly impact your clinic's patient volume and revenue growth.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. You stay because the results justify it — not because of a 12-month commitment. We earn your business every month.</p>
+            <h3>Registrations, Not Vanity Metrics</h3>
+            <p>We measure new client registrations, appointment bookings, and cost per new client — not likes. GCLID offline tracking and WhatsApp-routed enquiries prove which ad click became which booking. Month-to-month retainers, no lock-in.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== PET-OWNER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Pet-Owner Funnel — how Singapore pet owners decide on a veterinary clinic">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Pet-Owner Funnel</p>
+        <h2>How <span class="highlight">Singapore Pet Owners</span> Actually <span class="highlight">Choose a Vet</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first "vet near me" search to a lifelong client, every pet owner in Singapore moves through the same five stages. We build marketing that shows up at each one — from discovery through to the repeat visits that build lifetime value.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, Instagram, TikTok, AI search, referral</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, credentials, team &amp; educational content</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 clinics, services &amp; trust match</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Booking form, WhatsApp, or phone enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Repeat visits, boarding, refer friends</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -228,7 +389,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about veterinary clinic marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about veterinary clinic marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
