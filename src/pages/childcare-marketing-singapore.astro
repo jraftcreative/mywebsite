@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Childcare Marketing Singapore — Jraft Creative"
   description="Full-service digital marketing for childcare centres in Singapore — website, SEO, Google Ads, social media, and parent referral campaigns."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='Full-Service Marketing for <span class="highlight">Childcare Centres in Singapore</span>'
   heroSubtitle="Website, SEO, Google Ads, social media, and parent referral campaigns — managed by one agency to keep your waitlist growing and every age group filled. From infant care to K2, we handle it all."
   heroImage="/images/service-childcare.webp"
+  heroImageAlt="Singapore childcare centre — childcare marketing agency"
   heroButtons={[
     { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -77,98 +178,158 @@ const schemaData = [
     { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why childcare centres need full-service marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why childcare centres need marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Demand Is High, But So Is Competition</h2>
+        <h2>The <span class="highlight">Best</span> Centres Are Still <span class="highlight">Losing Enrolments</span> to Centres with <span class="highlight">Better Marketing</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's childcare sector is growing rapidly — with government subsidies expanding access and dual-income households driving demand, the number of licensed centres has surged. While demand for places is strong, especially for infant care, the competition for quality enrolments is fiercer than ever. Parents now research extensively online before shortlisting centres, comparing facilities, curricula, reviews, and pricing across multiple options.</p>
-        <p>Many childcare centres rely on location foot traffic and parent word-of-mouth. These channels work, but they're unpredictable. A new centre opening nearby, a negative Google review left unmanaged, or a competitor running Facebook ads in your catchment area can shift enrolment momentum quickly. Without a consistent digital presence, your centre is vulnerable to these competitive pressures.</p>
-        <p>Full-service marketing gives your childcare centre a predictable growth engine — a professional website that converts visits into tour bookings, local SEO that captures "childcare near me" searches, paid ads that fill specific programmes like infant care, and social content that builds parent trust and drives referrals.</p>
+        <p>Singapore's childcare sector is competitive and hyper-local. Government subsidies have widened access and dual-income households keep demand strong — but parents now research extensively online before they ever call a centre, comparing facilities, curriculum, reviews, and subsidy eligibility across every option in their neighbourhood. The centres filling their classes aren't always the best ones. They're the ones parents can find and trust online.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Infant Care &amp; Full-Day Demand</h3>
+            <p>ECDA-licensed full-day childcare and infant care don't market the same way. Infant care places are scarce, and parents start searching months before maternity leave ends. If your available programmes — infant care especially — aren't visible online, high-intent parents enrol with the centre that surfaced first.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust &amp; Safety Test</h3>
+            <p>Parents are handing over their child, so they validate heavily — hygiene, staff ratios, teacher quality, ECDA licensing, and Google reviews — and they want clarity on Basic and Additional Subsidy before committing. Centres without visible trust signals lose enrolments even when their care is excellent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Catchment Search</h3>
+            <p>Childcare is decided by location — parents search "childcare near me" and "infant care [neighbourhood]" and pick from the Maps pack and first page. Even centres with waitlists need to stay visible to protect their reputation, keep the pipeline full, and fill specific age groups as places open up.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Marketing services for childcare centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for childcare centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Marketing Designed for Childcare Centres</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Childcare Centre <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build childcare marketing strategies around the parent journey — from the first Google search to the centre tour to the enrolment form. Every channel is managed in-house, every campaign aligns with your centre's unique strengths, and every metric we track ties back to actual enrolments.</p>
+        <p>We build marketing strategies specifically for childcare centres — combining hyper-local SEO, AI search optimisation (GEO), high-intent paid search, parent-trust social content, brand positioning, and conversion-focused web design for every age group from infant care to K2.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Website Design &amp; Development</h3>
-            <p>A reassuring, mobile-responsive website that showcases your centre's environment, programmes, teachers, and facilities. Age-group programme pages, fee breakdowns, virtual tours, and online enquiry forms — built to convert cautious parents into confident visitors. <a href="/childcare-centre-website-singapore/">View childcare web design</a></p>
+            <h3><a href="/childcare-centre-seo-singapore/">SEO for Childcare Centres</a></h3>
+            <p>Rank for hyper-local searches like "childcare near me" and "infant care Toa Payoh." Google Business Profile optimisation, neighbourhood landing pages, and review management so you own the Maps pack in your catchment.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO &amp; Local Search</h3>
-            <p>Dominate "childcare near me" and neighbourhood-specific searches. We optimise for programme keywords like "infant care Ang Mo Kio" and "full-day childcare Woodlands", manage your Google Business Profile with reviews and photos, and build local citations that boost map rankings for every branch. <a href="/childcare-centre-seo-singapore/">View childcare SEO</a></p>
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when parents ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best infant care near Ang Mo Kio" or "full-day childcare with good reviews." Same citation playbook we've used for our own agency.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-google-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads &amp; Paid Campaigns</h3>
-            <p>Targeted ad campaigns that reach parents searching for childcare in your area. We build campaigns around high-intent keywords, manage budgets by programme type, and run seasonal campaigns for infant care availability and new term registrations. Retargeting recaptures parents who browsed your site without enquiring. <a href="/childcare-centre-advertising-singapore/">View childcare advertising</a></p>
+            <h3><a href="/childcare-centre-advertising-singapore/">Google Ads for Childcare</a></h3>
+            <p>High-intent campaigns built around programme availability — infant care openings, new-term registration, full-day places. GCLID tracking from click to centre tour to signed enrolment, with retargeting for parents who browsed but didn't enquire.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Social Media &amp; Parent Engagement</h3>
-            <p>Instagram and Facebook content that shows the daily joy of your centre — meals, outdoor play, milestone celebrations, and teacher-child interactions. Parent testimonials, staff introductions, and behind-the-scenes glimpses that build community trust and encourage parent-to-parent referrals. <a href="/services/social-media/">View social media services</a></p>
+            <h3><a href="/childcare-social-media-singapore/">Social Media for Childcare</a></h3>
+            <p>Instagram and Facebook content that shows the daily joy of your centre — meals, outdoor play, milestone moments, and teacher-child warmth. The parent-trust and referral signals that turn followers into tour bookings.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Childcare</a></h3>
+            <p>The brand system that makes cautious parents feel safe before they visit. Logo, palette, signage, and parent-pack templates — positioned around your curriculum and care philosophy so you stand out from the centre down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/childcare-centre-website-singapore/">Websites for Childcare</a></h3>
+            <p>The site that converts a worried parent into a tour booking. Age-group programme pages, transparent fees and subsidy info, virtual tours, teacher profiles, and a single-field enquiry form that loads fast on mobile.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for childcare marketing">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for childcare marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Marketing Partner for the Childcare Sector</h2>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Singapore Parents</span> Actually <span class="highlight">Choose Childcare</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with childcare centres, preschools, and early childhood education providers across Singapore. We understand the parent decision journey, government subsidy landscape, and competitive dynamics that shape childcare marketing:</p>
+        <p>Most agencies pitching childcare centres run generic e-commerce playbooks on a parent audience that decides on weeks of research, a centre tour, and word-of-mouth from other parents. We are the opposite — full-service, performance-led, and built around the childcare enrolment journey. We understand ECDA licensing, the subsidy landscape, infant-care demand, and the hyper-local dynamics that decide which centre a family chooses across Tampines, Punggol, Woodlands, Ang Mo Kio, and other high-density Singapore estates.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Early Childhood Expertise</h3>
-            <p>We understand ECDA licensing, subsidy schemes, SPARK certification, and the age-specific concerns parents have — from infant care ratios to K2 school readiness. Your marketing speaks the language parents understand and trust.</p>
+            <h3>Early Childhood Fluency</h3>
+            <p>We understand ECDA licensing, SPARK certification, Basic and Additional Subsidy, and the age-specific concerns parents carry — from infant care ratios to K2 school readiness. Your marketing speaks the language parents actually trust.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Hyper-Local Strategy</h3>
-            <p>Childcare is a local decision. We target by neighbourhood, HDB estate, and proximity to MRT stations and workplaces. Every campaign is geographically focused to reach parents in your catchment area.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, Facebook, Instagram, branding, websites — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, parent-trust signals, and measurement back to enrolments.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Referral Programme Support</h3>
-            <p>We help you build and promote structured parent referral programmes — referral landing pages, email campaigns, social prompts, and incentive tracking. Referrals convert at higher rates and lower cost than any other channel.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month retainers on all plans. Scale up during registration periods, adjust during quieter months. You keep us because results justify it — not because of a 12-month commitment.</p>
+            <h3>Enrolment-Focused Metrics</h3>
+            <p>We measure tour bookings and signed enrolments, not impressions. GCLID offline tracking proves which ad click became which centre tour became which enrolled child. Every report ties spend to enrolment outcomes, not vanity metrics.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — how Singapore parents decide on a childcare centre">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How <span class="highlight">Singapore Parents</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first "childcare near me" search to a signed enrolment, every Singapore parent moves through the same five stages. We build marketing campaigns that show up at each one — from discovery through to the centre tour and the enrolment form.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google "childcare near me", Maps, IG/FB, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Safety, reviews, ECDA licence, subsidy eligibility</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 2–3 centres on fees, programmes, location</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>WhatsApp or form enquiry, book a centre tour</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign up and secure the place</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -231,7 +392,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about childcare centre marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about childcare centre marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
