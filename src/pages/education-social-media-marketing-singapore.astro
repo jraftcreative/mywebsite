@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Education Social Media Marketing — Jraft Creative"
   description="Social media marketing for education businesses in Singapore. Content strategy, platform management, community building."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='Social Media Marketing for <span class="highlight">Education</span> in Singapore'
   heroSubtitle="Content strategy, platform management, community building, and paid social campaigns built for education businesses across every segment. From preschools to professional training — we help Singapore's education brands grow through social media."
   heroImage="/images/service-education.webp"
+  heroImageAlt="Education social media content for a Singapore learning centre"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "View Our Plans", href: "#pricing", class: "btn btn-secondary" }
@@ -77,56 +178,87 @@ const schemaData = [
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for education businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Singapore's Education Market Is Crowded — Standing Out Takes Strategy</h2>
+        <h2>Parents <span class="highlight">Judge Your Centre</span> on Social Before They Ever <span class="highlight">Enquire</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore spends more per capita on education than almost any country in the world. From tuition centres and enrichment programmes to preschools, international schools, and corporate training providers, the education sector is vast, competitive, and constantly evolving. Every segment is fighting for attention from the same pool of parents, learners, and decision-makers — and the ones who win are the ones who show up consistently where their audience is already spending time: social media.</p>
-        <p>Yet most education businesses in Singapore still treat social media as an afterthought. A Facebook page that hasn't been updated since the last open house. An Instagram account with a handful of stock photos and no cohesive brand. A TikTok presence that doesn't exist. Meanwhile, competitors with polished feeds, regular Reels, and active community engagement are building the trust and visibility that translate directly into enrolments. In a market where parents and learners compare options side by side on their phones, a weak social media presence is a revenue leak you can't afford.</p>
+        <p>Before a parent books a trial class, they open Instagram and TikTok. They scroll your feed, read the comments, and decide in seconds whether your centre feels active, trusted, and worth their child's time. A dormant page or a grid of stock photos quietly loses enrolments you never even knew you were in the running for.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Social Check Happens First</h3>
+            <p>Parents and learners vet a centre on Instagram and TikTok before they ever fill in a form. An empty feed, no Reels, and a Facebook page last updated at the previous open house reads as "closed" — even when your classrooms are full and your results are strong.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Trust Has to Be Shown, Not Claimed</h3>
+            <p>Education is a high-trust purchase. Parents want to see real classrooms, real teachers, and real student outcomes — not stock imagery and generic captions. Without a steady stream of visual proof and testimonials, your centre looks like every other listing in the catchment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Consistency Is Where Owners Lose</h3>
+            <p>Running classes leaves no time to plan, shoot, edit, caption, and post every week. Most centre owners start strong, then fall silent for a month. The algorithm rewards consistency — and an irregular feed buries you while competitors who show up daily build momentum.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for education businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for education businesses">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Education Businesses</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Education <span class="highlight">Social Media</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build and manage social media strategies for education businesses across every segment — tuition, enrichment, preschool, childcare, and professional training. Our approach combines content strategy, original creative production, community management, and data-driven campaign planning tailored to the unique enrolment cycles and audiences of the education industry.</p>
-        <p>Whether you need to reach parents comparing PSLE tuition options, millennials searching for preschool placements, or professionals evaluating upskilling courses, we create content that speaks directly to your audience's priorities and decision-making process. Pair social media with <a href="/services/seo-performance/">SEO</a> or <a href="/services/paid-ads/">paid advertising</a> for a complete digital growth strategy.</p>
+        <p>Education social media isn't lifestyle or retail content. Parents and learners respond to proof, warmth, and consistency — class highlights, named teachers, real outcomes, and answers to the questions they're already asking. We build every element around how Singapore families actually research and choose a centre on social.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Education-Focused Video Content</h3>
-            <p>Short-form Reels and TikToks tailored to each education segment — student testimonials, class highlights, campus tours, and programme previews that capture attention and drive enquiries.</p>
+            <h3>Reels &amp; TikTok Production</h3>
+            <p>Short-form video built for each segment — class highlights, campus tours, student testimonials, and programme previews. Filmed and edited to stop the scroll and turn passive viewers into trial-class enquiries.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Community Building &amp; Engagement</h3>
-            <p>Active management of parent, student, and learner communities across platforms. We respond to enquiries, nurture leads, and foster the trust that turns followers into enrolled students.</p>
+            <h3>Content Strategy &amp; Calendar</h3>
+            <p>A planned monthly calendar mapped to your enrolment cycle — exam season, open houses, term launches, and holiday programmes — with branded graphics, carousels, and captions delivered in advance for your approval.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Cross-Segment Content Strategy</h3>
-            <p>Branded graphics, carousel posts, and infographics designed for each audience — exam tips for tuition, activity highlights for preschools, course breakdowns for training providers, and programme launches for enrichment.</p>
+            <h3>Parent-Trust &amp; Testimonial Content</h3>
+            <p>The proof that converts — student results, parent testimonials, teacher spotlights, and behind-the-scenes classroom moments. Visual credibility that answers the question every parent asks: "Can I trust this centre with my child?"</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Paid Social &amp; Campaign Analytics</h3>
-            <p>Targeted ad campaigns for enrolment drives, open houses, and programme launches — with detailed performance tracking, A/B testing, and ROI reporting specific to education sector benchmarks.</p>
+            <h3>Community Management</h3>
+            <p>Active management of comments, DMs, and enquiries across platforms. We respond fast, nurture interested parents, and foster the engaged community that turns followers into enrolled students — without you watching your phone all day.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Paid Social Amplification</h3>
+            <p>Targeted Facebook and Instagram campaigns for enrolment drives, open houses, and programme launches — reaching parents and learners in your catchment with the right offer at the right moment in their decision.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Analytics &amp; Reporting</h3>
+            <p>A transparent monthly report — reach, engagement, follower growth, and enquiries by platform and post. Numbers that show whether more parents are discovering, trusting, and contacting your centre, so every cycle gets sharper.</p>
           </div>
         </div>
       </div>
@@ -134,41 +266,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for education social media marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for education social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An Agency That Speaks the Language of Education</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> Built for <span class="highlight">Education Providers</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We don't apply the same social media formula to every client. Education is a nuanced industry where trust, credibility, and timing matter more than trends and virality. Our team builds strategies that respect the decision-making process of parents and learners in Singapore while delivering the reach and engagement your business needs to grow.</p>
+        <p>We work with tuition centres, enrichment programmes, preschools, training providers, and learning academies across Singapore — and we understand the enrolment cycle, seasonal demand, and the kind of content that actually earns a parent's trust and turns a scroll into an enquiry.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Multi-Segment Expertise</h3>
-            <p>From infant care to adult learning, we understand the differences between education audiences. Content for a preschool parent looks nothing like content for a corporate training buyer — and we tailor accordingly.</p>
+            <p>From infant care to adult learning, we know the differences between education audiences. Content for a preschool parent looks nothing like content for a corporate training buyer — and we tailor the platform mix, tone, and creative for each.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Singapore Market Knowledge</h3>
-            <p>We know the Singapore education calendar, peak enrolment seasons, ECDA regulations, and parent behaviour patterns. Your campaigns are timed to capture demand when it's highest — not when it's convenient.</p>
+            <h3>Timed to the Enrolment Cycle</h3>
+            <p>We know Singapore's education calendar — peak enrolment seasons, exam periods, open houses, and ECDA timelines. Your content and campaigns are timed to capture demand when it's highest, not when it happens to be convenient.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Complete Content Approval</h3>
-            <p>Every post, design, and caption is shared for your review before publishing. Full content calendar delivered in advance with structured approval workflows, so you maintain complete control of your brand messaging.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans. We earn your business through results — growing enquiries, increasing enrolments, and building brand authority — not through binding contracts.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Social builds discovery and trust, but conversion depends on your website, content, and wider marketing. We handle education web design, SEO, and paid ads in-house — an integrated system that turns social attention into enrolled students.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — where social media fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Social Media</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every Singapore parent moves through the same five stages before enrolling. Social media owns the first two — getting discovered and earning trust — and keeps your centre top of mind through every stage after it.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Reels, TikTok, Explore &amp; shares</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Feed, testimonials, real classrooms</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 centres in the catchment</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>DM, comment or trial-class enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -233,7 +394,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about education social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about education social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Education Google Ads Singapore — Jraft Creative"
   description="Google Ads management for education businesses in Singapore. Campaign strategy, keyword bidding, landing page optimisation."
@@ -64,6 +164,7 @@ const schemaData = [
   heroTitle='Google Ads for Education Businesses <span class="highlight">in Singapore</span>'
   heroSubtitle="From tuition centres to preschools to professional training providers — we build Google Ads campaigns that capture students and parents at the moment they're searching. Targeted keyword strategy, optimised landing pages, and full conversion tracking."
   heroImage="/images/service-education.webp"
+  heroImageAlt="Students in a Singapore education centre — education Google Ads"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "View Plans", href: "#pricing", class: "btn btn-secondary" }
@@ -76,57 +177,87 @@ const schemaData = [
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for education businesses">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Google Ads challenges for education businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Losing Students to Competitors Who Advertise Better?</h2>
+        <h2>Parents Search with <span class="highlight">High Intent</span> — Most Education Ad Budgets <span class="highlight">Miss the Moment</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's education market is worth over S$1.1 billion in private spending alone, and every segment — tuition, enrichment, preschool, language, professional training — is intensely competitive. When parents or students search Google for "Math tuition Singapore" or "coding class for kids near me", they see a mix of paid ads and organic results. If you're not in either, you're invisible.</p>
-        <p>Without a structured Google Ads strategy, education businesses burn budget on broad keywords that attract irrelevant clicks, send traffic to generic pages that don't convert, and have no tracking to measure which campaigns actually drive enrolments. Meanwhile, competitors with well-optimised campaigns capture the students you should be teaching — at a lower cost per acquisition.</p>
+        <p>Singapore's private education market is worth over S$1.1 billion in spending alone, and when a parent types "Math tuition near me" or "coding class for kids", they're ready to enrol that week. Google Ads puts you at the top of that search — but only if your campaigns are structured around how parents actually buy. Without that, budget burns on the wrong clicks and the enquiries go to the centre that advertises better.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>High-Intent Searches You Can't Miss</h3>
+            <p>"PSLE Math tuition Bishan", "best preschool Tampines", "holiday coding camp for Primary 4" — searched by parents ready to book a trial. Organic SEO takes months to rank for these. Google Ads puts you at the top of the page the moment they search, but only if you're bidding on the right terms with the right ad.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Seasonal Enrolment Spikes</h3>
+            <p>Education demand isn't flat. Q4 exam-prep panic, the January new-school-year rush, and June and December holiday-programme surges each spike searches overnight. Static, set-and-forget campaigns waste budget in the quiet months and run out of reach exactly when parents are searching hardest.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Wasted Spend Without Targeting &amp; Tracking</h3>
+            <p>Broad keywords pull in irrelevant clicks, traffic lands on a generic homepage that doesn't convert, and there's no tracking to show which campaign produced an enrolment. The result is budget spent with no idea of cost per enquiry — while competitors with tight targeting acquire students for less.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for education businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for education businesses">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Education Ad Services</p>
-        <h2>Google Ads Strategy for Every Education Segment</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Education <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We manage Google Ads campaigns across the full spectrum of Singapore's education sector — tuition centres targeting exam-focused parents, enrichment programmes reaching families who value holistic development, preschools filling infant care and K1/K2 spots, and professional training providers acquiring corporate and individual learners.</p>
-        <p>Every campaign is built around your specific segment's search behaviour, competitive landscape, and enrolment cycle. We handle keyword strategy, bid management, ad copywriting, landing page optimisation, and conversion tracking — so your ad spend drives actual student sign-ups, not vanity metrics.</p>
-        <p>Explore our specialist pages for <a href="/tuition-centre-google-ads-singapore/">tuition centre Google Ads</a>, <a href="/enrichment-centre-google-ads-singapore/">enrichment centre Google Ads</a>, <a href="/preschool-advertising-singapore/">preschool advertising</a>, or <a href="/childcare-centre-advertising-singapore/">childcare centre advertising</a>.</p>
+        <p>Education Google Ads isn't e-commerce or lead-gen PPC. Parents search by subject, level, programme type, and neighbourhood, then compare a handful of centres before booking a trial. We build every part of the campaign around that journey — from search structure to the landing page they arrive on — so your spend converts into enrolled students, not clicks.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Campaign Strategy &amp; Keyword Bidding</h3>
-            <p>Segment-specific keyword research covering subject searches, location queries, and programme-type terms. Tiered bidding strategies that maximise visibility on high-converting keywords while controlling costs on broader terms.</p>
+            <h3>Search Campaign Structure</h3>
+            <p>Tightly themed campaigns and ad groups split by subject, level, and programme — so each search matches a relevant ad and landing page. Clean structure lifts Quality Score, lowers cost per click, and stops budget leaking across unrelated keywords.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Audience &amp; Location Targeting</h3>
-            <p>Geo-targeted campaigns around your centres, demographic filters for parent and student audiences, and in-market segments that reach people actively researching education options in Singapore.</p>
+            <h3>Keyword &amp; Intent Strategy</h3>
+            <p>Segment-specific keyword research across subject searches, level terms, and programme queries, with a tiered bidding strategy — aggressive on high-converting long-tail terms like "Sec 3 A-Maths tuition Bukit Timah", controlled on broad heads — plus a negative-keyword list that blocks wasted clicks.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Conversion Tracking &amp; Attribution</h3>
-            <p>Full tracking setup across form submissions, phone calls, WhatsApp messages, and trial bookings. Every enquiry is attributed to the keyword and campaign that generated it — giving you clear cost-per-enrolment data.</p>
+            <h3>Geo &amp; Catchment Targeting</h3>
+            <p>Radius and location targeting around each centre so you pay to reach parents in your real catchment, not the whole island. Bid adjustments by area, device, and time of day concentrate spend where enrolments actually come from.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Landing Page Optimisation</h3>
-            <p>Dedicated landing pages for each programme or segment with clear calls-to-action, student testimonials, and programme details. A well-optimised landing page can reduce cost per enquiry by 30–50% versus a generic homepage.</p>
+            <h3>Ad Copy &amp; Extensions</h3>
+            <p>Responsive search ads written for parent intent — exam outcomes, trial-class offers, location, and trust signals — backed by sitelinks, callouts, structured snippets, and call extensions. More of the page, more reasons to click you over the centre below.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Landing Pages &amp; Conversion Tracking</h3>
+            <p>Dedicated landing pages per programme or segment with clear calls-to-action, testimonials, and trial booking — paired with full tracking across form submissions, phone calls, WhatsApp clicks, and trial bookings. A focused page can cut cost per enquiry by 30–50% versus a generic homepage.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting &amp; Optimisation</h3>
+            <p>A transparent monthly report tying every enquiry back to the keyword, ad, and campaign that produced it — with clear cost-per-enrolment numbers. Continuous A/B testing, bid adjustments, and keyword refinement drive that cost down term after term.</p>
           </div>
         </div>
       </div>
@@ -134,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for education Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for education Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Education Advertising Specialists in Singapore</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> Built for <span class="highlight">Education Providers</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns for education businesses across every segment in Singapore — from single-tutor operations to multi-branch preschool chains. Here's why education providers choose us:</p>
+        <p>We've managed ad campaigns for education businesses across every segment in Singapore — from single-tutor operations to multi-branch preschool chains. We understand the keywords parents search, the seasonal enrolment patterns, and the conversion paths that turn ad clicks into seated students.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Cross-Segment Expertise</h3>
-            <p>We understand the nuances of every education segment — the keywords parents search, the seasonal enrolment patterns, the competitive dynamics, and the conversion paths that turn ad clicks into seated students.</p>
+            <h3>Cross-Segment Ad Expertise</h3>
+            <p>Tuition, enrichment, preschool, language, and professional training each search and convert differently. We know which keywords carry intent, how seasonal demand shifts, and which ad angles move parents in each segment — so budget goes where enrolments come from.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You maintain full access to your Google Ads account and see exactly what each student enquiry costs.</p>
+            <h3>Transparent Spend, No Lock-In</h3>
+            <p>Your ad budget goes straight to Google — we never mark up media spend, and you keep full access to your own Ads account. Month-to-month plans flex with your academic calendar: scale up before enrolment peaks, dial back over school holidays, no penalties.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that flex with your academic calendar. Scale up before enrolment peaks, dial back during school holidays — no penalties, no minimum commitments.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>ROI-Focused Optimisation</h3>
-            <p>We don't just drive clicks — we optimise for enrolments. Continuous A/B testing, keyword refinement, bid adjustments, and landing page improvements ensure your cost per student acquisition decreases over time.</p>
+            <h3>Optimised for Enrolments, Not Clicks</h3>
+            <p>We optimise to cost per enquiry and enrolment, not vanity metrics. And because we handle education web design, landing pages, and tracking in-house, the click and the page it lands on work as one system — so more searches turn into booked trials.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — where Google Ads fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every Singapore parent moves through the same five stages before enrolling. Google Ads owns the two highest-intent moments — Discover, when a parent first searches, and Enquire, when a remarketed ad pulls a warm shortlister back to book a trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google Ads captures the first high-intent search</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, ratings, programme pages</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 centres in the catchment</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Remarketing ads bring shortlisters back to book a trial</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -232,7 +392,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for education businesses">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for education businesses">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -281,3 +441,5 @@ const schemaData = [
     </div>
   </section>
 </ServiceLayout>
+</content>
+</invoke>

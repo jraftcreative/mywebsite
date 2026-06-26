@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Education Branding Agency Singapore — Jraft Creative"
   description="Specialist branding agency for education businesses in Singapore — tuition centres, enrichment centres, preschools, and training providers."
@@ -64,6 +164,7 @@ const schemaData = [
   heroTitle='Specialist <span class="highlight">Branding Agency for Education in Singapore</span>'
   heroSubtitle="Singapore's $1.68 billion private education market is fiercely competitive. We build brand identities that position your education business as the trusted choice — whether you run a tuition centre, enrichment programme, preschool, or training academy."
   heroImage="/images/service-education.webp"
+  heroImageAlt="Education centre in Singapore with a distinctive brand identity — education branding"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -76,56 +177,87 @@ const schemaData = [
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for education businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Most Education Brands in Singapore Are Forgettable</h2>
+        <h2>In a <span class="highlight">$1.68 Billion Market</span>, Parents Judge Your Brand in <span class="highlight">Seconds</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore parents spend an estimated $1.68 billion per year on private education — tuition, enrichment, preschools, and training programmes. That is an enormous market, and it draws enormous competition. Walk through Novena, Bukit Timah, or Marine Parade and you will find education centres on every floor of every mall. The problem is that most of them are indistinguishable from each other.</p>
-        <p>Generic logos, inconsistent colour schemes, and marketing materials that look like they were assembled in a rush. When parents compare three or four options side by side — which they always do — these centres cannot articulate why they are the better choice. The brand does not communicate a clear position, a distinct personality, or a compelling reason to choose one centre over another. So parents default to the biggest name, the best reviews, or the most convenient location.</p>
-        <p>Education branding done right gives your business a strategic advantage. It defines who you are, who you serve, and what makes you different — and then expresses that positioning through every visual and verbal touchpoint. From your signage and website to your enrolment materials and social media, every element works together to build the perception that your education business is the professional, trusted, and authoritative choice in your segment.</p>
+        <p>Singapore parents spend an estimated $1.68 billion a year on private education — tuition, enrichment, preschools, and training programmes. That demand draws enormous competition. Walk through Novena, Bukit Timah, or Marine Parade and you will find education centres on every floor of every mall. The problem is that most of them look the same, so parents default to the biggest name, the best reviews, or the most convenient location.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Credibility Judged in Seconds</h3>
+            <p>A parent forms an impression of your centre before they read a word. A dated logo, mismatched colours, and a thrown-together brochure quietly signal "amateur" — and parents will not entrust their child's development to a business that looks unsure of itself.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Undifferentiated Centres Blur Together</h3>
+            <p>When parents compare three or four options side by side — which they always do — most education centres cannot articulate why they are the better choice. Generic identities and copycat messaging blur into one another, so the decision comes down to price and proximity, not preference.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Premium Positioning Needs a Premium Identity</h3>
+            <p>If you charge a premium for smaller classes, better outcomes, or a specialist method, your brand has to justify it. A visual identity that looks ordinary undercuts your fees and invites parents to haggle — premium positioning only holds when the brand earns it on sight.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Education branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Education branding services overview">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Education Businesses</h2>
+        <h2>Six <span class="highlight">Pillars</span> of Education <span class="highlight">Branding</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build brand identities purpose-designed for the education sector. Whether you operate a single tuition centre or a multi-location enrichment group, we create visual identity systems that project academic credibility, earn parent trust, and differentiate you in one of Singapore's most competitive markets.</p>
+        <p>Education branding is not corporate branding. The buyer is an anxious parent choosing where to entrust their child, and every touchpoint has to project credibility, warmth, and trust at once. We build each element of your identity around how Singapore parents actually judge and choose a centre.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Brand Strategy &amp; Positioning</h3>
-            <p>Define your education brand's market position, target audience segments, competitive differentiation, and core messaging. We analyse your local competitive landscape, identify positioning gaps, and craft a brand strategy that gives you a defensible position in Singapore's education market.</p>
+            <p>We define your education brand's market position, target parent segments, competitive differentiation, and core promise. Through local competitive analysis we find the positioning gap you can own — so you stand for something specific rather than blending into the mall.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Logo &amp; Visual Identity System</h3>
-            <p>A custom logo and visual identity designed for the education sector. Includes primary, secondary, and icon variations, colour palette, typography, iconography, and comprehensive brand guidelines that ensure consistency across every touchpoint — from digital platforms to physical signage.</p>
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A custom logo and visual identity built for the education sector — primary, secondary, and icon variations, colour palette, typography, and iconography. A system that reads as professional and trustworthy across every digital and physical touchpoint.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Marketing Collateral &amp; Parent Materials</h3>
-            <p>Brochures, prospectuses, enrolment packs, certificates, report templates, parent handbooks, and event materials — all designed to reinforce your brand identity. Every document a parent receives should confirm their decision to choose your centre.</p>
+            <h3>Centre &amp; Collateral Design</h3>
+            <p>Brochures, prospectuses, enrolment packs, certificates, report templates, signage, and parent handbooks — plus interior and environmental branding. Every document a parent receives, and every space they walk into, confirms their decision to choose your centre.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Signage, Uniforms &amp; Environmental Design</h3>
-            <p>Exterior signage, interior branding, classroom design elements, staff uniforms, and student uniforms. We transform your physical space into a brand experience that parents and students feel from the moment they arrive.</p>
+            <h3>Brand Messaging &amp; Voice</h3>
+            <p>The words that carry your positioning — tagline, value proposition, programme descriptions, and a tone of voice that balances academic credibility with the warmth parents look for. Consistent messaging so your centre sounds the same on signage, website, and social.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Photography &amp; Art Direction</h3>
+            <p>Art direction for the imagery that sells trust — classroom, teacher, and student photography styled to your brand, plus guidelines for what to shoot and how to frame it. Authentic visuals that show your centre at its best, not generic stock that any competitor could use.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A comprehensive guidelines document — logo usage, colour, typography, imagery, and messaging rules — so your brand stays consistent across every staff member, vendor, and location. You own every asset and source file, with clear rules to keep the identity intact as you grow.</p>
           </div>
         </div>
       </div>
@@ -133,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your education branding agency">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your education branding agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Education Businesses Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Branding Agency</span> Built for <span class="highlight">Education Providers</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We are not a generalist agency that treats education as just another industry. We specialise in building brands for Singapore's education sector — and that focus translates into branding that resonates with the people who matter most: parents. Here is what sets us apart:</p>
+        <p>We are not a generalist agency that treats education as just another industry. We build brands for Singapore's education sector — tuition centres, enrichment programmes, preschools, and training providers — and that focus translates into branding that resonates with the people who matter most: parents.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Education Sector Specialisation</h3>
-            <p>We have built brands for tuition centres, enrichment centres, preschools, and training providers across Singapore. We understand the parent decision journey, the competitive dynamics, and the visual language that builds trust in education — not just in business generally.</p>
+            <h3>Deep Education Sector Expertise</h3>
+            <p>We understand the parent decision journey, the competitive dynamics of each segment, and the visual language that builds trust in education. Preschool branding is hyper-local and warm; tuition branding leans on academic credibility — we tailor to how each sub-sector wins parents.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>End-to-End Digital Services</h3>
-            <p>Branding is just the starting point. We also build <a href="/services/website-development/">websites</a>, run <a href="/education-seo-singapore/">SEO campaigns</a>, manage <a href="/services/social-media/">social media</a>, and handle <a href="/education-google-ads-singapore/">Google Ads</a> — all under one roof. Your brand identity is implemented consistently across every digital channel from day one.</p>
+            <h3>Transparent, Fixed-Price Packages</h3>
+            <p>Fixed-price branding with no hidden fees and no lock-in retainers for the branding work itself. You own every asset we create — logos, guidelines, templates, and source files — so the identity is yours to use and extend however you grow.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Pricing &amp; No Lock-ins</h3>
-            <p>Fixed-price branding packages with no hidden fees. You own every asset we create — logos, guidelines, templates, source files. No monthly retainers, no ongoing fees for the branding work itself, and no lock-in contracts.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Singapore Market Expertise</h3>
-            <p>We understand what Singapore parents respond to. Our branding is informed by local market data, competitive analysis, and the cultural nuances that influence parent perception in this market — from HDB heartland centres to premium Orchard Road academies.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Branding is the starting point. We also build <a href="/services/website-development/">websites</a>, run <a href="/education-seo-singapore/">SEO</a>, manage <a href="/services/social-media/">social media</a>, and handle <a href="/education-google-ads-singapore/">Google Ads</a> in-house — so your identity is implemented consistently across every channel from day one.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — where branding fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Branding</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every Singapore parent moves through the same five stages before enrolling. Branding does its heaviest lifting in the middle — shaping how parents validate your credibility and compare you against the shortlist — and ties every stage together with one consistent identity.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google search, Maps, word of mouth</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Brand signals credibility &amp; trust</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Identity sets you apart from 3–5 centres</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Trial class or enrolment enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -228,7 +389,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about education branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about education branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

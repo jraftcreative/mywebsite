@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Education Content Marketing Singapore — Jraft Creative"
   description="Content marketing for education businesses in Singapore — blog strategy, parent resource creation, SEO content, thought leadership, and email newsletters."
@@ -62,8 +162,9 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Education Content Marketing"
   heroTitle='<span class="highlight">Content Marketing for Education Businesses</span> in Singapore'
-  heroSubtitle="Singapore parents do not enrol blindly — they research, compare, and evaluate. When your education business consistently publishes expert content that answers their questions, you become the authority they trust and ultimately choose."
+  heroSubtitle="Singapore parents do not enrol blindly — they research, compare, and evaluate for weeks before they choose. When your education business consistently publishes expert content that answers their questions, you become the authority they trust and ultimately enrol with."
   heroImage="/images/service-education.webp"
+  heroImageAlt="Education content marketing for a Singapore learning centre"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Pricing", href: "#pricing", class: "btn btn-secondary" }
@@ -76,56 +177,87 @@ const schemaData = [
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Content marketing challenges for education businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Competitors Are Publishing — You Are Not</h2>
+        <h2>Parents <span class="highlight">Research for Weeks</span> — and Choose Whoever <span class="highlight">Answered Their Questions</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's private education market is worth $1.68 billion and parents are spending more time researching online than ever before. They search for "best enrichment classes for primary school," "how to choose a preschool in Singapore," and "is tuition worth it for my child." The education businesses that publish helpful, expert answers to these questions are the ones capturing traffic, building email lists, and converting readers into enrolled families.</p>
-        <p>Most education businesses in Singapore treat their website as a static brochure — a few pages about their programmes, a contact form, and nothing else. There is no blog. No parent resources. No expert content that demonstrates the knowledge behind the brand. The result is a website that only captures traffic from people who already know your name. Everyone else — the parents researching, comparing, and evaluating options — goes to your competitors who are publishing the content that appears when they search.</p>
-        <p>Strategic content marketing changes this equation entirely. By consistently publishing well-researched, SEO-optimised content that answers the questions parents are actively searching, your education business becomes visible to families at the exact moment they are making enrolment decisions. Over time, this content compounds — each article drives traffic for months or years, building a growing pipeline of organic enquiries that reduces your dependence on paid advertising.</p>
+        <p>Singapore's private education market is worth over $1.68 billion, and parents spend more time researching online than ever before. Long before they enquire, they search "best enrichment classes for primary school", "how to choose a preschool", and "is tuition worth it for my child". The centres that publish helpful, expert answers are the ones capturing that traffic, building email lists, and converting researching parents into enrolled families.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Parents Research for Weeks</h3>
+            <p>A Singapore parent doesn't pick a centre on a whim. They read, compare, and shortlist over weeks — checking subject fit, exam approach, fees, and reputation. Every unanswered question they Google is a chance for a competitor's article to win their trust before you've even been considered.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Expertise That Stays Unpublished</h3>
+            <p>Your educators know exactly how to prepare a child for PSLE, how phonics builds early reading, and what separates a good enrichment programme from a great one. But if that knowledge lives only inside the classroom, parents never see it — and your website stays a static brochure that only converts people who already know your name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Content Compounds — Ads Don't</h3>
+            <p>Paid ads stop the moment the budget does. A well-researched article keeps ranking, keeps drawing parents, and keeps building authority for months or years. Content is the one channel that compounds — feeding your SEO and your trust signals at the same time, instead of renting attention by the click.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Education content marketing services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Education content marketing deliverables">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Content Marketing Services for Education Businesses</h2>
+        <h2>Six <span class="highlight">Pillars</span> of Education <span class="highlight">Content</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We produce content tailored to every segment of Singapore's education sector — from preschools and enrichment centres to tuition providers and training academies. Every piece is researched for search demand, optimised for Google rankings, and written to build trust with the parents and students who are your potential customers.</p>
+        <p>Education content marketing isn't generic blogging. Parents search by subject, level, exam board, age group, and life-stage worry — and they reward the centre that answers clearly. We build every piece around how Singapore parents actually research a programme, from the first idle Google search to the moment they download a guide and join your list.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Blog Strategy &amp; SEO Articles</h3>
-            <p>A data-driven editorial calendar built around the keywords your target parents search. We plan topics mapped to the parent decision journey — from early research through to comparison and enrolment — and produce SEO-optimised articles that rank on Google and drive qualified traffic over time.</p>
+            <h3>Content Strategy &amp; Topic Mapping</h3>
+            <p>We map the questions parents actually search across your subjects, levels, and catchment, then build a data-driven editorial calendar around them. Every topic is tied to real search demand and a stage of the enrolment journey — so nothing is published for the sake of it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Resource Guides</h3>
-            <p>Comprehensive downloadable resources — programme selection guides, school readiness checklists, activity idea collections, and developmental milestone references. These guides capture parent email addresses, build trust in your expertise, and serve as lead magnets for your advertising campaigns.</p>
+            <h3>Parent Guides &amp; Resource Articles</h3>
+            <p>The long-form pieces parents bookmark and share — "how to choose a preschool in Singapore", "preparing your child for PSLE", "what to look for in an enrichment centre". Authoritative, genuinely useful articles that earn trust during the research phase and rank for high-intent terms.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Thought Leadership &amp; Expert Content</h3>
-            <p>Position your founders and educators as industry authorities. We produce opinion articles, industry commentary, educator spotlights, and expert guides that build credibility with parents and earn backlinks from education publications and parent forums in Singapore.</p>
+            <h3>Subject &amp; Exam Explainer Content</h3>
+            <p>Content that turns your educators' expertise into pages parents understand — syllabus breakdowns, exam-format explainers, study-skill guides, and "what changed this year" updates for PSLE, O-Level, and the MOE curriculum. The proof of competence that makes a centre feel like the safe choice.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Email Newsletter Content</h3>
-            <p>Regular parent newsletters featuring educational tips, programme updates, student achievement highlights, and seasonal content. Keeps your education business top-of-mind with enrolled families and nurtures prospective parents through the enrolment decision process.</p>
+            <h3>Blog Production &amp; Publishing</h3>
+            <p>We write, edit, optimise, and publish every post to your site — correct titles, metas, headings, internal links, and images. Consistent output on a calendar you can rely on, so your blog actually grows instead of stalling after two posts and a good intention.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Lead Magnets &amp; Email Content</h3>
+            <p>Downloadable resources — readiness checklists, programme-selection guides, activity packs — that capture parent emails, plus the newsletters that nurture them. Content that doesn't just attract traffic, but turns anonymous readers into a list of prospective families you can stay in front of.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Distribution &amp; Repurposing</h3>
+            <p>One article becomes a social carousel, a newsletter feature, and a snippet for your Google Business Profile. We repurpose every piece across channels and report on traffic, rankings, and enquiries — so you see exactly which content is bringing parents through the door.</p>
           </div>
         </div>
       </div>
@@ -133,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for education content marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for education content marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Education Businesses Choose Us for Content Marketing</h2>
+        <h2>A <span class="highlight">Content Team</span> Built for <span class="highlight">Education Providers</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in content marketing for Singapore's education sector. Our team understands the parent audience, the local competitive landscape, and the search behaviour that drives enrolments. Here is what sets our content marketing apart:</p>
+        <p>We write content for tuition centres, enrichment programmes, preschools, music schools, and training academies across Singapore — and we understand the parent audience, the enrolment cycle, and the search behaviour that actually turns readers into enrolled students.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Education Sector Specialisation</h3>
-            <p>We write content for tuition centres, enrichment centres, preschools, and training providers across Singapore. We understand the nuances of each segment — the parent concerns, the competitive positioning, and the keywords that actually drive enrolment enquiries in this market.</p>
+            <h3>Deep Education Sector Expertise</h3>
+            <p>We know the concerns of a PSLE parent differ from a preschool parent, and that an enrichment buyer reads differently from a tuition buyer. Content tailored to the nuances of each education sub-sector — the worries, the positioning, and the terms that actually drive enrolment enquiries in Singapore.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>SEO-First Content Approach</h3>
-            <p>Every piece of content starts with keyword research and search intent analysis. We do not write blog posts for the sake of it — we target the exact terms parents search when making education decisions. Our content marketing integrates directly with your <a href="/education-seo-singapore/">SEO strategy</a> for compounding results.</p>
+            <h3>SEO-First, Not Blog-for-Blog's-Sake</h3>
+            <p>Every piece begins with keyword research and search-intent analysis. We target the exact terms parents search when making education decisions, so your content marketing feeds your <a href="/education-seo-singapore/">SEO strategy</a> directly — compounding rankings instead of producing posts nobody finds.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Reporting &amp; No Lock-ins</h3>
-            <p>Monthly performance reports showing traffic, rankings, engagement, and enquiries generated by your content. No long-term contracts — you see exactly what your content investment delivers each month, and you can adjust or cancel anytime.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full-Service Digital Marketing</h3>
-            <p>Content marketing is most effective alongside <a href="/education-seo-singapore/">SEO</a>, <a href="/services/social-media/">social media</a>, and <a href="/education-google-ads-singapore/">Google Ads</a>. We offer all services in-house, so your content feeds your search rankings, amplifies through social channels, and provides landing pages for your paid campaigns — all under a single unified strategy.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Content works hardest alongside <a href="/education-seo-singapore/">SEO</a>, <a href="/services/social-media/">social media</a>, and <a href="/education-google-ads-singapore/">Google Ads</a>. We handle all of it in-house — your articles feed search rankings, amplify through social, and give your paid campaigns landing pages, all under a single unified plan.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — where content fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Content</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every Singapore parent moves through the same five stages before enrolling. Content does its heaviest lifting in the first three — Discover, Validate, and Compare — answering questions and building trust long before a parent is ready to enquire.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Articles rank for parent search queries</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Expert guides prove your competence</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Content tips the shortlist your way</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Trial class or enrolment enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -228,7 +389,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about education content marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about education content marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

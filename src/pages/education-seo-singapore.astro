@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Education SEO Singapore — Jraft Creative"
   description="SEO services for education businesses in Singapore — tuition centres, enrichment programmes, preschools, and learning centres. Local SEO."
@@ -64,70 +164,100 @@ const schemaData = [
   heroTitle='SEO for <span class="highlight">Education Businesses in Singapore</span>'
   heroSubtitle="Singapore's private education and enrichment market is worth over $1.68 billion, and most of that demand starts with a Google search. Whether you run a tuition centre, enrichment programme, preschool, or learning academy, we help education businesses rank higher and convert search traffic into enrolled students."
   heroImage="/images/service-education.webp"
+  heroImageAlt="Students in a Singapore education centre — education SEO"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View SEO Plans", href: "#pricing", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need SEO services for my education business in Singapore."
   ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Education Business Found on Google"
+  ctaTitle='Get Your Education Business <span class="highlight">Found on Google</span>'
   ctaDescription="Book a free SEO audit and we'll show you exactly where your education business stands in search results compared to your competitors. We'll respond within 24 hours with a tailored action plan."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20services%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for education businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>In a $1.68 Billion Market, Parents Start Every Search on Google</h2>
+        <h2>In a <span class="highlight">$1.68 Billion Market</span>, Parents Start Every Search on <span class="highlight">Google</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's private education and enrichment industry generates over $1.68 billion annually. From tuition centres and enrichment programmes to preschools, coding academies, and language schools, thousands of education businesses compete for the attention of parents who are willing to invest heavily in their children's development. And the vast majority of those parents start their search on Google.</p>
-        <p>"Maths tuition near me", "enrichment classes for kids Singapore", "best preschool Tampines", "coding class for Primary 3" — these are real searches made thousands of times every month by parents ready to enrol. If your education business doesn't appear in the top results for these queries, you're invisible to the families actively looking for exactly what you offer. They don't scroll to page two. They don't browse directories. They click the first three results that match their needs, and they book a trial.</p>
-        <p>The education sector faces a unique SEO challenge: search intent is fragmented across subjects, age groups, levels, exam boards, and locations. A single tuition centre might need to rank for "PSLE Science tuition", "Secondary 3 A-Maths", and "JC H2 Chemistry" — each in three different neighbourhoods. Without a structured keyword strategy built for the education vertical, most centres spread their efforts thin and rank for nothing at all.</p>
+        <p>Singapore's private education and enrichment industry generates over $1.68 billion a year, and the vast majority of parents start their search on Google. If you're not in the top results for the terms they use, you're invisible to the families looking for exactly what you offer.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible Past Page One</h3>
+            <p>"Maths tuition near me", "best preschool Tampines", "coding class for Primary 3" — searched thousands of times a month by parents ready to enrol. They click the first three results and book a trial. They don't scroll to page two, and they don't browse directories.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Fragmented Search Intent</h3>
+            <p>Education search splinters across subject, level, exam board, age group, and neighbourhood. One centre may need to rank for "PSLE Science", "Sec 3 A-Maths", and "JC H2 Chemistry" — each in three different areas. Without a structured strategy, most centres rank for nothing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Out-Spent by the Chains</h3>
+            <p>Mind Stretcher and the big brands dominate broad terms. Independents win on long-tail catchment terms, parent-trust signals, and named-teacher content — "phonics Tampines", not "phonics Singapore". That's an SEO game, not a budget game.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for education businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for education businesses">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Strategies Built for the Education Sector</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Education <span class="highlight">SEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Education SEO isn't the same as e-commerce or corporate SEO. Parents search by subject, level, exam board, age group, and neighbourhood — creating hundreds of keyword combinations that need structured pages, optimised content, and local signals. We build SEO strategies specifically for how Singapore parents research and choose education providers.</p>
-        <p>From technical foundations to subject-specific landing pages and local search dominance, every element of our education SEO approach is designed to drive qualified enrolment inquiries from parents who are actively searching for what you offer.</p>
-        <p>Pair SEO with a professionally designed <a href="/services/website-development/">education website</a>, <a href="/services/social-media/">social media marketing</a> to build brand awareness, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak registration seasons like Q4 and January.</p>
+        <p>Education SEO isn't e-commerce or corporate SEO. Parents search by subject, level, exam board, age group, and neighbourhood — hundreds of keyword combinations that need structured pages, optimised content, and local signals. We build every element around how Singapore parents actually research and choose a centre.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Full site crawl to find indexing problems, broken links, missing structured data, poor mobile usability, and slow page speeds. We fix the technical foundations that prevent Google from ranking your education website for parent search queries across subjects, levels, and locations.</p>
+            <p>Full site crawl to find indexing problems, broken links, missing structured data, poor mobile usability, and slow pages. We fix the foundations that stop Google ranking you across subjects, levels, and locations.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised programme pages for every subject, level, and age group your centre serves. Meta titles, descriptions, heading structures, and internal links targeting searches like "PSLE tuition Bishan", "phonics class for K1", and "enrichment programmes near Jurong East".</p>
+            <p>Keyword-optimised programme pages for every subject, level, and age group — titles, metas, headings, and internal links targeting "PSLE tuition Bishan", "phonics class for K1", and "enrichment near Jurong East".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with accurate service categories, programme details, centre photos, parent review management, and local citation building across education directories. Designed to put your centre in the Maps 3-pack for "near me" searches in every neighbourhood you serve.</p>
+            <p>GBP optimisation with the right categories, programme details, centre photos, and review management, plus local citations — built to land you in the Maps 3-pack for "near me" searches in every neighbourhood you serve.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Subject &amp; Level Keyword Mapping</h3>
+            <p>We map every keyword combination relevant to your centre and build dedicated landing pages, so you rank for "Primary 4 English tuition Tampines" as well as "JC Chemistry tuition near me" — not a single thin services page.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Education Content Strategy</h3>
-            <p>Blog articles, guides, and resource pages targeting parent search queries — "how to prepare for PSLE", "best enrichment classes for 5-year-olds", "MOE syllabus changes 2026". Content that positions your brand as an authority, earns organic backlinks, and captures parents during the research phase of their enrolment decision.</p>
+            <p>Guides and resource pages targeting parent research queries — "how to prepare for PSLE", "best enrichment for 5-year-olds", "MOE syllabus changes". Content that earns authority, backlinks, and trust during the research phase.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Link Building &amp; Reporting</h3>
+            <p>Education-relevant link building plus a transparent monthly report — keyword rankings across subjects and locations, organic traffic, GBP performance, and enquiry trends. Numbers that show whether more parents are finding you.</p>
           </div>
         </div>
       </div>
@@ -135,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for education SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for education SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency Built for Education Providers</h2>
+        <h2>An <span class="highlight">SEO Agency</span> Built for <span class="highlight">Education Providers</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with education businesses across Singapore — tuition centres, enrichment programmes, preschools, music schools, and learning academies. We understand the enrolment cycle, seasonal demand patterns, and which search terms actually convert parents into paying students.</p>
+        <p>We work with tuition centres, enrichment programmes, preschools, music schools, and learning academies across Singapore — and we understand the enrolment cycle, seasonal demand, and which search terms actually convert parents into paying students.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Deep Education Sector Expertise</h3>
-            <p>We know the difference between PSLE and O-Level keyword strategy. We understand that preschool SEO is hyper-local while tuition centre SEO spans subjects and levels. Our strategies are tailored to how each education sub-sector actually acquires students in Singapore.</p>
+            <p>We know PSLE keyword strategy differs from O-Level, and that preschool SEO is hyper-local while tuition SEO spans subjects and levels. Strategy tailored to how each education sub-sector actually acquires students in Singapore.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Subject &amp; Level Keyword Mapping</h3>
-            <p>Education search is fragmented — parents search by subject, level, exam, and location. We map every keyword combination relevant to your centre and build dedicated landing pages so you rank for "Primary 4 English tuition Tampines" as well as "JC Chemistry tuition near me".</p>
+            <p>Education search is fragmented by subject, level, exam, and location. We map every combination relevant to your centre and build dedicated pages, so you rank for the long-tail terms that actually convert — not just broad heads.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings across subjects and locations, organic traffic, Google Business Profile performance, and enquiry trends. No vanity metrics — only data that shows whether more parents are discovering your centre through search.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Complete Digital Marketing Under One Roof</h3>
-            <p>SEO drives discovery, but conversions depend on your website, content, and wider marketing. We handle education web design, social media, and paid ads in-house — a fully integrated system that turns Google searches into enrolled students.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO drives discovery, but conversion depends on your website, content, and wider marketing. We handle education web design, social, and paid ads in-house — an integrated system that turns Google searches into enrolled students.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Enrolment Funnel — where SEO fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">SEO</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every Singapore parent moves through the same five stages before enrolling. SEO owns the first one — being found the moment a parent searches — and feeds trust signals into every stage after it.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google search, Maps 3-pack, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, ratings, programme pages</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist 3–5 centres in the catchment</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Trial class or enrolment enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -178,7 +337,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Education SEO Pricing</p>
-        <h2>SEO Plans for Education Businesses</h2>
+        <h2><span class="highlight">SEO Plans</span> for Education Businesses</h2>
         <p>Monthly retainer plans. No lock-in contracts.</p>
       </div>
       <div class="service-pricing">
@@ -233,11 +392,11 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about education SEO in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about education SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Education SEO — Questions Answered</h2>
+        <h2><span class="highlight">Education SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
