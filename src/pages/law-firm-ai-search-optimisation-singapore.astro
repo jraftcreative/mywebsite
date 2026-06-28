@@ -51,6 +51,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Law Firm AI Search Optimisation — Jraft Creative"
   description="Get your law firm recommended by ChatGPT and Gemini when clients search for legal services in Singapore — from S$3,000/mo."
@@ -64,6 +164,7 @@ const schemaData = [
   heroTitle='Law Firm AI Search Optimisation in <span class="highlight">Singapore</span>'
   heroSubtitle="Clients ask ChatGPT 'best corporate lawyer in Singapore' or 'recommended divorce lawyer near me' before they ever contact a firm. Legal queries are high-value — one AI referral can be worth thousands in billable hours. With 60.9% of Singapore using AI to search, your firm needs to be the one AI recommends."
   heroImage="/images/service-seo.webp"
+  heroImageAlt="Singapore law firm partners — law firm AI search optimisation"
   heroButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
@@ -76,74 +177,87 @@ const schemaData = [
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20law%20firm.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why law firms need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why law firms need AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Clients Are Asking AI for Legal Recommendations</h2>
+        <h2>Clients Now Ask <span class="highlight">AI</span> Which Lawyer to <span class="highlight">Hire</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Prospective clients are using ChatGPT, Gemini, and Perplexity to research law firms before reaching out. When someone asks AI "best corporate lawyer in Singapore" or "recommended family lawyer for divorce," AI responds with a curated list of 3-4 firms and a brief rationale for each. If your firm isn't named, you never enter the client's consideration set — they contact a competitor instead.</p>
-        <p>Singapore has the second highest AI adoption rate globally, with 60.9% of the population already using generative AI. For law firms, the stakes are uniquely high. Legal queries carry enormous client lifetime value — a single corporate retainer or litigation matter can be worth tens of thousands in billable hours. Yet the overlap between Google rankings and AI citations has dropped below 20%. A firm that dominates Google for "corporate law firm Singapore" may still be completely absent from ChatGPT's recommendations. AI selects firms based on practice area authority, client reviews, third-party legal directory mentions, and structured data — not traditional search rankings.</p>
-        <p>Most law firms rely on referral networks, legal directories, and SEO to attract clients. These channels remain important, but they miss the growing segment of clients — especially younger decision-makers and in-house counsel — who ask AI for shortlists before engaging any firm. Without a dedicated Generative Engine Optimisation strategy, your firm is invisible to these high-value prospects. Clients who find a law firm through AI recommendations convert at 4.4x the rate of traditional search — and in legal services, a single new client can represent tens of thousands in billable hours.</p>
+        <p>Before they ever call a firm, prospective clients ask ChatGPT, Gemini, Perplexity, and Google AI Mode "best corporate lawyer in Singapore" or "recommended divorce lawyer near me". AI replies with a short, curated shortlist — and if your firm isn't named, you never enter the consideration set. Legal matters carry high client lifetime value, so each missed AI recommendation is a high-value client lost to a competitor.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW AI RECOMMENDS LEGAL ========== -->
-  <section class="section" id="how-ai-recommends-legal" style="background: var(--bg-alt);" aria-label="How AI recommends legal services in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Legal Discovery</p>
-        <h2>How AI Recommends Legal Services in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>The Law Society of Singapore maintains a public directory of all registered legal practitioners and law firms. AI platforms actively reference this directory as a primary verification source when generating legal recommendations. When a user asks ChatGPT or Gemini for a law firm recommendation, the AI checks whether the firm and its lawyers appear in the Law Society's registry, what practice areas are listed, and how long the firm has been registered. Law Society registration is a baseline trust signal — firms that are clearly registered with up-to-date practice area information get cited more confidently than firms whose registration status is ambiguous or whose directory profiles are incomplete. The specificity of your registered practice areas matters too: a firm listed for "corporate law" and "mergers &amp; acquisitions" will match AI queries more precisely than a firm listed under a broad, generic category.</p>
-        <p>Practice area queries drive the majority of legal AI recommendations, and each practice area generates its own distinct set of prompts. Clients searching for "best divorce lawyer in Singapore" have completely different needs and expectations than those asking for a "commercial lease dispute lawyer" or "employment law firm reviews." AI matches these queries to firms with dedicated practice area content — not a single "Our Services" page, but individual, detailed pages for each area of practice that explain the firm's approach, relevant experience, types of matters handled, and the specific legal questions clients commonly face. Firms with thin or generic practice area descriptions get deprioritised in favour of competitors whose content demonstrates deep, specific expertise in the exact area the client needs.</p>
-        <p>Trust signals for legal AI recommendations extend well beyond the Law Society directory. AI evaluates a combination of factors: years of practice, published articles and legal commentary (in outlets like Singapore Law Watch, The Business Times, or LinkedIn), client reviews on Google, case outcomes where publicly shareable, and whether the firm's lawyers are recognised in industry rankings such as Chambers &amp; Partners or Asian Legal Business. Google Reviews carry particular weight because they provide unfiltered client feedback — a firm with 50+ Google Reviews averaging 4.5 stars sends a significantly stronger signal than a firm with no reviews, regardless of its reputation in legal circles. AI treats reviews as social proof that complements professional credentials.</p>
-        <p>Legal content requirements for AI visibility are specific and demanding. AI cites firms that provide clear, structured answers to the legal questions prospective clients ask most often. This means detailed legal FAQs ("How long does a divorce take in Singapore?", "What are my rights if my employer terminates me without notice?"), practice area descriptions that explain processes and timelines rather than just listing capabilities, and fee transparency that at least indicates pricing structures (fixed fees, hourly rates, or fee ranges by matter type). Firms that publish this kind of accessible, client-focused legal content — without burying it in jargon or behind vague "contact us for details" barriers — give AI the authoritative, citable content it needs to recommend them with confidence.</p>
-        <p>For law firms seeking a comprehensive AI visibility strategy across all platforms, our <a href="/geo-agency-singapore/">GEO agency services</a> cover multi-platform optimisation. Firms that need a professional web presence to support their AI visibility and client conversion should explore our <a href="/law-firm-website-singapore/">law firm website design</a> service, built for both professional credibility and AI data extraction.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Clients Ask AI First</h3>
+            <p>"Best corporate lawyer Singapore", "recommended divorce lawyer near me", "IP law firm for startups" — increasingly typed into ChatGPT, Gemini, Perplexity, and Google AI Mode, not Google search. AI returns three or four named firms with a rationale for each. That shortlist is now the first impression, and it forms before anyone visits your website.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Invisible to AI, Off the Shortlist</h3>
+            <p>The overlap between Google rankings and AI citations is below 20%. A firm that ranks page one for "corporate law firm Singapore" can be completely absent from ChatGPT's answer. AI picks firms on practice-area authority, reviews, directory presence, and structured data — not search position. Invisible to AI means off the shortlist, every time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Compliance Still Applies</h3>
+            <p>The Legal Profession (Professional Conduct) Rules govern how Singapore firms may publicise their services — and those rules apply to AI-surfaced content exactly as they do to a website or brochure. Practice-area content, reviews handling, and claims of expertise must stay accurate and non-misleading. We build AI visibility within those guardrails, never around them.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="AI search optimisation services for law firms">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="AI search optimisation services for law firms">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Law Firms</h2>
+        <h2>Six <span class="highlight">Pillars</span> of Law Firm <span class="highlight">GEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We cover every signal that determines whether AI recommends your law firm — from structured data about your practice areas and lawyers to citation-ready content that matches the exact prompts prospective clients use. Our strategies complement your existing business development efforts without disrupting referral pipelines.</p>
-        <p>Pair GEO with our <a href="/services/seo-performance/">SEO services</a> for maximum search visibility, or combine with a <a href="/law-firm-website-singapore/">professionally designed law firm website</a> for a comprehensive client acquisition strategy.</p>
+        <p>Generative Engine Optimisation for law firms isn't traditional SEO. AI recommends firms on a distinct set of signals — structured data about your practice areas and lawyers, citation-ready answer content, third-party authority, and reputation. We build every signal AI weighs when it decides which firm to name, all within the Legal Profession (Professional Conduct) Rules.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 legal-specific prompts across ChatGPT, Gemini, Perplexity, and Copilot — prompts like "best corporate lawyer in Singapore," "recommended IP law firm for startups," and "top divorce lawyer near Raffles Place." You'll see exactly where your firm appears, where it doesn't, and which competitors AI favours.</p>
+            <h3>AI-Friendly Content &amp; Schema</h3>
+            <p>JSON-LD markup that tells AI exactly what your firm practises — LegalService, Attorney, FAQ, and Speakable schemas plus an llms.txt file — paired with cleanly structured pages AI can extract. The machine-readable foundation that lets ChatGPT and Gemini parse your practice areas, lawyers, and jurisdictions accurately.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Advanced JSON-LD markup that tells AI exactly what your firm practises — practice areas, lawyer credentials, jurisdictions, notable cases, and accolades. We implement LegalService, Attorney, FAQ, and Speakable schemas plus llms.txt so AI can crawl your firm's details directly.</p>
+            <h3>Entity &amp; Authority Signals</h3>
+            <p>AI recommends firms it recognises as established entities. We strengthen the signals that build that recognition — consistent firm and lawyer entities across the web, thought-leadership in outlets like Singapore Law Watch and LinkedIn, and recognition in rankings such as Chambers &amp; Partners and Asian Legal Business.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Citation-Ready Content</h3>
-            <p>Content structured for AI consumption — detailed practice area pages, lawyer profiles with credentials and case highlights, comparison content, and FAQ sections that match the exact legal queries clients ask AI. When AI needs to recommend a firm for M&amp;A or employment disputes, your content provides the authoritative answer.</p>
+            <h3>Citation &amp; Directory Presence</h3>
+            <p>AI verifies firms against the Law Society of Singapore registry and trusted legal directories before citing them. We ensure your firm and lawyers appear with complete, specific, up-to-date practice-area information across the directories AI references — a baseline trust signal that makes AI cite you with confidence.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models heavily weigh third-party signals for legal recommendations. We build your firm's presence on legal directories, industry publications, and authority platforms that AI trusts — from Asian Legal Business and Chambers to Google Reviews and LinkedIn thought leadership — strengthening the credibility signals that drive AI recommendations.</p>
+            <h3>Review &amp; Reputation Signals</h3>
+            <p>AI treats Google Reviews as unfiltered social proof — a firm with 50+ reviews averaging 4.5 stars sends a far stronger signal than one with none. We build a compliant review-generation process and manage your reputation across the platforms AI reads, so client sentiment reinforces every recommendation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Practice-Area Answer Content</h3>
+            <p>Each practice area generates its own prompts — "how long does a divorce take in Singapore", "rights if terminated without notice". We build detailed, individual practice-area pages and legal FAQs that answer those questions clearly, giving AI the authoritative, citable content it needs to recommend you for the exact matter a client asks about.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI-Visibility Monitoring</h3>
+            <p>We track a set of legal prompts across ChatGPT, Gemini, Perplexity, and Copilot over time — where your firm appears, where it doesn't, and which competitors AI favours. A transparent report shows citation rates by practice area so you can see AI visibility improving and where to focus next.</p>
           </div>
         </div>
       </div>
@@ -151,41 +265,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for law firm AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for law firm AI search optimisation">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>AI Search Optimisation Specialists for the Legal Industry</h2>
+        <h2>A <span class="highlight">GEO Agency</span> Built for <span class="highlight">Law Firms</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We combine deep understanding of AI search mechanics with knowledge of how legal clients evaluate and select firms. We know the prompts prospective clients use, the signals AI relies on for legal recommendations, and how to turn AI visibility into actual consultations and retainers.</p>
+        <p>We combine how AI search actually selects firms with how legal clients evaluate and choose representation. We know the prompts prospective clients use, the signals AI relies on for legal recommendations, and the Legal Profession (Professional Conduct) Rules that govern everything a firm publishes — and we turn AI visibility into real consultations and retainers.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Legal Industry Understanding</h3>
-            <p>We understand how legal clients search — from in-house counsel sourcing external firms to individuals seeking representation. Our strategies target the specific AI prompts legal consumers use, accounting for the nuance of practice area, jurisdiction, and case complexity.</p>
+            <p>We understand how legal clients search — from in-house counsel sourcing external firms to individuals seeking representation. Our strategies target the specific AI prompts legal consumers use, accounting for the nuance of practice area, jurisdiction, and matter complexity.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Practice Area Targeting</h3>
-            <p>Corporate, family, IP, criminal, employment, real estate — each practice area generates distinct AI prompts. We optimise your firm's visibility for every practice area you serve, ensuring AI recommends you whether someone asks for a mergers lawyer or a tenancy dispute specialist.</p>
+            <h3>Practice-Area Targeting</h3>
+            <p>Corporate, family, IP, criminal, employment, real estate — each practice area generates distinct AI prompts. We optimise your firm's visibility for every area you serve, so AI recommends you whether someone asks for a mergers lawyer or a tenancy-dispute specialist.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Trust &amp; Authority Signals</h3>
-            <p>Legal clients demand credibility. AI reflects this by heavily weighting directory rankings, peer endorsements, case outcomes, and published thought leadership. We strengthen every trust signal AI uses to assess whether your firm deserves a recommendation.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>High-Value Lead Focus</h3>
-            <p>A single AI-referred client can represent significant revenue. We optimise not just for citation frequency but for the practice areas and queries that generate your highest-value work — ensuring AI visibility translates directly into the consultations and retainers that matter most.</p>
+            <h3>Compliance-First Authority</h3>
+            <p>Legal clients demand credibility, and Singapore's conduct rules demand accuracy. We strengthen the directory, review, peer-endorsement, and thought-leadership signals AI weighs — while keeping every claim accurate and non-misleading under the Professional Conduct Rules.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== THE CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Client Funnel — where GEO fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Funnel</p>
+        <h2>Where <span class="highlight">GEO</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every prospective legal client moves through the same five stages before engaging a firm. GEO owns the first one — being recommended by the AI tool the moment a client asks — and feeds trust signals into every stage after it.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Asks ChatGPT, Gemini or Perplexity for firms</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>AI names 3–4 firms for the matter</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Reviews, directory, practice-area pages</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Consultation request or call</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Retainer signed, refers &amp; returns</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -251,7 +394,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about law firm AI search optimisation in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about law firm AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>

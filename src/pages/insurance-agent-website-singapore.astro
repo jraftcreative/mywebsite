@@ -1,7 +1,6 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import RelatedServices from '../components/RelatedServices.astro';
-import MarketingFunnelBlock from '../components/MarketingFunnelBlock.astro';
 
 const schemaData = [
   {
@@ -53,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Insurance Agent Website Singapore — Jraft Creative"
   description="Website design for insurance agents and financial advisors in Singapore. Personal branding, MAS compliance, plan comparison tools, lead capture."
@@ -66,6 +165,7 @@ const schemaData = [
   heroTitle='Website Design for <span class="highlight">Insurance Agents in Singapore</span>'
   heroSubtitle="Your credentials and expertise deserve more than a company profile page. We build fast, mobile-friendly websites for insurance agents and financial advisors — with personal branding, plan comparison tools, and lead capture built in."
   heroImage="/images/service-insurance.webp"
+  heroImageAlt="Insurance agent and financial advisor website design in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
@@ -78,99 +178,158 @@ const schemaData = [
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20insurance%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why insurance agents need a professional website">
+  <section class="section" id="challenge" aria-label="Why insurance agents and financial advisors need a professional website">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Expertise Deserves More Than a Company Profile Page</h2>
+        <h2>In Financial Advice, the <span class="highlight">Website Is the First Trust Test</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Most insurance agents and financial advisors in Singapore rely on their agency's generic profile page, a LinkTree, or social media alone to establish their online presence. That might generate referrals from your existing network, but it does nothing to help new prospects find you when they search Google for "insurance agent Singapore" or "financial advisor CPF planning."</p>
-        <p>Without your own website, you have no control over your personal brand. You can't showcase your MDRT qualifications, specialisations in areas like critical illness or retirement planning, or the testimonials from clients who trust you with their family's financial security. You're invisible to the thousands of Singaporeans actively searching for insurance advice online every month.</p>
-        <p>In a market where trust is everything, a professional website with your MAS representative credentials, areas of expertise, plan comparison tools, and genuine client stories sets you apart from agents who rely on cold calls and roadshows. It gives prospects a reason to reach out to you directly — because they've already seen the proof that you know what you're doing.</p>
+        <p>Singaporeans hand an insurance agent some of the most sensitive decisions of their lives — their family's protection, their CPF, their retirement. Before they share any of that, they research. A company profile page, a LinkTree, or a social feed alone gives prospects no reason to choose you, and no way to verify that you are who you say you are.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Trust Is Vetted Before Contact</h3>
+            <p>Prospects check your track record, qualifications, and reputation before they part with a single detail about their finances. Without a credible site that shows your MAS representative status, MDRT or COT standing, and real client stories, they move on to an advisor who looks more established online.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Compliance Is Not Optional</h3>
+            <p>Financial advertising in Singapore sits under MAS guidelines and the Financial Advisers Act. Claims must be fair, balanced, and not misleading, with the right disclaimers and representative details. A DIY site or a generic template can quietly breach those rules — a risk to your licence, not just your brand.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Research Has to Become a Consultation</h3>
+            <p>Most visitors arrive while still comparing options — not ready to commit. If the path from reading about critical illness cover to booking a needs analysis isn't obvious, they leave and you never know they were there. The site has to turn quiet research into a booked conversation.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Insurance agent website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What we build into an insurance advisor website">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>What We Build for Insurance Agents</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of an Insurance Advisor <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every insurance agent website we deliver is purpose-built for the financial advisory industry in Singapore. We go beyond a generic template — your site will feature MAS-compliant credential displays, plan comparison tools, lead capture funnels, and content that positions you as a trusted advisor for life insurance, health coverage, CPF optimisation, and retirement planning.</p>
-        <p>We understand that insurance agents need more than just a website. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to rank for insurance-related searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> for content that builds your authority and personal brand, and <a href="/services/paid-ads/" class="inline-link">paid ads management</a> for targeted campaigns on Google and Facebook that bring in qualified leads.</p>
+        <p>An insurance advisor website isn't a brochure or an e-commerce store. It has to earn trust, hold up to MAS advertising guidelines, and guide a careful prospect from research to a booked consultation. We build every element around how Singaporeans actually choose someone to manage their financial protection.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Personal Branding &amp; Credential Display</h3>
-            <p>Professional advisor profile pages with your photo, MAS representative number, agency details, MDRT or COT qualifications, specialisations, and years of experience — everything a prospect needs to trust you before making that first call.</p>
+            <h3>Trust-Led Design</h3>
+            <p>A clean, professional, mobile-first design that signals credibility from the first scroll — your photo, a clear value proposition, and a measured tone. No loud sales gimmicks, just the calm, considered presence prospects expect from someone handling their family's protection.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Plan Comparison &amp; Calculator Tools</h3>
-            <p>Interactive comparison tables where visitors can evaluate term life, whole life, critical illness, and health insurance plans side by side. Premium estimate calculators help prospects understand their options before reaching out, warming them up for a more productive conversation.</p>
+            <h3>Services &amp; Specialisation Pages</h3>
+            <p>Dedicated pages for what you actually advise on — life and critical illness cover, hospitalisation and Integrated Shield Plans, retirement and CPF planning, or business and keyman insurance. Clear specialisation pages help the right prospects recognise that you handle exactly their situation.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>MAS-Compliant Content &amp; SEO</h3>
-            <p>Educational content pages on topics like CPF nomination, Medishield Life top-ups, and retirement income planning — all written within MAS advertising guidelines. We build these as SEO-optimised landing pages so prospects find you when they search for financial planning advice in Singapore.</p>
+            <h3>Credentials &amp; Testimonials</h3>
+            <p>A profile that presents your MAS representative number, the agency or firm you represent, qualifications such as MDRT or COT, and years in practice — alongside genuine client testimonials. Proof points that let a prospect verify you before they ever pick up the phone.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Lead Capture &amp; Booking Funnels</h3>
-            <p>Needs analysis forms, free consultation booking pages, and downloadable guides on topics like "CPF Planning After 55" or "How Much Critical Illness Cover Do You Need." Every enquiry routes to your email or CRM with WhatsApp integration for instant follow-up.</p>
+            <h3>Secure Enquiry &amp; Booking Forms</h3>
+            <p>Needs-analysis forms, consultation booking, and downloadable guides — built to handle personal information responsibly and in line with PDPA. Every enquiry routes straight to your email or CRM, with optional WhatsApp contact, so no warm lead slips through the cracks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile Speed &amp; Core Web Vitals</h3>
+            <p>Prospects browse on their phones during commutes and lunch breaks. We build for fast load times and strong Core Web Vitals, with tap-to-call and instant WhatsApp contact — so a moment of interest turns into an enquiry instead of a closed tab.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>SEO Foundations</h3>
+            <p>Clean structure, proper metadata, schema, and MAS-compliant content built so prospects can find you when they search for an advisor or for help with CPF, retirement, or critical illness planning. The groundwork that lets your site earn visibility over time, not just sit online.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for insurance agent website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for insurance agent website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Insurance Agent Websites</h2>
+        <h2>A Web Studio That Understands <span class="highlight">Financial Advice</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've worked with insurance agents and financial advisors across Singapore. We know what makes prospects trust an advisor online, what drives consultation bookings, and how to position your expertise so it converts visitors into clients.</p>
+        <p>We build for insurance agents and financial advisors who take their licence and their clients seriously. We understand MAS compliance, the difference between a tied agent and an independent financial adviser, and how Singaporeans research protection online — so your site is built with real industry knowledge, not guesswork.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Financial Services Experience</h3>
-            <p>We understand MAS compliance, the difference between a tied agent and an independent financial advisor, and how Singaporeans research insurance online — so your website is built with real industry knowledge, not guesswork.</p>
+            <p>We know how Singaporeans research an advisor, what builds confidence on a profile page, and which proof points actually drive a consultation booking. Your website is shaped by how the advisory business works here — not a template borrowed from another industry.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most insurance agent websites go live within 2 weeks of kickoff. We know timing matters when you're building momentum, launching a new practice, or repositioning your personal brand after a career milestone.</p>
+            <h3>Built Around MAS Compliance</h3>
+            <p>We design within MAS advertising guidelines and the Financial Advisers Act — fair and balanced claims, the right disclaimers, and your representative details displayed properly. Your final content stays your responsibility, but we build the structure so compliance is the default, not an afterthought.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Prospects browse on their phones during lunch breaks and commutes. Every site is designed mobile-first with fast load times, tap-to-call buttons, and WhatsApp integration for instant contact from any device.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on client meetings, policy reviews, and growing your book of business.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>A website opens the door, but discovery and conversion depend on the wider picture. We handle SEO, social media, and paid ads in-house — an integrated system that turns searches and referrals into booked consultations, so you can focus on advising.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Client Funnel — where your website fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Most Singaporeans move through the same five stages before they trust an advisor with their finances. Your website owns the middle of that journey — turning a name they were given, or a search they ran, into a booked consultation.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Searches for advice or an advisor online</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Weighs a few advisors against each other</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Checks credentials, MAS status &amp; reviews</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Books a consultation or needs analysis</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Signs on, reviews cover &amp; refers others</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -235,7 +394,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about insurance agent website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about insurance agent website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -268,12 +427,5 @@ const schemaData = [
 
 
   <RelatedServices topic="website" />
-
-  <MarketingFunnelBlock
-    industry="insurance agency or financial advisory firm"
-    marketingHref="/insurance-marketing-singapore/"
-    outcomeLine="See how we'd fill your enquiry pipeline with MAS-compliant marketing"
-    ctaText="Insurance & FA Marketing Singapore"
-  />
 
 </ServiceLayout>

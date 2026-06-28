@@ -1,7 +1,5 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
-import MarketingFunnelBlock from '../components/MarketingFunnelBlock.astro';
 
 const schemaData = [
   {
@@ -51,6 +49,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Property Agent Website Singapore — Jraft Creative"
   description="Website design for property agents and real estate agencies in Singapore. Listing integration, property search, CEA compliance, and agent branding."
@@ -64,6 +162,7 @@ const schemaData = [
   heroTitle='Website Design for <span class="highlight">Property Agents in Singapore</span>'
   heroSubtitle="Your listings deserve more than a portal profile. We build fast, mobile-friendly websites for property agents and real estate agencies — with listing pages, property search, and local SEO built in."
   heroImage="/images/service-property.webp"
+  heroImageAlt="Property agent presenting a Singapore condominium — property agent website design"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
@@ -79,114 +178,218 @@ const schemaData = [
   hideDefaultCta={false}
 >
 
-  <!-- ========== CROSS-LINK TO FULL MARKETING LP ========== -->
-  <section class="section" id="full-marketing-crosslink" style="padding-top: 48px; padding-bottom: 48px; background: var(--bg-alt);" aria-label="Looking for full marketing, not just a website?">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom: 0; text-align: center;">
-        <p class="section-label">Looking for more than a website?</p>
-        <h2 style="margin-bottom: 16px;">Want full marketing, not just a website?</h2>
-        <p style="margin-bottom: 24px;">If you need paid ads on Google &amp; Meta, social media content, and CEA-compliance review on top of the website, see the full <strong>Property Agent Marketing</strong> page — same team, broader scope.</p>
-        <a href="/property-agent-marketing-singapore/" class="btn btn-primary">See Property Agent Marketing →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why property agents need a proper website">
+  <section class="section" id="challenge" aria-label="Why property agents in Singapore need their own website">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Listings Deserve More Than a Portal Profile</h2>
+        <h2>Your Listings Deserve More Than a <span class="highlight">Portal Profile</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Most property agents in Singapore rely entirely on PropertyGuru, 99.co, and SRX to reach buyers and tenants. These portals work — but you're competing with thousands of other agents on the same page, paying for every listing, and building zero brand equity of your own.</p>
-        <p>Without your own website, potential clients can't find you when they search Google for "property agent in Bukit Timah" or "condo specialist District 10." You're invisible outside the portals, and every lead you generate belongs to the platform — not to you.</p>
-        <p>Singapore's property market rewards agents who build personal brands. A professional website with your CEA credentials, transaction track record, area expertise, and active listings tells prospective clients you're serious about your business — and gives them a reason to contact you directly instead of scrolling past to the next agent on PropertyGuru.</p>
+        <p>Most property agents in Singapore live entirely on PropertyGuru, 99.co, and SRX. The portals work — but you compete with thousands of agents on the same page, pay for every listing, and build zero brand equity of your own. The moment a buyer or seller searches your name on Google, there's nothing to find. A website you own changes that.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Brand That Outlasts the Portals</h3>
+            <p>Portal listings expire, get bumped, and belong to the platform — not to you. A personal-brand website is the one address that stays yours: your track record, your area expertise, and your active listings in a permanent home that compounds with every deal you close.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>CEA Advertising Rules, Built In</h3>
+            <p>Every property advertisement — your website included — must display your CEA registration number and your agency's estate agent licence number under the Council for Estate Agencies advertising guidelines. We build compliance in from day one, so your site is correct, not a liability.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Where Clients Decide to Trust You</h3>
+            <p>Buyers and sellers Google an agent's name before they ever call. If that search returns only a portal thumbnail, you blend into the crowd. A site that shows credentials, transactions, and testimonials turns quiet research into a direct enquiry — to you.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Property agent website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What Jraft Creative builds into a property agent website">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>What We Build for Property Agents</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of a Property Agent <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every property agent website we deliver is purpose-built for the real estate industry in Singapore. We go beyond a generic template — your site will feature structured listing pages, property search functionality, CEA-compliant agent credentials, and local SEO so buyers and sellers can find you directly on Google.</p>
-        <p>We understand that property agents need more than just a website. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to rank for area-specific property searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> for property listing content that builds your personal brand, and <a href="/services/paid-ads/" class="inline-link">paid ads management</a> for targeted campaigns on Google and Facebook that bring in seller and buyer leads.</p>
+        <p>A property agent website isn't a brochure site. Buyers browse between viewings, sellers vet your track record, and CEA rules govern what every page must show. We build each element around how Singapore buyers and sellers actually research and choose an agent — design, listings, proof, capture, speed, and search.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Property Listing Integration</h3>
-            <p>Structured listing pages with photos, floor plans, pricing, tenure, and location details. Easily add, update, and remove listings so your website always reflects your current portfolio.</p>
+            <h3>Personal-Brand Design</h3>
+            <p>A distinctive agent identity — your photo, story, specialisations, and positioning — designed to look nothing like a portal profile. This is the personal brand buyers and sellers remember and return to when they're ready to commit.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Agent Personal Branding</h3>
-            <p>Professional agent profile pages with your photo, CEA registration number, transaction history, specialisations, and client testimonials — everything a prospective client needs to trust you.</p>
+            <h3>Listings &amp; Past-Transactions Showcase</h3>
+            <p>Structured listing pages with photos, floor plans, pricing, and tenure, plus a closed-deals showcase. Add, update, and retire listings yourself — or sync from a data feed — so the site always reflects your live portfolio and your record.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO &amp; Area Pages</h3>
-            <p>Dedicated area guide pages targeting district-level keywords like "condos in District 15" or "landed property Bukit Timah." We build these as SEO-optimised landing pages with local amenities, market insights, and your active listings.</p>
+            <h3>Testimonials &amp; Credentials</h3>
+            <p>Client testimonials, awards, and your CEA registration and agency licence numbers presented clearly and compliantly. The trust signals a seller checks before handing you an exclusive — front and centre, not buried.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Lead Capture &amp; CRM</h3>
-            <p>Enquiry forms on every listing, WhatsApp integration for instant contact, and CRM connection so every lead is tracked and followed up. No more missed enquiries from interested buyers.</p>
+            <h3>Lead-Capture &amp; Valuation Forms</h3>
+            <p>Enquiry forms on every listing, a free-valuation request for sellers, WhatsApp tap-to-chat, and CRM connection so no lead slips through. Every interested buyer and seller is captured, tracked, and ready for follow-up.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile Speed &amp; Core Web Vitals</h3>
+            <p>Buyers scroll listings on their phones between viewings. We build mobile-first with fast load times, swipeable galleries, and tap-to-call — tuned for Core Web Vitals so the site stays quick and Google-friendly under image-heavy listings.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>SEO Foundations &amp; Area Pages</h3>
+            <p>Dedicated area guide pages targeting searches like "condos in District 15" or "HDB resale Tampines" — with clean titles, metas, structured data, and local content — so you rank for the neighbourhoods and segments you specialise in.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for property agent website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for property agent website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Property Agent Websites</h2>
+        <h2>A <span class="highlight">Web Studio</span> Built for <span class="highlight">Property Agents</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've worked with property agents and real estate agencies across Singapore. We know what drives buyers to enquire, sellers to list, and tenants to reach out — and we design every element of your website around that.</p>
+        <p>We've built websites for agents and agencies across Singapore, and we know what moves a buyer to enquire, a seller to list, and a tenant to reach out. Every page is designed around CEA compliance, the buyer journey, and your personal brand — not a recycled template.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Property Industry Experience</h3>
-            <p>We understand CEA compliance, listing page structure, area-based SEO, and the buyer journey in Singapore's property market — so your website is built with real industry knowledge.</p>
+            <h3>Property Industry Knowledge</h3>
+            <p>We understand CEA advertising compliance, listing-page structure, district-level SEO, and how Singapore buyers and sellers actually shop for an agent — so your website is built on real market knowledge, not guesswork.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most property agent websites go live within 2 weeks of kickoff. We know timing matters when you're launching a new project or refreshing your personal brand.</p>
+            <h3>Built to Convert Researchers</h3>
+            <p>A pretty site that doesn't generate enquiries is wasted. We design every section — credentials, transactions, testimonials, capture forms — to turn the client quietly Googling your name into a direct WhatsApp message or valuation request.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Buyers browse property on their phones between viewings. Every site is designed mobile-first with fast load times, swipeable photo galleries, and tap-to-call buttons for instant contact.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>The website is the foundation, but discovery and deal flow need more. We handle SEO, social content, and paid ads in-house too — an integrated system that drives buyers and sellers to a site that's ready to convert them.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on closing deals and viewing properties with clients.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THE CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The client funnel — where your website fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every buyer and seller moves through the same five stages before they appoint an agent. Your website carries them from the first name-search all the way to a signed engagement — feeding trust signals into every step.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Googles agents, browses portals &amp; names</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Compares 2–3 agents' sites &amp; listings</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Checks CEA credentials, reviews, track record</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>WhatsApp, call, or valuation form</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Appoints you, then refers &amp; returns</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Property agent website pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Property Agent Website Pricing</p>
+        <h2><span class="highlight">Website Packages</span> for Property Agents</h2>
+        <p>One-time project pricing, custom-scoped to your listings and brand.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Agent Profile Site</h3>
+            <div class="price">$2,500 <span>SGD</span></div>
+            <p class="pricing-desc">For solo agents establishing a personal brand.</p>
+            <ul class="pricing-features">
+              <li>5-page agent profile website</li>
+              <li>CEA-compliant credentials</li>
+              <li>Testimonials &amp; track record</li>
+              <li>Lead-capture &amp; WhatsApp</li>
+              <li>Mobile-first, fast-loading build</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Agency Website</h3>
+            <div class="price">$10,000+ <span>SGD</span></div>
+            <p class="pricing-desc">For agencies and top producers who need listings &amp; area SEO.</p>
+            <ul class="pricing-features">
+              <li>Everything in Agent Profile</li>
+              <li>Property listing management system</li>
+              <li>Area guide pages &amp; property search</li>
+              <li>CRM &amp; valuation form integration</li>
+              <li>Local SEO foundations</li>
+              <li>Core Web Vitals optimisation</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Multi-Agent / Custom</h3>
+            <div class="price">Custom</div>
+            <p class="pricing-desc">For teams and larger real estate agencies.</p>
+            <ul class="pricing-features">
+              <li>Everything in Agency Website</li>
+              <li>Multi-agent profile pages</li>
+              <li>Portal data-feed integration</li>
+              <li>Advanced SEO &amp; content</li>
+              <li>Ongoing support &amp; updates</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
           </div>
         </div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
+        <p>Full service details on our <a href="/services/website-development/" class="inline-link">Website Development</a> page.</p>
       </div>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about property agent website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about property agent website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -218,13 +421,20 @@ const schemaData = [
   </section>
 
 
-  <RelatedServices topic="website" />
-
-  <MarketingFunnelBlock
-    industry="property agent"
-    marketingHref="/property-agent-marketing-singapore/"
-    outcomeLine="See how we'd grow your personal brand and deal flow"
-    ctaText="Property Agent Marketing Singapore"
-  />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Website Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/property-agent-marketing-singapore/" class="related-service-link">Property Agent Marketing</a>
+          <a href="/services/website-development/" class="related-service-link">Website Development</a>
+          <a href="/small-business-website-singapore/" class="related-service-link">Small Business Websites</a>
+          <a href="/affordable-website-design-singapore/" class="related-service-link">Affordable Website Design</a>
+          <a href="/responsive-web-design-singapore/" class="related-service-link">Responsive Web Design</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
