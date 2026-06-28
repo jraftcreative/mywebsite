@@ -1,0 +1,436 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Accounting Firm Marketing Agency Singapore",
+    "description": "Full-service marketing agency for accounting firms in Singapore. SEO, GEO, Google Ads, social, branding, websites — built for audit, tax, bookkeeping, and corporate secretarial firms. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Accounting Firm Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Accounting Firm Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (SEO or Social), Google Business Profile optimisation, monthly content, and reporting for solo practitioners and boutique accounting firms" },
+      { "@type": "Offer", "name": "Growth Accounting Firm Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Multi-channel: SEO + Google Ads + LinkedIn/social, lead-funnel content production, GCLID offline conversion tracking, bi-weekly reporting for established firms scaling enquiries across audit, tax, and corporate secretarial services" },
+      { "@type": "Offer", "name": "Enterprise Accounting Firm Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service across all channels, dedicated strategist, service-line landing pages, partner personal branding, brand refresh, and weekly reporting for multi-partner and multi-service accounting groups" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for an accounting firm in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Accounting firm marketing in Singapore starts at S$3,000 per month for essential single-channel work — typically SEO with monthly content, or a social/LinkedIn pillar. Growth packages at S$5,500/month combine SEO, Google Ads with GCLID offline conversion tracking, and social content to drive enquiries across audit, tax, and corporate secretarial work. Enterprise packages at S$10,000+/month add service-line landing pages, partner personal branding, brand refresh, and a dedicated strategist for multi-partner or multi-service firms. Solo practitioners and boutique firms usually start on Essential; established firms running several service lines need the Growth tier minimum." } },
+      { "@type": "Question", "name": "How long before marketing brings accounting enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate enquiry-form submissions and consultation bookings within the first 7–14 days once tracking and ad copy are live. Social and LinkedIn content compounds over 8–12 weeks as your firm builds authority with SME owners and finance leads. SEO and GEO typically show ranking and AI-citation improvements within 3–6 months for terms like 'accounting firm Singapore' and 'corporate tax services Singapore'. The buyer journey in professional services is considered and trust-led — multi-channel presence is what shortens consideration, not any single channel run alone. Most firms see a meaningful lift in qualified enquiries within the first 60 days of a full-service campaign, provided someone replies to enquiries quickly." } },
+      { "@type": "Question", "name": "Which marketing channels work best for accounting firms in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most firms: (1) SEO for high-intent searches like 'accounting firm Singapore', 'corporate tax services', and 'audit firm Singapore'; (2) GEO so you're cited when business owners ask ChatGPT, Gemini, or Google AI Mode to recommend an accountant; (3) Google Ads for bottom-of-funnel quote and enquiry terms; (4) social and LinkedIn for thought leadership around IRAS deadlines, GST, and ACRA filing; (5) branding so you stand out in a commoditised market; (6) a website that converts comparison-stage research into booked consultations. We build a cross-channel plan based on your service mix and target client size." } },
+      { "@type": "Question", "name": "Will your marketing stay compliant with how accountants can promote themselves?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Accounting is a credentials-driven, regulated profession, and we write to that. We reference your ISCA membership, ACRA registration, and any practising certifications accurately, and we avoid overclaiming results, guaranteeing tax outcomes, or implying assurances a registered firm cannot make. We're not your compliance function — your partners and any applicable professional-body guidance sign off on final positioning — but every headline, ad, and post is written to read as credible and defensible rather than salesy. Trust signals do the persuading, not hype." } },
+      { "@type": "Question", "name": "Do you work with multi-partner and multi-service accounting firms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with solo practitioners, boutique tax and bookkeeping firms, corporate secretarial practices, and multi-partner firms running audit, tax advisory, bookkeeping, GST, and corporate secretarial services side by side. Multi-service firms need separate messaging per service line — the SME owner searching for monthly bookkeeping is a different buyer from the company director shopping for a statutory audit. On Growth and Enterprise we build distinct service-line landing pages and campaigns, and we can run partner-level personal branding so one or two partners become the public face of the firm. Pricing scales with the number of service lines and partners we're producing for, not just channel count." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Accounting Firm Marketing Singapore", "item": "https://jraftcreative.com/accounting-firm-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Accounting Firm Marketing Singapore — Jraft Creative"
+  description="Full-service marketing agency for accounting firms in Singapore. SEO, Google Ads, social, branding, websites — built for audit, tax, bookkeeping, and corp sec firms. From $3,000/mo."
+  canonical="https://jraftcreative.com/accounting-firm-marketing-singapore/"
+  ogTitle="Accounting Firm Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for accounting firms in Singapore. SEO, GEO, Google Ads, social, branding, websites — built for audit, tax, bookkeeping, and corporate secretarial firms. From $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="accounting firm marketing singapore, accountant marketing agency singapore, tax firm marketing singapore, audit firm marketing, bookkeeping marketing singapore, corporate secretarial marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Accounting Firms"
+  heroTitle='Marketing Agency for <span class="highlight">Accounting Firms in Singapore</span>'
+  heroSubtitle="Business owners in Singapore compare three to four accounting firms online — checking services, credentials, and reviews — before they ever pick up the phone. Most firms are invisible during that window. We build full-service marketing (SEO, GEO, Google Ads, social, branding, websites) for audit, tax, bookkeeping, and corporate secretarial firms — designed for how Singapore SMEs and directors actually choose an accountant. From S$3,000/mo."
+  heroImage="/images/service-accounting.webp"
+  heroImageAlt="Accountant reviewing financial statements with a client — accounting firm marketing Singapore"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20accounting%20firm%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an accounting firm in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Client Pipeline</span>'
+  ctaDescription="Book a free consultation and tell us about your firm — your service lines, your target clients, and your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel marketing plan."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20accounting%20firm%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why accounting firms need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> Accounting Firms Are Still <span class="highlight">Losing Clients</span> to Firms with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has thousands of registered accounting firms competing for the same pool of SME clients. By the time a business owner makes contact, they've already compared three or four firms online — and the ones winning the engagement aren't always the most qualified. They're the most visible.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Trust-First Decision</h3>
+            <p>Accounting is a credentials-driven choice. Prospects want to see ISCA membership, ACRA registration, partner qualifications, and clear service descriptions before they trust you with their books. If your online presence doesn't signal that immediately, you're cut before the shortlist.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Self-Educating Buyer</h3>
+            <p>Today's directors research ACRA filing, IRAS deadlines, GST registration, and corporate tax obligations long before they call anyone. They arrive already informed. If your firm isn't part of that research — in search, in AI answers, in their feed — you never enter consideration.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Commodity Trap</h3>
+            <p>"Audit, tax, bookkeeping, corp sec" reads the same on almost every firm's website. When buyers can't tell two firms apart, they default to price. Without clear positioning and differentiation, even strong firms get dragged into a race to the bottom on fees.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for accounting firms in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Accounting Firm <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for accounting firms — combining high-intent SEO, AI search optimisation (GEO), paid search, social and LinkedIn authority content, branding, and conversion-focused web design across every service line you run.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO for Accounting Firms</a></h3>
+            <p>Rank for the searches that convert — "accounting firm Singapore", "corporate tax services", "audit firm Singapore", "bookkeeping services SME". We win the high-intent, comparison-stage queries where directors are ready to shortlist and enquire.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when business owners ask ChatGPT, Gemini, Perplexity, or Google AI Mode to "recommend an accounting firm in Singapore". The same citation playbook we've used for our own agency, applied to your service lines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google Ads for Accounting Firms</a></h3>
+            <p>High-intent campaigns on quote and enquiry terms — corporate tax, GST registration, statutory audit, company incorporation. GCLID offline tracking ties each click to a signed engagement, so you report on clients, not clicks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media for Accounting Firms</a></h3>
+            <p>Authority content that builds trust — plain-English explainers on IRAS deadlines, GST thresholds, ACRA annual returns, and corporate tax. LinkedIn for directors and finance leads, plus short-form for reach. Positioned as the expert, not a salesperson.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Accounting Firms</a></h3>
+            <p>The brand system that lifts you out of the "every firm looks the same" trap. Logo, palette, credential treatment, partner photography, and service-line positioning — so prospects pick you on credibility, not the lowest fee.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/accounting-firm-website-singapore/">Websites for Accounting Firms</a></h3>
+            <p>The site that closes the enquiry. Service pages for audit, tax, bookkeeping, and corporate secretarial work, credential badges, team profiles, client portal, and fast mobile performance — built for directors comparing firms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for accounting firm marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">SMEs &amp; Directors</span> Actually <span class="highlight">Choose an Accountant</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching accounting firms treat the work like any other small-business retainer — nice decks, generic posts, and no line of sight from a campaign to a signed engagement. We're the opposite: full-service, performance-led, and built around how Singapore business owners actually research, shortlist, and trust an accounting firm. We write to your credentials, respect the regulated nature of the profession, and measure enquiries, not impressions.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Professional-Services Credibility</h3>
+            <p>We market firms the way trust is earned in accounting — leading with ISCA membership, ACRA registration, and partner expertise, never overclaiming on tax outcomes. Every asset is written to read as defensible and credible, so it survives a partner's review.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, LinkedIn, social, branding, and websites under one roof. No coordinating between three vendors. Every channel delivers consistent positioning across your audit, tax, bookkeeping, and corporate secretarial service lines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Pipeline, Not Vanity Metrics</h3>
+            <p>We measure qualified enquiries and signed engagements, not impressions. GCLID offline tracking and enquiry routing prove which ad click became which consultation became which client — the only numbers that move fee revenue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Client Funnel — how Singapore businesses choose an accounting firm">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Funnel</p>
+        <h2>How <span class="highlight">Singapore Businesses</span> Actually <span class="highlight">Choose an Accountant</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the first "I need an accountant" search to a signed engagement letter, every business owner and director in Singapore moves through the same five stages. We build marketing that shows up at each one — from research through to engagement.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Google, AI tools, LinkedIn — learning what they need</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Comparing three to four firms by service &amp; fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Checking ISCA, ACRA, reviews &amp; credentials</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Contact form, WhatsApp, or consultation booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Engagement letter signed, onboarding begins</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Accounting firm marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Accounting Firm Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for Firms of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For solo practitioners and boutique firms building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO or Social)</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Review management setup</li>
+              <li>4 pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established firms scaling enquiries across service lines.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + LinkedIn/social</li>
+              <li>Lead-funnel content production</li>
+              <li>GCLID offline conversion tracking</li>
+              <li>Service-line landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-partner and multi-service accounting groups.</p>
+            <ul class="pricing-features">
+              <li>Full 6-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Partner personal branding</li>
+              <li>Brand refresh / kit template</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for accounting firms in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Accounting Firm</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for an accounting firm in Singapore?</summary>
+          <div class="faq-answer"><p>Accounting firm marketing in Singapore starts at S$3,000 per month for essential single-channel work — typically SEO with monthly content, or a social/LinkedIn pillar. Growth packages at S$5,500/month combine SEO, Google Ads with GCLID offline conversion tracking, and social content to drive enquiries across audit, tax, and corporate secretarial work. Enterprise packages at S$10,000+/month add service-line landing pages, partner personal branding, brand refresh, and a dedicated strategist for multi-partner or multi-service firms. Solo practitioners and boutique firms usually start on Essential; established firms running several service lines need the Growth tier minimum.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings accounting enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads can generate enquiry-form submissions and consultation bookings within the first 7–14 days once tracking and ad copy are live. Social and LinkedIn content compounds over 8–12 weeks as your firm builds authority with SME owners and finance leads. SEO and GEO typically show ranking and AI-citation improvements within 3–6 months for terms like "accounting firm Singapore" and "corporate tax services Singapore". The buyer journey in professional services is considered and trust-led — multi-channel presence is what shortens consideration, not any single channel run alone. Most firms see a meaningful lift in qualified enquiries within the first 60 days of a full-service campaign, provided someone replies to enquiries quickly.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which marketing channels work best for accounting firms in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most firms: (1) SEO for high-intent searches like "accounting firm Singapore", "corporate tax services", and "audit firm Singapore"; (2) GEO so you're cited when business owners ask ChatGPT, Gemini, or Google AI Mode to recommend an accountant; (3) Google Ads for bottom-of-funnel quote and enquiry terms; (4) social and LinkedIn for thought leadership around IRAS deadlines, GST, and ACRA filing; (5) branding so you stand out in a commoditised market; (6) a website that converts comparison-stage research into booked consultations. We build a cross-channel plan based on your service mix and target client size.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will your marketing stay compliant with how accountants can promote themselves?</summary>
+          <div class="faq-answer"><p>Yes. Accounting is a credentials-driven, regulated profession, and we write to that. We reference your ISCA membership, ACRA registration, and any practising certifications accurately, and we avoid overclaiming results, guaranteeing tax outcomes, or implying assurances a registered firm cannot make. We're not your compliance function — your partners and any applicable professional-body guidance sign off on final positioning — but every headline, ad, and post is written to read as credible and defensible rather than salesy. Trust signals do the persuading, not hype.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you work with multi-partner and multi-service accounting firms?</summary>
+          <div class="faq-answer"><p>Yes. We work with solo practitioners, boutique tax and bookkeeping firms, corporate secretarial practices, and multi-partner firms running audit, tax advisory, bookkeeping, GST, and corporate secretarial services side by side. Multi-service firms need separate messaging per service line — the SME owner searching for monthly bookkeeping is a different buyer from the company director shopping for a statutory audit. On Growth and Enterprise we build distinct service-line landing pages and campaigns, and we can run partner-level personal branding so one or two partners become the public face of the firm. Pricing scales with the number of service lines and partners we're producing for, not just channel count.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Accounting Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/accounting-firm-website-singapore/" class="related-service-link">Accounting Firm Websites</a>
+          <a href="/industries/professional-services/" class="related-service-link">Professional Services Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

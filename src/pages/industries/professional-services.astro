@@ -1,61 +1,6 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const subIndustries = [
-  {
-    name: "Law Firm",
-    href: "/law-firm-website-singapore/",
-    description: "Corporate law firms, family law practices, and legal consultancies.",
-    image: "/images/service-law.webp",
-    services: [
-      { label: "Website", href: "/law-firm-website-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Paid Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-      { label: "AI Search (GEO)", href: "/services/ai-search-optimisation/" },
-    ],
-  },
-  {
-    name: "Accounting Firm",
-    href: "/accounting-firm-website-singapore/",
-    description: "Audit firms, tax consultancies, and bookkeeping services.",
-    image: "/images/service-accounting.webp",
-    services: [
-      { label: "Website", href: "/accounting-firm-website-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Paid Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-      { label: "AI Search (GEO)", href: "/services/ai-search-optimisation/" },
-    ],
-  },
-  {
-    name: "Property Agent",
-    href: "/property-agent-website-singapore/",
-    description: "Real estate agents, property agencies, and developer sales teams.",
-    image: "/images/service-property.webp",
-    services: [
-      { label: "Website", href: "/property-agent-website-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Paid Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-      { label: "AI Search (GEO)", href: "/services/ai-search-optimisation/" },
-    ],
-  },
-  {
-    name: "Insurance Agent",
-    href: "/insurance-agent-website-singapore/",
-    description: "Independent financial advisors and insurance agencies.",
-    image: "/images/service-insurance.webp",
-    services: [
-      { label: "Website", href: "/insurance-agent-website-singapore/" },
-      { label: "SEO", href: "/services/seo-performance/" },
-      { label: "Paid Ads", href: "/services/paid-ads/" },
-      { label: "Social Media", href: "/services/social-media/" },
-      { label: "AI Search (GEO)", href: "/services/ai-search-optimisation/" },
-    ],
-  },
-];
-
 const schemaData = [
   {
     "@context": "https://schema.org",
@@ -71,6 +16,17 @@ const schemaData = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does professional services marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most professional services firms in Singapore invest between $2,500 and $10,000 per month on marketing, depending on practice size, number of partners, and competitiveness of the practice area. A solo property agent or independent advisor may start lower, while a multi-partner law or accounting firm competing on high-value matters invests more. Engagements typically cover website, SEO, paid search, content, and social — coordinated under one strategy." } },
+      { "@type": "Question", "name": "Do you understand the advertising compliance rules for my profession?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Legal advertising in Singapore is governed by the Legal Profession (Professional Conduct) Rules, financial advisory marketing must comply with MAS guidelines, and real estate promotions are subject to Council for Estate Agencies (CEA) rules. We build campaigns that generate qualified leads without crossing these regulatory lines — a constraint generic agencies routinely get wrong." } },
+      { "@type": "Question", "name": "Which marketing channels work best for professional services firms?", "acceptedAnswer": { "@type": "Answer", "text": "Google Search captures high-intent prospects actively looking for a lawyer, accountant, agent, or advisor. SEO and a credibility-led website convert that research into enquiries. Thought-leadership content and LinkedIn build authority for B2B and high-value work, while Google Ads captures urgent, transactional searches. The right mix depends on whether you serve consumers or businesses, and on your practice area." } },
+      { "@type": "Question", "name": "How long before marketing generates new client enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Paid search can generate enquiries within the first weeks. SEO and content typically take 3–6 months to build sustainable organic visibility for competitive practice-area terms. Most professional services clients see a meaningful lift in qualified enquiries within the first 60–90 days of a coordinated campaign, with authority and rankings compounding over time." } },
+      { "@type": "Question", "name": "Do you work with law firms, accounting firms, property agents, and financial advisors?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — those four are our core professional services verticals, each with its own dedicated marketing approach. We also work with consultancies, corporate secretarial firms, and other advisory practices. Every engagement is built around the trust-and-credibility purchase that defines professional services, and around the specific compliance regime that governs your profession." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
@@ -80,6 +36,106 @@ const schemaData = [
   }
 ];
 ---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Client Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
 
 <ServiceLayout
   title="Professional Services Marketing — Jraft Creative"
@@ -92,37 +148,142 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Professional Services"
   heroTitle='Marketing for <span class="highlight">Professional Services</span> in Singapore'
-  heroSubtitle="We help law firms, accounting practices, property agents, and financial advisors in Singapore build credibility online, generate qualified leads, and grow their client base — with marketing that reflects the professionalism their clients expect."
+  heroSubtitle="Law firms, accounting practices, property agents, and financial advisors win on trust — and prospects research, compare, and vet credentials online before they ever make contact. We build compliant, credibility-led marketing that turns that research into qualified enquiries."
   heroImage="/images/service-corporate.webp"
+  heroImageAlt="Professional services firm in Singapore — marketing for law, accounting, property, and advisory practices"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+    { text: "See Our Work", href: "#case-study", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing help for my professional services firm in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Practice"
-  ctaDescription="Book a free consultation and tell us about your firm or advisory practice. We'll get back to you within 24 hours."
+  ctaLabel="Ready to Grow Your Practice?"
+  ctaTitle='Grow Your <span class="highlight">Practice</span>'
+  ctaDescription="Book a free consultation and tell us about your firm or advisory practice. We'll review your current marketing, flag the compliance pitfalls, and recommend a strategy tailored to your practice area. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20professional%20services%20firm%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <section class="section ps-why-section" aria-label="Why professional service firms need specialised marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why professional service firms need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why It Matters</p>
-        <h2>Why Professional Service Firms Need <span class="highlight">Specialised</span> Marketing</h2>
+        <h2>Professional Services Are Won on <span class="highlight">Trust</span>, Not <span class="highlight">Generic Funnels</span></h2>
       </div>
-      <div class="reveal reveal-d1">
-        <p>Professional services firms operate in sectors where trust is the primary purchase driver. Prospective clients — whether they are looking for a conveyancing lawyer, a corporate tax advisor, a property agent, or an insurance planner — conduct significant research before making contact. They assess credentials, read reviews, scrutinise websites, and compare firms before ever reaching out. A poorly positioned online presence is not just a missed opportunity; it actively undermines confidence in your firm.</p>
-        <p style="margin-top: 1rem;">Marketing in these industries also carries obligations that generic agencies are ill-equipped to handle. Legal advertising in Singapore is governed by the Legal Profession (Publicity) Rules. Financial advisory marketing must comply with MAS guidelines. Real estate agent promotions are subject to CEA regulations. We understand these constraints and build campaigns that generate leads without crossing regulatory lines.</p>
-        <p style="margin-top: 1rem;">Beyond compliance, effective professional services marketing centres on demonstrable expertise: client-facing credentials, case studies, thought leadership content, and trust signals that convert a cautious prospect into a paying client. We design websites and run campaigns built around this reality — not templates borrowed from e-commerce or retail.</p>
+      <div class="section-content reveal">
+        <p>Whether a prospect is looking for a conveyancing lawyer, a corporate tax advisor, a property agent, or an insurance planner, they research heavily before making contact — assessing credentials, reading reviews, and comparing firms. A weak or non-compliant online presence doesn't just miss opportunities; it actively undermines confidence in your firm.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Trust-First Buyer</h3>
+            <p>Prospects vet your credentials, read reviews, and scrutinise your website before they ever reach out. The decision is made on credibility long before the first call — and a dated or thin online presence quietly disqualifies you from the shortlist.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Compliance Line</h3>
+            <p>Legal advertising is governed by the Legal Profession (Professional Conduct) Rules, financial advisory by MAS guidelines, and real estate by CEA rules. Generic agencies cross these lines without knowing it. We generate leads without putting your licence at risk.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Expertise Has to Show</h3>
+            <p>Effective professional services marketing turns demonstrable expertise into trust signals — credentials, case studies, and thought leadership that convert a cautious prospect into a paying client. Not templates borrowed from e-commerce or retail.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section bg-alt ps-casestudy-section" aria-label="Case study — Kairos Advisory Group">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for professional services firms in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Professional Firm <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies for professional services — combining credibility-led SEO, AI search optimisation (GEO), high-intent paid search, authority content, branding, and conversion-focused websites, all built to respect the compliance rules of your profession.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO &amp; Local Search</a></h3>
+            <p>Rank for practice-area and catchment searches like "corporate lawyer Singapore", "audit firm Raffles Place", or "property agent [area]" — plus Google Business Profile and reviews that build the trust the purchase depends on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when prospects ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best corporate law firm Singapore" or "good financial advisor near me." The same AI-citation playbook we use for our own agency.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google &amp; LinkedIn Ads</a></h3>
+            <p>High-intent paid search for urgent matters, plus LinkedIn for B2B and high-value work — built within the advertising rules of your profession, with tracking from click through to a booked consultation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social &amp; Thought Leadership</a></h3>
+            <p>LinkedIn, Instagram, and TikTok content that builds authority — explainer content, market commentary, and credentials that make a cautious prospect comfortable. The exact play behind our Kairos Advisory results below.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding &amp; Credibility</a></h3>
+            <p>The brand system that signals seniority and trust — identity, partner and team presentation, and collateral that positions you above the commoditised competition and justifies premium fees.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Websites That Convert</a></h3>
+            <p>The credibility-led site that closes the enquiry — clear service and credential pages, case studies, secure enquiry forms, and fast mobile performance, built to convert a researching prospect into a booked consultation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for professional services marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Clients Choose</span> a <span class="highlight">Firm</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with law firms, accounting practices, property agents, and financial advisors across Singapore — building around the trust-and-credibility purchase, the compliance regime of each profession, and the long, research-heavy way clients decide. Not generic templates, and not vanity-metric retainers.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Compliant by Default</h3>
+            <p>We know the Legal Profession (Professional Conduct) Rules, MAS advertising guidelines, and CEA rules — and build campaigns that generate leads without crossing them. Compliance is baked in, not bolted on after a complaint.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, paid search, social, branding, and websites under one roof. No coordinating between vendors. Every channel reinforces the same credible, consistent positioning — the only thing that converts a trust-led buyer.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Enquiries, Not Vanity Metrics</h3>
+            <p>We measure qualified enquiries, consultations booked, and cost per lead — not impressions. Month-to-month engagements, because you should stay for the pipeline, not a contract.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-alt ps-casestudy-section" id="case-study" aria-label="Case study — Kairos Advisory Group">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Case Study</p>
@@ -182,24 +343,6 @@ const schemaData = [
   </section>
 
   <style>
-    /* Dot pattern overlay on Why It Matters */
-    .ps-why-section {
-      position: relative;
-    }
-    .ps-why-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 24px 24px;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .ps-why-section > .container {
-      position: relative;
-      z-index: 1;
-    }
-
     /* Gradient glow on Case Study */
     .ps-casestudy-section {
       position: relative;
@@ -384,27 +527,88 @@ const schemaData = [
     })();
   </script>
 
-  <section class="section" id="services" aria-label="Services by practice type">
+  <!-- ========== THE CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Client Funnel — how professional services clients decide on a firm">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Services by Practice Type</h2>
-        <p>Select your practice type to see the services available for your business.</p>
+        <p class="section-label">The Client Funnel</p>
+        <h2>How <span class="highlight">Clients</span> Actually <span class="highlight">Choose a Firm</span></h2>
       </div>
-      <div class="industry-detail-grid">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map((svc) => (
-                <a href={svc.href}>{svc.label}</a>
-              ))}
-            </div>
-          </div>
-        ))}
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first search to signed engagement, professional services clients move through the same five stages — and most of it happens before they ever contact you. We build marketing that shows up, and builds trust, at every stage.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Google, AI tools, referrals, reviews</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>2–4 firms by credibility &amp; fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Credentials, case studies, reviews</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Consultation request or call</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Sign the engagement &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about professional services marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Professional Services Marketing</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does professional services marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Most professional services firms in Singapore invest between $2,500 and $10,000 per month on marketing, depending on practice size, number of partners, and competitiveness of the practice area. A solo property agent or independent advisor may start lower, while a multi-partner law or accounting firm competing on high-value matters invests more. Engagements typically cover website, SEO, paid search, content, and social — coordinated under one strategy.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you understand the advertising compliance rules for my profession?</summary>
+          <div class="faq-answer"><p>Yes. Legal advertising in Singapore is governed by the Legal Profession (Professional Conduct) Rules, financial advisory marketing must comply with MAS guidelines, and real estate promotions are subject to Council for Estate Agencies (CEA) rules. We build campaigns that generate qualified leads without crossing these regulatory lines — a constraint generic agencies routinely get wrong.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which marketing channels work best for professional services firms?</summary>
+          <div class="faq-answer"><p>Google Search captures high-intent prospects actively looking for a lawyer, accountant, agent, or advisor. SEO and a credibility-led website convert that research into enquiries. Thought-leadership content and LinkedIn build authority for B2B and high-value work, while Google Ads captures urgent, transactional searches. The right mix depends on whether you serve consumers or businesses, and on your practice area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long before marketing generates new client enquiries?</summary>
+          <div class="faq-answer"><p>Paid search can generate enquiries within the first weeks. SEO and content typically take 3–6 months to build sustainable organic visibility for competitive practice-area terms. Most professional services clients see a meaningful lift in qualified enquiries within the first 60–90 days of a coordinated campaign, with authority and rankings compounding over time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you work with law firms, accounting firms, property agents, and financial advisors?</summary>
+          <div class="faq-answer"><p>Yes — those four are our core professional services verticals, each with its own dedicated marketing approach. We also work with consultancies, corporate secretarial firms, and other advisory practices. Every engagement is built around the trust-and-credibility purchase that defines professional services, and around the specific compliance regime that governs your profession.</p></div>
+        </details>
       </div>
     </div>
   </section>
 
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Marketing by professional services vertical">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Marketing by <span class="highlight">Practice Type</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/law-firm-marketing-singapore/" class="related-service-link">Law Firm Marketing</a>
+          <a href="/accounting-firm-marketing-singapore/" class="related-service-link">Accounting Firm Marketing</a>
+          <a href="/property-agent-marketing-singapore/" class="related-service-link">Property Agent Marketing</a>
+          <a href="/insurance-marketing-singapore/" class="related-service-link">Insurance &amp; FA Marketing</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
