@@ -52,6 +52,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Florist Website Singapore — Jraft Creative"
   description="Website design for florists, flower shops, and floral studios in Singapore. Online ordering, delivery zones, product catalogues."
@@ -65,6 +165,7 @@ const schemaData = [
   heroTitle='Website Design for <span class="highlight">Florists in Singapore</span>'
   heroSubtitle="Your arrangements deserve more than an Instagram grid. We build fast, conversion-focused websites for florists and flower shops in Singapore — with online ordering, delivery zone logic, occasion-based collections, and same-day delivery built in."
   heroImage="/images/service-florist.webp"
+  heroImageAlt="Florist arranging a bouquet in a Singapore flower shop — florist website design"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
@@ -77,99 +178,158 @@ const schemaData = [
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20florist%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why florists need a proper website">
+  <section class="section" id="challenge" aria-label="Why florists need a proper website in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Florists Are Losing Orders Without a Proper Online Storefront</h2>
+        <h2>Flowers Are Bought on a <span class="highlight">Phone</span>, for an <span class="highlight">Occasion</span>, in a Hurry</h2>
       </div>
       <div class="section-content reveal">
-        <p>When someone in Singapore needs flowers — a last-minute anniversary bouquet, a condolence wreath for a wake, or a CNY hamper for a client — they reach for their phone and search. If your flower shop only exists on Instagram or a marketplace listing, you are competing on someone else's platform with no control over your pricing display, delivery options, or brand presentation. The florist with a dedicated website that shows available arrangements, accepts orders online, and confirms same-day delivery wins that customer every time.</p>
-        <p>Social media and marketplace platforms like Carousell or Shopee are discovery channels, not ordering systems built for florists. They cannot handle delivery zone pricing across Singapore's postal districts, enforce same-day cut-off times, display occasion-based collections for Valentine's Day or Mother's Day, or manage recurring corporate orders. Every order placed through DMs or WhatsApp requires manual confirmation, payment follow-up, and address clarification — adding friction that costs you sales during peak periods when speed matters most.</p>
-        <p>Singapore's floral market is intensely competitive. Established chains, boutique studios, and home-based florists are all vying for the same pool of customers across the island. A purpose-built website turns your catalogue into a 24/7 ordering system — one that showcases your arrangements beautifully, handles delivery logistics automatically, and lets customers order with confidence at any hour, whether they are in Jurong, Tampines, or the CBD.</p>
+        <p>When someone in Singapore needs flowers, it is almost always tied to a moment — an anniversary, a birthday, a condolence, a Mother's Day surprise — and it is almost always urgent. They reach for their phone, search, and buy from the first florist that shows the right arrangement and can deliver in time. If your shop only lives on an Instagram grid or a marketplace listing, you are competing on someone else's platform with no control over how your flowers are presented or how orders are placed.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Same-Day, Mobile, Occasion-Driven</h3>
+            <p>A last-minute anniversary bouquet or a condolence wreath for a wake is ordered on a phone, minutes after the need appears. If your site is slow, hard to order from, or unclear about same-day cut-offs, the buyer bounces to a competitor who makes it easy — the sale is lost in seconds, not days.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>A Visual-First Product</h3>
+            <p>Flowers sell on how they look. A blurry photo, a cramped grid, or slow-loading images make even beautiful arrangements look ordinary. Buyers judge your craft by your product shots, so the site has to present every bouquet, hamper, and wreath the way it deserves to be seen — sharp, generous, and fast.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Orders With Moving Parts</h3>
+            <p>A flower order is not one click. It carries a delivery date and time slot, a delivery address and zone, an occasion, and a card message. Handling this over DMs and WhatsApp means manual confirmation, payment chasing, and address clarification — friction that costs sales during Valentine's Day and CNY when speed matters most.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Florist website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Florist website design services">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>What We Build for Florists &amp; Flower Shops</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of a Florist <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every florist website we deliver is purpose-built for the floral industry. We go beyond a generic template — your site will feature a product catalogue with real-time availability, online ordering with delivery zone logic, occasion-based collections, and same-day delivery scheduling designed to convert browsers into paying customers.</p>
-        <p>We understand that florists in Singapore need more than just a product page. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to rank for floral searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> to grow your following, and <a href="/services/paid-ads/" class="inline-link">paid ads management</a> for targeted campaigns during peak seasons like Valentine's Day and Mother's Day.</p>
+        <p>A florist website is not a generic template with a product page bolted on. It has to make arrangements look irresistible, let an urgent buyer order in under a minute, and handle Singapore's delivery logistics automatically. We build every element around how customers actually shop for flowers — visual-first, occasion-driven, and on mobile.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Online Ordering &amp; Checkout</h3>
-            <p>Let customers browse your arrangements, select a delivery date and time slot, add a personalised card message, and pay securely — all without leaving your website. Automated order confirmations and real-time notifications keep your fulfilment team on track, especially during peak periods like Valentine's Day when order volumes spike.</p>
+            <h3>Visual-Led Design</h3>
+            <p>A layout built to show off your florals — generous product imagery, clean typography, and a brand feel that matches your studio. Every arrangement is presented sharp and large, so your craft, not a cramped grid, is what convinces the buyer to order.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Delivery Zone &amp; Same-Day Logic</h3>
-            <p>We configure delivery zones across Singapore — island-wide, CBD, specific districts, or postal code ranges — with tiered delivery fees for each zone. Same-day delivery orders are accepted until your chosen cut-off time, then automatically roll over to the next available slot. Customers at HDB blocks, condos, and offices see accurate delivery fees at checkout, reducing abandoned carts and fulfilment headaches.</p>
+            <h3>Bouquet &amp; Occasion Catalogue</h3>
+            <p>Your full range — hand bouquets, table arrangements, wreaths, hampers, preserved flowers — in a searchable, filterable catalogue. Organised by occasion, price range, and flower type, plus dedicated collections for Valentine's Day, Mother's Day, CNY, and corporate gifting.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Product Catalogue &amp; Collections</h3>
-            <p>Showcase your full range — hand bouquets, table arrangements, wreaths, hampers, and preserved flowers — in a searchable, filterable catalogue. Organise arrangements by occasion (birthday, wedding, condolence, corporate), price range, or flower type so customers find exactly what they need without scrolling through your entire inventory.</p>
+            <h3>Delivery Date, Time &amp; Checkout</h3>
+            <p>A checkout built for flowers — customers pick a delivery date and time slot, add a personalised card message, and pay in a few taps. Same-day cut-off times are enforced automatically, so orders placed after your deadline roll over to the next available slot.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-speed-vitals.webp');">
           <div class="service-detail-card__content">
-            <h3>Occasion Pages &amp; Seasonal Campaigns</h3>
-            <p>Dedicated landing pages for Valentine's Day, Mother's Day, Chinese New Year, Hari Raya, and corporate gifting seasons — each optimised for search and designed to convert. We build these pages in advance so they are indexed and ranking by the time your peak season arrives, capturing early-bird orders while competitors scramble to update their social feeds.</p>
+            <h3>Mobile Speed &amp; Core Web Vitals</h3>
+            <p>Flower orders are placed on phones, in a hurry. Every image is optimised — WebP, responsive srcsets, lazy loading — and the site is tuned for fast Core Web Vitals so your catalogue loads instantly and the checkout never stalls the impulse buy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Payments &amp; Order Management</h3>
+            <p>Secure online payment plus a simple dashboard where every order lands with its delivery date, address, occasion, and card message attached. Instant notifications and clean order records keep your fulfilment team on track through peak-period volume spikes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Local SEO Foundations</h3>
+            <p>The technical groundwork to rank for searches like "flower delivery Singapore" and "same-day florist near me" — clean structure, schema markup, optimised occasion pages, and Google Business Profile setup so buyers find your shop, not a marketplace listing.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for florist website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for florist website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Florist Website Design</h2>
+        <h2>A <span class="highlight">Web Studio</span> That Understands <span class="highlight">Floral Retail</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We have built websites for florists, gift shops, and e-commerce businesses across Singapore. We know what customers look for when ordering flowers online, and we build websites that make your arrangements look irresistible while making the ordering process effortless.</p>
+        <p>We have built websites for florists, gift shops, and e-commerce businesses across Singapore. We know what a buyer looks for when ordering flowers online, and we build sites that make your arrangements look irresistible while making the ordering process effortless — even at midnight, even on a phone.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Built for Floral E-Commerce</h3>
-            <p>We optimise every product image for fast loading — WebP format, responsive srcsets, lazy loading — so your catalogue looks vibrant on every device. High-quality product photography paired with clear pricing in SGD and a frictionless checkout drives higher conversion rates than any marketplace listing.</p>
+            <p>Every product image is optimised for fast loading — WebP, responsive srcsets, lazy loading — so your catalogue looks vibrant on every device. Sharp product photography, clear SGD pricing, and a frictionless checkout convert far better than any marketplace listing.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
-          <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most florist websites go live within 2 weeks of kickoff. If you have a peak season approaching — Valentine's Day, Mother's Day, or the wedding calendar — we deliver quickly so you capture orders instead of losing them to competitors who got online first.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Mobile-First for On-the-Go Orders</h3>
-            <p>Over 75% of flower orders in Singapore are placed from mobile devices — often last-minute, often during a commute or lunch break. Every site we build is designed for phones first with fast load times, thumb-friendly navigation, and a checkout flow that takes under 60 seconds from product page to payment confirmation.</p>
+            <p>Flower orders are placed last-minute, often on a commute or lunch break. Every site we build is designed for phones first — fast load times, thumb-friendly navigation, and a checkout flow that takes seconds from product page to payment, timed for peak-season urgency.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can manage your entire online presence — from Google rankings for "flower delivery Singapore" to Instagram content showcasing your latest arrangements — so you can focus on what you do best: creating beautiful florals.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>A website drives conversion, but demand depends on being found. We handle SEO, social media, and paid ads in-house — from ranking for "flower delivery Singapore" to running Valentine's and Mother's Day campaigns — one integrated system, not four vendors.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== THE CUSTOMER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Customer Funnel — where your website fits the customer journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Customer Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Customer Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every flower buyer moves through the same five stages before an order lands. Your website is the engine — it turns the discovery into a purchase, then earns the repeat order and the referral that follow.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google search, Maps, social, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consider</h3>
+          <p>Browse catalogue, compare arrangements &amp; prices</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Pick delivery date &amp; time, checkout &amp; pay</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Repeat</h3>
+          <p>Reorder for the next occasion &amp; subscriptions</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Review, share &amp; recommend to friends</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -234,7 +394,7 @@ const schemaData = [
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about florist website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about florist website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
