@@ -1,0 +1,435 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Florists & Flower Shops Singapore",
+    "description": "Full-service marketing agency for florists and flower shops in Singapore. SEO, Google Ads, social, branding, websites — built for retail walk-ins and online flower orders. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Florist & Flower Shop Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Florist Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (SEO or Social), Google Business Profile optimisation, monthly content, and reporting for single-location flower shops and home-based florists" },
+      { "@type": "Offer", "name": "Growth Florist Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Multi-channel: SEO + Google Ads + IG/TikTok, occasion-campaign content production, GCLID order tracking, bi-weekly reporting for florists scaling retail and online flower orders" },
+      { "@type": "Offer", "name": "Enterprise Florist Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service across all channels, dedicated strategist, video production for arrangement and occasion Reels, brand refresh, and weekly reporting for multi-outlet florists and corporate gifting operations" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for a florist in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Florist marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with occasion-campaign content and order tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist for multi-outlet florists and corporate gifting operations. Single-location flower shops and home-based florists typically start at Essential; florists scaling retail and online orders across the island need the Growth tier minimum." } },
+      { "@type": "Question", "name": "Which marketing channels work best for florists in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most florists: (1) SEO for high-intent searches like 'flower delivery Singapore' and 'same-day florist [area]', (2) Google Ads for occasion peaks and last-minute same-day orders, (3) Instagram Reels and a strong IG grid for arrangement photography, (4) TikTok for behind-the-bench and styling content, (5) branding so you're not competing on price with online flower marketplaces, (6) a website that converts browsers into online orders. We build cross-channel plans based on your shop's mix of retail walk-ins and delivery orders." } },
+      { "@type": "Question", "name": "How do you handle the seasonal peaks like Valentine's Day and Mother's Day?", "acceptedAnswer": { "@type": "Answer", "text": "Florist demand is intensely seasonal — Valentine's Day, Mother's Day, Christmas, and Chinese New Year drive a huge share of annual revenue in a handful of days. We build occasion landing pages and pre-index them weeks in advance so they rank before the peak, schedule Google Ads to ramp during the order window, and produce social content early so your feed is selling while competitors scramble. The goal is to capture early-bird orders and own the search results when buying intent spikes." } },
+      { "@type": "Question", "name": "How do I get found for 'same-day flower delivery' searches?", "acceptedAnswer": { "@type": "Answer", "text": "Same-day and last-minute searches — 'same-day florist Tampines', 'flower delivery near me', 'urgent condolence flowers Singapore' — are some of the highest-intent queries in the category. We win them with local SEO (Google Business Profile, area pages, reviews), GEO so you're cited in AI answers, and tightly-targeted Google Ads that show when someone needs flowers in the next few hours. Capturing this layer is where same-day margin lives, because the buyer is ready to order immediately." } },
+      { "@type": "Question", "name": "How long before marketing brings new flower orders?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate online orders and enquiries within the first 7-14 days once tracking is set up — especially around an upcoming occasion. Social media content compounds over 8-12 weeks. SEO and GEO typically show ranking and AI-citation improvements within 3-6 months for delivery and area keywords. Most florist clients see a meaningful lift in online orders and enquiries within the first 60 days of a full-service campaign — provided your team confirms WhatsApp and DM orders fast enough to close them before the occasion passes." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Florist Marketing Singapore", "item": "https://jraftcreative.com/florist-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Florist Marketing Singapore — Jraft Creative"
+  description="Full-service marketing agency for florists and flower shops in Singapore. SEO, Google Ads, social, branding, websites — built for retail walk-ins and online flower orders. From $3,000/mo."
+  canonical="https://jraftcreative.com/florist-marketing-singapore/"
+  ogTitle="Florist Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing agency for florists and flower shops in Singapore. SEO, Google Ads, social, branding, websites — built for retail and online flower orders. From $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="florist marketing singapore, flower shop marketing agency, florist digital marketing singapore, marketing for florists singapore, flower delivery marketing, same-day florist marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Florists & Flower Shops"
+  heroTitle='Marketing Agency for <span class="highlight">Florists &amp; Flower Shops in Singapore</span>'
+  heroSubtitle="When someone in Singapore needs flowers — a Valentine's bouquet, a last-minute condolence wreath, a Mother's Day gift — they search before they buy, and the florist who shows up first wins the order. We build full-service marketing strategies (SEO, GEO, Google Ads, IG/TikTok, branding, websites) designed for how Singapore flower buyers actually search, shortlist, and order."
+  heroImage="/images/service-florist.webp"
+  heroImageAlt="Florist arranging fresh flowers in a Singapore flower shop — florist and flower shop marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20florist%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run a florist in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Flower Orders</span>'
+  ctaDescription="Book a free consultation and tell us about your flower shop — your retail mix, your delivery zones, your busiest occasions, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel marketing plan."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20florist%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why florists need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> Florists Are Still <span class="highlight">Losing Orders</span> to Shops with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Flowers are bought in a hurry and chosen by sight. Most buyers search "flower delivery Singapore" or "same-day florist near me," scroll a feed, and order from whoever shows up first and looks best. If you're invisible in that window, the order goes to a marketplace or the shop with the stronger online presence — not the better florist.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Same-Day Search Window</h3>
+            <p>High-intent searches like "same-day florist Tampines" and "flower delivery near me" are won on visibility, not craft. The buyer needs flowers in hours and orders from whoever ranks and looks ready. If you're not on page one and in the map pack, you never get the chance to make the arrangement.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Seasonal Spike Trap</h3>
+            <p>Valentine's Day, Mother's Day, Christmas, and CNY pack a huge share of annual revenue into a few days. Demand and ad costs spike together, and the florists who set up occasion pages and campaigns weeks early capture the early-bird orders while everyone else scrambles to update their feed on the day.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Marketplace Squeeze</h3>
+            <p>Flowers are a visual-first, social-driven category — and online flower marketplaces spend heavily to own discovery and undercut on price. The florists winning full-margin direct orders aren't the cheapest listings; they're the ones with a striking Instagram grid, strong branding, and a website that converts browsers into orders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for florists in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Florist <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for florists and flower shops — combining local SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design for both retail walk-ins and online orders.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO for Florists</a></h3>
+            <p>Rank for the searches that drive orders — "flower delivery Singapore", "same-day florist [area]", "condolence flowers". Win the local map pack and area pages so you beat marketplace listings on the high-intent queries where buyers are ready to order now.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when buyers ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best florist for Mother's Day Singapore" or "where to order same-day flowers". Same citation playbook we've used for our own agency.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads for Florists</a></h3>
+            <p>High-intent campaigns timed to Valentine's Day, Mother's Day, and last-minute same-day demand. GCLID tracking from click to confirmed order, with budgets that ramp for the occasion window and pull back in the quiet weeks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media for Florists</a></h3>
+            <p>The Arrangement Showcase Formula — scroll-stopping IG Reels, behind-the-bench TikToks, and a grid that makes your bouquets irresistible. Built for how Singapore buyers discover florists and shortlist before an occasion.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Florists</a></h3>
+            <p>The brand system that lifts you out of price-only comparisons with marketplaces. Logo, palette, packaging and card direction, photo style — positioned so buyers pick your shop over the cheaper bouquet next to it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/florist-website-singapore/">Websites for Florists</a></h3>
+            <p>The site that closes the order. Catalogue with occasion collections, online ordering, delivery-zone and same-day logic, secure checkout, and fast mobile performance for buyers ordering on the go.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for florist marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Flower Buyers</span> Actually <span class="highlight">Order</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching florists are generalists. They produce nice-looking decks and bill retainers without ever tracking a single order back to a campaign — and they treat your busiest occasion like any other month. We are the opposite: full-service, performance-led, and built around the flower-buying journey and Singapore's occasion calendar. We run delivery-area campaigns across Tampines, Bukit Timah, Jurong, the CBD, and other high-demand neighbourhoods, and we plan in advance so you own the search results before each peak.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Arrangement &amp; Occasion Storytelling</h3>
+            <p>Flowers are a visual, emotional category. We treat your arrangements, packaging, and occasion collections as the marketing asset they are — shot lists, format-by-format reformatting, and integration into a conversion-focused website and feed.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, IG, TikTok, Facebook, branding, websites — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, design, and measurement, and every occasion campaign is planned together.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Orders, Not Vanity Metrics</h3>
+            <p>We measure orders and enquiries, not impressions. GCLID offline tracking and WhatsApp-routed enquiries prove which ad click became which online order — the only numbers that move revenue through your busiest weeks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FLOWER BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Customer Funnel — how Singapore flower buyers decide">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Customer Funnel</p>
+        <h2>How <span class="highlight">Flower Buyers</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first search to repeat customer, every flower buyer in Singapore moves through the same five stages. We build marketing campaigns that show up at each one — from the occasion that starts the search through to the referral that brings the next order.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, IG/TikTok, AI tools, map pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consider</h3>
+          <p>Browse arrangements, compare, shortlist</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Online order, WhatsApp, or walk-in</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Repeat</h3>
+          <p>Next occasion, subscriptions, corporate</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Reviews, gifting word of mouth</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Florist marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Florist Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for Florists of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location flower shops and home-based florists building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO or Social)</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Review management setup</li>
+              <li>4 pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For florists scaling retail and online orders across channels.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + IG/TikTok</li>
+              <li>Occasion-campaign content production</li>
+              <li>GCLID order tracking setup</li>
+              <li>Occasion &amp; delivery-area landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-outlet florists and corporate gifting operations.</p>
+            <ul class="pricing-features">
+              <li>Full 6-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Video production for arrangement &amp; occasion Reels</li>
+              <li>Brand refresh / packaging direction</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for florists in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Florist</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for a florist in Singapore?</summary>
+          <div class="faq-answer"><p>Florist marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with occasion-campaign content and order tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist for multi-outlet florists and corporate gifting operations. Single-location flower shops and home-based florists typically start at Essential; florists scaling retail and online orders across the island need the Growth tier minimum.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which marketing channels work best for florists in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most florists: (1) SEO for high-intent searches like "flower delivery Singapore" and "same-day florist [area]", (2) Google Ads for occasion peaks and last-minute same-day orders, (3) Instagram Reels and a strong IG grid for arrangement photography, (4) TikTok for behind-the-bench and styling content, (5) branding so you're not competing on price with online flower marketplaces, (6) a website that converts browsers into online orders. We build cross-channel plans based on your shop's mix of retail walk-ins and delivery orders.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do you handle the seasonal peaks like Valentine's Day and Mother's Day?</summary>
+          <div class="faq-answer"><p>Florist demand is intensely seasonal — Valentine's Day, Mother's Day, Christmas, and Chinese New Year drive a huge share of annual revenue in a handful of days. We build occasion landing pages and pre-index them weeks in advance so they rank before the peak, schedule Google Ads to ramp during the order window, and produce social content early so your feed is selling while competitors scramble. The goal is to capture early-bird orders and own the search results when buying intent spikes.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do I get found for "same-day flower delivery" searches?</summary>
+          <div class="faq-answer"><p>Same-day and last-minute searches — "same-day florist Tampines", "flower delivery near me", "urgent condolence flowers Singapore" — are some of the highest-intent queries in the category. We win them with local SEO (Google Business Profile, area pages, reviews), GEO so you're cited in AI answers, and tightly-targeted Google Ads that show when someone needs flowers in the next few hours. Capturing this layer is where same-day margin lives, because the buyer is ready to order immediately.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings new flower orders?</summary>
+          <div class="faq-answer"><p>Google Ads can generate online orders and enquiries within the first 7-14 days once tracking is set up — especially around an upcoming occasion. Social media content compounds over 8-12 weeks. SEO and GEO typically show ranking and AI-citation improvements within 3-6 months for delivery and area keywords. Most florist clients see a meaningful lift in online orders and enquiries within the first 60 days of a full-service campaign — provided your team confirms WhatsApp and DM orders fast enough to close them before the occasion passes.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Florist Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/florist-website-singapore/" class="related-service-link">Florist Website Design</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

@@ -1,27 +1,6 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const subIndustries = [
-  {
-    name: "Ecommerce",
-    href: "/ecommerce-website-singapore/",
-    description: "Online stores, DTC brands, and marketplace sellers.",
-    image: "/images/service-ecommerce.webp",
-    services: [
-      { label: "Website", href: "/ecommerce-website-singapore/" },
-    ],
-  },
-  {
-    name: "Pet Shop",
-    href: "/pet-shop-website-singapore/",
-    description: "Pet stores, grooming services, and pet supply retailers.",
-    image: "/images/service-petshop.webp",
-    services: [
-      { label: "Website", href: "/pet-shop-website-singapore/" },
-    ],
-  },
-];
-
 const schemaData = [
   {
     "@context": "https://schema.org",
@@ -37,6 +16,17 @@ const schemaData = [
   },
   {
     "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does retail and ecommerce marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most retail and ecommerce businesses in Singapore invest between $3,000 and $10,000 per month on marketing, depending on catalogue size, ad spend, and how aggressively they want to scale. A typical engagement covers the online store, SEO, paid ads, social, and conversion optimisation under one strategy — measured on revenue and return on ad spend, not impressions." } },
+      { "@type": "Question", "name": "Which marketing channels work best for online stores?", "acceptedAnswer": { "@type": "Answer", "text": "Meta and TikTok ads drive discovery and impulse purchases with strong visual creative, Google Shopping and Search capture high-intent buyers ready to checkout, and SEO builds durable product and category rankings. Email and retention marketing turn first-time buyers into repeat customers. The right mix depends on your margins, product, and whether you sell DTC or through marketplaces." } },
+      { "@type": "Question", "name": "Do you build stores on Shopify and WooCommerce?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build conversion-optimised stores on Shopify and WooCommerce, with mobile-first checkout, Singapore-suited payment gateways, and the speed and product-page structure that turn traffic into completed orders. The platform choice depends on your catalogue, integrations, and how you want to manage the store day to day." } },
+      { "@type": "Question", "name": "How long before marketing drives more sales?", "acceptedAnswer": { "@type": "Answer", "text": "Paid ads can drive sales within the first weeks once tracking and creative are in place. SEO and content typically take 3–6 months to build sustainable organic traffic. Most retail clients see a meaningful lift in orders within the first 60–90 days of a coordinated campaign, with retention and SEO compounding revenue over time." } },
+      { "@type": "Question", "name": "Can you help us reduce dependence on Shopee and Lazada?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that is one of the most valuable things we do. Marketplaces rent you customers and erode margin. We build your own DTC store, capture customer data and email lists, and run brand and retention marketing that grows a direct relationship you own — so more of each sale, and each repeat sale, stays with you." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
@@ -46,6 +36,106 @@ const schemaData = [
   }
 ];
 ---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Customer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
 
 <ServiceLayout
   title="Retail & Ecommerce Marketing Singapore — Jraft Creative"
@@ -58,56 +148,223 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Retail & Ecommerce"
   heroTitle='Marketing for <span class="highlight">Retail &amp; Ecommerce</span> in Singapore'
-  heroSubtitle="We help retail and ecommerce businesses in Singapore build high-converting online stores, reach buyers across search and social, and turn traffic into consistent revenue."
+  heroSubtitle="Shoppers compare your store against Shopee, Lazada, and every other tab in seconds. We build high-converting online stores and run the SEO, ads, and social that turn that traffic into add-to-carts, completed checkouts, and repeat buyers."
   heroImage="/images/industry-retail.webp"
+  heroImageAlt="Retail and ecommerce business in Singapore — marketing for online stores and specialty retailers"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
+    { text: "View Pricing", href: "#related-services", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing help for my retail business in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Retail Business"
-  ctaDescription="Book a free consultation and tell us about your store, products, and goals. We'll get back to you within 24 hours."
+  ctaLabel="Ready to Grow Your Store?"
+  ctaTitle='Grow Your <span class="highlight">Retail Business</span>'
+  ctaDescription="Book a free consultation and tell us about your store, products, and goals. We'll review your current setup, flag the conversion leaks, and recommend a strategy built on revenue. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20retail%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <section class="section bg-alt" aria-label="Why retail and ecommerce businesses need specialised marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why retail and ecommerce businesses need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why It Matters</p>
-        <h2>Why Retail &amp; Ecommerce Businesses Need Specialised Marketing</h2>
+        <h2>Retail Is Won at the <span class="highlight">Add-to-Cart</span>, Not the <span class="highlight">Impression</span></h2>
       </div>
-      <div class="reveal reveal-d1">
-        <p>Retail and ecommerce in Singapore is highly competitive. Shoppers compare prices across Shopee, Lazada, and brand-owned stores in seconds — which means your website, product pages, and ad creative all have to work harder than in most other industries. A generic digital marketing approach built for service businesses will not translate into add-to-cart actions and completed checkouts.</p>
-        <p style="margin-top: 1rem;">Effective ecommerce marketing requires a specific skill set: product photography and visual content that communicates quality and drives purchase intent, Shopify and WooCommerce website builds optimised for conversion and mobile checkout, payment gateway integrations suited to the Singapore market, inventory-aware SEO that keeps product pages ranking even as stock changes, and DTC strategies that reduce reliance on marketplace platforms and build long-term customer relationships. We understand this industry and build campaigns that translate into orders, repeat buyers, and sustainable growth.</p>
+      <div class="section-content reveal">
+        <p>Retail and ecommerce in Singapore is brutally competitive — shoppers compare prices across Shopee, Lazada, and brand-owned stores in seconds. Your website, product pages, and ad creative all have to work harder than in most other industries. A generic marketing approach built for service businesses won't translate into completed checkouts.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Price-Comparison Tab</h3>
+            <p>Your store is one open tab next to Shopee, Lazada, and three competitors. Shoppers compare price, reviews, and delivery in seconds. Generic marketing gets the click; only conversion-built stores and creative get the checkout.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Conversion Is a Craft</h3>
+            <p>Ecommerce needs a specific skill set — product photography that drives intent, Shopify and WooCommerce builds optimised for mobile checkout, the right payment gateways, and inventory-aware SEO. Not a service-business template borrowed from another industry.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Marketplace Dependence</h3>
+            <p>Leaning on Shopee and Lazada means renting customers and bleeding margin on every sale. A DTC store, owned customer data, and retention marketing build a direct relationship — so more of each sale, and each repeat, stays with you.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services" aria-label="Services by retail type">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for retail and ecommerce businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Services by Retail Type</h2>
-        <p>Select your business type to see the full range of services available.</p>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Retail Brand <span class="highlight">Needs</span></h2>
       </div>
-      <div class="industry-detail-grid">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map((svc) => (
-                <a href={svc.href}>{svc.label}</a>
-              ))}
-            </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies for retail and ecommerce — combining conversion-focused stores, product SEO, AI search optimisation (GEO), Shopping and social ads, branding, and retention, all measured on revenue and return on ad spend.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO &amp; Product Search</a></h3>
+            <p>Inventory-aware SEO that keeps product and category pages ranking even as stock changes, plus the technical foundations that win Google Shopping and organic buyers searching for exactly what you sell.</p>
           </div>
-        ))}
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get your products and brand surfaced when shoppers ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best [product] in Singapore." The same AI-citation playbook we use for our own agency.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google Shopping &amp; Meta Ads</a></h3>
+            <p>Google Shopping and Search for high-intent buyers ready to checkout, plus Meta and TikTok for discovery and impulse purchase. ROAS-managed, with tracking from ad click through to completed order.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social &amp; Content</a></h3>
+            <p>Instagram and TikTok content that sells — product videos, UGC, and creative built to stop the scroll and drive the tap-to-shop. The visual engine retail lives on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding &amp; Packaging</a></h3>
+            <p>The brand and packaging system that lifts you out of price-only marketplace comparisons — identity, product photography direction, and unboxing experience that justify a premium and build repeat loyalty.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Stores That Convert</a></h3>
+            <p>Conversion-optimised Shopify and WooCommerce builds — mobile-first checkout, Singapore-suited payment gateways, fast product pages, and the structure that turns traffic into completed orders.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for retail and ecommerce marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Shoppers</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with online stores, DTC brands, and specialty retailers across Singapore — building around margins, return on ad spend, and the add-to-cart-to-repeat journey. Not service-business templates, and not vanity-metric retainers.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Retail &amp; Ecommerce Expertise</h3>
+            <p>We know the Singapore retail market — marketplace vs DTC economics, the seasonal spikes, payment and delivery expectations, and the conversion craft that turns product views into orders. Strategy built on category knowledge.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Store, SEO, GEO, Shopping and social ads, branding, and retention under one roof. No coordinating between vendors — your creative feeds your ads, your store converts the traffic, and email brings buyers back.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Revenue, Not Vanity Metrics</h3>
+            <p>We measure orders, return on ad spend, average order value, and repeat rate — not impressions and likes. Month-to-month engagements, because you should stay for the revenue, not a contract.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THE CUSTOMER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Customer Funnel — how retail shoppers in Singapore buy">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Customer Funnel</p>
+        <h2>How <span class="highlight">Singapore Shoppers</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first scroll to repeat order, every retail customer moves through the same five stages. We build marketing that shows up — and converts — at each one, from discovery through to the repeat purchase that makes the unit economics work.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Ads, social, search, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consider</h3>
+          <p>Product pages, reviews, price compare</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Add to cart &amp; mobile checkout</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Repeat</h3>
+          <p>Email, retention &amp; loyalty</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Reviews, UGC &amp; word of mouth</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about retail and ecommerce marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Retail &amp; Ecommerce Marketing</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does retail and ecommerce marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Most retail and ecommerce businesses in Singapore invest between $3,000 and $10,000 per month on marketing, depending on catalogue size, ad spend, and how aggressively they want to scale. A typical engagement covers the online store, SEO, paid ads, social, and conversion optimisation under one strategy — measured on revenue and return on ad spend, not impressions.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which marketing channels work best for online stores?</summary>
+          <div class="faq-answer"><p>Meta and TikTok ads drive discovery and impulse purchases with strong visual creative, Google Shopping and Search capture high-intent buyers ready to checkout, and SEO builds durable product and category rankings. Email and retention marketing turn first-time buyers into repeat customers. The right mix depends on your margins, product, and whether you sell DTC or through marketplaces.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you build stores on Shopify and WooCommerce?</summary>
+          <div class="faq-answer"><p>Yes. We build conversion-optimised stores on Shopify and WooCommerce, with mobile-first checkout, Singapore-suited payment gateways, and the speed and product-page structure that turn traffic into completed orders. The platform choice depends on your catalogue, integrations, and how you want to manage the store day to day.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long before marketing drives more sales?</summary>
+          <div class="faq-answer"><p>Paid ads can drive sales within the first weeks once tracking and creative are in place. SEO and content typically take 3–6 months to build sustainable organic traffic. Most retail clients see a meaningful lift in orders within the first 60–90 days of a coordinated campaign, with retention and SEO compounding revenue over time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help us reduce dependence on Shopee and Lazada?</summary>
+          <div class="faq-answer"><p>Yes — that is one of the most valuable things we do. Marketplaces rent you customers and erode margin. We build your own DTC store, capture customer data and email lists, and run brand and retention marketing that grows a direct relationship you own — so more of each sale, and each repeat sale, stays with you.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Marketing by retail vertical">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Marketing by <span class="highlight">Retail Type</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/ecommerce-marketing-singapore/" class="related-service-link">Ecommerce Marketing</a>
+          <a href="/pet-shop-marketing-singapore/" class="related-service-link">Pet Shop Marketing</a>
+          <a href="/florist-marketing-singapore/" class="related-service-link">Florist Marketing</a>
+          <a href="/ecommerce-website-singapore/" class="related-service-link">Ecommerce Website Design</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

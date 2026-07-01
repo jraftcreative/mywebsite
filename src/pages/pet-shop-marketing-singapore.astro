@@ -1,0 +1,440 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pet Shop Marketing Agency Singapore",
+    "description": "Full-service marketing agency for pet shops, grooming salons, and pet supply retailers in Singapore. SEO, Google Ads, social, branding, websites — built for retail and online growth. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Pet Shop & Pet Retail Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Pet Shop Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (SEO or Social), Google Business Profile optimisation, monthly content, and reporting for single-location pet shops and grooming studios" },
+      { "@type": "Offer", "name": "Growth Pet Shop Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Multi-channel: SEO + Google Ads + IG/TikTok, product and grooming-funnel content production, GCLID lead tracking, bi-weekly reporting for established pet retailers scaling foot traffic and online orders" },
+      { "@type": "Offer", "name": "Enterprise Pet Shop Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service across all channels, dedicated strategist, video production for product and grooming Reels, brand refresh, and weekly reporting for multi-location pet retail chains" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for a pet shop in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pet shop marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with product and grooming-funnel tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist for multi-location pet retail chains. Single-location pet shops and grooming studios typically start at Essential; established retailers scaling foot traffic and online orders need the Growth tier minimum." } },
+      { "@type": "Question", "name": "Which marketing channels work best for pet shops in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most pet shops: (1) SEO for catchment searches ('pet shop near me', 'dog grooming Tampines'), (2) Google Ads for high-intent terms like 'puppy food Singapore' and 'pet grooming booking', (3) Instagram Reels for product showcases and grooming transformations, (4) TikTok for pet-care tips and before-and-after grooming content, (5) branding so you're not competing on price alone with online supply giants, (6) a website that turns browsers into in-store visits and online orders. We build cross-channel plans based on your pet shop's format and budget." } },
+      { "@type": "Question", "name": "Should I market my pet shop locally or focus on selling online?", "acceptedAnswer": { "@type": "Answer", "text": "Both — and the two reinforce each other. Local SEO and Google Business Profile capture nearby pet owners searching 'pet shop near me' or 'dog groomer Bukit Timah', driving foot traffic and grooming bookings. At the same time, an online store and subscription ordering for pet food and supplies let you compete for recurring purchases against Shopee and online giants. We build a strategy that grows your physical catchment AND your online order volume rather than treating them as separate businesses." } },
+      { "@type": "Question", "name": "Can you help promote my grooming and pet care services, not just product sales?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — services are where the margin and loyalty live. We build dedicated campaigns for grooming, daycare, boarding, pet taxi, and veterinary referrals: SEO-optimised service pages, before-and-after grooming Reels, Google Ads for 'dog grooming booking Singapore', and a website booking flow so customers reserve a slot without calling. Recurring services like monthly grooming are a relationship business, so we also build retention and referral campaigns to keep customers coming back." } },
+      { "@type": "Question", "name": "How long before pet shop marketing brings new customers?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate grooming bookings and online orders within the first 7-14 days once tracking is set up. Social media content compounds over 8-12 weeks. SEO and GEO typically show ranking and AI-citation improvements within 3-6 months for catchment-area keywords. Most pet shop clients see a meaningful increase in foot traffic, grooming bookings, and online orders within the first 60 days of a full-service campaign — provided the shop replies to WhatsApp and DM enquiries fast enough to convert them." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Pet Shop Marketing Singapore", "item": "https://jraftcreative.com/pet-shop-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Pet Shop Marketing Singapore — Jraft Creative"
+  description="Full-service marketing agency for pet shops, grooming salons, and pet supply retailers in Singapore. SEO, Google Ads, social, branding, websites — retail and online. From $3,000/mo."
+  canonical="https://jraftcreative.com/pet-shop-marketing-singapore/"
+  ogTitle="Pet Shop Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing agency for pet shops, grooming salons, and pet retailers in Singapore. SEO, Google Ads, social, branding, websites — built for retail and online growth. From $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="pet shop marketing singapore, pet store marketing agency, pet grooming marketing singapore, pet retail digital marketing, marketing for pet shops singapore, pet supplies marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Pet Shops & Pet Retailers"
+  heroTitle='Marketing Agency for <span class="highlight">Pet Shops &amp; Pet Retailers in Singapore</span>'
+  heroSubtitle="Devoted pet owners in Singapore research and compare online and locally before they buy food, book a groom, or pick a shop — and most pet stores are invisible during that window. We build full-service marketing strategies (SEO, GEO, Google Ads, IG/TikTok, branding, websites) designed for how Singapore pet owners actually choose where to shop, groom, and re-order."
+  heroImage="/images/service-petshop.webp"
+  heroImageAlt="Singapore pet shop interior with supplies and grooming — pet shop marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20pet%20shop%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run a pet shop in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Pet Shop</span>'
+  ctaDescription="Book a free consultation and tell us about your pet shop — your retail mix, your grooming services, your catchment, and your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel marketing plan."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20pet%20shop%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why pet shops need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> Pet Shops Are Still <span class="highlight">Losing Customers</span> to Stores with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>By the time a pet owner walks into a shop or books a groom, they've already searched Google, compared a few stores, and read reviews. Most pet shops are invisible during that window — and the stores winning loyal, repeat customers know exactly why.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Research-and-Compare Window</h3>
+            <p>Devoted pet owners research online and locally before choosing where to shop or groom — Google, Instagram, TikTok, Facebook, and AI tools. They compare a few stores on reviews, price, and service before contacting one. If you're not visible during that window, you're not getting the visit or the booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Online Price Squeeze</h3>
+            <p>Shopee, Lazada, and online supply giants compete with your shelves on price for food, litter, and accessories. Pet shops that try to win on price alone lose every time. The shops that thrive build a brand, local trust, and services that a marketplace listing can never replicate.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Loyalty Opportunity</h3>
+            <p>Pet care is recurring — monthly food re-orders, regular grooming, treats, and supplies. That makes pet retail a relationship business. Stores that build subscription ordering, loyalty, and referral systems turn one-off shoppers into repeat customers worth far more than a single transaction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for pet shops in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Pet Shop <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for pet shops and pet retailers — combining catchment SEO, AI search optimisation (GEO), paid search, social content, branding, and conversion-focused web design for both retail foot traffic and online orders.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO for Pet Shops</a></h3>
+            <p>Rank for catchment searches like "pet shop near me" and "dog grooming Tampines." Capture the local pet owners hunting for food, supplies, and grooming on Google before they default to an online marketplace.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get cited when pet owners ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best pet shop for puppy supplies Singapore" or "trusted dog groomer near me." Same citation playbook we've used for our own agency.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads for Pet Shops</a></h3>
+            <p>High-intent campaigns for "puppy food Singapore" and "dog grooming booking", plus Meta retargeting for repeat food and supply orders. GCLID tracking from click to in-store visit, booking, or online order.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media for Pet Shops</a></h3>
+            <p>The pet-content formula — 30s product and new-arrival Reels, before-and-after grooming TikToks, Instagram and Facebook content. Built for how Singapore pet owners actually scroll, save, and share.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Pet Shops</a></h3>
+            <p>The brand system that lifts you out of price-only comparisons with online giants. Logo, palette, packaging and signage direction, photo style — positioned so pet owners pick you over the cheaper marketplace listing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/pet-shop-website-singapore/">Websites for Pet Shops</a></h3>
+            <p>The site that closes the sale and the booking. Product catalogue, grooming booking, subscription ordering for food, transparent pricing, and fast mobile performance for owners comparing options on the go.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for pet shop marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Pet Owners</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most marketing agencies pitching pet shops are PR-led generalists. They produce nice-looking decks, post a few cute pet photos, and bill retainers without ever tracking a single in-store visit, grooming booking, or online order back to a campaign. We are the opposite — full-service, performance-led, and built around the pet owner journey rather than around vanity reach. We specialise in catchment-area campaigns across Tampines, Bukit Timah, Punggol, Jurong, and other high-pet-ownership Singapore neighbourhoods.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Product &amp; Grooming Storytelling</h3>
+            <p>Pet retail is a visual, emotional category. We treat your products, new arrivals, and grooming transformations as the marketing assets they are — shot lists, format-by-format reformatting, and integration into your conversion-focused website and online store.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, Meta, IG, TikTok, branding, websites — under one roof. No coordinating between three vendors. Every channel delivers consistent positioning, design, and measurement across both your retail and online business.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Orders &amp; Bookings, Not Vanity Metrics</h3>
+            <p>We measure visits, grooming bookings, and online orders — not impressions. GCLID offline tracking and WhatsApp-routed enquiries prove which ad click became which booking became which repeat customer — the only numbers that move revenue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PET OWNER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Customer Funnel — how Singapore pet owners decide where to shop and groom">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Customer Funnel</p>
+        <h2>How <span class="highlight">Pet Owners</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first search to loyal regular, every pet owner in Singapore moves through the same five stages. We build marketing campaigns that show up at each one — from discovery through to referral.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google, IG Reels, TikTok, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consider</h3>
+          <p>Reviews, prices, service comparison</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>In-store visit, grooming booking, online order</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Repeat</h3>
+          <p>Food re-orders, regular grooming, subscriptions</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Owner word of mouth &amp; advocacy</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Pet shop marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Pet Shop Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for Pet Shops of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For single-location pet shops and grooming studios building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (SEO or Social)</li>
+              <li>Google Business Profile optimisation</li>
+              <li>Review management setup</li>
+              <li>4 pieces of content/month</li>
+              <li>Monthly performance report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For established pet shops scaling foot traffic and online orders.</p>
+            <ul class="pricing-features">
+              <li>SEO + Google Ads + IG/TikTok</li>
+              <li>Product &amp; grooming-funnel content</li>
+              <li>GCLID lead tracking setup</li>
+              <li>Catchment-area landing pages</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For multi-location pet retail chains and premium pet brands.</p>
+            <ul class="pricing-features">
+              <li>Full 6-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Video production for product &amp; grooming Reels</li>
+              <li>Brand refresh / packaging direction</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for pet shops in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Pet Shop</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for a pet shop in Singapore?</summary>
+          <div class="faq-answer"><p>Pet shop marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically SEO or social media). Growth packages at S$5,500/month combine SEO, Google Ads, and IG/TikTok with product and grooming-funnel tracking. Enterprise packages at S$10,000+/month add video production, brand refresh, and a dedicated strategist for multi-location pet retail chains. Single-location pet shops and grooming studios typically start at Essential; established retailers scaling foot traffic and online orders need the Growth tier minimum.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which marketing channels work best for pet shops in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most pet shops: (1) SEO for catchment searches ("pet shop near me", "dog grooming Tampines"), (2) Google Ads for high-intent terms like "puppy food Singapore" and "pet grooming booking", (3) Instagram Reels for product showcases and grooming transformations, (4) TikTok for pet-care tips and before-and-after grooming content, (5) branding so you're not competing on price alone with online supply giants, (6) a website that turns browsers into in-store visits and online orders. We build cross-channel plans based on your pet shop's format and budget.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Should I market my pet shop locally or focus on selling online?</summary>
+          <div class="faq-answer"><p>Both — and the two reinforce each other. Local SEO and Google Business Profile capture nearby pet owners searching "pet shop near me" or "dog groomer Bukit Timah", driving foot traffic and grooming bookings. At the same time, an online store and subscription ordering for pet food and supplies let you compete for recurring purchases against Shopee and online giants. We build a strategy that grows your physical catchment AND your online order volume rather than treating them as separate businesses.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you help promote my grooming and pet care services, not just product sales?</summary>
+          <div class="faq-answer"><p>Yes — services are where the margin and loyalty live. We build dedicated campaigns for grooming, daycare, boarding, pet taxi, and veterinary referrals: SEO-optimised service pages, before-and-after grooming Reels, Google Ads for "dog grooming booking Singapore", and a website booking flow so customers reserve a slot without calling. Recurring services like monthly grooming are a relationship business, so we also build retention and referral campaigns to keep customers coming back.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before pet shop marketing brings new customers?</summary>
+          <div class="faq-answer"><p>Google Ads can generate grooming bookings and online orders within the first 7-14 days once tracking is set up. Social media content compounds over 8-12 weeks. SEO and GEO typically show ranking and AI-citation improvements within 3-6 months for catchment-area keywords. Most pet shop clients see a meaningful increase in foot traffic, grooming bookings, and online orders within the first 60 days of a full-service campaign — provided the shop replies to WhatsApp and DM enquiries fast enough to convert them.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Pet Shop Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/pet-shop-website-singapore/" class="related-service-link">Pet Shop Website Design</a>
+          <a href="/services/seo-performance/" class="related-service-link">Pet Shop SEO</a>
+          <a href="/services/paid-ads/" class="related-service-link">Pet Shop Google &amp; Meta Ads</a>
+          <a href="/services/social-media/" class="related-service-link">Pet Shop Social Media</a>
+          <a href="/branding-agency-singapore/" class="related-service-link">Pet Shop Branding</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">Pet Shop AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

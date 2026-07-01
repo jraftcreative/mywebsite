@@ -1,0 +1,436 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ecommerce Marketing Agency Singapore",
+    "description": "Full-service ecommerce marketing agency in Singapore for online stores and DTC brands. SEO, GEO, Google & Meta Ads, social, branding, websites — built for add-to-cart, checkout, and repeat revenue. From S$3,000/month.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Ecommerce & DTC Digital Marketing",
+    "offers": [
+      { "@type": "Offer", "name": "Essential Ecommerce Marketing", "price": "3000", "priceCurrency": "SGD", "description": "Single-channel focus (product SEO or paid social), Google Shopping feed setup, monthly product content, and revenue reporting for new and single-catalogue online stores" },
+      { "@type": "Offer", "name": "Growth Ecommerce Marketing", "price": "5500", "priceCurrency": "SGD", "description": "Multi-channel: product SEO + Google Shopping/Performance Max + Meta catalogue ads + IG/TikTok, retargeting and abandoned-cart flows, ROAS tracking, bi-weekly reporting for scaling DTC brands" },
+      { "@type": "Offer", "name": "Enterprise Ecommerce Marketing", "price": "10000", "priceCurrency": "SGD", "description": "Full-service across all channels, dedicated strategist, product and lifestyle video for Reels and TikTok, brand refresh, marketplace-to-DTC migration, and weekly reporting for high-volume multi-SKU retailers" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does ecommerce marketing cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Ecommerce marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically product SEO or paid social). Growth packages at S$5,500/month combine product SEO, Google Shopping/Performance Max, Meta catalogue ads, and IG/TikTok with retargeting and abandoned-cart flows. Enterprise packages at S$10,000+/month add product and lifestyle video, brand refresh, marketplace-to-DTC migration, and a dedicated strategist for high-volume multi-SKU retailers. New single-catalogue stores typically start at Essential; scaling DTC brands need the Growth tier minimum." } },
+      { "@type": "Question", "name": "Which marketing channels work best for online stores in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most online stores: (1) product and category SEO so customers find your SKUs in Google, (2) GEO (AI search optimisation) so your store is cited when shoppers ask ChatGPT, Gemini, or Perplexity for product recommendations, (3) Google Shopping/Performance Max and Meta catalogue ads for high-intent and prospecting traffic, (4) Instagram and TikTok for product discovery and social commerce, (5) branding so you compete on more than price, (6) a fast, conversion-optimised store that turns clicks into checkouts. We build cross-channel plans based on your catalogue, margins, and platform." } },
+      { "@type": "Question", "name": "Do you work with Shopify and WooCommerce stores?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run marketing for stores on Shopify, WooCommerce, Magento, and custom platforms. We connect your product feed to Google Merchant Center and Meta catalogue, set up GA4 ecommerce and conversion tracking, and build SEO, ads, social, and email flows around your existing stack. If your current platform is holding back conversion or speed, we also build and migrate stores through our ecommerce website service — but you don't need to rebuild to start marketing with us." } },
+      { "@type": "Question", "name": "How long before ecommerce marketing increases revenue?", "acceptedAnswer": { "@type": "Answer", "text": "Google Shopping and Meta catalogue ads can drive add-to-cart and checkout activity within the first 7-14 days once the feed and tracking are live. Social content and retargeting compound over 8-12 weeks. Product and category SEO plus GEO typically show ranking and AI-citation improvements within 3-6 months. Most ecommerce clients see a meaningful lift in revenue and return on ad spend within the first 60 days of a full-service campaign — provided product pages, pricing, and fulfilment are competitive enough to convert the traffic we send." } },
+      { "@type": "Question", "name": "Should I sell on marketplaces like Shopee and Lazada or build my own DTC store?", "acceptedAnswer": { "@type": "Answer", "text": "Both, but with intent. Marketplaces like Shopee and Lazada give you reach and built-in trust, but you pay commission on every order, compete on price next to identical listings, and never own the customer relationship or data. A direct-to-consumer (DTC) store keeps full margin, lets you build a brand, capture email and remarketing audiences, and drive repeat purchases. We typically use marketplaces for discovery and volume while building owned channels — SEO, email, social, and a branded store — so your highest-margin, highest-loyalty revenue isn't dependent on a platform that can change its rules overnight." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Ecommerce Marketing Singapore", "item": "https://jraftcreative.com/ecommerce-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Gym Member Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Ecommerce Marketing Singapore — Jraft Creative"
+  description="Full-service ecommerce marketing agency in Singapore for online stores and DTC brands. SEO, Google & Meta Ads, social, branding, websites — built for conversion and revenue. From $3,000/mo."
+  canonical="https://jraftcreative.com/ecommerce-marketing-singapore/"
+  ogTitle="Ecommerce Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service ecommerce marketing agency in Singapore for online stores and DTC brands. SEO, Google & Meta Ads, social, branding, websites — built for conversion and revenue. From $3,000 SGD/month."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="ecommerce marketing singapore, online store marketing agency, dtc marketing singapore, ecommerce digital marketing singapore, shopify marketing singapore, marketing for online stores, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Online Stores & DTC Brands"
+  heroTitle='Ecommerce Marketing Agency <span class="highlight">in Singapore</span>'
+  heroSubtitle="Singapore shoppers price-compare your store against Shopee, Lazada, and a dozen tabs before they ever reach checkout — and most online stores are invisible during that window. We build full-service ecommerce marketing (product SEO, GEO, Google & Meta Ads, IG/TikTok, branding, websites) designed for how Singapore customers actually browse, add to cart, and buy."
+  heroImage="/images/service-ecommerce.webp"
+  heroImageAlt="Online store product page on mobile — ecommerce marketing Singapore"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20online%20store%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an online store in Singapore and need marketing help."
+  ctaLabel="Ready to Grow Your Store?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Online Revenue</span>'
+  ctaDescription="Book a free consultation and tell us about your store — your products, your platform, your margins, your current marketing. We'll get back to you within 24 hours with a tailored, channel-by-channel ecommerce marketing plan."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20online%20store%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why online stores need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The <span class="highlight">Best</span> Products Are Still <span class="highlight">Losing Sales</span> to Stores with <span class="highlight">Better Marketing</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>By the time a Singapore shopper reaches your checkout, they've already opened your store next to Shopee, Lazada, and three competitor tabs — and compared price, shipping, and reviews in seconds. Most online stores are invisible or unconvincing during that window, and the brands winning full-margin orders know exactly why.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Comparison Tab</h3>
+            <p>Shoppers price-compare your store against Shopee, Lazada, and competitor sites in the same browser session — seconds, not days. If your product page isn't faster, clearer, and more trustworthy than the tab next to it, the add-to-cart happens somewhere else.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Generic-Marketing Gap</h3>
+            <p>Service-business marketing chases enquiries and form fills. Ecommerce lives or dies on add-to-cart, checkout, and return on ad spend. A generalist agency that's never tuned a product feed, an abandoned-cart flow, or a Performance Max campaign won't move your revenue line.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Marketplace Margin Trap</h3>
+            <p>Leaning entirely on Shopee and Lazada means paying commission on every order, competing on price beside identical listings, and never owning the customer. The brands compounding profit are building owned DTC channels — SEO, email, social, and a branded store they control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for online stores in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Online Store <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for online stores and DTC brands — combining product SEO, AI search optimisation (GEO), Google Shopping and Meta catalogue ads, social commerce, branding, and conversion-focused web design.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">SEO for Ecommerce</a></h3>
+            <p>Rank your product and category pages for the searches that end in a purchase. Product schema, optimised collection pages, and buyer-intent keywords so customers find your SKUs in Google instead of a marketplace listing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/ecommerce-ai-search-optimisation-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get your store cited when shoppers ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best place to buy X in Singapore." The same AI-citation playbook we've used for our own agency, applied to your catalogue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Google &amp; Meta Ads</a></h3>
+            <p>Google Shopping and Performance Max plus Meta catalogue and retargeting ads — driven by a clean product feed and GA4 ecommerce tracking. We optimise to return on ad spend and recovered carts, not impressions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social &amp; Social Commerce</a></h3>
+            <p>Product-discovery Reels, TikTok demos, and shoppable Instagram and Facebook content. Built for how Singapore shoppers find, save, and buy products straight from the feed — with creative made to stop the scroll.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding for Ecommerce</a></h3>
+            <p>The brand system that lifts you out of price-only comparisons against marketplace clones. Logo, palette, packaging direction, and product-photo style so customers choose you — and pay full margin to do it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/ecommerce-website-singapore/">Ecommerce Websites</a></h3>
+            <p>The store that closes the sale. Fast product pages, PayNow and GrabPay checkout, mobile-first design, and a streamlined cart flow that turns the traffic from every other channel into completed orders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for ecommerce marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Online Shoppers</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching online stores are service-business generalists. They produce nice-looking decks and bill retainers without ever connecting a product feed, recovering an abandoned cart, or tracking a single order back to a campaign. We are the opposite — full-service, revenue-led, and built around the ecommerce buyer journey from product discovery through to repeat purchase. We work across DTC brands, Shopify and WooCommerce stores, and marketplace sellers building owned channels.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Product &amp; Catalogue Storytelling</h3>
+            <p>Ecommerce is a visual, scroll-stopping category. We treat your products, packaging, and customer results as the marketing assets they are — shot lists, format-by-format reformatting, and integration into a conversion-focused product page.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Product SEO, GEO, Google Shopping, Meta catalogue, IG, TikTok, branding, websites — under one roof. No coordinating between three vendors. Every channel shares one product feed, one brand, and one source of revenue truth.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Revenue, Not Vanity Metrics</h3>
+            <p>We measure orders, return on ad spend, and recovered carts — not impressions. GA4 ecommerce tracking and conversion attribution prove which click became which add-to-cart became which paid order. The only numbers that move profit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ECOMMERCE BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Ecommerce Buyer Funnel — how Singapore shoppers buy online">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Customer Funnel</p>
+        <h2>How <span class="highlight">Online Shoppers</span> Actually <span class="highlight">Buy</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first scroll to loyal repeat customer, every online shopper in Singapore moves through the same five stages. We build marketing campaigns that show up at each one — from product discovery through to referral.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>SEO, GEO, Shopping ads, IG &amp; TikTok</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consider</h3>
+          <p>Product pages, reviews, retargeting</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Checkout, PayNow/GrabPay, cart recovery</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Repeat</h3>
+          <p>Email &amp; SMS flows, post-purchase upsell</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Reviews, UGC &amp; word of mouth</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Ecommerce marketing pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Ecommerce Marketing Pricing</p>
+        <h2><span class="highlight">Plans</span> for Stores of <span class="highlight">Every Size</span></h2>
+        <p>Monthly retainer plans. No lock-in contracts.</p>
+      </div>
+      <div class="service-pricing">
+        <div class="pricing-grid">
+          <div class="pricing-card reveal reveal-d1">
+            <h3>Essential</h3>
+            <div class="price">$3,000 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For new and single-catalogue online stores building visibility.</p>
+            <ul class="pricing-features">
+              <li>Single-channel focus (product SEO or paid social)</li>
+              <li>Google Shopping feed setup</li>
+              <li>Review &amp; reputation setup</li>
+              <li>4 pieces of product content/month</li>
+              <li>Monthly revenue &amp; ROAS report</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Get Started</a>
+          </div>
+          <div class="pricing-card featured reveal reveal-d2">
+            <h3>Growth</h3>
+            <div class="price">$5,500 <span>SGD/mo</span></div>
+            <p class="pricing-desc">For scaling DTC brands growing revenue across channels.</p>
+            <ul class="pricing-features">
+              <li>Product SEO + Google Shopping/PMax + Meta + IG/TikTok</li>
+              <li>Retargeting &amp; abandoned-cart flows</li>
+              <li>GA4 ecommerce &amp; conversion tracking</li>
+              <li>Product &amp; collection content production</li>
+              <li>Bi-weekly reporting</li>
+            </ul>
+            <a href="/contact/" class="btn btn-primary">Get Started</a>
+          </div>
+          <div class="pricing-card reveal reveal-d3">
+            <h3>Enterprise</h3>
+            <div class="price">$10,000+ <span>SGD/mo</span></div>
+            <p class="pricing-desc">For high-volume, multi-SKU retailers and multi-market stores.</p>
+            <ul class="pricing-features">
+              <li>Full 6-channel coverage</li>
+              <li>Dedicated strategist</li>
+              <li>Product &amp; lifestyle video for Reels &amp; TikTok</li>
+              <li>Brand refresh &amp; marketplace-to-DTC migration</li>
+              <li>Weekly reporting &amp; strategy calls</li>
+            </ul>
+            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about ecommerce marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Ecommerce</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does ecommerce marketing cost in Singapore?</summary>
+          <div class="faq-answer"><p>Ecommerce marketing in Singapore starts at S$3,000 per month for essential single-channel work (typically product SEO or paid social). Growth packages at S$5,500/month combine product SEO, Google Shopping/Performance Max, Meta catalogue ads, and IG/TikTok with retargeting and abandoned-cart flows. Enterprise packages at S$10,000+/month add product and lifestyle video, brand refresh, marketplace-to-DTC migration, and a dedicated strategist for high-volume multi-SKU retailers. New single-catalogue stores typically start at Essential; scaling DTC brands need the Growth tier minimum.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which marketing channels work best for online stores in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most online stores: (1) product and category SEO so customers find your SKUs in Google, (2) GEO (AI search optimisation) so your store is cited when shoppers ask ChatGPT, Gemini, or Perplexity for product recommendations, (3) Google Shopping/Performance Max and Meta catalogue ads for high-intent and prospecting traffic, (4) Instagram and TikTok for product discovery and social commerce, (5) branding so you compete on more than price, (6) a fast, conversion-optimised store that turns clicks into checkouts. We build cross-channel plans based on your catalogue, margins, and platform.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you work with Shopify and WooCommerce stores?</summary>
+          <div class="faq-answer"><p>Yes. We run marketing for stores on Shopify, WooCommerce, Magento, and custom platforms. We connect your product feed to Google Merchant Center and Meta catalogue, set up GA4 ecommerce and conversion tracking, and build SEO, ads, social, and email flows around your existing stack. If your current platform is holding back conversion or speed, we also build and migrate stores through our ecommerce website service — but you don't need to rebuild to start marketing with us.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long before ecommerce marketing increases revenue?</summary>
+          <div class="faq-answer"><p>Google Shopping and Meta catalogue ads can drive add-to-cart and checkout activity within the first 7-14 days once the feed and tracking are live. Social content and retargeting compound over 8-12 weeks. Product and category SEO plus GEO typically show ranking and AI-citation improvements within 3-6 months. Most ecommerce clients see a meaningful lift in revenue and return on ad spend within the first 60 days of a full-service campaign — provided product pages, pricing, and fulfilment are competitive enough to convert the traffic we send.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Should I sell on marketplaces like Shopee and Lazada or build my own DTC store?</summary>
+          <div class="faq-answer"><p>Both, but with intent. Marketplaces like Shopee and Lazada give you reach and built-in trust, but you pay commission on every order, compete on price next to identical listings, and never own the customer relationship or data. A direct-to-consumer (DTC) store keeps full margin, lets you build a brand, capture email and remarketing audiences, and drive repeat purchases. We typically use marketplaces for discovery and volume while building owned channels — SEO, email, social, and a branded store — so your highest-margin, highest-loyalty revenue isn't dependent on a platform that can change its rules overnight.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Ecommerce Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/ecommerce-website-singapore/" class="related-service-link">Ecommerce Website Design</a>
+          <a href="/ecommerce-ai-search-optimisation-singapore/" class="related-service-link">Ecommerce AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
