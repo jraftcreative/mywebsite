@@ -76,7 +76,7 @@ If you've built a strong website but have weak third-party presence, the AI quie
 
 AI engines reward demonstrated specialism. Generalist agencies who claim *"we do everything"* tend not to get cited. Specialist agencies — or generalist agencies with clearly demonstrated specialism in defined verticals — get the citation.
 
-We built dedicated marketing pages for each industry we serve in Singapore: [music schools](/music-school-marketing-singapore/), enrichment centres, [tuition centres](/tuition-centre-marketing-singapore/), clinics, dental, [F&B](/fnb-marketing-singapore/), [property](/property-agent-marketing-singapore/), professional services and others. Each page demonstrates that we understand the vertical, not just the marketing channel. The pages connect through to our broader [GEO agency Singapore](/geo-agency-singapore/) service hub.
+We built dedicated marketing pages for each industry we serve in Singapore: [music schools](/music-school-seo-singapore/), enrichment centres, [tuition centres](/tuition-centre-marketing-singapore/), clinics, dental, [F&B](/fnb-marketing-singapore/), [property](/property-agent-marketing-singapore/), professional services and others. Each page demonstrates that we understand the vertical, not just the marketing channel. The pages connect through to our broader [GEO agency Singapore](/geo-agency-singapore/) service hub.
 
 The result: when Google's AI parses *"best marketing agencies for music schools Singapore,"* our music-schools depth gets surfaced. When it parses *"best marketing agencies for enrichment schools Singapore,"* our enrichment-schools depth gets surfaced. Same engine. Different signals. Same outcome — a citation Google decided we deserved.
 
