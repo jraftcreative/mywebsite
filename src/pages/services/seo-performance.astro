@@ -43,9 +43,137 @@ const schemaData = [
       { "@type": "ListItem", "position": 2, "name": "Services" },
       { "@type": "ListItem", "position": 3, "name": "SEO & Performance", "item": "https://jraftcreative.com/services/seo-performance/" }
     ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "url": "https://jraftcreative.com/images/service-seo-performance.webp",
+    "caption": "Google search on a screen — SEO agency Singapore for technical SEO, on-page, local SEO and rankings.",
+    "description": "Hero image for Jraft Creative's SEO and performance agency landing page in Singapore. Visual identity supporting the search engine optimisation service covering technical audits, on-page optimisation, local SEO, content, authority building and Core Web Vitals."
   }
 ];
 ---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* AI Search Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
 
 <ServiceLayout
   title="SEO & Performance Singapore — Jraft Creative"
@@ -59,7 +187,9 @@ const schemaData = [
   heroLabel="SEO Agency Singapore"
   heroTitle='SEO &amp; Performance Optimisation <span class="highlight">Services in Singapore</span>'
   heroSubtitle="Dominate search rankings with data-driven SEO strategies. Technical audits, on-page optimisation, local SEO, and performance monitoring that deliver measurable results."
-  heroImage="/images/service-seo.webp"
+  heroImage="/images/service-seo-performance.webp"
+  heroImageAlt="Google search on a screen — SEO agency Singapore for technical SEO, on-page, local SEO and rankings"
+  hideDefaultCta={false}
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20SEO%20services.", class: "btn btn-secondary" }
@@ -74,90 +204,164 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="The SEO challenge businesses face">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="The SEO challenge SG businesses face">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Invisible on Google Means Invisible to Customers</h2>
+        <h2>Invisible on Google Means <span class="highlight">Invisible to Customers</span> — and Most Sites Are <span class="highlight">Losing Ground Daily</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Most businesses in Singapore invest in a website but never see it appear on the first page of Google. Without proper SEO, your site is effectively invisible — losing potential customers to competitors who rank higher every single day.</p>
-        <p>Slow page speeds, missing meta data, poor site structure, and lack of local optimisation are common issues that keep businesses buried in search results and missing out on qualified organic traffic.</p>
+        <p>Most businesses in Singapore invest in a website but never see it appear on the first page of Google. Without proper SEO, your site is effectively invisible — losing qualified organic traffic to competitors who rank higher every single day.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Buried Below the Fold</h3>
+            <p>Three-quarters of searchers never click past page one. If your target keywords put you on page two or lower, you are invisible to the customers actively looking for exactly what you sell — no matter how good your offer is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Technical Debt Nobody Sees</h3>
+            <p>Slow page speeds, missing meta data, broken schema, and poor site architecture quietly cap your rankings. These are the exact issues search engines penalise — and the exact issues a technical audit surfaces and fixes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Local Footprint</h3>
+            <p>Without Google Business Profile optimisation and local citations, you miss the map pack and every "near me" search in your area — the highest-intent, closest-to-conversion traffic there is.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SOLUTION (SUB-SERVICES) ========== -->
-  <section class="section" id="sub-services" aria-label="Our SEO solutions">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What Jraft Creative delivers as an SEO agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">The Solution</p>
-        <h2>Our SEO &amp; Performance Services</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">SEO Pillars</span> That Move <span class="highlight">Rankings &amp; Traffic</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Comprehensive search engine optimisation to grow your organic traffic. As an SEO agency in Singapore, we help businesses rank higher on Google through technical audits, on-page optimisation, and strategic link building — driving qualified organic traffic that converts.</p>
-        <p>From keyword research and content strategy to site speed and Core Web Vitals, our data-driven approach ensures your website performs at its best across every search engine results page.</p>
-        <p>Need a fast, SEO-ready website? Explore our <a href="/services/website-development">website development</a> services. Amplify your reach with <a href="/services/paid-ads">paid ads</a> or build brand awareness through <a href="/services/social-media">social media marketing</a>.</p>
-        <p>Want to go beyond Google rankings? Our <a href="/services/ai-search-optimisation">AI Search Optimisation (GEO)</a> service ensures your brand is recommended by ChatGPT, Gemini, and Perplexity too.</p>
-        <p>Explore industry-specific SEO: <a href="/aesthetics-clinic-seo-singapore/">aesthetics clinic SEO</a>, <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a>, <a href="/fnb-seo-singapore/">F&amp;B SEO</a>, or our full <a href="/digital-marketing-agency-singapore/">digital marketing</a> packages for a complete growth strategy.</p>
+        <p>We build SEO programmes specifically for SG businesses — technical foundation, on-page relevance, local visibility, content strategy, authority building, and the reporting and Core Web Vitals work that keeps it all measurable. Want to go beyond Google? Our <a href="/services/ai-search-optimisation">AI Search Optimisation (GEO)</a> service gets your brand recommended by ChatGPT, Gemini, and Perplexity too.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Comprehensive site crawl, indexing fixes, schema markup, and site architecture improvements to ensure search engines can find and rank your content.</p>
+            <p>Comprehensive site crawl, indexing fixes, schema markup, canonical and sitemap hygiene, and site architecture improvements so search engines can find, understand, and rank every page you care about.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
-            <p>Keyword research, meta tags, content optimisation, and internal linking strategy to maximise relevance for your target search terms.</p>
+            <p>Keyword research, meta tags, heading structure, content optimisation, and internal linking strategy to maximise relevance and topical authority for every target search term.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Speed &amp; Core Web Vitals</h3>
-            <p>Page speed optimisation, image compression, caching, and performance monitoring to meet Google's Core Web Vitals benchmarks.</p>
+            <h3>Content Strategy</h3>
+            <p>Search-intent-led content planning, cluster and pillar mapping, and copy built to rank for commercial and informational queries while staying genuinely useful to the reader.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Analytics &amp; Reporting</h3>
-            <p>Google Analytics 4 setup, Search Console configuration, conversion tracking, and monthly performance reports with actionable insights.</p>
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Google Business Profile optimisation, local citations, review management, and map pack rankings to capture "near me" and location-based search traffic across Singapore.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO</h3>
-            <p>Google Business Profile optimisation, local citations, review management, and map pack rankings to capture local search traffic in Singapore.</p>
+            <h3>Link Building &amp; Authority</h3>
+            <p>Earned links, digital PR, and directory work across sources Google trusts — the off-page authority signals that separate page-one sites from everyone stuck below. The slow compounding lever, started early.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting &amp; Core Web Vitals</h3>
+            <p>Google Analytics 4 and Search Console setup, conversion tracking, page speed and Core Web Vitals optimisation, and monthly reports covering rankings, traffic, and next actions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PROOF ========== -->
-  <section class="section" id="proof" style="background: var(--bg-alt);" aria-label="SEO results and proof">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your SEO agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Why SEO Matters in Singapore</p>
-        <h2>75% of Users <span class="highlight">Never Scroll Past</span> Page One</h2>
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Data, Not Guesswork</span> — SEO Built to Show Up in <span class="highlight">Reporting, Not Just Rankings</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has one of the highest internet penetration rates in the world at 96%. Over 5.8 million Singaporeans use Google every day — and 75% of them never click beyond the first page of results. If your business isn't ranking on page one for your target keywords, you're invisible to three-quarters of your potential customers.</p>
-        <p>"Near me" searches in Singapore grew 28% year-over-year in 2025, with mobile searches now accounting for over 72% of all search traffic. Google's March 2026 core update further rewards sites with strong E-E-A-T signals, fresh content, and fast Core Web Vitals scores — the exact areas our SEO services focus on.</p>
-        <p>Our data-driven approach delivers measurable improvements in organic traffic, keyword rankings, and lead generation. We provide transparent monthly reporting so you can see exactly how your investment is performing. <a href="/services/website-development/#portfolio" class="inline-link">See our portfolio</a> for real examples.</p>
+        <p>Singapore has one of the highest internet penetration rates in the world, and most high-intent commercial research still starts on Google. Our SEO is measured on organic traffic, keyword movement, and leads — not retainer hours — with transparent monthly reporting so you always see exactly how your investment is performing.</p>
       </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Technical + Content + Authority</h3>
+            <p>We work all three levers, not just the easy one. Technical fixes remove the ceiling, on-page and content earn relevance, and authority building compounds — the combination is what actually moves rankings over time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Transparent Monthly Reporting</h3>
+            <p>Every engagement includes reporting on keyword rankings, organic traffic, top pages, backlinks, and Core Web Vitals — with plain-English recommendations, not vanity metrics. You see what moved and why.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Industry-Specific Playbooks</h3>
+            <p>The keywords and signals that rank a clinic differ from a tuition centre or a restaurant. We run vertical-specific SEO programmes across aesthetics, tuition, F&amp;B, beauty, fitness, education, and more.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEO BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How SG businesses find and hire an SEO agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Search Funnel</p>
+        <h2>How <span class="highlight">SG Buyers</span> Find You Through <span class="highlight">Organic Search</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>The path from a search query to a signed quote runs through the results page long before it reaches your inbox. Five stages — and every retainer we run is built to win at each one.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Search</h3>
+          <p>SG buyer types a commercial or "near me" query into Google</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rank</h3>
+          <p>Your page appears on page one or in the map pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Click</h3>
+          <p>A compelling title and meta earn the click over rivals</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Land</h3>
+          <p>A fast, relevant page holds attention and builds trust</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Convert</h3>
+          <p>Enquiry, booking, or signed contract</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <h2><span class="highlight">SEO &amp; Performance</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -185,11 +389,11 @@ const schemaData = [
   </section>
 
   <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related SEO services">
+  <section class="section" id="related-services" aria-label="SEO services by industry">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>SEO Services by Industry</h2>
+        <h2>SEO Built for <span class="highlight">Your Industry</span></h2>
       </div>
       <div class="related-services-grid reveal">
         <a href="/aesthetics-clinic-seo-singapore/" class="related-service-link">Aesthetics Clinic SEO</a>

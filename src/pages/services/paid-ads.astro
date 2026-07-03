@@ -47,6 +47,127 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* AI Search Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Paid Ads Management Singapore — Jraft Creative"
   description="Paid ad campaign management in Singapore — Google Ads, Meta Ads, TikTok Ads, retargeting, and optimisation. Book a free ad strategy session."
@@ -59,7 +180,9 @@ const schemaData = [
   heroLabel="Paid Ads Agency Singapore"
   heroTitle='Paid Performance Marketing &amp; <span class="highlight">Ads Management in Singapore</span>'
   heroSubtitle="Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI, qualified leads, and real business growth."
-  heroImage="/images/service-ads.webp"
+  heroImage="/images/service-paid-ads.webp"
+  heroImageAlt="An ads campaign manager on screen — paid ads agency Singapore for Google, Meta and TikTok campaigns"
+  hideDefaultCta={false}
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20paid%20ads%20management%20services.", class: "btn btn-secondary" }
@@ -74,89 +197,177 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="The paid ads challenge businesses face">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Wasting Ad Budget Without Clear Results?</h2>
+        <h2>Wasting Ad Budget Without <span class="highlight">Clear Results</span>? You're Not Alone — and It's <span class="highlight">Fixable</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Many businesses in Singapore waste thousands on paid ads with no clear strategy, poor targeting, and no way to measure what is actually working. Boosting posts on Instagram or running Google Ads without proper conversion tracking burns budget without delivering real leads.</p>
-        <p>Without expert campaign management, you are likely paying too much per click, targeting the wrong audiences, and missing out on the retargeting and optimisation that separates profitable campaigns from money pits.</p>
+        <p>Many businesses in Singapore waste thousands on paid ads with no clear strategy, poor targeting, and no way to measure what is actually working. Boosting posts or running Google Ads without proper conversion tracking burns budget without delivering real leads. Most of the waste comes down to three fixable gaps.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Boosting Isn't a Strategy</h3>
+            <p>Hitting "Boost Post" or running an unstructured Google Ads campaign spends money without a funnel behind it. No audience segmentation, no bid strategy, no clear objective — just spend that vanishes without a trail of leads to show for it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>No Conversion Tracking, No Truth</h3>
+            <p>Without a pixel, offline conversion tracking, and proper attribution, you can't tell which click became a lead. You end up optimising for cheap clicks instead of qualified enquiries — and scaling the campaigns that only look like they work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Warm Leads Left on the Table</h3>
+            <p>Most SG advertisers never set up retargeting. The people who visited your site, watched your video, or abandoned a form are the cheapest to convert — and the majority of businesses let them walk away with no follow-up sequence at all.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SOLUTION (SUB-SERVICES) ========== -->
-  <section class="section" id="sub-services" aria-label="Our paid ads solutions">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What Jraft Creative delivers as a paid ads agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">The Solution</p>
-        <h2>Our Paid Advertising Services</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Paid Media Pillars</span> That Move <span class="highlight">Return on Ad Spend</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Full-funnel ad campaigns across all major platforms. As a paid ads agency in Singapore, we plan, launch, and optimise campaigns on Google Ads, Meta, TikTok, and LinkedIn — targeting the right audiences to maximise your return on ad spend.</p>
-        <p>From audience research and ad creative to bid strategy and conversion tracking, we manage every detail so your advertising budget delivers measurable business results.</p>
-        <p>Drive even more results by combining ads with <a href="/services/seo-performance">SEO &amp; performance optimisation</a>, building a strong brand through <a href="/services/social-media">social media content</a>, or launching a high-converting <a href="/services/website-development">website</a>.</p>
-        <p>See our dedicated <a href="/google-ads-agency-singapore/">Google Ads management</a> page, or explore our full <a href="/digital-marketing-agency-singapore/">digital marketing</a> packages.</p>
+        <p>Full-funnel ad campaigns across every major platform — planned, launched, and optimised on data from day one. From audience research and ad creative to bid strategy and conversion tracking, we manage every detail so your budget delivers measurable business results. See our dedicated <a href="/google-ads-agency-singapore/">Google Ads management</a> page, or explore our full <a href="/digital-marketing-agency-singapore/">digital marketing</a> packages.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
-            <h3>Google Ads (Search &amp; Display)</h3>
-            <p>Keyword targeting, ad copywriting, bid management, and Quality Score optimisation to capture high-intent search traffic.</p>
+            <h3>Google Search Ads</h3>
+            <p>Keyword targeting, RSA ad copywriting, bid management, and Quality Score optimisation to capture high-intent search traffic the moment SG buyers look for what you sell.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Shopping &amp; Performance Max</h3>
+            <p>Product feed setup, Shopping campaigns, and Performance Max across Search, Display, YouTube, and Gmail — Google's full inventory driven by conversion goals and asset groups built for your catalogue.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
             <h3>Meta Ads (Facebook &amp; Instagram)</h3>
-            <p>Audience targeting, creative production, A/B testing, and conversion campaigns that reach your ideal customers on social.</p>
+            <p>Audience targeting, creative production, A/B testing, and conversion campaigns that reach your ideal customers across the 4.4 million Singaporeans on Facebook and Instagram.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-tiktok-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>TikTok &amp; YouTube Ads</h3>
-            <p>Video ad campaigns, interest-based targeting, and brand awareness at scale on the fastest-growing video platforms.</p>
+            <h3>TikTok &amp; Video Ads</h3>
+            <p>Video ad campaigns, interest-based targeting, and brand awareness at scale on the fastest-growing platforms — built for the native, thumb-stopping formats that perform on TikTok and YouTube.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-retargeting.jpg">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
             <h3>Retargeting &amp; Remarketing</h3>
-            <p>Pixel setup, custom audiences, lookalike targeting, and cross-platform retargeting funnels to recapture warm leads.</p>
+            <p>Pixel setup, custom audiences, lookalike targeting, and cross-platform retargeting funnels that recapture warm leads — the cheapest, highest-converting audience most advertisers ignore.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Campaign Analytics &amp; Optimisation</h3>
-            <p>Conversion tracking, ROAS reporting, budget allocation, and continuous campaign refinement for maximum performance.</p>
+            <h3>Conversion Tracking &amp; Reporting</h3>
+            <p>Pixel and offline conversion tracking, ROAS reporting, budget allocation, and continuous refinement. You see cost-per-lead and return on ad spend every month — not vanity metrics.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PROOF ========== -->
-  <section class="section" id="proof" style="background: var(--bg-alt);" aria-label="Paid ads results and proof">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your paid ads agency">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Why Paid Ads Work in Singapore</p>
-        <h2>4.4 Million Singaporeans Are <span class="highlight">Reachable on Meta</span> Alone</h2>
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Data From Day One</span> — Campaigns Built to Prove <span class="highlight">Cost Per Lead</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's digital ad market reached US$1.2 billion in 2025 — and for good reason. Google Ads captures high-intent searches from 5.8 million daily users, while Meta Ads reach 4.4 million Singaporeans across Facebook and Instagram. The average cost-per-click for Google Ads in Singapore ranges from S$1 to S$5, making it one of the most cost-efficient lead generation channels for SMEs.</p>
-        <p>But most businesses waste 40-60% of their ad budget on poor targeting, missing conversion tracking, and no retargeting strategy. Our campaigns are built on data from day one — pixel setup, audience segmentation, A/B testing, and real-time bid optimisation — so every dollar works harder.</p>
-        <p>From lead generation campaigns that consistently deliver qualified enquiries to ecommerce campaigns that scale profitably, our clients see real business impact. <a href="/services/website-development/#portfolio" class="inline-link">See our portfolio</a> for real examples.</p>
+        <p>Most businesses waste 40–60% of their ad budget on poor targeting, missing conversion tracking, and no retargeting strategy. Our campaigns are built on data from the first dollar — pixel setup, audience segmentation, A/B testing, and real-time bid optimisation — so every dollar works harder. Singapore's digital ad market reached US$1.2 billion in 2025; Google Ads captures high-intent searches at a S$1–S$5 cost-per-click, one of the most cost-efficient lead channels for SMEs.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Tracking Before Spend</h3>
+            <p>We don't launch until conversion tracking is verified end to end — pixel, offline conversions, and attribution. That means we optimise toward real leads and sales, not cheap clicks, from the very first campaign day.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In Contracts</h3>
+            <p>You can pause or cancel any time. We recommend running at least three months to gather enough data for meaningful optimisation — but you stay in control of your budget and your ad accounts throughout.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Right Channel Mix</h3>
+            <p>Google for high intent, Meta for awareness and visual products, TikTok for younger reach. We recommend the mix on your free strategy session and combine ads with <a href="/services/seo-performance">SEO</a>, <a href="/services/social-media">social content</a>, and your <a href="/services/website-development">website</a> for full-funnel results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HOW BUSINESSES FIND A PAID ADS AGENCY ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How SG businesses find and hire a paid ads agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Wasted Spend</span> to a <span class="highlight">Profitable Campaign</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>The path from a stalled ad account to campaigns that prove their return runs through five clear stages — and every retainer we run is built to move you along each one.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Strategy Call</h3>
+          <p>Free session — goals, budget and channel mix</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Tracking Setup</h3>
+          <p>Pixel, conversions and attribution verified</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Campaign Launch</h3>
+          <p>Creative, audiences and bids go live</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>A/B tests and bid tuning against the data</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Report &amp; Scale</h3>
+          <p>ROAS reporting, then scale what works</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="section" id="pricing" aria-label="Paid ads budget guidance">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Budget Guidance</p>
+        <h2>What Should You <span class="highlight">Spend on Ads</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>For Singapore SMEs, we recommend starting with S$1,000–S$3,000 per month in ad spend, separate from management fees. This gives campaigns enough data to optimise effectively. Management fees cover strategy, campaign setup, creative production, optimisation, and reporting — while ad spend is paid directly to the platforms (Google, Meta, TikTok) as a separate budget you control. We help you set the right figure based on your goals and industry on a free strategy session. No lock-in contracts.</p>
       </div>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <h2><span class="highlight">Paid Ads</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -188,7 +399,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Paid Ads Services</h2>
+        <h2>Paid Ads <span class="highlight">Services</span></h2>
       </div>
       <div class="related-services-grid reveal">
         <a href="/google-ads-agency-singapore/" class="related-service-link">Google Ads Agency Singapore</a>
