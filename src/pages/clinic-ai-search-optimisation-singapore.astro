@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Clinic AI Search Optimisation Singapore",
-    "description": "Specialist AI search optimisation for clinics in Singapore. Get your clinic recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews when patients search for healthcare providers. From S$3,000/month.",
+    "description": "Specialist AI search optimisation (GEO) for clinics in Singapore. Get your clinic recommended by ChatGPT, Google Gemini, Perplexity, Copilot, and AI Overviews when patients search for healthcare providers. Medical schema, physician credentialing, citable content, authority building. From S$3,000/month.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,12 +22,7 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Clinic Generative Engine Optimisation (GEO)",
-    "offers": [
-      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
-      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
-      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
-    ]
+    "serviceType": "Clinic Generative Engine Optimisation (GEO)"
   },
   {
     "@context": "https://schema.org",
@@ -35,8 +30,10 @@ const schemaData = [
     "mainEntity": [
       { "@type": "Question", "name": "How do patients find clinics through AI?", "acceptedAnswer": { "@type": "Answer", "text": "Patients ask ChatGPT, Gemini, and Perplexity questions like 'best dermatologist in Singapore' or 'recommended GP near Tampines.' AI platforms evaluate clinical credibility, patient reviews, medical content authority, and structured data to recommend 3-4 clinics per query. Clinics without optimised AI signals are excluded from these high-intent recommendations." } },
       { "@type": "Question", "name": "Why do AI-referred patients convert at a higher rate?", "acceptedAnswer": { "@type": "Answer", "text": "AI-referred patients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. When ChatGPT or Gemini recommends a specific clinic, the patient treats it as a trusted referral rather than one option among many. These patients have already decided to book — they just needed a name." } },
-      { "@type": "Question", "name": "Which AI platforms recommend clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer healthcare queries. Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient searching for your specialty via AI." } },
-      { "@type": "Question", "name": "How long before AI starts recommending my clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization schema markup and physician credential structuring can improve visibility within weeks. Authority building through medical directories and clinical content programmes deliver stronger results over time." } },
+      { "@type": "Question", "name": "How is clinic GEO different from clinic SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Clinic SEO targets the Google Maps three-pack and organic blue-link rankings. GEO targets AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first content, healthcare-specific schema (MedicalOrganization, Physician, MedicalSpecialty), and citations from medical authority sources such as Healthpages.sg and DocDoc. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most clinics need both." } },
+      { "@type": "Question", "name": "Does clinic AI search optimisation comply with MOH advertising rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Singapore's Ministry of Health (MOH) regulates what clinics can say in paid and promotional media. GEO works within those rules because AI recommendations are organic — the AI generates them from publicly available data, not a paid ad placement. We optimise factual, credential-based content (MOH registration, practitioner qualifications, verified reviews) that meets both AI trust requirements and healthcare advertising guidelines." } },
+      { "@type": "Question", "name": "Which AI platforms recommend clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer healthcare queries. Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient searching for your specialty via AI." } },
+      { "@type": "Question", "name": "How long before AI starts recommending my clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization schema markup and physician credential structuring can improve visibility within weeks. Authority building through medical directories and clinical content programmes deliver stronger, compounding results over time." } },
       { "@type": "Question", "name": "How much does clinic AI search optimisation cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Our GEO plans for clinics start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination across all platforms." } }
     ]
   },
@@ -51,99 +48,159 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Clinic AI Search Optimisation Singapore — Jraft Creative"
-  description="Get your clinic recommended by ChatGPT and Gemini when patients search for healthcare in Singapore. AI referrals convert 4.4x higher — from S$3,000/mo."
+  title="Clinic AI Search Optimisation Singapore | Jraft Creative"
+  description="Clinic GEO agency in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when patients ask AI for a clinic. AI referrals convert 4.4x higher. Medical schema, citable content, authority building. From S$3,000/mo."
   canonical="https://jraftcreative.com/clinic-ai-search-optimisation-singapore/"
-  ogTitle="Clinic AI Search Optimisation Singapore — Jraft Creative"
-  ogDescription="Get your clinic recommended by ChatGPT, Gemini, and Perplexity when patients search for healthcare providers in Singapore."
+  ogTitle="Clinic AI Search Optimisation Singapore | Jraft Creative"
+  ogDescription="Clinic GEO agency in Singapore. ChatGPT, Gemini, Perplexity, Google AI Mode citations for clinics. AI referrals convert 4.4x higher."
   ogImage="https://jraftcreative.com/images/og-seo.jpg"
-  keywords="clinic ai search optimisation singapore, clinic GEO singapore, AI healthcare marketing, clinic chatgpt optimisation, medical practice AI visibility singapore, Jraft Creative"
+  keywords="clinic ai search optimisation singapore, clinic geo singapore, clinic generative engine optimisation, chatgpt clinic singapore, gemini clinic ranking, medical practice ai visibility singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Clinic GEO"
-  heroTitle='Clinic AI Search Optimisation in <span class="highlight">Singapore</span>'
-  heroSubtitle="Patients ask ChatGPT 'best dermatologist in Singapore' and Gemini 'recommended GP near me' before booking. AI-referred patients convert at 4.4x the rate — because they trust the recommendation. We use Generative Engine Optimisation to make sure AI recommends your clinic."
-  heroImage="/images/service-seo.webp"
+  heroLabel="Clinic AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Clinics in Singapore</span>'
+  heroSubtitle="When a patient asks ChatGPT 'best dermatologist in Singapore' or tells Gemini 'recommend a GP near me,' the AI names three to four clinics. If yours is not one of them, that patient books elsewhere. AI-referred patients convert at 4.4x the rate — because they trust the recommendation. We build clinic GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/service-clinic.webp"
+  heroImageAlt="Singapore clinic recommended by AI — clinic GEO agency"
   heroButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my clinic in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Clinic Into AI Answers"
-  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when patients search for clinics like yours — and how to make sure your practice comes up. We'll respond within 24 hours."
+  ctaTitle='Get Your <span class="highlight">Clinic Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when patients search for clinics like yours — and how to make sure your practice comes up. We'll respond within 24 hours with a tailored clinic GEO plan."
   ctaButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20clinic.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why clinics need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why clinics need AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Are Asking AI for Clinic Recommendations</h2>
+        <h2>Patients Are Asking <span class="highlight">AI</span> — Not Just <span class="highlight">Searching Google</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Patients increasingly turn to ChatGPT and Gemini before choosing a healthcare provider. They ask "best dermatologist in Singapore," "recommended paediatrician near Bishan," or "which clinic is good for acne treatment." AI responds with 3-4 clinic names — and patients treat these as trusted referrals. If your clinic isn't recommended, those patients book elsewhere without ever knowing you exist.</p>
-        <p>Healthcare queries carry exceptionally high intent. AI-referred patients convert at 4.4x the rate of traditional search traffic because they arrive with built-in trust — they didn't pick your clinic from a list of ten, AI specifically recommended you. Yet the overlap between Google rankings and AI citations has dropped below 20%. Your strong Google presence and SEM spend don't translate to AI visibility. With 60.9% of Singapore using generative AI, this is a patient acquisition channel clinics can no longer ignore.</p>
-        <p>Most healthcare marketing agencies still focus on Google Ads and SEO while treating AI search as a future concern. They don't understand that ChatGPT and Gemini evaluate clinical credibility through different signals — physician credentials, medical content authority, patient review sentiment, and structured healthcare data. Clinics that invest in Generative Engine Optimisation now will secure the patients who are already asking AI which doctor to see.</p>
+        <p>The way SG patients choose a clinic has shifted. Instead of scrolling Google, a growing share ask ChatGPT "best dermatologist in Singapore" or tell Gemini "recommended GP near Tampines." When AI answers, it names three to four clinics — and patients treat those as trusted referrals. Most SG clinics are still optimising only for Google Ads and SEO, leaving the AI channel wide open.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW AI RECOMMENDS HEALTHCARE ========== -->
-  <section class="section" id="how-ai-recommends-healthcare" style="background: var(--bg-alt);" aria-label="How AI recommends healthcare providers in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Patient Journey</p>
-        <h2>How AI Recommends Healthcare Providers in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>Singapore's Ministry of Health (MOH) regulates healthcare advertising through strict guidelines that limit what clinics can say in paid media and promotional content. But AI platforms like ChatGPT, Gemini, and Perplexity operate outside these advertising restrictions. When a patient asks AI "best dermatologist in Singapore" or "recommended GP near Tampines," the AI generates an organic recommendation based on publicly available data — not a paid ad placement. This makes organic AI visibility uniquely valuable for clinics, because it represents one of the few channels where your clinic can be prominently recommended without the constraints of healthcare advertising regulations.</p>
-        <p>The patient journey through AI is methodical and multi-stage. Patients typically start by researching symptoms or conditions — "what causes persistent back pain" or "treatment options for adult acne in Singapore." As they narrow down, they shift to provider-specific queries: "best GP near Tampines," "specialist dermatologist Singapore reviews," "paediatrician in Bishan with good reviews." AI platforms track this progression and recommend clinics that have content addressing both the informational and transactional stages of the patient journey. Clinics with condition guides, treatment explanations, and provider profiles capture patients at every stage of their AI-assisted research.</p>
-        <p>The trust signals AI uses for healthcare recommendations are notably different from other industries. AI gives significant weight to official credentials — MOH registration, practitioner qualifications, specialty certifications, and years of practice. It cross-references platforms like Google Reviews, Healthpages.sg, and DocDoc to verify clinic legitimacy and assess patient satisfaction. A clinic listed on Healthpages.sg with verified MOH registration, named practitioners with published credentials, and a strong Google Reviews profile sends exactly the trust signals AI needs to recommend it confidently. Clinics missing any of these layers get deprioritised in favour of competitors with more complete trust profiles.</p>
-        <p>Structured data plays a critical role in how AI understands and categorises healthcare providers. MedicalOrganization schema tells AI your clinic type, location, and services. Physician schema communicates practitioner names, qualifications, and specialties. Medical specialty tags ensure AI can match your clinic to the right queries — a patient asking for an "ENT specialist in Novena" will only see clinics whose structured data explicitly declares that specialty and location. Without this markup, AI may understand your clinic exists but cannot confidently recommend it for specific medical queries.</p>
-        <p>For clinics seeking a comprehensive AI visibility strategy beyond healthcare-specific platforms, our <a href="/geo-agency-singapore/">GEO agency services</a> cover multi-platform optimisation. Clinics that need a professional web presence to support their AI visibility should explore our <a href="/clinic-website-design-singapore/">clinic website design</a> service, built to meet both patient expectations and AI data requirements.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most healthcare marketing agencies still focus only on Google Ads and SEO, treating AI search as a future concern. They leave ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new front door for patients choosing a clinic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A top Google ranking does not guarantee an AI citation — the overlap has dropped below 20%. AI evaluates physician credentials, medical schema, review sentiment across Healthpages.sg and DocDoc, and clinical content authority. Different signal set, different optimisation work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>4.4x Higher Conversion</h3>
+            <p>AI-referred patients convert at 4.4x the rate of traditional search traffic. They didn't pick you from a list of ten — AI specifically recommended you. They arrive with built-in trust, having already decided to book. They just needed a name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The MOH-Compliant Channel</h3>
+            <p>Singapore's MOH restricts what clinics can say in paid and promotional media. AI recommendations are organic — generated from public data, not paid placement. GEO is one of the few channels where your clinic can be prominently recommended without healthcare advertising constraints.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most SG clinics are not yet investing in GEO. The practices that invest in 2026 own AI citations for their specialty and neighbourhood before competitors catch on — building defensible visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, patient acquisition through ChatGPT and Gemini is no longer a niche channel. Your strong Google presence and SEM spend don't translate to AI visibility — it's separate work that clinics can no longer ignore.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Clinic GEO services we deliver">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Clinic GEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Clinics</h2>
+        <h2>Six <span class="highlight">Clinic GEO Workstreams</span> Every Practice <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We optimise every signal that determines whether ChatGPT, Gemini, or Perplexity recommends your clinic — from medical schema markup and physician credentialing to patient-focused content and the authority signals AI models trust for healthcare recommendations.</p>
-        <p>Pair GEO with our <a href="/services/seo-performance/">SEO services</a> for maximum search visibility, or combine with a <a href="/clinic-website-design-singapore/">professionally designed clinic website</a> for a complete digital strategy that grows your patient base.</p>
+        <p>We run clinic GEO as a six-workstream system — AI visibility audit, healthcare schema, citable patient-focused content, medical authority building, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your specialty and catchment. Pair it with a <a href="/clinic-website-design-singapore/">professionally designed clinic website</a> for a complete digital strategy.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 healthcare-specific prompts across ChatGPT, Gemini, Perplexity, Copilot, and AI Overviews — queries like "best [specialty] in [area]," "recommended clinic for [condition] in Singapore," and "top doctor for [treatment] near me." You'll see exactly which clinics AI recommends instead of yours and the signals driving those choices.</p>
+            <p>Test 20-30 healthcare prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best [specialty] [area]," "recommended clinic for [condition] Singapore." Reveals exactly which clinics AI recommends instead of yours, and the signals driving those choices.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Healthcare-specific structured data including MedicalOrganization, Physician, MedicalSpecialty, and MedicalCondition schemas. We define your clinical specialties, physician credentials, accepted insurance panels, and practice attributes so AI platforms understand your expertise and match you to the right patient queries.</p>
+            <h3>Medical Schema &amp; Entity</h3>
+            <p>MedicalOrganization, Physician, MedicalSpecialty, and MedicalCondition schema. Defines your clinical specialties, physician credentials, insurance panels, and practice attributes so AI understands your expertise and matches you to the right patient queries.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
             <h3>Citation-Ready Content</h3>
-            <p>Medically accurate, patient-focused content structured for AI consumption — condition guides, treatment comparisons, and FAQ content that directly matches the healthcare queries patients ask AI. Answer-first formatting and fact-dense paragraphs that give AI models confidence to recommend your clinic.</p>
+            <p>Medically accurate, patient-focused content structured for AI — condition guides, treatment comparisons, and provider profiles. Answer-first, fact-dense writing that gives AI models the confidence to recommend your clinic.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models weight clinical credibility heavily when recommending healthcare providers. We build your clinic's presence on medical directories, healthcare review platforms, and professional registries that AI trusts — from Google Reviews and Practo to SingHealth-adjacent listings and medical authority sites.</p>
+            <h3>Medical Authority Building</h3>
+            <p>Strengthen presence on the sources AI trusts most for healthcare — Google Reviews, Healthpages.sg, DocDoc, and medical registries. AI applies a higher credibility bar to clinics, and these citations are what it uses to rank clinical trust.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your clinic's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform every month. Quantify exactly how often AI recommends your practice versus competitors — with the actual prompts and citations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each evaluates clinical authority differently and pulls from different sources — our work covers all five so your clinic gets cited regardless of which AI tool the patient asks.</p>
           </div>
         </div>
       </div>
@@ -151,102 +208,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for clinic AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for clinic AI search optimisation">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Clinic GEO That Grows Your Patient Base</h2>
+        <h2><span class="highlight">Clinic GEO</span> That <span class="highlight">Grows Your Patient Base</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand healthcare marketing and how AI decides which clinics to recommend. Our GEO strategies are built for the trust signals and clinical authority markers that matter most in medical practice discovery — because AI applies a higher credibility bar to healthcare recommendations than any other category.</p>
+        <p>We run the GEO playbook for our own agency — and the same methodology for clinic clients. We map the exact specialty-and-condition prompts SG patients use, build the credential and schema stack that earns the citation, and track Brand Visibility Score across all five major AI platforms monthly. AI applies a higher credibility bar to healthcare than any other category — we build for it.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare Industry Understanding</h3>
-            <p>We know how patients search for medical care — by specialty, condition, location, and insurance coverage. Our prompt research covers the exact healthcare queries Singapore patients ask AI, from "best ENT specialist in Novena" to "recommended GP clinic open on weekends."</p>
+            <h3>Specialty-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG patients use — "best dermatologist for eczema Singapore," "paediatric dentist near Woodlands," "orthopaedic surgeon ACL repair" — and optimise against those specific queries, not generic GEO templates.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Trust &amp; Credibility Signals</h3>
-            <p>AI applies stricter credibility standards to healthcare recommendations. We build the physician credential signals, clinical authority markers, and patient trust indicators that ChatGPT, Gemini, and Perplexity require before recommending a medical practice.</p>
+            <p>AI applies stricter standards to healthcare. We build the physician credential signals, MOH-registration markers, and patient trust indicators that ChatGPT, Gemini, and Perplexity require before recommending a medical practice.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Specialty-Specific Optimisation</h3>
-            <p>We map specialty-and-condition prompts that drive patient decisions — "best dermatologist for eczema in Singapore," "paediatric dentist near Woodlands," "orthopaedic surgeon ACL repair." Your clinic gets optimised for the exact medical queries your target patients are asking AI.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Patient Journey Mapping</h3>
-            <p>We track how patients move from AI query to booking — mapping the prompts they ask, the follow-up questions, and the decision triggers. This data shapes your GEO strategy so your clinic appears at every stage of the AI-assisted patient journey.</p>
+            <h3>Measurable AI Metrics</h3>
+            <p>Brand Visibility Score, Citation Rate, Share of Voice across ChatGPT, Gemini, Perplexity, Copilot, Google AI Mode — tracked monthly with the actual prompts and citations. Not vanity "AI score" reports.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Clinic AI search optimisation pricing">
+  <!-- ========== PATIENT FUNNEL ========== -->
+  <section class="section" id="patient-funnel" style="background: var(--bg-alt);" aria-label="The Patient Journey — and where GEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">GEO Pricing</p>
-        <h2>Clinic AI Search Optimisation Plans</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Patient Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essentials</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For clinics starting their AI visibility journey.</p>
-            <ul class="pricing-features">
-              <li>AI visibility audit &amp; baseline</li>
-              <li>Schema markup implementation</li>
-              <li>Content optimisation (5 pages/mo)</li>
-              <li>llms.txt setup &amp; maintenance</li>
-              <li>Monthly AI visibility report</li>
-              <li>Quarterly strategy review</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$5,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For clinics ready to dominate AI recommendations.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essentials</li>
-              <li>Content optimisation (20 pages/mo)</li>
-              <li>Authority building &amp; directory registrations</li>
-              <li>Answer Engine content creation</li>
-              <li>Bi-weekly reporting with competitor benchmarks</li>
-              <li>Dedicated GEO strategist</li>
-              <li>Content freshness programme</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$10,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">Full-service AI search domination for clinic groups.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Multi-platform defensive monitoring</li>
-              <li>Wikipedia presence strategy</li>
-              <li>Weekly strategy calls &amp; real-time dashboard</li>
-              <li>Custom prompt monitoring (50+ prompts daily)</li>
-              <li>Sentiment defence &amp; crisis alerts</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore patients move through five stages. GEO is the emerging dominant channel in Choose — the moment a patient asks AI for a recommendation and it returns three to four clinic names. AI citations also reinforce Research, when a patient looks up symptoms or conditions before ever naming a provider.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
-      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Research</h3>
+          <p>Patient asks AI about symptoms &amp; conditions (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Choose</h3>
+          <p>AI returns 3-4 clinic names to the query (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>First Visit</h3>
+          <p>AI-cited patients book at high intent (pre-qualified)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Care experience reinforces next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews and referrals compound back into AI trust signals</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -255,7 +280,7 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Clinic AI Search Optimisation — Questions Answered</h2>
+        <h2><span class="highlight">Clinic GEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -267,14 +292,22 @@ const schemaData = [
           <div class="faq-answer"><p>AI-referred patients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. When ChatGPT or Gemini recommends a specific clinic, the patient treats it as a trusted referral rather than one option among many. These patients have already decided to book — they just needed a name.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Which AI platforms recommend clinics in Singapore?</summary>
-          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer healthcare queries. Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient searching for your specialty via AI.</p></div>
+          <summary>How is clinic GEO different from clinic SEO?</summary>
+          <div class="faq-answer"><p>Clinic SEO targets the Google Maps three-pack and organic blue-link rankings. GEO targets AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first content, healthcare-specific schema (MedicalOrganization, Physician, MedicalSpecialty), and citations from medical authority sources such as Healthpages.sg and DocDoc. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most clinics need both.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before AI starts recommending my clinic?</summary>
-          <div class="faq-answer"><p>Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization schema markup and physician credential structuring can improve visibility within weeks. Authority building through medical directories and clinical content programmes deliver stronger results over time.</p></div>
+          <summary>Does clinic AI search optimisation comply with MOH advertising rules?</summary>
+          <div class="faq-answer"><p>Yes. Singapore's Ministry of Health (MOH) regulates what clinics can say in paid and promotional media. GEO works within those rules because AI recommendations are organic — the AI generates them from publicly available data, not a paid ad placement. We optimise factual, credential-based content (MOH registration, practitioner qualifications, verified reviews) that meets both AI trust requirements and healthcare advertising guidelines.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
+          <summary>Which AI platforms recommend clinics in Singapore?</summary>
+          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer healthcare queries. Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient searching for your specialty via AI.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before AI starts recommending my clinic?</summary>
+          <div class="faq-answer"><p>Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization schema markup and physician credential structuring can improve visibility within weeks. Authority building through medical directories and clinical content programmes deliver stronger, compounding results over time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
           <summary>How much does clinic AI search optimisation cost in Singapore?</summary>
           <div class="faq-answer"><p>Our GEO plans for clinics start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination across all platforms.</p></div>
         </details>
@@ -283,11 +316,11 @@ const schemaData = [
   </section>
 
   <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related services for clinics">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Related Services for Clinics</h2>
+        <h2>More <span class="highlight">Clinic</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
         <a href="/clinic-website-design-singapore/" class="related-service-link">Clinic Website Design</a>

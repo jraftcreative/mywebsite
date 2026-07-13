@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Beauty Salon AI Search Optimisation Singapore",
-    "description": "Specialist AI search optimisation for beauty salons in Singapore. Get your salon recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews when clients search for treatments and services. From S$3,000/month.",
+    "description": "Specialist AI search optimisation (GEO) for beauty salons in Singapore. Get your salon recommended by ChatGPT, Google Gemini, Perplexity, Copilot, and AI Overviews when clients search for treatments and services. Beauty schema, treatment-level content, review authority, multi-platform coverage.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,18 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Beauty Salon Generative Engine Optimisation (GEO)",
-    "offers": [
-      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
-      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
-      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
-    ]
+    "serviceType": "Beauty Salon Generative Engine Optimisation (GEO)"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How do beauty clients find salons through AI?", "acceptedAnswer": { "@type": "Answer", "text": "Clients ask ChatGPT, Gemini, and Perplexity questions like 'best facial treatment in Singapore' or 'Korean hair salon near Orchard.' AI platforms evaluate review quality, treatment-specific content, and authority signals to recommend 3-4 salons per query. Salons without optimised AI signals don't appear in these recommendations." } },
-      { "@type": "Question", "name": "Why isn't my Google ranking enough for AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "The overlap between Google rankings and AI citations has dropped below 20%. A strong Google presence no longer guarantees ChatGPT or Gemini will recommend your salon. AI models evaluate different signals — review sentiment, structured data, content authority, and third-party mentions — to decide which salons to name." } },
-      { "@type": "Question", "name": "Which AI platforms recommend beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer beauty service queries. Each platform pulls from different data sources, so we optimise your salon's presence across all of them to capture every client searching via AI." } },
-      { "@type": "Question", "name": "How long before AI starts recommending my salon?", "acceptedAnswer": { "@type": "Answer", "text": "Most salons see measurable changes in AI citation rates within 30 to 90 days. Quick wins like schema markup for your treatments, pricing, and location can improve visibility within weeks. Review authority and content freshness programmes compound over time for stronger long-term results." } },
-      { "@type": "Question", "name": "How much does beauty salon AI search optimisation cost?", "acceptedAnswer": { "@type": "Answer", "text": "Our GEO plans for beauty salons start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination." } }
+      { "@type": "Question", "name": "How do beauty clients find salons through AI?", "acceptedAnswer": { "@type": "Answer", "text": "Clients ask ChatGPT, Gemini, and Perplexity questions like 'best facial in Singapore' or 'Korean hair salon near Orchard.' AI platforms evaluate review quality, treatment-specific content, and authority signals to recommend three to four salons per query. Salons without optimised AI signals are left out of these high-intent recommendations." } },
+      { "@type": "Question", "name": "Why do AI-referred clients convert at a higher rate?", "acceptedAnswer": { "@type": "Answer", "text": "AI-referred clients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. When ChatGPT or Gemini names a specific salon, the client treats it as a trusted referral rather than one option among many. They have already decided to book the treatment — they just needed a name." } },
+      { "@type": "Question", "name": "How is beauty salon GEO different from beauty salon SEO?", "acceptedAnswer": { "@type": "Answer", "text": "SEO targets the Google Maps three-pack and organic blue-link rankings. GEO targets the answer AI gives directly. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first treatment content, beauty-specific schema (HealthAndBeautyBusiness, Service, Review, PriceSpecification), and citations from platforms AI trusts such as BeautyInsider and StyleMap. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most salons need both." } },
+      { "@type": "Question", "name": "Which AI platforms recommend beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer beauty service queries. Each platform pulls from different data sources and weighs review signals differently, so we optimise your salon's presence across all of them to capture every client searching for a treatment via AI." } },
+      { "@type": "Question", "name": "Does my salon need detailed treatment pages for AI to recommend it?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI matches specific queries — 'microneedling cost Singapore,' 'Japanese head spa CBD' — to salons with detailed, treatment-level content covering process, results, duration, aftercare, and pricing. A generic 'Our Services' list gets skipped in favour of a competitor with a dedicated page per treatment. Published, transparent pricing is one of the strongest signals AI uses when a client asks 'how much does this cost.'" } },
+      { "@type": "Question", "name": "How long before AI starts recommending my salon?", "acceptedAnswer": { "@type": "Answer", "text": "Most salons see measurable changes in AI citation rates within 30 to 90 days. Quick wins like treatment, pricing, and location schema can improve visibility within weeks. Review authority and content freshness programmes compound over time and deliver the strongest long-term results." } }
     ]
   },
   {
@@ -51,99 +47,159 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Beauty Salon AI Search Optimisation — Jraft Creative"
-  description="Get your salon recommended by ChatGPT and Gemini when clients search for beauty services in Singapore. GEO for salons — from S$3,000/mo."
+  title="Beauty Salon AI Search Optimisation Singapore | Jraft Creative"
+  description="Beauty salon GEO agency in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when clients ask AI for a salon. AI referrals convert 4.4x higher. Beauty schema, treatment content, review authority."
   canonical="https://jraftcreative.com/beauty-salon-ai-search-optimisation-singapore/"
-  ogTitle="Beauty Salon AI Search Optimisation — Jraft Creative"
-  ogDescription="Get your beauty salon recommended by ChatGPT, Gemini, and Perplexity when clients search for the best beauty treatments in Singapore."
+  ogTitle="Beauty Salon AI Search Optimisation Singapore | Jraft Creative"
+  ogDescription="Beauty salon GEO agency in Singapore. ChatGPT, Gemini, Perplexity, Google AI Mode citations for salons. AI referrals convert 4.4x higher."
   ogImage="https://jraftcreative.com/images/og-seo.jpg"
-  keywords="beauty salon ai search optimisation singapore, beauty salon GEO singapore, AI beauty marketing, salon chatgpt optimisation, beauty industry AI visibility singapore, Jraft Creative"
+  keywords="beauty salon ai search optimisation singapore, beauty salon geo singapore, beauty salon generative engine optimisation, chatgpt beauty salon singapore, gemini salon ranking, salon ai visibility singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Beauty Salon GEO"
-  heroTitle='Beauty Salon AI Search Optimisation in <span class="highlight">Singapore</span>'
-  heroSubtitle="When someone asks ChatGPT 'best facial in Singapore' or Gemini 'Korean hair salon near me,' does your salon get recommended? 60.9% of Singapore already uses AI to search — and AI-referred clients convert at 4.4x the rate. We use Generative Engine Optimisation to put your salon in AI answers."
-  heroImage="/images/service-seo.webp"
+  heroLabel="Beauty Salon AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="When a client asks ChatGPT 'best facial in Singapore' or tells Gemini 'recommend a Korean hair salon near Orchard,' the AI names three to four salons. If yours is not one of them, that client books elsewhere. AI-referred clients convert at 4.4x the rate — because they trust the recommendation. We build beauty salon GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/hero-beauty-salon.webp"
+  heroImageAlt="Singapore beauty salon recommended by AI — beauty salon GEO agency"
   heroButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my beauty salon in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Salon Into AI Answers"
-  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when clients ask for beauty services like yours — and how to make sure your salon comes up. We'll respond within 24 hours."
+  ctaTitle='Get Your <span class="highlight">Salon Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when clients search for treatments like yours — and how to make sure your salon comes up. We'll respond within 24 hours with a tailored beauty salon GEO plan."
   ctaButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20beauty%20salon.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why beauty salons need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why beauty salons need AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Beauty Clients Research Via AI Before Booking</h2>
+        <h2>Clients Are Asking <span class="highlight">AI</span> — Not Just <span class="highlight">Scrolling Instagram</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>The beauty industry runs on trust and recommendations. Clients used to ask friends or scroll Instagram — now they ask ChatGPT "best facial treatment in Singapore" or tell Gemini "recommend a Korean hair salon near Bugis." AI responds with 3-4 salon names, and if yours isn't on that shortlist, that client books with a competitor instead.</p>
-        <p>With 60.9% of Singapore using generative AI, the shift is already here. ChatGPT and Gemini recommend salons based on review authority, treatment-specific content, and structured data quality — not just Google ranking. The overlap between Google search results and AI citations has dropped below 20%, which means most salons with strong Google presence still have zero AI visibility.</p>
-        <p>Most beauty marketing agencies focus on Instagram content and Google Ads while completely ignoring the AI channel. They don't understand that ChatGPT evaluates salon credibility through different signals than Google does. Salons that invest in Generative Engine Optimisation now will capture the growing wave of clients who research treatments through AI before picking up the phone to book.</p>
+        <p>The way SG clients pick a salon has shifted. Instead of asking friends or scrolling Instagram, a growing share ask ChatGPT "best facial in Singapore" or tell Gemini "recommend a Korean hair salon near Bugis." When AI answers, it names three to four salons — and clients treat those as trusted referrals. Most SG salons are still optimising only for Instagram and Google Ads, leaving the AI channel wide open.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== WHAT CLIENTS ASK AI ========== -->
-  <section class="section" id="what-clients-ask-ai" style="background: var(--bg-alt);" aria-label="What clients ask AI about beauty treatments in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Client Behaviour</p>
-        <h2>What Clients Ask AI About Beauty Treatments in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>Beauty clients in Singapore ask AI highly specific questions before booking treatments. The prompts go far beyond "best salon near me." Clients type "best facial treatment in Singapore," "affordable hair salon near Orchard," "Korean skin care clinic reviews," and "where to get Japanese head spa in CBD." Each query reflects a client who has already decided on a treatment category and is looking for the right salon to deliver it. When AI answers with 3-4 salon names, those are the only salons that enter the client's consideration set.</p>
-        <p>What makes beauty queries unique is the treatment-specific nature of the search. Clients ask about microneedling, hair botox, lash extensions, hydrafacials, keratin treatments, and dozens of other specific services. AI platforms match these queries to salons that have detailed, treatment-level content on their websites. A salon with a generic "Our Services" page listing treatment names gets skipped in favour of a competitor whose site includes dedicated pages for each treatment — complete with descriptions of the process, expected results, duration, aftercare, and pricing. The more specific and structured your treatment content, the more confidently AI recommends your salon for that exact service.</p>
-        <p>AI does not generate beauty recommendations from a single source. It cross-references multiple review and booking platforms to assess salon credibility. In Singapore, the platforms that carry the most weight for beauty recommendations include Google Reviews, TripAdvisor (especially for tourists seeking treatments), StyleMap (popular for Korean-style beauty services), and BeautyInsider (a Singapore-specific beauty review platform). Salons with consistent high ratings and recent reviews across these platforms build the kind of multi-source authority that AI requires before it will confidently name a business in its answer.</p>
-        <p>The importance of detailed service descriptions cannot be overstated. AI extracts and cites information from treatment pages that include pricing, session duration, treatment benefits, skin types suited for the treatment, and before-and-after expectations. Salons that publish this level of detail in structured, scannable formats give AI exactly what it needs to recommend them. A client asking "how much does microneedling cost in Singapore" will see AI cite salons that have transparent pricing on their treatment pages — salons without published pricing are left out entirely.</p>
-        <p>For salons looking to strengthen their overall AI presence across multiple platforms, our <a href="/geo-agency-singapore/">GEO agency services</a> provide a comprehensive strategy. If your salon also needs stronger Google visibility alongside AI recommendations, our <a href="/beauty-salon-seo-singapore/">beauty salon SEO</a> programme covers traditional search optimisation tailored for the beauty industry.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Instagram-Only Strategy Gap</h3>
+            <p>Most beauty marketing agencies still focus on Instagram content and Google Ads, treating AI search as a future concern. They leave ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new front door for clients choosing a salon.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A top Google ranking does not guarantee an AI citation — the overlap has dropped below 20%. AI evaluates review sentiment across Google, BeautyInsider and StyleMap, treatment-level content depth, and structured data. Different signal set, different optimisation work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>4.4x Higher Conversion</h3>
+            <p>AI-referred clients convert at 4.4x the rate of traditional search traffic. They didn't pick you from a list of ten — AI specifically named you. They arrive with built-in trust, having already decided on the treatment. They just needed a salon.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Treatment-Level Matching</h3>
+            <p>Clients don't ask for "a salon" — they ask for microneedling, hair botox, hydrafacials, keratin, lash extensions. AI matches those queries to salons with detailed, per-treatment content. A generic "Our Services" page gets skipped for a competitor with a page for each service.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most SG salons are not yet investing in GEO. The salons that invest in 2026 own AI citations for their signature treatments and neighbourhood before competitors catch on — building defensible visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, client acquisition through ChatGPT and Gemini is no longer a niche channel. Your strong Instagram following and Google presence don't translate to AI visibility — it's separate work salons can no longer ignore.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="Beauty salon GEO services we deliver">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Beauty salon GEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Beauty Salons</h2>
+        <h2>Six <span class="highlight">Beauty Salon GEO Workstreams</span> Every Salon <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We optimise every signal that determines whether ChatGPT, Gemini, or Perplexity recommends your salon — from treatment-specific schema markup to review authority and the kind of content AI models trust when recommending beauty services.</p>
-        <p>Pair GEO with our <a href="/beauty-salon-seo-singapore/">beauty salon SEO</a> for maximum search visibility, or combine with <a href="/beauty-salon-marketing-singapore/">beauty salon marketing</a> for a complete digital strategy that keeps your appointment book full.</p>
+        <p>We run beauty salon GEO as a six-workstream system — AI visibility audit, beauty schema, treatment-level citable content, review authority building, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your signature treatments and catchment. Pair it with our <a href="/beauty-salon-seo-singapore/">beauty salon SEO</a> for full search visibility, or <a href="/beauty-salon-marketing-singapore/">beauty salon marketing</a> for a complete digital strategy.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 beauty-specific prompts across ChatGPT, Gemini, Perplexity, Copilot, and AI Overviews — queries like "best facial in [area]," "top hair salon for balayage in Singapore," and "affordable nail salon near me." You'll see exactly which salons AI recommends instead of yours.</p>
+            <p>Test 20-30 beauty prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best [treatment] [area]," "affordable [service] near me," "top salon for balayage Singapore." Reveals exactly which salons AI recommends instead of yours, and the signals driving those choices.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Beauty-specific structured data including HealthAndBeautyBusiness, Service, Review, and PriceSpecification schemas. We define your treatment menu, specialisations, price ranges, and salon attributes so AI platforms understand your offerings and match you to the right client queries.</p>
+            <h3>Beauty Schema &amp; Entity</h3>
+            <p>HealthAndBeautyBusiness, Service, Review, and PriceSpecification schema. Defines your treatment menu, specialisations, price ranges, and salon attributes so AI understands your offerings and matches you to the right client queries.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
             <h3>Citation-Ready Content</h3>
-            <p>Treatment descriptions, comparison guides, and FAQ content structured for AI consumption. We create answer-first content about your specialities — whether that's hydrafacials, keratin treatments, or gel manicures — formatted so AI models can confidently recommend your salon.</p>
+            <p>Treatment-level pages structured for AI — process, results, duration, aftercare, and transparent pricing. Answer-first, fact-dense writing on your signature services that gives AI models the confidence to recommend your salon for that exact query.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models assess salon credibility through review platforms, beauty directories, and editorial mentions. We strengthen your presence on the sources AI trusts — Google Reviews, beauty booking platforms, lifestyle publications, and Singapore beauty authority sites that influence AI recommendations.</p>
+            <h3>Review Authority Building</h3>
+            <p>Strengthen presence on the sources AI trusts most for beauty — Google Reviews, BeautyInsider, StyleMap, and lifestyle publications. AI cross-references multiple review platforms before naming a salon, and consistent recent ratings are what it uses to rank trust.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your salon's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform every month. Quantify exactly how often AI recommends your salon versus competitors — with the actual prompts and citations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each evaluates beauty authority differently and pulls from different sources — our work covers all five so your salon gets cited regardless of which AI tool the client asks.</p>
           </div>
         </div>
       </div>
@@ -151,102 +207,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for beauty salon AI search optimisation">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Beauty Salon GEO That Books Appointments</h2>
+        <h2><span class="highlight">Beauty Salon GEO</span> That <span class="highlight">Fills Your Appointment Book</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the beauty industry and how AI decides which salons to recommend. Our GEO strategies are built for the signals that matter in beauty service discovery — treatment specificity, review quality, client trust signals, and the content formats AI pulls from when answering beauty queries.</p>
+        <p>We run the GEO playbook for our own agency — and the same methodology for salon clients. We map the exact treatment-and-area prompts SG clients use, build the review and schema stack that earns the citation, and track Brand Visibility Score across all five major AI platforms monthly. Beauty discovery runs on trust signals — we build for them.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Beauty Industry Knowledge</h3>
-            <p>We know how beauty clients search — by treatment type, skin concern, location, and price point. Our prompt research covers the exact queries Singapore clients ask AI, from "best anti-ageing facial in Orchard" to "affordable hair colour salon in Jurong."</p>
+            <h3>Treatment-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG clients use — "best anti-ageing facial Orchard," "Japanese head spa near CBD," "affordable hair colour salon Jurong" — and optimise against those specific queries, not generic GEO templates.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Review &amp; Authority Building</h3>
+            <h3>Review &amp; Authority Signals</h3>
             <p>AI recommendations lean heavily on review quality and third-party credibility. We build your salon's authority across the review platforms and beauty directories that ChatGPT, Gemini, and Perplexity trust when choosing which salons to name.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Treatment-Specific Targeting</h3>
-            <p>We map treatment-specific prompts that drive client decisions — "best hydrafacial in Singapore," "Japanese head spa near CBD," "eyelash extensions Tanjong Pagar." Your salon gets optimised for the exact service queries your ideal clients are asking AI.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>AI Recommendation Monitoring</h3>
-            <p>We continuously track which salons AI recommends across ChatGPT, Gemini, AI Overviews, Perplexity, and Copilot. You see your Citation Rate, Brand Visibility Score, and Share of Voice — plus alerts when competitors gain or lose AI visibility.</p>
+            <h3>Measurable AI Metrics</h3>
+            <p>Brand Visibility Score, Citation Rate, Share of Voice across ChatGPT, Gemini, Perplexity, Copilot, Google AI Mode — tracked monthly with the actual prompts and citations. Not vanity "AI score" reports.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Beauty salon AI search optimisation pricing">
+  <!-- ========== CLIENT FUNNEL ========== -->
+  <section class="section" id="client-funnel" style="background: var(--bg-alt);" aria-label="The client journey — and where GEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">GEO Pricing</p>
-        <h2>Beauty Salon AI Search Optimisation Plans</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Client Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essentials</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For salons starting their AI visibility journey.</p>
-            <ul class="pricing-features">
-              <li>AI visibility audit &amp; baseline</li>
-              <li>Schema markup implementation</li>
-              <li>Content optimisation (5 pages/mo)</li>
-              <li>llms.txt setup &amp; maintenance</li>
-              <li>Monthly AI visibility report</li>
-              <li>Quarterly strategy review</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$5,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For salons ready to dominate AI recommendations.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essentials</li>
-              <li>Content optimisation (20 pages/mo)</li>
-              <li>Authority building &amp; directory registrations</li>
-              <li>Answer Engine content creation</li>
-              <li>Bi-weekly reporting with competitor benchmarks</li>
-              <li>Dedicated GEO strategist</li>
-              <li>Content freshness programme</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$10,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">Full-service AI search domination for salon chains.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Multi-platform defensive monitoring</li>
-              <li>Wikipedia presence strategy</li>
-              <li>Weekly strategy calls &amp; real-time dashboard</li>
-              <li>Custom prompt monitoring (50+ prompts daily)</li>
-              <li>Sentiment defence &amp; crisis alerts</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore beauty clients move through five stages. GEO is the emerging dominant channel in Compare — the moment a client asks AI for a treatment recommendation and it returns three to four salon names. AI citations also reinforce Discover, when a client researches a treatment before ever naming a salon.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
-      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Discover</h3>
+          <p>Client asks AI about a treatment &amp; results (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>AI returns 3-4 salon names to the query (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>AI-cited clients book at high intent (pre-qualified)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return</h3>
+          <p>Treatment experience reinforces next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Reviews and referrals compound back into AI trust signals</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -255,39 +279,43 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Beauty Salon AI Search Optimisation — Questions Answered</h2>
+        <h2><span class="highlight">Beauty Salon GEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
           <summary>How do beauty clients find salons through AI?</summary>
-          <div class="faq-answer"><p>Clients ask ChatGPT, Gemini, and Perplexity questions like "best facial treatment in Singapore" or "Korean hair salon near Orchard." AI platforms evaluate review quality, treatment-specific content, and authority signals to recommend 3-4 salons per query. Salons without optimised AI signals don't appear in these recommendations.</p></div>
+          <div class="faq-answer"><p>Clients ask ChatGPT, Gemini, and Perplexity questions like "best facial in Singapore" or "Korean hair salon near Orchard." AI platforms evaluate review quality, treatment-specific content, and authority signals to recommend three to four salons per query. Salons without optimised AI signals are left out of these high-intent recommendations.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Why isn't my Google ranking enough for AI visibility?</summary>
-          <div class="faq-answer"><p>The overlap between Google rankings and AI citations has dropped below 20%. A strong Google presence no longer guarantees ChatGPT or Gemini will recommend your salon. AI models evaluate different signals — review sentiment, structured data, content authority, and third-party mentions — to decide which salons to name.</p></div>
+          <summary>Why do AI-referred clients convert at a higher rate?</summary>
+          <div class="faq-answer"><p>AI-referred clients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. When ChatGPT or Gemini names a specific salon, the client treats it as a trusted referral rather than one option among many. They have already decided to book the treatment — they just needed a name.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Which AI platforms recommend beauty salons in Singapore?</summary>
-          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot all answer beauty service queries. Each platform pulls from different data sources, so we optimise your salon's presence across all of them to capture every client searching via AI.</p></div>
+          <summary>How is beauty salon GEO different from beauty salon SEO?</summary>
+          <div class="faq-answer"><p>SEO targets the Google Maps three-pack and organic blue-link rankings. GEO targets the answer AI gives directly. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first treatment content, beauty-specific schema (HealthAndBeautyBusiness, Service, Review, PriceSpecification), and citations from platforms AI trusts such as BeautyInsider and StyleMap. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most salons need both.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before AI starts recommending my salon?</summary>
-          <div class="faq-answer"><p>Most salons see measurable changes in AI citation rates within 30 to 90 days. Quick wins like schema markup for your treatments, pricing, and location can improve visibility within weeks. Review authority and content freshness programmes compound over time for stronger long-term results.</p></div>
+          <summary>Which AI platforms recommend beauty salons in Singapore?</summary>
+          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer beauty service queries. Each platform pulls from different data sources and weighs review signals differently, so we optimise your salon's presence across all of them to capture every client searching for a treatment via AI.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How much does beauty salon AI search optimisation cost?</summary>
-          <div class="faq-answer"><p>Our GEO plans for beauty salons start at $3,000 SGD/month for the Essentials package covering AI audits, schema markup, and content optimisation. Growth plans at $5,000/month add authority building and dedicated strategists. Enterprise plans from $10,000/month provide full-service AI search domination.</p></div>
+          <summary>Does my salon need detailed treatment pages for AI to recommend it?</summary>
+          <div class="faq-answer"><p>Yes. AI matches specific queries — "microneedling cost Singapore," "Japanese head spa CBD" — to salons with detailed, treatment-level content covering process, results, duration, aftercare, and pricing. A generic "Our Services" list gets skipped in favour of a competitor with a dedicated page per treatment. Published, transparent pricing is one of the strongest signals AI uses when a client asks "how much does this cost."</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before AI starts recommending my salon?</summary>
+          <div class="faq-answer"><p>Most salons see measurable changes in AI citation rates within 30 to 90 days. Quick wins like treatment, pricing, and location schema can improve visibility within weeks. Review authority and content freshness programmes compound over time and deliver the strongest long-term results.</p></div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related services for beauty salons">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Related Services for Beauty Salons</h2>
+        <h2>More <span class="highlight">Beauty Salon</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
         <a href="/beauty-salon-seo-singapore/" class="related-service-link">Beauty Salon SEO Singapore</a>

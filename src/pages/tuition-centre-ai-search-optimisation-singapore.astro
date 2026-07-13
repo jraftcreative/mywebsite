@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Tuition Centre AI Search Optimisation Singapore",
-    "description": "AI search optimisation for tuition centres in Singapore — get your centre recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews when parents search for tuition. From S$3,000/month.",
+    "description": "Specialist AI search optimisation (GEO) for tuition centres in Singapore. Get your centre recommended by ChatGPT, Google Gemini, Perplexity, Copilot, and AI Overviews when parents search for tuition. EducationalOrganization schema, subject-level content, KiasuParents authority, citable results.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,22 +22,18 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Tuition Centre AI Search Optimisation (GEO)",
-    "offers": [
-      { "@type": "Offer", "name": "GEO Essentials", "price": "3000", "priceCurrency": "SGD", "description": "AI visibility audit, schema markup, content optimisation (5 pages/mo), llms.txt setup, monthly reporting" },
-      { "@type": "Offer", "name": "GEO Growth", "price": "5000", "priceCurrency": "SGD", "description": "Everything in Essentials plus 20 pages/mo, authority building, answer engine content, bi-weekly reporting, dedicated strategist" },
-      { "@type": "Offer", "name": "GEO Enterprise", "price": "10000", "priceCurrency": "SGD", "description": "Full-service AI search domination with defensive monitoring, Wikipedia strategy, weekly calls, 50+ prompt monitoring, sentiment defence" }
-    ]
+    "serviceType": "Tuition Centre Generative Engine Optimisation (GEO)"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "Why does my tuition centre need AI search optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "Parents in Singapore increasingly ask ChatGPT and Gemini for tuition centre recommendations before enrolling their children. These are extremely high-intent queries — a parent asking AI for the best PSLE maths tutor is ready to act. If your centre isn't in the AI answer, you lose that enrolment." } },
-      { "@type": "Question", "name": "Which AI platforms do parents use to find tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "The main platforms are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Parents also encounter AI-generated recommendations through Google's SGE results when searching for tuition-related queries." } },
-      { "@type": "Question", "name": "How is GEO different from SEO for tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "SEO helps your tuition centre rank in Google search results. GEO ensures AI platforms name your centre when parents ask for recommendations. The overlap between Google rankings and AI citations is below 20%, so strong Google rankings alone won't get you into AI answers." } },
-      { "@type": "Question", "name": "How long before my tuition centre appears in AI recommendations?", "acceptedAnswer": { "@type": "Answer", "text": "Most tuition centres see measurable changes in AI citation rates within 30 to 90 days. Technical implementations like schema markup and llms.txt can improve visibility within weeks. Building parent reviews and authority signals produces compounding results over time." } },
-      { "@type": "Question", "name": "How much does tuition centre AI search optimisation cost?", "acceptedAnswer": { "@type": "Answer", "text": "Our GEO plans for tuition centres start at $3,000 SGD/month for the Essentials package. Growth plans at $5,000/month add authority building, answer engine content, and a dedicated strategist. Enterprise plans from $10,000/month deliver full-service AI search domination across all platforms." } }
+      { "@type": "Question", "name": "Why does my tuition centre need AI search optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "Parents in Singapore increasingly ask ChatGPT and Gemini for tuition centre recommendations before enrolling their children. These are extremely high-intent queries — a parent asking AI for the best PSLE maths tutor is ready to act. If your centre isn't in the AI answer, you lose that enrolment before you even know the parent existed." } },
+      { "@type": "Question", "name": "Which AI platforms do parents use to find tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "The main platforms are ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot. Each evaluates education authority differently and pulls from different sources, so we optimise your centre's presence across all of them to capture every parent searching for tuition via AI." } },
+      { "@type": "Question", "name": "How is GEO different from SEO for tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "SEO helps your tuition centre rank in Google search results. GEO ensures AI platforms name your centre when parents ask for recommendations. They share some signals (Google reviews, structured data) but GEO also rewards answer-first content, education-specific schema (EducationalOrganization, Course), and mentions on sources AI trusts like the KiasuParents forum. The overlap between Google rankings and AI citations has dropped below 20%, so strong Google rankings alone won't get you into AI answers." } },
+      { "@type": "Question", "name": "How does Singapore's education system affect AI tuition search?", "acceptedAnswer": { "@type": "Answer", "text": "Parents search with a specificity that mirrors the local pathway — 'best P6 PSLE math tuition Bishan,' 'O-Level chemistry tutor reviews,' 'JC H2 economics,' 'IP English tutor near Bukit Timah.' PSLE, O-Levels, A-Levels, and the Integrated Programme are distinct examination tracks, and AI matches each query to centres whose content explicitly addresses that subject, level, and location. A centre that mentions PSLE once on a generic page cannot compete with one that has a full PSLE preparation section per examinable subject." } },
+      { "@type": "Question", "name": "What credential signals does AI use to recommend a tuition centre?", "acceptedAnswer": { "@type": "Answer", "text": "Because parents are making decisions about their children's education, AI applies a higher credibility bar. It prioritises MOE-registered centres, NIE-trained tutors (graduates of Singapore's National Institute of Education), and tutors with relevant academic qualifications. It also looks for evidence of results — testimonials referencing specific grade improvements, published distinction rates, and case studies. Centres that quantify outcomes give AI concrete data points to cite." } },
+      { "@type": "Question", "name": "How long before my tuition centre appears in AI recommendations?", "acceptedAnswer": { "@type": "Answer", "text": "Most tuition centres see measurable changes in AI citation rates within 30 to 90 days. Technical implementations like EducationalOrganization schema and llms.txt can improve visibility within weeks. Building parent reviews, KiasuParents authority, and subject-level content produces stronger, compounding results over time." } }
     ]
   },
   {
@@ -51,99 +47,159 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .tuition-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .tuition-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .tuition-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Tuition Centre AI Search Optimisation — Jraft Creative"
-  description="Get your tuition centre recommended by ChatGPT and Gemini when parents search for tuition in Singapore — from S$3,000/mo."
+  title="Tuition Centre AI Search Optimisation Singapore | Jraft Creative"
+  description="Tuition centre GEO agency in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when parents ask AI for a tuition centre. AI referrals convert 4.4x higher. Education schema, KiasuParents authority, subject-level content."
   canonical="https://jraftcreative.com/tuition-centre-ai-search-optimisation-singapore/"
-  ogTitle="Tuition Centre AI Search Optimisation — Jraft Creative"
-  ogDescription="Get your tuition centre recommended by ChatGPT, Gemini, and Perplexity. Specialist AI search optimisation for tuition centres in Singapore."
+  ogTitle="Tuition Centre AI Search Optimisation Singapore | Jraft Creative"
+  ogDescription="Tuition centre GEO agency in Singapore. ChatGPT, Gemini, Perplexity, Google AI Mode citations for tuition centres. AI referrals convert 4.4x higher."
   ogImage="https://jraftcreative.com/images/og-seo.jpg"
-  keywords="tuition centre ai search optimisation singapore, tuition centre geo singapore, tuition ai visibility, tuition chatgpt optimisation, education generative engine optimisation, tuition centre marketing ai, Jraft Creative"
+  keywords="tuition centre ai search optimisation singapore, tuition centre geo singapore, tuition centre generative engine optimisation, chatgpt tuition singapore, gemini tuition ranking, tuition centre ai visibility singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Tuition Centre GEO"
-  heroTitle='Tuition Centre AI Search Optimisation in <span class="highlight">Singapore</span>'
-  heroSubtitle="Parents ask ChatGPT 'best maths tuition in Singapore' or 'recommended PSLE tutor near Bishan' before they ever call your centre. With 60.9% of Singapore using AI to search, education queries in AI are extremely high-intent — parents trust curated AI answers and act on them fast."
-  heroImage="/images/service-seo.webp"
+  heroLabel="Tuition Centre AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Tuition Centres in Singapore</span>'
+  heroSubtitle="When a parent asks ChatGPT 'best maths tuition in Singapore' or tells Gemini 'recommended PSLE tutor near Bishan,' the AI names three to four centres. If yours is not one of them, that parent enrols elsewhere. AI-referred parents convert at 4.4x the rate — because they trust the recommendation. We build tuition centre GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/service-tuition.webp"
+  heroImageAlt="Singapore tuition centre recommended by AI — tuition GEO agency"
   heroButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "View GEO Plans", href: "#pricing", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my tuition centre in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Tuition Centre Into AI Answers"
-  ctaDescription="Book a free AI visibility audit and we'll show you exactly how your tuition centre appears — and where it's missing — across ChatGPT, Gemini, Perplexity, and Google AI Overviews. We'll respond within 24 hours."
+  ctaTitle='Get Your <span class="highlight">Tuition Centre Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when parents search for tuition centres like yours — and how to make sure your centre comes up. We'll respond within 24 hours with a tailored tuition centre GEO plan."
   ctaButtons={[
     { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20tuition%20centre.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why tuition centres need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why tuition centres need AI search optimisation in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Asking AI for Tuition Recommendations</h2>
+        <h2>Parents Are Asking <span class="highlight">AI</span> — Not Just <span class="highlight">Searching Google</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore parents are using ChatGPT, Gemini, and Perplexity to research tuition centres before making enrolment decisions. A parent asking AI "best maths tuition in Tampines" or "recommended PSLE Science tutor" gets a shortlist of 3-4 centres with summaries of why each one stands out. If your centre isn't named, that parent moves on without ever discovering what you offer.</p>
-        <p>With 60.9% of Singapore's population already using generative AI, the shift is accelerating fast. Education queries are among the highest-intent categories in AI search — a parent who asks AI for a tuition recommendation is ready to enrol. Yet the overlap between Google rankings and AI citations has dropped below 20%. Ranking on Google for "tuition centre Singapore" does not mean ChatGPT or Gemini will recommend you. AI selects centres based on results credibility, parent reviews, subject-level expertise signals, and structured data — a different set of ranking factors entirely.</p>
-        <p>Most tuition centres rely on word-of-mouth and Google Ads to attract new students. These channels still matter, but they miss the growing segment of parents who turn to AI for trusted, curated recommendations. Without a dedicated Generative Engine Optimisation strategy, your tuition centre is invisible to this audience — and competitors who optimise first will capture those enrolments. Parents who find a tuition centre through AI convert at 4.4x the rate of traditional search.</p>
+        <p>The way SG parents choose a tuition centre has shifted. Instead of scrolling Google or relying only on word-of-mouth, a growing share ask ChatGPT "best maths tuition in Tampines" or tell Gemini "recommended PSLE Science tutor." When AI answers, it names three to four centres — and parents treat those as trusted referrals. Most SG tuition centres are still optimising only for Google Ads and SEO, leaving the AI channel wide open.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW PARENTS USE AI ========== -->
-  <section class="section" id="how-parents-use-ai" style="background: var(--bg-alt);" aria-label="How parents use AI to find tuition in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Parent Behaviour</p>
-        <h2>How Parents Use AI to Find Tuition in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>Singapore parents search for tuition with a level of specificity that reflects the structure of the local education system. The prompts are not generic — they target exact subjects, levels, and locations: "best Primary 6 PSLE math tuition in Bishan," "O-level chemistry tutor Singapore reviews," "JC economics tuition," "IP programme English tutor near Bukit Timah." Each query maps directly to a stage in Singapore's education pathway, and AI platforms match these prompts to tuition centres whose content explicitly addresses that subject, level, and location. Centres with broad, unspecific marketing ("we teach all subjects for all levels") get overlooked in favour of competitors whose websites clearly communicate subject-level expertise.</p>
-        <p>One of the most influential Singapore-specific sources that AI draws from for tuition recommendations is the KiasuParents forum. KiasuParents is the largest online community of Singapore parents discussing education, and its threads contain detailed discussions about specific tuition centres, tutor quality, results, pricing, and teaching approaches. AI platforms like ChatGPT and Perplexity index and reference this forum content when generating tuition recommendations. A tuition centre that is frequently mentioned positively on KiasuParents — with parents sharing results, recommending specific tutors, and comparing it favourably to alternatives — builds exactly the kind of organic, third-party authority signal that AI trusts for education recommendations.</p>
-        <p>Singapore's education system creates uniquely specific search patterns that AI must match. The PSLE, O-levels, A-levels, and Integrated Programme (IP) track are distinct examination pathways, each with its own syllabus, timeline, and parent anxieties. Parents searching for PSLE tuition have different needs than those searching for JC H2 tuition, and AI understands this distinction. Tuition centres that structure their content around these specific pathways — with dedicated pages for PSLE preparation, O-level subject tuition, A-level programme support, and IP track supplementation — give AI the specificity it needs to recommend them for the right queries. A centre that mentions "PSLE" once on a generic page cannot compete with a centre that has a comprehensive PSLE preparation section covering each examinable subject.</p>
-        <p>Credential signals carry significant weight in AI's assessment of tuition centre credibility. Parents are making decisions about their children's education, and AI reflects this by prioritising centres that demonstrate verifiable expertise. MOE-registered centres, NIE-trained tutors (graduates of Singapore's National Institute of Education), and tutors with relevant academic qualifications all strengthen AI citation confidence. Beyond credentials, AI looks for evidence of results — student testimonials that reference specific grade improvements, published statistics on distinction rates or improvement percentages, and case studies showing measurable academic progress. Centres that quantify their outcomes ("85% of our PSLE students achieved A* in Mathematics") give AI concrete data points to cite when recommending them to parents.</p>
-        <p>For tuition centres looking to build a comprehensive AI visibility strategy across all platforms, our <a href="/geo-agency-singapore/">GEO agency services</a> provide multi-platform optimisation. Centres that also need stronger Google search rankings should pair GEO with our <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a> programme to capture parents across both traditional and AI-driven search channels.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most tuition centres rely on word-of-mouth and Google Ads, treating AI search as a future concern. They leave ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new front door for parents shortlisting a centre for their child.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A top Google ranking does not guarantee an AI citation — the overlap has dropped below 20%. AI evaluates results credibility, parent reviews, subject-level expertise, mentions on the KiasuParents forum, and structured data. Different signal set, different optimisation work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>4.4x Higher Conversion</h3>
+            <p>Parents who find a tuition centre through AI convert at 4.4x the rate of traditional search traffic. They didn't pick you from a list of ten — AI specifically recommended you. They arrive ready to enrol, having already decided. They just needed a name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Specificity Problem</h3>
+            <p>SG parents search by exact subject, level, and location — "P6 PSLE math Bishan," "O-Level chemistry reviews," "JC H2 economics." Centres with broad "we teach all subjects" marketing get overlooked in favour of competitors whose content clearly signals subject-level expertise.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most SG tuition centres are not yet investing in GEO. The centres that invest in 2026 own AI citations for their subjects and neighbourhood before competitors catch on — building defensible visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, education is among the highest-intent categories in AI search — a parent asking AI for a tuition recommendation is ready to enrol. Your strong Google presence doesn't translate to AI visibility; it's separate work centres can no longer ignore.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="AI search optimisation services for tuition centres">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Tuition centre GEO services we deliver">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Tuition Centres</h2>
+        <h2>Six <span class="highlight">Tuition Centre GEO Workstreams</span> Every Centre <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We cover every signal that determines whether AI recommends your tuition centre — from structured data about your subjects and results to citation-ready content that matches the exact prompts parents use. Our strategies integrate with your existing marketing without disrupting what already works.</p>
-        <p>Pair GEO with our <a href="/tuition-centre-seo-singapore/">tuition centre SEO services</a> for maximum search visibility, or combine with <a href="/tuition-centre-marketing-singapore/">tuition centre marketing</a> for a full enrolment growth strategy.</p>
+        <p>We run tuition centre GEO as a six-workstream system — AI visibility audit, education schema, citable subject-level content, parent-trust authority building, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your subjects and catchment. Pair it with our <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a> programme for both traditional and AI-driven search.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 education-specific prompts across ChatGPT, Gemini, Perplexity, and Copilot — prompts like "best PSLE tuition in Singapore," "recommended O-Level chemistry tutor near Bishan," and "affordable maths tuition for Primary 6." You'll see exactly where your centre stands and where competitors are being recommended instead.</p>
+            <p>Test 20-30 education prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best PSLE tuition Singapore," "O-Level chemistry tutor near Bishan," "affordable P6 maths tuition." Reveals exactly which centres AI recommends instead of yours, and the signals driving those choices.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Advanced JSON-LD markup that tells AI exactly what your centre teaches — subjects, levels (PSLE, O-Level, A-Level, IB), class sizes, tutor qualifications, and track record. We implement EducationalOrganization, Course, FAQ, and Speakable schemas plus llms.txt for direct AI crawlability.</p>
+            <h3>Education Schema &amp; Entity</h3>
+            <p>EducationalOrganization, Course, FAQ, and Speakable schema plus llms.txt. Tells AI exactly what your centre teaches — subjects, levels (PSLE, O-Level, A-Level, IP, IB), class sizes, tutor qualifications, and track record — so it matches you to the right parent queries.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Citation-Ready Content</h3>
-            <p>Content structured for AI consumption — detailed subject pages, results highlights, tutor profiles, comparison tables, and FAQ sections that directly match the prompts parents ask. When AI needs to recommend a tuition centre for PSLE maths or JC physics, your content provides the definitive answer.</p>
+            <h3>Subject-Level Content</h3>
+            <p>Answer-first content structured for AI — dedicated PSLE, O-Level, A-Level, and IP pages, results highlights, tutor profiles, and comparison tables that match the exact prompts parents ask. When AI needs a centre for PSLE maths or JC physics, your content is the definitive answer.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models assess tuition centre credibility through parent reviews, education directory listings, and third-party mentions. We build your centre's presence on review platforms, education portals, and authority sites that AI trusts — creating the signals that make AI confidently recommend your centre over others.</p>
+            <h3>Parent-Trust Authority</h3>
+            <p>Strengthen presence on the sources AI trusts most for education — Google Reviews, education directories, and the KiasuParents forum, where SG parents discuss centres, tutors, and results. AI references these mentions when it decides which centre to confidently recommend.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your centre's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform every month. Quantify exactly how often AI recommends your centre versus competitors — with the actual prompts and citations, not vanity "AI score" reports.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each evaluates education authority differently and pulls from different sources — our work covers all five so your centre gets cited regardless of which AI tool the parent asks.</p>
           </div>
         </div>
       </div>
@@ -151,102 +207,70 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for tuition centre AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for tuition centre AI search optimisation">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>AI Search Optimisation Specialists for the Education Sector</h2>
+        <h2><span class="highlight">Tuition Centre GEO</span> That <span class="highlight">Grows Enrolments</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We combine deep understanding of AI search mechanics with knowledge of Singapore's education landscape. We know how parents search, what prompts they use, and what signals AI relies on to recommend one tuition centre over another — so we build strategies that turn AI visibility into actual enrolments.</p>
+        <p>We combine AI search mechanics with a real grasp of Singapore's education landscape. We map the exact subject-and-level prompts SG parents use, build the credential and schema stack that earns the citation, and track Brand Visibility Score across all five major AI platforms monthly. AI applies a higher credibility bar to children's education — we build for it.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Education Sector Expertise</h3>
-            <p>We understand the Singapore education system — PSLE, O-Levels, A-Levels, IB, and the competitive tuition landscape. Our strategies are built around the specific ways parents evaluate and compare tuition centres through AI queries.</p>
+            <p>We understand the SG pathway — PSLE, O-Levels, A-Levels, IP, and IB — and the competitive tuition landscape. We map the exact prompts parents use — "PSLE English help," "JC H2 Chemistry," "IP English tutor Bukit Timah" — and optimise against those, not generic GEO templates.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Subject &amp; Level Targeting</h3>
-            <p>Maths, Science, English, Chinese, Economics — each subject and level generates different AI prompts. We optimise your visibility for every subject-level combination you teach, ensuring AI recommends your centre whether a parent asks for PSLE English help or JC H2 Chemistry.</p>
+            <h3>Parent Trust &amp; Credibility Signals</h3>
+            <p>AI applies stricter standards to children's education. We build the credential signals AI needs — MOE-registration markers, NIE-trained tutor qualifications, verified parent reviews, and KiasuParents authority — before ChatGPT, Gemini, or Perplexity will recommend a centre.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Parent Trust Signals</h3>
-            <p>Parents are cautious decision-makers, especially about their children's education. We strengthen the trust signals AI uses — verified parent reviews, result statistics, tutor credentials, and third-party endorsements — so AI recommends your centre with confidence.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Results-Focused Content Strategy</h3>
-            <p>AI favours tuition centres that can demonstrate outcomes. We help you structure and present your results data — grade improvements, pass rates, distinction percentages — in formats that AI can easily cite when parents ask "which tuition centre gets the best results."</p>
+            <h3>Results-Focused &amp; Measurable</h3>
+            <p>AI favours centres that quantify outcomes — grade improvements, distinction rates, pass percentages. We structure your results so AI can cite them, and track Brand Visibility Score, Citation Rate, and Share of Voice across all five platforms monthly with the actual prompts.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
-  <section class="section" id="pricing" aria-label="Tuition centre AI search optimisation pricing">
+  <!-- ========== PARENT FUNNEL ========== -->
+  <section class="section" id="parent-funnel" style="background: var(--bg-alt);" aria-label="The Parent Enrolment Journey — and where GEO shows up">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">GEO Pricing</p>
-        <h2>AI Search Optimisation Plans for Tuition Centres</h2>
-        <p>Monthly retainer. No lock-in contracts.</p>
+        <p class="section-label">The Parent Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Enrolment Journey</span></h2>
       </div>
-      <div class="service-pricing">
-        <div class="pricing-grid">
-          <div class="pricing-card reveal reveal-d1">
-            <h3>Essentials</h3>
-            <div class="price">$3,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For tuition centres starting their AI visibility journey.</p>
-            <ul class="pricing-features">
-              <li>AI visibility audit &amp; baseline</li>
-              <li>Schema markup implementation</li>
-              <li>Content optimisation (5 pages/mo)</li>
-              <li>llms.txt setup &amp; maintenance</li>
-              <li>Monthly AI visibility report</li>
-              <li>Quarterly strategy review</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Get Started</a>
-          </div>
-          <div class="pricing-card featured reveal reveal-d2">
-            <h3>Growth</h3>
-            <div class="price">$5,000 <span>SGD/mo</span></div>
-            <p class="pricing-desc">For centres ready to dominate AI recommendations.</p>
-            <ul class="pricing-features">
-              <li>Everything in Essentials</li>
-              <li>Content optimisation (20 pages/mo)</li>
-              <li>Authority building &amp; directory registrations</li>
-              <li>Answer Engine content creation</li>
-              <li>Bi-weekly reporting with competitor benchmarks</li>
-              <li>Dedicated GEO strategist</li>
-              <li>Content freshness programme</li>
-            </ul>
-            <a href="/contact/" class="btn btn-primary">Get Started</a>
-          </div>
-          <div class="pricing-card reveal reveal-d3">
-            <h3>Enterprise</h3>
-            <div class="price">$10,000+ <span>SGD/mo</span></div>
-            <p class="pricing-desc">Full-service AI search domination for multi-branch centres.</p>
-            <ul class="pricing-features">
-              <li>Everything in Growth</li>
-              <li>Multi-platform defensive monitoring</li>
-              <li>Wikipedia presence strategy</li>
-              <li>Weekly strategy calls &amp; real-time dashboard</li>
-              <li>Custom prompt monitoring (50+ prompts daily)</li>
-              <li>Sentiment defence &amp; crisis alerts</li>
-            </ul>
-            <a href="/contact/" class="btn btn-secondary">Let's Talk</a>
-          </div>
-        </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore parents move through five stages. GEO is the emerging dominant channel in Compare — the moment a parent asks AI for a recommendation and it returns three to four centre names. AI citations also reinforce Search, when a parent looks up a subject, level, or exam before ever naming a centre.</p>
       </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>Full service details on our <a href="/services/ai-search-optimisation/" class="inline-link">AI Search Optimisation</a> page.</p>
-      </div>
+      <ol class="tuition-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Search</h3>
+          <p>Parent asks AI about a subject, level or exam (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>AI returns 3-4 centre names to the query (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>AI-cited centres get the trial-class enquiry (high intent)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Pre-qualified parent signs up for the term</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Results and reviews compound back into AI trust signals</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -255,39 +279,43 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Tuition Centre AI Search Optimisation — Questions Answered</h2>
+        <h2><span class="highlight">Tuition Centre GEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
           <summary>Why does my tuition centre need AI search optimisation?</summary>
-          <div class="faq-answer"><p>Parents in Singapore increasingly ask ChatGPT and Gemini for tuition centre recommendations before enrolling their children. These are extremely high-intent queries — a parent asking AI for the best PSLE maths tutor is ready to act. If your centre isn't in the AI answer, you lose that enrolment.</p></div>
+          <div class="faq-answer"><p>Parents in Singapore increasingly ask ChatGPT and Gemini for tuition centre recommendations before enrolling their children. These are extremely high-intent queries — a parent asking AI for the best PSLE maths tutor is ready to act. If your centre isn't in the AI answer, you lose that enrolment before you even know the parent existed.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Which AI platforms do parents use to find tuition centres?</summary>
-          <div class="faq-answer"><p>The main platforms are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Parents also encounter AI-generated recommendations through Google's SGE results when searching for tuition-related queries.</p></div>
+          <div class="faq-answer"><p>The main platforms are ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot. Each evaluates education authority differently and pulls from different sources, so we optimise your centre's presence across all of them to capture every parent searching for tuition via AI.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>How is GEO different from SEO for tuition centres?</summary>
-          <div class="faq-answer"><p>SEO helps your tuition centre rank in Google search results. GEO ensures AI platforms name your centre when parents ask for recommendations. The overlap between Google rankings and AI citations is below 20%, so strong Google rankings alone won't get you into AI answers.</p></div>
+          <div class="faq-answer"><p>SEO helps your tuition centre rank in Google search results. GEO ensures AI platforms name your centre when parents ask for recommendations. They share some signals (Google reviews, structured data) but GEO also rewards answer-first content, education-specific schema (EducationalOrganization, Course), and mentions on sources AI trusts like the KiasuParents forum. The overlap between Google rankings and AI citations has dropped below 20%, so strong Google rankings alone won't get you into AI answers.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before my tuition centre appears in AI recommendations?</summary>
-          <div class="faq-answer"><p>Most tuition centres see measurable changes in AI citation rates within 30 to 90 days. Technical implementations like schema markup and llms.txt can improve visibility within weeks. Building parent reviews and authority signals produces compounding results over time.</p></div>
+          <summary>How does Singapore's education system affect AI tuition search?</summary>
+          <div class="faq-answer"><p>Parents search with a specificity that mirrors the local pathway — "best P6 PSLE math tuition Bishan," "O-Level chemistry tutor reviews," "JC H2 economics," "IP English tutor near Bukit Timah." PSLE, O-Levels, A-Levels, and the Integrated Programme are distinct examination tracks, and AI matches each query to centres whose content explicitly addresses that subject, level, and location. A centre that mentions PSLE once on a generic page cannot compete with one that has a full PSLE preparation section per examinable subject.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How much does tuition centre AI search optimisation cost?</summary>
-          <div class="faq-answer"><p>Our GEO plans for tuition centres start at $3,000 SGD/month for the Essentials package. Growth plans at $5,000/month add authority building, answer engine content, and a dedicated strategist. Enterprise plans from $10,000/month deliver full-service AI search domination across all platforms.</p></div>
+          <summary>What credential signals does AI use to recommend a tuition centre?</summary>
+          <div class="faq-answer"><p>Because parents are making decisions about their children's education, AI applies a higher credibility bar. It prioritises MOE-registered centres, NIE-trained tutors (graduates of Singapore's National Institute of Education), and tutors with relevant academic qualifications. It also looks for evidence of results — testimonials referencing specific grade improvements, published distinction rates, and case studies. Centres that quantify outcomes give AI concrete data points to cite.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before my tuition centre appears in AI recommendations?</summary>
+          <div class="faq-answer"><p>Most tuition centres see measurable changes in AI citation rates within 30 to 90 days. Technical implementations like EducationalOrganization schema and llms.txt can improve visibility within weeks. Building parent reviews, KiasuParents authority, and subject-level content produces stronger, compounding results over time.</p></div>
         </details>
       </div>
     </div>
   </section>
 
   <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <section class="section" id="related-services" aria-label="Related services for tuition centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Related Services for Tuition Centres</h2>
+        <h2>More <span class="highlight">Tuition Centre</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
         <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO Singapore</a>
