@@ -5,19 +5,13 @@ import Hero from '../components/Hero.astro';
 // ============================================================================
 // AI Visibility Audit (AVA) Landing Page
 // ----------------------------------------------------------------------------
-// Move #2 of the I/O 2026 Sprint. Productised audit-only SKU at S$1,000.
+// Move #2 of the I/O 2026 Sprint. Enquiry-based audit-only SKU (no public price).
 // Copy source: Marketing/IO-2026-Sprint/AVA-LP-Copy-DRAFT.md (Sophie, 3 Jun 2026)
 // SKU spec:    Marketing/IO-2026-Sprint/AVA-SKU-Sheet.md (Locked 3 Jun 2026)
 //
 // Hero image: PLACEHOLDER — reused from blog. See TODO comment near Hero below.
-// Primary CTA: Stripe checkout PLACEHOLDER — see TODO comment near button below.
+// Primary CTA: routes to /contact/ — audit is enquiry-based (no fixed-price checkout).
 // ============================================================================
-
-// --- Stripe checkout placeholder ---
-// TODO Jeremy: replace STRIPE_CHECKOUT_URL_PLACEHOLDER with the live Stripe
-// checkout URL for the AVA S$1,000 SKU once the Stripe Payment Link is created.
-// Single source of truth — change here and the entire page updates.
-const STRIPE_CHECKOUT_URL = 'STRIPE_CHECKOUT_URL_PLACEHOLDER';
 
 // --- Hero image placeholder ---
 // TODO Mei: commission bespoke AVA hero image; current is placeholder reused
@@ -31,7 +25,7 @@ const schemaData = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     'name': 'AI Visibility Audit Singapore',
-    'description': 'A 5–7 day audit that shows a Singapore business exactly where they appear (or don\'t) across ChatGPT, Gemini, Perplexity and Google AI Overviews. 8–12 page PDF report covering channel-by-channel visibility, citation map, schema audit, GBP audit, competitor snapshot, and the top 5 prioritised gaps, plus a 60-minute delivery call. S$1,000 one-time. 100% of the audit fee credits to month one of a GEO retainer if the client converts within 30 days.',
+    'description': 'A 5–7 day audit that shows a Singapore business exactly where they appear (or don\'t) across ChatGPT, Gemini, Perplexity and Google AI Overviews. 8–12 page PDF report covering channel-by-channel visibility, citation map, schema audit, GBP audit, competitor snapshot, and the top 5 prioritised gaps, plus a 60-minute delivery call. Book a consultation to request the audit.',
     'provider': {
       '@type': 'Organization',
       'name': 'Jraft Creative',
@@ -51,10 +45,8 @@ const schemaData = [
     'offers': {
       '@type': 'Offer',
       'name': 'AI Visibility Audit (AVA)',
-      'description': '8–12 page PDF report across ChatGPT, Gemini, Perplexity and Google AI Overviews plus 60-minute delivery call. 5–7 day delivery (12 max). Refund if delivery deadline missed. 100% credit to month one of a GEO retainer if signed within 30 days.',
+      'description': '8–12 page PDF report across ChatGPT, Gemini, Perplexity and Google AI Overviews plus 60-minute delivery call. 5–7 day delivery (12 max). Refund if delivery deadline missed.',
       'url': 'https://jraftcreative.com/ai-visibility-audit-singapore/',
-      'price': '1000',
-      'priceCurrency': 'SGD',
       'availability': 'https://schema.org/InStock',
       'validFrom': '2026-06-03',
       'category': 'AI Visibility Audit',
@@ -104,18 +96,18 @@ const schemaData = [
       },
       {
         '@type': 'Question',
-        'name': 'Why S$1,000?',
+        'name': 'How much does the audit cost?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Because that\'s roughly 10 hours of senior research, writing, design, and QA time priced honestly. Anything cheaper is either AI-generated boilerplate or a thin pretext to upsell. Anything more would be us padding scope. S$1,000 lets us deliver the depth without scope-creeping you.'
+          'text': 'Pricing depends on your goals, your market, and the scope of work — there\'s no one-size package. Book a quick consultation and we\'ll scope exactly what you need and give you a transparent quote.'
         }
       },
       {
         '@type': 'Question',
-        'name': 'Does the audit credit really apply if I sign onto the retainer?',
+        'name': 'Does the audit credit towards a retainer?',
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': 'Yes. 100% of the S$1,000 credits to month one of a GEO Essentials () or GEO Growth () retainer if you sign within 30 days of the delivery call. So if you go with us, the audit is effectively included. If you don\'t, you still own a S$1,000 deliverable you can act on alone or hand to anyone.'
+          'text': 'Yes. If you go on to sign a GEO retainer within 30 days of the delivery call, the audit fee credits towards month one — so if you continue with us, the audit is effectively included. If you don\'t, you still own a deliverable you can act on alone or hand to anyone.'
         }
       },
       {
@@ -156,11 +148,11 @@ const schemaData = [
 ---
 
 <BaseLayout
-  title="AI Visibility Audit Singapore — S$1,000 | Jraft Creative"
-  description="Find out exactly where your business appears across ChatGPT, Gemini, Perplexity & AI Overviews. 8–12 page audit + 60-min call. 5–7 day delivery. S$1,000."
+  title="AI Visibility Audit Singapore | Jraft Creative"
+  description="Find out exactly where your business appears across ChatGPT, Gemini, Perplexity & AI Overviews. 8–12 page audit + 60-min call. 5–7 day delivery."
   canonical="https://jraftcreative.com/ai-visibility-audit-singapore/"
-  ogTitle="AI Visibility Audit Singapore — S$1,000 | Jraft Creative"
-  ogDescription="Find out exactly where your business appears across ChatGPT, Gemini, Perplexity & AI Overviews. 8–12 page audit + 60-min call. 5–7 day delivery. S$1,000."
+  ogTitle="AI Visibility Audit Singapore | Jraft Creative"
+  ogDescription="Find out exactly where your business appears across ChatGPT, Gemini, Perplexity & AI Overviews. 8–12 page audit + 60-min call. 5–7 day delivery."
   ogImage="https://jraftcreative.com/images/og-seo.jpg"
   keywords="ai visibility audit singapore, chatgpt audit singapore, ai search audit singapore, geo audit singapore, ai overviews audit, generative engine optimisation audit, ai seo audit singapore, llm visibility audit, perplexity citation audit, gemini visibility singapore, ai search optimisation singapore, ai visibility report, chatgpt recommendation audit, schema markup audit singapore, jraft creative"
   schemaData={schemaData}
@@ -173,7 +165,7 @@ const schemaData = [
     heroLabel="AI Visibility Audit · Singapore"
     heroClass="service-hero ava-hero"
     buttons={[
-      { text: "Buy the audit · S$1,000", href: STRIPE_CHECKOUT_URL, class: "btn btn-primary" },
+      { text: "Request the audit", href: "/contact/", class: "btn btn-primary" },
       { text: 'DM "AUDIT" on WhatsApp', href: "https://wa.me/6582234578?text=AUDIT%20%E2%80%94%20AI%20Visibility%20Audit", class: "btn btn-secondary" }
     ]}
   />
@@ -186,7 +178,7 @@ const schemaData = [
   <section class="section ava-trustline" aria-label="Audit guarantees">
     <div class="container">
       <p class="ava-trustline__text reveal">
-        5–7 day delivery (12 max) · Full S$1,000 credits to month one of a GEO retainer if you sign on within 30 days · Refund if we miss the 10-day deadline
+        5–7 day delivery (12 max) · Audit fee credits to month one of a GEO retainer if you sign on within 30 days · Refund if we miss the 10-day deadline
       </p>
     </div>
   </section>
@@ -285,7 +277,7 @@ const schemaData = [
       <div class="ava-timeline reveal">
         <article class="ava-timeline__row">
           <div class="ava-timeline__day">Day 0</div>
-          <div class="ava-timeline__what">You pay via Stripe. We send a 5-question onboarding form: your business, target buyer, the queries that matter most, two competitors you want benchmarked, the suburbs/regions you serve.</div>
+          <div class="ava-timeline__what">You confirm the engagement. We send a 5-question onboarding form: your business, target buyer, the queries that matter most, two competitors you want benchmarked, the suburbs/regions you serve.</div>
         </article>
         <article class="ava-timeline__row">
           <div class="ava-timeline__day">Day 1&ndash;3</div>
@@ -322,7 +314,7 @@ const schemaData = [
         <h3><span class="pillar-step">01</span>We rank for <code>geo-agency-singapore</code> ourselves.</h3>
         <p>Position 26 with 3,012 monthly impressions on Google Search Console as of this week. That&rsquo;s not market-leading &mdash; it&rsquo;s <em>practitioner-honest</em>. We do the work we sell, and we publish what we learn from doing it on our own site. You&rsquo;re not buying a framework someone read in a Substack.</p>
 
-        <h3><span class="pillar-step">02</span>Our own site uses <code>llms.txt</code>, full schema, and published pricing.</h3>
+        <h3><span class="pillar-step">02</span>Our own site uses <code>llms.txt</code> and full schema.</h3>
         <p>Most SG agencies offering &ldquo;AI SEO&rdquo; don&rsquo;t have any of the three. We&rsquo;ve shipped what we audit &mdash; including the unglamorous bits like the schema audit and the GBP cleanup &mdash; on jraftcreative.com.</p>
 
         <h3><span class="pillar-step">03</span>First-party tooling, not someone else&rsquo;s deck.</h3>
@@ -332,15 +324,14 @@ const schemaData = [
   </section>
 
   <!-- ========== MID-PAGE CTA ========== -->
-  <section class="section ava-cta-band" aria-label="Buy the audit">
+  <section class="section ava-cta-band" aria-label="Request the audit">
     <div class="container">
       <div class="ava-cta-band__inner reveal">
         <p class="ava-cta-band__eyebrow">AI Visibility Audit · Singapore</p>
         <h2 class="ava-cta-band__title">Find out where you stand. Or assume.</h2>
-        <p class="ava-cta-band__copy">5&ndash;7 day delivery · 100% credit to month one of a GEO retainer if you sign on within 30 days · Refund if we miss the 10-day deadline.</p>
+        <p class="ava-cta-band__copy">5&ndash;7 day delivery · Audit fee credits to month one of a GEO retainer if you sign on within 30 days · Refund if we miss the 10-day deadline.</p>
         <div class="ava-cta-band__buttons">
-          <!-- TODO Jeremy: replace with live Stripe checkout URL for AVA $1,000 SKU -->
-          <a href={STRIPE_CHECKOUT_URL} class="btn btn-primary ava-cta-band__primary">Buy the audit · S$1,000</a>
+          <a href="/contact/" class="btn btn-primary ava-cta-band__primary">Request the audit</a>
           <a href="https://wa.me/6582234578?text=AUDIT%20%E2%80%94%20AI%20Visibility%20Audit" class="btn btn-secondary">DM &ldquo;AUDIT&rdquo; on WhatsApp</a>
         </div>
       </div>
@@ -371,13 +362,13 @@ const schemaData = [
           <summary>What happens if you can&rsquo;t deliver in 10 working days?</summary>
           <div class="faq-answer"><p>You get a full refund, no questions. We&rsquo;ve built the process around a 7-day average with a 12-day ceiling specifically so this clause is meaningful. We&rsquo;ve never missed it. If we ever do, the refund is automatic.</p></div>
         </details>
-        <details class="faq-item reveal reveal-d2" id="why-1000-sgd">
-          <summary>Why S$1,000?</summary>
+        <details class="faq-item reveal reveal-d2" id="how-much-does-the-audit-cost">
+          <summary>How much does the audit cost?</summary>
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
-        <details class="faq-item reveal reveal-d3" id="does-the-audit-credit-really-apply-if-i-sign-onto-the-retainer">
-          <summary>Does the audit credit really apply if I sign onto the retainer?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        <details class="faq-item reveal reveal-d3" id="does-the-audit-credit-towards-a-retainer">
+          <summary>Does the audit credit towards a retainer?</summary>
+          <div class="faq-answer"><p>Yes. If you go on to sign a GEO retainer within 30 days of the delivery call, the audit fee credits towards month one &mdash; so if you continue with us, the audit is effectively included. If you don&rsquo;t, you still own a deliverable you can act on alone or hand to anyone.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1" id="how-do-you-measure-visibility-in-chatgpt">
           <summary>How do you measure &ldquo;visibility in ChatGPT&rdquo;?</summary>
@@ -398,11 +389,10 @@ const schemaData = [
         <h2>The Google I/O 2026 numbers are not slowing down.</h2>
         <p class="ava-closing__copy">2.5 billion AI Overview users today. Search Agents launching in weeks. You can either know where you stand on the new search surface, or assume.</p>
         <div class="ava-closing__buttons">
-          <!-- TODO Jeremy: replace with live Stripe checkout URL for AVA $1,000 SKU -->
-          <a href={STRIPE_CHECKOUT_URL} class="btn btn-primary">Buy the audit · S$1,000</a>
+          <a href="/contact/" class="btn btn-primary">Request the audit</a>
           <a href="https://wa.me/6582234578?text=AUDIT%20%E2%80%94%20AI%20Visibility%20Audit" class="btn btn-secondary">DM &ldquo;AUDIT&rdquo; on WhatsApp</a>
         </div>
-        <p class="ava-closing__trust">5&ndash;7 day delivery (12 max) · 100% credit to month one if you go onto a GEO retainer · Refund if we miss the ceiling</p>
+        <p class="ava-closing__trust">5&ndash;7 day delivery (12 max) · Audit fee credits to month one if you go onto a GEO retainer · Refund if we miss the ceiling</p>
         <p class="ava-closing__alt">Not ready to buy? Read our technical guide on <a href="/blog/schema-markup-ai-overviews-guide/">schema markup for AI Overviews</a> &mdash; it&rsquo;s the same framework we use inside the audit, published openly.</p>
       </div>
     </div>

@@ -42,7 +42,7 @@ const schemaData = [
         {
           "@type": "OfferCatalog",
           "name": "Website Development",
-          "description": "Custom business websites, ecommerce stores, web applications, and landing pages. From SGD 2,500.",
+          "description": "Custom business websites, ecommerce stores, web applications, and landing pages.",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Website", "description": "Custom-designed, mobile-responsive website up to 5 pages with contact form and basic SEO setup" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecommerce Store", "description": "Full online store with product catalogue, secure checkout, and inventory management" } },
@@ -52,7 +52,7 @@ const schemaData = [
         {
           "@type": "OfferCatalog",
           "name": "SEO & Performance Optimisation",
-          "description": "Technical SEO audits, on-page optimisation, local SEO, link building, and analytics. From SGD 800/month.",
+          "description": "Technical SEO audits, on-page optimisation, local SEO, link building, and analytics.",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technical SEO Audit", "description": "Comprehensive site crawl, indexing fixes, schema markup, and site architecture improvements" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Local SEO", "description": "Google Business Profile optimisation, local citations, review management, and map pack rankings" } }
@@ -61,7 +61,7 @@ const schemaData = [
         {
           "@type": "OfferCatalog",
           "name": "Paid Performance Marketing",
-          "description": "Google Ads, Meta Ads, TikTok Ads, YouTube Ads, retargeting, and conversion tracking. From SGD 1,000/month.",
+          "description": "Google Ads, Meta Ads, TikTok Ads, YouTube Ads, retargeting, and conversion tracking.",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads Management", "description": "Search and display campaign setup, bid management, and Quality Score optimisation" } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads Management", "description": "Facebook and Instagram audience targeting, creative production, and A/B testing" } }
@@ -70,7 +70,7 @@ const schemaData = [
         {
           "@type": "OfferCatalog",
           "name": "Social Media Content Creation",
-          "description": "Content strategy, branded graphics, Reels, TikTok videos, captions, and community management. From SGD 2,000/month.",
+          "description": "Content strategy, branded graphics, Reels, TikTok videos, captions, and community management.",
           "itemListElement": [
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management", "description": "Monthly content calendars, graphic design, video production, and community management" } }
           ]
@@ -141,10 +141,10 @@ const schemaData = [
       "@type": "OfferCatalog",
       "name": "Digital Marketing Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development", "description": "Custom websites from SGD 2,500" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services", "description": "Search engine optimisation from SGD 800/month" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Ads Management", "description": "Google Ads and Meta Ads from SGD 1,000/month" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing", "description": "Content creation and management from SGD 2,000/month" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development", "description": "Custom websites, ecommerce stores, and web applications" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services", "description": "Search engine optimisation, technical audits, and local SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Ads Management", "description": "Google Ads and Meta Ads campaign management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Marketing", "description": "Content creation and community management" } }
       ]
     }
   }
@@ -237,16 +237,6 @@ const socialSubItems = [
           revealClass="reveal-d1"
           expandable={true}
           subItems={webDevSubItems}
-          pricing={{
-            title: "Transparent Pricing",
-            description: "No hidden fees. Choose the package that fits your needs.",
-            id: "pricing-webdev",
-            cards: [
-              { name: "Starter", price: "$2,500", unit: "SGD", description: "Perfect for small businesses needing a professional online presence.", features: ["Up to 5 pages", "Mobile responsive design", "Contact form", "Basic SEO setup", "2 rounds of revisions", "1 month support"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
-              { name: "Business", price: "$5,500", unit: "SGD", description: "For growing businesses that need more functionality and polish.", features: ["Up to 12 pages", "Custom design & animations", "CMS / blog integration", "Booking or enquiry system", "Advanced SEO & analytics", "3 months support"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
-              { name: "Premium", price: "$10,000+", unit: "SGD", description: "Full ecommerce, web apps, and complex custom builds.", features: ["Unlimited pages", "Ecommerce / web app", "Payment integration", "User accounts & dashboards", "API integrations", "6 months support"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
-            ]
-          }}
         />
         <ServiceCard
           title="SEO & Performance"
@@ -256,15 +246,6 @@ const socialSubItems = [
           revealClass="reveal-d2"
           expandable={true}
           subItems={seoSubItems}
-          pricing={{
-            title: "SEO Pricing",
-            description: "Monthly retainer plans. Results-driven, no lock-in contracts.",
-            cards: [
-              { name: "Essential", price: "$800", unit: "SGD/mo", description: "For small businesses looking to build organic visibility.", features: ["Technical SEO audit", "On-page optimisation (10 pages)", "Google Analytics & Search Console", "Monthly keyword tracking", "Monthly performance report"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
-              { name: "Growth", price: "$1,500", unit: "SGD/mo", description: "For businesses ready to dominate search rankings.", features: ["Everything in Essential", "Content strategy & blog SEO", "Link building (5 links/mo)", "Competitor analysis", "Local SEO & Google Business", "Bi-weekly reporting"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
-              { name: "Enterprise", price: "$3,000+", unit: "SGD/mo", description: "Full-service SEO for high-traffic sites and competitive industries.", features: ["Everything in Growth", "Dedicated SEO strategist", "Advanced link building (15+/mo)", "Content creation & publishing", "Core Web Vitals optimisation", "Weekly reporting & strategy calls"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
-            ]
-          }}
         />
         <ServiceCard
           title="Paid Performance Marketing"
@@ -274,15 +255,6 @@ const socialSubItems = [
           revealClass="reveal-d3"
           expandable={true}
           subItems={adsSubItems}
-          pricing={{
-            title: "Paid Ads Pricing",
-            description: "Management fees are separate from ad spend. No minimum contract.",
-            cards: [
-              { name: "Starter", price: "$1,000", unit: "SGD/mo", description: "For businesses testing paid channels for the first time.", features: ["1 platform (Google or Meta)", "Campaign setup & strategy", "Ad copywriting & creatives", "Pixel & conversion tracking", "Monthly performance report"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
-              { name: "Growth", price: "$2,500", unit: "SGD/mo", description: "For businesses scaling with multi-platform campaigns.", features: ["2 platforms (Google + Meta)", "A/B testing & creative iteration", "Retargeting & lookalike audiences", "Landing page recommendations", "Bi-weekly reporting & optimisation", "Dedicated account manager"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
-              { name: "Scale", price: "$5,000+", unit: "SGD/mo", description: "Full-funnel paid strategy across all major platforms.", features: ["All platforms (Google, Meta, TikTok, YouTube)", "Video ad production", "Advanced attribution modelling", "Real-time dashboard access", "Weekly strategy calls", "Dedicated strategist"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
-            ]
-          }}
         />
         <ServiceCard
           title="Social Media Content Creation"
@@ -292,15 +264,6 @@ const socialSubItems = [
           revealClass="reveal-d4"
           expandable={true}
           subItems={socialSubItems}
-          pricing={{
-            title: "Social Media Pricing",
-            description: "Monthly content packages. All content is yours to keep and reuse.",
-            cards: [
-              { name: "Essential", price: "$2,000", unit: "SGD/mo", description: "For brands starting their social media presence.", features: ["12 posts per month", "2 platforms", "Branded graphic design", "Captions & hashtags", "Monthly content calendar"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
-              { name: "Professional", price: "$3,000", unit: "SGD/mo", description: "For brands ready to grow and engage consistently.", features: ["20 posts per month", "3 platforms", "4 Reels / short-form videos", "Stories & highlights design", "Captions, hashtags & scheduling", "Basic community management"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
-              { name: "Full-Service", price: "$5,000+", unit: "SGD/mo", description: "End-to-end social media management for serious brands.", features: ["30+ posts per month", "All platforms", "8+ Reels & video production", "Full community management", "Influencer coordination", "Monthly analytics & strategy review"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
-            ]
-          }}
         />
         <ServiceCard
           title="AI Search Optimisation (GEO)"
@@ -310,15 +273,6 @@ const socialSubItems = [
           revealClass="reveal-d1"
           expandable={true}
           subItems={geoSubItems}
-          pricing={{
-            title: "GEO Pricing",
-            description: "Monthly retainer plans. No lock-in contracts.",
-            cards: [
-              { name: "Essentials", price: "$3,000", unit: "SGD/mo", description: "For businesses starting their AI visibility journey.", features: ["AI visibility audit & baseline", "Schema markup implementation", "Content optimisation (5 pages/mo)", "llms.txt setup & maintenance", "Monthly AI visibility report", "Quarterly strategy review"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-secondary" },
-              { name: "Growth", price: "$5,000", unit: "SGD/mo", description: "For businesses ready to dominate AI recommendations.", features: ["Everything in Essentials", "Content optimisation (20 pages/mo)", "Authority building & directories", "Answer Engine content creation", "Bi-weekly reporting & benchmarks", "Dedicated GEO strategist", "Content freshness programme"], cta: "Get Started", ctaHref: "/contact/", ctaClass: "btn btn-primary", featured: true },
-              { name: "Enterprise", price: "$10,000+", unit: "SGD/mo", description: "Full-service AI search domination across all platforms.", features: ["Everything in Growth", "Multi-platform defensive monitoring", "Wikipedia presence strategy", "Weekly calls & real-time dashboard", "50+ prompt monitoring daily", "Sentiment defence & crisis alerts"], cta: "Let's Talk", ctaHref: "/contact/", ctaClass: "btn btn-secondary" }
-            ]
-          }}
         />
       </div>
 
@@ -459,34 +413,14 @@ const socialSubItems = [
     }
     expandableCards.forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (e.target.closest('.pricing-card a, .pricing-card button')) return;
         toggleCard(card);
       });
       card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
-          if (e.target.closest('.pricing-card a, .pricing-card button')) return;
           e.preventDefault();
           toggleCard(card);
         }
       });
     });
-
-    // Pricing nav link — expand web dev card and scroll to pricing
-    document.querySelectorAll('a[href="/contact/"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        expandableCards.forEach(function (c) {
-          c.classList.remove('expanded');
-          c.setAttribute('aria-expanded', 'false');
-        });
-        var webDevCard = document.getElementById('serviceWebDev');
-        webDevCard.classList.add('expanded');
-        webDevCard.setAttribute('aria-expanded', 'true');
-        setTimeout(function () {
-          document.getElementById('pricing-webdev').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 350);
-      });
-    });
-
   </script>
 </BaseLayout>
