@@ -1,0 +1,333 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Aesthetics Clinic AI Search Optimisation Singapore",
+    "description": "Specialist AI search optimisation (GEO) for aesthetic clinics in Singapore. Get your clinic recommended by ChatGPT, Google Gemini, Perplexity, Copilot, and AI Overviews when patients ask AI for botox, filler, HIFU, and aesthetic clinic recommendations. Treatment-level entity work, MOH-compliant citable content, doctor credentialing, and authority building.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Aesthetics Clinic Generative Engine Optimisation (GEO)"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do patients find aesthetic clinics through AI?", "acceptedAnswer": { "@type": "Answer", "text": "Patients ask ChatGPT, Gemini, and Perplexity questions like 'best clinic for botox in Singapore' or 'recommended HIFU clinic near Orchard.' AI platforms evaluate doctor credentials, treatment-specific content, review sentiment, and structured data to recommend three to four clinics per query. Aesthetic clinics without optimised AI signals are simply left out of these high-intent recommendations." } },
+      { "@type": "Question", "name": "Why do AI-referred aesthetics patients convert at a higher rate?", "acceptedAnswer": { "@type": "Answer", "text": "AI-referred patients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. Aesthetic treatments are considered, high-value decisions — when ChatGPT or Gemini names a specific clinic for botox or filler, the patient treats it as a trusted referral rather than one option among many. They have already decided to book a consultation; they just needed a name." } },
+      { "@type": "Question", "name": "How is aesthetics clinic GEO different from aesthetics SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Aesthetics SEO targets the Google Maps three-pack and organic blue-link rankings for terms like 'botox Orchard Road.' GEO targets AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first treatment content, healthcare-specific schema (MedicalOrganization, Physician, MedicalProcedure), and citations from sources AI trusts such as Healthpages.sg and DocDoc. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most aesthetic clinics need both." } },
+      { "@type": "Question", "name": "Does aesthetics clinic AI search optimisation comply with MOH advertising rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Singapore's Ministry of Health (MOH) Healthcare Services Advertising rules restrict what aesthetic clinics can say — no prohibited claims, no misleading before/after language, no non-compliant pricing tactics. GEO works within those rules because AI recommendations are organic — the AI generates them from publicly available data, not a paid ad placement. We optimise factual, credential-based, treatment-accurate content that meets both AI trust requirements and MOH advertising guidelines." } },
+      { "@type": "Question", "name": "Which AI platforms recommend aesthetic clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer aesthetic-treatment queries such as 'best HIFU clinic Singapore' or 'thread lift vs filler for jawline.' Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient researching a treatment via AI." } },
+      { "@type": "Question", "name": "How long before AI starts recommending my aesthetic clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization and MedicalProcedure schema markup and doctor credential structuring can improve visibility within weeks. Authority building through medical directories and MOH-compliant treatment content programmes deliver stronger, compounding results over time." } },
+      { "@type": "Question", "name": "Can you optimise for specific treatments like botox, filler, and HIFU?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — treatment-level work is the core of aesthetics GEO. We map the exact prompts patients use for each procedure ('best clinic for jawline botox Singapore,' 'under-eye filler near Novena,' 'HIFU vs Thermage which is better') and build the schema, content, and authority signals that earn your clinic the citation for those specific treatment queries — not a generic 'aesthetics clinic' page." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Aesthetics Clinic AI Search Optimisation Singapore", "item": "https://jraftcreative.com/aesthetics-clinic-ai-search-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Aesthetics Clinic AI Search Optimisation Singapore | Jraft Creative"
+  description="Aesthetic clinic GEO agency in Singapore. Get cited by ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode when patients ask AI for botox, filler, and HIFU clinic recommendations. AI referrals convert 4.4x higher. Treatment schema, MOH-compliant citable content, authority building."
+  canonical="https://jraftcreative.com/aesthetics-clinic-ai-search-optimisation-singapore/"
+  ogTitle="Aesthetics Clinic AI Search Optimisation Singapore | Jraft Creative"
+  ogDescription="Aesthetic clinic GEO agency in Singapore. ChatGPT, Gemini, Perplexity, Google AI Mode citations for botox, filler, and HIFU searches. AI referrals convert 4.4x higher."
+  ogImage="https://jraftcreative.com/images/og-seo.jpg"
+  keywords="aesthetics clinic ai search optimisation singapore, aesthetic clinic geo singapore, aesthetics generative engine optimisation, chatgpt aesthetic clinic singapore, gemini botox clinic ranking, hifu clinic ai visibility singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Aesthetics Clinic AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Aesthetic Clinics in Singapore</span>'
+  heroSubtitle="When a patient asks ChatGPT 'best clinic for botox in Singapore' or tells Gemini 'recommend a HIFU clinic near Orchard,' the AI names three to four clinics. If yours is not one of them, that patient books a consultation elsewhere. AI-referred patients convert at 4.4x the rate — because they trust the recommendation. We build aesthetics clinic GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — the MOH-compliant way."
+  heroImage="/images/service-aesthetics.webp"
+  heroImageAlt="Singapore aesthetic clinic recommended by AI — aesthetics clinic GEO agency"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20aesthetic%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my aesthetic clinic in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Get Your <span class="highlight">Aesthetic Clinic Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when patients search for botox, filler, or HIFU clinics like yours — and how to make sure your practice comes up. We'll respond within 24 hours with a tailored, MOH-compliant aesthetics GEO plan."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20aesthetic%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why aesthetic clinics need AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Patients Are Asking <span class="highlight">AI</span> Which Clinic to <span class="highlight">Trust</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Aesthetic treatments are high-value, considered decisions. Before booking botox, filler, or HIFU, patients research for days — and a growing share now start by asking ChatGPT "best clinic for botox in Singapore" or telling Gemini "recommend a HIFU clinic near Novena." When AI answers, it names three to four clinics, and patients treat those as trusted referrals. Most Singapore aesthetic clinics are still optimising only for Google Ads and SEO along Orchard, Novena, and the CBD — leaving the AI channel wide open.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most aesthetics marketing agencies still focus only on Google Ads and SEO for "botox Orchard Road," treating AI search as a future concern. They leave ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new front door for patients choosing where to have a treatment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A top Google ranking does not guarantee an AI citation — the overlap has dropped below 20%. AI evaluates doctor credentials, treatment-specific content, review sentiment across Healthpages.sg and DocDoc, and clinical authority. Different signal set, different optimisation work for every treatment you offer.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>4.4x Higher Conversion</h3>
+            <p>AI-referred patients convert at 4.4x the rate of traditional search traffic. They didn't pick you from a list of ten Orchard clinics — AI specifically recommended you for their treatment. They arrive with built-in trust, having already decided to book a consultation. They just needed a name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The MOH-Compliant Channel</h3>
+            <p>MOH's Healthcare Services Advertising rules restrict what aesthetic clinics can say in paid and promotional media — no prohibited claims, no misleading before/after language. AI recommendations are organic, generated from public data, not paid placement. GEO is one of the few channels where your clinic is prominently recommended without those advertising constraints.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most Singapore aesthetic clinics are not yet investing in GEO. The clinics that invest in 2026 own AI citations for their treatments and neighbourhood — botox in Orchard, HIFU in Novena — before competitors catch on, building defensible visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, acquiring aesthetics patients through ChatGPT and Gemini is no longer a niche channel. Your strong Google presence and SEM spend on treatment keywords don't translate to AI visibility — it's separate work that clinics can no longer ignore.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Aesthetics clinic GEO services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Aesthetics GEO Workstreams</span> Every Clinic <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run aesthetics clinic GEO as a six-workstream system — AI visibility audit, treatment schema, MOH-compliant citable content, medical authority building, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your treatments and catchment. Pair it with a professionally designed <a href="/aesthetics-clinic-website-singapore/">aesthetics clinic website</a> for a complete digital strategy.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>Test 20-30 treatment prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best clinic for botox Singapore," "HIFU near Orchard," "under-eye filler recommendation." Reveals exactly which clinics AI recommends instead of yours, and the signals driving those choices.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Treatment Schema &amp; Entity</h3>
+            <p>MedicalOrganization, Physician, MedicalProcedure, and MedicalSpecialty schema. Defines your treatments — botox, dermal fillers, HIFU, laser, thread lifts — your doctors' credentials, and practice attributes so AI understands your expertise and matches you to the right patient queries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>MOH-Compliant Citable Content</h3>
+            <p>Treatment guides, procedure comparisons, and doctor profiles — structured answer-first for AI and written fully within MOH advertising rules. Fact-dense, clinically accurate content that gives AI models the confidence to recommend your clinic without any compliance risk.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Medical Authority Building</h3>
+            <p>Strengthen presence on the sources AI trusts most for aesthetics — Google Reviews, Healthpages.sg, DocDoc, and medical registries. AI applies a higher credibility bar to clinics, and these citations are what it uses to rank clinical trust for treatment recommendations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your clinic's Brand Visibility Score, Citation Rate, and Share of Voice across every major AI platform every month — per treatment. Quantify exactly how often AI recommends your clinic versus competitors for botox, filler, and HIFU — with the actual prompts and citations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each evaluates clinical authority differently and pulls from different sources — our work covers all five so your clinic gets cited regardless of which AI tool the patient asks about their treatment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for aesthetics clinic AI search optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Aesthetics GEO</span> That <span class="highlight">Grows Your Patient Base</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run the GEO playbook for our own agency — and the same methodology for aesthetic clinic clients. We map the exact treatment-and-area prompts Singapore patients use, build the credential and schema stack that earns the citation, and track Brand Visibility Score across all five major AI platforms monthly. AI applies a higher credibility bar to healthcare than any other category, and aesthetics sits under MOH advertising rules on top — we build for both.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Treatment-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG patients use — "best clinic for jawline botox Singapore," "under-eye filler near Novena," "HIFU vs Thermage which is better" — and optimise against those specific treatment queries, not generic GEO templates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>MOH-Compliant By Design</h3>
+            <p>Every treatment page, comparison, and doctor profile we build for AI is crafted to stay fully within MOH Healthcare Services Advertising boundaries — no prohibited claims, no misleading before/after language, no takedown risk — while still earning the citation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measurable AI Metrics</h3>
+            <p>Brand Visibility Score, Citation Rate, Share of Voice across ChatGPT, Gemini, Perplexity, Copilot, Google AI Mode — tracked monthly per treatment with the actual prompts and citations. Not vanity "AI score" reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT FUNNEL ========== -->
+  <section class="section" id="patient-funnel" style="background: var(--bg-alt);" aria-label="The aesthetics patient journey — and where GEO shows up">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Aesthetics Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore aesthetics patients move through five stages. GEO is the emerging dominant channel in Compare and Consult — the moment a patient asks AI which clinic to trust for a treatment and it returns three to four names. AI citations also reinforce Research, when a patient looks up a procedure before ever naming a clinic.</p>
+      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Research</h3>
+          <p>Patient asks AI about a treatment — botox, filler, HIFU (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>AI returns 3-4 clinic names for the treatment (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consult</h3>
+          <p>AI-cited patients book a consultation at high intent</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Treat</h3>
+          <p>Care experience reinforces the next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews and referrals compound back into AI trust signals</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics clinic AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Aesthetics GEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do patients find aesthetic clinics through AI?</summary>
+          <div class="faq-answer"><p>Patients ask ChatGPT, Gemini, and Perplexity questions like "best clinic for botox in Singapore" or "recommended HIFU clinic near Orchard." AI platforms evaluate doctor credentials, treatment-specific content, review sentiment, and structured data to recommend three to four clinics per query. Aesthetic clinics without optimised AI signals are simply left out of these high-intent recommendations.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why do AI-referred aesthetics patients convert at a higher rate?</summary>
+          <div class="faq-answer"><p>AI-referred patients convert at 4.4x the rate of traditional search traffic because they arrive with higher trust and intent. Aesthetic treatments are considered, high-value decisions — when ChatGPT or Gemini names a specific clinic for botox or filler, the patient treats it as a trusted referral rather than one option among many. They have already decided to book a consultation; they just needed a name.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How is aesthetics clinic GEO different from aesthetics SEO?</summary>
+          <div class="faq-answer"><p>Aesthetics SEO targets the Google Maps three-pack and organic blue-link rankings for terms like "botox Orchard Road." GEO targets AI-generated answers. They share some signals (Google reviews, GBP completeness, structured data) but GEO also rewards answer-first treatment content, healthcare-specific schema (MedicalOrganization, Physician, MedicalProcedure), and citations from sources AI trusts such as Healthpages.sg and DocDoc. The overlap between Google rankings and AI citations has dropped below 20%, so a strong Google presence does not guarantee AI visibility. Most aesthetic clinics need both.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Does aesthetics clinic AI search optimisation comply with MOH advertising rules?</summary>
+          <div class="faq-answer"><p>Yes. Singapore's Ministry of Health (MOH) Healthcare Services Advertising rules restrict what aesthetic clinics can say — no prohibited claims, no misleading before/after language, no non-compliant pricing tactics. GEO works within those rules because AI recommendations are organic — the AI generates them from publicly available data, not a paid ad placement. We optimise factual, credential-based, treatment-accurate content that meets both AI trust requirements and MOH advertising guidelines.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which AI platforms recommend aesthetic clinics in Singapore?</summary>
+          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer aesthetic-treatment queries such as "best HIFU clinic Singapore" or "thread lift vs filler for jawline." Each platform evaluates clinical authority differently, so we optimise your clinic's presence across all of them to capture every patient researching a treatment via AI.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long before AI starts recommending my aesthetic clinic?</summary>
+          <div class="faq-answer"><p>Most clinics see measurable changes in AI citation rates within 30 to 90 days. Quick wins like MedicalOrganization and MedicalProcedure schema markup and doctor credential structuring can improve visibility within weeks. Authority building through medical directories and MOH-compliant treatment content programmes deliver stronger, compounding results over time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you optimise for specific treatments like botox, filler, and HIFU?</summary>
+          <div class="faq-answer"><p>Yes — treatment-level work is the core of aesthetics GEO. We map the exact prompts patients use for each procedure ("best clinic for jawline botox Singapore," "under-eye filler near Novena," "HIFU vs Thermage which is better") and build the schema, content, and authority signals that earn your clinic the citation for those specific treatment queries — not a generic "aesthetics clinic" page.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services for aesthetic clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Aesthetic Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+        <a href="/geo-agency-singapore/" class="related-service-link">GEO Agency Singapore</a>
+        <a href="/aesthetics-clinic-marketing-singapore/" class="related-service-link">Aesthetics Clinic Marketing</a>
+        <a href="/aesthetics-clinic-seo-singapore/" class="related-service-link">Aesthetics Clinic SEO</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

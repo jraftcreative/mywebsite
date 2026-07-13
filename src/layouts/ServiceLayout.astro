@@ -24,10 +24,8 @@ interface Props {
   ctaButtons: { text: string; href: string; class: string }[];
   /**
    * When true, suppresses the default "Ready to Get Started?" CTA section
-   * that ServiceLayout renders after the slot. Used by the priority industry
-   * LPs where the Growth Bundle midpage CTA replaces it (Plan A pivot, May
-   * 2026 — Tyler / SEM). The page is then responsible for placing its own
-   * mid-page CTA (typically <GrowthBundleCTA placement="midpage" />).
+   * that ServiceLayout renders after the slot. Pages that set this are then
+   * responsible for placing their own mid-page CTA inside the slot.
    */
   hideDefaultCta?: boolean;
 }
