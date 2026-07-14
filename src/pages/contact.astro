@@ -167,15 +167,19 @@ const schemaData = [
       btn.disabled = true;
       btn.setAttribute('aria-busy', 'true');
 
-      // Capture landing page attribution from sessionStorage
+      // Capture attribution from storage (set by BaseLayout on first visit)
       var landingPage = '/';
       var landingReferrer = 'direct';
+      var trafficType = 'Direct';
+      var gclid = '';
       try {
         landingPage = sessionStorage.getItem('jraft_landing_page') || window.location.pathname;
         landingReferrer = sessionStorage.getItem('jraft_landing_referrer') || 'direct';
+        trafficType = sessionStorage.getItem('jraft_traffic_type') || 'Direct';
+        gclid = localStorage.getItem('jraft_gclid') || '';
       } catch (e) {}
 
-      var data = { name: name, company: company, email: email, phone: phone, message: message, landing_page: landingPage, landing_referrer: landingReferrer };
+      var data = { name: name, company: company, email: email, phone: phone, message: message, source_page: landingPage, traffic_type: trafficType, gclid: gclid, landing_page: landingPage, landing_referrer: landingReferrer };
 
       var waText = 'Hi Jraft Creative, I just submitted an enquiry on your website.\n\nName: ' + name + (company ? '\nCompany: ' + company : '') + '\nProject: ' + message + '\n\nLanding page: ' + landingPage;
       document.getElementById('whatsappFollowUp').href = 'https://wa.me/6582234578?text=' + encodeURIComponent(waText);

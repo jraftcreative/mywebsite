@@ -373,12 +373,14 @@ const schemaData = [
       btn.disabled = true;
       btn.setAttribute('aria-busy', 'true');
 
-      // Landing page attribution (set by BaseLayout on first load)
+      // Landing page + traffic-source attribution (set by BaseLayout on first load)
       var landingPage = '/marketing-audit-singapore/';
       var landingReferrer = 'direct';
+      var trafficType = 'Direct';
       try {
         landingPage = sessionStorage.getItem('jraft_landing_page') || window.location.pathname;
         landingReferrer = sessionStorage.getItem('jraft_landing_referrer') || 'direct';
+        trafficType = sessionStorage.getItem('jraft_traffic_type') || 'Direct';
       } catch (e) {}
 
       var data = {
@@ -388,6 +390,8 @@ const schemaData = [
         phone: phone,
         website: website,
         message: message,
+        source_page: landingPage,
+        traffic_type: trafficType,
         gclid: gclid,
         landing_page: landingPage,
         landing_referrer: landingReferrer

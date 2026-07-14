@@ -107,6 +107,32 @@ const currentPath = Astro.url.pathname;
         if (!sessionStorage.getItem('jraft_landing_referrer')) {
           sessionStorage.setItem('jraft_landing_referrer', document.referrer || 'direct');
         }
+        // Classify the traffic source once, on first touch (organic vs paid ads etc.)
+        if (!sessionStorage.getItem('jraft_traffic_type')) {
+          var p = new URLSearchParams(window.location.search);
+          var med = (p.get('utm_medium') || '').toLowerCase();
+          var src = (p.get('utm_source') || '').toLowerCase();
+          var ref = document.referrer || '';
+          var host = '';
+          try { host = ref ? new URL(ref).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+          var t;
+          if (p.get('gclid') || med === 'cpc' || med === 'ppc' || med === 'paid' || med === 'paidsearch') {
+            t = 'Paid Search (Google Ads)';
+          } else if (med === 'paid_social' || med === 'paidsocial' || med === 'cpm' || med === 'display') {
+            t = 'Paid Social' + (src ? ' (' + src + ')' : '');
+          } else if (med || src) {
+            t = 'Campaign' + (src ? ' (' + src + ')' : '');
+          } else if (/google|bing|yahoo|duckduckgo|ecosia|baidu/.test(host)) {
+            t = 'Organic Search';
+          } else if (/facebook|instagram|linkedin|t\.co|twitter|x\.com|tiktok|youtube|reddit|pinterest/.test(host)) {
+            t = 'Social';
+          } else if (!ref || host.indexOf('jraftcreative') === 0) {
+            t = 'Direct';
+          } else {
+            t = 'Referral (' + host + ')';
+          }
+          sessionStorage.setItem('jraft_traffic_type', t);
+        }
       } catch (e) { /* sessionStorage unavailable */ }
     })();
   </script>
