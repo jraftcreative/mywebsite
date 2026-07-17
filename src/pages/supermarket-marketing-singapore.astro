@@ -1,0 +1,416 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Supermarket Marketing Agency Singapore",
+    "description": "Full-service marketing agency for supermarkets and grocery retailers in Singapore. Always-on social, geo and heartland paid boosting, weekly promo and circular content, loyalty and app growth, festive campaigns, and GEO — built to drive footfall, basket size, and repeat trips.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Supermarket & Grocery Retail Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do supermarkets market themselves and drive footfall in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Supermarkets in Singapore drive footfall by being locally relevant, not just cheap. The channels that work: always-on social media (Instagram, TikTok, Facebook) that turns fresh produce, recipes, and weekly deals into a reason to visit; geo and heartland paid boosting on Meta and TikTok so shoppers in your catchment see this week's promotions; weekly promo and circular content that makes the deals people already scan for scroll-stopping; loyalty and app growth that converts casual shoppers into members who come back and spend more per trip; festive and seasonal campaigns timed to CNY hampers, Hari Raya, Deepavali, and year-end; and GEO plus local search so you're named when people ask 'supermarket near me' or 'best grocery deals in [area]'. The stores that hold footfall against online grocery treat marketing as an always-on programme, not a stack of price posters." } },
+      { "@type": "Question", "name": "How do supermarkets compete with online grocery like RedMart and Amazon Fresh?", "acceptedAnswer": { "@type": "Answer", "text": "You don't beat online grocery on doorstep convenience — you beat it on freshness, immediacy, and local relevance. Online delivery wins the planned re-stock; the physical store wins the fresh produce you want to pick yourself, the deal you spotted today, the top-up trip on the way home, and the festive shop. Marketing's job is to make those reasons visible and constant: social content that shows what's fresh and on offer this week, weekly circular content that turns deals into a plan, loyalty rewards that make the store worth choosing, and festive campaigns that own the seasonal basket. When a supermarket's feed answers 'why shop here this week', footfall and basket size follow." } },
+      { "@type": "Question", "name": "Which marketing channels work best for supermarkets in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most grocery retailers: (1) always-on social media management (IG, TikTok, FB) built on fresh deals, recipes, and community; (2) geo and heartland paid boosting on Meta and TikTok with catchment targeting so promotions reach nearby shoppers; (3) weekly promo and circular content that turns the weekly deals into content people actually watch; (4) loyalty and app growth to drive member sign-ups, app usage, and repeat trips; (5) festive and seasonal campaigns around CNY hampers, Hari Raya, Deepavali, and year-end; and (6) GEO and local search so the store is named when shoppers ask AI or Google for 'supermarket near me' or 'best grocery deals'. We build the mix around your catchment, private-label range, and promotional calendar." } },
+      { "@type": "Question", "name": "How do you measure whether supermarket marketing is working?", "acceptedAnswer": { "@type": "Answer", "text": "Footfall and basket size are the headlines, but the honest read comes from a stack of signals. On the marketing side we track reach and engagement in your catchment, saves and shares on promo and recipe content (the strongest 'planning to shop' signal), loyalty sign-ups and app installs driven by campaigns, and paid-boost cost per engaged catchment shopper. Where transaction, membership, or app data are available, we tie campaign windows to movement — promo weeks, festive periods, member-only events. We're realistic: grocery footfall has many drivers beyond marketing, so we focus on the metrics marketing genuinely moves — member growth, repeat trips, promo redemption — and report them plainly." } },
+      { "@type": "Question", "name": "Can you help grow a supermarket loyalty programme and app?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — loyalty and the app are where grocery marketing compounds, and they're usually under-leveraged. A member who signs up, installs the app, and opts into offers is worth far more than a one-off shopper: more trips, bigger baskets, and a channel you own to reach them directly. We build campaigns that make sign-up worth it — member-only deals, app-exclusive offers, points and rewards framed as real savings — then use always-on social and paid boosting to drive installs and activations. It turns anonymous footfall into a known, repeat customer base you can market to again and again, without paying for reach each time." } },
+      { "@type": "Question", "name": "How do I choose a marketing agency for a supermarket?", "acceptedAnswer": { "@type": "Answer", "text": "Choose an agency that understands grocery retail specifically, not a generic social retainer. Ask: do they think in terms of footfall, basket size, catchment, loyalty, and the weekly circular — or just followers and likes? Can they run always-on social AND weekly promo content AND festive campaigns, coordinated on one calendar? Do they understand that a supermarket wins on local relevance and repeat trips, not one-off virality? Can they grow loyalty and app usage, not just brand awareness? Do they cover social, paid, content, and GEO under one roof so you're not coordinating vendors? And do they report on metrics that matter to store and marketing management, not vanity numbers? Jraft Creative builds always-on grocery marketing playbooks around exactly these questions." } },
+      { "@type": "Question", "name": "How do supermarkets get found in AI search or recommended by ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "When someone asks ChatGPT, Gemini, or Google AI Mode for 'the best supermarket near [area]', 'where to buy fresh produce in [town]', or 'best grocery deals this week', you want your store named in the answer. That takes the signals AI models trust: structured data so AI can read your stores, hours, and offers clearly; answer-first content that matches how people ask about groceries, fresh produce, and deals; strong local search presence and Google reviews the models weigh; and consistent, current store information across the web. This is called GEO (Generative Engine Optimisation). Jraft Creative got its own site cited in Google's AI Overview and runs the same playbook to get supermarkets surfaced in AI recommendations." } },
+      { "@type": "Question", "name": "Do you create weekly promo and circular content for supermarkets?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it's one of the highest-leverage things a supermarket can do on social. Shoppers already scan for the weekly deals — the opportunity is to turn that circular into content they actually watch and share, instead of a static price grid. We build a repeatable system: a shoot and posting cadence around each week's promotions, formats (Reels, stories, carousels) that make fresh produce, private-label finds, and multi-buy deals feel like a reason to visit, and paid boosting to push the best of it into your catchment. It converts the weekly promo cycle from a poster in-store into a footfall driver on the feed." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Supermarket Marketing Singapore", "item": "https://jraftcreative.com/supermarket-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* ── PAGE-LOCAL viewport-fit: tighten Challenge + Six-Channels cards ── */
+  /* Challenge cards — trim padding so header + 3 cards sit within one screen */
+  #challenge .service-detail-card {
+    padding: 22px 20px;
+  }
+  #challenge .section-content {
+    margin-bottom: 24px;
+  }
+  /* Six Channels (deliver cards) — reduce content min-height + padding for this page */
+  #sub-services .deliver-card-with-bg .service-detail-card__content {
+    min-height: 128px;
+    padding: 22px 20px;
+  }
+  #sub-services.section {
+    padding: 56px 0;
+  }
+  #sub-services .section-header {
+    margin-bottom: 36px;
+  }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Shopper Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Supermarket Marketing Singapore | Jraft Creative"
+  description="Marketing agency for supermarkets in Singapore. Always-on social, weekly promo content, loyalty and app growth, and geo boosting to drive footfall."
+  canonical="https://jraftcreative.com/supermarket-marketing-singapore/"
+  ogTitle="Supermarket Marketing Singapore | Jraft Creative"
+  ogDescription="Full-service marketing for supermarkets and grocery retailers in Singapore. Always-on social, geo boosting, weekly promo content, loyalty and app growth, festive campaigns, and GEO — built to drive footfall and basket size."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="supermarket marketing, grocery retail marketing, supermarket marketing agency singapore, supermarket marketing singapore, drive footfall, basket size, grocery marketing, loyalty app growth, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Supermarkets"
+  heroTitle='Marketing for <span class="highlight">Supermarkets in Singapore</span>'
+  heroSubtitle="Online grocery and price wars keep pulling shoppers away — and no one wins a race to the cheapest poster. The store wins on local relevance, loyalty, and giving heartland shoppers a reason to visit and fill a bigger basket."
+  heroImage="/images/supermarket-interior.webp"
+  heroImageAlt="A Singapore supermarket interior with fresh produce aisles — marketing for supermarkets and grocery retailers to drive footfall and basket size"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20manage%20marketing%20for%20a%20supermarket%20in%20Singapore%20and%20need%20help%20driving%20footfall%20and%20basket%20size.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I manage marketing for a supermarket in Singapore and need help driving footfall and basket size."
+  ctaLabel="Ready to Fill More Baskets?"
+  ctaTitle='Let Us <span class="highlight">Drive Footfall</span> and <span class="highlight">Basket Size</span>'
+  ctaDescription="Book a free consultation and tell us about your store — your catchment, private-label range, and promotional calendar. We'll get back to you within 24 hours with a tailored, always-on marketing playbook built to drive footfall, basket size, and repeat trips."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20manage%20marketing%20for%20a%20supermarket%20in%20Singapore%20and%20need%20help%20driving%20footfall%20and%20basket%20size.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why supermarkets need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Groceries Are Won on <span class="highlight">Relevance</span> — Not on the <span class="highlight">Cheapest Poster</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Online grocery keeps chipping away at the weekly shop, and every store in the catchment is running the same discounts — so promotions blur into noise. The win isn't a lower price than the next flyer; it's local relevance, freshness people can see, and a loyalty relationship worth coming back for. Supermarkets that still market through price posters alone are invisible at the exact moment a heartland shopper decides where — and whether — to shop this week.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Online Grocery Erosion</h3>
+            <p>RedMart, Amazon Fresh, and delivery keep winning the planned re-stock, chipping away at footfall and basket. The store only wins back trips by selling freshness, immediacy, and local relevance a delivery box can't.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Everyone's on Discount</h3>
+            <p>When every supermarket runs the same promotions, price posters blur into noise. Standing out means turning the weekly deals into content shoppers actually watch — not another flyer they scroll past.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Under-Leveraged Loyalty &amp; App</h3>
+            <p>Membership and the app are grocery's best repeat-trip engine — but they stay under-promoted. Anonymous footfall you can't reach again is a marketing gap, not a demand gap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for supermarkets in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Supermarket <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Jraft Creative is a Singapore marketing agency for supermarkets and grocery retailers — store and marketing teams who need to drive footfall, basket size, and repeat trips. We build always-on grocery marketing playbooks that combine social media management, geo and heartland paid boosting, weekly promo and circular content, loyalty and app growth, festive and seasonal campaigns, and AI search optimisation (GEO) — all on one coordinated calendar.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media Management</a></h3>
+            <p>The store's always-on channel — IG, TikTok, and Facebook run on fresh deals, recipes, and community. The feed heartland shoppers check for what's fresh and what's on offer this week.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Geo &amp; Heartland Paid Boosting</a></h3>
+            <p>Meta and TikTok boosting with catchment targeting — push this week's promotions to shoppers in your radius, and concentrate spend where it drives the most footfall to your aisles.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Weekly Promo &amp; Circular Content</a></h3>
+            <p>Turn the weekly deals shoppers already scan for into scroll-stopping content — fresh produce, private-label finds, multi-buy offers — in formats that make the circular a footfall driver.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Loyalty &amp; App Growth</a></h3>
+            <p>Drive member sign-ups, app installs, and repeat trips with campaigns that make membership worth it — member-only deals and app-exclusive offers that turn footfall into a customer base you own.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Festive &amp; Seasonal Campaigns</a></h3>
+            <p>Own the Singapore grocery calendar — CNY hampers, Hari Raya, Deepavali, and year-end — with campaigns planned ahead of each seasonal basket, not scrambled the week before.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO / AI Search &amp; Local</a></h3>
+            <p>Get the store named when people ask ChatGPT, Gemini, or Google for "supermarket near me" or "best grocery deals in [area]" — plus the local search presence that wins nearby, ready-to-shop trips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for supermarket marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Shoppers</span> Actually <span class="highlight">Choose a Store</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies treat a supermarket like any other social account — a branded page, some pretty posts, and vanity metrics. We're the opposite: we think in footfall, basket size, catchment, and loyalty, and we run always-on social, weekly promo content, and festive campaigns on one coordinated calendar. Crucially, we build for what grocery actually wins on — local relevance and repeat trips — not one-off virality that never fills a basket.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>We Think in Basket Size</h3>
+            <p>Footfall, basket size, catchment, weekly circular, loyalty, private label — we speak the language of grocery retail, and we build playbooks around driving trips and spend per visit, not chasing follower counts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Social, paid boosting, promo content, loyalty growth, festive campaigns, and GEO under one roof — coordinated on a single calendar. No juggling vendors, and always-on and seasonal work reinforce each other.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Loyalty That Compounds</h3>
+            <p>We turn anonymous footfall into known members — sign-ups, app installs, and repeat trips — so every campaign builds a customer base you can reach again without paying for reach each time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SHOPPER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Shopper Funnel — how people decide to shop at a supermarket">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Shopper Funnel</p>
+        <h2>How <span class="highlight">Grocery Shoppers</span> Actually <span class="highlight">Decide to Visit</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From a deal or recipe that sparks a plan to a member who keeps coming back, every grocery shopper moves through the same five stages. We build always-on marketing that shows up at each one — from the feed that plants the idea to the loyalty offer that pulls them back next week.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>See Deal / Recipe</h3>
+          <p>Spots fresh deals, a recipe or promo on IG/TikTok</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Plan the Trip</h3>
+          <p>Saves the deal &amp; adds the store to the week's plan</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Walks in for fresh produce, promos or the festive shop</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Fill Basket</h3>
+          <p>Shops the aisles, promotions &amp; private-label range</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return / Member</h3>
+          <p>Signs up, opens the app &amp; comes back next week</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for supermarkets in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Supermarket</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do supermarkets market themselves and drive footfall in Singapore?</summary>
+          <div class="faq-answer"><p>Supermarkets in Singapore drive footfall by being locally relevant, not just cheap. The channels that work: always-on social media (Instagram, TikTok, Facebook) that turns fresh produce, recipes, and weekly deals into a reason to visit; geo and heartland paid boosting on Meta and TikTok so shoppers in your catchment see this week's promotions; weekly promo and circular content that makes the deals people already scan for scroll-stopping; loyalty and app growth that converts casual shoppers into members who come back and spend more per trip; festive and seasonal campaigns timed to CNY hampers, Hari Raya, Deepavali, and year-end; and GEO plus local search so you're named when people ask "supermarket near me" or "best grocery deals in [area]". The stores that hold footfall against online grocery treat marketing as an always-on programme, not a stack of price posters.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do supermarkets compete with online grocery like RedMart and Amazon Fresh?</summary>
+          <div class="faq-answer"><p>You don't beat online grocery on doorstep convenience — you beat it on freshness, immediacy, and local relevance. Online delivery wins the planned re-stock; the physical store wins the fresh produce you want to pick yourself, the deal you spotted today, the top-up trip on the way home, and the festive shop. Marketing's job is to make those reasons visible and constant: social content that shows what's fresh and on offer this week, weekly circular content that turns deals into a plan, loyalty rewards that make the store worth choosing, and festive campaigns that own the seasonal basket. When a supermarket's feed answers "why shop here this week", footfall and basket size follow.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which marketing channels work best for supermarkets in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most grocery retailers: (1) always-on social media management (IG, TikTok, FB) built on fresh deals, recipes, and community; (2) geo and heartland paid boosting on Meta and TikTok with catchment targeting so promotions reach nearby shoppers; (3) weekly promo and circular content that turns the weekly deals into content people actually watch; (4) loyalty and app growth to drive member sign-ups, app usage, and repeat trips; (5) festive and seasonal campaigns around CNY hampers, Hari Raya, Deepavali, and year-end; and (6) GEO and local search so the store is named when shoppers ask AI or Google for "supermarket near me" or "best grocery deals". We build the mix around your catchment, private-label range, and promotional calendar.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure whether supermarket marketing is working?</summary>
+          <div class="faq-answer"><p>Footfall and basket size are the headlines, but the honest read comes from a stack of signals. On the marketing side we track reach and engagement in your catchment, saves and shares on promo and recipe content (the strongest "planning to shop" signal), loyalty sign-ups and app installs driven by campaigns, and paid-boost cost per engaged catchment shopper. Where transaction, membership, or app data are available, we tie campaign windows to movement — promo weeks, festive periods, member-only events. We're realistic: grocery footfall has many drivers beyond marketing, so we focus on the metrics marketing genuinely moves — member growth, repeat trips, promo redemption — and report them plainly.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help grow a supermarket loyalty programme and app?</summary>
+          <div class="faq-answer"><p>Yes — loyalty and the app are where grocery marketing compounds, and they're usually under-leveraged. A member who signs up, installs the app, and opts into offers is worth far more than a one-off shopper: more trips, bigger baskets, and a channel you own to reach them directly. We build campaigns that make sign-up worth it — member-only deals, app-exclusive offers, points and rewards framed as real savings — then use always-on social and paid boosting to drive installs and activations. It turns anonymous footfall into a known, repeat customer base you can market to again and again, without paying for reach each time.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do I choose a marketing agency for a supermarket?</summary>
+          <div class="faq-answer"><p>Choose an agency that understands grocery retail specifically, not a generic social retainer. Ask: do they think in terms of footfall, basket size, catchment, loyalty, and the weekly circular — or just followers and likes? Can they run always-on social AND weekly promo content AND festive campaigns, coordinated on one calendar? Do they understand that a supermarket wins on local relevance and repeat trips, not one-off virality? Can they grow loyalty and app usage, not just brand awareness? Do they cover social, paid, content, and GEO under one roof so you're not coordinating vendors? And do they report on metrics that matter to store and marketing management, not vanity numbers? Jraft Creative builds always-on grocery marketing playbooks around exactly these questions.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do supermarkets get found in AI search or recommended by ChatGPT?</summary>
+          <div class="faq-answer"><p>When someone asks ChatGPT, Gemini, or Google AI Mode for "the best supermarket near [area]", "where to buy fresh produce in [town]", or "best grocery deals this week", you want your store named in the answer. That takes the signals AI models trust: structured data so AI can read your stores, hours, and offers clearly; answer-first content that matches how people ask about groceries, fresh produce, and deals; strong local search presence and Google reviews the models weigh; and consistent, current store information across the web. This is called <a href="/geo-agency-singapore/">GEO (Generative Engine Optimisation)</a>. Jraft Creative got its own site cited in Google's AI Overview and runs the same playbook to get supermarkets surfaced in AI recommendations.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you create weekly promo and circular content for supermarkets?</summary>
+          <div class="faq-answer"><p>Yes, and it's one of the highest-leverage things a supermarket can do on social. Shoppers already scan for the weekly deals — the opportunity is to turn that circular into content they actually watch and share, instead of a static price grid. We build a repeatable system: a shoot and posting cadence around each week's promotions, formats (Reels, stories, carousels) that make fresh produce, private-label finds, and multi-buy deals feel like a reason to visit, and paid boosting to push the best of it into your catchment. It converts the weekly promo cycle from a poster in-store into a footfall driver on the feed.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Retail &amp; Marketing Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/retail-ecommerce/" class="related-service-link">Retail &amp; Ecommerce Marketing</a>
+          <a href="/shopping-mall-marketing-singapore/" class="related-service-link">Shopping Mall Marketing</a>
+          <a href="/ecommerce-marketing-singapore/" class="related-service-link">Ecommerce Marketing</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Management</a>
+          <a href="/services/paid-ads/" class="related-service-link">Paid Ads &amp; Boosting</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
