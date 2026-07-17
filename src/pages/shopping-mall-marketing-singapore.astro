@@ -1,0 +1,415 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Shopping Mall Marketing Agency Singapore",
+    "description": "Full-service marketing agency for shopping malls and retail destinations in Singapore. Always-on social, tiered paid boosting, tenant and F&B spotlight content, festive and tentpole campaigns, atrium event promotion, and GEO — built to drive footfall, dwell time, and tenant sales.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Shopping Mall & Retail Destination Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do shopping malls market themselves and drive footfall in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Malls in Singapore drive footfall by being a destination people plan around, not just a place they pass through. The channels that work: always-on social media (Instagram, TikTok, Facebook) that acts as the mall's living directory of what's new, on sale, and happening; tiered paid boosting on Meta and TikTok with geo and catchment targeting so the right shoppers in your radius see your best content; tenant and F&B spotlight content that turns individual store promotions into footfall drivers; festive and tentpole campaigns timed to CNY, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale; and strong promotion of atrium activations and events so they actually fill. On top of that, GEO and local search get the mall named when people ask 'things to do' or 'best mall near [area]'. The malls that win footfall treat marketing as an always-on programme, not a poster in the lift lobby." } },
+      { "@type": "Question", "name": "How do malls compete with e-commerce for shoppers?", "acceptedAnswer": { "@type": "Answer", "text": "You don't beat e-commerce on convenience — you beat it on experience and destination. Online shopping wins the transaction; a mall wins the day out, the F&B, the events, the atrium activation, and the reason to actually leave the house. Marketing's job is to make that reason visible and constant: social content that shows what's happening this weekend, tenant and F&B storytelling that turns browsing into a plan, festive campaigns that own the seasonal moment, and event promotion that gives people a date to show up for. When a mall's feed answers 'why go there instead of ordering online', footfall and dwell time follow — and tenant sales with them." } },
+      { "@type": "Question", "name": "Which marketing channels work best for shopping malls in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Six channels in priority order for most malls: (1) always-on social media management (IG, TikTok, FB) as the mall's living directory of promotions, new tenants, and events; (2) tiered paid boosting on Meta and TikTok with geo and catchment targeting to amplify top posts and festive pushes; (3) tenant and F&B spotlight content that drives store sales and tenant satisfaction; (4) festive and tentpole campaigns built around CNY, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale; (5) events and atrium activation promotion so activations actually fill; and (6) GEO and local search so the mall is named when shoppers ask AI or Google for 'things to do' or 'best mall near me'. We build the mix around your catchment, tenant mix, and events calendar." } },
+      { "@type": "Question", "name": "How do you measure whether mall marketing is working?", "acceptedAnswer": { "@type": "Answer", "text": "Footfall is the headline, but the honest read comes from a stack of signals. On the marketing side we track reach and engagement in your catchment, saves and shares (the strongest 'planning to visit' signal on social), event RSVPs and turnout, and paid-boost cost per engaged catchment shopper. Where footfall counters, car-park data, or tenant sales reporting are available, we tie campaign windows to movement in those numbers — festive spikes, event days, GSS periods. We're realistic: a mall's footfall has many drivers beyond marketing, so we focus on the metrics marketing genuinely moves and report them plainly, rather than claiming credit for every visitor." } },
+      { "@type": "Question", "name": "Can you help promote festive campaigns and atrium events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — tentpole moments and atrium activations are where malls earn their biggest footfall spikes, and they're often the most under-promoted. We build campaign calendars around the Singapore retail year — Chinese New Year, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale — with content, paid boosting, and event promotion planned ahead of each window rather than scrambled the week before. For atrium activations, roadshows, and events, we run the pre-event build (so people know it's on and plan to come), day-of content (so the energy shows), and post-event amplification (so the activation earns reach beyond the people who attended). A well-promoted activation fills; an unpromoted one is an empty atrium." } },
+      { "@type": "Question", "name": "How do I choose a marketing agency for a shopping mall?", "acceptedAnswer": { "@type": "Answer", "text": "Choose an agency that understands mall marketing specifically, not a generic retail retainer. Ask: do they think in terms of footfall, catchment, tenant mix, dwell time, and the festive retail calendar — or just followers and likes? Can they run always-on social AND festive tentpole campaigns AND event promotion, coordinated on one calendar? Do they understand that a mall serves two audiences — shoppers and tenants — and that good marketing has to drive footfall for tenants, not just build a brand page? Do they cover social, paid, content, and GEO under one roof so you're not coordinating vendors? And do they report on metrics that matter to mall management, not vanity numbers? Jraft Creative builds always-on mall marketing playbooks around exactly these questions." } },
+      { "@type": "Question", "name": "How do malls get found in AI search or recommended by ChatGPT?", "acceptedAnswer": { "@type": "Answer", "text": "When someone asks ChatGPT, Gemini, or Google AI Mode for 'the best malls in [area]', 'things to do near [MRT]', or 'where to shop in Singapore', you want your mall named in the answer. That takes the signals AI models trust: structured data so AI can read your mall, tenants, and events clearly; answer-first content that matches how people actually ask about shopping, dining, and things to do; strong local search presence and Google reviews the models weigh; and consistent, current information about tenants, opening hours, and events. This is called GEO (Generative Engine Optimisation). Jraft Creative got its own site cited in Google's AI Overview and runs the same playbook to get shopping malls surfaced in AI recommendations." } },
+      { "@type": "Question", "name": "Do you manage tenant and F&B spotlight content for malls?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it's one of the most valuable things a mall can do. Tenant and F&B spotlight content turns individual store and restaurant promotions into footfall drivers for the whole mall — a new dish, a store opening, a limited-time deal — while giving tenants the visibility that keeps them happy and the mall a fuller tenant mix. We build a repeatable content system: a shoot and posting cadence, a fair rotation across the tenant mix, and formats (Reels, stories, carousels) proven to drive saves and store visits. It's marketing that serves both audiences a mall answers to — shoppers looking for a reason to visit, and tenants looking for footfall to their door." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Shopping Mall Marketing Singapore", "item": "https://jraftcreative.com/shopping-mall-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* ── PAGE-LOCAL viewport-fit: tighten Challenge + Six-Channels cards ── */
+  /* Challenge cards — trim padding so header + 3 cards sit within one screen */
+  #challenge .service-detail-card {
+    padding: 22px 20px;
+  }
+  #challenge .section-content {
+    margin-bottom: 24px;
+  }
+  /* Six Channels (deliver cards) — reduce content min-height + padding for this page */
+  #sub-services .deliver-card-with-bg .service-detail-card__content {
+    min-height: 128px;
+    padding: 22px 20px;
+  }
+  #sub-services.section {
+    padding: 56px 0;
+  }
+  #sub-services .section-header {
+    margin-bottom: 36px;
+  }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Shopper Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Shopping Mall Marketing Singapore | Jraft Creative"
+  description="Marketing agency for shopping malls in Singapore. Always-on social, festive campaigns, tenant spotlights, and event promotion to drive footfall."
+  canonical="https://jraftcreative.com/shopping-mall-marketing-singapore/"
+  ogTitle="Shopping Mall Marketing Singapore | Jraft Creative"
+  ogDescription="Full-service marketing for shopping malls and retail destinations in Singapore. Always-on social, tiered paid boosting, tenant spotlights, festive campaigns, event promotion, and GEO — built to drive footfall and tenant sales."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="shopping mall marketing, mall marketing agency singapore, retail mall marketing, shopping mall marketing singapore, drive footfall, mall social media management, retail destination marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Shopping Malls"
+  heroTitle='Marketing for <span class="highlight">Shopping Malls in Singapore</span>'
+  heroSubtitle="Malls compete for footfall against e-commerce and every other mall — and the job is to be a destination people plan around. That's won with always-on social, festive campaigns, and tenant storytelling, not banner posters in the lift lobby."
+  heroImage="/images/shopping-mall-atrium.webp"
+  heroImageAlt="A Singapore shopping mall atrium busy with shoppers — marketing for malls and retail destinations to drive footfall"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20manage%20marketing%20for%20a%20shopping%20mall%20in%20Singapore%20and%20need%20help%20driving%20footfall.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I manage marketing for a shopping mall in Singapore and need help driving footfall."
+  ctaLabel="Ready to Fill Your Mall?"
+  ctaTitle='Let Us <span class="highlight">Drive Footfall</span> to Your <span class="highlight">Mall</span>'
+  ctaDescription="Book a free consultation and tell us about your mall — your catchment, tenant mix, and events calendar. We'll get back to you within 24 hours with a tailored, always-on marketing playbook built to drive footfall and tenant sales."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20manage%20marketing%20for%20a%20shopping%20mall%20in%20Singapore%20and%20need%20help%20driving%20footfall.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why shopping malls need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Footfall Is Now Won on the <span class="highlight">Feed</span> — Not in the <span class="highlight">Lift Lobby</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>E-commerce keeps eroding the reason to leave the house, and every other mall in the catchment is competing for the same shoppers. The mall's job is to be a destination people plan around — but that decision now happens on Instagram and TikTok, days before anyone walks in. Malls that still market through banner posters and lift-lobby screens are invisible at the exact moment shoppers choose where to spend their weekend.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>E-Commerce Erosion</h3>
+            <p>Online shopping keeps winning the transaction, chipping away at the reason to visit. A mall only wins back footfall by selling the experience — F&amp;B, events, and a day out that a delivery box can't replace.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Feed Is the New Directory</h3>
+            <p>Shoppers decide where to go from Instagram and TikTok before they leave home. If your mall isn't showing what's new, on sale, and happening, you're absent from the moment the visit is decided.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Under-Promoted Tenants &amp; Events</h3>
+            <p>A strong tenant mix, atrium activations, and festive events are footfall gold — but they stay under-promoted. Empty atriums and quiet tenant openings are marketing gaps, not demand gaps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for shopping malls in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Shopping Mall <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Jraft Creative is a Singapore marketing agency for shopping malls and retail destinations — mall management and marketing teams who need to drive footfall, dwell time, and tenant sales. We build always-on mall marketing playbooks that combine social media management, tiered paid boosting with catchment targeting, tenant and F&amp;B storytelling, festive and tentpole campaigns, atrium event promotion, and AI search optimisation (GEO) — all on one coordinated calendar.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media Management</a></h3>
+            <p>The mall's always-on channel — IG, TikTok, and Facebook run as a living directory of what's new, on sale, and happening. The feed shoppers check before they decide where to spend the weekend.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">Tiered Paid Boosting</a></h3>
+            <p>Meta and TikTok boosting with geo and catchment targeting — amplify your top posts to shoppers in your radius, and concentrate festive spend where it drives the most footfall.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Tenant &amp; F&amp;B Spotlight Content</a></h3>
+            <p>Turn store and restaurant promotions into footfall drivers — new dishes, openings, limited deals — on a fair rotation that lifts tenant sales and keeps your tenant mix satisfied.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Festive &amp; Tentpole Campaigns</a></h3>
+            <p>Own the Singapore retail calendar — CNY, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale — with campaigns planned ahead of each window, not scrambled the week before.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Events &amp; Atrium Activation Promotion</a></h3>
+            <p>Fill the events. Pre-event build so shoppers plan to come, day-of content so the energy shows, and post-event amplification so activations earn reach beyond the people in the atrium.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO / AI Search &amp; Local</a></h3>
+            <p>Get the mall named when people ask ChatGPT, Gemini, or Google for "things to do" or "best mall near [area]" — plus the local search presence that wins nearby, ready-to-visit shoppers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for shopping mall marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Shoppers</span> Actually <span class="highlight">Choose a Mall</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies treat a mall like any other social account — a branded page, some pretty posts, and vanity metrics. We're the opposite: we think in footfall, catchment, tenant mix, and dwell time, and we run always-on social, festive tentpole campaigns, and event promotion on one coordinated calendar. Crucially, we market for the two audiences a mall answers to — shoppers who need a reason to visit, and tenants who need footfall to their door.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>We Think in Footfall</h3>
+            <p>Catchment, tenant mix, dwell time, tentpole moments, atrium activations — we speak the language of mall management, and we build playbooks around driving footfall and tenant sales, not chasing follower counts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Social, paid boosting, tenant content, festive campaigns, event promotion, and GEO under one roof — coordinated on a single calendar. No juggling vendors, and always-on and tentpole work reinforce each other.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Two Audiences, Served</h3>
+            <p>A mall serves shoppers and tenants. We drive footfall for the mall and visibility for tenants — spotlight content that lifts store sales and keeps your tenant mix full and happy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SHOPPER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Shopper Funnel — how people decide to visit a mall">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Shopper Funnel</p>
+        <h2>How <span class="highlight">Shoppers</span> Actually <span class="highlight">Decide to Visit</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From a scroll that sparks a plan to a return visit that gets shared, every shopper moves through the same five stages. We build always-on marketing that shows up at each one — from the feed that plants the idea to the post-visit share that pulls in the next shopper.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>See on Feed</h3>
+          <p>Spots what's new, on sale &amp; happening on IG/TikTok</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Save &amp; Plan</h3>
+          <p>Saves the event, dish or deal &amp; plans the visit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Walks in for the event, F&amp;B or festive draw</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Spend</h3>
+          <p>Shops, dines &amp; dwells across the tenant mix</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Return &amp; Share</h3>
+          <p>Posts, tags &amp; comes back for the next moment</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for shopping malls in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Shopping Mall</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do shopping malls market themselves and drive footfall in Singapore?</summary>
+          <div class="faq-answer"><p>Malls in Singapore drive footfall by being a destination people plan around, not just a place they pass through. The channels that work: always-on social media (Instagram, TikTok, Facebook) that acts as the mall's living directory of what's new, on sale, and happening; tiered paid boosting on Meta and TikTok with geo and catchment targeting so the right shoppers in your radius see your best content; tenant and F&amp;B spotlight content that turns individual store promotions into footfall drivers; festive and tentpole campaigns timed to CNY, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale; and strong promotion of atrium activations and events so they actually fill. On top of that, GEO and local search get the mall named when people ask "things to do" or "best mall near [area]". The malls that win footfall treat marketing as an always-on programme, not a poster in the lift lobby.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do malls compete with e-commerce for shoppers?</summary>
+          <div class="faq-answer"><p>You don't beat e-commerce on convenience — you beat it on experience and destination. Online shopping wins the transaction; a mall wins the day out, the F&amp;B, the events, the atrium activation, and the reason to actually leave the house. Marketing's job is to make that reason visible and constant: social content that shows what's happening this weekend, tenant and F&amp;B storytelling that turns browsing into a plan, festive campaigns that own the seasonal moment, and event promotion that gives people a date to show up for. When a mall's feed answers "why go there instead of ordering online", footfall and dwell time follow — and tenant sales with them.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which marketing channels work best for shopping malls in Singapore?</summary>
+          <div class="faq-answer"><p>Six channels in priority order for most malls: (1) always-on social media management (IG, TikTok, FB) as the mall's living directory of promotions, new tenants, and events; (2) tiered paid boosting on Meta and TikTok with geo and catchment targeting to amplify top posts and festive pushes; (3) tenant and F&amp;B spotlight content that drives store sales and tenant satisfaction; (4) festive and tentpole campaigns built around CNY, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale; (5) events and atrium activation promotion so activations actually fill; and (6) GEO and local search so the mall is named when shoppers ask AI or Google for "things to do" or "best mall near me". We build the mix around your catchment, tenant mix, and events calendar.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure whether mall marketing is working?</summary>
+          <div class="faq-answer"><p>Footfall is the headline, but the honest read comes from a stack of signals. On the marketing side we track reach and engagement in your catchment, saves and shares (the strongest "planning to visit" signal on social), event RSVPs and turnout, and paid-boost cost per engaged catchment shopper. Where footfall counters, car-park data, or tenant sales reporting are available, we tie campaign windows to movement in those numbers — festive spikes, event days, GSS periods. We're realistic: a mall's footfall has many drivers beyond marketing, so we focus on the metrics marketing genuinely moves and report them plainly, rather than claiming credit for every visitor.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can you help promote festive campaigns and atrium events?</summary>
+          <div class="faq-answer"><p>Yes — tentpole moments and atrium activations are where malls earn their biggest footfall spikes, and they're often the most under-promoted. We build campaign calendars around the Singapore retail year — Chinese New Year, Hari Raya, Deepavali, Christmas, and the Great Singapore Sale — with content, paid boosting, and event promotion planned ahead of each window rather than scrambled the week before. For atrium activations, roadshows, and events, we run the pre-event build (so people know it's on and plan to come), day-of content (so the energy shows), and post-event amplification (so the activation earns reach beyond the people who attended). A well-promoted activation fills; an unpromoted one is an empty atrium.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do I choose a marketing agency for a shopping mall?</summary>
+          <div class="faq-answer"><p>Choose an agency that understands mall marketing specifically, not a generic retail retainer. Ask: do they think in terms of footfall, catchment, tenant mix, dwell time, and the festive retail calendar — or just followers and likes? Can they run always-on social AND festive tentpole campaigns AND event promotion, coordinated on one calendar? Do they understand that a mall serves two audiences — shoppers and tenants — and that good marketing has to drive footfall for tenants, not just build a brand page? Do they cover social, paid, content, and GEO under one roof so you're not coordinating vendors? And do they report on metrics that matter to mall management, not vanity numbers? Jraft Creative builds always-on mall marketing playbooks around exactly these questions.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do malls get found in AI search or recommended by ChatGPT?</summary>
+          <div class="faq-answer"><p>When someone asks ChatGPT, Gemini, or Google AI Mode for "the best malls in [area]", "things to do near [MRT]", or "where to shop in Singapore", you want your mall named in the answer. That takes the signals AI models trust: structured data so AI can read your mall, tenants, and events clearly; answer-first content that matches how people actually ask about shopping, dining, and things to do; strong local search presence and Google reviews the models weigh; and consistent, current information about tenants, opening hours, and events. This is called <a href="/geo-agency-singapore/">GEO (Generative Engine Optimisation)</a>. Jraft Creative got its own site cited in Google's AI Overview and runs the same playbook to get shopping malls surfaced in AI recommendations.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you manage tenant and F&amp;B spotlight content for malls?</summary>
+          <div class="faq-answer"><p>Yes, and it's one of the most valuable things a mall can do. Tenant and F&amp;B spotlight content turns individual store and restaurant promotions into footfall drivers for the whole mall — a new dish, a store opening, a limited-time deal — while giving tenants the visibility that keeps them happy and the mall a fuller tenant mix. We build a repeatable content system: a shoot and posting cadence, a fair rotation across the tenant mix, and formats (Reels, stories, carousels) proven to drive saves and store visits. It's marketing that serves both audiences a mall answers to — shoppers looking for a reason to visit, and tenants looking for footfall to their door.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Retail &amp; Marketing Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/retail-ecommerce/" class="related-service-link">Retail &amp; Ecommerce Marketing</a>
+          <a href="/ecommerce-marketing-singapore/" class="related-service-link">Ecommerce Marketing</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Management</a>
+          <a href="/services/paid-ads/" class="related-service-link">Paid Ads &amp; Boosting</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
