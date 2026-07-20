@@ -8,20 +8,19 @@ const BUILD_LASTMOD = new Date().toISOString();
 export default defineConfig({
   site: 'https://jraftcreative.com',
   output: 'static',
+  // Keys use the trailing-slash form only. Astro normalises trailing slashes,
+  // so declaring both '/x' and '/x/' registers the same route twice and warns
+  // about a collision (a hard error in later Astro versions). The emitted
+  // output is identical either way: dist/<route>/index.html.
   redirects: {
-    '/services': '/#services',
     '/services/': '/#services',
     // SEO cannibalisation fixes (Ben audit C4) — legacy landing pages
     // 301 to canonical service hubs so we stop splitting rankings.
-    '/seo-services-singapore': '/services/seo-performance/',
     '/seo-services-singapore/': '/services/seo-performance/',
-    '/web-design-singapore': '/services/website-development/',
     '/web-design-singapore/': '/services/website-development/',
-    '/social-media-marketing-singapore': '/services/social-media/',
     '/social-media-marketing-singapore/': '/services/social-media/',
     // F&B vertical hub consolidation (Jun 2026) — old industries page
     // 301s to new vertical-marketing canonical for SEO + AIO.
-    '/industries/food-beverage': '/fnb-marketing-singapore/',
     '/industries/food-beverage/': '/fnb-marketing-singapore/',
   },
   integrations: [sitemap({
