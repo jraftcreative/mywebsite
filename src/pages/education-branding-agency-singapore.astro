@@ -51,7 +51,8 @@ const schemaData = [
   .animated-bg__grid { display: none; }
 
   /* More-prominent related-service pills — match challenge-card-v2 green treatment */
-  #related-services .related-service-link {
+  #related-services .related-service-link,
+  #branding-by-centre-type .related-service-link {
     background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
     border: 1px solid rgba(73, 184, 137, 0.35);
     color: var(--text);
@@ -59,7 +60,8 @@ const schemaData = [
     padding: 0.75rem 1.5rem;
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   }
-  #related-services .related-service-link:hover {
+  #related-services .related-service-link:hover,
+  #branding-by-centre-type .related-service-link:hover {
     background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
     border-color: rgba(73, 184, 137, 0.6);
     color: var(--accent);
@@ -360,6 +362,21 @@ const schemaData = [
     </div>
   </section>
 
+
+  <!-- Branding by centre type — hub to niche spokes -->
+  <section class="section" id="branding-by-centre-type" aria-label="Branding by education centre type">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">By Centre Type</p>
+        <h2><span class="highlight">Branding</span> Built for Your Type of Centre</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/tuition-centre-branding-singapore/" class="related-service-link">Tuition Centre Branding</a>
+          <a href="/preschool-branding-singapore/" class="related-service-link">Preschool Branding</a>
+          <a href="/enrichment-centre-branding-singapore/" class="related-service-link">Enrichment Centre Branding</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">

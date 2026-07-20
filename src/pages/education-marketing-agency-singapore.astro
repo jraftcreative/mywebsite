@@ -52,7 +52,8 @@ const schemaData = [
   .animated-bg__grid { display: none; }
 
   /* More-prominent related-service pills — match challenge-card-v2 green treatment */
-  #related-services .related-service-link {
+  #related-services .related-service-link,
+  #marketing-by-centre-type .related-service-link {
     background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
     border: 1px solid rgba(73, 184, 137, 0.35);
     color: var(--text);
@@ -60,7 +61,8 @@ const schemaData = [
     padding: 0.75rem 1.5rem;
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
   }
-  #related-services .related-service-link:hover {
+  #related-services .related-service-link:hover,
+  #marketing-by-centre-type .related-service-link:hover {
     background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
     border-color: rgba(73, 184, 137, 0.6);
     color: var(--accent);
@@ -365,6 +367,22 @@ const schemaData = [
     </div>
   </section>
 
+
+  <!-- Marketing by centre type — hub to niche spokes -->
+  <section class="section" id="marketing-by-centre-type" aria-label="Marketing by education centre type">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">By Centre Type</p>
+        <h2><span class="highlight">Marketing</span> Built for Your Type of Centre</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
+          <a href="/preschool-marketing-singapore/" class="related-service-link">Preschool Marketing</a>
+          <a href="/childcare-marketing-singapore/" class="related-service-link">Childcare Marketing</a>
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
