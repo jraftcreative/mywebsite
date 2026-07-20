@@ -1,0 +1,377 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Social Media Agency for Music Schools Singapore",
+    "description": "Social media agency for music schools in Singapore. Student performance content, teacher spotlights, recital and exam-results posts, and community management built to fill trial lessons.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Music School Social Media"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which social platforms should a music school in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "For most schools the parents are on Facebook and Instagram, while teenage and adult learners are on Instagram and TikTok. YouTube matters more than people expect, because full recital and exam performances are what parents actually watch before choosing a school. We usually recommend depth on two platforms rather than a thin presence on five." } },
+      { "@type": "Question", "name": "What should a music school actually post?", "acceptedAnswer": { "@type": "Answer", "text": "Student performance clips are the strongest content a music school has — they are proof, not marketing. Around that we build teacher spotlights, practice and technique tips, exam-results announcements, recital highlights, and behind-the-scenes studio moments. The mix matters: pure promotion stops working quickly, while performance and teaching content keeps parents watching." } },
+      { "@type": "Question", "name": "Do we need permission to post students in videos?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it should be handled properly. Most students are minors, so you need written consent from a parent or guardian before publishing a child's image or performance. We help you put a simple media-consent process into your enrolment paperwork so you have permission on file up front, rather than chasing it after a recital." } },
+      { "@type": "Question", "name": "How does social media actually bring in trial lessons?", "acceptedAnswer": { "@type": "Answer", "text": "Social rarely closes a booking on its own. What it does is validate you — a parent who has seen your students perform and your teachers explain something well arrives at your website already convinced. We track that by watching profile-to-website clicks and enquiries that mention social, rather than judging the work on follower count." } },
+      { "@type": "Question", "name": "Can this work for a small studio with one or two teachers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single teacher with a strong personality and good students often outperforms a large chain on social, because the content feels like a person rather than a brand. The constraint is usually time, not scale — so we build a cadence you can sustain during teaching weeks, not one that collapses the moment exam season starts." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Social Media Agency for Music Schools Singapore", "item": "https://jraftcreative.com/music-school-social-media-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Social Media Agency for Music Schools Singapore"
+  description="Social media agency for music schools in Singapore — student performances, teacher spotlights and recital content that fills trial lessons."
+  canonical="https://jraftcreative.com/music-school-social-media-singapore/"
+  ogTitle="Social Media Agency for Music Schools Singapore"
+  ogDescription="Social media for music schools in Singapore. Student performances, teacher spotlights, exam results and recital content built to fill trial lessons."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="social media agency for music schools, music school social media singapore, social media marketing for music schools, music school instagram singapore, music school tiktok, music school content marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Social Media Agency for Music Schools"
+  heroTitle='Social Media Agency for <span class="highlight">Music Schools in Singapore</span>'
+  heroSubtitle="Your students already produce the best marketing material you will ever have — you just aren't filming it. We turn recitals, practice breakthroughs and teacher expertise into content that parents actually watch, then into booked trial lessons."
+  heroImage="/images/service-musicschool.webp"
+  heroImageAlt="Music lesson in a Singapore studio — music school social media"
+  heroButtons={[
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Music School SEO", href: "/music-school-seo-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need social media for my music school in Singapore."
+  ctaLabel="Fill Your Trial Slots"
+  ctaTitle="Get a Free Music School Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you're posting now, what your students are already producing that you aren't using, and where the gap is between followers and trial bookings. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20for%20my%20music%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Social media challenges for music schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>You Have the <span class="highlight">Best Content</span> in Singapore — and It <span class="highlight">Never Gets Filmed</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Music schools sit on proof most businesses would pay for, then post a text graphic about term dates.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Recitals Happen, Then Vanish</h3>
+            <p>A term's worth of performances gets filmed on a phone, shared once in a parent chat, and never seen by anyone deciding where to send their child.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Posting Stops During Term</h3>
+            <p>Teaching weeks fill up and the feed goes quiet for a month. Parents checking you out in that gap see a school that looks inactive.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Followers That Never Enquire</h3>
+            <p>An audience of existing parents feels good and books nothing. Growth only matters if it reaches families who haven't chosen a school yet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for music schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> Every Music School <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build a cadence around what your school already does each week, so filming becomes a habit rather than a project.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Student Performance Clips</h3>
+            <p>Short, well-shot performance moments — the single most persuasive thing a music school can post, because it is evidence rather than a claim.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Teacher Spotlights</h3>
+            <p>Parents choose a teacher, not a building. We put credentials, playing and teaching style on camera so the choice feels obvious.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Exam Results &amp; Recital Highlights</h3>
+            <p>ABRSM and Trinity results and recital footage, packaged as proof of outcomes — the posts parents screenshot and forward.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3>Practice &amp; Technique Tips</h3>
+            <p>Short teaching clips that answer what parents actually search — how to practise, when to start, what a grade really involves.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Consent-Safe Filming Process</h3>
+            <p>Most of your students are minors. We build media consent into enrolment so you have permission on file before a recital, not after.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries, Not Likes</h3>
+            <p>We track profile-to-website clicks and enquiries that mention social. Follower count is context, not the result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your music school social media agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands <span class="highlight">Music Schools</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Music school social fails for specific reasons — term-time capacity, consent, and content that flatters existing parents instead of reaching new ones.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Cadence You Can Sustain</h3>
+            <p>We plan around teaching weeks and exam season, so the feed doesn't go silent exactly when parents are researching for the next intake.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Trials, Not Vanity</h3>
+            <p>Every workstream ends in a trial booking. We would rather grow slowly with the right families than quickly with an audience that never enquires.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Social, Search &amp; Ads Together</h3>
+            <p>We also run <a href="/music-school-seo-singapore/">music school SEO</a> and <a href="/music-school-google-ads-singapore/">Google Ads</a> — one system for filling lesson slots.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the music parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts lessons. Social rarely wins the first search — its job is Validate and Compare, where a parent decides whether your teaching is worth the trip across town.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A reel or a parent's share puts you on the radar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Student performances prove the teaching works</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Teacher spotlights make the choice personal</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Profile link and DMs turn interest into a booking</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Recital posts keep families renewing &amp; referring</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about social media for music schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Music School <span class="highlight">Social Media</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Which social platforms should a music school in Singapore be on?</summary>
+          <div class="faq-answer"><p>For most schools the parents are on Facebook and Instagram, while teenage and adult learners are on Instagram and TikTok. YouTube matters more than people expect, because full recital and exam performances are what parents actually watch before choosing a school. We usually recommend depth on two platforms rather than a thin presence on five.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>What should a music school actually post?</summary>
+          <div class="faq-answer"><p>Student performance clips are the strongest content a music school has — they're proof, not marketing. Around that we build teacher spotlights, practice and technique tips, exam-results announcements, recital highlights, and behind-the-scenes studio moments. The mix matters: pure promotion stops working quickly, while performance and teaching content keeps parents watching.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do we need permission to post students in videos?</summary>
+          <div class="faq-answer"><p>Yes, and it should be handled properly. Most students are minors, so you need written consent from a parent or guardian before publishing a child's image or performance. We help you put a simple media-consent process into your enrolment paperwork so you have permission on file up front, rather than chasing it after a recital.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How does social media actually bring in trial lessons?</summary>
+          <div class="faq-answer"><p>Social rarely closes a booking on its own. What it does is validate you — a parent who has seen your students perform and your teachers explain something well arrives at your website already convinced. We track that by watching profile-to-website clicks and enquiries that mention social, rather than judging the work on follower count.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can this work for a small studio with one or two teachers?</summary>
+          <div class="faq-answer"><p>Yes. A single teacher with a strong personality and good students often outperforms a large chain on social, because the content feels like a person rather than a brand. The constraint is usually time, not scale — so we build a cadence you can sustain during teaching weeks, not one that collapses the moment exam season starts.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Music School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/music-school-seo-singapore/" class="related-service-link">Music School SEO</a>
+          <a href="/music-school-website-singapore/" class="related-service-link">Music School Website Design</a>
+          <a href="/music-school-google-ads-singapore/" class="related-service-link">Music School Google Ads</a>
+          <a href="/education-social-media-marketing-singapore/" class="related-service-link">Education Social Media</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
