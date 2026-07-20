@@ -1,0 +1,405 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Web Design Agency for Education Singapore",
+    "description": "Web design agency for education businesses in Singapore — tuition centres, enrichment, preschools and music schools. Programme pages, multi-branch structure, and trial class booking built to convert parents.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Education Website Design"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does an education website actually need to do?", "acceptedAnswer": { "@type": "Answer", "text": "It needs to answer a parent's three questions before they will contact you: is there a programme for my child's exact level, is it near enough, and can I see it works. That means a real page per programme and level, clear branch information, visible outcomes, and a trial booking that takes under a minute. Most centre websites answer the first question and stop." } },
+      { "@type": "Question", "name": "We run several programmes and branches. How should that be structured?", "acceptedAnswer": { "@type": "Answer", "text": "Each programme gets its own page, and each branch gets its own page — not one combined page listing everything. It matters for parents, who search by level and neighbourhood, and it matters for search and AI assistants, which need distinct entities to recommend the right thing. Collapsing it all into one services page is the most common structural mistake we see." } },
+      { "@type": "Question", "name": "How long does an education website take to build?", "acceptedAnswer": { "@type": "Answer", "text": "Most centre sites go live in two to four weeks depending on how many programmes and branches need their own pages, and how much of the content already exists. We plan launches around term boundaries so the site is live before an intake rather than halfway through one." } },
+      { "@type": "Question", "name": "Can parents book a trial class directly on the site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it is usually the single biggest conversion improvement. Booking that shows real availability by programme, level and branch, then confirms automatically, removes the phone-call step most parents will not take in the evening. It also gives your front desk fewer scheduling calls to field." } },
+      { "@type": "Question", "name": "Does the website affect our SEO and AI visibility?", "acceptedAnswer": { "@type": "Answer", "text": "Heavily. A site with one page per programme, clean structure and proper schema is what lets you rank for level-specific searches and lets an AI assistant tell your programmes apart. A single-page site describing everything at once cannot be surfaced for a specific parent question, no matter how much you spend promoting it." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Web Design Agency for Education Singapore", "item": "https://jraftcreative.com/education-website-design-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link,
+  #websites-by-centre-type .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover,
+  #websites-by-centre-type .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Web Design Agency for Education Singapore"
+  description="Web design agency for education businesses in Singapore — programme pages, multi-branch structure and trial class booking that fills classes."
+  canonical="https://jraftcreative.com/education-website-design-singapore/"
+  ogTitle="Web Design Agency for Education Singapore"
+  ogDescription="Websites for Singapore tuition centres, enrichment, preschools and music schools. Programme pages, branch structure, trial booking."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="web design agency for education, education website design singapore, tuition centre website design, enrichment centre website, preschool website design singapore, education web design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Web Design Agency for Education"
+  heroTitle='Web Design Agency for <span class="highlight">Education Businesses in Singapore</span>'
+  heroSubtitle="A parent shortlists three or four centres in an evening, entirely from their phone. Your website decides whether you survive that shortlist — and most centre sites lose it by making a parent hunt for the one programme that fits their child."
+  heroImage="/images/service-education.webp"
+  heroImageAlt="Students in a Singapore education centre — education website design"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Education SEO", href: "/education-seo-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a website for my education business in Singapore."
+  ctaLabel="Fill Your Trial Classes"
+  ctaTitle="Get Your Education Website Scoped"
+  ctaDescription="Tell us how many programmes, levels and branches you run and we'll map what the site actually needs — including where enquiries are currently leaking. Free consultation, no obligation."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20education%20business%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Website challenges for education businesses in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Shortlist <span class="highlight">Four Centres</span> in an Evening — on a <span class="highlight">Phone</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>They are looking for one specific thing: a programme at their child's exact level, close enough to get to.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Everything on One Page</h3>
+            <p>Programmes listed together in a single block forces a parent to work out whether you teach their child's level. Most won't bother.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Branches That Are Invisible</h3>
+            <p>Multi-outlet centres often show one address. A parent in a neighbourhood you actually serve concludes you're too far and moves on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Enquiry Requires a Phone Call</h3>
+            <p>A parent researching at 10pm will not call. Without booking or a form that works on a phone, the interest simply evaporates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Education website design services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>Six <span class="highlight">Pillars</span> of an Education <span class="highlight">Website</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We structure the site the way a parent searches — by programme, by level, by branch — rather than by your org chart.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>A Page Per Programme &amp; Level</h3>
+            <p>Each programme gets a real page covering level, age range, format and outcomes — so a parent lands on the exact thing they searched for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Branch Structure</h3>
+            <p>Every outlet gets its own page and profile, so neighbourhood searches find the branch a parent can actually reach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-landing-page.webp');">
+          <div class="service-detail-card__content">
+            <h3>Trial Class Booking</h3>
+            <p>Real availability by programme, level and branch, with automatic confirmation — removing the phone call a parent won't make at night.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Proof Parents Look For</h3>
+            <p>Results, teacher credentials and testimonials placed where a parent is deciding, rather than buried on an about page.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Built for a Phone First</h3>
+            <p>Most of this research happens on mobile in the evening. The site is built for that, not adapted to it afterwards.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; AI-Ready Foundations</h3>
+            <p>Clean structure and schema from day one, so programmes can be ranked individually and told apart by AI assistants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEBSITES BY CENTRE TYPE — hub to niche spokes ========== -->
+  <section class="section" id="websites-by-centre-type" aria-label="Websites by education centre type">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">By Centre Type</p>
+        <h2><span class="highlight">Websites</span> Built for Your Type of <span class="highlight">Centre</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every segment has its own booking pattern and proof points. Where we've built that detail out, it lives on its own page.</p>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Websites</a>
+          <a href="/preschool-website-design-singapore/" class="related-service-link">Preschool Websites</a>
+          <a href="/kindergarten-website-design-singapore/" class="related-service-link">Kindergarten Websites</a>
+          <a href="/music-school-website-singapore/" class="related-service-link">Music School Websites</a>
+          <a href="/art-school-website-singapore/" class="related-service-link">Art School Websites</a>
+          <a href="/coding-school-website-singapore/" class="related-service-link">Coding School Websites</a>
+          <a href="/swimming-school-website-singapore/" class="related-service-link">Swimming School Websites</a>
+          <a href="/speech-drama-website-singapore/" class="related-service-link">Speech &amp; Drama Websites</a>
+          <a href="/student-care-website-singapore/" class="related-service-link">Student Care Websites</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative as your education web design agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Education</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build for the specific job an education site has — surviving a shortlist, then converting a researching parent into a booked trial.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Built Around Enrolment</h3>
+            <p>Every structural decision serves one question — does this help a parent find the right programme and book a trial faster.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Live Before the Next Intake</h3>
+            <p>We plan launches around term boundaries, so the site is working before an intake rather than landing halfway through one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Website, Search &amp; Ads Together</h3>
+            <p>We also run <a href="/education-seo-singapore/">education SEO</a>, <a href="/education-google-ads-singapore/">Google Ads</a> and <a href="/education-ai-search-optimisation-singapore/">AI search</a> — one system for filling classes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" aria-label="Where your website fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts. Your website carries the middle three — it is where a parent validates you, compares you against the shortlist, and books the trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search, ad or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Results, teachers and reviews prove it works</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Programme pages answer level, format and branch</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Booking turns interest into a scheduled class</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about education website design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Education <span class="highlight">Websites</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does an education website actually need to do?</summary>
+          <div class="faq-answer"><p>It needs to answer a parent's three questions before they'll contact you: is there a programme for my child's exact level, is it near enough, and can I see it works. That means a real page per programme and level, clear branch information, visible outcomes, and a trial booking that takes under a minute. Most centre websites answer the first question and stop.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We run several programmes and branches. How should that be structured?</summary>
+          <div class="faq-answer"><p>Each programme gets its own page, and each branch gets its own page — not one combined page listing everything. It matters for parents, who search by level and neighbourhood, and it matters for search and AI assistants, which need distinct entities to recommend the right thing. Collapsing it all into one services page is the most common structural mistake we see.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does an education website take to build?</summary>
+          <div class="faq-answer"><p>Most centre sites go live in two to four weeks depending on how many programmes and branches need their own pages, and how much of the content already exists. We plan launches around term boundaries so the site is live before an intake rather than halfway through one.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can parents book a trial class directly on the site?</summary>
+          <div class="faq-answer"><p>Yes, and it's usually the single biggest conversion improvement. Booking that shows real availability by programme, level and branch, then confirms automatically, removes the phone-call step most parents won't take in the evening. It also gives your front desk fewer scheduling calls to field.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Does the website affect our SEO and AI visibility?</summary>
+          <div class="faq-answer"><p>Heavily. A site with one page per programme, clean structure and proper schema is what lets you rank for level-specific searches and lets an AI assistant tell your programmes apart. A single-page site describing everything at once can't be surfaced for a specific parent question, no matter how much you spend promoting it.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Education</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/education-seo-singapore/" class="related-service-link">Education SEO</a>
+          <a href="/education-google-ads-singapore/" class="related-service-link">Education Google Ads</a>
+          <a href="/education-social-media-marketing-singapore/" class="related-service-link">Education Social Media</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/education-branding-agency-singapore/" class="related-service-link">Education Branding</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
