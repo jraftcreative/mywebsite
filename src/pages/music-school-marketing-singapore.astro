@@ -1,0 +1,379 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Music Schools Singapore",
+    "description": "Full-service marketing agency for music schools in Singapore — SEO, AI search, Google Ads, social content, branding and websites, built to fill trial lessons and hold students term after term.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Music School Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for a music school actually involve?", "acceptedAnswer": { "@type": "Answer", "text": "Six things working together: being found when a parent searches for an instrument near them, being named when they ask an AI, appearing in paid results during intake periods, showing your students actually play well on social, looking credible enough to charge properly, and a website that turns all of it into a booked trial. Most schools do one or two of these and wonder why enquiries are uneven." } },
+      { "@type": "Question", "name": "We already get students by word of mouth. Why market at all?", "acceptedAnswer": { "@type": "Answer", "text": "Referrals are excellent and they plateau. They arrive on their own schedule, rarely in the instruments where you have teaching capacity, and they stop growing once your existing families have told everyone they know. Marketing exists to fill the gaps referrals cannot reach — new estates, new instruments, and the terms when nobody happens to be recommending you." } },
+      { "@type": "Question", "name": "How quickly does this work?", "acceptedAnswer": { "@type": "Answer", "text": "Paid search can produce trial enquiries within days because you are buying existing demand. Organic search and AI visibility typically take three to five months to move meaningfully. Social sits in between — it rarely closes a booking alone but shortens how long a parent takes to decide. We usually start with the fastest channel that fits your budget and build the durable ones underneath it." } },
+      { "@type": "Question", "name": "Do you work with single-teacher studios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and the economics often favour them. A single teacher can dominate a tight radius and a few instruments far more cheaply than a chain competing island-wide. The strategy differs — narrower targeting, more personality-led content — but the outcome is the same: a full teaching diary." } },
+      { "@type": "Question", "name": "How do you measure whether it is working?", "acceptedAnswer": { "@type": "Answer", "text": "Booked trial lessons and cost per trial, not impressions or followers. Where your admin process allows, we go one step further and track which instruments convert from trial to enrolled student, because a trial that never becomes a term booking is not a result worth reporting." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Music Schools Singapore", "item": "https://jraftcreative.com/music-school-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Music Schools Singapore"
+  description="Marketing agency for music schools in Singapore — SEO, AI search, Google Ads, social, branding and websites, built to fill trial lessons and hold students."
+  canonical="https://jraftcreative.com/music-school-marketing-singapore/"
+  ogTitle="Marketing Agency for Music Schools Singapore"
+  ogDescription="Full-service marketing for Singapore music schools. Six channels working together to fill trial lessons and keep students enrolled."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for music schools, music school marketing singapore, music school advertising singapore, piano school marketing, music academy marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Music Schools"
+  heroTitle='Marketing Agency for <span class="highlight">Music Schools in Singapore</span>'
+  heroSubtitle="Great teaching does not fill a diary on its own. We run the six channels that bring parents to your studio — search, AI, ads, social, brand and website — and judge all of them on one number: booked trial lessons."
+  heroImage="/images/service-musicschool.webp"
+  heroImageAlt="Music lesson in a Singapore studio — music school marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Music School SEO", href: "/music-school-seo-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my music school in Singapore."
+  ctaLabel="Fill Your Trial Slots"
+  ctaTitle="Get a Free Music School Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how parents currently find you, which instruments are under-filled, and which channel would move the needle fastest for your studio. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20music%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for music schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Best <span class="highlight">Teacher</span> in the Estate Is Not the One <span class="highlight">Filling Up</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Music schools rarely lose on teaching quality. They lose on being found, and on how they look once they are.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Referrals Plateau</h3>
+            <p>Word of mouth is excellent and finite. It arrives on its own schedule, and rarely in the instruments where you actually have teachers free.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Chains Outspend, Not Out-Teach</h3>
+            <p>Larger schools take the top of every search result with budget rather than better teaching. Parents rarely scroll far enough to find you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Demand Splits Every Which Way</h3>
+            <p>Piano, violin, guitar, vocals, exam prep — each across several neighbourhoods. One generic page cannot answer any of those searches well.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for music schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Music School <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each channel does a different job in the same journey — from a parent's first search to a signed term.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/music-school-seo-singapore/">Search &amp; Local SEO</a></h3>
+            <p>Rank for the instrument and neighbourhood searches parents actually type, and hold the Maps three-pack for "near me".</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/music-school-ai-search-optimisation-singapore/">AI Search &amp; GEO</a></h3>
+            <p>Get named when a parent asks ChatGPT or Gemini which school to send their child to — a shortlist of two or three.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/music-school-google-ads-singapore/">Google Ads</a></h3>
+            <p>Buy the high-intent searches during term intake and exam registration, structured by instrument rather than one broad campaign.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/music-school-social-media-singapore/">Social Content</a></h3>
+            <p>Student performances and teacher spotlights — the proof that shortens how long a parent takes to decide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Look established enough to charge what your teaching is worth, rather than competing on being the cheapest lesson in the area.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/music-school-website-singapore/">Website</a></h3>
+            <p>Instrument pages, teacher credentials and a trial booking that takes under a minute — where every other channel lands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your music school marketing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most schools end up with a web designer, a social freelancer and an ads contractor who never speak to each other.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>Ads reveal which instruments convert; that shapes the SEO pages and the content. Split across vendors, that loop never closes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Capacity-Led, Not Vanity-Led</h3>
+            <p>We push spend towards the instruments and time slots you can actually take students in, not wherever clicks are cheapest.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measured on Trials Booked</h3>
+            <p>Cost per booked trial is the number we report. Impressions and followers are context, never the result.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How parents choose a music school">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Singapore Parents Actually <span class="highlight">Choose a Music School</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a different stage. Search and AI decide whether you are considered at all; social and brand decide whether you are believed; the website decides whether a trial actually gets booked.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Search, AI answer or a parent's recommendation</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Student performances, teachers, exam results</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Instrument, level, location and price weighed up</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>A booked lesson — the only real conversion</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about music school marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Music School <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for a music school actually involve?</summary>
+          <div class="faq-answer"><p>Six things working together: being found when a parent searches for an instrument near them, being named when they ask an AI, appearing in paid results during intake periods, showing your students actually play well on social, looking credible enough to charge properly, and a website that turns all of it into a booked trial. Most schools do one or two of these and wonder why enquiries are uneven.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We already get students by word of mouth. Why market at all?</summary>
+          <div class="faq-answer"><p>Referrals are excellent and they plateau. They arrive on their own schedule, rarely in the instruments where you have teaching capacity, and they stop growing once your existing families have told everyone they know. Marketing exists to fill the gaps referrals can't reach — new estates, new instruments, and the terms when nobody happens to be recommending you.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly does this work?</summary>
+          <div class="faq-answer"><p>Paid search can produce trial enquiries within days because you're buying existing demand. Organic search and AI visibility typically take three to five months to move meaningfully. Social sits in between — it rarely closes a booking alone but shortens how long a parent takes to decide. We usually start with the fastest channel that fits your budget and build the durable ones underneath it.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with single-teacher studios?</summary>
+          <div class="faq-answer"><p>Yes, and the economics often favour them. A single teacher can dominate a tight radius and a few instruments far more cheaply than a chain competing island-wide. The strategy differs — narrower targeting, more personality-led content — but the outcome is the same: a full teaching diary.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure whether it is working?</summary>
+          <div class="faq-answer"><p>Booked trial lessons and cost per trial, not impressions or followers. Where your admin process allows, we go one step further and track which instruments convert from trial to enrolled student, because a trial that never becomes a term booking isn't a result worth reporting.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Music School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/music-school-seo-singapore/" class="related-service-link">Music School SEO</a>
+          <a href="/music-school-website-singapore/" class="related-service-link">Music School Website Design</a>
+          <a href="/music-school-google-ads-singapore/" class="related-service-link">Music School Google Ads</a>
+          <a href="/music-school-social-media-singapore/" class="related-service-link">Music School Social Media</a>
+          <a href="/music-school-ai-search-optimisation-singapore/" class="related-service-link">Music School GEO / AI Search</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
