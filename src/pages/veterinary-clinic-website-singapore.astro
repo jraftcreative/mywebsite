@@ -47,17 +47,48 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Veterinary Clinic Website Singapore — Jraft Creative"
+  title="Veterinary Clinic Website — Web Design Agency"
   description="Website design for Singapore vet clinics — service pages, vet profiles, 24-hour emergency info, online appointment booking."
   canonical="https://jraftcreative.com/veterinary-clinic-website-singapore/"
-  ogTitle="Veterinary Clinic Website Singapore — Jraft Creative"
+  ogTitle="Veterinary Clinic Website — Web Design Agency"
   ogDescription="Website design for Singapore vet clinics — service pages, vet profiles, 24-hour emergency info, online appointment booking."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="veterinary clinic website design singapore, vet clinic website singapore, veterinary website design, vet web design singapore, animal clinic website, pet clinic website singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Veterinary Website Design"
-  heroTitle='Website Design for Veterinary Clinics in <span class="highlight">Singapore</span>'
+  heroLabel="Web Design Agency for Veterinary Clinics"
+  heroTitle='Web Design Agency for <span class="highlight">Veterinary Clinics in Singapore</span>'
   heroSubtitle="Pet owners in Singapore are searching online for trusted vets. We build fast, mobile-friendly websites for veterinary clinics — with service pages, veterinarian profiles, 24-hour emergency information, online appointment booking, and pet owner resources."
   heroImage="/images/service-veterinary.webp"
   heroButtons={[
@@ -75,106 +106,149 @@ const schemaData = [
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why veterinary clinics need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for veterinary clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Pet Owners Are Choosing Their Vet Online</h2>
+        <h2>Pet Owners Are Choosing Their Vet <span class="highlight">Online</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's pet ownership market has grown significantly in recent years. With more than 80,000 licensed dogs and a thriving cat and small-animal community, pet owners across the island are actively searching for veterinary care online. They compare clinic services, check vet credentials, read Google reviews, and look for emergency availability — all before picking up the phone or walking into a clinic.</p>
-        <p>Most pet owners today expect to find a vet's full service list, operating hours, emergency contact information, and appointment booking online. If your clinic's website is outdated, doesn't appear on Google, or lacks basic functionality like a mobile-friendly layout, you're losing clients to the vet clinic down the road that invested in a professional online presence.</p>
-        <p>Veterinary clinics in Singapore also face unique needs. Pet emergencies don't follow office hours — your website needs to clearly display after-hours and 24-hour emergency information. Pet owners want to know about your veterinarians' qualifications and areas of expertise. And with more clinics opening across HDB estates, shopping malls, and landed neighbourhoods, standing out online has never been more important for sustained growth.</p>
+        <p>A pet owner picks a clinic from their phone — comparing services, reviews and hours before they ever call. Your website is that first impression.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>An Outdated Site Loses Owners</h3>
+            <p>If your website is dated or hard to use, an anxious owner books with the clinic that made finding help easy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Owners Need Reassurance, Fast</h3>
+            <p>Before a first visit they want to see your vets, services and hours — and book without waiting for opening time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Emergencies Reward the Findable</h3>
+            <p>A frightened owner at 11pm searches for help. If your emergency info isn't obvious, the call goes elsewhere.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Veterinary website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Website services for veterinary clinics">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Veterinary Clinics</h2>
+        <h2>Six <span class="highlight">Pillars</span> of a Veterinary Clinic <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every veterinary website we deliver is purpose-built for animal care practices. We go beyond a generic template — your site will feature structured service pages for every treatment you offer, veterinarian profiles with credentials, emergency service information, online appointment booking, and local SEO so pet owners can find your clinic when they need you most.</p>
-        <p>A website is just the starting point. Pair your new site with <a href="/services/seo-performance/">SEO services</a> to rank for searches like "vet clinic near me" and specific treatments, <a href="/services/social-media/">social media marketing</a> to share pet care tips and build community trust, and <a href="/services/paid-ads/">paid ads management</a> to drive appointment bookings from Google and social platforms.</p>
+        <p>Every element is built around owner trust and booking — structured for how pet owners actually choose a vet.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Service Pages &amp; Treatment Listings</h3>
-            <p>Dedicated pages for general wellness check-ups, vaccinations, surgical procedures, dental care, dermatology, and emergency services. Each page clearly explains the procedure, what pet owners can expect, and how to prepare their pet — with clear calls to action for booking.</p>
+            <h3>Service &amp; Treatment Pages</h3>
+            <p>A page per service — vaccination, sterilisation, surgery, dental, health screening — so owners find exactly what their pet needs.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Veterinarian Profiles &amp; Credentials</h3>
-            <p>Professional profile pages for each veterinarian — qualifications, AVA registration, areas of specialisation (surgery, dermatology, exotic animals), years of experience, and a personal bio. Pet owners want to know who will be caring for their companion before they visit.</p>
+            <h3>Veterinarian Profiles</h3>
+            <p>Profiles for each vet — qualifications, special interests and a warm bio — because owners want to know who will treat their pet.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Online Appointment Booking</h3>
-            <p>Let pet owners book appointments directly from your website — selecting their preferred vet, choosing a service type, picking a convenient time slot, and specifying their pet's details. Automated confirmations and reminders reduce no-shows and free up your reception team.</p>
+            <p>Owners book directly — vet, service and time — with confirmations that cut no-shows and free the front desk.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>24-Hour Emergency &amp; Pet Owner Resources</h3>
-            <p>Prominent emergency sections with tap-to-call buttons, after-hours availability, and clear instructions for urgent situations. Plus, a pet owner resource library with vaccination schedules, post-surgery care guides, and seasonal health tips that position your clinic as a trusted authority.</p>
+            <h3>Emergency &amp; Hours, Front and Centre</h3>
+            <p>Clear emergency and after-hours information where a worried owner can find it in one tap.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Ready Foundations</h3>
+            <p>Clean structure, schema and fast mobile loads built in, so the site can rank for vet searches rather than needing rescuing later.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First &amp; Fast</h3>
+            <p>Owners search on their phones, often stressed. Every page is built mobile-first, fast, with tap-to-call and tap-to-book.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for veterinary website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for veterinary website">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Veterinary Website Design</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Understands <span class="highlight">Pet Owners</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've built websites for service-based businesses across Singapore. We understand what pet owners look for online — and we design every element of your website to turn visitors into loyal clients who trust your clinic with their pets' health.</p>
+        <p>A site warm enough to reassure an owner, clear enough to answer them, and fast enough to catch the emergency.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Veterinary Industry Understanding</h3>
-            <p>We know what pet owners need to see before choosing a vet — clear service descriptions, vet credentials, emergency accessibility, and real client testimonials. We build every page with these trust signals front and centre.</p>
+            <h3>Veterinary Sector Understanding</h3>
+            <p>We know what makes owners trust a clinic — visible credentials, real reviews, clear emergency info — and design every element around it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most veterinary clinic websites go live within 2 weeks of kickoff. Whether you're opening a new practice or upgrading your existing clinic's online presence, we deliver on schedule without compromising on quality.</p>
+            <h3>Live Before You Need It</h3>
+            <p>Most vet sites go live within two to three weeks, so a new clinic or a refreshed brand is working when you need it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Every site is designed for the pet owner searching on their phone — often in urgent situations. Fast load times, thumb-friendly navigation, and prominent tap-to-call buttons so clients can reach your clinic instantly.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence — from ranking for "vet near me" searches to running Instagram campaigns that grow your clinic's following and fill your appointment book.</p>
+            <h3>Website, SEO &amp; Ads Together</h3>
+            <p>We also run <a href="/veterinary-clinic-seo-singapore/">vet SEO</a> and <a href="/veterinary-clinic-google-ads-singapore/">Google Ads</a> — one agency for the whole online presence.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where website fits the pet-owner journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Owner Journey</p>
+        <h2>Where <span class="highlight">Website</span> Fits the <span class="highlight">Pet-Owner Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A pet owner moves through five stages before booking. Your website carries the middle three — it is where they research the service, compare you against other clinics, and finally book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A search or referral brings them to the site</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Service pages and vet profiles answer it</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Reviews and hours weigh you against others</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Online booking turns worry into an appointment</p></li>
+        <li class="funnel-stage"><h3>Care</h3><p>A good first visit, then a lifetime of loyalty</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about veterinary website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about veterinary website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Veterinary Website Design Questions Answered</h2>
+        <h2>Veterinary <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -202,6 +276,21 @@ const schemaData = [
   </section>
 
 
-  <RelatedServices topic="website" />
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Veterinary Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/veterinary-clinic-seo-singapore/" class="related-service-link">Veterinary SEO</a>
+          <a href="/veterinary-clinic-google-ads-singapore/" class="related-service-link">Veterinary Google Ads</a>
+          <a href="/veterinary-clinic-social-media-singapore/" class="related-service-link">Veterinary Social Media</a>
+          <a href="/veterinary-clinic-branding-singapore/" class="related-service-link">Veterinary Branding</a>
+          <a href="/veterinary-clinic-marketing-singapore/" class="related-service-link">Full-Service Veterinary Marketing</a>
+          <a href="/veterinary-clinic-ai-search-optimisation-singapore/" class="related-service-link">Veterinary GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
 
 </ServiceLayout>

@@ -1,0 +1,295 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "GEO Agency for Veterinary Clinics Singapore",
+    "description": "GEO and AI search optimisation agency for veterinary clinics in Singapore. Get your clinic named when pet owners ask ChatGPT, Gemini and Google AI Mode for a vet.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Veterinary Clinic AI Search Optimisation"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is GEO for a veterinary clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Generative Engine Optimisation is the work of getting your clinic named when a pet owner asks an AI assistant rather than searching Google. Ask ChatGPT for a good vet near Serangoon that sees rabbits, and you get a shortlist of a few clinics, not ten links. GEO is about being on that list, which depends on different signals from traditional SEO." } },
+      { "@type": "Question", "name": "How is this different from the SEO you already do?", "acceptedAnswer": { "@type": "Answer", "text": "SEO earns a ranking position; GEO earns a mention inside a generated answer. Ranking factors still matter, but AI systems lean far more on structured data, entity clarity, and how consistently your clinic is described across the web. A clinic can rank well on Google and still never be named by an assistant — that is the gap we close." } },
+      { "@type": "Question", "name": "What makes an AI recommend one vet over another?", "acceptedAnswer": { "@type": "Answer", "text": "Specificity and corroboration. AI systems favour clinics whose services, animals seen, hours and locations are stated unambiguously and confirmed in more than one place — your site, your Google Business Profile, directories, and reviews. Vague copy like 'compassionate care for your furry friends' gives a model nothing to match an owner's question against." } },
+      { "@type": "Question", "name": "Does it help with emergency and exotic-pet searches?", "acceptedAnswer": { "@type": "Answer", "text": "Those are exactly the queries where GEO matters most. A worried owner asking an AI for a 24-hour vet, or one for rabbits, reptiles or birds, gets a short, specific answer. If your clinic offers emergency hours or sees exotics and states it clearly, you can own those high-intent moments where most clinics are invisible." } },
+      { "@type": "Question", "name": "Is it too early to invest in AI search for a vet clinic?", "acceptedAnswer": { "@type": "Answer", "text": "It is early, and that is the argument for doing it. Very few Singapore veterinary clinics have done any of this work, so the competitive bar is low in a way it has not been in Google search for years. The clinics that establish clean entity data now are the ones AI systems will keep citing as pet-owner adoption grows." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "GEO Agency for Veterinary Clinics Singapore", "item": "https://jraftcreative.com/veterinary-clinic-ai-search-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="GEO Agency for Veterinary Clinics Singapore"
+  description="GEO agency for veterinary clinics in Singapore — get named when pet owners ask ChatGPT, Gemini and Google AI Mode for a vet near them."
+  canonical="https://jraftcreative.com/veterinary-clinic-ai-search-optimisation-singapore/"
+  ogTitle="GEO Agency for Veterinary Clinics Singapore"
+  ogDescription="AI search optimisation for Singapore veterinary clinics. Get named when pet owners ask ChatGPT, Gemini and Perplexity for a vet."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="geo agency for veterinary clinics, veterinary ai search optimisation singapore, vet chatgpt optimisation, ai search optimisation for vets, generative engine optimisation veterinary, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="GEO Agency for Veterinary Clinics"
+  heroTitle='GEO Agency for <span class="highlight">Veterinary Clinics in Singapore</span>'
+  heroSubtitle="Pet owners have started asking AI which vet to see. The answer names two or three clinics — and if yours isn't one of them, you were never in the running. We make veterinary clinics the answer AI assistants give."
+  heroImage="/images/service-veterinary.webp"
+  heroImageAlt="Veterinary clinic in Singapore — veterinary AI search optimisation"
+  heroButtons={[
+    { text: "Get an AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Veterinary SEO", href: "/veterinary-clinic-seo-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to know if my vet clinic shows up in AI search."
+  ctaLabel="Be the Answer"
+  ctaTitle="Find Out What AI Says About Your Vet Clinic"
+  ctaDescription="Book a free consultation and we'll run the prompts a real pet owner would use — by service, animal and neighbourhood — across ChatGPT, Gemini and Perplexity, and show you exactly where your clinic stands. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get an AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20know%20if%20my%20vet%20clinic%20shows%20up%20in%20AI%20search.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="AI search challenges for veterinary clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Worried Owners Are Asking <span class="highlight">AI</span> for a Vet — and It Names <span class="highlight">Two or Three</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>A generated answer has no page two. When a pet is unwell, the owner asks, gets a short list, and calls the first clinic on it.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Ranking Well Isn't Enough</h3>
+            <p>A clinic can sit on page one of Google and never be mentioned by ChatGPT. AI systems weigh structured data and entity clarity, not just position.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Vague Copy Gives AI Nothing</h3>
+            <p>"Compassionate care for your furry friends" can't be matched to "24-hour vet that sees rabbits near Serangoon". Specificity is what gets you cited.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Lane Is Still Open</h3>
+            <p>Almost no Singapore vet clinic has done this work. The bar is far lower than it has been in Google search for a decade — for now.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="GEO services for veterinary clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">GEO Workstreams</span> for Veterinary <span class="highlight">Clinics</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We make your services, the animals you see, your hours and your locations unambiguous to a machine — then prove it moved.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We run the prompts pet owners actually use across ChatGPT, Gemini and Perplexity, and record whether you appear and how you're described.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Clinic &amp; Service Entities</h3>
+            <p>Structured data for your clinic and each service — vaccination, surgery, dental, emergency — so they're machine-readable facts, not prose.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Owner-Question Answer Content</h3>
+            <p>Pages that answer what owners actually ask — cost of sterilisation, vaccination schedules, when an emergency is an emergency — in the form models quote.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Animals-Seen &amp; Hours Clarity</h3>
+            <p>Exotics, cats, dogs, small mammals — plus emergency and after-hours availability, stated plainly so an assistant can match a specific owner to you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Per-Branch Location Data</h3>
+            <p>Each clinic as its own entity, so a neighbourhood question returns the branch an owner can reach rather than a competitor down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>A tracked set of service, animal and neighbourhood prompts, re-run monthly, so visibility is measured rather than asserted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your veterinary clinic GEO agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">GEO Agency</span> That Has Been <span class="highlight">Cited Itself</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run this on our own site and publish the method rather than keeping it a black box.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>We've Earned AI Citations</h3>
+            <p>We wrote up <a href="/blog/how-we-got-cited-in-google-ai-overview-singapore/">how we got cited in Google's AI Overview</a> for niche Singapore queries — method, not marketing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>We Already Run Vet Search</h3>
+            <p>We handle <a href="/veterinary-clinic-seo-singapore/">veterinary SEO</a> and <a href="/veterinary-clinic-marketing-singapore/">marketing</a> for clinics here, so we know which owner questions precede a booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measured, Not Claimed</h3>
+            <p>Baseline first, monthly prompt re-runs after. If your visibility hasn't moved, the report says so — see our <a href="/geo-agency-singapore/">GEO programme</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where AI search fits the pet-owner journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Owner Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Fits the <span class="highlight">Pet-Owner Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>AI has moved to the very front of the journey. Where an owner once opened Google and browsed a list, many now ask an assistant for a shortlist — which means Discover is decided before your website is ever visited.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Ask</h3><p>An owner asks an AI which vet to see</p></li>
+        <li class="funnel-stage"><h3>Shortlist</h3><p>Two or three clinics get named — or you don't</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>They check reviews, services and hours</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>The shortlist turns into a booked visit</p></li>
+        <li class="funnel-stage"><h3>Care</h3><p>A good first visit, then a lifetime of loyalty</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about GEO for veterinary clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>GEO for <span class="highlight">Veterinary Clinics</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is GEO for a veterinary clinic?</summary>
+          <div class="faq-answer"><p>Generative Engine Optimisation is the work of getting your clinic named when a pet owner asks an AI assistant rather than searching Google. Ask ChatGPT for a good vet near Serangoon that sees rabbits, and you get a shortlist of a few clinics, not ten links. GEO is about being on that list, which depends on different signals from traditional SEO.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is this different from the SEO you already do?</summary>
+          <div class="faq-answer"><p>SEO earns a ranking position; GEO earns a mention inside a generated answer. Ranking factors still matter, but AI systems lean far more on structured data, entity clarity, and how consistently your clinic is described across the web. A clinic can rank well on Google and still never be named by an assistant — that's the gap we close.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>What makes an AI recommend one vet over another?</summary>
+          <div class="faq-answer"><p>Specificity and corroboration. AI systems favour clinics whose services, animals seen, hours and locations are stated unambiguously and confirmed in more than one place — your site, your Google Business Profile, directories, and reviews. Vague copy like "compassionate care for your furry friends" gives a model nothing to match an owner's question against.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Does it help with emergency and exotic-pet searches?</summary>
+          <div class="faq-answer"><p>Those are exactly the queries where GEO matters most. A worried owner asking an AI for a 24-hour vet, or one for rabbits, reptiles or birds, gets a short, specific answer. If your clinic offers emergency hours or sees exotics and states it clearly, you can own those high-intent moments where most clinics are invisible.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Is it too early to invest in AI search for a vet clinic?</summary>
+          <div class="faq-answer"><p>It's early, and that's the argument for doing it. Very few Singapore veterinary clinics have done any of this work, so the competitive bar is low in a way it hasn't been in Google search for years. The clinics that establish clean entity data now are the ones AI systems will keep citing as pet-owner adoption grows.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Veterinary Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/veterinary-clinic-seo-singapore/" class="related-service-link">Veterinary SEO</a>
+          <a href="/veterinary-clinic-website-singapore/" class="related-service-link">Veterinary Website Design</a>
+          <a href="/veterinary-clinic-google-ads-singapore/" class="related-service-link">Veterinary Google Ads</a>
+          <a href="/veterinary-clinic-social-media-singapore/" class="related-service-link">Veterinary Social Media</a>
+          <a href="/veterinary-clinic-branding-singapore/" class="related-service-link">Veterinary Branding</a>
+          <a href="/veterinary-clinic-marketing-singapore/" class="related-service-link">Full-Service Veterinary Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
