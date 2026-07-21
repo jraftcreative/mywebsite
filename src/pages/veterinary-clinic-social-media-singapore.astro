@@ -48,17 +48,48 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Veterinary Clinic Social Media — Jraft Creative"
+  title="Social Media Agency for Veterinary Clinics"
   description="Social media marketing for veterinary clinics in Singapore. Pet care tips, engaging pet content, vaccination reminders, and community-building campaigns."
   canonical="https://jraftcreative.com/veterinary-clinic-social-media-singapore/"
-  ogTitle="Veterinary Clinic Social Media — Jraft Creative"
+  ogTitle="Social Media Agency for Veterinary Clinics"
   ogDescription="Social media marketing for vet clinics in Singapore. Engaging pet content, health education, and appointment-driving campaigns. Plans"
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="veterinary clinic social media singapore, vet clinic marketing singapore, veterinary instagram marketing, pet clinic social media, animal hospital marketing singapore, vet digital marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Veterinary Clinic Social Media Marketing"
-  heroTitle='Social Media for <span class="highlight">Veterinary Clinics</span> in Singapore'
+  heroLabel="Social Media Agency for Veterinary Clinics"
+  heroTitle='Social Media Agency for <span class="highlight">Veterinary Clinics in Singapore</span>'
   heroSubtitle="Pet care tips, heartwarming content, and vaccination reminders that build trust with pet owners. We help veterinary clinics in Singapore grow their client base, strengthen community ties, and become the neighbourhood's first-choice vet."
   heroImage="/images/service-veterinary.webp"
   heroButtons={[
@@ -75,54 +106,84 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Social media challenges for veterinary clinics in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Social challenges for veterinary clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Pet Owners Choose Their Vet Long Before an Emergency Happens</h2>
+        <h2>Owners Choose Their Vet Long Before an <span class="highlight">Emergency</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's pet population has grown significantly — with over 80,000 licensed dogs and a rapidly increasing number of cat-owning households. Pet ownership in HDB flats expanded after rule changes in 2024, and the demand for trusted veterinary care continues to rise. But with over 100 veterinary clinics across the island, pet owners have plenty of options. The clinic they register with is usually the one they discovered and felt good about online — not the closest one on the map.</p>
-        <p>Pet owners are emotionally invested. They research vet clinics the way parents research paediatricians. They scroll through your Instagram to see how you treat animals, read your Facebook reviews, and look for signs that your team genuinely cares. A vet clinic with an active, warm social media presence earns that trust. One with a dormant page, generic stock photos, or no online personality gets passed over. In a market where pet owners switch vets based on a single negative experience, your social media is your first — and most ongoing — opportunity to prove you are the right choice for their family.</p>
+        <p>Pet owners are among the most engaged, loyal audiences on social. The clinic that earns their trust in the feed is the one they call when it matters.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Loyalty Is Built in the Feed</h3>
+            <p>Owners follow clinics that feel warm and knowledgeable. That relationship is what turns a follower into a client for the pet's whole life.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>An Empty Feed Reads as Distant</h3>
+            <p>A quiet or clinical profile makes a new owner hesitate. Consistent, human content signals a clinic that will care for their pet.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Emotional, So Handle It Well</h3>
+            <p>Pet content is joyful and sometimes heartbreaking. It has to be handled with genuine sensitivity, not stock captions.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for veterinary clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social services for veterinary clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Veterinary Clinics</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Vet <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create and manage social media content that showcases the expertise, warmth, and genuine care behind your veterinary practice. From pet health tips and vaccination reminders to heartwarming patient stories and team introductions, every post builds the trust that keeps pet owners coming back — and referring their friends.</p>
-        <p>Our team handles content strategy, graphic design, video editing, copywriting, and community management — so your vets and nurses can focus on caring for animals instead of worrying about what to post next.</p>
+        <p>We build a cadence around what your clinic already does each week, turning everyday care into trust.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
             <h3>Pet Care &amp; Health Reels</h3>
-            <p>Short-form videos covering pet health tips, seasonal reminders, grooming advice, and behind-the-scenes clinic moments — content that educates pet owners while showcasing the caring expertise of your veterinary team.</p>
+            <p>Short video of your vets on common worries — 'is this an emergency', 'when to sterilise' — building trust in the person, not just the clinic.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
-          <div class="service-detail-card__content">
-            <h3>Pet Owner Community Management</h3>
-            <p>Proactive engagement with pet owners — answering care questions, sharing pet milestones, responding to reviews, and building the kind of warm community that makes your clinic feel like family to every client who follows you.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
             <h3>Educational &amp; Seasonal Content</h3>
-            <p>Branded graphics covering vaccination schedules, tick and flea prevention, dental health awareness, heatstroke warnings, and dietary guidance — positioning your clinic as a trusted source of reliable pet health information year-round.</p>
+            <p>Clear posts on vaccinations, parasite season, festive-period pet safety — the content that keeps owners engaged year-round.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Vaccination &amp; Check-up Campaigns</h3>
-            <p>Targeted campaigns timed around annual vaccination cycles, dental awareness month, and seasonal health risks — designed to drive appointment bookings and re-engage pet owners who may have fallen behind on routine care.</p>
+            <h3>Patient Spotlights &amp; Recoveries</h3>
+            <p>Feel-good patient stories, shared with owner consent — the posts that owners love, share and remember.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>Prompt, warm handling of DMs, comments and enquiries — nurturing an owner from first message to booked visit.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Check-up &amp; Vaccination Campaigns</h3>
+            <p>Gentle reminder campaigns for annual check-ups and boosters that fill quieter periods and keep pets healthy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries</h3>
+            <p>We track profile-to-enquiry and bookings that mention social — follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -130,47 +191,61 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for veterinary clinic social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for veterinary social">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Loves Animals Too</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Loves <span class="highlight">Animals Too</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Veterinary social media requires a specific touch — it must be warm without being unprofessional, educational without being clinical, and emotionally engaging without being manipulative. We create content that reflects the genuine care your team provides every day.</p>
+        <p>Vet social lives or dies on warmth and sensitivity. We handle both, with your clinical team in control of every post.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Pet Industry Understanding</h3>
-            <p>We understand Singapore's pet ownership landscape — the regulations, the community dynamics, and what pet owners actually care about. Your content addresses real concerns like HDB-approved breeds, tropical climate health risks, and AVS licensing requirements.</p>
+            <p>We know what an owner audience responds to — reassurance, education and genuine warmth — and what falls flat.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Sensitive Content Handling</h3>
-            <p>From emergency cases to pet loss, veterinary clinics deal with emotional situations daily. We handle sensitive content with empathy and discretion, ensuring your social media reflects your clinic's compassion without being exploitative.</p>
+            <p>Pet content ranges from joyful to grief. We handle every post with the care the subject deserves, never a stock caption.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Review &amp; Approval</h3>
-            <p>Every post and video is reviewed by your veterinary team before publishing. Medical accuracy matters — we ensure all health information is vetted by your qualified professionals before going live.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because your client registrations are growing and your community is thriving — not because of a binding contract.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>You and your clinical team sign off every post, caption and visual. Nothing goes live without your approval.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social fits the pet-owner journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Owner Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Pet-Owner Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A pet owner moves through five stages before booking. Social rarely wins the first search — its job is Validate and Compare, where warm, expert content earns the trust to choose you.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a share puts you on the radar</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Vet-led content builds warmth and trust</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Reviews and personality weigh the clinics</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>DMs and profile link turn interest into a visit</p></li>
+        <li class="funnel-stage"><h3>Care</h3><p>A good first visit, then a lifetime of loyalty</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about veterinary clinic social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about veterinary clinic social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -202,6 +277,21 @@ const schemaData = [
   </section>
 
 
-  <RelatedServices topic="social" />
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Veterinary Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/veterinary-clinic-seo-singapore/" class="related-service-link">Veterinary SEO</a>
+          <a href="/veterinary-clinic-website-singapore/" class="related-service-link">Veterinary Website Design</a>
+          <a href="/veterinary-clinic-google-ads-singapore/" class="related-service-link">Veterinary Google Ads</a>
+          <a href="/veterinary-clinic-branding-singapore/" class="related-service-link">Veterinary Branding</a>
+          <a href="/veterinary-clinic-marketing-singapore/" class="related-service-link">Full-Service Veterinary Marketing</a>
+          <a href="/veterinary-clinic-ai-search-optimisation-singapore/" class="related-service-link">Veterinary GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
 
 </ServiceLayout>

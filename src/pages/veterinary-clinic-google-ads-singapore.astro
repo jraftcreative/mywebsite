@@ -47,17 +47,48 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Veterinary Clinic Google Ads Singapore — Jraft Creative"
+  title="Google Ads Agency for Veterinary Clinics Singapore"
   description="Google Ads management for veterinary clinics in Singapore. Emergency vet keywords, pet owner targeting, vaccination campaigns."
   canonical="https://jraftcreative.com/veterinary-clinic-google-ads-singapore/"
-  ogTitle="Veterinary Clinic Google Ads Singapore — Jraft Creative"
+  ogTitle="Google Ads Agency for Veterinary Clinics Singapore"
   ogDescription="Google Ads for vet clinics in Singapore. Emergency vet keywords, pet owner targeting, and service-specific campaigns. Plans"
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="veterinary clinic google ads singapore, vet clinic advertising singapore, google ads for vet clinics, ppc veterinary singapore, vet marketing singapore, animal clinic ads singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Veterinary Clinic Google Ads Singapore"
-  heroTitle='Google Ads for Veterinary Clinics <span class="highlight">in Singapore</span>'
+  heroLabel="Google Ads Agency for Veterinary Clinics"
+  heroTitle='Google Ads Agency for <span class="highlight">Veterinary Clinics in Singapore</span>'
   heroSubtitle="When a pet owner searches for a vet — whether it's a 2 AM emergency or a routine vaccination — they choose the clinic that shows up first. We build Google Ads campaigns that put your veterinary practice at the top of search results, from emergency care to wellness packages and everything in between."
   heroImage="/images/service-veterinary.webp"
   heroButtons={[
@@ -74,54 +105,84 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for veterinary clinics">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Google Ads challenges for veterinary clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Pet Owners Are Searching — Is Your Clinic the One They Find?</h2>
+        <h2>Pet Owners Are Searching — Is Your Clinic the One They <span class="highlight">Find</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 824,000 pet-owning households, and pet care spending grows year on year. When a dog stops eating, a cat needs emergency care at midnight, or a new puppy owner looks for their first vet, they start with Google. The clinics that appear in paid ads and map listings capture those pet owners — the clinics that don't appear lose them permanently to a competitor just a few kilometres away.</p>
-        <p>Without a structured Google Ads strategy, vet clinics rely on walk-in traffic and word-of-mouth while competitors run location-targeted campaigns that capture every pet owner searching nearby. The real cost isn't just one lost appointment — it's the lifetime value of that pet patient, the repeat vaccinations, the dental cleanings, and every friend that pet owner would have referred.</p>
+        <p>An owner with a sick pet or a new puppy is ready to book today. Google Ads puts your clinic in front of them at that moment.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Emergencies Book Immediately</h3>
+            <p>A frightened owner searching '24-hour vet' books within minutes. If you're not visible then, the visit goes to whoever is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Wasted Spend Without Structure</h3>
+            <p>Broad, untuned campaigns burn budget on browsers and other clinics instead of owners ready to book a service.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>New Puppies &amp; Kittens Are Timed</h3>
+            <p>First vaccinations, sterilisation and health checks happen on a schedule. Ads timed to that intent win the lifetime client.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for veterinary clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for veterinary clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Veterinary Clinic Ad Services</p>
-        <h2>Google Ads Strategy Built for Vet Practices</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Veterinary Clinic <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build Google Ads campaigns specifically for veterinary clinics in Singapore — from emergency after-hours ads with click-to-call extensions to routine vaccination campaigns that build long-term patient relationships. Whether you're a neighbourhood practice in Serangoon or a specialist animal hospital in the West, every campaign is designed to bring pet owners through your door.</p>
-        <p>Our approach covers service-specific keyword targeting, radius-based location campaigns, emergency call extensions, and seasonal promotions for vaccination drives and wellness packages — ensuring your ad budget reaches pet owners who need your services now.</p>
+        <p>Every campaign is service-specific and judged on booked visits rather than clicks.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
             <h3>Emergency &amp; After-Hours Campaigns</h3>
-            <p>Priority campaigns for urgent searches — "24 hour vet Singapore", "emergency vet near me", "animal hospital open now". Click-to-call extensions and location targeting connect distressed pet owners with your clinic in seconds, not minutes.</p>
+            <p>High-intent campaigns for 'emergency vet' and 'vet open now' — the moments an owner books almost immediately.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Neighbourhood Pet Owner Targeting</h3>
-            <p>Radius campaigns centred on your clinic targeting pet owners within convenient travel distance. Neighbourhood keywords — "vet Toa Payoh", "animal clinic Pasir Ris" — capture pet owners who want a conveniently located practice they can visit regularly.</p>
+            <h3>Neighbourhood Targeting</h3>
+            <p>Ads focused on the estates around your clinic and the areas owners travel from, so budget follows reachable clients.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
             <h3>Service-Specific Ad Groups</h3>
-            <p>Separate campaigns for vaccinations, dental cleaning, sterilisation, health screenings, dermatology, and specialist consultations. Each ad group targets the exact keywords pet owners use when searching for that specific service.</p>
+            <p>Separate campaigns for vaccination, sterilisation, dental and surgery — so budget follows the services you most want to fill.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
             <h3>Vaccination &amp; Wellness Promotions</h3>
-            <p>Seasonal campaigns promoting annual vaccination packages, puppy starter plans, senior pet wellness checks, and preventive care bundles. These campaigns capture pet owners at key moments and build long-term patient relationships.</p>
+            <p>Timed campaigns for puppy and kitten packages and annual check-ups, capturing owners at the start of a lifetime relationship.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Exotic &amp; Specialty Targeting</h3>
+            <p>Low-competition, high-value searches for exotic, avian and small-mammal care where few clinics compete.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Cost-Per-Booking Reporting</h3>
+            <p>We track click to booked visit and report cost per booking by service, so you know exactly what each new client costs.</p>
           </div>
         </div>
       </div>
@@ -129,47 +190,61 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for veterinary clinic Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for veterinary google ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand What Drives Pet Owners to Book</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> Built for <span class="highlight">Vet Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns for pet care businesses across Singapore and understand how pet owners search, compare, and choose veterinary clinics. Here's why vet practices choose us:</p>
+        <p>We manage vet ad accounts to a single number — cost per booked visit — and build for the lifetime value of a loyal client.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Pet Care Market Knowledge</h3>
-            <p>We understand Singapore's pet care landscape — which services have the highest search demand, seasonal patterns for vaccinations and health checks, and how pet owners evaluate clinics online before booking.</p>
+            <p>We know which service keywords convert, how to structure by procedure, and how to capture the emergency moment.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You maintain full access to your Google Ads account and see exactly what each new patient appointment costs your practice.</p>
+            <p>Your budget goes straight to Google, never marked up. The account stays in your name, so you see every dollar and cost per booking.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that adapt to your clinic's needs. Scale up during vaccination seasons or when launching new services, adjust during quieter months — no penalties, no minimum commitments.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Lifetime Patient Value Focus</h3>
-            <p>We optimise for long-term patient acquisition, not one-off visits. Campaigns are designed to attract pet owners who become loyal, recurring patients — tracking the full value from first appointment through ongoing wellness care.</p>
+            <h3>Ads, SEO &amp; Website Together</h3>
+            <p>We also run <a href="/veterinary-clinic-seo-singapore/">vet SEO</a> and build the <a href="/veterinary-clinic-website-singapore/">website</a> the ads land on — one system, one goal.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where google ads fits the pet-owner journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Owner Journey</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Pet-Owner Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A pet owner moves through five stages before booking. Google Ads owns the two highest-intent moments — Discover, when they first search a service or an emergency, and Book, when a remarketing ad brings a researcher back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>An ad captures the first service search</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>They read service detail and reviews</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Location and hours weigh the clinics</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Remarketing and a clear page close it</p></li>
+        <li class="funnel-stage"><h3>Care</h3><p>A good first visit, then a lifetime of loyalty</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for veterinary clinics">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for veterinary clinics">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -201,6 +276,21 @@ const schemaData = [
   </section>
 
 
-  <RelatedServices topic="ads" />
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Veterinary Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/veterinary-clinic-seo-singapore/" class="related-service-link">Veterinary SEO</a>
+          <a href="/veterinary-clinic-website-singapore/" class="related-service-link">Veterinary Website Design</a>
+          <a href="/veterinary-clinic-social-media-singapore/" class="related-service-link">Veterinary Social Media</a>
+          <a href="/veterinary-clinic-branding-singapore/" class="related-service-link">Veterinary Branding</a>
+          <a href="/veterinary-clinic-marketing-singapore/" class="related-service-link">Full-Service Veterinary Marketing</a>
+          <a href="/veterinary-clinic-ai-search-optimisation-singapore/" class="related-service-link">Veterinary GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
 
 </ServiceLayout>
