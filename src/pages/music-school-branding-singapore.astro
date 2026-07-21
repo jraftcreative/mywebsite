@@ -1,0 +1,379 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Branding Agency for Music Schools Singapore",
+    "description": "Branding agency for music schools in Singapore — positioning, logo and visual identity, collateral and brand guidelines built to justify your fees and hold students term after term.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Music School Branding"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why does a music school need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because parents cannot judge teaching quality before a trial, so they judge everything around it — your logo, your studio photos, the way your fees are presented. Two schools with equally good teachers rarely charge the same. The one that looks established and considered charges more, fills faster, and loses fewer students to the cheaper option down the road. Branding is what closes that gap." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand, not the whole of it. What actually persuades a parent is consistency across everything they see — the website, the recital programme, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint reinforces the same impression." } },
+      { "@type": "Question", "name": "Will rebranding lose the goodwill we have built?", "acceptedAnswer": { "@type": "Answer", "text": "Only if it is done carelessly. Most established schools do not need a clean slate — they need their existing equity sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as growing up rather than starting over. Existing students should feel the school got better, not unrecognisable." } },
+      { "@type": "Question", "name": "Does branding actually help us charge more?", "acceptedAnswer": { "@type": "Answer", "text": "It is one of the few things that reliably does. Fees are a signal as much as a number, and a premium fee attached to a budget-looking brand creates doubt rather than confidence. When the identity, the space and the materials all look like the fee is fair, parents stop treating price as the deciding factor and start treating teaching quality as the reason to choose you." } },
+      { "@type": "Question", "name": "Do you handle the design work in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, ads — so the brand does not stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Music Schools Singapore", "item": "https://jraftcreative.com/music-school-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
+<ServiceLayout
+  title="Branding Agency for Music Schools Singapore"
+  description="Branding agency for music schools in Singapore — positioning, identity, collateral and guidelines that justify your fees and keep students enrolled."
+  canonical="https://jraftcreative.com/music-school-branding-singapore/"
+  ogTitle="Branding Agency for Music Schools Singapore"
+  ogDescription="Branding for Singapore music schools. Positioning, logo, collateral and guidelines built to look worth the fee you charge."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="branding agency for music schools, music school branding singapore, music school logo design, music academy branding, music school rebrand singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Branding Agency for Music Schools"
+  heroTitle='Branding Agency for <span class="highlight">Music Schools in Singapore</span>'
+  heroSubtitle="A parent cannot hear your teaching before they book. So they judge everything else — your logo, your studio, the way your fees are presented. We build music school brands that look worth the price you charge, before a single note is played."
+  heroImage="/images/service-musicschool.webp"
+  heroImageAlt="Music lesson in a Singapore studio — music school branding"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Music School Marketing", href: "/music-school-marketing-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my music school in Singapore."
+  ctaLabel="Look Worth the Fee"
+  ctaTitle="Get a Free Music School Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your school currently presents itself — logo, website, studio, materials — and where the gaps are between how good your teaching is and how good it looks. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20music%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for music schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Can't Judge <span class="highlight">Teaching</span>. So They Judge <span class="highlight">Everything Else</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Your teaching may be the best in the estate. Before a trial, a parent has no way to know that — and no reason to pay for it.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Credibility Judged in Seconds</h3>
+            <p>A dated logo or a mismatched website tells a parent you're small and unsure — long before they ever hear a student play.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Good Schools Blur Together</h3>
+            <p>Half the music schools in Singapore look interchangeable. If nothing sets yours apart on sight, price becomes the only thing left to compare.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Premium Fees, Budget Look</h3>
+            <p>A higher fee attached to a cheap-looking brand reads as overpriced. The identity has to earn the number before a parent accepts it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for music schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for <span class="highlight">Music Schools</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build the full system, not just a logo — everything a parent sees, made to say the same thing.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your school stands for and who it's for — the conservatory-serious studio, or the joyful first-instrument school. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A mark, palette and type system that looks established at the door, on a screen, and on an exam certificate.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Studio &amp; Collateral Design</h3>
+            <p>Signage, recital programmes, certificates and enrolment forms — the physical touchpoints parents handle and remember.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Messaging &amp; Voice</h3>
+            <p>How your school sounds — from the website headline to the WhatsApp reply — so every message feels like the same school.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A consistent way to shoot lessons, teachers and recitals, so your feed and website stop looking like a scrapbook.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A simple rulebook your front desk and any freelancer can follow, so the brand holds together after we hand it over.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your music school branding agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Brand</span> That Doesn't Stop at a <span class="highlight">PDF</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most branding projects end with a guidelines document nobody opens again. Ours end with the brand actually live.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Music Education Fluency</h3>
+            <p>We already run search, ads and social for music schools, so we know what makes a parent trust one over another.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built to Justify the Fee</h3>
+            <p>Every decision serves one goal — making your school look worth what you charge, so price stops being the conversation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the new identity onto your <a href="/music-school-website-singapore/">website</a>, <a href="/music-school-social-media-singapore/">social</a> and ads — one agency, so nothing drifts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand isn't one stage — it's the layer over all of them. It decides whether a parent takes you seriously in the first search, believes you at the comparison, and feels proud to stay enrolled.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A polished first impression earns the click</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Consistency signals a real, established school</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>A clear identity lifts you above price alone</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Looking the part makes the fee feel fair</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Families stay proud to belong &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about music school branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Music School <span class="highlight">Branding</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Why does a music school need branding?</summary>
+          <div class="faq-answer"><p>Because parents can't judge teaching quality before a trial, so they judge everything around it — your logo, your studio photos, the way your fees are presented. Two schools with equally good teachers rarely charge the same. The one that looks established and considered charges more, fills faster, and loses fewer students to the cheaper option down the road. Branding is what closes that gap.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand, not the whole of it. What actually persuades a parent is consistency across everything they see — the website, the recital programme, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint reinforces the same impression.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Will rebranding lose the goodwill we have built?</summary>
+          <div class="faq-answer"><p>Only if it's done carelessly. Most established schools don't need a clean slate — they need their existing equity sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as growing up rather than starting over. Existing students should feel the school got better, not unrecognisable.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Does branding actually help us charge more?</summary>
+          <div class="faq-answer"><p>It's one of the few things that reliably does. Fees are a signal as much as a number, and a premium fee attached to a budget-looking brand creates doubt rather than confidence. When the identity, the space and the materials all look like the fee is fair, parents stop treating price as the deciding factor and start treating teaching quality as the reason to choose you.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle the design work in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, ads — so the brand doesn't stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Music School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/music-school-seo-singapore/" class="related-service-link">Music School SEO</a>
+          <a href="/music-school-website-singapore/" class="related-service-link">Music School Website Design</a>
+          <a href="/music-school-google-ads-singapore/" class="related-service-link">Music School Google Ads</a>
+          <a href="/music-school-social-media-singapore/" class="related-service-link">Music School Social Media</a>
+          <a href="/music-school-ai-search-optimisation-singapore/" class="related-service-link">Music School GEO / AI Search</a>
+          <a href="/music-school-marketing-singapore/" class="related-service-link">Full-Service Music School Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
