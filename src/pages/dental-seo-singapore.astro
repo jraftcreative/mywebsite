@@ -1,0 +1,295 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "SEO Agency for Dental Clinics Singapore",
+    "description": "SEO agency for dental clinics in Singapore. Local SEO, treatment-page optimisation, Google Business Profile and content that ranks a clinic for the searches patients actually make.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Dental SEO"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How long does dental SEO take to work in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable movement within 3 to 5 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while competitive treatment terms like 'dental implants Singapore' take longer to climb. We prioritise the searches most likely to fill your chairs first." } },
+      { "@type": "Question", "name": "Which keywords should a dental clinic target?", "acceptedAnswer": { "@type": "Answer", "text": "A mix of local ('dentist Bishan', 'dental clinic near me'), treatment-specific ('dental implants Singapore', 'Invisalign price', 'wisdom tooth extraction'), and question-based terms ('how much does a crown cost'). We research the exact searches your prospective patients use in your area." } },
+      { "@type": "Question", "name": "Is dental advertising restricted in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Singapore Dental Council's ethical code and MOH advertising guidelines restrict claims, testimonials and before/after imagery. All content we produce is structured to promote your clinic within those rules, so your visibility never puts your practice at risk." } },
+      { "@type": "Question", "name": "Can SEO help my clinic appear on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO and Google Business Profile optimisation are core to dental SEO. We optimise your listing with accurate services, photos, hours and reviews so you appear in the Maps three-pack when patients search 'dentist near me' in your area." } },
+      { "@type": "Question", "name": "Do you handle SEO for clinics with multiple branches?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create distinct location pages and separate Google Business Profiles for each branch, with location-specific content, so every clinic ranks in its own neighbourhood rather than competing with itself." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "SEO Agency for Dental Clinics Singapore", "item": "https://jraftcreative.com/dental-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="SEO Agency for Dental Clinics Singapore"
+  description="SEO agency for dental clinics in Singapore — local SEO, treatment pages and Google Business Profile that rank you for the searches patients make."
+  canonical="https://jraftcreative.com/dental-seo-singapore/"
+  ogTitle="SEO Agency for Dental Clinics Singapore"
+  ogDescription="SEO for dental clinics in Singapore. Rank for implants, Invisalign and dentist-near-me searches with local SEO and treatment-page optimisation."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="seo agency for dental clinics, dental clinic seo singapore, dentist seo singapore, dental seo, dental google business profile, implant dentist seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="SEO Agency for Dental Clinics"
+  heroTitle='SEO Agency for <span class="highlight">Dental Clinics in Singapore</span>'
+  heroSubtitle="When a tooth aches or a parent wants braces for their child, they search — 'dentist near me', 'Invisalign Singapore', 'wisdom tooth extraction'. We rank dental clinics for the exact searches that end in a booked appointment."
+  heroImage="/images/service-dental.webp"
+  heroImageAlt="Dental clinic in Singapore — seo"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Dental Marketing", href: "/dental-marketing-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my dental clinic in Singapore."
+  ctaLabel="Get Found by More Patients"
+  ctaTitle="Get a Free Dental Clinic SEO Audit"
+  ctaDescription="Book a free consultation and we'll review how your clinic ranks for treatment and neighbourhood searches, check your Google Business Profile, and show you where enquiries are leaking. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20dental%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for dental clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Patients Search for a Dentist — Does Your Clinic <span class="highlight">Show Up</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Dental demand is search-driven and local. A patient in pain or a parent comparing braces starts on Google and rarely scrolls past the first few results.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible for 'Dentist Near Me'</h3>
+            <p>Most dental visits start with a local search. If your clinic isn't in the map pack, the patient books with whoever is — often the clinic one MRT stop closer.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Treatments Compete Separately</h3>
+            <p>Implants, Invisalign, wisdom tooth, whitening — each is its own search with its own intent. One generic page can't rank for all of them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Established Chains Own Page One</h3>
+            <p>Larger groups have years of authority on 'dentist Singapore'. Without a structured local and treatment SEO strategy, an independent clinic stays invisible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for dental clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Dental Clinic <span class="highlight">SEO</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Patients search by treatment and by neighbourhood, so we build the site around exactly how they look for a dentist.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>Optimised GBP with services, photos, hours and review management — built to land you in the Maps three-pack for 'dentist near me'.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Treatment Page Optimisation</h3>
+            <p>A dedicated, optimised page per treatment — implants, Invisalign, root canal, whitening — so each ranks for its own high-intent search.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>A full crawl for indexing issues, broken links, missing schema and slow mobile loads — the barriers stopping Google ranking you at all.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood Landing Pages</h3>
+            <p>Location pages for each estate or branch you serve, so 'dentist Tampines' or 'Invisalign Novena' finds the right clinic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Patient-Question Content</h3>
+            <p>Guides answering what patients search — 'how much do implants cost', 'Invisalign vs braces', 'is wisdom tooth removal painful' — earning trust and traffic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reviews &amp; Reputation</h3>
+            <p>A steady, compliant review flow and response strategy — the strongest local ranking signal and the deciding factor for a nervous patient.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for dental seo">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An <span class="highlight">SEO Agency</span> That Understands <span class="highlight">Dental Clinics</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Dental SEO is local, treatment-specific and regulated. We build for all three, and report on booked appointments rather than vanity rankings.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Local &amp; Treatment-Led</h3>
+            <p>We rank you for the neighbourhood you draw from and the treatments you most want to fill, not broad terms that never convert.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>SDC-Aware Content</h3>
+            <p>We keep content within Singapore Dental Council and MOH advertising rules — no prohibited claims, no non-compliant testimonials or before/after.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Search, Website &amp; Ads Together</h3>
+            <p>We also build the <a href="/dental-website-design-singapore/">clinic website</a> and run <a href="/dental-google-ads-singapore/">Google Ads</a> — one system for filling the appointment book.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where seo fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Organic Search</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A dental patient moves through the same five stages before booking. SEO owns the earliest and most repeated moments — Discover, when they first search a treatment or 'near me', and Validate, when they check your reviews.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>Organic and map results catch the first search</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Reviews, treatment pages and credentials reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>They weigh clinics by location and treatment fit</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Contact and booking turn intent into an appointment</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A good first visit, then recalls &amp;amp; referrals</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about dental seo">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Dental SEO — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does dental SEO take to work in Singapore?</summary>
+          <div class="faq-answer"><p>Most clinics see measurable movement within 3 to 5 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while competitive treatment terms like 'dental implants Singapore' take longer to climb. We prioritise the searches most likely to fill your chairs first.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which keywords should a dental clinic target?</summary>
+          <div class="faq-answer"><p>A mix of local ('dentist Bishan', 'dental clinic near me'), treatment-specific ('dental implants Singapore', 'Invisalign price', 'wisdom tooth extraction'), and question-based terms ('how much does a crown cost'). We research the exact searches your prospective patients use in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Is dental advertising restricted in Singapore?</summary>
+          <div class="faq-answer"><p>Yes. The Singapore Dental Council's ethical code and MOH advertising guidelines restrict claims, testimonials and before/after imagery. All content we produce is structured to promote your clinic within those rules, so your visibility never puts your practice at risk.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can SEO help my clinic appear on Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Local SEO and Google Business Profile optimisation are core to dental SEO. We optimise your listing with accurate services, photos, hours and reviews so you appear in the Maps three-pack when patients search 'dentist near me' in your area.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle SEO for clinics with multiple branches?</summary>
+          <div class="faq-answer"><p>Yes. We create distinct location pages and separate Google Business Profiles for each branch, with location-specific content, so every clinic ranks in its own neighbourhood rather than competing with itself.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Dental Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/dental-website-design-singapore/" class="related-service-link">Dental Website Design</a>
+          <a href="/dental-google-ads-singapore/" class="related-service-link">Dental Google Ads</a>
+          <a href="/dental-social-media-singapore/" class="related-service-link">Dental Social Media</a>
+          <a href="/dental-marketing-singapore/" class="related-service-link">Full-Service Dental Marketing</a>
+          <a href="/dental-branding-singapore/" class="related-service-link">Dental Branding</a>
+          <a href="/dental-ai-search-optimisation-singapore/" class="related-service-link">Dental GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

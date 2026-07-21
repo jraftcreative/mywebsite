@@ -48,17 +48,48 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Dental Clinic Websites Singapore | Jraft Creative"
+  title="Dental Clinic Website — Web Design Agency"
   description="Custom websites for Singapore dental clinics — online booking, treatment pages, MOH-compliant, mobile-first. Live in 2–3 weeks. Custom-quoted to your scope."
   canonical="https://jraftcreative.com/dental-website-design-singapore/"
-  ogTitle="Dental Clinic Websites Singapore | Jraft Creative"
+  ogTitle="Dental Clinic Website — Web Design Agency"
   ogDescription="Custom websites for Singapore dental clinics — online booking, treatment pages, MOH-compliant, mobile-first. Live in 2–3 weeks. Custom-quoted to your scope."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="dental website design singapore, dental clinic website singapore, dentist website design, dental web design singapore, dental clinic web design, dental digital marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Dental Website Design"
-  heroTitle='Website Design for Dental Clinics in <span class="highlight">Singapore</span>'
+  heroLabel="Web Design Agency for Dental Clinics"
+  heroTitle='Web Design Agency for <span class="highlight">Dental Clinics in Singapore</span>'
   heroSubtitle="Your clinic needs more than a basic listing. We build fast, mobile-friendly websites for dental practices — with treatment pages, before/after galleries, online appointment booking, and full MOH compliance built in."
   heroImage="/images/service-dental.webp"
   heroButtons={[
@@ -81,101 +112,144 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Are Choosing Their Dentist Online</h2>
+        <h2>Patients Are Choosing Their Dentist <span class="highlight">Online</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Most patients in Singapore compare at least two or three dental clinics online before making an appointment. They look at treatment offerings, dentist credentials, before/after photos, and reviews — all within minutes. If your clinic's website is outdated, hard to navigate, or doesn't show up on Google, you're losing patients to competitors who invested in theirs.</p>
-        <p>Dental clinics face a unique set of challenges online. Patients want to see real results before committing to treatments like veneers, Invisalign, or implants. They want to book appointments without calling during office hours. And your website has to meet the Ministry of Health's advertising guidelines — no prohibited claims, no misleading language, and proper disclaimers where required.</p>
-        <p>Singapore's dental market is saturated with clinics competing for the same local patients. Whether you run a single practice in the heartlands or a multi-branch group across the island, your website is the first impression most patients will have of your clinic — and it needs to build trust from the very first click.</p>
+        <p>Most patients compare two or three clinics online before booking. Your website is the first impression, and it has to build trust in minutes.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>An Outdated Site Loses Patients</h3>
+            <p>If your website is dated, hard to navigate, or invisible on Google, patients quietly choose the clinic that invested in theirs.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Patients Want Proof, Then Booking</h3>
+            <p>Before committing to veneers, Invisalign or implants, patients want to see results and book without calling during office hours.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Compliance Is Non-Negotiable</h3>
+            <p>Your site must meet SDC and MOH advertising rules — no prohibited claims, no misleading language. A generic agency won't know them; we do.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Dental website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Dental clinic website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Dental Clinics</h2>
+        <h2>Six <span class="highlight">Pillars</span> of a Dental Clinic <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every dental website we deliver is purpose-built for the healthcare industry. We go beyond a generic template — your site will feature structured treatment pages, before/after galleries, online appointment booking, and local SEO so patients can find your clinic when searching for a dentist near them.</p>
-        <p>We understand that dental clinics in Singapore need more than just a website. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/">SEO services</a> to rank for treatment-related searches, <a href="/services/social-media/">social media marketing</a> to build trust and showcase patient transformations, and <a href="/services/paid-ads/">paid ads management</a> to drive appointment bookings from Google and social platforms.</p>
+        <p>Every element is built around patient trust and booking — structured for how patients actually choose a dentist.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment Pages &amp; Service Listings</h3>
-            <p>Dedicated pages for each treatment — general dentistry, orthodontics, implants, whitening, and more. Clear descriptions, pricing guidance, and calls to action that convert visitors into booked patients.</p>
+            <h3>Treatment Pages</h3>
+            <p>A dedicated page per treatment — general dentistry, orthodontics, implants, whitening — with clear descriptions and a clear next step.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
             <h3>Before/After Galleries</h3>
-            <p>Filterable photo galleries organised by treatment type — veneers, Invisalign, crowns, whitening. Real patient results presented in a clean, MOH-compliant format that builds confidence and drives consultations.</p>
+            <p>Filterable galleries by treatment — veneers, Invisalign, whitening — presented in a clean, MOH-compliant format that builds confidence.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Online Appointment Booking</h3>
-            <p>Let patients book appointments directly from your website — selecting their preferred dentist, treatment type, and time slot. Automated confirmations and reminders reduce no-shows and free up your front desk.</p>
+            <p>Patients book directly — dentist, treatment and time slot — with automated confirmations that cut no-shows and free the front desk.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Dentist Profiles &amp; Credentials</h3>
-            <p>Professional profile pages for each dentist — qualifications, specialisations, years of experience, and a personal bio. Patients want to know who will be treating them before they walk through the door.</p>
+            <p>Profile pages per dentist — qualifications, specialisations and a personal bio — because patients want to know who will treat them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Ready Foundations</h3>
+            <p>Clean structure, schema and fast mobile loads built in, so the site can rank for treatment searches rather than needing rescuing later.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First &amp; Fast</h3>
+            <p>Patients search on their phones, often in discomfort. Every page is built mobile-first, fast, with tap-to-call and tap-to-book.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for dental website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for dental website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Dental Website Design</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Dental Trust</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've built websites for healthcare providers across Singapore. We know what makes patients trust a clinic online — and we design every element of your website to convert browsers into booked appointments.</p>
+        <p>A site compelling enough to attract patients, detailed enough to answer them, and compliant enough to keep your practice safe.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Healthcare Website Experience</h3>
-            <p>We understand MOH advertising guidelines, patient privacy considerations, and the trust signals that matter in healthcare — proper credentials display, patient testimonials, and compliant content presentation.</p>
+            <p>We understand SDC and MOH advertising rules, patient-privacy considerations and the trust signals — credentials, reviews, compliant content — that matter in healthcare.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most dental clinic websites go live within 2 weeks of kickoff. We know timing matters when you're opening a new practice or refreshing your clinic's brand.</p>
+            <h3>Live Before You Open</h3>
+            <p>Most dental sites go live within two to three weeks, so a new practice or a refreshed brand is working when you need it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Every site is designed for the patient searching on their phone. Fast load times, thumb-friendly navigation, and tap-to-call buttons so patients can reach your clinic instantly.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on running your practice and treating patients.</p>
+            <h3>Website, SEO &amp; Ads Together</h3>
+            <p>We also run <a href="/dental-seo-singapore/">dental SEO</a> and <a href="/dental-google-ads-singapore/">Google Ads</a> — one agency for the clinic's whole online presence.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A dental patient moves through five stages before booking. Your website carries the middle three — it is where they research the treatment, compare you against other clinics, and finally book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A search or referral brings them to the site</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Treatment pages and dentist profiles answer it</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Results and reviews weigh you against others</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Online booking turns interest into an appointment</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A good first visit, then recalls &amp; referrals</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about dental website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about dental website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Dental Website Design Questions Answered</h2>
+        <h2>Dental <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -203,7 +277,22 @@ const schemaData = [
   </section>
 
 
-  <RelatedServices topic="website" />
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Dental Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/dental-seo-singapore/" class="related-service-link">Dental SEO</a>
+          <a href="/dental-google-ads-singapore/" class="related-service-link">Dental Google Ads</a>
+          <a href="/dental-social-media-singapore/" class="related-service-link">Dental Social Media</a>
+          <a href="/dental-marketing-singapore/" class="related-service-link">Full-Service Dental Marketing</a>
+          <a href="/dental-branding-singapore/" class="related-service-link">Dental Branding</a>
+          <a href="/dental-ai-search-optimisation-singapore/" class="related-service-link">Dental GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
 
   <MarketingFunnelBlock
     industry="dental practice"
