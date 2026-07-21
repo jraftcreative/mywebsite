@@ -47,6 +47,37 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
   title="Content Marketing Agency for Aesthetics Clinics"
   description="Content marketing for aesthetics clinics in Singapore — treatment education articles, skincare science content, MOH-compliant blog posts."
@@ -74,54 +105,84 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Content marketing challenges for aesthetics clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Research Every Treatment Before They Ever Call Your Clinic</h2>
+        <h2>Patients Research Every <span class="highlight">Treatment</span> Before They Ever <span class="highlight">Call</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>The modern aesthetics patient in Singapore does not walk into a clinic on impulse. They spend weeks — sometimes months — researching treatments online before booking a consultation. They search for "Botox side effects Singapore," "how long do dermal fillers last," "thread lift vs HIFU for jawline," and "best aesthetic clinic in Orchard Road." They read articles, watch videos, compare clinics, and form opinions about which practitioners they trust. The clinics that publish the content these patients find are the ones that win the consultation booking. The clinics that do not publish are invisible at the most critical stage of the patient decision journey.</p>
-        <p>Most aesthetics clinics in Singapore rely on Instagram before-and-after posts and paid advertising to attract patients. While these channels have a role, they miss the enormous volume of search traffic from patients actively researching specific treatments. A stunning Instagram grid will not appear when someone searches "is PRP good for hair loss" or "PICO laser for melasma recovery time." That traffic — high-intent, information-seeking, ready-to-book traffic — goes to whichever clinic published the well-researched, medically accurate article that ranks on Google.</p>
-        <p>Strategic content marketing captures this traffic systematically. By publishing treatment education articles, skincare science guides, and FAQ-driven content optimised for search engines, your clinic becomes the trusted voice that patients encounter throughout their research journey. This content builds authority, pre-qualifies patients before consultation, and creates a growing pipeline of organic enquiries that reduces your clinic's dependence on expensive paid advertising and algorithm-dependent social media platforms.</p>
+        <p>Aesthetics patients spend weeks searching specific treatment questions. The clinic that published the answer wins the consultation.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Research Happens on Google</h3>
+            <p>"Botox side effects", "thread lift vs HIFU", "how long do fillers last" — thousands of searches your Instagram grid will never appear for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Social &amp; Ads Miss This Traffic</h3>
+            <p>A stunning feed doesn't show up for "PICO laser for melasma recovery time". That high-intent traffic goes to whoever ranks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Content Compounds, Ads Don't</h3>
+            <p>Published articles keep earning enquiries for years and pre-qualify patients — reducing dependence on paid ads and the algorithm.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Aesthetics content marketing services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Aesthetics content marketing services overview">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Content Marketing Services for Aesthetics Clinics</h2>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Aesthetics <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We produce content specifically for aesthetics clinics in Singapore — medically accurate, MOH-compliant, and optimised to rank on Google. Every article is designed to educate patients, build trust in your clinical expertise, and drive consultation bookings from people who have already decided they want treatment.</p>
+        <p>Medically accurate, MOH-compliant, and built to rank — content that earns high-intent patients from search.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
             <h3>Treatment Education Articles</h3>
-            <p>Comprehensive treatment guides covering how procedures work, what patients can expect, recovery timelines, suitability criteria, and realistic outcomes. We produce content for every treatment category — injectables, laser treatments, body contouring, skin rejuvenation, and regenerative medicine — written to answer the exact questions patients ask before booking.</p>
+            <p>Comprehensive guides per treatment — how it works, what to expect, recovery, suitability — answering the exact questions patients ask before booking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Skincare Science &amp; Patient Guides</h3>
-            <p>Evidence-based skincare articles that demonstrate your clinic's scientific expertise — ingredient breakdowns, skin condition explainers, treatment comparison guides, and pre/post-treatment care instructions. This content positions your clinic as the authoritative source for skincare knowledge in Singapore and builds patient confidence before consultation.</p>
+            <h3>Skincare Science Guides</h3>
+            <p>Evidence-based ingredient breakdowns and condition explainers that show clinical expertise and build confidence before consultation.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
-            <h3>MOH-Compliant Blog &amp; FAQ Content</h3>
-            <p>All content produced within MOH advertising guidelines — avoiding prohibited claims, unsubstantiated statistics, and non-compliant language while still being compelling and informative. We also produce structured FAQ content that targets featured snippets on Google, capturing prime search real estate for treatment-related queries that your patients are asking.</p>
+            <h3>MOH-Compliant Blog &amp; FAQ</h3>
+            <p>Content within MOH rules that still ranks — plus structured FAQ built to win featured snippets for treatment queries.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Doctor Thought Leadership &amp; Email Nurture</h3>
-            <p>Expert articles published under your doctors' names — treatment innovation commentary, skincare science perspectives, and clinical opinion pieces that build individual practitioner authority. Paired with email nurture sequences that educate prospective patients over time and convert researchers into booked consultations through targeted follow-up content.</p>
+            <h3>Doctor Thought Leadership</h3>
+            <p>Expert articles under your doctors' names — clinical opinion and innovation commentary that builds individual practitioner authority.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Intent Keyword Strategy</h3>
+            <p>Every piece starts from what patients actually search, mapped to the treatments you most want to fill.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Email Nurture Sequences</h3>
+            <p>Sequences that educate researchers over time and convert them into booked consultations through targeted follow-up.</p>
           </div>
         </div>
       </div>
@@ -129,51 +190,65 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for aesthetics content marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for aesthetics content marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Aesthetics Clinics Choose Us for Content</h2>
+        <h2>A <span class="highlight">Content Agency</span> That Understands <span class="highlight">Aesthetic Medicine</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in content marketing for Singapore's medical aesthetics industry. Our team understands the patient journey, MOH compliance requirements, and clinical nuances that make aesthetics content effective. Here is what sets us apart:</p>
+        <p>Effective aesthetics content sits on the patient journey, MOH compliance and clinical nuance at once.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Medical Aesthetics Specialisation</h3>
-            <p>We write for aesthetics clinics, dermatology practices, and cosmetic surgery centres across Singapore. We understand MOH advertising compliance, the patient research journey for aesthetic procedures, and the specific search terms that drive consultation bookings in this market.</p>
+            <p>We write for aesthetics, dermatology and cosmetic surgery — we know the compliance lines and the terms that drive bookings.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>SEO-First Content Strategy</h3>
-            <p>Every piece of content starts with keyword research and search intent analysis. We target the exact terms prospective patients search when evaluating treatments — from "Botox price Singapore" to "best clinic for pigmentation treatment." Content marketing integrates with your broader <a href="/services/seo-performance/" class="inline-link">SEO strategy</a> for compounding results.</p>
+            <p>Every piece starts with keyword and intent research and feeds your <a href="/aesthetics-clinic-seo-singapore/">SEO</a> for compounding results.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Reporting &amp; No Lock-ins</h3>
-            <p>Monthly performance reports showing traffic, rankings, engagement, and consultation requests generated by your content. No long-term contracts — you see exactly what your content investment delivers each month, and you can adjust or cancel at any time.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full-Service Digital Marketing</h3>
-            <p>Content marketing is most effective alongside SEO, social media, and paid ads. We offer all services in-house, so your content feeds your search rankings, amplifies through social channels, and provides landing pages for your Google Ads campaigns — all under a single unified strategy.</p>
+            <h3>Reported on Enquiries</h3>
+            <p>Monthly reporting on traffic, rankings and consultation requests generated — you see exactly what the content delivers.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Content fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Content</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Content owns the earliest and longest part of the journey. It is where a patient first discovers you via a treatment search, then researches deeply enough to trust your clinic before comparing on results.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A treatment search finds your article</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Guides answer the detail and build trust</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Authority content weighs you above rivals</p></li>
+        <li class="funnel-stage"><h3>Consult</h3><p>A researched patient books, already convinced</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A confident first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics content marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about aesthetics content marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Aesthetics Content Marketing Questions Answered</h2>
+        <h2>Aesthetics <span class="highlight">Content Marketing</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">

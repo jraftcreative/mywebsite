@@ -30,7 +30,7 @@ const schemaData = [
     "mainEntity": [
       { "@type": "Question", "name": "How much does an aesthetics clinic website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
       { "@type": "Question", "name": "Do you ensure MOH advertising compliance for aesthetics websites?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All aesthetics clinic websites we build follow Singapore's Ministry of Health (MOH) Healthcare Services Advertising guidelines. We avoid prohibited claims, ensure treatment descriptions use approved language, and structure content so your website promotes your clinic without violating advertising regulations." } },
-      { "@type": "Question", "name": "Can you build before and after galleries for my aesthetics clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Can you build before and after galleries for my aesthetics clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with the appropriate consent and compliance handling. Before/after galleries are one of the most persuasive elements on an aesthetics site, so we build them properly — filtered by treatment, displayed with patient consent, and structured to stay within MOH advertising rules." } },
       { "@type": "Question", "name": "Do you create individual doctor profile pages?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Doctor profiles are essential for building patient trust. We create professional profile pages featuring qualifications, specialisations, years of experience, and professional affiliations. For multi-doctor clinics, each doctor gets their own dedicated page with consultation booking linked directly." } },
       { "@type": "Question", "name": "How long does it take to build an aesthetics clinic website?", "acceptedAnswer": { "@type": "Answer", "text": "Most aesthetics clinic websites go live within 3–4 weeks due to the detailed treatment content and compliance review required. Starter sites with fewer pages can be ready in 2 weeks. We provide a clear timeline and work closely with your team to ensure all content meets MOH advertising standards." } }
     ]
@@ -46,6 +46,106 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Patient Journey Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Aesthetics Clinic Website — Web Design Agency"
   description="Website design for aesthetics clinics in Singapore. Treatment pages, before/after galleries, doctor profiles, MOH-compliant content."
@@ -59,6 +159,7 @@ const schemaData = [
   heroTitle='Web Design Agency for <span class="highlight">Aesthetics Clinics in Singapore</span>'
   heroSubtitle="Your clinic's website is where patients decide to trust you with their appearance. We build professional, MOH-compliant websites for aesthetics clinics with treatment pages, doctor profiles, before/after galleries, and consultation booking — designed to convert enquiries into appointments."
   heroImage="/images/service-aesthetics.webp"
+  heroImageAlt="Aesthetics clinic treatment room in Singapore — aesthetics clinic web design"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
@@ -71,6 +172,7 @@ const schemaData = [
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20aesthetics%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
@@ -78,50 +180,79 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Research Clinics Online Before Booking — Is Your Website Convincing Them?</h2>
+        <h2>Patients Research Before They Book — Is Your <span class="highlight">Website Convincing Them</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Aesthetics treatments are high-consideration decisions. Patients research extensively before committing — reading doctor credentials, comparing treatment options, studying before/after results, and checking reviews. In Singapore, searches like "botox Singapore", "facial treatment near me", and "aesthetics clinic Orchard" happen thousands of times monthly. If your clinic doesn't have a professional website that addresses these concerns, patients will choose a competitor who does.</p>
-        <p>A well-designed aesthetics clinic website builds the trust that social media alone cannot. It presents your doctors' qualifications and experience in detail. It explains each treatment with the depth patients expect — procedure details, expected results, recovery time, pricing guidance. It displays before/after galleries that demonstrate real outcomes. And it makes consultation booking frictionless, so interested patients can take the next step immediately without calling during office hours.</p>
-        <p>Singapore's aesthetics market is increasingly competitive, with clinics concentrated in Orchard Road, Novena, Tanjong Pagar, and Raffles Place. Beyond competition, MOH advertising regulations mean your website content must be carefully structured to promote your clinic without making prohibited claims. A generic web agency won't know these rules — but we do, and we build your site to be both effective and compliant from day one.</p>
+        <p>Aesthetics is a high-consideration, trust-driven decision. A patient reads credentials, compares results and checks compliance long before they ever call.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A High-Consideration Choice</h3>
+            <p>Patients study doctor credentials, treatment options and before/after results before committing. A thin website loses them to a clinic that answers those questions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Trust Social Media Can't Build</h3>
+            <p>An Instagram feed can't present qualifications, procedure detail and real outcomes at the depth a first-time patient needs to feel safe booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>MOH Rules Most Agencies Miss</h3>
+            <p>Your content must promote the clinic without prohibited claims. A generalist web agency doesn't know the guidelines — we build compliant from day one.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Aesthetics clinic website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Aesthetics clinic website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Aesthetics Clinics</h2>
+        <h2>Six <span class="highlight">Pillars</span> of an Aesthetics Clinic <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every aesthetics clinic website we deliver is built around patient trust and conversion. From detailed treatment pages to doctor credentials and consultation booking, we structure your site to guide patients through the decision-making journey — from initial research to confirmed appointment.</p>
-        <p>Pair your new website with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to rank for treatment-specific searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> for educational content that builds authority, and <a href="/services/paid-ads/" class="inline-link">paid ads</a> to target high-intent patients searching for specific procedures.</p>
+        <p>Every element is built around patient trust and conversion — from first research to a confirmed consultation.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Treatment Pages</h3>
-            <p>Dedicated pages for each treatment — Botox, dermal fillers, laser treatments, HIFU, thread lifts, chemical peels. Each page covers procedure details, expected outcomes, recovery timeline, and pricing guidance in MOH-compliant language.</p>
+            <p>A dedicated page per treatment — Botox, fillers, laser, HIFU, thread lifts — covering procedure, outcome and recovery in MOH-compliant language.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
             <h3>Doctor Profiles &amp; Trust Signals</h3>
-            <p>Professional doctor profiles showcasing qualifications, specialisations, years of experience, and professional affiliations. Trust badges, accreditation logos, and patient testimonials positioned to build confidence at every touchpoint.</p>
+            <p>Qualifications, specialisations and affiliations, with accreditation badges and testimonials placed to build confidence at every step.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Before &amp; After Gallery</h3>
-            <p>Interactive before/after sliders filtered by treatment type. Patients see real results from real procedures — the single most persuasive element for converting visitors who are comparing clinics. All imagery displayed with appropriate consent and compliance.</p>
+            <p>Interactive sliders filtered by treatment — the single most persuasive element for a patient comparing clinics, shown with proper consent.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Consultation Booking</h3>
-            <p>Frictionless consultation booking integrated directly into your website. Patients select their treatment of interest, choose a doctor, and book a consultation slot — reducing the barrier between "I'm interested" and "I have an appointment."</p>
+            <p>Book directly on the site — pick a treatment, choose a doctor, take a slot. It removes the gap between "I'm interested" and "I have an appointment".</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Ready Foundations</h3>
+            <p>Clean structure, schema and fast mobile loads built in, so the site can rank for treatment searches rather than needing rescuing later.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Private, Mobile-First Experience</h3>
+            <p>Patients research treatments discreetly on their phones. Every page is built mobile-first, fast, and easy to book from in a tap.</p>
           </div>
         </div>
       </div>
@@ -129,51 +260,79 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for aesthetics clinic website design">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for aesthetics clinic website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Aesthetics Clinic Web Design</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">MOH Rules</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build websites for healthcare and aesthetics businesses in Singapore. We understand the unique balance required — a website that's visually compelling enough to attract patients, detailed enough to answer their questions, and compliant with MOH advertising guidelines.</p>
+        <p>A site that's compelling enough to attract patients, detailed enough to answer them, and compliant enough to keep you safe.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>MOH Compliance Built In</h3>
-            <p>We structure all content to comply with Singapore's MOH Healthcare Services Advertising regulations. No prohibited claims, no misleading testimonials, no non-compliant pricing tactics — your website promotes your clinic effectively within the rules.</p>
+            <p>Every page follows MOH Healthcare Services Advertising rules — no prohibited claims, no misleading testimonials, no non-compliant pricing tactics.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Trust-Focused Design</h3>
-            <p>Aesthetics is a trust-driven industry. We design every element — doctor profiles, accreditation badges, patient testimonials, before/after galleries — to build confidence and reassure patients who are considering treatments for the first time.</p>
+            <p>Aesthetics is a trust industry. Doctor profiles, accreditations and real results are designed to reassure a patient considering treatment for the first time.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Design</h3>
-            <p>Patients research aesthetics treatments on their phones — often privately. Every site we build is designed mobile-first with fast load times, intuitive navigation, and tap-to-book buttons that make scheduling a consultation simple and discreet.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads — all managed under one roof. We can handle your clinic's entire online presence so your doctors and staff can focus on patient care and delivering exceptional treatment outcomes.</p>
+            <h3>Website, SEO &amp; Ads Together</h3>
+            <p>We also run <a href="/aesthetics-clinic-seo-singapore/">clinic SEO</a> and <a href="/aesthetics-clinic-google-ads-singapore/">Google Ads</a> — one agency for the clinic's whole online presence.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>An aesthetics patient moves through the same five stages before booking. Your website carries the middle three — it is where they research the treatment, compare you against other clinics, and finally book the consultation.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>Treatment pages and doctor profiles answer the detail</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Before/after results weigh you against other clinics</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consult</h3>
+          <p>Booking turns interest into a scheduled consultation</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Treat</h3>
+          <p>A confident first visit, then repeat &amp; referral</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics clinic website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about aesthetics clinic website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Aesthetics Clinic Website Questions Answered</h2>
+        <h2>Aesthetics Clinic <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -186,7 +345,7 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Can you build before and after galleries for my aesthetics clinic?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <div class="faq-answer"><p>Yes, with the appropriate consent and compliance handling. Before/after galleries are one of the most persuasive elements on an aesthetics site, so we build them properly — filtered by treatment, displayed with patient consent, and structured to stay within MOH advertising rules.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>Do you create individual doctor profile pages?</summary>
@@ -200,13 +359,12 @@ const schemaData = [
     </div>
   </section>
 
-
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Aesthetics Clinic Services</h2>
+        <h2>More <span class="highlight">Aesthetics Clinic</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
           <a href="/aesthetics-clinic-seo-singapore/" class="related-service-link">Aesthetics Clinic SEO</a>
@@ -214,6 +372,7 @@ const schemaData = [
           <a href="/aesthetics-clinic-social-media-singapore/" class="related-service-link">Aesthetics Clinic Social Media</a>
           <a href="/aesthetics-clinic-google-ads-singapore/" class="related-service-link">Aesthetics Clinic Google Ads</a>
           <a href="/aesthetics-clinic-branding-singapore/" class="related-service-link">Aesthetics Clinic Branding</a>
+          <a href="/aesthetics-clinic-ai-search-optimisation-singapore/" class="related-service-link">Aesthetics Clinic GEO / AI Search</a>
       </div>
     </div>
   </section>

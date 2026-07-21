@@ -47,6 +47,37 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
   title="Social Media Agency for Aesthetics Clinics"
   description="Social media marketing for aesthetics clinics in Singapore. MOH-compliant content, treatment education, doctor Q&A videos, and trust-building campaigns."
@@ -74,55 +105,84 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for aesthetics clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Research Online Before They Ever Call Your Clinic</h2>
+        <h2>Patients Judge You by Your <span class="highlight">Feed</span> Before They Ever <span class="highlight">Call</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>In Singapore's competitive aesthetics market, patients don't walk into a clinic blind. They spend weeks researching treatments on Instagram, watching procedure videos on TikTok, and comparing clinics based on their social media presence. If your clinic's social media looks inactive, overly clinical, or non-compliant with MOH guidelines, potential patients lose confidence before they even consider booking a consultation.</p>
-        <p>The challenge for aesthetics clinics is twofold: you need content that educates and builds trust, but it must stay within MOH advertising regulations. Many clinics either play it too safe — posting nothing but generic stock photos — or too aggressively — risking violations with unsubstantiated claims. Neither approach converts followers into patients. You need a partner who understands both the clinical nuances and the content that resonates with Singapore's aesthetics-conscious audience.</p>
-        <p>Competing clinics in Orchard, Novena, and the CBD are investing in professional social media management — doctor Q&A Reels, treatment explainers, and patient journey content that builds the trust needed for someone to commit to a procedure. Without a similar strategy, your clinic's empty social presence is actively losing patients to competitors who show up consistently and credibly online.</p>
+        <p>Aesthetics patients research on Instagram and TikTok for weeks before booking. An inactive or over-clinical feed loses them early.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>An Empty Feed Reads as Risk</h3>
+            <p>A quiet or generic profile makes a first-time patient nervous. If your social looks inactive, confidence drops before they enquire.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Too Safe or Too Risky</h3>
+            <p>Most clinics post bland stock photos or drift into non-compliant claims. Neither builds the trust that converts a follower into a patient.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Competitors Show Up Credibly</h3>
+            <p>Clinics in Orchard and Novena run doctor Q&A and treatment explainers. Against consistent, credible content, silence quietly costs you patients.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for aesthetics clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for aesthetics clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services Built for Aesthetics Clinics</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Aesthetics <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We manage your aesthetics clinic's entire social media presence — from treatment education content to patient community engagement. Every post is crafted to build trust, educate prospective patients, and drive consultation bookings — all within MOH advertising guidelines.</p>
-        <p>Our team creates doctor Q&A videos, procedure explainer Reels, treatment comparison carousels, and patient testimonial content (with proper consent and compliance). We position your clinic and doctors as trusted authorities in aesthetic medicine, making the decision to book a consultation feel natural and confident.</p>
+        <p>Every post is built to educate, build trust and book consultations — all within MOH advertising guidelines.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
             <h3>Doctor Q&amp;A Videos</h3>
-            <p>Short-form video featuring your doctors answering common patient questions about Botox, fillers, lasers, and other treatments. Builds personal trust and positions your team as approachable, knowledgeable experts.</p>
+            <p>Short-form video of your doctors answering real patient questions on Botox, fillers and lasers — building personal trust in the team.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Procedure Explainer Reels</h3>
+            <p>Clear, compliant explainers on how treatments work, what to expect and recovery — turning curiosity into informed confidence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Treatment Education Carousels</h3>
+            <p>MOH-compliant carousels and Stories covering outcomes, timelines and safety — the content that makes booking feel considered.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
             <h3>Patient Community Management</h3>
-            <p>Professional management of DMs, comments, and enquiries. We respond to prospective patients promptly, answer treatment questions, and nurture leads from first interaction to consultation booking.</p>
+            <p>Prompt, professional handling of DMs, comments and enquiries — nurturing a lead from first message to booked consultation.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment Education Content</h3>
-            <p>MOH-compliant carousel posts, infographics, and Stories explaining how treatments work, what to expect, recovery timelines, and safety information — the content that turns curious followers into informed, confident patients.</p>
+            <h3>Consent-Safe Testimonials</h3>
+            <p>Patient stories and results shared with proper consent and compliance — real proof without crossing MOH lines.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Trust-Building Campaigns</h3>
-            <p>Campaigns featuring clinic environment tours, team introductions, accreditation highlights, and patient testimonials (with consent) — designed to reduce anxiety and build the credibility needed for patients to take the next step.</p>
+            <h3>Reporting on Enquiries</h3>
+            <p>We track profile-to-enquiry and consultations that mention social — follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -130,51 +190,65 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for aesthetics clinic social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for aesthetics clinic social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Social Media That Respects Clinical Standards</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Respects <span class="highlight">Clinical Standards</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with aesthetics clinics across Singapore and understand the unique balance between compelling marketing and regulatory compliance. Here's why clinics choose us:</p>
+        <p>Aesthetics social fails on compliance and credibility. We handle both, with your medical team in control.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>MOH Compliance Expertise</h3>
-            <p>Every piece of content is reviewed for MOH advertising compliance before submission for your approval. We know the boundaries and create content that is both engaging and regulation-compliant.</p>
+            <p>Every piece is checked against MOH advertising rules before it reaches you — engaging content that stays inside the boundaries.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Doctor-Centric Content</h3>
-            <p>We position your doctors as the face of your clinic's social media. Doctor-led content builds personal trust far more effectively than generic brand posts, driving higher consultation conversion rates.</p>
+            <p>We put your doctors at the centre. Doctor-led content builds trust far faster than generic brand posts, and converts better.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Approval Before Publishing</h3>
-            <p>You and your medical team review and approve every post, caption, and visual before it goes live. Nothing is published without your clinical and marketing sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your consultation bookings are growing and patient trust is building — not because of a contract clause.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>You and your medical team sign off every post, caption and visual. Nothing goes live without your clinical and marketing approval.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Social fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>An aesthetics patient moves through five stages before booking. Social rarely wins the first search — its job is Validate and Compare, where doctor content and real results earn the trust to book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a share puts you on the radar</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Doctor content proves clinical expertise</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Results and reviews weigh the clinics</p></li>
+        <li class="funnel-stage"><h3>Consult</h3><p>DMs and profile link turn interest into a booking</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A confident first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics clinic social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about aesthetics clinic social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Aesthetics Clinic Social Media — Questions Answered</h2>
+        <h2>Aesthetics Clinic <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">

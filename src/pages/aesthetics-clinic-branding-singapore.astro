@@ -47,6 +47,37 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
   title="Branding Agency for Aesthetics Clinics Singapore"
   description="Branding for aesthetics clinics in Singapore — clinical brand identity, doctor branding, treatment packaging, and MOH-compliant marketing materials."
@@ -74,54 +105,84 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for aesthetics clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Cannot Tell the Difference Between a Premium Clinic and a Discount Chain</h2>
+        <h2>Patients Can't Tell a <span class="highlight">Premium Clinic</span> from a <span class="highlight">Discount Chain</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's aesthetics market is one of the most competitive in Asia. From Orchard Road medical suites to neighbourhood clinics in Novena and Tanjong Pagar, hundreds of clinics offer similar treatment menus — Botox, fillers, laser treatments, thread lifts, and body contouring. Many of these clinics use near-identical branding: clean white backgrounds, generic sans-serif fonts, stock imagery of models, and interchangeable taglines about "natural beauty" or "confidence renewed." When every clinic looks the same, patients cannot distinguish a highly qualified medical director from a volume-driven chain — and they default to choosing based on price or proximity.</p>
-        <p>This is a costly problem. Patients who choose on price alone are the hardest to retain and the most likely to leave negative reviews over unrealistic expectations. A strong brand identity pre-qualifies your patients. When your visual presence communicates clinical authority, refined taste, and genuine expertise, you attract patients who value quality outcomes and are willing to invest in them. These patients trust your recommendations, book follow-up treatments, and refer friends — creating the kind of practice growth that aggressive discounting never achieves.</p>
-        <p>The aesthetics clinics that dominate in Singapore — the ones with month-long waitlists and loyal patient bases — all share one thing in common: they invested in branding that positions them as the obvious choice within their specialisation. Whether you focus on anti-ageing, skin health, body sculpting, or regenerative medicine, your brand should make your clinical expertise unmistakable from the first impression. That is what separates a thriving practice from one constantly chasing the next promotion.</p>
+        <p>Hundreds of clinics offer the same treatment menu with near-identical branding. When everyone looks the same, patients default to price.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Every Clinic Looks the Same</h3>
+            <p>White backgrounds, generic fonts, stock models, interchangeable taglines. Sameness makes a qualified medical director look like a volume chain.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Price-Led Patients Are the Worst</h3>
+            <p>Patients who choose on price alone are hardest to retain and quickest to leave a bad review over unrealistic expectations.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Leaders Pre-Qualify by Brand</h3>
+            <p>Clinics with waitlists share one thing: branding that makes their expertise unmistakable, attracting patients who value quality over discounts.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Aesthetics clinic branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Aesthetics clinic branding services overview">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Aesthetics Clinics</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for Aesthetics <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities that convey clinical excellence and refined aesthetics — a visual system that works seamlessly across your clinic reception, treatment packaging, doctor profiles, website, and social media. Every element is designed to build patient trust and differentiate your practice in Singapore's crowded aesthetics market.</p>
+        <p>A visual system that reads as clinical excellence and refined taste, working across every patient touchpoint.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Clinical Brand Identity</h3>
-            <p>A logo and visual identity system that balances medical professionalism with refined aesthetics. Includes primary, icon, and monochrome versions designed for clinic signage, prescription pads, treatment consent forms, and digital platforms — establishing credibility at every patient touchpoint.</p>
+            <p>A logo and identity system balancing medical professionalism with refined aesthetics — built for signage, forms and every digital platform.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Doctor Branding &amp; Trust Signals</h3>
-            <p>Professional profile design for each practitioner — headshot direction, credentials presentation, specialisation positioning, and biography writing. We craft doctor profiles that communicate expertise and approachability, helping patients connect with the person behind the procedure before their first consultation.</p>
+            <p>Profile design per practitioner — headshot direction, credentials and specialisation — so patients connect with the person behind the procedure.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment Packaging &amp; MOH-Compliant Materials</h3>
-            <p>Branded treatment menus, consent forms, aftercare guides, and marketing collateral designed within MOH advertising guidelines. We ensure your materials are both visually compelling and fully compliant — avoiding prohibited claims while still communicating the value and expertise behind each treatment.</p>
+            <h3>Positioning &amp; Messaging</h3>
+            <p>What your clinic stands for and who it's for — anti-ageing, skin health, body sculpting — stated clearly enough to attract the right patient.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Clinic Interior &amp; Environmental Branding</h3>
-            <p>Reception area design, consultation room styling, treatment room branding, and wayfinding signage. We create interior branding guidelines that transform your clinic space into a brand experience — where patients feel the same quality and care in the physical environment as they see in your digital presence.</p>
+            <h3>MOH-Compliant Collateral</h3>
+            <p>Treatment menus, consent forms and aftercare guides designed within MOH rules — compelling and compliant at once.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Clinic &amp; Environmental Branding</h3>
+            <p>Reception, consultation and treatment-room styling plus wayfinding — so the space feels the same quality as the digital presence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A simple rulebook your front desk and any freelancer can follow, so the brand holds together after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -129,51 +190,65 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for aesthetics clinic branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for aesthetics clinic branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Aesthetics Clinics Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Branding Agency</span> at the Meeting Point of <span class="highlight">Medicine &amp; Design</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand that aesthetics clinic branding sits at the intersection of medical credibility and aspirational design. The visual identity must communicate both "this clinic is medically excellent" and "this clinic understands beauty" — simultaneously. Here is why clinics across Singapore trust us with that balance:</p>
+        <p>The identity must say "medically excellent" and "understands beauty" at once. That balance is the whole job.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Medical Aesthetics Expertise</h3>
-            <p>We design specifically for the healthcare and aesthetics sector. We understand MOH advertising guidelines, the importance of clinical trust signals, and how to create brands that feel premium without crossing into non-compliant territory. Your brand will attract quality patients who value expertise.</p>
+            <p>We design for healthcare and aesthetics — premium without crossing into non-compliant territory, attracting patients who value expertise.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/contact/" class="inline-link">brand strategy</a>, and digital marketing — all handled by one team. Your brand identity is implemented consistently across your clinic, website, social media, and patient communications from the start.</p>
+            <p>Branding applied across your <a href="/aesthetics-clinic-website-singapore/">website</a>, <a href="/aesthetics-clinic-social-media-singapore/">social</a> and collateral by one team, so nothing drifts.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Pricing &amp; Full Ownership</h3>
-            <p>Custom-quoted packages with no hidden fees. You own every asset we create — logos, guidelines, templates, packaging designs, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Singapore Aesthetics Market Knowledge</h3>
-            <p>We know the aesthetics landscape in Singapore — from the medical suites on Orchard Boulevard to the clinics in Raffles Place and Novena. We research your local competitors, target patient demographics, and treatment positioning before designing, so your brand captures the right market segment.</p>
+            <h3>Transparent, You Own It</h3>
+            <p>Custom-quoted, no hidden fees, and you own every asset — logos, guidelines, templates and source files.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Brand fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand is the layer over every stage. It decides whether a patient takes you seriously in the first search, believes you at the comparison, and feels the fee is fair enough to book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A polished first impression earns the click</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Consistency signals a real, credible clinic</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>A clear identity lifts you above price alone</p></li>
+        <li class="funnel-stage"><h3>Consult</h3><p>Looking the part makes the fee feel fair</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>Patients stay, rebook &amp; refer with pride</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about aesthetics clinic branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about aesthetics clinic branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Aesthetics Clinic Branding Questions Answered</h2>
+        <h2>Aesthetics Clinic <span class="highlight">Branding</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
