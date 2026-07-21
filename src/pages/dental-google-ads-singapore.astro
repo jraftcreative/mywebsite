@@ -1,0 +1,295 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Google Ads Agency for Dental Clinics Singapore",
+    "description": "Google Ads agency for dental clinics in Singapore. Treatment-specific search campaigns, location targeting and conversion tracking, built to fill appointments within SDC and MOH advertising rules.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Dental Google Ads"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much do Google Ads cost for a dental clinic in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the treatments you promote and your area. Implants and Invisalign are among the most competitive dental keywords, while general dentistry and neighbourhood terms cost far less. Book a consultation and we'll scope a budget matched to the treatments you want to fill and give you a transparent quote." } },
+      { "@type": "Question", "name": "Which treatments are worth advertising?", "acceptedAnswer": { "@type": "Answer", "text": "High-value, high-intent treatments give the best return — implants, Invisalign and orthodontics, emergency dental, and cosmetic whitening. We usually anchor spend on the treatments with the strongest margins and clearest patient intent, then expand from there." } },
+      { "@type": "Question", "name": "Is dental advertising allowed on Google in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, within the Singapore Dental Council ethical code and MOH advertising guidelines. We write compliant ad copy — no prohibited claims or non-compliant before/after — so your ads run without disapprovals or account risk." } },
+      { "@type": "Question", "name": "How do you track whether the ads produce appointments?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking for form submissions, calls and WhatsApp clicks, then attribute each to the keyword and ad that produced it. For a clinic the meaningful number is booked appointments and cost per booking, which is what we report." } },
+      { "@type": "Question", "name": "Can Google Ads work for a new dental clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Ads level the field because you appear based on relevance and bid, not years of reputation. A new clinic can generate enquiries from day one by targeting patients actively searching for treatment in its area." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Google Ads Agency for Dental Clinics Singapore", "item": "https://jraftcreative.com/dental-google-ads-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Google Ads Agency for Dental Clinics Singapore"
+  description="Google Ads agency for dental clinics in Singapore — treatment-specific campaigns for implants, Invisalign and emergency dental that fill appointments."
+  canonical="https://jraftcreative.com/dental-google-ads-singapore/"
+  ogTitle="Google Ads Agency for Dental Clinics Singapore"
+  ogDescription="Google Ads for dental clinics in Singapore. Treatment-specific campaigns and conversion tracking built to book appointments, not clicks."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="google ads agency for dental clinics, dental clinic google ads singapore, dentist ppc singapore, dental advertising singapore, implant ads, invisalign ads, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Google Ads Agency for Dental Clinics"
+  heroTitle='Google Ads Agency for <span class="highlight">Dental Clinics in Singapore</span>'
+  heroSubtitle="A patient with a broken tooth or a parent pricing Invisalign is ready to book today. We run Google Ads for dental clinics that capture those searches — by treatment, by neighbourhood, at the moment the patient decides."
+  heroImage="/images/service-dental.webp"
+  heroImageAlt="Dental clinic in Singapore — google ads"
+  heroButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Dental SEO", href: "/dental-seo-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need Google Ads for my dental clinic in Singapore."
+  ctaLabel="Fill Your Appointment Book"
+  ctaTitle="Get a Free Dental Ads Strategy Session"
+  ctaDescription="Book a free consultation and we'll review your current ad performance, look at which treatments are worth bidding on in your area, and map the keywords patients near your clinic are searching. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20dental%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Google Ads challenges for dental clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Paying for Clicks That Never <span class="highlight">Book</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Dental keywords are among the most expensive in healthcare. A poorly built account spends the budget on the wrong searches and never fills a chair.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>High-Cost, High-Waste Keywords</h3>
+            <p>'Dental implants' and 'Invisalign' cost dollars per click. Broad, untuned campaigns burn budget on browsers and rival clinics instead of ready patients.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Emergency Intent Missed</h3>
+            <p>A patient with a knocked-out tooth searches and books within the hour. If you're not visible at that moment, the appointment goes to whoever is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>SDC Rules Restrict the Copy</h3>
+            <p>Dental advertising is regulated. Without compliant ad copy, ads get disapproved — or worse, the account gets suspended mid-campaign.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for dental clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Dental Clinic <span class="highlight">Google Ads</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every campaign is treatment-specific, SDC-compliant, and judged on booked appointments rather than clicks.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Treatment-Specific Campaigns</h3>
+            <p>Separate campaigns for implants, Invisalign, whitening and general dentistry — so budget follows the treatments you most want to fill.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Emergency &amp; Same-Day Ads</h3>
+            <p>High-intent campaigns for 'emergency dentist' and 'toothache' searches, when a patient books almost immediately.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Location &amp; Radius Targeting</h3>
+            <p>Ads focused on the estates around your clinic and the MRT lines that feed it, so you stop paying for clicks from too far to attend.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>SDC-Compliant Ad Copy</h3>
+            <p>Ad copy written within Singapore Dental Council and MOH rules — no prohibited claims — protecting your account and your standing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
+          <div class="service-detail-card__content">
+            <h3>Conversion-Ready Landing Pages</h3>
+            <p>Treatment landing pages built to turn a click into a booking — clear pricing guidance, trust signals and a one-tap enquiry.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Cost-Per-Booking Reporting</h3>
+            <p>We track click to booked appointment and report cost per booking by treatment, so you know exactly what each new patient costs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for dental google ads">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Google Ads Agency</span> Built for <span class="highlight">Dental Clinics</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We manage dental ad accounts to a single number — cost per booked appointment — and keep every campaign compliant.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Dental Sector Expertise</h3>
+            <p>We know which treatment keywords convert, how to structure by procedure, and the SDC line between compliant copy and a suspended account.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Transparent Ad Spend</h3>
+            <p>Your budget goes straight to Google, never marked up. The account stays in your name, so you see every dollar and what each booking costs.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Ads, SEO &amp; Website Together</h3>
+            <p>We also run <a href="/dental-seo-singapore/">dental SEO</a> and build the <a href="/dental-website-design-singapore/">clinic website</a> the ads land on — one system, one goal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where google ads fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A dental patient moves through five stages before booking. Google Ads owns the two highest-intent moments — Discover, when they first search a treatment or an emergency, and Book, when a remarketing ad brings a researcher back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>An ad captures the first treatment search</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>They read treatment detail and pricing guidance</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Reviews and location weigh the clinics</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Remarketing and a clear landing page close it</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A good first visit, then recalls &amp;amp; referrals</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about dental google ads">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Dental Google Ads — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much do Google Ads cost for a dental clinic in Singapore?</summary>
+          <div class="faq-answer"><p>It depends on the treatments you promote and your area. Implants and Invisalign are among the most competitive dental keywords, while general dentistry and neighbourhood terms cost far less. Book a consultation and we'll scope a budget matched to the treatments you want to fill and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which treatments are worth advertising?</summary>
+          <div class="faq-answer"><p>High-value, high-intent treatments give the best return — implants, Invisalign and orthodontics, emergency dental, and cosmetic whitening. We usually anchor spend on the treatments with the strongest margins and clearest patient intent, then expand from there.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Is dental advertising allowed on Google in Singapore?</summary>
+          <div class="faq-answer"><p>Yes, within the Singapore Dental Council ethical code and MOH advertising guidelines. We write compliant ad copy — no prohibited claims or non-compliant before/after — so your ads run without disapprovals or account risk.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you track whether the ads produce appointments?</summary>
+          <div class="faq-answer"><p>We set up conversion tracking for form submissions, calls and WhatsApp clicks, then attribute each to the keyword and ad that produced it. For a clinic the meaningful number is booked appointments and cost per booking, which is what we report.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can Google Ads work for a new dental clinic?</summary>
+          <div class="faq-answer"><p>Yes. Ads level the field because you appear based on relevance and bid, not years of reputation. A new clinic can generate enquiries from day one by targeting patients actively searching for treatment in its area.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Dental Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/dental-seo-singapore/" class="related-service-link">Dental SEO</a>
+          <a href="/dental-website-design-singapore/" class="related-service-link">Dental Website Design</a>
+          <a href="/dental-social-media-singapore/" class="related-service-link">Dental Social Media</a>
+          <a href="/dental-marketing-singapore/" class="related-service-link">Full-Service Dental Marketing</a>
+          <a href="/dental-branding-singapore/" class="related-service-link">Dental Branding</a>
+          <a href="/dental-ai-search-optimisation-singapore/" class="related-service-link">Dental GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

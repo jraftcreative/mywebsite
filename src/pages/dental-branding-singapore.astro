@@ -1,0 +1,295 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Branding Agency for Dental Clinics Singapore",
+    "description": "Branding agency for dental clinics in Singapore. Positioning, identity, clinic collateral and guidelines that build patient trust and justify your fees, within SDC advertising rules.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Dental Branding"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why does a dental clinic need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because patients can't judge clinical skill before treatment, so they judge everything around it — your shopfront, logo, website and materials. Two equally good clinics rarely win the same patients; the one that looks trustworthy and considered gets chosen, charges properly, and keeps patients longer." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand. What persuades a patient is consistency across everything they see — the signage, the website, the reminder SMS, the aftercare card. When those look disconnected, a patient senses it. We build the full system so every touchpoint reinforces trust." } },
+      { "@type": "Question", "name": "Will rebranding lose our existing patients?", "acceptedAnswer": { "@type": "Answer", "text": "Not if it's done carefully. Most established clinics don't need a clean slate — they need their equity sharpened. We keep what your patients already recognise, retire what looks dated, and introduce the new identity as growing up rather than starting over." } },
+      { "@type": "Question", "name": "Are there rules on how dental clinics can brand and advertise?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Singapore Dental Council ethical code and MOH advertising guidelines govern claims, testimonials and imagery. We design and write within those rules so your brand is compelling and compliant at once." } },
+      { "@type": "Question", "name": "Do you handle the design in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, collateral and guidelines are produced by our team and connect to the rest of what we do — website, social, ads — so the brand doesn't stop at a PDF. We make sure it actually lands on every surface a patient sees." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Dental Clinics Singapore", "item": "https://jraftcreative.com/dental-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Branding Agency for Dental Clinics Singapore"
+  description="Branding agency for dental clinics in Singapore — positioning, identity and collateral that build patient trust and set you apart."
+  canonical="https://jraftcreative.com/dental-branding-singapore/"
+  ogTitle="Branding Agency for Dental Clinics Singapore"
+  ogDescription="Branding for dental clinics in Singapore. Positioning, identity and collateral that build trust and justify your fees."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="branding agency for dental clinics, dental clinic branding singapore, dental logo design, dental practice branding, dental rebrand singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Branding Agency for Dental Clinics"
+  heroTitle='Branding Agency for <span class="highlight">Dental Clinics in Singapore</span>'
+  heroSubtitle="A patient can't judge your clinical skill before the chair — so they judge your brand. We build dental clinic brands that read as trustworthy, modern and worth the fee, from the shopfront to the appointment reminder."
+  heroImage="/images/service-dental.webp"
+  heroImageAlt="Dental clinic in Singapore — branding"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Dental Marketing", href: "/dental-marketing-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my dental clinic in Singapore."
+  ctaLabel="Look Worth the Fee"
+  ctaTitle="Get a Free Dental Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your clinic presents itself — logo, shopfront, website, materials — and where the gaps are between how good your care is and how good it looks. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20dental%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for dental clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Patients Can't Tell a <span class="highlight">Great Dentist</span> from an <span class="highlight">Average One</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Clinical skill is invisible before treatment. When two clinics look the same, patients default to price and proximity — and loyalty never forms.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Every Clinic Looks the Same</h3>
+            <p>Generic blue-and-white logos and stock smiles make a skilled practice look interchangeable with the chain in the next unit. Sameness invites price shopping.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Trust Is Won Before the Chair</h3>
+            <p>A patient decides whether to trust you from the shopfront, the website and the reminder SMS. A weak, inconsistent brand plants doubt before you say a word.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Premium Care, Budget Look</h3>
+            <p>A higher fee attached to a dated brand reads as overpriced. The identity has to earn the number before a patient accepts it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for dental clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for Dental <span class="highlight">Clinics</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build the full system — everything a patient sees, made to say the same reassuring thing.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your clinic stands for and who it's for — the family practice, the implant specialist, the calm cosmetic studio. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A mark, palette and type system that looks modern and trustworthy on the shopfront, the screen and the appointment card.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Clinic &amp; Collateral Design</h3>
+            <p>Signage, treatment menus, aftercare cards and reminder templates — the touchpoints patients handle, designed within SDC rules.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Messaging &amp; Voice</h3>
+            <p>How your clinic sounds, from the website headline to the WhatsApp reply, so every message feels like the same reassuring practice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A consistent way to shoot the clinic, team and patients, so your feed and site stop looking like a stock library.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A simple rulebook your front desk and any freelancer can follow, so the brand holds together after we hand it over.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for dental branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Branding Agency</span> That Understands <span class="highlight">Dental Trust</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Dental branding sits between clinical credibility and human warmth. Get that balance right and price stops being the conversation.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Healthcare Brand Fluency</h3>
+            <p>We design for clinics — trustworthy and modern without crossing into non-compliant claims — attracting patients who value care over the cheapest quote.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built to Justify the Fee</h3>
+            <p>Every decision serves one goal: making your clinic look worth what you charge, so patients choose you on care, not discount.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the identity onto your <a href="/dental-website-design-singapore/">website</a>, <a href="/dental-social-media-singapore/">social</a> and collateral — one agency, so nothing drifts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand is the layer over every stage. It decides whether a patient takes you seriously in the first search, believes you at the comparison, and feels the fee is fair enough to book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A polished first impression earns the click</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Consistency signals a real, trusted clinic</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>A clear identity lifts you above price alone</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Looking the part makes the fee feel fair</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>Patients stay, rebook &amp;amp; refer with confidence</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about dental branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Dental Branding — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Why does a dental clinic need branding?</summary>
+          <div class="faq-answer"><p>Because patients can't judge clinical skill before treatment, so they judge everything around it — your shopfront, logo, website and materials. Two equally good clinics rarely win the same patients; the one that looks trustworthy and considered gets chosen, charges properly, and keeps patients longer.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand. What persuades a patient is consistency across everything they see — the signage, the website, the reminder SMS, the aftercare card. When those look disconnected, a patient senses it. We build the full system so every touchpoint reinforces trust.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Will rebranding lose our existing patients?</summary>
+          <div class="faq-answer"><p>Not if it's done carefully. Most established clinics don't need a clean slate — they need their equity sharpened. We keep what your patients already recognise, retire what looks dated, and introduce the new identity as growing up rather than starting over.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Are there rules on how dental clinics can brand and advertise?</summary>
+          <div class="faq-answer"><p>Yes. The Singapore Dental Council ethical code and MOH advertising guidelines govern claims, testimonials and imagery. We design and write within those rules so your brand is compelling and compliant at once.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle the design in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, collateral and guidelines are produced by our team and connect to the rest of what we do — website, social, ads — so the brand doesn't stop at a PDF. We make sure it actually lands on every surface a patient sees.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Dental Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/dental-seo-singapore/" class="related-service-link">Dental SEO</a>
+          <a href="/dental-website-design-singapore/" class="related-service-link">Dental Website Design</a>
+          <a href="/dental-google-ads-singapore/" class="related-service-link">Dental Google Ads</a>
+          <a href="/dental-social-media-singapore/" class="related-service-link">Dental Social Media</a>
+          <a href="/dental-marketing-singapore/" class="related-service-link">Full-Service Dental Marketing</a>
+          <a href="/dental-ai-search-optimisation-singapore/" class="related-service-link">Dental GEO / AI Search</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
