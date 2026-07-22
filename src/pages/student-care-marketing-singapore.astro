@@ -1,0 +1,280 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Student Care Centres Singapore",
+    "description": "Full-service marketing agency for student care centres in Singapore — SEO, AI search, Google Ads, social, branding and websites that fill places with local working parents.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": { "@type": "PostalAddress", "streetAddress": "60 Paya Lebar Road, Paya Lebar Square", "postalCode": "409051", "addressLocality": "Singapore", "addressCountry": "SG" }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Student Care Marketing"
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for a student care centre involve?", "acceptedAnswer": { "@type": "Answer", "text": "Owning local and near-school search, being named by AI assistants, capturing paid demand geo-targeted to your catchment, reassuring parents on social, leading with trust and MOE-registration signals, and a website that converts a local search into a booked visit." } },
+      { "@type": "Question", "name": "We fill by word of mouth — why market?", "acceptedAnswer": { "@type": "Answer", "text": "Referrals plateau and depend on your current families' networks. Marketing reaches the steady flow of parents newly needing after-school care near your centre each enrolment window." } },
+      { "@type": "Question", "name": "How quickly does it work?", "acceptedAnswer": { "@type": "Answer", "text": "Local SEO and Google Business Profile work often shows results in weeks; paid search produces enquiries within days. We prioritise the channels that fill your emptiest places fastest." } },
+      { "@type": "Question", "name": "Can you target parents near a specific primary school?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's central to student-care marketing. We focus spend and content on the exact schools and estates your centre serves, where proximity decides the choice." } },
+      { "@type": "Question", "name": "How do you measure success?", "acceptedAnswer": { "@type": "Answer", "text": "Booked visits, cost per visit, and how many turn into enrolled places. Reach and followers are context, not the outcome." } }
+    ] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Student Care Centres Singapore", "item": "https://jraftcreative.com/student-care-marketing-singapore/" }
+  ] }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Student Care Centres Singapore"
+  description="Marketing agency for student care centres in Singapore — SEO, ads, social and websites that fill places with nearby working parents."
+  canonical="https://jraftcreative.com/student-care-marketing-singapore/"
+  ogTitle="Marketing Agency for Student Care Centres Singapore"
+  ogDescription="Full-service marketing for Singapore student care centres. Six channels that fill places with local working parents."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for student care, student care marketing singapore, student care centre marketing, after school care marketing, before and after school care advertising, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Student Care Centres"
+  heroTitle='Marketing Agency for <span class="highlight">Student Care Centres in Singapore</span>'
+  heroSubtitle="Working parents need reliable after-school care close to home or school — and they search for it every enrolment window. We run the channels that fill your places — local search, ads, social, brand and website — judged on booked visits and enrolled children."
+  heroImage="/images/service-studentcare.webp"
+  heroImageAlt="Student care centre in Singapore — student care marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Student Care Websites", href: "/student-care-website-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my student care centre in Singapore."
+  ctaLabel="Fill Your Places"
+  ctaTitle="Get a Free Student Care Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how nearby parents find you now, how many places sit empty, and which channel fills them fastest. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20student%20care%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for student care centres in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Working Parents Need <span class="highlight">Care They Trust</span>, Close to <span class="highlight">Home</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Student care is a high-trust, hyper-local decision made under time pressure. The centre a parent finds and trusts first, near their home or their child's school, wins the place.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>It's Won on Proximity &amp; Trust</h3>
+            <p>Parents choose the centre near their block or their child's primary school, run by people they trust with homework, meals and safety. If you're not visible there, the nearer centre wins.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Search Locally, Urgently</h3>
+            <p>'Student care near [school]', 'after school care [estate]', 'MOE-registered student care' — local, high-intent searches. If your profile and pages don't answer them, you're invisible.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Your Strengths Go Unsaid</h3>
+            <p>Homework supervision, healthy meals, MOE registration, safe pick-up — the reassurances that close a parent are usually buried, not led with.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for student care centres">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Student Care Centre <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each channel does a different job in the same journey — from a parent's first local search to a booked centre visit.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; Local SEO</h3>
+            <p>Own 'student care near [school/estate]' searches with local SEO and a Google Business Profile built for the Maps three-pack.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Search &amp; GEO</h3>
+            <p>Get named when a working parent asks an AI for a trustworthy student care centre near their home or their child's school.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Ads</h3>
+            <p>Capture high-intent local searches timed to enrolment windows, geo-targeted to the schools and estates you actually serve.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Social Content</h3>
+            <p>A warm feed of daily routines, meals, activities and safe pick-up that reassures a parent leaving their child in your care.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Positioning around trust, supervision quality and MOE registration — the signals that justify your fee over a cheaper option.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Website That Converts</h3>
+            <p>A <a href="/student-care-website-singapore/">student care website</a> with programme, meals, hours, safety and an easy visit booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for student care centres marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most centres use separate vendors who never share what's converting. We run it as one system.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>Ads show which schools and estates actually convert; that focuses the local SEO and the reassurance we publish. One team acts on it; separate vendors can't.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Measured on Enquiries, Not Clicks</h3>
+            <p>We track centre visits booked and how many become enrolled places — the number that fills your seats, not likes on a lunch photo.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Team, Every Channel</h3>
+            <p>Profile, site, local search and content are built together, so a 'student care near [school]' search meets your hours, meals, safety and a visit booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers choose a student care centre">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Parents <span class="highlight">Choose a Student Care Centre</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a stage — local search and AI decide whether you're considered, social and brand build trust, and the website turns interest into a booked visit.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A local search or a parent's recommendation</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Supervision, meals, safety and registration reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Proximity to school, hours and fees weighed up</p></li>
+        <li class="funnel-stage"><h3>Visit</h3><p>A booked centre visit — the deciding moment</p></li>
+        <li class="funnel-stage"><h3>Enrol</h3><p>A place taken, then years of word of mouth</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about student care centres marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Student Care <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for a student care centre involve?</summary>
+          <div class="faq-answer"><p>Owning local and near-school search, being named by AI assistants, capturing paid demand geo-targeted to your catchment, reassuring parents on social, leading with trust and MOE-registration signals, and a website that converts a local search into a booked visit.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We fill by word of mouth — why market?</summary>
+          <div class="faq-answer"><p>Referrals plateau and depend on your current families' networks. Marketing reaches the steady flow of parents newly needing after-school care near your centre each enrolment window.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly does it work?</summary>
+          <div class="faq-answer"><p>Local SEO and Google Business Profile work often shows results in weeks; paid search produces enquiries within days. We prioritise the channels that fill your emptiest places fastest.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you target parents near a specific primary school?</summary>
+          <div class="faq-answer"><p>Yes — that's central to student-care marketing. We focus spend and content on the exact schools and estates your centre serves, where proximity decides the choice.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success?</summary>
+          <div class="faq-answer"><p>Booked centre visits and cost per visit, then how many convert to enrolled places. Follower count is context, never the result.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Student Care</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/student-care-website-singapore/" class="related-service-link">Student Care Website Design</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

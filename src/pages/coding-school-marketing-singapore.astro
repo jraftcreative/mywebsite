@@ -1,0 +1,280 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Coding Schools Singapore",
+    "description": "Full-service marketing agency for coding and robotics schools in Singapore — SEO, AI search, Google Ads, social, branding and websites that fill classes and holiday camps.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": { "@type": "PostalAddress", "streetAddress": "60 Paya Lebar Road, Paya Lebar Square", "postalCode": "409051", "addressLocality": "Singapore", "addressCountry": "SG" }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Coding School Marketing"
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for a coding school involve?", "acceptedAnswer": { "@type": "Answer", "text": "Being found in age-specific search, named by AI assistants, visible in paid results during intake and holiday-camp windows, showing real student projects on social, positioned clearly against a crowded field, and a website that converts a curious parent into a booked trial." } },
+      { "@type": "Question", "name": "We rely on word of mouth — why market?", "acceptedAnswer": { "@type": "Answer", "text": "Referrals plateau and rarely arrive in the age bands or programmes where you have space. Marketing reaches the parents actively searching 'coding for kids' who were never going to hear about you otherwise." } },
+      { "@type": "Question", "name": "How quickly does it work?", "acceptedAnswer": { "@type": "Answer", "text": "Paid search produces trial enquiries within days; organic and AI visibility take three to five months. We usually launch the fastest channel that fits your budget and build the durable ones underneath it." } },
+      { "@type": "Question", "name": "Does it work for holiday camps specifically?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and camps are one of the highest-return campaigns we run — high intent, clear dates, and a natural deadline. We scale paid and social into each school break and pull back between." } },
+      { "@type": "Question", "name": "How do you measure success?", "acceptedAnswer": { "@type": "Answer", "text": "Booked trials, cost per trial, and how many trials become enrolled coders. Reach and follower count are context, not the scoreboard." } }
+    ] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Coding Schools Singapore", "item": "https://jraftcreative.com/coding-school-marketing-singapore/" }
+  ] }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Coding Schools Singapore"
+  description="Marketing agency for coding and robotics schools in Singapore — SEO, ads, social and websites that fill classes, camps and competitions."
+  canonical="https://jraftcreative.com/coding-school-marketing-singapore/"
+  ogTitle="Marketing Agency for Coding Schools Singapore"
+  ogDescription="Full-service marketing for Singapore coding schools. Six channels that fill classes, holiday camps and competition squads."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for coding schools, coding school marketing singapore, coding academy marketing, robotics school marketing, kids coding advertising singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Coding Schools"
+  heroTitle='Marketing Agency for <span class="highlight">Coding Schools in Singapore</span>'
+  heroSubtitle="Parents want to future-proof their kids, and they're actively searching for it. We run the channels that put your coding school in front of them — search, ads, social, brand and website — judged on booked trials and enrolled students."
+  heroImage="/images/service-codingschool.webp"
+  heroImageAlt="Kids coding class in Singapore — coding school marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Coding School Websites", href: "/coding-school-website-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my coding school in Singapore."
+  ctaLabel="Fill Your Classes"
+  ctaTitle="Get a Free Coding School Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how parents find you now, which programmes and age bands are under-filled, and which channel would move fastest. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20coding%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for coding schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Parents Want <span class="highlight">Future Skills</span> — Do They Find <span class="highlight">Your School</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Demand for coding and robitics is strong and search-driven. The schools parents find first win the enrolment — even when yours teaches better.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Crowded, Confusing Category</h3>
+            <p>Scratch, Python, robotics, AI, competitions — parents can't tell schools apart. Whoever explains the outcome clearly and shows up first gets the trial.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Search by Outcome</h3>
+            <p>They search 'coding for kids', 'Python class Primary 5', 'robotics holiday camp' — not your curriculum brand. If those don't find you, a competitor answers them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Chains Outspend, Not Out-Teach</h3>
+            <p>Large franchises dominate paid results with budget. Without a structured strategy, an independent school stays invisible during the intake windows that matter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for coding schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Coding School <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>From a parent typing 'coding for kids' to a booked trial class, each channel carries a different stage.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; Local SEO</h3>
+            <p>Rank for age-and-language searches — 'Python for kids', 'robotics class Tampines' — plus the holiday-camp terms that spike each school break.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Search &amp; GEO</h3>
+            <p>Get named when a parent asks an AI which coding school suits their child's age and level — the shortlist forms before your site is ever opened.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Ads</h3>
+            <p>Capture intake and holiday-camp demand with campaigns split by programme and age band, so budget follows the classes you can actually fill.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Social Content</h3>
+            <p>Project demos, competition wins and student builds make abstract 'coding' tangible for a parent deciding whether it's worth it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Positioning that turns a vague category into a clear promise — future skills, real projects, measurable progress — so you're not competing on price.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Website That Converts</h3>
+            <p>A <a href="/coding-school-website-singapore/">coding school website</a> with programme pathways by age, outcomes, and a trial booking that converts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for coding schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most schools stitch together separate vendors who never share what's working. We run it as one system.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>A campaign quickly reveals which ages and languages convert; that reshapes the curriculum pages and the demos we push. One vendor can act on it; three can't.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Measured on Enquiries, Not Clicks</h3>
+            <p>We track trials booked and trial-to-enrolment by programme — the number that fills your labs, not reach on a robotics reel.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Team, Every Channel</h3>
+            <p>Site, search, ads and social move as one, so a parent who searches 'Python for kids' meets a demo, a clear pathway and a booking in three clicks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers choose a coding school">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Parents <span class="highlight">Choose a Coding School</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a stage — search and AI decide whether you're considered, social and brand decide whether you're believed, and the website turns interest into a booked trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A search, AI answer or a parent's recommendation</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Projects, competition results and curriculum prove it</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Age fit, language, format and price weighed up</p></li>
+        <li class="funnel-stage"><h3>Trial</h3><p>A booked class — the only real conversion</p></li>
+        <li class="funnel-stage"><h3>Enrol</h3><p>Sign for the term, renew &amp; refer</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about coding schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Coding School <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for a coding school involve?</summary>
+          <div class="faq-answer"><p>Being found in age-specific search, named by AI assistants, visible in paid results during intake and holiday-camp windows, showing real student projects on social, positioned clearly against a crowded field, and a website that converts a curious parent into a booked trial.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We rely on word of mouth — why market?</summary>
+          <div class="faq-answer"><p>Referrals plateau and rarely arrive in the age bands or programmes where you have space. Marketing reaches the parents actively searching 'coding for kids' who were never going to hear about you otherwise.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly does it work?</summary>
+          <div class="faq-answer"><p>Paid search produces trial enquiries within days; organic and AI visibility take three to five months. We usually launch the fastest channel that fits your budget and build the durable ones underneath it.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Does it work for holiday camps specifically?</summary>
+          <div class="faq-answer"><p>Yes, and camps are one of the highest-return campaigns we run — high intent, clear dates, and a natural deadline. We scale paid and social into each school break and pull back between.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success?</summary>
+          <div class="faq-answer"><p>Booked trials and cost per trial, then trial-to-enrolment. Follower count and impressions are context, never the result.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Coding School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/coding-school-website-singapore/" class="related-service-link">Coding School Website Design</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+          <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
