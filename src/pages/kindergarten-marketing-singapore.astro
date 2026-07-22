@@ -1,0 +1,280 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Kindergartens Singapore",
+    "description": "Full-service marketing agency for kindergartens in Singapore — SEO, AI search, Google Ads, social, branding and websites that fill K1 and K2 places with local parents.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": { "@type": "PostalAddress", "streetAddress": "60 Paya Lebar Road, Paya Lebar Square", "postalCode": "409051", "addressLocality": "Singapore", "addressCountry": "SG" }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Kindergarten Marketing"
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for a kindergarten involve?", "acceptedAnswer": { "@type": "Answer", "text": "Owning local and 'K1 registration' search, being named by AI assistants, capturing the registration-window surge with geo-targeted ads, showing classroom life on social, positioning your approach and primary-school readiness, and a website that converts a search into a booked tour." } },
+      { "@type": "Question", "name": "How is this different from preschool marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Preschool spans infant care, playgroup and nursery; kindergarten marketing focuses on the K1 and K2 decision, where parents weigh curriculum and primary-school readiness. We angle the pages and campaigns to how parents search specifically for kindergarten, so you don't blur into the broader preschool field." } },
+      { "@type": "Question", "name": "When should we market?", "acceptedAnswer": { "@type": "Answer", "text": "Ahead of the K1 registration window. Because parents plan a year out, visibility during the research months matters as much as the registration period itself. We build a year-round baseline and scale into the intake." } },
+      { "@type": "Question", "name": "Can you target parents in specific estates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — kindergarten choice is heavily local. We concentrate spend and content on the estates your centre realistically draws from, where proximity often decides the choice." } },
+      { "@type": "Question", "name": "How do you measure success?", "acceptedAnswer": { "@type": "Answer", "text": "Booked tours and cost per tour, then tour-to-enrolment. Follower count and impressions are context, never the result." } }
+    ] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Kindergartens Singapore", "item": "https://jraftcreative.com/kindergarten-marketing-singapore/" }
+  ] }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Kindergartens Singapore"
+  description="Marketing agency for kindergartens in Singapore — SEO, ads, social and websites that fill K1 and K2 places with nearby parents."
+  canonical="https://jraftcreative.com/kindergarten-marketing-singapore/"
+  ogTitle="Marketing Agency for Kindergartens Singapore"
+  ogDescription="Full-service marketing for Singapore kindergartens. Six channels that fill K1 and K2 places with local parents."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for kindergartens, kindergarten marketing singapore, kindergarten enrolment marketing, K1 K2 marketing, kindergarten advertising singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Kindergartens"
+  heroTitle='Marketing Agency for <span class="highlight">Kindergartens in Singapore</span>'
+  heroSubtitle="Choosing a kindergarten is one of the most researched decisions a Singapore parent makes — months ahead, and heavily local. We run the channels that fill your K1 and K2 places — search, ads, social, brand and website — judged on booked tours and enrolments."
+  heroImage="/images/service-kindergarten.webp"
+  heroImageAlt="Kindergarten classroom in Singapore — kindergarten marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Kindergarten Websites", href: "/kindergarten-website-design-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my kindergarten in Singapore."
+  ctaLabel="Fill Your K1 &amp; K2 Places"
+  ctaTitle="Get a Free Kindergarten Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how local parents find you now, how the K1 and K2 pipeline looks, and which channel fills places fastest. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20kindergarten%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for kindergartens in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The K1 Decision Is Made <span class="highlight">Early</span> — and Heavily <span class="highlight">Researched</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Kindergarten is chosen months ahead, with primary-school readiness in mind. The shortlist forms from local search and reputation long before a parent calls.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Parents Plan a Year Ahead</h3>
+            <p>K1 registration decisions start early, so a kindergarten invisible during the research window loses places before the intake even opens.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>It's Curriculum Plus Proximity</h3>
+            <p>Parents weigh bilingualism, approach and primary-school readiness against how near you are. If your strengths and location aren't clear, a nearer or clearer centre wins.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Kindergarten Is Not Preschool</h3>
+            <p>Parents searching specifically for K1 and K2 — not infant care or playgroup — need pages that speak to the kindergarten years, or they assume you don't focus on them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for kindergartens">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Kindergarten <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each channel does a different job in the same journey — from a parent's first search to a booked centre tour.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; Local SEO</h3>
+            <p>Rank for 'kindergarten near me', 'K1 registration [estate]' and curriculum searches, with a Google Business Profile built for the map pack.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Search &amp; GEO</h3>
+            <p>Get named when a parent asks an AI for a good kindergarten near them with a specific approach or bilingual programme.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Ads</h3>
+            <p>Capture the registration-window surge with campaigns geo-targeted to the estates you draw from and timed to intake.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Social Content</h3>
+            <p>Classroom life, learning moments and celebrations that let a parent picture their child there — the reassurance a brochure can't give.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Positioning around your approach, bilingual strength and primary-school readiness, so you're chosen on fit, not just proximity.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Website That Converts</h3>
+            <p>A <a href="/kindergarten-website-design-singapore/">kindergarten website</a> with K1 and K2 programmes, curriculum, fees clarity and easy tour booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for kindergartens marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most kindergartens use separate vendors who never share what's converting. We run it as one system.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>A registration-window campaign reveals which estates and programmes convert; that shapes the local SEO and the classroom content. Split across vendors, it's lost.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Measured on Enquiries, Not Clicks</h3>
+            <p>We count tours booked and tour-to-enrolment — the number that fills your K1 and K2 register, not reach on a graduation reel.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Team, Every Channel</h3>
+            <p>Profile, site, search and social move as one, so a parent researching kindergartens a year out keeps meeting you, then books the tour.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers choose a kindergarten">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Parents <span class="highlight">Choose a Kindergarten</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a stage — search and AI decide whether you're on the shortlist, social and brand build trust, and the website turns interest into a booked tour.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A local search or a parent's recommendation</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Approach, curriculum and classroom life reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Proximity, bilingual strength and fees weighed up</p></li>
+        <li class="funnel-stage"><h3>Tour</h3><p>A booked centre tour — the deciding moment</p></li>
+        <li class="funnel-stage"><h3>Enrol</h3><p>A place taken, then years of word of mouth</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about kindergartens marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Kindergarten <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for a kindergarten involve?</summary>
+          <div class="faq-answer"><p>Owning local and 'K1 registration' search, being named by AI assistants, capturing the registration-window surge with geo-targeted ads, showing classroom life on social, positioning your approach and primary-school readiness, and a website that converts a search into a booked tour.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is this different from preschool marketing?</summary>
+          <div class="faq-answer"><p>Preschool spans infant care, playgroup and nursery; kindergarten marketing focuses on the K1 and K2 decision, where parents weigh curriculum and primary-school readiness. We angle the pages and campaigns to how parents search specifically for kindergarten, so you don't blur into the broader preschool field.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>When should we market?</summary>
+          <div class="faq-answer"><p>Ahead of the K1 registration window. Because parents plan a year out, visibility during the research months matters as much as the registration period itself. We build a year-round baseline and scale into the intake.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you target parents in specific estates?</summary>
+          <div class="faq-answer"><p>Yes — kindergarten choice is heavily local. We concentrate spend and content on the estates your centre realistically draws from, where proximity often decides the choice.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success?</summary>
+          <div class="faq-answer"><p>Booked tours and cost per tour, then tour-to-enrolment. Follower count and impressions are context, never the result.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Kindergarten</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/kindergarten-website-design-singapore/" class="related-service-link">Kindergarten Website Design</a>
+          <a href="/preschool-marketing-singapore/" class="related-service-link">Preschool Marketing</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/childcare-marketing-singapore/" class="related-service-link">Childcare Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

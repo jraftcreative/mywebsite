@@ -1,0 +1,280 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Swimming Schools Singapore",
+    "description": "Full-service marketing agency for swimming schools in Singapore — SEO, AI search, Google Ads, social, branding and websites that fill learn-to-swim classes.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": { "@type": "PostalAddress", "streetAddress": "60 Paya Lebar Road, Paya Lebar Square", "postalCode": "409051", "addressLocality": "Singapore", "addressCountry": "SG" }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Swimming School Marketing"
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for a swimming school involve?", "acceptedAnswer": { "@type": "Answer", "text": "Owning local and 'near me' search, being named by AI assistants, capturing paid demand geo-targeted to your pool, reassuring parents on social, leading with safety and small-class positioning, and a website that converts a local search into a booked trial." } },
+      { "@type": "Question", "name": "We fill by word of mouth — why market?", "acceptedAnswer": { "@type": "Answer", "text": "Referrals plateau and cluster in a few timeslots. Marketing reaches the constant stream of parents newly deciding it's time their child learned to swim, in the estates around your pool." } },
+      { "@type": "Question", "name": "How quickly does it work?", "acceptedAnswer": { "@type": "Answer", "text": "Local SEO and Google Business Profile work often shows results in weeks; paid search produces enquiries within days. We start with what fills your emptiest lanes fastest." } },
+      { "@type": "Question", "name": "Can you target specific pools or estates?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — geo-targeting is central to swim-school marketing. We focus spend and content on the exact estates and MRT lines your pool realistically draws families from." } },
+      { "@type": "Question", "name": "How do you measure success?", "acceptedAnswer": { "@type": "Answer", "text": "Booked trial lessons, cost per trial, and how many swimmers move up your levels. Reach is context, not the result." } }
+    ] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Swimming Schools Singapore", "item": "https://jraftcreative.com/swimming-school-marketing-singapore/" }
+  ] }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Swimming Schools Singapore"
+  description="Marketing agency for swimming schools in Singapore — SEO, ads, social and websites that fill learn-to-swim classes and holiday intensives."
+  canonical="https://jraftcreative.com/swimming-school-marketing-singapore/"
+  ogTitle="Marketing Agency for Swimming Schools Singapore"
+  ogDescription="Full-service marketing for Singapore swimming schools. Six channels that fill learn-to-swim classes and SwimSafer programmes."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for swimming schools, swimming school marketing singapore, swim school marketing, learn to swim marketing, swimming lessons advertising singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Swimming Schools"
+  heroTitle='Marketing Agency for <span class="highlight">Swimming Schools in Singapore</span>'
+  heroSubtitle="Every parent in Singapore wants their child to swim — it's search demand you don't have to create, only capture. We run the channels that fill your classes — search, ads, social, brand and website — judged on booked trials and enrolled swimmers."
+  heroImage="/images/service-swimmingschool.webp"
+  heroImageAlt="Learn-to-swim class in Singapore — swimming school marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Swimming School Websites", href: "/swimming-school-website-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my swimming school in Singapore."
+  ctaLabel="Fill Your Lanes"
+  ctaTitle="Get a Free Swimming School Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how parents find you now, which class times sit empty, and which channel fills them fastest. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20swimming%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for swimming schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Demand Is <span class="highlight">Already There</span> — Are You the One They <span class="highlight">Find</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Learn-to-swim is a near-universal parenting decision in Singapore. You don't have to create demand — you have to be the clinic that appears when a parent near your pool searches.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>It's Won on Location &amp; Trust</h3>
+            <p>Parents choose the pool they can reach and the instructors they trust with a child in water. If you're not visible and reassuring, the nearer school wins.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Search Locally</h3>
+            <p>'Swimming lessons near me', 'learn to swim [estate]', 'SwimSafer class' — hyper-local searches. If your Google Business Profile and pages don't answer them, you're invisible.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Safety Sells, but Quietly</h3>
+            <p>Small class sizes, qualified coaches and water-safety credentials are your strongest pitch — and most schools bury them instead of leading with them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for swimming schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Swimming School <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Each channel does a different job in the same journey — from a parent's first local search to a booked trial lesson.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; Local SEO</h3>
+            <p>Own 'swimming lessons near me' and pool-location searches with local SEO and a Google Business Profile built for the Maps three-pack.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Search &amp; GEO</h3>
+            <p>Get named when a parent asks an AI for a good swim school near their estate that takes their child's age and level.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Ads</h3>
+            <p>Capture high-intent local searches and holiday-intensive demand, geo-targeted tight to the estates your pool actually draws from.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Social Content</h3>
+            <p>Poolside progress clips, water-safety tips and beaming first-swim moments — the content that reassures a nervous parent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Positioning around safety, small classes and qualified coaches — the trust signals that let you charge properly, not compete on price.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Website That Converts</h3>
+            <p>A <a href="/swimming-school-website-singapore/">swimming school website</a> with class levels, pool locations, coach credentials and easy trial booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for swimming schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most schools juggle separate vendors who never share what's converting. We run it as one system.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>Local ads show which pools and timeslots convert; that sharpens the Google Business Profile and the content. A single team compounds that; scattered vendors lose it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Measured on Enquiries, Not Clicks</h3>
+            <p>We measure trials booked and how many progress through your levels — the number that fills your lanes, not follows on a poolside clip.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Team, Every Channel</h3>
+            <p>Profile, site, local search and ads are wired together, so a 'swimming lessons near me' search meets your nearest pool, its coaches and a booking.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers choose a swimming school">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Parents <span class="highlight">Choose a Swimming School</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a stage — local search and AI decide whether you're considered, social and brand build the trust, and the website turns interest into a booked trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A local search or a parent's recommendation</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Coach credentials, class size and reviews reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Pool location, times and price weighed up</p></li>
+        <li class="funnel-stage"><h3>Trial</h3><p>A booked lesson — the only real conversion</p></li>
+        <li class="funnel-stage"><h3>Enrol</h3><p>Sign up, progress through levels &amp; refer</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about swimming schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Swimming School <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for a swimming school involve?</summary>
+          <div class="faq-answer"><p>Owning local and 'near me' search, being named by AI assistants, capturing paid demand geo-targeted to your pool, reassuring parents on social, leading with safety and small-class positioning, and a website that converts a local search into a booked trial.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We fill by word of mouth — why market?</summary>
+          <div class="faq-answer"><p>Referrals plateau and cluster in a few timeslots. Marketing reaches the constant stream of parents newly deciding it's time their child learned to swim, in the estates around your pool.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly does it work?</summary>
+          <div class="faq-answer"><p>Local SEO and Google Business Profile work often shows results in weeks; paid search produces enquiries within days. We start with what fills your emptiest lanes fastest.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you target specific pools or estates?</summary>
+          <div class="faq-answer"><p>Yes — geo-targeting is central to swim-school marketing. We focus spend and content on the exact estates and MRT lines your pool realistically draws families from.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success?</summary>
+          <div class="faq-answer"><p>Booked trial lessons and cost per trial, then how many progress into ongoing levels. Follower count is context, never the result.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Swimming School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/swimming-school-website-singapore/" class="related-service-link">Swimming School Website Design</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/gym-marketing-singapore/" class="related-service-link">Gym &amp; Fitness Marketing</a>
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

@@ -1,0 +1,280 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Art Schools Singapore",
+    "description": "Full-service marketing agency for art schools and studios in Singapore — SEO, AI search, Google Ads, social, branding and websites that fill classes and workshops.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": { "@type": "PostalAddress", "streetAddress": "60 Paya Lebar Road, Paya Lebar Square", "postalCode": "409051", "addressLocality": "Singapore", "addressCountry": "SG" }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Art School Marketing"
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "What does marketing for an art school involve?", "acceptedAnswer": { "@type": "Answer", "text": "Six things working together: being found in local and treatment-specific search, being named by AI assistants, appearing in paid results during intake and holiday-camp windows, showing student work on social, looking established enough to charge properly, and a website that turns all of it into a booked trial." } },
+      { "@type": "Question", "name": "We fill by word of mouth — why market?", "acceptedAnswer": { "@type": "Answer", "text": "Referrals are excellent and they plateau. They arrive on their own schedule and rarely in the classes and terms where you have space. Marketing fills the gaps referrals can't reach — new estates, adult programmes, and the quiet months." } },
+      { "@type": "Question", "name": "How quickly does it work?", "acceptedAnswer": { "@type": "Answer", "text": "Paid search can produce trial enquiries within days. Organic search and AI visibility typically take three to five months to move. Social sits in between. We start with the fastest channel that fits your budget and build the durable ones underneath it." } },
+      { "@type": "Question", "name": "Do you work with home studios and single teachers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single teacher can dominate a tight radius and a few mediums far more cheaply than a large centre competing island-wide. The strategy is narrower and more personality-led; the outcome is the same — a full class schedule." } },
+      { "@type": "Question", "name": "How do you measure success?", "acceptedAnswer": { "@type": "Answer", "text": "Booked trial classes and cost per trial, then how many convert to termly students. Follower count and impressions are context, never the result we report on." } }
+    ] },
+  { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Art Schools Singapore", "item": "https://jraftcreative.com/art-school-marketing-singapore/" }
+  ] }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Marketing Agency for Art Schools Singapore"
+  description="Marketing agency for art schools in Singapore — SEO, ads, social and websites that fill kids classes, adult workshops and holiday camps."
+  canonical="https://jraftcreative.com/art-school-marketing-singapore/"
+  ogTitle="Marketing Agency for Art Schools Singapore"
+  ogDescription="Full-service marketing for Singapore art schools. Six channels that fill classes, workshops and holiday programmes."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="marketing agency for art schools, art school marketing singapore, art studio marketing, art class marketing singapore, kids art school advertising, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing Agency for Art Schools"
+  heroTitle='Marketing Agency for <span class="highlight">Art Schools in Singapore</span>'
+  heroSubtitle="Great teaching fills a class through word of mouth, then plateaus. We run the channels that bring new parents and adult learners to your studio — search, social, ads, brand and website — judged on one thing: enrolments and workshop sign-ups."
+  heroImage="/images/service-artschool.webp"
+  heroImageAlt="Art class in a Singapore studio — art school marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Art School Websites", href: "/art-school-website-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about marketing for my art school in Singapore."
+  ctaLabel="Fill Your Classes"
+  ctaTitle="Get a Free Art School Marketing Review"
+  ctaDescription="Book a free consultation and we'll look at how parents and adult learners find you now, which programmes are under-filled, and which channel would move the needle fastest for your studio. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20marketing%20for%20my%20art%20school%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Marketing challenges for art schools in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Best <span class="highlight">Art Teacher</span> in the Estate Isn't the One <span class="highlight">Filling Up</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Art schools rarely lose on teaching. They lose on being found — and on looking as considered as the work on the walls.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Referrals Plateau</h3>
+            <p>Word of mouth is wonderful and finite. It arrives on its own schedule and rarely in the classes, ages or terms where you have space.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Search by Outcome</h3>
+            <p>A parent looks for 'art class for a 7-year-old' or 'portfolio prep for O-Level art', not your programme name. If those searches don't find you, they find someone else.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Passion Projects Look Amateur</h3>
+            <p>A beautiful studio with a scrappy website and quiet socials reads as a hobby, not a school worth committing a term's fees to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SIX CHANNELS ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for art schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Art School <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>From a parent's first search to a booked trial easel, each channel plays a different part.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search &amp; Local SEO</h3>
+            <p>Rank for 'art class near me', instrument-of-the-medium searches (watercolour, digital, ceramics) and neighbourhood terms, and own the Maps three-pack.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Search &amp; GEO</h3>
+            <p>Get named when a parent asks ChatGPT or Gemini for a good art school for their child — a shortlist of two or three, not ten links.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Ads</h3>
+            <p>Capture high-intent searches during term intake and holiday-camp season, structured by programme and age group rather than one broad campaign.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Social Content</h3>
+            <p>Student work is the best content you'll ever have. We turn finished pieces, timelapses and exhibitions into a feed that makes parents want in.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Positioning</h3>
+            <p>Positioning and identity that read as a serious studio — so you attract families who value the craft, not just the cheapest class.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Website That Converts</h3>
+            <p>An <a href="/art-school-website-singapore/">art school website</a> with programme pages, a portfolio gallery and a trial booking that takes under a minute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for art schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>One <span class="highlight">Agency</span>, All Six <span class="highlight">Channels</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most studios end up with a web person, a social freelancer and an ads contractor who never speak to each other. We close that loop.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Channels That Feed Each Other</h3>
+            <p>A holiday-camp ad shows which mediums parents will pay for; that decides the SEO pages we write and the work we film. Separate vendors never share that.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Measured on Enquiries, Not Clicks</h3>
+            <p>We count trial classes booked and how many become termly students — the number that fills your easels, not likes on a nice photo.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Team, Every Channel</h3>
+            <p>Your website, gallery, social and ads are built together, so a parent who sees a piece on Instagram lands on the exact class page that sells it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers choose a art school">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>How Parents &amp; Learners <span class="highlight">Choose an Art School</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Every channel owns a stage — search and AI decide whether you're considered, social and brand decide whether you're believed, and the website turns interest into a booked trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A search, AI answer or a friend's recommendation</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Student work and teacher credentials prove it</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Medium, age fit, location and price weighed up</p></li>
+        <li class="funnel-stage"><h3>Trial</h3><p>A booked class — the only real conversion</p></li>
+        <li class="funnel-stage"><h3>Enrol</h3><p>Sign for the term, renew &amp; refer</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about art schools marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Art School <span class="highlight">Marketing</span> — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What does marketing for an art school involve?</summary>
+          <div class="faq-answer"><p>Six things working together: being found in local and treatment-specific search, being named by AI assistants, appearing in paid results during intake and holiday-camp windows, showing student work on social, looking established enough to charge properly, and a website that turns all of it into a booked trial.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We fill by word of mouth — why market?</summary>
+          <div class="faq-answer"><p>Referrals are excellent and they plateau. They arrive on their own schedule and rarely in the classes and terms where you have space. Marketing fills the gaps referrals can't reach — new estates, adult programmes, and the quiet months.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly does it work?</summary>
+          <div class="faq-answer"><p>Paid search can produce trial enquiries within days. Organic search and AI visibility typically take three to five months to move. Social sits in between. We start with the fastest channel that fits your budget and build the durable ones underneath it.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with home studios and single teachers?</summary>
+          <div class="faq-answer"><p>Yes. A single teacher can dominate a tight radius and a few mediums far more cheaply than a large centre competing island-wide. The strategy is narrower and more personality-led; the outcome is the same — a full class schedule.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure success?</summary>
+          <div class="faq-answer"><p>Booked trial classes and cost per trial, then how many convert to termly students. Follower count and impressions are context, never the result we report on.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Art School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/art-school-website-singapore/" class="related-service-link">Art School Website Design</a>
+          <a href="/education-marketing-agency-singapore/" class="related-service-link">Full-Service Education Marketing</a>
+          <a href="/education-ai-search-optimisation-singapore/" class="related-service-link">Education GEO / AI Search</a>
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+          <a href="/music-school-marketing-singapore/" class="related-service-link">Music School Marketing</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
