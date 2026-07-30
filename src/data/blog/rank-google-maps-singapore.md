@@ -6,8 +6,8 @@ lastModified: 2026-07-31
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "SEO"
-image: "/images/blog/seo-mistakes-singapore-businesses.webp"
-imageAlt: "A Singapore business owner viewing the Google Maps local pack results for their business category on a phone"
+image: "/images/blog/rank-google-maps-singapore.webp"
+imageAlt: "A Google Maps local pack ranking with three businesses, the top pin highlighted as your business — the goal of ranking higher on Google Maps in Singapore"
 keywords:
   - rank on Google Maps Singapore
   - Google Maps ranking Singapore
