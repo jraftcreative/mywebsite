@@ -63,7 +63,7 @@ They either:
 After auditing dozens of salon websites and profiles in Singapore, we see the same mistakes over and over:
 
 ### 1. Your Google Business Profile is incomplete or outdated
-This is the single biggest miss. Your Google Business Profile is often the first thing a potential client sees when they search — it shows up in map results, in the sidebar on Google, and on Google Maps.
+This is the single biggest miss. Your Google Business Profile is often the first thing a potential client sees when they search — it shows up in map results, in the sidebar on Google, and on Google Maps. (If you want the mechanics, here's [how to rank higher on Google Maps in Singapore](/blog/rank-google-maps-singapore/).)
 
 If your profile:
 - Has no photos (or only one from 2019)

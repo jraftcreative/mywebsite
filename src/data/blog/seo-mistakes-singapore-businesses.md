@@ -33,7 +33,7 @@ Many Singapore businesses optimise for generic keywords like "web design" or "be
 - No location keywords in titles, headings, or meta descriptions
 
 **How to fix it:**
-- Claim and fully optimise your [Google Business Profile](https://business.google.com/). Add photos, business hours, services, and respond to reviews.
+- Claim and fully optimise your [Google Business Profile](https://business.google.com/). Add photos, business hours, services, and respond to reviews. (For the full playbook, see [how to rank higher on Google Maps in Singapore](/blog/rank-google-maps-singapore/).)
 - Include "Singapore" (and your specific area like Orchard, Jurong, or Tampines) in your page titles and H1 tags naturally.
 - Register with Singapore-specific directories: SgCompanies.com, Singapore Business Directory, and Yellow Pages Singapore.
 - Ensure your business name, address, and phone number are identical everywhere they appear online.
