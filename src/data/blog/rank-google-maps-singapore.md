@@ -7,7 +7,7 @@ author: "Jraft Creative"
 authorUrl: "/about/"
 category: "SEO"
 image: "/images/blog/rank-google-maps-singapore.webp"
-imageAlt: "A Google Maps local pack ranking with three businesses, the top pin highlighted as your business — the goal of ranking higher on Google Maps in Singapore"
+imageAlt: "A hand holding a phone showing the Google Maps app — how customers find and choose local businesses before they ever visit"
 keywords:
   - rank on Google Maps Singapore
   - Google Maps ranking Singapore
