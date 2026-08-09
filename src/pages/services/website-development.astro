@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Website Development",
-    "description": "Professional website development services in Singapore including custom business websites, ecommerce stores, web applications, landing pages, and AI integration.",
+    "description": "AI-ready website design and development in Singapore — sites built with server-rendered, crawlable HTML, structured data and clear entity signals so AI search engines (ChatGPT, Gemini, Google AI Overview, Perplexity) can read, understand and recommend your business — and built to convert human visitors too.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -21,24 +21,20 @@ const schemaData = [
         "addressCountry": "SG"
       }
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Singapore"
-    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
     "serviceType": "Website Development"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      { "@type": "Question", "name": "What does an \"AI-discoverable\" website actually mean?", "acceptedAnswer": { "@type": "Answer", "text": "It means your website is built so AI search engines — ChatGPT, Gemini, Google's AI Overview and Perplexity — can read, understand and cite it when someone asks them for a recommendation. That requires server-rendered HTML the AI crawlers can actually read, structured data (schema), clear entity signals about who you are, and content written to answer the questions your customers ask. We build all of this in from the start." } },
+      { "@type": "Question", "name": "Why can't AI read most websites?", "acceptedAnswer": { "@type": "Answer", "text": "As of 2026, the major AI crawlers (including OpenAI's GPTBot and Anthropic's ClaudeBot) download your pages but do NOT run JavaScript. Sites built on Wix, many WordPress page-builders, or JavaScript-heavy frameworks render their content in the browser using JavaScript — so the AI never sees it. We build server-rendered sites where the content is in the HTML from the first byte, fully readable by AI." } },
+      { "@type": "Question", "name": "Is this different from your GEO / AI Search Optimisation service?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and they work together. Website Development makes the foundation AI-ready — the build itself is discoverable. AI Search Optimisation (GEO) is the ongoing work that earns citations and grows your visibility in AI answers over time. We build you AI-ready; GEO keeps you winning the answer." } },
+      { "@type": "Question", "name": "Will the site still be built to convert human visitors?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. AI-discoverability is the new layer, not a replacement. Every site is still designed to look credible, load fast, work on mobile, and turn visitors into enquiries — the AI-readiness is built on top of a high-converting website, not instead of one." } },
       { "@type": "Question", "name": "How long does it take to build a website?", "acceptedAnswer": { "@type": "Answer", "text": "A typical business website takes 4–6 weeks from kickoff to launch. Ecommerce stores and web applications may take 8–12 weeks depending on complexity. We provide a detailed timeline during our free consultation." } },
-      { "@type": "Question", "name": "Can I update the website content myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build most websites with a content management system (CMS) so you can edit text, images, and blog posts without any coding knowledge. We also provide a training session after launch." } },
-      { "@type": "Question", "name": "Do you offer website maintenance after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every project includes a post-launch support window, and we offer ongoing maintenance retainers covering updates, backups, security, and minor changes after that. Maintenance scope and cadence are agreed when we hand the site over." } },
-      { "@type": "Question", "name": "What platforms do you build websites on?", "acceptedAnswer": { "@type": "Answer", "text": "We use modern frameworks like Astro, Next.js, and WordPress depending on your needs. For ecommerce, we work with Shopify and WooCommerce. We recommend the best platform for your specific requirements during the consultation." } },
-      { "@type": "Question", "name": "Do you provide hosting?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
       { "@type": "Question", "name": "How much does a website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How do I choose a web design agency in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Check five things before you commit: a portfolio of real, verifiable work you can visit live; mobile speed and Core Web Vitals, not just how the site looks in a screenshot; a conversion focus so the site generates enquiries rather than just looking pretty; an in-house team rather than outsourced freelancers; and no lock-in contracts. Ask for a free audit so you can judge the thinking before you sign anything." } },
-      { "@type": "Question", "name": "Do you build websites optimised for AI search and Google's AI Overview?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build every site with clean structure and schema markup so AI search engines can understand and cite your business inside answers on Google's AI Overview, ChatGPT, Gemini and Perplexity. We practise what we sell — Jraft Creative got its own site cited in Google's AI Overview, and we run the same GEO playbook on the sites we build for clients." } }
+      { "@type": "Question", "name": "Do you practise this on your own site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Jraft Creative's own website got cited in Google's AI Overview for competitive Singapore queries — no paid placement. We build clients on the same playbook we proved on ourselves." } }
     ]
   },
   {
@@ -53,373 +49,330 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* AI Discovery Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
-  title="Web Design Agency Singapore — Web Development | Jraft Creative"
-  description="Web design agency in Singapore — business sites, ecommerce stores, web apps, and landing pages built to convert. Book a free consultation."
+  title="AI-Ready Web Design Singapore — Websites Built to Be Found by AI | Jraft Creative"
+  description="Web design agency in Singapore building AI-discoverable websites — read, understood and recommended by ChatGPT, Gemini & Google's AI Overview, and built to convert. Book a free consultation."
   canonical="https://jraftcreative.com/services/website-development/"
-  ogTitle="Web Design Agency Singapore — Web Development | Jraft Creative"
-  ogDescription="Custom websites, ecommerce stores, and web applications designed to convert and built to scale. Book a free consultation."
+  ogTitle="AI-Ready Web Design Singapore — Websites Built to Be Found by AI | Jraft Creative"
+  ogDescription="We build websites AI search engines can actually read, understand and recommend — and that still convert the humans who click through. Book a free consultation."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="website development singapore, web design agency singapore, custom website singapore, ecommerce development, web application, landing page design, Jraft Creative"
+  keywords="ai ready website singapore, ai discoverable website, web design agency singapore, websites built for AI search, GEO website design, website development singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Web Design Agency Singapore"
-  heroTitle='Web Design Agency &amp; Custom <span class="highlight">Website Development in Singapore</span>'
-  heroSubtitle="Jraft Creative is a Singapore web design & development agency — business websites, ecommerce stores, web apps and landing pages built to convert visitors into customers. We build with structure AI search can read, and we got our own site cited in Google's AI Overview."
+  heroLabel="AI-Ready Web Design · Singapore"
+  heroTitle='Websites Built to Be <span class="highlight">Found by AI</span>'
+  heroSubtitle="Your next customer is asking ChatGPT and Google's AI for a recommendation — and most websites can't even be read by it. We build sites AI can read, understand and recommend, that still convert the humans who click through. We proved it on ourselves: Jraft Creative is cited in Google's AI Overview."
   heroImage="/images/service-webdev.webp"
+  heroImageAlt="A modern, AI-discoverable business website built by Jraft Creative"
   heroButtons={[
     { text: "Start Your Project", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20website%20development%20services.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20an%20AI-ready%20website.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I'd like to enquire about your website development services."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Let's Build Your Website"
-  ctaDescription="Book a free consultation and tell us about your project. We'll get back to you within 24 hours."
+  whatsappText="Hi Jraft Creative, I'd like an AI-ready website."
+  ctaLabel="Ready to Get Found?"
+  ctaTitle='Let&apos;s Build You a Website <span class="highlight">AI Recommends</span>'
+  ctaDescription="Book a free consultation and tell us about your project. We'll show you where your business stands in AI search today, and get back to you within 24 hours with a plan."
   ctaButtons={[
     { text: "Start Your Project", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20enquire%20about%20your%20website%20development%20services.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20an%20AI-ready%20website.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="The challenge businesses face">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why most websites are invisible to AI">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">The Challenge</p>
-        <h2>Your <span class="highlight">Website</span> Should Be Your Best <span class="highlight">Salesperson</span></h2>
-        <p>Most businesses in Singapore lose customers to these common website problems.</p>
-      </div>
-      <div class="challenge-grid">
-        <div class="challenge-card challenge-card--overlay reveal reveal-d1" data-bg="/images/challenge-outdated.webp">
-          <div class="challenge-card__content">
-            <h3>Outdated Design</h3>
-            <p>A dated website signals an outdated business. Visitors judge your credibility within 0.05 seconds — and leave if it looks unprofessional.</p>
-          </div>
-        </div>
-        <div class="challenge-card challenge-card--overlay reveal reveal-d2" data-bg="/images/challenge-mobile.webp">
-          <div class="challenge-card__content">
-            <h3>Not Mobile-Friendly</h3>
-            <p>Over 72% of Singapore web traffic is mobile. If your site isn't responsive, you're invisible to most of your potential customers.</p>
-          </div>
-        </div>
-        <div class="challenge-card challenge-card--overlay reveal reveal-d3" data-bg="/images/challenge-slow.webp">
-          <div class="challenge-card__content">
-            <h3>Painfully Slow</h3>
-            <p>53% of visitors leave if a page takes longer than 3 seconds to load. Slow sites kill conversions and hurt your Google rankings.</p>
-          </div>
-        </div>
-        <div class="challenge-card challenge-card--overlay reveal reveal-d1" data-bg="/images/challenge-cta.webp">
-          <div class="challenge-card__content">
-            <h3>No Clear CTA</h3>
-            <p>Visitors land on your site but don't know what to do next. Without clear calls-to-action, traffic doesn't convert into enquiries.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== SOLUTION (SUB-SERVICES) ========== -->
-  <section class="section" id="sub-services" aria-label="Our website development solutions">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">The Solution</p>
-        <h2>Our <span class="highlight">Website Development</span> Services</h2>
+        <p class="section-label">The Shift</p>
+        <h2>Search Moved to <span class="highlight">AI</span>. Most Websites Got Left <span class="highlight">Invisible</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Everything you need to establish a powerful online presence. As a website development agency in Singapore, we build custom websites that are fast, mobile-friendly, and designed to convert. From corporate sites and ecommerce stores to web applications, every project is crafted around user experience and business growth.</p>
-        <p>Our web design approach pairs responsive design with SEO-ready structure and conversion-focused layouts — so your site looks great on every device and drives real results for your online presence.</p>
-        <p>Pair your new website with our <a href="/services/seo-performance">SEO &amp; performance optimisation</a> services to rank higher on Google, drive traffic with <a href="/services/paid-ads">paid ads management</a>, or grow your brand through <a href="/services/social-media">social media content creation</a>.</p>
-        <p>Looking for something specific? See our <a href="/ecommerce-website-singapore/">ecommerce websites</a>, solutions for <a href="/small-business-website-singapore/">small businesses</a> and <a href="/startup-website-singapore/">startups</a>, or industry-specific work such as <a href="/fnb-website-design-singapore/">F&amp;B website design</a> and <a href="/aesthetics-clinic-website-singapore/">aesthetics clinic websites</a>.</p>
+        <p>People increasingly ask ChatGPT, Gemini and Google's AI for a recommendation instead of scrolling links. Here's why most Singapore websites never make it into the answer.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Business Websites</h3>
-            <p>Custom-designed, mobile-responsive sites that showcase your brand and convert visitors into leads and customers.</p>
+            <h3>AI Can't Read It</h3>
+            <p>AI crawlers download your page but don't run JavaScript. Wix, most WordPress builders and JS-heavy sites render content the AI never sees — so you're invisible in the answer.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ecommerce.webp">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Ecommerce Stores</h3>
-            <p>Online stores with product catalogs, secure checkout, inventory management, and seamless payment integration.</p>
+            <h3>No Structured Data</h3>
+            <p>Without schema markup, AI can't tell what you do, where you are, or what you're known for — so it reaches for a competitor it understands better.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-web-app.webp">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Web Applications</h3>
-            <p>Booking systems, client portals, dashboards, and custom operational tools tailored to your business workflows.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
-          <div class="service-detail-card__content">
-            <h3>Landing Pages</h3>
-            <p>High-converting campaign pages optimised for promotions, product launches, and lead generation.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-ai.webp">
-          <div class="service-detail-card__content">
-            <h3>AI Integration</h3>
-            <p>Chatbots, automated workflows, and AI-powered features that make your business smarter and more efficient.</p>
+            <h3>Not Written to Be Quoted</h3>
+            <p>AI cites clear, specific answers. Vague brochure copy and weak entity signals give it nothing to lift — so even a good-looking site never gets mentioned.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PORTFOLIO CAROUSEL ========== -->
-  <section class="section" id="portfolio" style="background: var(--bg-alt);" aria-label="Our portfolio">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="What makes a website AI-discoverable">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Portfolio</p>
-        <h2>Real Websites, Real Results</h2>
-        <p>Websites and campaigns we've built for businesses across Singapore.</p>
+        <p class="section-label">What We Build In</p>
+        <h2>Six Things We Build In So <span class="highlight">AI Can Find You</span></h2>
       </div>
-
-      <div class="cs-grid">
-        <!-- Real clients first -->
-        <a href="https://kairos-advisorygroup.com/" class="cs-card reveal" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/preview-kairos.webp" alt="Kairos Advisory Group" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            39.9K TikTok views from 1 post
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Finance &middot; Website + Social Media</span>
-            <h3>Kairos Advisory Group</h3>
-            <p>Website revamp, TikTok & Instagram management. First post hit 39.9K views and gained 272 followers.</p>
-          </div>
-        </a>
-
-        <a href="https://www.musicwithpat.com" class="cs-card reveal reveal-d1" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/preview-music.webp" alt="Music with Pat" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Live booking system with lead capture
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Music &middot; Website</span>
-            <h3>Music with Pat</h3>
-            <p>Portfolio and booking site for a piano teacher with consultation calendar, student testimonials, and enquiry flow.</p>
-          </div>
-        </a>
-
-        <a href="https://jraftcreative.github.io/Janice-Website/" class="cs-card reveal reveal-d2" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/preview-janice.webp" alt="Janice Low — Wealth Manager" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            MAS-compliant personal brand site
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Finance &middot; Personal Brand Website</span>
-            <h3>Janice Low — Wealth Manager</h3>
-            <p>Personal brand website for a licensed wealth manager with service pages, insights blog, consultation booking, and WhatsApp CTA.</p>
-          </div>
-        </a>
-
-        <!-- Demo sites — showcasing capabilities -->
-        <a href="/demos/eastcare-clinic.html" class="cs-card reveal reveal-d3" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-clinic.webp" alt="EastCare Family Clinic" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            CHAS/MediSave info + online booking
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Healthcare &middot; Website Concept</span>
-            <h3>EastCare Family Clinic</h3>
-            <p>Neighbourhood GP clinic site with doctor profiles, clinic hours, walk-in availability, and appointment booking.</p>
-          </div>
-        </a>
-
-        <a href="/demos/fitzone-sg.html" class="cs-card reveal reveal-d3" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-fitzone.webp" alt="FitZone SG" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-            Class timetable + membership pricing
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Fitness &middot; Website Concept</span>
-            <h3>FitZone SG</h3>
-            <p>Boutique gym site with class schedule, membership tiers, trainer profiles, and free trial CTA.</p>
-          </div>
-        </a>
-
-        <a href="/demos/yonghe-tcm.html" class="cs-card reveal reveal-d4" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-tcm.webp" alt="Yong He TCM" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Cultural design + physician credentials
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">TCM &middot; Website Concept</span>
-            <h3>Yong He TCM</h3>
-            <p>Premium TCM clinic site with treatment pages, physician profiles, pricing, and Chinese-inspired design elements.</p>
-          </div>
-        </a>
-
-        <a href="/demos/clarity-counselling.html" class="cs-card reveal reveal-d4" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-mental.webp" alt="Clarity Counselling" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-            Gentle CTAs + therapist matching
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Mental Health &middot; Website Concept</span>
-            <h3>Clarity Counselling</h3>
-            <p>Calming counselling practice site with therapist profiles, specialisation areas, session pricing, and sensitive CTAs.</p>
-          </div>
-        </a>
-
-        <a href="/demos/ironfist-mma.html" class="cs-card reveal reveal-d4" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-ironfist.webp" alt="Iron Fist MMA" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Japanese-inspired dark theme design
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Martial Arts &middot; Website Concept</span>
-            <h3>Iron Fist MMA</h3>
-            <p>Martial arts academy site with discipline breakdown, coach profiles, class schedule, and free trial booking.</p>
-          </div>
-        </a>
-
-        <a href="/demos/flow-yoga.html" class="cs-card reveal reveal-d4" target="_blank" rel="noopener">
-          <div class="cs-card-img"><img src="/images/portfolio-flow.webp" alt="Flow Studio" width="600" height="400" loading="lazy"></div>
-          <div class="cs-card-result">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-            Serene aesthetic + class booking
-          </div>
-          <div class="cs-card-body">
-            <span class="cs-card-tag">Yoga &amp; Pilates &middot; Website Concept</span>
-            <h3>Flow Studio</h3>
-            <p>Yoga and pilates studio site with class descriptions, instructor profiles, pricing tiers, and first-class-free CTA.</p>
-          </div>
-        </a>
+      <div class="section-content reveal">
+        <p>Most agencies build a website, then try to bolt on AI visibility later. We engineer it in from the first line of code — so AI can read, understand, trust and recommend your site. Pair it with our <a href="/services/ai-search-optimisation/">AI search optimisation (GEO)</a> to grow that visibility over time.</p>
       </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Server-Rendered, Crawlable HTML</h3>
+            <p>Your content lives in the HTML from the first byte — fully readable by AI crawlers that skip JavaScript. No hidden content, no invisible pages.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Structured Data &amp; Schema</h3>
+            <p>Every page ships with the schema that tells AI exactly what you do, where you serve, and why you're credible — so it can quote you correctly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Entity Clarity</h3>
+            <p>We make your business a clear, consistent entity across your site and the web, so AI and Google's Knowledge Graph recognise and trust who you are.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Citable Content Architecture</h3>
+            <p>Pages structured to answer the real questions your customers ask — specific, clear and quotable, which is exactly what AI lifts into its answers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>llms.txt &amp; Clean Technical Base</h3>
+            <p>Open AI-crawler access, a tidy technical foundation and an llms.txt guide — the housekeeping that makes your site easy for AI to fetch and parse.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Speed &amp; Core Web Vitals</h3>
+            <p>Fast, lightweight pages that pass Core Web Vitals — better for AI, better for Google, and better for the humans deciding whether to stay.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for an AI-ready website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Websites</span> Built for the Way People <span class="highlight">Search Now</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies are still building brochure sites for a search era that's ending — then charging extra to "add SEO" that AI engines can't even read. We build the opposite: sites that are AI-native by default, on modern server-rendered foundations, and still designed to convert the humans who click through. And we don't sell a playbook we haven't run — we proved it on our own site first.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>We Proved It on Ourselves</h3>
+            <p>Jraft Creative's own site is cited in Google's AI Overview for competitive Singapore queries — no paid placement. We build clients on the same playbook.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI-Native, Not Bolted On</h3>
+            <p>Server-rendered, schema-first builds where AI-readability is designed in from day one — not a plugin added after launch that never quite works.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Found and Chosen</h3>
+            <p>One team for the whole job — a site AI recommends and humans convert on. Discoverability and conversion engineered together, not traded off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== AI DISCOVERY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How customers now find businesses through AI">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The AI Discovery Funnel</p>
+        <h2>How <span class="highlight">Customers</span> Now <span class="highlight">Find You</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>When someone asks an AI for a recommendation, your website moves through five stages before it becomes an enquiry. We build for every one — so you're in the answer, not left out of it.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Ask</h3>
+          <p>Customer asks ChatGPT or Google AI</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Crawl</h3>
+          <p>AI reads your site's HTML</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Understand</h3>
+          <p>Schema + entity signals</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Recommend</h3>
+          <p>AI names you in the answer</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Convert</h3>
+          <p>They click through and enquire</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about AI-ready websites">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Frequently Asked Questions</h2>
+        <h2><span class="highlight">AI-Ready Websites</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
+          <summary>What does an "AI-discoverable" website actually mean?</summary>
+          <div class="faq-answer"><p>It means your website is built so AI search engines — ChatGPT, Gemini, Google's AI Overview and Perplexity — can read, understand and cite it when someone asks them for a recommendation. That requires server-rendered HTML the AI crawlers can actually read, structured data (schema), clear entity signals about who you are, and content written to answer the questions your customers ask. We build all of this in from the start.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why can't AI read most websites?</summary>
+          <div class="faq-answer"><p>As of 2026, the major AI crawlers (including OpenAI's GPTBot and Anthropic's ClaudeBot) download your pages but do NOT run JavaScript. Sites built on Wix, many WordPress page-builders, or JavaScript-heavy frameworks render their content in the browser using JavaScript — so the AI never sees it. We build server-rendered sites where the content is in the HTML from the first byte, fully readable by AI.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Is this different from your GEO / AI Search Optimisation service?</summary>
+          <div class="faq-answer"><p>Yes, and they work together. Website Development makes the foundation AI-ready — the build itself is discoverable. <a href="/services/ai-search-optimisation/">AI Search Optimisation (GEO)</a> is the ongoing work that earns citations and grows your visibility in AI answers over time. We build you AI-ready; GEO keeps you winning the answer.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will the site still be built to convert human visitors?</summary>
+          <div class="faq-answer"><p>Absolutely. AI-discoverability is the new layer, not a replacement. Every site is still designed to look credible, load fast, work on mobile, and turn visitors into enquiries — the AI-readiness is built on top of a high-converting website, not instead of one.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build a website?</summary>
           <div class="faq-answer"><p>A typical business website takes 4–6 weeks from kickoff to launch. Ecommerce stores and web applications may take 8–12 weeks depending on complexity. We provide a detailed timeline during our free consultation.</p></div>
         </details>
-        <details class="faq-item reveal reveal-d2">
-          <summary>Can I update the website content myself?</summary>
-          <div class="faq-answer"><p>Yes. We build most websites with a content management system (CMS) so you can edit text, images, and blog posts without any coding knowledge. We also provide a training session after launch.</p></div>
-        </details>
-        <details class="faq-item reveal reveal-d3">
-          <summary>Do you offer website maintenance after launch?</summary>
-          <div class="faq-answer"><p>Yes. Every project includes a post-launch support window, and we offer ongoing maintenance retainers covering updates, backups, security, and minor changes after that. Maintenance scope and cadence are agreed when we hand the site over.</p></div>
-        </details>
-        <details class="faq-item reveal reveal-d1">
-          <summary>What platforms do you build websites on?</summary>
-          <div class="faq-answer"><p>We use modern frameworks like Astro, Next.js, and WordPress depending on your needs. For ecommerce, we work with Shopify and WooCommerce. We recommend the best platform for your specific requirements during the consultation.</p></div>
-        </details>
-        <details class="faq-item reveal reveal-d2">
-          <summary>Do you provide hosting?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
-        </details>
         <details class="faq-item reveal reveal-d3">
           <summary>How much does a website cost in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick <a href="/contact/">consultation</a> and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do I choose a web design agency in Singapore?</summary>
-          <div class="faq-answer"><p>Check five things before you commit: a portfolio of real, verifiable work you can visit live; mobile speed and Core Web Vitals, not just how the site looks in a screenshot; a conversion focus so the site generates enquiries rather than just looking pretty; an in-house team rather than outsourced freelancers; and no lock-in contracts. Ask for a <a href="/contact/">free audit</a> so you can judge the thinking before you sign anything.</p></div>
-        </details>
-        <details class="faq-item reveal reveal-d2">
-          <summary>Do you build websites optimised for AI search and Google's AI Overview?</summary>
-          <div class="faq-answer"><p>Yes. We build every site with clean structure and schema markup so AI search engines can understand and cite your business inside answers on Google's AI Overview, ChatGPT, Gemini and Perplexity. We practise what we sell — Jraft Creative got its own site cited in Google's AI Overview, and we run the same <a href="/geo-agency-singapore/">GEO playbook</a> on the sites we build for clients — <a href="/blog/how-we-got-cited-in-google-ai-overview-singapore/">here's how</a>.</p></div>
+          <summary>Do you practise this on your own site?</summary>
+          <div class="faq-answer"><p>Yes. Jraft Creative's own website got cited in Google's AI Overview for competitive Singapore queries — no paid placement. We build clients on the same playbook we proved on ourselves — <a href="/blog/how-we-got-cited-in-google-ai-overview-singapore/">here's how</a>.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ========== RELATED SERVICES ========== -->
-  <section class="section" id="related-services" aria-label="Related website development services">
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related website services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>Website Development by Industry</h2>
+        <h2>Website Development by <span class="highlight">Industry</span></h2>
       </div>
       <div class="related-services-grid reveal">
-        <a href="/affordable-website-design-singapore/" class="related-service-link">Affordable Website Design</a>
         <a href="/ecommerce-website-singapore/" class="related-service-link">Ecommerce Website</a>
         <a href="/small-business-website-singapore/" class="related-service-link">Small Business Website</a>
         <a href="/startup-website-singapore/" class="related-service-link">Startup Website</a>
-        <a href="/landing-page-design-singapore/" class="related-service-link">Landing Page Design</a>
         <a href="/fnb-website-design-singapore/" class="related-service-link">F&B Website Design</a>
-        <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Website</a>
-        <a href="/cafe-website-design-singapore/" class="related-service-link">Cafe Website</a>
-        <a href="/gym-website-design-singapore/" class="related-service-link">Gym Website</a>
         <a href="/clinic-website-design-singapore/" class="related-service-link">Clinic Website</a>
-        <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Website</a>
-        <a href="/shopify-website-design-singapore/" class="related-service-link">Shopify Website</a>
+        <a href="/services/ai-search-optimisation/" class="related-service-link">GEO / AI Search Optimisation</a>
       </div>
     </div>
   </section>
-
-  <script is:inline>
-    (function() {
-      var track = document.getElementById('portfolioCarousel');
-      var slides = track.querySelectorAll('.carousel-slide');
-      var prevBtn = document.getElementById('carouselPrev');
-      var nextBtn = document.getElementById('carouselNext');
-      var dotsWrap = document.getElementById('carouselDots');
-      var current = 0;
-      var total = slides.length;
-      var interval;
-
-      // Create dots
-      for (var i = 0; i < total; i++) {
-        var dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
-        dot.dataset.index = i;
-        dotsWrap.appendChild(dot);
-      }
-      var dots = dotsWrap.querySelectorAll('.carousel-dot');
-
-      function goTo(index) {
-        current = ((index % total) + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dots.forEach(function(d, j) { d.classList.toggle('active', j === current); });
-      }
-
-      prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
-      nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
-      dotsWrap.addEventListener('click', function(e) {
-        if (e.target.classList.contains('carousel-dot')) {
-          goTo(parseInt(e.target.dataset.index));
-          resetAuto();
-        }
-      });
-
-      function startAuto() { interval = setInterval(function() { goTo(current + 1); }, 6000); }
-      function resetAuto() { clearInterval(interval); startAuto(); }
-
-      // Pause on hover
-      var wrapper = track.parentElement;
-      wrapper.addEventListener('mouseenter', function() { clearInterval(interval); });
-      wrapper.addEventListener('mouseleave', function() { startAuto(); });
-
-      // Touch swipe
-      var startX = 0;
-      track.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; clearInterval(interval); }, { passive: true });
-      track.addEventListener('touchend', function(e) {
-        var diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); }
-        startAuto();
-      });
-
-      startAuto();
-    })();
-  </script>
-
 </ServiceLayout>
