@@ -1,6 +1,6 @@
 ---
 title: "How AI Models Decide Which Brands to Recommend (ChatGPT, Gemini, Claude, Perplexity)"
-description: "Ever asked an AI assistant for a recommendation and wondered why it named those brands? Here's what we found after testing hundreds of prompts across ChatGPT, Gemini, Claude, and Perplexity in Singapore industries."
+description: "Ever wondered why an AI assistant names certain brands? What we found testing hundreds of prompts across ChatGPT, Gemini, Claude, and Perplexity."
 date: 2026-06-17
 author: "Jraft Creative"
 category: "AI & SEO"

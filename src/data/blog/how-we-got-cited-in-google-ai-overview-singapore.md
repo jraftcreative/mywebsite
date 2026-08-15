@@ -1,6 +1,6 @@
 ---
 title: "How Jraft Creative Got Cited in Google's AI Overview for Two Niche Singapore Queries"
-description: "Google's AI Overview now cites Jraft Creative directly for two niche Singapore education queries — with no paid placement. Here's what we actually did, what worked, and where most agencies fall short."
+description: "Google's AI Overview now cites Jraft Creative for two niche Singapore education queries, unpaid. What we did, what worked, and where agencies fall short."
 date: 2026-06-24
 author: "Jraft Creative"
 category: "AI & SEO"

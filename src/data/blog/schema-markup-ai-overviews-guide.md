@@ -1,6 +1,6 @@
 ---
 title: "Schema Markup for AI Overviews: The Technical Guide"
-description: "Schema markup has become essential for AI visibility. Here's which schemas matter most, how AI Overviews use structured data, and how to implement them correctly."
+description: "Schema markup is now essential for AI visibility. Which schemas matter most, how AI Overviews use structured data, and how to implement them correctly."
 date: 2026-06-01
 lastModified: 2026-06-01
 author: "Jraft Creative"

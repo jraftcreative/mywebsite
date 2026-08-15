@@ -1,6 +1,6 @@
 ---
 title: "What Is GEO? The New Way Customers Find Businesses"
-description: "GEO (Generative Engine Optimisation) is how brands get recommended by ChatGPT, Gemini, and Perplexity. Learn what it is, how it differs from SEO, and why it matters."
+description: "GEO (Generative Engine Optimisation) is how brands get recommended by ChatGPT, Gemini, and Perplexity. What it is, how it differs from SEO, why it matters."
 date: 2026-03-17
 lastModified: 2026-03-17
 author: "Jraft Creative"

@@ -1,6 +1,6 @@
 ---
 title: "How to Check If Your Business Shows Up in ChatGPT (Singapore, 2026)"
-description: "A 10-minute self-check to see if ChatGPT recommends your business — plus what to do if it doesn't. Works for Gemini and Perplexity too. Singapore-focused, no fluff."
+description: "A 10-minute self-check to see if ChatGPT recommends your business — and what to do if it doesn't. Works for Gemini and Perplexity too."
 date: 2026-06-06
 lastModified: 2026-06-06
 author: "Jraft Creative"
