@@ -2880,6 +2880,21 @@ html, body {
     max-width: 480px;
   }
 
+  /* Wide markdown tables scroll horizontally instead of clipping off-screen.
+     display:block + overflow-x:auto makes the table its own scroll container
+     (markdown tables render unwrapped, so no wrapper div is available).
+     min-width must be cleared so the box can shrink to the viewport and let
+     its wider content scroll. Applies to all blog posts. */
+  .blog-post-content table {
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.9rem;
+  }
+
   .blog-hero {
     min-height: 260px;
     padding: 140px 0 40px;
