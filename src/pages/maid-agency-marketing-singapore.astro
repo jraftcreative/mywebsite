@@ -1,0 +1,318 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Maid Agencies Singapore",
+    "description": "Full-service marketing agency for maid agencies in Singapore. SEO, Google Ads, social, reviews, branding, websites — MOM-compliant and built for employer enquiries.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Maid Agency Digital Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for a maid agency in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Why isn't my maid agency showing up on Google when families search?", "acceptedAnswer": { "@type": "Answer", "text": "Families searching 'maid agency Singapore' or 'transfer maid agency near me' see whoever has the strongest local SEO, Google Business Profile, and reviews — not necessarily the best agency. Most maid agencies rely on referrals and walk-ins and have never optimised for search, so they stay invisible during the exact moment a family is choosing who to enquire with. Local SEO, GBP optimisation and a review strategy put you in front of them at that moment." } },
+      { "@type": "Question", "name": "Which marketing channels work best for a maid agency in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "For most maid agencies, in priority order: (1) Local SEO and Google Business Profile for 'maid agency near me' and area searches, (2) a strong Google review strategy — families choose on trust, (3) Google Ads for high-intent employer searches, (4) Facebook, where Singapore families and helper communities are most active, and (5) a clear, trustworthy website with an easy enquiry flow. We build the mix around your catchment, your source countries, and your budget." } },
+      { "@type": "Question", "name": "Is your marketing compliant with MOM's Employment Agency advertising rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Maid agencies are licensed Employment Agencies under MOM, and advertising is regulated — including how migrant domestic workers may be presented and the need to identify your EA licence. Every page, ad and post we produce is written to stay within those rules. We never put your licence at risk for the sake of a lead, and we flag anything that needs your or MOM's sign-off before it goes live." } },
+      { "@type": "Question", "name": "How long before marketing brings in new employer enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate employer enquiries within the first 7-14 days once tracking is set up. A review and Google Business Profile push tends to lift enquiries within a few weeks. Local SEO and AI-search visibility usually build over 3-6 months. Because choosing a maid agency is a trust decision made fairly quickly once a family has a need, being visible and well-reviewed at that moment is what wins the enquiry." } },
+      { "@type": "Question", "name": "Can you help us get more Google reviews and improve our reputation?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — and for a maid agency it is one of the highest-leverage things we do. Families read reviews before they call. We set up a compliant, systematic way to earn genuine reviews from happy employers, respond to every review professionally, and surface your strongest testimonials across your site and profiles. We never buy or fake reviews — that breaches Google's policies and MOM's ethical-advertising expectations." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Maid Agencies Singapore", "item": "https://jraftcreative.com/maid-agency-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  .renovation-funnel {
+    list-style: none; padding: 0; margin: 56px 0 0;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px;
+  }
+  .funnel-stage {
+    position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Maid Agency Marketing Singapore | Jraft Creative"
+  description="Full-service marketing agency for maid agencies in Singapore. Local SEO, reviews, Google Ads, social, websites — MOM-compliant and built for employer enquiries."
+  canonical="https://jraftcreative.com/maid-agency-marketing-singapore/"
+  ogTitle="Maid Agency Marketing Singapore | Jraft Creative"
+  ogDescription="Full-service, MOM-compliant marketing for maid agencies in Singapore — local SEO, reviews, Google Ads, social, and websites built for employer enquiries."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="maid agency marketing singapore, maid agency SEO singapore, employment agency marketing, marketing for maid agencies, MOM compliant advertising, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Maid Agencies"
+  heroTitle='Marketing Agency for <span class="highlight">Maid Agencies in Singapore</span>'
+  heroSubtitle="Singapore families research maid agencies online — reading reviews and comparing agencies — before they ever call. Most maid agencies still run on referrals and walk-ins, and are invisible at that moment. We build full-service, MOM-compliant marketing (local SEO, reviews, Google Ads, social, branding, websites) designed for how families actually choose who to hire a helper through."
+  heroImage="/images/service-maid-agency.webp"
+  heroImageAlt="A Singapore family at home — maid agency marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20maid%20agency%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run a maid agency in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us <span class="highlight">Grow</span> Your <span class="highlight">Employer Enquiries</span>'
+  ctaDescription="Book a free consultation and tell us about your maid agency — your source countries, your catchment, your current marketing. We'll come back within 24 hours with a tailored, MOM-compliant, channel-by-channel plan."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20a%20maid%20agency%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why maid agencies need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Families Choose a Maid Agency <span class="highlight">Online</span> — Long Before They <span class="highlight">Walk In</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>By the time a family calls your agency, they've already Googled, read your reviews, and compared you against three others. Most maid agencies are invisible during that window — and the ones growing know exactly why.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Families Shop Online First</h3>
+            <p>Before stepping into an agency, families search "maid agency near me," read reviews, and compare fees and process. If you're not showing up in local search and Google Maps at that moment, you're not on their shortlist — no matter how good your placement service is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Reviews Decide It</h3>
+            <p>Hiring a helper is a trust decision made about your home and family. Families lean heavily on Google reviews and word of mouth. Agencies with few or weak reviews quietly lose enquiries to agencies with a stronger, visible reputation.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Referral Ceiling</h3>
+            <p>Referrals and walk-ins are great — until they cap your growth. The agencies scaling are the ones also capturing the high-intent "maid agency" and "transfer maid" searches directly, then converting them with reviews, a clear website, and a fast response.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for maid agencies in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>The <span class="highlight">Channels</span> That Bring <span class="highlight">Employer Enquiries</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies specifically for maid agencies — combining local SEO, a review engine, AI search optimisation (GEO), paid search, social, branding, and a website that converts. Every asset is written to stay within MOM's Employment Agency advertising rules.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">Local SEO &amp; Google Business Profile</a></h3>
+            <p>Rank for "maid agency Singapore," "transfer maid agency," and area searches. Optimise your Google Business Profile and Maps presence so families find you at the moment they're deciding.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get named when families ask ChatGPT, Gemini, Perplexity, or Google AI Mode for "best maid agency in Singapore." The same citation playbook we've used to get our own agency cited.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/google-ads-agency-singapore/">Google Ads for Maid Agencies</a></h3>
+            <p>High-intent campaigns targeting families actively searching to hire or transfer a helper. MOM-compliant ad copy, conversion tracking from click to enquiry, and tight budget control.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social Media (Facebook-led)</a></h3>
+            <p>Facebook is where Singapore families and helper communities are most active. Trust-building content, employer education, and testimonial posts — compliant and built to keep you top of mind.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding &amp; Reputation</a></h3>
+            <p>A professional, trustworthy brand that stands apart from the agency next door — plus a systematic, compliant way to earn and showcase genuine Google reviews from happy employers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Websites for Maid Agencies</a></h3>
+            <p>A clear, mobile-fast website with transparent process, honest fee guidance, easy enquiry forms and WhatsApp — designed to turn a searching family into a booked consultation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for maid agency marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Compliant</span> Marketing Built for How Families <span class="highlight">Actually Choose</span> a Maid Agency</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching maid agencies are generalists who don't understand the rules of the industry — and one non-compliant ad can put your Employment Agency licence at risk. We are full-service and performance-led, and we build every campaign around real employer enquiries rather than vanity metrics, with MOM's advertising rules front of mind at every step.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Compliance Built In</h3>
+            <p>MOM's Employment Agency advertising rules are strict — on how helpers are presented, licence disclosure, and ethical claims. Every page, ad and post we produce is written to stay within them. We protect your licence, not just your lead flow.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Local SEO, GEO, Google Ads, Facebook, reviews, branding, websites — under one roof. No juggling three vendors. Every channel carries consistent, compliant positioning and is measured against the same goal: enquiries.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>We Measure Enquiries, Not Impressions</h3>
+            <p>Every campaign ties back to real employer enquiries and consultations. Conversion tracking shows which searches and ads actually bring families to your door — so budget goes where it works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EMPLOYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How Singapore families choose a maid agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Employer Journey</p>
+        <h2>How <span class="highlight">Families</span> Choose a <span class="highlight">Maid Agency</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From the moment a family realises they need a helper to the day they engage an agency, they move through the same five stages. We build marketing that shows up — compliantly — at each one.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Need</h3><p>New baby, elderly care, busy household</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Google, Maps, reviews, recommendations</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Reviews, fees, process, source countries</p></li>
+        <li class="funnel-stage"><h3>Enquire</h3><p>Call, WhatsApp, or website form</p></li>
+        <li class="funnel-stage"><h3>Engage</h3><p>Consultation and placement</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for maid agencies in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Maid Agency</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for a maid agency in Singapore?</summary>
+          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why isn't my maid agency showing up on Google when families search?</summary>
+          <div class="faq-answer"><p>Families searching "maid agency Singapore" or "transfer maid agency near me" see whoever has the strongest local SEO, Google Business Profile, and reviews — not necessarily the best agency. Most maid agencies rely on referrals and walk-ins and have never optimised for search, so they stay invisible during the exact moment a family is choosing who to enquire with. Local SEO, GBP optimisation and a review strategy put you in front of them at that moment.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which marketing channels work best for a maid agency in Singapore?</summary>
+          <div class="faq-answer"><p>For most maid agencies, in priority order: (1) Local SEO and Google Business Profile for "maid agency near me" and area searches, (2) a strong Google review strategy — families choose on trust, (3) Google Ads for high-intent employer searches, (4) Facebook, where Singapore families and helper communities are most active, and (5) a clear, trustworthy website with an easy enquiry flow. We build the mix around your catchment, your source countries, and your budget.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Is your marketing compliant with MOM's Employment Agency advertising rules?</summary>
+          <div class="faq-answer"><p>Yes. Maid agencies are licensed Employment Agencies under MOM, and advertising is regulated — including how migrant domestic workers may be presented and the need to identify your EA licence. Every page, ad and post we produce is written to stay within those rules. We never put your licence at risk for the sake of a lead, and we flag anything that needs your or MOM's sign-off before it goes live.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings in new employer enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads can generate employer enquiries within the first 7-14 days once tracking is set up. A review and Google Business Profile push tends to lift enquiries within a few weeks. Local SEO and AI-search visibility usually build over 3-6 months. Because choosing a maid agency is a trust decision made fairly quickly once a family has a need, being visible and well-reviewed at that moment is what wins the enquiry.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you help us get more Google reviews and improve our reputation?</summary>
+          <div class="faq-answer"><p>Yes — and for a maid agency it is one of the highest-leverage things we do. Families read reviews before they call. We set up a compliant, systematic way to earn genuine reviews from happy employers, respond to every review professionally, and surface your strongest testimonials across your site and profiles. We never buy or fake reviews — that breaches Google's policies and MOM's ethical-advertising expectations.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related <span class="highlight">Marketing Services</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/employment-agency-marketing-singapore/" class="related-service-link">Employment Agency Marketing</a>
+          <a href="/recruitment-agency-marketing-singapore/" class="related-service-link">Recruitment Agency Marketing</a>
+          <a href="/services/seo-performance/" class="related-service-link">Local SEO &amp; Performance</a>
+          <a href="/google-ads-agency-singapore/" class="related-service-link">Google Ads Agency</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Content</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
