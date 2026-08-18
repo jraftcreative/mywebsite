@@ -1,0 +1,318 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Marketing Agency for Employment Agencies Singapore",
+    "description": "Full-service marketing agency for employment and staffing agencies in Singapore. SEO, Google Ads, social, branding, websites — MOM-compliant, built to bring employer clients and candidates.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Employment Agency Digital Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing cost for an employment agency in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Why isn't my employment agency showing up when employers search on Google?", "acceptedAnswer": { "@type": "Answer", "text": "Employers searching 'staffing agency Singapore', 'recruitment agency for F&B staff', or 'manpower agency near me' see whoever ranks and has the strongest reviews — not necessarily the best agency. Most employment agencies rely on repeat clients and referrals and have never optimised for search, so they're invisible when a new company is looking for a staffing partner. Local SEO, Google Ads and reviews put you in front of employers at that moment." } },
+      { "@type": "Question", "name": "How do you market both sides — employers and candidates?", "acceptedAnswer": { "@type": "Answer", "text": "An employment agency has a two-sided funnel: employer clients on one side, job candidates on the other. We run distinct plays for each. For employers: local SEO, Google Ads on hiring-intent searches, and a credible website that wins the enquiry. For candidates: Facebook and TikTok job content, a clear jobs page, and easy WhatsApp/form apply flows. We balance the two so you're never short of roles or short of people." } },
+      { "@type": "Question", "name": "Is your marketing compliant with MOM's Employment Agency rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Employment agencies are licensed under MOM, and advertising — including job advertisements and how you present roles and fees — is regulated. Every page, ad and post we produce is written to stay within those rules, including EA licence disclosure and fair, non-misleading job ads. We flag anything that needs your or MOM's sign-off before it goes live." } },
+      { "@type": "Question", "name": "How long before marketing brings in new employer enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate employer enquiries within the first 7-14 days once tracking is set up. A reviews and Google Business Profile push tends to lift enquiries within a few weeks. Local SEO and AI-search visibility usually build over 3-6 months. Candidate-side channels (Facebook, TikTok, a jobs page) compound over 8-12 weeks. We prioritise whichever side of your funnel is the current bottleneck." } },
+      { "@type": "Question", "name": "Can you help us attract more job candidates too?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Filling roles is only half the business — you also need a steady flow of candidates. We build candidate-sourcing content for Facebook and TikTok (where job seekers in Singapore are most active), a clear jobs/careers page, and simple apply flows via WhatsApp or form. Compliant job ads, honest role descriptions, and a brand candidates trust." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Marketing Agency for Employment Agencies Singapore", "item": "https://jraftcreative.com/employment-agency-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  .renovation-funnel {
+    list-style: none; padding: 0; margin: 56px 0 0;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px;
+  }
+  .funnel-stage {
+    position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%);
+    color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Employment Agency Marketing Singapore | Jraft Creative"
+  description="MOM-compliant marketing for employment and staffing agencies in Singapore — SEO, Google Ads, social, and websites that bring employer clients and candidates."
+  canonical="https://jraftcreative.com/employment-agency-marketing-singapore/"
+  ogTitle="Employment Agency Marketing Singapore | Jraft Creative"
+  ogDescription="MOM-compliant marketing for employment and staffing agencies in Singapore — SEO, Google Ads, social, and websites that bring employer clients and candidates."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="employment agency marketing singapore, staffing agency marketing, manpower agency SEO singapore, recruitment marketing, MOM compliant advertising, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Employment Agencies"
+  heroTitle='Marketing Agency for <span class="highlight">Employment Agencies in Singapore</span>'
+  heroSubtitle="Employers search online for a staffing partner, and job seekers search for their next role — often before either picks up the phone. Most employment agencies run on repeat clients and referrals, and are invisible at those moments. We build full-service, MOM-compliant marketing (SEO, Google Ads, social, branding, websites) that fills both sides of your funnel: employer clients and candidates."
+  heroImage="/images/service-corporate.webp"
+  heroImageAlt="A Singapore workplace — employment agency marketing"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20employment%20agency%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I run an employment agency in Singapore and need marketing help."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Let Us Fill Both Sides of Your <span class="highlight">Hiring Funnel</span>'
+  ctaDescription="Book a free consultation and tell us about your agency — the roles you place, your sectors, your current marketing. We'll come back within 24 hours with a tailored, MOM-compliant plan for employers and candidates."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20run%20an%20employment%20agency%20in%20Singapore%20and%20need%20marketing%20help.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why employment agencies need marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>You're Running <span class="highlight">Two Marketplaces</span> at Once — and Most Agencies Only Market <span class="highlight">One</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>An employment agency lives or dies on two flows: employer clients with roles to fill, and candidates to fill them. Referrals cover some of it. But the agencies growing are visible to both — the moment a company starts looking, and the moment a candidate starts searching.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Employers Shortlist Online</h3>
+            <p>When a company needs staff fast, they Google "staffing agency Singapore" or "recruitment agency for [sector]," check reviews, and enquire with two or three. If you're not ranking or running ads there, you never get the brief.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Candidates Are Somewhere Else</h3>
+            <p>Your candidates aren't on Google searching for you — they're on Facebook, TikTok, and job groups. Filling roles needs a completely different channel mix from winning clients, and most agencies run neither well.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Trust and Compliance Decide It</h3>
+            <p>Employers are handing you their hiring, and MOM regulates how you advertise. Weak reviews or a thin brand loses the client; a non-compliant job ad risks your licence. Both have to be handled properly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for employment agencies in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Marketing for <span class="highlight">Both Sides</span> of Your <span class="highlight">Agency</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build employment-agency marketing that wins employer clients and sources candidates — local SEO, AI search optimisation (GEO), paid search, two-sided social, branding, and a website that converts. Every asset stays within MOM's Employment Agency advertising rules.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">Local SEO &amp; Google Business Profile</a></h3>
+            <p>Rank for "staffing agency Singapore," sector-specific searches, and "manpower agency near me." Optimise your profile and reviews so employers find and trust you at the point of need.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get named when employers ask ChatGPT, Gemini or Google AI Mode for "best staffing agency in Singapore" for their sector. The same citation playbook we've used for our own agency.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/google-ads-agency-singapore/">Google Ads for Employer Leads</a></h3>
+            <p>High-intent campaigns targeting companies actively looking to hire, by role and sector. MOM-compliant ad copy, conversion tracking from click to enquiry, tight budget control.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Social for Candidate Sourcing</a></h3>
+            <p>Facebook and TikTok job content where Singapore's candidates actually are. Compliant job ads, employer-branding posts, and simple apply flows that keep your candidate pipeline full.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Branding &amp; Reputation</a></h3>
+            <p>A credible brand that makes an employer comfortable handing you their hiring — plus a systematic, compliant way to earn and showcase genuine reviews from client companies and placed candidates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Websites with a Jobs Page</a></h3>
+            <p>A fast, clear website with an employer enquiry flow and a live jobs/careers page for candidates — two audiences, one site, both converting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for employment agency marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Compliant</span> Marketing That Feeds <span class="highlight">Both Sides</span> of Your Business</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most agencies pitching employment agencies understand marketing but not the rules of hiring in Singapore — and one non-compliant job ad can put your EA licence at risk. We are full-service and performance-led, we build for real employer enquiries and real candidate applications rather than vanity metrics, and we keep MOM's advertising rules front of mind at every step.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Two-Sided Funnel Expertise</h3>
+            <p>We run employer acquisition and candidate sourcing as two connected campaigns, not one blurred effort. Whichever side is your bottleneck this month is the side we push.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Compliance Built In</h3>
+            <p>MOM's rules cover job ads, fees, and how roles are presented. Every page, ad and post we produce is written to stay within them, EA licence included. We protect your licence, not just your lead flow.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>We Measure Placements, Not Clicks</h3>
+            <p>Every campaign ties back to employer enquiries and candidate applications. Tracking shows which searches and ads actually bring the briefs and the people — so budget goes where it works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EMPLOYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="How Singapore employers choose a staffing agency">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Employer Journey</p>
+        <h2>How <span class="highlight">Companies</span> Choose a <span class="highlight">Staffing Partner</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From an urgent vacancy to a signed agreement, employers move through the same five stages. We build marketing — compliantly — that shows up at each one, while a parallel candidate engine keeps your talent pool full.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Vacancy</h3><p>A role opens, often needed fast</p></li>
+        <li class="funnel-stage"><h3>Search</h3><p>Google, reviews, referrals, AI tools</p></li>
+        <li class="funnel-stage"><h3>Shortlist</h3><p>Two to three agencies compared</p></li>
+        <li class="funnel-stage"><h3>Enquire</h3><p>Call, WhatsApp, or website form</p></li>
+        <li class="funnel-stage"><h3>Engage</h3><p>Terms agreed, roles assigned</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about marketing for employment agencies in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Employment Agency</span> Marketing — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing cost for an employment agency in Singapore?</summary>
+          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Why isn't my employment agency showing up when employers search on Google?</summary>
+          <div class="faq-answer"><p>Employers searching "staffing agency Singapore", "recruitment agency for F&B staff", or "manpower agency near me" see whoever ranks and has the strongest reviews — not necessarily the best agency. Most employment agencies rely on repeat clients and referrals and have never optimised for search, so they're invisible when a new company is looking for a staffing partner. Local SEO, Google Ads and reviews put you in front of employers at that moment.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do you market both sides — employers and candidates?</summary>
+          <div class="faq-answer"><p>An employment agency has a two-sided funnel: employer clients on one side, job candidates on the other. We run distinct plays for each. For employers: local SEO, Google Ads on hiring-intent searches, and a credible website that wins the enquiry. For candidates: Facebook and TikTok job content, a clear jobs page, and easy WhatsApp/form apply flows. We balance the two so you're never short of roles or short of people.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Is your marketing compliant with MOM's Employment Agency rules?</summary>
+          <div class="faq-answer"><p>Yes. Employment agencies are licensed under MOM, and advertising — including job advertisements and how you present roles and fees — is regulated. Every page, ad and post we produce is written to stay within those rules, including EA licence disclosure and fair, non-misleading job ads. We flag anything that needs your or MOM's sign-off before it goes live.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings in new employer enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads can generate employer enquiries within the first 7-14 days once tracking is set up. A reviews and Google Business Profile push tends to lift enquiries within a few weeks. Local SEO and AI-search visibility usually build over 3-6 months. Candidate-side channels (Facebook, TikTok, a jobs page) compound over 8-12 weeks. We prioritise whichever side of your funnel is the current bottleneck.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you help us attract more job candidates too?</summary>
+          <div class="faq-answer"><p>Yes. Filling roles is only half the business — you also need a steady flow of candidates. We build candidate-sourcing content for Facebook and TikTok (where job seekers in Singapore are most active), a clear jobs/careers page, and simple apply flows via WhatsApp or form. Compliant job ads, honest role descriptions, and a brand candidates trust.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Related <span class="highlight">Marketing Services</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/maid-agency-marketing-singapore/" class="related-service-link">Maid Agency Marketing</a>
+          <a href="/recruitment-agency-marketing-singapore/" class="related-service-link">Recruitment Agency Marketing</a>
+          <a href="/services/seo-performance/" class="related-service-link">Local SEO &amp; Performance</a>
+          <a href="/google-ads-agency-singapore/" class="related-service-link">Google Ads Agency</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media Content</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
