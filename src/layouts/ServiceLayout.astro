@@ -16,6 +16,7 @@ interface Props {
   heroSubtitle: string;
   heroImage: string;
   heroImageAlt?: string;
+  heroVideo?: string;
   heroButtons: { text: string; href: string; class: string }[];
   whatsappText: string;
   ctaLabel: string;
@@ -44,6 +45,7 @@ const {
   heroSubtitle,
   heroImage,
   heroImageAlt = '',
+  heroVideo,
   heroButtons,
   whatsappText,
   ctaLabel,
@@ -70,6 +72,7 @@ const {
     subtitle={heroSubtitle}
     backgroundImage={heroImage}
     backgroundImageAlt={heroImageAlt}
+    backgroundVideo={heroVideo}
     heroLabel={heroLabel}
     heroClass="service-hero"
     buttons={heroButtons}

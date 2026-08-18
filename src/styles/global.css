@@ -694,6 +694,21 @@ img {
   100% { transform: scale(1.08) translate(-1%, -1%); }
 }
 
+/* Optional hero background video — sits over the poster image (which stays the LCP element), below the dark overlay */
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video { display: none; }
+}
+
 .hero-bg::after {
   content: '';
   position: absolute;
