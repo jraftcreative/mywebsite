@@ -1,66 +1,30 @@
 ---
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 
-const subIndustries = [
-  {
-    name: "Interior Design",
-    href: "/interior-design-website-singapore/",
-    description: "Interior design firms, renovation contractors, and home staging studios.",
-    image: "/images/service-interior.webp",
-    services: [
-      { label: "Website", href: "/interior-design-website-singapore/" }
-    ]
-  },
-  {
-    name: "Photography",
-    href: "/photography-website-singapore/",
-    description: "Wedding photographers, commercial studios, and portrait specialists.",
-    image: "/images/service-photography.webp",
-    services: [
-      { label: "Website", href: "/photography-website-singapore/" }
-    ]
-  },
-  {
-    name: "Wedding",
-    href: "/wedding-website-design-singapore/",
-    description: "Wedding planners, bridal studios, and wedding venues.",
-    image: "/images/service-wedding.webp",
-    services: [
-      { label: "Website", href: "/wedding-website-design-singapore/" }
-    ]
-  },
-  {
-    name: "Event Company",
-    href: "/event-company-website-singapore/",
-    description: "Event management companies, conference organisers, and party planners.",
-    image: "/images/service-event.webp",
-    services: [
-      { label: "Website", href: "/event-company-website-singapore/" }
-    ]
-  },
-  {
-    name: "Florist",
-    href: "/florist-website-singapore/",
-    description: "Flower shops, floral designers, and plant studios.",
-    image: "/images/service-florist.webp",
-    services: [
-      { label: "Website", href: "/florist-website-singapore/" }
-    ]
-  }
-];
-
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Creative & Events Marketing Services — Jraft Creative",
-    "description": "Website design and marketing services for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio showcases, booking systems, and visual-first strategies built for creative businesses.",
+    "description": "Website design and marketing for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio-led, visual-first strategies built to convert browsers into booked clients.",
     "url": "https://jraftcreative.com/industries/creative-events/",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
       "url": "https://jraftcreative.com/"
     }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does marketing for a creative or events business cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your goals, your market, and the scope — a solo photographer building a portfolio site is a very different job from an interior design firm running SEO and Google Ads together. There's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Which marketing channels work best for creative and events businesses?", "acceptedAnswer": { "@type": "Answer", "text": "A portfolio-led website is the foundation — it's where prospects judge whether your work is good enough before they enquire. Around it: local SEO to capture 'interior designer near me' and area searches, visual social (Instagram and Reels) where creative work is discovered and saved, and high-intent Google Ads for booking-ready searches like 'wedding photographer Singapore'. The right mix depends on whether you sell to consumers or to corporate clients." } },
+      { "@type": "Question", "name": "How do you market a business where the work is so visual?", "acceptedAnswer": { "@type": "Answer", "text": "You lead with the work — but you make it findable and fast. That means curated portfolio and gallery pages that present projects at their best, images optimised so they load quickly on mobile without losing quality, and a clear booking or enquiry flow so a browser who is impressed can act in one tap. Then you get that work in front of the right people through search and visual social, not broad reach that attracts the wrong audience." } },
+      { "@type": "Question", "name": "Do you work with interior designers, photographers, wedding planners, event companies, and florists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — those are our core creative and events verticals, and each has its own dedicated pages and approach. Interior design has a full stack (website, SEO, Google Ads, social, and branding); weddings, events, and florists have marketing and website builds; photography has a portfolio-first website build. We also work with adjacent creative businesses on request." } },
+      { "@type": "Question", "name": "How long before marketing brings in booked enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can bring booking-ready enquiries within the first weeks. SEO and organic visibility typically take three to six months to build for competitive terms, and compound from there. A refreshed portfolio site and clearer enquiry flow can lift conversion from your existing traffic almost immediately — often the fastest win of all." } },
+      { "@type": "Question", "name": "Can you help my portfolio site rank locally and for 'near me' searches?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We target the searches your clients actually use — 'interior designer [area]', 'wedding florist Singapore', 'photography studio near me' — and set up your Google Business Profile and reviews so you show up in the local map results as well as the standard listings. Local intent is where most creative and events enquiries begin." } }
+    ]
   },
   {
     "@context": "https://schema.org",
@@ -74,67 +38,344 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Client Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Creative & Events Marketing Singapore — Jraft Creative"
-  description="Website design and marketing services for interior designers, photographers, wedding planners, event companies, and florists in Singapore."
+  description="Marketing and website design for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio-led, visual-first, built to convert browsers into bookings."
   canonical="https://jraftcreative.com/industries/creative-events/"
   ogTitle="Creative & Events Marketing Singapore — Jraft Creative"
-  ogDescription="Website design and marketing services for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio showcases, booking systems, and visual-first strategies built for creative businesses."
-  keywords="creative marketing singapore, events marketing singapore, interior design website singapore, photography website singapore, wedding planner marketing singapore, Jraft Creative"
+  ogDescription="Marketing and website design for interior designers, photographers, wedding planners, event companies, and florists in Singapore. Portfolio-led, visual-first, built to convert browsers into booked clients."
+  keywords="creative marketing singapore, events marketing singapore, interior design website singapore, photography website singapore, wedding planner marketing singapore, florist marketing singapore, event company marketing singapore, Jraft Creative"
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   schemaData={schemaData}
   heroLabel="Creative & Events"
   heroTitle='Marketing for <span class="highlight">Creative &amp; Events</span> in Singapore'
-  heroSubtitle="We build websites and digital strategies for creative and events businesses in Singapore — from interior design studios and photography practices to wedding planners and florists. Visual-first, portfolio-driven, and designed to convert browsers into booked clients."
-  heroImage="/images/service-interior.webp"
+  heroSubtitle="We build websites and digital strategies for creative and events businesses in Singapore — interior design studios, photographers, wedding planners, event companies, and florists. Visual-first, portfolio-driven, and designed to turn browsers into booked clients."
+  heroImage="/images/industry-creative-events.webp"
+  heroImageAlt="Elegant styled event space in Singapore with floral installations and set tables — marketing for creative and events businesses"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need marketing help for my creative business in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Creative Business"
-  ctaDescription="Book a free consultation and tell us about your creative or events business. We'll get back to you within 24 hours."
+  ctaTitle='Grow Your <span class="highlight">Creative Business</span>'
+  ctaDescription="Book a free consultation and tell us about your creative or events business. We'll review your current setup, flag where enquiries are leaking, and recommend a strategy built to get your work booked. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20help%20for%20my%20creative%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <section class="section bg-alt" aria-label="Why creative businesses need visual-first marketing">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why creative and events businesses need specialised marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why It Matters</p>
-        <h2>Why Creative &amp; Events Businesses Need Visual-First Marketing</h2>
+        <h2>Your Work Is the Pitch — If People Can <span class="highlight">Find It</span> and <span class="highlight">Feel It</span></h2>
       </div>
-      <div class="reveal reveal-d1">
-        <p>In Singapore's creative and events industry, your work is your most powerful selling tool — but only if the right people can find it and experience it properly online. Potential clients are searching Google for interior designers in their area, scrolling through photography portfolios before reaching out, and comparing wedding vendors weeks before they make a single enquiry. A website that does not showcase your work effectively, load quickly on mobile, or guide visitors toward a booking is costing you clients every day.</p>
-        <p style="margin-top: 1rem;">Creative businesses require a distinct approach to web design and marketing: curated portfolio showcases that present work at its best, gallery pages optimised for speed without sacrificing image quality, clear booking flows and enquiry forms that reduce friction, and social proof through client testimonials and project case studies. SEO for this sector means targeting intent-driven search terms — "interior designer Bukit Timah," "wedding photographer Singapore," "event company for corporate events" — rather than broad categories that attract the wrong audience. We understand the visual and commercial demands of this industry and build digital presences that reflect the quality of the work behind them.</p>
+      <div class="section-content reveal">
+        <p>In Singapore's creative and events industry, the work sells itself — but only if the right people reach it and experience it properly. Prospects search Google for a designer in their area, scroll a portfolio for ten minutes before sending a single message, and compare vendors for weeks before an enquiry. A generic marketing approach built for service businesses won't showcase visual work or turn a browser into a booking.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Portfolio Is the Decision</h3>
+            <p>Clients judge you on the gallery before they ever message. If the site hides the work, loads slowly on a phone, or buries the booking button, you lose them — quietly, with no way to know it happened.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Visual Work Needs Visual Marketing</h3>
+            <p>Creative and events businesses need a specific craft — portfolio pages that present projects at their best, images optimised for speed without losing quality, and social built for how visual work is actually discovered and saved. Not a borrowed service-business template.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Enquiry Comes After Weeks</h3>
+            <p>A home renovation, a wedding, a company's biggest event — these are researched for weeks across search, Instagram, and word of mouth. You have to show up, and impress, at every step before the single enquiry that matters.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services" aria-label="Services by business type">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing channels for creative and events businesses in Singapore">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Services</p>
-        <h2>Services by Business Type</h2>
-        <p>Select your business type to see the full range of services available.</p>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Marketing Channels</span> Every Creative Business <span class="highlight">Needs</span></h2>
       </div>
-      <div class="industry-detail-grid">
-        {subIndustries.map((sub, i) => (
-          <div class={`industry-detail-card reveal${i > 0 ? ` reveal-d${Math.min(i, 4)}` : ''}`} data-bg={sub.image}>
-            <h3><a href={sub.href}>{sub.name}</a></h3>
-            <p>{sub.description}</p>
-            <div class="industry-detail-services">
-              {sub.services.map((svc) => (
-                <a href={svc.href}>{svc.label}</a>
-              ))}
-            </div>
+      <div class="section-content reveal">
+        <p>We build marketing strategies for creative and events businesses — combining a portfolio-first website, local and organic search, visual social, high-intent paid search, AI search optimisation (GEO), and brand identity, chosen for how your specific clients find and choose you.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/website-development/">Portfolio-Led Website</a></h3>
+            <p>The site that closes the enquiry — curated project and gallery pages that present work at its best, fast image loading on mobile, and a booking or enquiry flow with as little friction as possible.</p>
           </div>
-        ))}
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/seo-performance/">Local &amp; Organic SEO</a></h3>
+            <p>Rank for the searches your clients use — "interior designer [area]", "wedding florist Singapore", "photography studio near me" — plus a Google Business Profile and reviews that put you in the local map results.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/social-media/">Visual Social &amp; Reels</a></h3>
+            <p>Instagram and TikTok are where creative work is discovered, saved, and sent to a friend. Content built to be found — not just posted — so your best projects reach the people planning to book.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/services/paid-ads/">High-Intent Google Ads</a></h3>
+            <p>Capture booking-ready searches the moment they happen — "wedding photographer Singapore", "event company for corporate D&amp;D" — with tracking from click through to a real enquiry, so spend follows what converts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/geo-agency-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get named when prospects ask ChatGPT, Gemini, or Perplexity for "best interior designer in Singapore" or "good wedding florist near me." The same AI-citation playbook that got our own agency cited in Google's AI Overview.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/branding-agency-singapore/">Brand &amp; Visual Identity</a></h3>
+            <p>A brand system that signals taste and reliability — identity, logo, and collateral that make a first-time visitor trust you with their home, their wedding day, or their company's biggest event.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for creative and events marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>We Market Creative Work <span class="highlight">Like It Deserves</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with interior designers, photographers, wedding planners, event companies, and florists across Singapore — building around the visual, research-heavy way clients decide, and the single enquiry it all leads to. Not generic templates, and not vanity-metric retainers.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Creative &amp; Events Expertise</h3>
+            <p>We understand the visual and commercial demands of this sector — the portfolio-first buying path, the long research window, and the craft of presenting creative work online so it converts. Strategy built on category knowledge, not a template.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Website, SEO, GEO, Google Ads, social, and branding under one roof. No coordinating between vendors — your portfolio site feeds your ads, your social surfaces your best work, and every channel points to the same booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Proof, Not Promises</h3>
+            <p>Our own vertical work backs it up: our interior-designer marketing page ranks #1 in Singapore for its niche, and our agency has been cited in Google's AI Overview for competitive local queries. We bring that same discipline to your business.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== THE CLIENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Client Funnel — how creative and events clients in Singapore decide">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Funnel</p>
+        <h2>How <span class="highlight">Clients</span> Actually <span class="highlight">Choose</span> Creative Work</h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first idea to booked project, every creative and events client moves through the same five stages — and most of it happens before they ever contact you. We build marketing that shows up, and impresses, at each one.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Search, Instagram, referrals, AI tools</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Browse</h3>
+          <p>Portfolio, galleries &amp; past work</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Vendors, reviews &amp; social proof</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Booking form, WhatsApp &amp; call</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Consultation &amp; confirmed project</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about creative and events marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Creative &amp; Events Marketing</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does marketing for a creative or events business cost in Singapore?</summary>
+          <div class="faq-answer"><p>It depends on your goals, your market, and the scope — a solo photographer building a portfolio site is a very different job from an interior design firm running SEO and Google Ads together. There's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Which marketing channels work best for creative and events businesses?</summary>
+          <div class="faq-answer"><p>A portfolio-led website is the foundation — it's where prospects judge whether your work is good enough before they enquire. Around it: local SEO to capture "interior designer near me" and area searches, visual social (Instagram and Reels) where creative work is discovered and saved, and high-intent Google Ads for booking-ready searches like "wedding photographer Singapore." The right mix depends on whether you sell to consumers or to corporate clients.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How do you market a business where the work is so visual?</summary>
+          <div class="faq-answer"><p>You lead with the work — but you make it findable and fast. That means curated portfolio and gallery pages that present projects at their best, images optimised so they load quickly on mobile without losing quality, and a clear booking or enquiry flow so a browser who is impressed can act in one tap. Then you get that work in front of the right people through search and visual social, not broad reach that attracts the wrong audience.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you work with interior designers, photographers, wedding planners, event companies, and florists?</summary>
+          <div class="faq-answer"><p>Yes — those are our core creative and events verticals, and each has its own dedicated pages and approach. Interior design has a full stack (website, SEO, Google Ads, social, and branding); weddings, events, and florists have marketing and website builds; photography has a portfolio-first website build. We also work with adjacent creative businesses on request.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings in booked enquiries?</summary>
+          <div class="faq-answer"><p>Google Ads can bring booking-ready enquiries within the first weeks. SEO and organic visibility typically take three to six months to build for competitive terms, and compound from there. A refreshed portfolio site and clearer enquiry flow can lift conversion from your existing traffic almost immediately — often the fastest win of all.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you help my portfolio site rank locally and for "near me" searches?</summary>
+          <div class="faq-answer"><p>Yes. We target the searches your clients actually use — "interior designer [area]", "wedding florist Singapore", "photography studio near me" — and set up your Google Business Profile and reviews so you show up in the local map results as well as the standard listings. Local intent is where most creative and events enquiries begin.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Marketing by creative and events business type">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>Marketing by <span class="highlight">Business Type</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/interior-designer-marketing-singapore/" class="related-service-link">Interior Designer Marketing</a>
+          <a href="/interior-design-website-singapore/" class="related-service-link">Interior Design Website</a>
+          <a href="/interior-designer-seo-singapore/" class="related-service-link">Interior Designer SEO</a>
+          <a href="/interior-designer-google-ads-singapore/" class="related-service-link">Interior Designer Google Ads</a>
+          <a href="/interior-designer-social-media-singapore/" class="related-service-link">Interior Designer Social Media</a>
+          <a href="/photography-website-singapore/" class="related-service-link">Photography Website</a>
+          <a href="/wedding-marketing-singapore/" class="related-service-link">Wedding Marketing</a>
+          <a href="/wedding-website-design-singapore/" class="related-service-link">Wedding Website Design</a>
+          <a href="/event-company-marketing-singapore/" class="related-service-link">Event Company Marketing</a>
+          <a href="/florist-marketing-singapore/" class="related-service-link">Florist Marketing</a>
+          <a href="/geo-agency-singapore/" class="related-service-link">GEO / AI Search Optimisation</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
