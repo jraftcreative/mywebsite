@@ -219,7 +219,7 @@ const socialSubItems = [
         The marketing agency in Singapore<br>that gets your brand<br><span class="kinetic" aria-hidden="true"><span class="kinetic-track"><span>seen.</span><span>found.</span><span>booked.</span><span>recommended.</span></span></span>
         <span class="visually-hidden">that gets your brand seen, found, booked, and recommended.</span>
       </h1>
-      <p class="hero-anim hero-anim-3">Websites, SEO, ads, and content — one team that does the work, and shows you what it brought back.</p>
+      <p class="hero-anim hero-anim-3">Websites, SEO, GEO, Meta &amp; Google Ads, and social media content creation — one team that does the work, and shows you what it brought back.</p>
       <div class="hero-buttons hero-anim hero-anim-4">
         <a href="/contact/" class="btn btn-primary">Start Your Project</a>
         <a href="/services/website-development/#portfolio" class="btn btn-secondary">View Our Work</a>
@@ -325,9 +325,38 @@ const socialSubItems = [
     .tb-names .tb-more { color: var(--accent); opacity: 1; }
 
     /* Proof block */
-    .proof { background: var(--bg-alt, #111318); }
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
-    .proof-card { padding: 30px; border: 1px solid rgba(73,184,137,0.22); border-radius: 14px; background: linear-gradient(135deg, rgba(73,184,137,0.08) 0%, rgba(73,184,137,0.02) 100%); }
+    .proof {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(120% 82% at 50% 6%, rgba(73,184,137,0.16) 0%, rgba(73,184,137,0.04) 30%, transparent 58%),
+        linear-gradient(180deg, #10141a 0%, #0a0b0e 100%);
+    }
+    .proof::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 46px 46px;
+      -webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 0%, transparent 78%);
+      mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 0%, transparent 78%);
+    }
+    .proof > .container { position: relative; z-index: 1; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
+    .proof-card {
+      padding: 32px;
+      border: 1px solid rgba(73,184,137,0.30);
+      border-radius: 16px;
+      background: linear-gradient(160deg, rgba(22,30,34,0.78) 0%, rgba(13,17,20,0.78) 100%);
+      box-shadow: 0 26px 60px -32px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05);
+      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    }
+    .proof-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(73,184,137,0.6);
+      box-shadow: 0 34px 74px -30px rgba(73,184,137,0.38);
+    }
     .proof-card .pc-stat { font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--accent); line-height: 1.1; }
     .proof-card .pc-text { margin-top: 12px; color: #c7cbd1; font-size: 0.98rem; line-height: 1.55; }
     @media (max-width: 820px) { .proof-grid { grid-template-columns: 1fr; } }
