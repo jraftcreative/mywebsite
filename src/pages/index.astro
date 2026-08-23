@@ -329,18 +329,26 @@ const socialSubItems = [
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(120% 82% at 50% 6%, rgba(73,184,137,0.16) 0%, rgba(73,184,137,0.04) 30%, transparent 58%),
-        linear-gradient(180deg, #10141a 0%, #0a0b0e 100%);
+        radial-gradient(58% 55% at 20% 6%, rgba(73,184,137,0.28) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(52% 58% at 86% 96%, rgba(57,187,157,0.22) 0%, transparent 60%),
+        linear-gradient(180deg, #0f151b 0%, #090b0f 100%);
     }
+    /* dot-matrix texture */
     .proof::before {
       content: '';
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
-      background-size: 46px 46px;
-      -webkit-mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 0%, transparent 78%);
-      mask-image: radial-gradient(ellipse 78% 68% at 50% 42%, #000 0%, transparent 78%);
+      background-image: radial-gradient(rgba(255,255,255,0.09) 1.4px, transparent 1.5px);
+      background-size: 24px 24px;
+      -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 25%, transparent 82%);
+      mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 25%, transparent 82%);
+    }
+    /* oversized editorial wordmark behind the cards */
+    .proof::after {
+      content: '01';
+      position: absolute; z-index: 0; top: 40%; right: 4%;
+      font-weight: 800; font-size: 22vw; line-height: 0.8; letter-spacing: -0.04em;
+      color: transparent; -webkit-text-stroke: 1.5px rgba(73,184,137,0.10);
+      pointer-events: none; user-select: none;
     }
     .proof > .container { position: relative; z-index: 1; }
     .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
