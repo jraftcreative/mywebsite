@@ -206,16 +206,115 @@ const socialSubItems = [
   ]}
 >
 
-  <Hero
-    title='Marketing Agency Singapore — We Help Brands <span class="highlight">Launch, Grow & Stand Out</span>'
-    subtitle="Strategy, design, development, and marketing — all under one roof. We build brands that convert, campaigns that perform, and websites that leave a lasting impression."
-    backgroundImage="/images/hero.webp"
-    heroLabel="Full-Service Creative & Marketing Agency in Singapore"
-    buttons={[
-      { text: "Start Your Project", href: "/contact/", class: "btn btn-primary" },
-      { text: "View Our Work", href: "/services/website-development/#portfolio", class: "btn btn-secondary" }
-    ]}
-  />
+  <!-- ========== HERO (kinetic type — PREVIEW) ========== -->
+  <section class="hero home-hero-kinetic" aria-label="Page introduction">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+      <span class="hero-label hero-anim hero-anim-1">Full-service marketing agency · Singapore</span>
+      <h1 class="hero-anim hero-anim-2">
+        The marketing agency in Singapore<br>for brands that want to be
+        <span class="kinetic" aria-hidden="true"><span class="kinetic-track"><span>seen.</span><span>found.</span><span>booked.</span><span>recommended.</span></span></span>
+        <span class="visually-hidden">seen, found, booked, and recommended.</span>
+      </h1>
+      <p class="hero-anim hero-anim-3">Websites, SEO, ads, and content — one team that does the work, and shows you what it brought back.</p>
+      <div class="hero-buttons hero-anim hero-anim-4">
+        <a href="/contact/" class="btn btn-primary">Start Your Project</a>
+        <a href="/services/website-development/#portfolio" class="btn btn-secondary">View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUSTED BY (PREVIEW — confirm naming permission per client) ========== -->
+  <section class="trust-by" aria-label="Trusted by">
+    <div class="container">
+      <p class="tb-label">Trusted by businesses across Singapore</p>
+      <div class="tb-names">
+        <span>Music with Pat</span>
+        <span>Maple Bear Jurong Gateway</span>
+        <span>AX Beauty</span>
+        <span>Janice Chan</span>
+        <span>Eshine Curtain &amp; Blinds</span>
+        <span class="tb-more">…and many more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROOF: we practise what we sell (PREVIEW) ========== -->
+  <section class="section proof" aria-label="Proof of results">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>We do for ourselves exactly what we'd do for you</h2>
+        <p>Most agencies talk. Here's the proof — the same playbook, run on our own business and our clients'.</p>
+      </div>
+      <div class="proof-grid reveal">
+        <div class="proof-card">
+          <div class="pc-stat">#1 in Singapore</div>
+          <div class="pc-text">Our own pages rank #1 on Google for competitive niches — like "marketing agency for gyms" and "for interior designers." We earned those rankings the same way we'd earn yours.</div>
+        </div>
+        <div class="proof-card">
+          <div class="pc-stat">Cited by Google AI</div>
+          <div class="pc-text">Jraft Creative is named in Google's AI Overview for competitive local searches — the new front page of search. We build that AI visibility for clients too.</div>
+        </div>
+        <div class="proof-card">
+          <div class="pc-stat">3 → 15 a month</div>
+          <div class="pc-text">For Music with Pat, a private music teacher, we lifted trial sign-ups from about 3 a month to around 15 with a rebuilt Google Ads setup.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Kinetic-type hero (preview) — no stock image, pure brand */
+    .home-hero-kinetic {
+      background:
+        radial-gradient(ellipse at 50% 28%, rgba(73, 184, 137, 0.12) 0%, transparent 62%),
+        #0b0b0f;
+      overflow: hidden;
+    }
+    .home-hero-kinetic h1 { line-height: 1.08; }
+    .kinetic {
+      display: inline-block;
+      position: relative;
+      height: 1.1em;
+      overflow: hidden;
+      vertical-align: bottom;
+      color: var(--accent);
+    }
+    .kinetic-track {
+      display: flex;
+      flex-direction: column;
+      animation: kinetic-cycle 9s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+    }
+    .kinetic-track > span { height: 1.1em; line-height: 1.1em; white-space: nowrap; }
+    @keyframes kinetic-cycle {
+      0%, 18%  { transform: translateY(0); }
+      25%, 43% { transform: translateY(-1.1em); }
+      50%, 68% { transform: translateY(-2.2em); }
+      75%, 93% { transform: translateY(-3.3em); }
+      100%     { transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .kinetic-track { animation: none; }
+    }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    /* Trusted-by strip */
+    .trust-by { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; }
+    .trust-by .container { text-align: center; }
+    .tb-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 16px; }
+    .tb-names { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px; }
+    .tb-names span { font-weight: 600; font-size: 1.05rem; color: #d7dade; opacity: 0.9; }
+    .tb-names .tb-more { color: var(--accent); opacity: 1; }
+
+    /* Proof block */
+    .proof { background: var(--bg-alt, #111318); }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
+    .proof-card { padding: 30px; border: 1px solid rgba(73,184,137,0.22); border-radius: 14px; background: linear-gradient(135deg, rgba(73,184,137,0.08) 0%, rgba(73,184,137,0.02) 100%); }
+    .proof-card .pc-stat { font-weight: 800; font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--accent); line-height: 1.1; }
+    .proof-card .pc-text { margin-top: 12px; color: #c7cbd1; font-size: 0.98rem; line-height: 1.55; }
+    @media (max-width: 820px) { .proof-grid { grid-template-columns: 1fr; } }
+  </style>
 
   <!-- ========== SERVICES ========== -->
   <section class="section" id="services" aria-label="Our services">
@@ -225,8 +324,7 @@ const socialSubItems = [
         <h2>What We Do</h2>
       </div>
       <div class="section-content reveal">
-        <p>End-to-end digital solutions tailored to your business needs. As a full-service digital marketing agency in Singapore, Jraft Creative helps brands build a powerful online presence through expert website development, SEO services, social media marketing, paid ads management, and <a href="/geo-agency-singapore/">Generative Engine Optimisation (GEO)</a>.</p>
-        <p>Whether you need a high-converting <a href="/services/website-development/">web design</a>, an <a href="/ecommerce-website-singapore/">ecommerce store</a>, or a results-driven <a href="/digital-marketing-agency-singapore/">digital strategy</a>, our team delivers measurable business growth — from concept to launch and beyond. We also offer specialised <a href="/services/seo-performance/">SEO services</a>, <a href="/google-ads-agency-singapore/">Google Ads management</a>, <a href="/services/social-media/">social media marketing</a>, and <a href="/chatgpt-optimisation-singapore/">ChatGPT optimisation</a> to get your brand recommended by AI. Explore our full <a href="/services/ai-search-optimisation/">AI search optimisation</a> services.</p>
+        <p><a href="/services/website-development/">Websites</a>, <a href="/services/seo-performance/">SEO</a>, <a href="/google-ads-agency-singapore/">Google Ads</a>, <a href="/services/social-media/">social</a>, and <a href="/geo-agency-singapore/">AI search (GEO)</a> — one team, under one roof. Strategy through execution, measured on what it brings back.</p>
       </div>
       <div class="services-grid services-grid-5">
         <ServiceCard
