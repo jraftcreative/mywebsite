@@ -374,12 +374,17 @@ const socialSubItems = [
     /* services section background — consistent with hero/proof (preview) */
     #services {
       position: relative;
+      padding-top: 70px;
+      padding-bottom: 48px;
       background:
         radial-gradient(52% 46% at 84% 4%, rgba(73,184,137,0.13) 0%, transparent 60%),
         radial-gradient(46% 50% at 8% 96%, rgba(57,187,157,0.10) 0%, transparent 60%),
         linear-gradient(180deg, #0d1116 0%, #0a0c10 100%);
     }
     #services > .container { position: relative; z-index: 1; }
+    /* shrink service cards so the section fits the window */
+    #services .services-grid { margin-top: 34px; gap: 18px; }
+    #services :global(.service-card) { min-height: 0 !important; height: 188px !important; }
   </style>
 
   <!-- ========== SERVICES ========== -->
