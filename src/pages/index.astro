@@ -331,7 +331,8 @@ const socialSubItems = [
       overflow: hidden;
       min-height: 100svh;
       display: flex;
-      align-items: center;
+      align-items: stretch;
+      padding: 110px 0 64px;
       background:
         radial-gradient(58% 55% at 16% 10%, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
         radial-gradient(52% 58% at 90% 92%, rgba(57,187,157,0.20) 0%, transparent 60%),
@@ -342,9 +343,10 @@ const socialSubItems = [
       display: grid;
       grid-template-columns: 0.92fr 1.08fr;
       gap: 72px;
-      align-items: center;
+      align-items: stretch;
     }
-    .proof-intro { text-align: left; }
+    .proof-intro { text-align: left; display: flex; flex-direction: column; justify-content: center; }
+    .proof-list { justify-content: space-between; }
     .proof-intro h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.06; margin: 14px 0 20px; }
     .proof-intro .proof-sub { color: #aeb4bb; font-size: 1.06rem; line-height: 1.6; max-width: 36ch; }
     .proof-cta { margin-top: 28px; }
