@@ -244,24 +244,25 @@ const socialSubItems = [
 
   <!-- ========== PROOF: we practise what we sell (PREVIEW) ========== -->
   <section class="section proof" aria-label="Proof of results">
-    <div class="container">
-      <div class="section-header reveal">
+    <div class="container proof-layout">
+      <div class="proof-intro reveal">
         <p class="section-label">Proof</p>
         <h2>We market our own business the way we market yours</h2>
-        <p>The same strategies we run for clients, applied to Jraft Creative — and the results they have produced.</p>
+        <p class="proof-sub">The same strategies we run for clients, applied to Jraft Creative — and the results they've produced.</p>
+        <a href="/services/website-development/#portfolio" class="btn btn-secondary proof-cta">See our work</a>
       </div>
-      <div class="proof-grid reveal">
-        <div class="proof-card">
-          <div class="pc-stat">#1 in Singapore</div>
-          <div class="pc-text">Ranked first on Google for competitive search terms across multiple industries — earned through organic search, not ad spend.</div>
+      <div class="proof-list reveal">
+        <div class="proof-row">
+          <div class="pr-stat">#1 in Singapore</div>
+          <div class="pr-text">Ranked first on Google for competitive search terms across multiple industries — earned through organic search, not ad spend.</div>
         </div>
-        <div class="proof-card">
-          <div class="pc-stat">Cited by AI Search</div>
-          <div class="pc-text">Cited in Google's AI Overview and named by ChatGPT for competitive local queries — the same AI visibility we build across ChatGPT, Perplexity, and Gemini for our clients.</div>
+        <div class="proof-row">
+          <div class="pr-stat">Cited by AI Search</div>
+          <div class="pr-text">Cited in Google's AI Overview and named by ChatGPT for competitive local queries — the same AI visibility we build across ChatGPT, Perplexity, and Gemini for clients.</div>
         </div>
-        <div class="proof-card">
-          <div class="pc-stat">5× more sign-ups</div>
-          <div class="pc-text">A rebuilt Google Ads campaign multiplied a Singapore music teacher's monthly trial bookings fivefold.</div>
+        <div class="proof-row">
+          <div class="pr-stat">5× more sign-ups</div>
+          <div class="pr-text">A rebuilt Google Ads campaign multiplied a Singapore music teacher's monthly trial bookings fivefold.</div>
         </div>
       </div>
     </div>
@@ -328,29 +329,40 @@ const socialSubItems = [
     .proof {
       position: relative;
       overflow: hidden;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
       background:
-        radial-gradient(58% 55% at 20% 6%, rgba(73,184,137,0.28) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
-        radial-gradient(52% 58% at 86% 96%, rgba(57,187,157,0.22) 0%, transparent 60%),
+        radial-gradient(58% 55% at 16% 10%, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(52% 58% at 90% 92%, rgba(57,187,157,0.20) 0%, transparent 60%),
         linear-gradient(180deg, #0f151b 0%, #090b0f 100%);
     }
-    .proof > .container { position: relative; z-index: 1; }
-    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
-    .proof-card {
-      padding: 32px;
-      border: 1px solid rgba(73,184,137,0.30);
-      border-radius: 16px;
-      background: linear-gradient(160deg, rgba(22,30,34,0.78) 0%, rgba(13,17,20,0.78) 100%);
-      box-shadow: 0 26px 60px -32px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.05);
-      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+    .proof-layout {
+      position: relative; z-index: 1; width: 100%;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 72px;
+      align-items: center;
     }
-    .proof-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(73,184,137,0.6);
-      box-shadow: 0 34px 74px -30px rgba(73,184,137,0.38);
+    .proof-intro { text-align: left; }
+    .proof-intro h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); line-height: 1.06; margin: 14px 0 20px; }
+    .proof-intro .proof-sub { color: #aeb4bb; font-size: 1.06rem; line-height: 1.6; max-width: 36ch; }
+    .proof-cta { margin-top: 28px; }
+    .proof-list { display: flex; flex-direction: column; }
+    .proof-row {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.09);
+      transition: padding-left 0.3s ease, border-color 0.3s ease;
     }
-    .proof-card .pc-stat { font-weight: 800; font-size: clamp(1.2rem, 2vw, 1.55rem); color: var(--accent); line-height: 1.15; }
-    .proof-card .pc-text { margin-top: 12px; color: #c7cbd1; font-size: 0.98rem; line-height: 1.55; }
-    @media (max-width: 820px) { .proof-grid { grid-template-columns: 1fr; } }
+    .proof-list .proof-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.09); }
+    .proof-row:hover { padding-left: 12px; border-color: rgba(73,184,137,0.45); }
+    .pr-stat { font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.5rem); color: var(--accent); line-height: 1.04; letter-spacing: -0.015em; }
+    .pr-text { margin-top: 10px; color: #c1c6cc; font-size: 1.02rem; line-height: 1.58; max-width: 54ch; }
+    @media (max-width: 900px) {
+      .proof { min-height: auto; padding: 76px 0; }
+      .proof-layout { grid-template-columns: 1fr; gap: 40px; }
+      .proof-intro .proof-sub { max-width: none; }
+    }
 
     /* trust-bar → subtle premium stat strip (preview) */
     .trust-bar {
