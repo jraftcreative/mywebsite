@@ -370,27 +370,6 @@ const socialSubItems = [
         radial-gradient(62% 130% at 50% 0%, rgba(73,184,137,0.10) 0%, transparent 62%),
         #0c0e12;
     }
-
-    /* editorial services list (preview) */
-    .services-list { margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.09); }
-    .service-row {
-      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 30px;
-      padding: 26px 10px; border-bottom: 1px solid rgba(255,255,255,0.09);
-      text-decoration: none; color: inherit;
-      transition: background 0.3s ease, padding-left 0.3s ease;
-    }
-    .service-row:hover { background: rgba(73,184,137,0.06); padding-left: 24px; }
-    .sr-num { font-weight: 800; font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: rgba(73,184,137,0.45); font-variant-numeric: tabular-nums; }
-    .service-row:hover .sr-num { color: var(--accent); }
-    .sr-body { display: flex; flex-direction: column; gap: 5px; }
-    .sr-title { font-weight: 700; font-size: clamp(1.2rem, 2.2vw, 1.7rem); color: #fff; letter-spacing: -0.01em; line-height: 1.1; }
-    .sr-desc { color: #9aa0a6; font-size: 1rem; line-height: 1.5; max-width: 64ch; }
-    .sr-arrow { color: var(--accent); font-size: 1.5rem; opacity: 0; transform: translateX(-10px); transition: opacity 0.3s ease, transform 0.3s ease; }
-    .service-row:hover .sr-arrow { opacity: 1; transform: translateX(0); }
-    @media (max-width: 700px) {
-      .service-row { grid-template-columns: auto 1fr; gap: 16px; padding: 22px 4px; }
-      .sr-arrow { display: none; }
-    }
   </style>
 
   <!-- ========== SERVICES ========== -->
@@ -403,47 +382,52 @@ const socialSubItems = [
       <div class="section-content reveal">
         <p><a href="/services/website-development/">Websites</a>, <a href="/services/seo-performance/">SEO</a>, <a href="/google-ads-agency-singapore/">Google Ads</a>, <a href="/services/social-media/">social</a>, and <a href="/geo-agency-singapore/">AI search (GEO)</a> — one team, under one roof. Strategy through execution, measured on what it brings back.</p>
       </div>
-      <div class="services-list reveal">
-        <a class="service-row" href="/services/website-development/">
-          <span class="sr-num">01</span>
-          <span class="sr-body">
-            <span class="sr-title">Website Development</span>
-            <span class="sr-desc">Custom websites, stores, and web apps — designed to convert and built to scale.</span>
-          </span>
-          <span class="sr-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="service-row" href="/services/seo-performance/">
-          <span class="sr-num">02</span>
-          <span class="sr-body">
-            <span class="sr-title">SEO &amp; Performance</span>
-            <span class="sr-desc">Search engine optimisation, speed, and analytics that grow your visibility and rankings.</span>
-          </span>
-          <span class="sr-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="service-row" href="/services/paid-ads/">
-          <span class="sr-num">03</span>
-          <span class="sr-body">
-            <span class="sr-title">Paid Performance Marketing</span>
-            <span class="sr-desc">Google &amp; Meta Ads and data-driven campaigns that deliver measurable ROI and qualified leads.</span>
-          </span>
-          <span class="sr-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="service-row" href="/services/social-media/">
-          <span class="sr-num">04</span>
-          <span class="sr-body">
-            <span class="sr-title">Social Media &amp; Content</span>
-            <span class="sr-desc">Reels, video, and content for Instagram, TikTok, and beyond that build your brand and sell.</span>
-          </span>
-          <span class="sr-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="service-row" href="/geo-agency-singapore/">
-          <span class="sr-num">05</span>
-          <span class="sr-body">
-            <span class="sr-title">AI Search Optimisation (GEO)</span>
-            <span class="sr-desc">Get recommended by ChatGPT, Gemini, and Perplexity — AI visibility built into your marketing.</span>
-          </span>
-          <span class="sr-arrow" aria-hidden="true">&rarr;</span>
-        </a>
+      <div class="services-grid services-grid-5">
+        <ServiceCard
+          title="Website Development"
+          description="Custom websites, stores, and web apps — designed to convert and built to scale."
+          backgroundImage="/images/service-webdev.webp"
+          id="serviceWebDev"
+          revealClass="reveal-d1"
+          expandable={true}
+          subItems={webDevSubItems}
+        />
+        <ServiceCard
+          title="SEO & Performance"
+          description="Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility and rankings."
+          backgroundImage="/images/service-seo.webp"
+          id="serviceSeo"
+          revealClass="reveal-d2"
+          expandable={true}
+          subItems={seoSubItems}
+        />
+        <ServiceCard
+          title="Paid Performance Marketing"
+          description="Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI and qualified leads."
+          backgroundImage="/images/service-ads.webp"
+          id="serviceAds"
+          revealClass="reveal-d3"
+          expandable={true}
+          subItems={adsSubItems}
+        />
+        <ServiceCard
+          title="Social Media Content Creation"
+          description="Scroll-stopping visuals, reels, and copy for Instagram, TikTok, Facebook, and LinkedIn that build your brand."
+          backgroundImage="/images/service-social.webp"
+          id="serviceSocial"
+          revealClass="reveal-d4"
+          expandable={true}
+          subItems={socialSubItems}
+        />
+        <ServiceCard
+          title="AI Search Optimisation (GEO)"
+          description="Get your brand recommended by ChatGPT, Gemini, and Perplexity. AI visibility audits, content optimisation, and citation monitoring."
+          backgroundImage="/images/service-seo.webp"
+          id="serviceGeo"
+          revealClass="reveal-d1"
+          expandable={true}
+          subItems={geoSubItems}
+        />
       </div>
 
     </div>
