@@ -370,24 +370,6 @@ const socialSubItems = [
         radial-gradient(62% 130% at 50% 0%, rgba(73,184,137,0.10) 0%, transparent 62%),
         #0c0e12;
     }
-
-    /* service cards — glass, brand-consistent (preview) */
-    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px; }
-    .svc-card {
-      display: flex; flex-direction: column; gap: 10px; position: relative;
-      padding: 30px; border: 1px solid rgba(73,184,137,0.22); border-radius: 16px;
-      background: linear-gradient(160deg, rgba(22,30,34,0.62) 0%, rgba(13,17,20,0.62) 100%);
-      box-shadow: 0 24px 56px -34px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.04);
-      text-decoration: none; color: inherit;
-      transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
-    }
-    .svc-card:hover { transform: translateY(-6px); border-color: rgba(73,184,137,0.55); box-shadow: 0 34px 72px -32px rgba(73,184,137,0.32); }
-    .svc-num { font-weight: 800; font-size: 0.9rem; letter-spacing: 0.12em; color: rgba(73,184,137,0.6); }
-    .svc-name { font-size: clamp(1.15rem, 1.7vw, 1.42rem); font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.15; margin: 2px 0 0; }
-    .svc-text { color: #9aa0a6; font-size: 0.98rem; line-height: 1.55; flex: 1; }
-    .svc-link { color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 4px; opacity: 0.85; transition: opacity 0.3s ease; }
-    .svc-card:hover .svc-link { opacity: 1; }
-    @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; } }
   </style>
 
   <!-- ========== SERVICES ========== -->
@@ -400,37 +382,52 @@ const socialSubItems = [
       <div class="section-content reveal">
         <p><a href="/services/website-development/">Websites</a>, <a href="/services/seo-performance/">SEO</a>, <a href="/google-ads-agency-singapore/">Google Ads</a>, <a href="/services/social-media/">social</a>, and <a href="/geo-agency-singapore/">AI search (GEO)</a> — one team, under one roof. Strategy through execution, measured on what it brings back.</p>
       </div>
-      <div class="svc-grid reveal">
-        <a class="svc-card" href="/services/website-development/">
-          <span class="svc-num">01</span>
-          <h3 class="svc-name">Website Development</h3>
-          <p class="svc-text">Custom websites, stores, and web apps — designed to convert and built to scale.</p>
-          <span class="svc-link" aria-hidden="true">Explore &rarr;</span>
-        </a>
-        <a class="svc-card" href="/services/seo-performance/">
-          <span class="svc-num">02</span>
-          <h3 class="svc-name">SEO &amp; Performance</h3>
-          <p class="svc-text">Search engine optimisation, speed, and analytics that grow your visibility and rankings.</p>
-          <span class="svc-link" aria-hidden="true">Explore &rarr;</span>
-        </a>
-        <a class="svc-card" href="/services/paid-ads/">
-          <span class="svc-num">03</span>
-          <h3 class="svc-name">Paid Performance Marketing</h3>
-          <p class="svc-text">Google &amp; Meta Ads and data-driven campaigns that deliver measurable ROI and qualified leads.</p>
-          <span class="svc-link" aria-hidden="true">Explore &rarr;</span>
-        </a>
-        <a class="svc-card" href="/services/social-media/">
-          <span class="svc-num">04</span>
-          <h3 class="svc-name">Social Media &amp; Content</h3>
-          <p class="svc-text">Reels, video, and content for Instagram, TikTok, and beyond that build your brand and sell.</p>
-          <span class="svc-link" aria-hidden="true">Explore &rarr;</span>
-        </a>
-        <a class="svc-card" href="/geo-agency-singapore/">
-          <span class="svc-num">05</span>
-          <h3 class="svc-name">AI Search Optimisation (GEO)</h3>
-          <p class="svc-text">Get recommended by ChatGPT, Gemini, and Perplexity — AI visibility built into your marketing.</p>
-          <span class="svc-link" aria-hidden="true">Explore &rarr;</span>
-        </a>
+      <div class="services-grid services-grid-5">
+        <ServiceCard
+          title="Website Development"
+          description="Custom websites, stores, and web apps — designed to convert and built to scale."
+          backgroundImage="/images/service-webdev.webp"
+          id="serviceWebDev"
+          revealClass="reveal-d1"
+          expandable={true}
+          subItems={webDevSubItems}
+        />
+        <ServiceCard
+          title="SEO & Performance"
+          description="Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility and rankings."
+          backgroundImage="/images/service-seo.webp"
+          id="serviceSeo"
+          revealClass="reveal-d2"
+          expandable={true}
+          subItems={seoSubItems}
+        />
+        <ServiceCard
+          title="Paid Performance Marketing"
+          description="Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI and qualified leads."
+          backgroundImage="/images/service-ads.webp"
+          id="serviceAds"
+          revealClass="reveal-d3"
+          expandable={true}
+          subItems={adsSubItems}
+        />
+        <ServiceCard
+          title="Social Media Content Creation"
+          description="Scroll-stopping visuals, reels, and copy for Instagram, TikTok, Facebook, and LinkedIn that build your brand."
+          backgroundImage="/images/service-social.webp"
+          id="serviceSocial"
+          revealClass="reveal-d4"
+          expandable={true}
+          subItems={socialSubItems}
+        />
+        <ServiceCard
+          title="AI Search Optimisation (GEO)"
+          description="Get your brand recommended by ChatGPT, Gemini, and Perplexity. AI visibility audits, content optimisation, and citation monitoring."
+          backgroundImage="/images/service-seo.webp"
+          id="serviceGeo"
+          revealClass="reveal-d1"
+          expandable={true}
+          subItems={geoSubItems}
+        />
       </div>
 
     </div>
