@@ -388,6 +388,8 @@ const socialSubItems = [
     /* shrink service cards so the section fits the window */
     #services .services-grid { margin-top: 34px; gap: 18px; }
     #services :global(.service-card) { min-height: 0 !important; height: 188px !important; }
+    #services .section-header h2 { color: var(--accent); }
+    .svc-card-link { display: block; text-decoration: none; color: inherit; cursor: pointer; }
     @media (max-width: 700px) { #services { min-height: auto; padding: 64px 0; } }
   </style>
 
@@ -402,51 +404,46 @@ const socialSubItems = [
         <p><a href="/services/website-development/">Websites</a>, <a href="/services/seo-performance/">SEO</a>, <a href="/google-ads-agency-singapore/">Google Ads</a>, <a href="/services/social-media/">social</a>, and <a href="/geo-agency-singapore/">AI search (GEO)</a> — one team, under one roof. Strategy through execution, measured on what it brings back.</p>
       </div>
       <div class="services-grid services-grid-5">
-        <ServiceCard
-          title="Website Development"
-          description="Custom websites, stores, and web apps — designed to convert and built to scale."
-          backgroundImage="/images/service-webdev.webp"
-          id="serviceWebDev"
-          revealClass="reveal-d1"
-          expandable={true}
-          subItems={webDevSubItems}
-        />
-        <ServiceCard
-          title="SEO & Performance"
-          description="Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility and rankings."
-          backgroundImage="/images/service-seo.webp"
-          id="serviceSeo"
-          revealClass="reveal-d2"
-          expandable={true}
-          subItems={seoSubItems}
-        />
-        <ServiceCard
-          title="Paid Performance Marketing"
-          description="Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI and qualified leads."
-          backgroundImage="/images/service-ads.webp"
-          id="serviceAds"
-          revealClass="reveal-d3"
-          expandable={true}
-          subItems={adsSubItems}
-        />
-        <ServiceCard
-          title="Social Media Content Creation"
-          description="Scroll-stopping visuals, reels, and copy for Instagram, TikTok, Facebook, and LinkedIn that build your brand."
-          backgroundImage="/images/service-social.webp"
-          id="serviceSocial"
-          revealClass="reveal-d4"
-          expandable={true}
-          subItems={socialSubItems}
-        />
-        <ServiceCard
-          title="AI Search Optimisation (GEO)"
-          description="Get your brand recommended by ChatGPT, Gemini, and Perplexity. AI visibility audits, content optimisation, and citation monitoring."
-          backgroundImage="/images/service-seo.webp"
-          id="serviceGeo"
-          revealClass="reveal-d1"
-          expandable={true}
-          subItems={geoSubItems}
-        />
+        <a class="svc-card-link" href="/services/website-development/">
+          <ServiceCard
+            title="Website Development"
+            description="Custom websites, stores, and web apps — designed to convert and built to scale."
+            backgroundImage="/images/service-webdev.webp"
+            revealClass="reveal-d1"
+          />
+        </a>
+        <a class="svc-card-link" href="/services/seo-performance/">
+          <ServiceCard
+            title="SEO & Performance"
+            description="Search engine optimisation, speed optimisation, and analytics setup to maximise your online visibility and rankings."
+            backgroundImage="/images/service-seo.webp"
+            revealClass="reveal-d2"
+          />
+        </a>
+        <a class="svc-card-link" href="/services/paid-ads/">
+          <ServiceCard
+            title="Paid Performance Marketing"
+            description="Google Ads, Meta Ads, and data-driven paid campaigns that deliver measurable ROI and qualified leads."
+            backgroundImage="/images/service-ads.webp"
+            revealClass="reveal-d3"
+          />
+        </a>
+        <a class="svc-card-link" href="/services/social-media/">
+          <ServiceCard
+            title="Social Media Content Creation"
+            description="Scroll-stopping visuals, reels, and copy for Instagram, TikTok, Facebook, and LinkedIn that build your brand."
+            backgroundImage="/images/service-social.webp"
+            revealClass="reveal-d4"
+          />
+        </a>
+        <a class="svc-card-link" href="/geo-agency-singapore/">
+          <ServiceCard
+            title="AI Search Optimisation (GEO)"
+            description="Get your brand recommended by ChatGPT, Gemini, and Perplexity. AI visibility audits, content optimisation, and citation monitoring."
+            backgroundImage="/images/service-seo.webp"
+            revealClass="reveal-d1"
+          />
+        </a>
       </div>
 
     </div>
