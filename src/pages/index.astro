@@ -404,6 +404,21 @@ const socialSubItems = [
         linear-gradient(180deg, #0e1319 0%, #0a0c10 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
+    /* ambient backdrop — the focused card's image, blurred into a soft wash, crossfading as the carousel moves */
+    .svc-ambient { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .svc-amb-layer {
+      position: absolute; inset: -14%;
+      background-size: cover; background-position: center;
+      filter: blur(74px) saturate(1.12);
+      transform: scale(1.08);
+      opacity: 0; transition: opacity 0.9s ease;
+    }
+    .svc-amb-layer.is-active { opacity: 0.4; }
+    .svc-ambient::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(135% 105% at 50% 44%, rgba(10,12,16,0.32) 0%, rgba(10,12,16,0.72) 68%, rgba(9,11,15,0.92) 100%);
+    }
+    @media (prefers-reduced-motion: reduce) { .svc-amb-layer { transition: none; } }
     /* shrink service cards so the section fits the window */
     #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
@@ -437,6 +452,10 @@ const socialSubItems = [
 
   <!-- ========== SERVICES ========== -->
   <section class="section" id="services" aria-label="Our services">
+    <div class="svc-ambient" aria-hidden="true">
+      <div class="svc-amb-layer" id="svcAmbA"></div>
+      <div class="svc-amb-layer" id="svcAmbB"></div>
+    </div>
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Services</p>
@@ -504,6 +523,24 @@ const socialSubItems = [
       if (!n) return;
       let active = 0;
 
+      // ambient backdrop: mirror the focused card's image as a blurred wash, crossfading between two layers
+      const ambA = document.getElementById('svcAmbA');
+      const ambB = document.getElementById('svcAmbB');
+      let ambToggle = false, lastAmb = -1;
+      function setAmbient() {
+        if (active === lastAmb || !ambA || !ambB) return;
+        const bgEl = items[active].querySelector('.service-card-bg') || items[active].querySelector('.service-card');
+        const img = bgEl && bgEl.getAttribute('data-bg');
+        if (!img) return;
+        lastAmb = active;
+        const show = ambToggle ? ambA : ambB;
+        const hide = ambToggle ? ambB : ambA;
+        show.style.backgroundImage = 'url("' + img + '")';
+        show.classList.add('is-active');
+        hide.classList.remove('is-active');
+        ambToggle = !ambToggle;
+      }
+
       function render() {
         items.forEach((el, i) => {
           let off = i - active;
@@ -521,6 +558,7 @@ const socialSubItems = [
           el.style.zIndex = String(100 - abs);
           el.style.pointerEvents = visible ? 'auto' : 'none';
         });
+        setAmbient();
       }
       function go(d) { active = (active + d + n) % n; render(); }
 
