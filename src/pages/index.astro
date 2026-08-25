@@ -244,19 +244,13 @@ const socialSubItems = [
     <div class="container">
       <p class="tb-label">Trusted by businesses in Singapore</p>
     </div>
-    <div class="tb-marquee">
-      <div class="tb-viewport">
-        <div class="tb-track">
-          {[0, 1].map((_, i) => (
-            <div class="tb-group" aria-hidden={i === 1 ? 'true' : 'false'}>
-              {clientLogos.map((logo) => (
-                <img class="tb-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
-              ))}
-            </div>
-          ))}
-        </div>
+    <div class="container">
+      <div class="tb-static">
+        {clientLogos.map((logo) => (
+          <img class="tb-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
+        ))}
+        <span class="tb-more">…and many more</span>
       </div>
-      <div class="tb-more-wrap"><span class="tb-more">…and many more</span></div>
     </div>
   </section>
 
@@ -338,44 +332,24 @@ const socialSubItems = [
     .trust-by { padding: 46px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
     .trust-by .container { text-align: center; }
     .tb-label { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 30px; }
-    .tb-marquee { position: relative; overflow: hidden; }
-    .tb-viewport {
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 100%);
+    .tb-static { display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 40px; --tb-h: 38px; }
+    .tb-static .tb-logo { margin-right: 0; }
+    @media (max-width: 980px) {
+      .tb-static {
+        --tb-h: 32px; gap: 32px;
+        justify-content: flex-start;
+        overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+      }
+      .tb-static::-webkit-scrollbar { display: none; }
     }
-    .tb-track { display: flex; align-items: center; width: max-content; --tb-h: 40px; animation: tb-scroll 48s linear infinite; }
-    .tb-group { display: contents; }
-    .tb-marquee:hover .tb-track { animation-play-state: paused; }
+    @media (max-width: 640px) { .tb-static { --tb-h: 28px; gap: 26px; } .tb-more { font-size: 0.9rem; } }
     .tb-logo {
       height: calc(var(--tb-h) * var(--s, 1)); width: auto; max-width: 160px;
-      object-fit: contain; flex: 0 0 auto;
-      margin-right: 62px; opacity: 0.78;
+      object-fit: contain; flex: 0 0 auto; opacity: 0.82;
       transition: opacity 0.25s ease;
     }
     .tb-logo:hover { opacity: 1; }
-    /* '…and many more' stays pinned on the right; logos scroll behind it and fade out */
-    .tb-more-wrap {
-      position: absolute; top: 0; right: 0; height: 100%;
-      display: flex; align-items: center;
-      padding-left: 104px;
-      padding-right: max(28px, calc((100vw - 1160px) / 2 + 28px));
-      background: linear-gradient(90deg, transparent 0, #0d0d12 92px);
-      pointer-events: none;
-    }
-    .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; }
-    @keyframes tb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) {
-      .tb-track { animation: none; flex-wrap: wrap; justify-content: center; }
-      .tb-logo { margin: 10px 28px; }
-      .tb-more-wrap { position: static; height: auto; padding: 4px 0 10px; justify-content: center; background: none; }
-    }
-    @media (max-width: 640px) {
-      .tb-track { --tb-h: 30px; }
-      .tb-logo { margin-right: 44px; max-width: 128px; }
-      .tb-more { font-size: 0.9rem; }
-      .tb-more-wrap { padding-left: 56px; padding-right: 18px; background: linear-gradient(90deg, transparent 0, #0d0d12 46px); }
-    }
+    .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; flex: 0 0 auto; }
 
     /* Proof block */
     .proof {
