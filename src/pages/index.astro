@@ -385,6 +385,21 @@ const socialSubItems = [
         linear-gradient(180deg, #0d1116 0%, #0a0c10 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
+    /* dynamic drifting aurora background */
+    #services::before {
+      content: ''; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(38% 40% at 28% 32%, rgba(73,184,137,0.20) 0%, transparent 62%),
+        radial-gradient(36% 38% at 74% 68%, rgba(57,187,157,0.16) 0%, transparent 62%),
+        radial-gradient(30% 34% at 55% 12%, rgba(73,184,137,0.10) 0%, transparent 60%);
+      animation: svcAurora 18s ease-in-out infinite alternate;
+    }
+    @keyframes svcAurora {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(4%, -3%) scale(1.1); }
+      100% { transform: translate(-4%, 3%) scale(1.05); }
+    }
+    @media (prefers-reduced-motion: reduce) { #services::before { animation: none; } }
     /* shrink service cards so the section fits the window */
     #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
@@ -492,10 +507,10 @@ const socialSubItems = [
           if (off < -n / 2) off += n;
           const abs = Math.abs(off);
           const visible = abs <= 2;
-          const tx = off * 46;
-          const tz = -abs * 165;
-          const ry = -off * 38;
-          const sc = Math.max(0.62, 1 - abs * 0.16);
+          const tx = off * 64;
+          const tz = -abs * 190;
+          const ry = -off * 40;
+          const sc = Math.max(0.6, 1 - abs * 0.17);
           el.style.transform = 'translateX(' + tx + '%) translateZ(' + tz + 'px) rotateY(' + ry + 'deg) scale(' + sc + ')';
           el.style.opacity = visible ? (abs === 0 ? '1' : String(0.72 - abs * 0.2)) : '0';
           el.style.filter = abs === 0 ? 'none' : 'brightness(' + (1 - abs * 0.3) + ')';
