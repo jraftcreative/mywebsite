@@ -279,9 +279,9 @@ const socialSubItems = [
     </div>
   </section>
 
-  <!-- Homepage: hide the site-wide animated backdrop (grid + off-brand orbs) so every section reads as one consistent dark surface -->
+  <!-- Homepage: keep the dark base (.animated-bg paints var(--bg)) but drop the grid + off-brand orbs for a consistent dark surface -->
   <style is:global>
-    .animated-bg { display: none; }
+    .animated-bg__grid, .animated-bg__orb { display: none; }
   </style>
 
   <style>
@@ -405,32 +405,19 @@ const socialSubItems = [
       justify-content: center;
       padding: 48px 0 96px;
       background:
-        radial-gradient(130% 95% at 50% 42%, transparent 52%, rgba(0,0,0,0.5) 100%),
-        linear-gradient(180deg, #0e1319 0%, #0a0c10 100%);
+        radial-gradient(58% 55% at 16% 10%, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(52% 58% at 90% 92%, rgba(57,187,157,0.20) 0%, transparent 60%),
+        linear-gradient(180deg, #0f151b 0%, #090b0f 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
-    /* ambient backdrop — the focused card's image, blurred into a soft wash, crossfading as the carousel moves */
-    .svc-ambient { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-    .svc-amb-layer {
-      position: absolute; inset: -20%;
-      background-size: cover; background-position: center;
-      filter: blur(120px) saturate(1.3);
-      transform: scale(1.15);
-      opacity: 0; transition: opacity 1.6s ease;
-    }
-    .svc-amb-layer.is-active { opacity: 0.16; }
-    .svc-ambient::after {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(135% 105% at 50% 44%, rgba(11,13,17,0.62) 0%, rgba(10,12,16,0.85) 66%, rgba(9,11,15,0.95) 100%);
-    }
-    @media (prefers-reduced-motion: reduce) { .svc-amb-layer { transition: none; } }
 
     /* process — connected journey (homepage-only, scoped hp-* classes) */
     #process.hp-proc {
-      position: relative;
+      position: relative; overflow: hidden;
       background:
-        radial-gradient(130% 95% at 50% 42%, transparent 52%, rgba(0,0,0,0.5) 100%),
-        linear-gradient(180deg, #0e1319 0%, #0a0c10 100%);
+        radial-gradient(52% 55% at 88% 8%, rgba(73,184,137,0.24) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(50% 56% at 10% 94%, rgba(57,187,157,0.18) 0%, transparent 60%),
+        linear-gradient(180deg, #0f151b 0%, #090b0f 100%);
     }
     #process.hp-proc > .container { position: relative; z-index: 1; }
     .hp-flow {
@@ -489,10 +476,6 @@ const socialSubItems = [
 
   <!-- ========== SERVICES ========== -->
   <section class="section" id="services" aria-label="Our services">
-    <div class="svc-ambient" aria-hidden="true">
-      <div class="svc-amb-layer" id="svcAmbA"></div>
-      <div class="svc-amb-layer" id="svcAmbB"></div>
-    </div>
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Services</p>
@@ -560,24 +543,6 @@ const socialSubItems = [
       if (!n) return;
       let active = 0;
 
-      // ambient backdrop: mirror the focused card's image as a blurred wash, crossfading between two layers
-      const ambA = document.getElementById('svcAmbA');
-      const ambB = document.getElementById('svcAmbB');
-      let ambToggle = false, lastAmb = -1;
-      function setAmbient() {
-        if (active === lastAmb || !ambA || !ambB) return;
-        const bgEl = items[active].querySelector('.service-card-bg') || items[active].querySelector('.service-card');
-        const img = bgEl && bgEl.getAttribute('data-bg');
-        if (!img) return;
-        lastAmb = active;
-        const show = ambToggle ? ambA : ambB;
-        const hide = ambToggle ? ambB : ambA;
-        show.style.backgroundImage = 'url("' + img + '")';
-        show.classList.add('is-active');
-        hide.classList.remove('is-active');
-        ambToggle = !ambToggle;
-      }
-
       function render() {
         items.forEach((el, i) => {
           let off = i - active;
@@ -595,7 +560,6 @@ const socialSubItems = [
           el.style.zIndex = String(100 - abs);
           el.style.pointerEvents = visible ? 'auto' : 'none';
         });
-        setAmbient();
       }
       function go(d) { active = (active + d + n) % n; render(); }
 
