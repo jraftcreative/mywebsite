@@ -22,7 +22,44 @@ const clientLogos = [
   { src: '/images/clients/translatr.webp', alt: 'Translatr', s: 1.15 },
 ];
 
+// Homepage FAQ — plain answers, consult-first (no fixed pricing), rendered + emitted as FAQPage schema
+const faqs = [
+  {
+    q: "What does Jraft Creative do?",
+    a: "We're a full-service marketing agency in Singapore. Under one roof we build websites, run SEO and AI search (GEO), manage Google and Meta ads, and create social media content — so you're not stitching together five different vendors.",
+  },
+  {
+    q: "Do you work with small businesses and startups?",
+    a: "Yes. Most of our clients are small and medium Singapore businesses. We scope the work to where you are, whether that's a first website or a full growth programme.",
+  },
+  {
+    q: "How much does it cost to work with you?",
+    a: "It depends on what you actually need, so we don't publish fixed packages. Tell us your goals on a short call and we'll put together a plan and a clear quote, with no obligation.",
+  },
+  {
+    q: "How quickly can you get started?",
+    a: "A straightforward website can go live in as fast as two weeks, and marketing campaigns can start sooner. We'll give you a realistic timeline once we understand the scope.",
+  },
+  {
+    q: "Do you only work with businesses in Singapore?",
+    a: "We're Singapore-based and most of our work is local, but we take on clients elsewhere when it's a good fit. If you're outside Singapore, just ask.",
+  },
+  {
+    q: "What makes you different from other agencies?",
+    a: "One team handles everything, and we report plainly on what the work brings back — leads, bookings, and sales, not vanity metrics. We also run these same channels for our own business, so you can see the results before you hire us.",
+  },
+];
+
 const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+  },
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -282,7 +319,6 @@ const socialSubItems = [
   <!-- Homepage: keep the dark base (.animated-bg paints var(--bg)) but drop the grid + off-brand orbs for a consistent dark surface -->
   <style is:global>
     .animated-bg__grid, .animated-bg__orb { display: none; }
-    .animated-bg { background: #000000; }
   </style>
 
   <style>
@@ -357,22 +393,42 @@ const socialSubItems = [
     .tb-logo:hover { opacity: 1; }
     .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; flex: 0 0 auto; }
 
-    /* each section gets a distinct green position + subtly different near-black shade so they read as
-       separate blocks that still flow as one page (not identical slides) */
-    #industries {
-      position: relative;
-      background:
-        radial-gradient(50% 55% at 10% 8%, rgba(73,184,137,0.13) 0%, transparent 62%),
-        linear-gradient(180deg, #070709 0%, #040405 100%);
-    }
-    #industries > .container { position: relative; z-index: 1; }
+    /* each section: same dark base as the rest of the site (#08080d) with the green glow in a
+       distinct position so sections read as separate blocks but share one consistent colour */
     #blog {
       position: relative;
       background:
         radial-gradient(52% 55% at 90% 92%, rgba(57,187,157,0.13) 0%, transparent 62%),
-        linear-gradient(180deg, #000000 0%, #000000 100%);
+        linear-gradient(180deg, #08080d 0%, #08080d 100%);
     }
     #blog > .container { position: relative; z-index: 1; }
+    #faq {
+      position: relative;
+      background:
+        radial-gradient(50% 55% at 12% 10%, rgba(73,184,137,0.15) 0%, transparent 62%),
+        linear-gradient(180deg, #08080d 0%, #08080d 100%);
+    }
+    #faq > .container { position: relative; z-index: 1; }
+    .hp-faq-list { max-width: 820px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .hp-faq-item {
+      border: 1px solid rgba(255,255,255,0.10); border-radius: 12px;
+      background: rgba(255,255,255,0.02); overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    .hp-faq-item > summary {
+      cursor: pointer; list-style: none; padding: 20px 56px 20px 22px;
+      font-weight: 600; font-size: 1.05rem; color: #f5f7f6; position: relative;
+    }
+    .hp-faq-item > summary::-webkit-details-marker { display: none; }
+    .hp-faq-item > summary::after {
+      content: '+'; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+      font-size: 1.5rem; line-height: 1; color: var(--accent); transition: transform 0.2s ease;
+    }
+    .hp-faq-item[open] > summary::after { content: '\2212'; }
+    .hp-faq-item[open] { border-color: rgba(73,184,137,0.4); }
+    .hp-faq-item > p {
+      margin: 0; padding: 0 22px 20px; color: var(--text-muted); line-height: 1.7; font-size: 0.96rem;
+    }
 
     /* Proof block */
     .proof {
@@ -384,7 +440,7 @@ const socialSubItems = [
       background:
         radial-gradient(58% 55% at 16% 10%, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
         radial-gradient(52% 58% at 90% 92%, rgba(57,187,157,0.20) 0%, transparent 60%),
-        linear-gradient(180deg, #000000 0%, #000000 100%);
+        linear-gradient(180deg, #08080d 0%, #08080d 100%);
     }
     .proof-layout {
       position: relative; z-index: 1; width: 100%;
@@ -425,7 +481,7 @@ const socialSubItems = [
       background:
         radial-gradient(55% 52% at 85% 6%, rgba(73,184,137,0.24) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
         radial-gradient(50% 56% at 6% 66%, rgba(57,187,157,0.17) 0%, transparent 60%),
-        linear-gradient(180deg, #08080b 0%, #050506 100%);
+        linear-gradient(180deg, #08080d 0%, #08080d 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
 
@@ -435,7 +491,7 @@ const socialSubItems = [
       background:
         radial-gradient(48% 52% at 90% 44%, rgba(73,184,137,0.22) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
         radial-gradient(52% 55% at 14% 96%, rgba(57,187,157,0.16) 0%, transparent 60%),
-        linear-gradient(180deg, #000000 0%, #000000 100%);
+        linear-gradient(180deg, #08080d 0%, #08080d 100%);
     }
     #process.hp-proc > .container { position: relative; z-index: 1; }
     .hp-flow {
@@ -639,31 +695,6 @@ const socialSubItems = [
     </div>
   </section>
 
-  <!-- ========== INDUSTRIES ========== -->
-  <section class="section" id="industries" aria-label="Industries we serve">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Industries</p>
-        <h2>Who We Work With</h2>
-        <p>Deep expertise in industries where we deliver the most impact.</p>
-      </div>
-      <div class="industries-grid">
-        <IndustryCard title="Music & Creative" description="Music schools, studios, performers, and creative agencies." backgroundImage="/images/industry-music.webp" revealClass="reveal-d1" href="/music-school-website-singapore/" />
-        <IndustryCard title="F&B & Hospitality" description="Restaurants, cafes, catering, and food delivery brands." backgroundImage="/images/industry-fnb.webp" revealClass="reveal-d2" href="/fnb-marketing-singapore/" />
-        <IndustryCard title="Retail & Ecommerce" description="Fashion, lifestyle, specialty goods, and DTC brands." backgroundImage="/images/industry-retail.webp" revealClass="reveal-d3" href="/ecommerce-website-singapore/" />
-        <IndustryCard title="Education" description="Tuition centres, enrichment schools, online courses, and edtech." backgroundImage="/images/industry-education.webp" revealClass="reveal-d4" href="/education-marketing-agency-singapore/" />
-        <IndustryCard title="Property" description="Real estate agencies, property developers, and listings platforms." backgroundImage="/images/industry-property.webp" revealClass="reveal-d5" href="/property-agent-website-singapore/" />
-        <IndustryCard title="Insurance" description="Insurance agents, brokerages, and financial advisory firms." backgroundImage="/images/industry-insurance.webp" revealClass="reveal-d5" href="/insurance-agent-website-singapore/" />
-        <IndustryCard title="Interior Design" description="Interior design studios, renovation firms, and design-led trades." backgroundImage="/images/service-interior.webp" revealClass="reveal-d5" href="/interior-designer-marketing-singapore/" />
-      </div>
-      <div class="section-content reveal" style="margin-top: 2rem; text-align: center;">
-        <p>See our industry-specific solutions: <a href="/fnb-website-design-singapore/">F&amp;B website design</a>, <a href="/ecommerce-website-singapore/">ecommerce websites</a>, <a href="/beauty-salon-website-singapore/">beauty &amp; salon websites</a>, <a href="/clinic-website-design-singapore/">clinic websites</a>, <a href="/education-marketing-agency-singapore/">education marketing</a>, <a href="/small-business-website-singapore/">small business websites</a>, and <a href="/startup-website-singapore/">startup websites</a>.</p>
-      </div>
-    </div>
-  </section>
-
-
-
   <!-- ========== BLOG ========== -->
   <section class="section" id="blog" aria-label="Latest from the blog">
     <div class="container">
@@ -688,6 +719,24 @@ const socialSubItems = [
       </div>
       <div style="text-align: center;" class="reveal reveal-d3">
         <a href="/blog/" class="btn btn-secondary">View All Posts</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section hp-faq" id="faq" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="hp-faq-list reveal">
+        {faqs.map((item) => (
+          <details class="hp-faq-item">
+            <summary>{item.q}</summary>
+            <p>{item.a}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>
