@@ -419,6 +419,33 @@ const socialSubItems = [
       background: radial-gradient(135% 105% at 50% 44%, rgba(11,13,17,0.62) 0%, rgba(10,12,16,0.85) 66%, rgba(9,11,15,0.95) 100%);
     }
     @media (prefers-reduced-motion: reduce) { .svc-amb-layer { transition: none; } }
+
+    /* process — connected journey (homepage-only, scoped hp-* classes) */
+    .hp-flow {
+      list-style: none; margin: 56px 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 30px;
+    }
+    .hp-step { position: relative; }
+    .hp-step-top { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+    .hp-num {
+      flex: 0 0 auto; width: 48px; height: 48px; border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(73,184,137,0.10); border: 1px solid rgba(73,184,137,0.35);
+      color: var(--accent); font-weight: 700; font-size: 1rem; letter-spacing: 0.02em;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+    .hp-line { flex: 1 1 auto; height: 1px; background: linear-gradient(90deg, rgba(73,184,137,0.5), rgba(73,184,137,0.04)); }
+    .hp-step h3 { font-size: 1.18rem; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
+    .hp-step p { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); margin: 0; max-width: 26ch; }
+    .hp-step:hover .hp-num { background: var(--accent); color: #0a0c10; border-color: var(--accent); transform: translateY(-3px); }
+    @media (max-width: 860px) {
+      .hp-flow { grid-template-columns: 1fr 1fr; gap: 40px 30px; }
+      .hp-line { display: none; }
+    }
+    @media (max-width: 520px) {
+      .hp-flow { grid-template-columns: 1fr; gap: 28px; }
+      .hp-step p { max-width: none; }
+    }
     /* shrink service cards so the section fits the window */
     #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
@@ -587,6 +614,42 @@ const socialSubItems = [
 
 
 
+  <!-- ========== PROCESS (redesigned — connected journey) ========== -->
+  <section class="section hp-proc" id="process" aria-label="Our process">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How We Work</p>
+        <h2>From first call to launch</h2>
+        <p>A clear path from the first conversation to results you can measure — in as fast as two weeks.</p>
+      </div>
+      <ol class="hp-flow reveal">
+        <li class="hp-step">
+          <div class="hp-step-top"><span class="hp-num">01</span><span class="hp-line" aria-hidden="true"></span></div>
+          <h3>Discover</h3>
+          <p>We learn your business, goals, and market, and define what success looks like before any work begins.</p>
+        </li>
+        <li class="hp-step">
+          <div class="hp-step-top"><span class="hp-num">02</span><span class="hp-line" aria-hidden="true"></span></div>
+          <h3>Plan</h3>
+          <p>We set the strategy, choose the channels, and agree the priorities and timeline with you.</p>
+        </li>
+        <li class="hp-step">
+          <div class="hp-step-top"><span class="hp-num">03</span><span class="hp-line" aria-hidden="true"></span></div>
+          <h3>Execute</h3>
+          <p>We build and run the work — websites, campaigns, and content — to a clear brief and standard.</p>
+        </li>
+        <li class="hp-step">
+          <div class="hp-step-top"><span class="hp-num">04</span></div>
+          <h3>Grow</h3>
+          <p>We track the numbers, report plainly, and keep optimising for results you can measure.</p>
+        </li>
+      </ol>
+      <div class="section-cta reveal" style="text-align:center; margin-top:48px;">
+        <a href="/process/" class="btn btn-secondary">See how we work</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== INDUSTRIES ========== -->
   <section class="section" id="industries" aria-label="Industries we serve">
     <div class="container">
@@ -610,37 +673,6 @@ const socialSubItems = [
     </div>
   </section>
 
-  <!-- ========== PROCESS ========== -->
-  <section class="section" id="process" aria-label="Our process">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">How We Work</p>
-        <h2>Simple, Transparent Process</h2>
-        <p>From first call to launch in as fast as 2 weeks.</p>
-      </div>
-      <div class="process-grid">
-        <div class="process-step reveal reveal-d1">
-          <h3>Discover</h3>
-          <p>We learn your business, goals, and market, and define what success looks like before any work begins.</p>
-        </div>
-        <div class="process-step reveal reveal-d2">
-          <h3>Plan</h3>
-          <p>We set the strategy, choose the channels, and agree the priorities and timeline with you.</p>
-        </div>
-        <div class="process-step reveal reveal-d3">
-          <h3>Execute</h3>
-          <p>We build and run the work — websites, campaigns, and content — to a clear brief and standard.</p>
-        </div>
-        <div class="process-step reveal reveal-d4">
-          <h3>Grow</h3>
-          <p>We track the numbers, report plainly, and keep optimising for results you can measure.</p>
-        </div>
-      </div>
-      <div class="section-cta reveal" style="text-align: center; margin-top: 40px;">
-        <a href="/process/" class="btn btn-secondary">Learn More About Our Process</a>
-      </div>
-    </div>
-  </section>
 
 
   <!-- ========== BLOG ========== -->
