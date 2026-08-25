@@ -405,21 +405,35 @@ const socialSubItems = [
         linear-gradient(180deg, #0d1116 0%, #0a0c10 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
-    /* dynamic drifting aurora background */
-    #services::before {
-      content: ''; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
-      background:
-        radial-gradient(38% 40% at 28% 32%, rgba(73,184,137,0.20) 0%, transparent 62%),
-        radial-gradient(36% 38% at 74% 68%, rgba(57,187,157,0.16) 0%, transparent 62%),
-        radial-gradient(30% 34% at 55% 12%, rgba(73,184,137,0.10) 0%, transparent 60%);
-      animation: svcAurora 18s ease-in-out infinite alternate;
+
+    /* animated background layer — drifting orbs + slow light sweep (carousel untouched) */
+    .svc-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .svc-orb { position: absolute; border-radius: 50%; filter: blur(58px); will-change: transform; }
+    .svc-orb--1 {
+      width: 46vw; height: 46vw; max-width: 660px; max-height: 660px; left: -8%; top: -18%;
+      background: radial-gradient(circle, rgba(73,184,137,0.34) 0%, rgba(73,184,137,0) 68%);
+      animation: svcOrb1 26s ease-in-out infinite alternate;
     }
-    @keyframes svcAurora {
-      0%   { transform: translate(0, 0) scale(1); }
-      50%  { transform: translate(4%, -3%) scale(1.1); }
-      100% { transform: translate(-4%, 3%) scale(1.05); }
+    .svc-orb--2 {
+      width: 38vw; height: 38vw; max-width: 560px; max-height: 560px; right: -6%; bottom: -20%;
+      background: radial-gradient(circle, rgba(57,187,157,0.30) 0%, rgba(57,187,157,0) 68%);
+      animation: svcOrb2 34s ease-in-out infinite alternate;
     }
-    @media (prefers-reduced-motion: reduce) { #services::before { animation: none; } }
+    .svc-orb--3 {
+      width: 28vw; height: 28vw; max-width: 420px; max-height: 420px; left: 44%; top: 2%;
+      background: radial-gradient(circle, rgba(120,222,182,0.22) 0%, rgba(120,222,182,0) 70%);
+      animation: svcOrb3 22s ease-in-out infinite alternate;
+    }
+    .svc-sheen {
+      position: absolute; inset: -45%;
+      background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(73,184,137,0.07) 55deg, transparent 130deg, transparent 360deg);
+      animation: svcSheen 44s linear infinite;
+    }
+    @keyframes svcOrb1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(15%,10%) scale(1.14); } }
+    @keyframes svcOrb2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-13%,-9%) scale(1.12); } }
+    @keyframes svcOrb3 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-10%,13%) scale(0.9); } }
+    @keyframes svcSheen { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .svc-orb, .svc-sheen { animation: none; } }
     /* shrink service cards so the section fits the window */
     #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
@@ -453,6 +467,12 @@ const socialSubItems = [
 
   <!-- ========== SERVICES ========== -->
   <section class="section" id="services" aria-label="Our services">
+    <div class="svc-bg" aria-hidden="true">
+      <span class="svc-orb svc-orb--1"></span>
+      <span class="svc-orb svc-orb--2"></span>
+      <span class="svc-orb svc-orb--3"></span>
+      <span class="svc-sheen"></span>
+    </div>
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Services</p>
