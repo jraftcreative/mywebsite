@@ -10,6 +10,18 @@ const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
+// Trusted-by conveyor — client logos in the order Jeremy specified (naming cleared).
+// s = per-logo scale so visual weight is even (square icons bigger, wide wordmarks smaller).
+const clientLogos = [
+  { src: '/images/clients/maplebear-jg.webp', alt: 'Maple Bear Jurong Gateway', s: 1.35 },
+  { src: '/images/clients/pike-six.webp', alt: 'PIKE SIX', s: 1.15 },
+  { src: '/images/clients/ax-beauty.webp', alt: 'AX Beauty', s: 1.25 },
+  { src: '/images/clients/kairos.webp', alt: 'Kairos Advisory', s: 0.9 },
+  { src: '/images/clients/mbjc-sengkang.webp', alt: 'Maple Bear Junior Club, Sengkang Campus', s: 1.35 },
+  { src: '/images/clients/music-with-pat.webp', alt: 'Music with Pat', s: 1.35 },
+  { src: '/images/clients/translatr.webp', alt: 'Translatr', s: 1.15 },
+];
+
 const schemaData = [
   {
     "@context": "https://schema.org",
@@ -227,17 +239,21 @@ const socialSubItems = [
     </div>
   </section>
 
-  <!-- ========== TRUSTED BY (PREVIEW — confirm naming permission per client) ========== -->
-  <section class="trust-by" aria-label="Trusted by">
+  <!-- ========== TRUSTED BY — client-logo conveyor (naming cleared by Jeremy) ========== -->
+  <section class="trust-by" aria-label="Trusted by businesses across Singapore">
     <div class="container">
       <p class="tb-label">Trusted by businesses across Singapore</p>
-      <div class="tb-names">
-        <span>Music with Pat</span>
-        <span>Maple Bear Jurong Gateway</span>
-        <span>AX Beauty</span>
-        <span>Janice Chan</span>
-        <span>Eshine Curtain &amp; Blinds</span>
-        <span class="tb-more">…and many more</span>
+    </div>
+    <div class="tb-marquee">
+      <div class="tb-track">
+        {[0, 1].map(() => (
+          <div class="tb-group" aria-hidden={false}>
+            {clientLogos.map((logo) => (
+              <img class="tb-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
+            ))}
+            <span class="tb-more">…and many more</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -316,13 +332,37 @@ const socialSubItems = [
     }
     .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    /* Trusted-by strip */
-    .trust-by { padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; }
+    /* Trusted-by conveyor */
+    .trust-by { padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
     .trust-by .container { text-align: center; }
-    .tb-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 16px; }
-    .tb-names { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px; }
-    .tb-names span { font-weight: 600; font-size: 1.05rem; color: #d7dade; opacity: 0.9; }
-    .tb-names .tb-more { color: var(--accent); opacity: 1; }
+    .tb-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 22px; }
+    .tb-marquee {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+    .tb-track { display: flex; align-items: center; width: max-content; --tb-h: 34px; animation: tb-scroll 48s linear infinite; }
+    .tb-group { display: contents; }
+    .tb-marquee:hover .tb-track { animation-play-state: paused; }
+    .tb-logo {
+      height: calc(var(--tb-h) * var(--s, 1)); width: auto; max-width: 160px;
+      object-fit: contain; flex: 0 0 auto;
+      margin-right: 62px; opacity: 0.78;
+      transition: opacity 0.25s ease;
+    }
+    .tb-logo:hover { opacity: 1; }
+    .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; flex: 0 0 auto; margin-right: 62px; }
+    @keyframes tb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .tb-track { animation: none; flex-wrap: wrap; justify-content: center; }
+      .tb-logo, .tb-more { margin: 10px 28px; }
+    }
+    @media (max-width: 640px) {
+      .tb-track { --tb-h: 26px; }
+      .tb-logo { margin-right: 44px; max-width: 128px; }
+      .tb-more { margin-right: 44px; font-size: 0.9rem; }
+    }
 
     /* Proof block */
     .proof {
