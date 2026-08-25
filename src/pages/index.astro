@@ -409,9 +409,8 @@ const socialSubItems = [
     #services::before {
       content: ''; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(38% 40% at 28% 32%, rgba(73,184,137,0.20) 0%, transparent 62%),
-        radial-gradient(36% 38% at 74% 68%, rgba(57,187,157,0.16) 0%, transparent 62%),
-        radial-gradient(30% 34% at 55% 12%, rgba(73,184,137,0.10) 0%, transparent 60%);
+        radial-gradient(38% 40% at 28% 32%, rgba(73,184,137,0.08) 0%, transparent 62%),
+        radial-gradient(36% 38% at 74% 68%, rgba(57,187,157,0.06) 0%, transparent 62%);
       animation: svcAurora 18s ease-in-out infinite alternate;
     }
     @keyframes svcAurora {
@@ -420,19 +419,18 @@ const socialSubItems = [
       100% { transform: translate(-4%, 3%) scale(1.05); }
     }
     @media (prefers-reduced-motion: reduce) { #services::before { animation: none; } }
-    /* center spotlight — soft green glow behind the focused card, gently pulsing */
-    .svc-spotlight {
-      position: absolute; left: 50%; top: 56%; transform: translate(-50%, -50%);
-      width: min(900px, 88%); height: 540px; z-index: 0; pointer-events: none;
-      background: radial-gradient(ellipse at center, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.08) 42%, transparent 70%);
-      filter: blur(16px);
-      animation: svcSpot 6.5s ease-in-out infinite;
+    /* kinetic wordmark — giant faint service words drifting behind the cards */
+    .svc-wordmarq {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
+      display: flex; align-items: center;
     }
-    @keyframes svcSpot {
-      0%, 100% { opacity: 0.72; transform: translate(-50%, -50%) scale(1); }
-      50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.07); }
+    .swm-row { display: flex; white-space: nowrap; animation: swmScroll 44s linear infinite; }
+    .swm-row span {
+      font-size: clamp(4rem, 11vw, 9.5rem); font-weight: 800; line-height: 1;
+      letter-spacing: -0.03em; text-transform: uppercase; color: rgba(255, 255, 255, 0.038);
     }
-    @media (prefers-reduced-motion: reduce) { .svc-spotlight { animation: none; } }
+    @keyframes swmScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .swm-row { animation: none; } }
     /* shrink service cards so the section fits the window */
     #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
@@ -466,7 +464,12 @@ const socialSubItems = [
 
   <!-- ========== SERVICES ========== -->
   <section class="section" id="services" aria-label="Our services">
-    <div class="svc-spotlight" aria-hidden="true"></div>
+    <div class="svc-wordmarq" aria-hidden="true">
+      <div class="swm-row">
+        <span>Websites&nbsp;&middot;&nbsp;SEO&nbsp;&middot;&nbsp;Google&nbsp;Ads&nbsp;&middot;&nbsp;Social&nbsp;&middot;&nbsp;AI&nbsp;Search&nbsp;&middot;&nbsp;</span>
+        <span>Websites&nbsp;&middot;&nbsp;SEO&nbsp;&middot;&nbsp;Google&nbsp;Ads&nbsp;&middot;&nbsp;Social&nbsp;&middot;&nbsp;AI&nbsp;Search&nbsp;&middot;&nbsp;</span>
+      </div>
+    </div>
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Services</p>
