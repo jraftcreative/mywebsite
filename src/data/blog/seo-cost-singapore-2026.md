@@ -118,4 +118,6 @@ For most Singapore small businesses, expect to spend **S$800 to S$2,500 a month*
 
 SEO is a long game. Results build over months, not days. But it's one of the few marketing investments that keeps working after you've paid for it. The right question isn't "what's the cheapest?" It's "what am I actually getting, and can they prove it?"
 
+And if you're weighing paid ads alongside SEO, it's worth knowing what that costs too — we broke it down in [how much Google and Meta ads cost in Singapore](/blog/google-meta-ads-cost-singapore-2026/).
+
 Not sure what your business actually needs — or whether you're overpaying for what you've got now? [Talk to Jraft Creative](/contact/). We'll give you a straight read on where you stand, no jargon and no hard sell.
