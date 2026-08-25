@@ -386,36 +386,33 @@ const socialSubItems = [
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
     /* shrink service cards so the section fits the window */
+    #services { overflow: hidden; }
     #services .section-header h2 { color: var(--accent); }
-    #services :global(.service-card) { min-height: 0 !important; height: 260px !important; }
-    /* services carousel (preview) */
-    .svc-carousel { position: relative; margin-top: 36px; }
-    .svc-track {
-      display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
-      scroll-behavior: smooth; padding: 6px 2px; cursor: grab;
-      scrollbar-width: none; -ms-overflow-style: none;
-    }
-    .svc-track:active { cursor: grabbing; }
-    .svc-track::-webkit-scrollbar { display: none; }
+    #services :global(.service-card) { min-height: 0 !important; height: 260px !important; width: 100% !important; }
+    /* services coverflow carousel (preview) */
+    .svc-carousel { position: relative; margin-top: 44px; perspective: 1600px; }
+    .svc-track { position: relative; height: 292px; transform-style: preserve-3d; }
     .svc-card-link {
-      display: block; text-decoration: none; color: inherit;
-      flex: 0 0 clamp(280px, 32%, 380px); scroll-snap-align: start;
+      position: absolute; top: 16px; left: 50%; width: 360px; margin-left: -180px;
+      text-decoration: none; color: inherit;
+      transition: transform 0.55s cubic-bezier(0.22,0.61,0.36,1), opacity 0.5s ease, filter 0.5s ease;
+      will-change: transform, opacity;
     }
     .svc-nav {
-      position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
-      width: 46px; height: 46px; border-radius: 50%;
-      border: 1px solid rgba(73,184,137,0.4); background: rgba(11,13,17,0.82);
-      color: var(--accent); font-size: 1.7rem; line-height: 1; cursor: pointer;
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
+      width: 50px; height: 50px; border-radius: 50%;
+      border: 1px solid rgba(73,184,137,0.45); background: rgba(11,13,17,0.85);
+      color: var(--accent); font-size: 1.8rem; line-height: 1; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       backdrop-filter: blur(4px); transition: background 0.2s ease, border-color 0.2s ease;
     }
-    .svc-nav:hover { background: rgba(73,184,137,0.16); border-color: var(--accent); }
-    .svc-prev { left: -10px; }
-    .svc-next { right: -10px; }
+    .svc-nav:hover { background: rgba(73,184,137,0.2); border-color: var(--accent); }
+    .svc-prev { left: 3%; }
+    .svc-next { right: 3%; }
     @media (max-width: 700px) {
       #services { min-height: auto; padding: 64px 0; }
-      .svc-nav { display: none; }
-      .svc-card-link { flex: 0 0 82%; }
+      .svc-track { height: 300px; }
+      .svc-card-link { width: 280px; margin-left: -140px; }
     }
   </style>
 
@@ -481,24 +478,59 @@ const socialSubItems = [
 
   <script>
     (function () {
-      const track = document.getElementById('svcTrack');
-      if (!track) return;
-      const step = () => {
-        const card = track.querySelector('.svc-card-link');
-        const gap = parseInt(getComputedStyle(track).columnGap || '20', 10) || 20;
-        return (card ? card.offsetWidth : 340) + gap;
-      };
+      const stage = document.getElementById('svcTrack');
+      if (!stage) return;
+      const items = Array.from(stage.querySelectorAll('.svc-card-link'));
+      const n = items.length;
+      if (!n) return;
+      let active = 0;
+
+      function render() {
+        items.forEach((el, i) => {
+          let off = i - active;
+          if (off > n / 2) off -= n;
+          if (off < -n / 2) off += n;
+          const abs = Math.abs(off);
+          const visible = abs <= 2;
+          const tx = off * 46;
+          const tz = -abs * 165;
+          const ry = -off * 38;
+          const sc = Math.max(0.62, 1 - abs * 0.16);
+          el.style.transform = 'translateX(' + tx + '%) translateZ(' + tz + 'px) rotateY(' + ry + 'deg) scale(' + sc + ')';
+          el.style.opacity = visible ? (abs === 0 ? '1' : String(0.72 - abs * 0.2)) : '0';
+          el.style.filter = abs === 0 ? 'none' : 'brightness(' + (1 - abs * 0.3) + ')';
+          el.style.zIndex = String(100 - abs);
+          el.style.pointerEvents = visible ? 'auto' : 'none';
+        });
+      }
+      function go(d) { active = (active + d + n) % n; render(); }
+
       const prev = document.querySelector('.svc-prev');
       const next = document.querySelector('.svc-next');
-      prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-      next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-      // drag-to-scroll (desktop)
-      let down = false, startX = 0, startScroll = 0, moved = false;
-      track.addEventListener('pointerdown', (e) => { down = true; moved = false; startX = e.clientX; startScroll = track.scrollLeft; track.setPointerCapture(e.pointerId); });
-      track.addEventListener('pointermove', (e) => { if (!down) return; const dx = e.clientX - startX; if (Math.abs(dx) > 5) moved = true; track.scrollLeft = startScroll - dx; });
-      track.addEventListener('pointerup', (e) => { down = false; track.releasePointerCapture(e.pointerId); });
-      // prevent a drag from triggering the card link click
-      track.querySelectorAll('.svc-card-link').forEach((a) => a.addEventListener('click', (e) => { if (moved) e.preventDefault(); }));
+      prev && prev.addEventListener('click', function () { go(-1); });
+      next && next.addEventListener('click', function () { go(1); });
+
+      // hover an arrow to spin the carousel
+      let spin = null;
+      function startSpin(d) { stopSpin(); spin = setInterval(function () { go(d); }, 620); }
+      function stopSpin() { if (spin) { clearInterval(spin); spin = null; } }
+      if (prev) { prev.addEventListener('mouseenter', function () { startSpin(-1); }); prev.addEventListener('mouseleave', stopSpin); }
+      if (next) { next.addEventListener('mouseenter', function () { startSpin(1); }); next.addEventListener('mouseleave', stopSpin); }
+
+      // click a side card to bring it to centre; centre card follows its link
+      items.forEach(function (el, i) {
+        el.addEventListener('click', function (e) { if (i !== active) { e.preventDefault(); active = i; render(); } });
+      });
+
+      // gentle auto-rotate, paused while hovering the carousel
+      const carousel = stage.closest('.svc-carousel');
+      let auto = setInterval(function () { go(1); }, 5000);
+      if (carousel) {
+        carousel.addEventListener('mouseenter', function () { clearInterval(auto); auto = null; });
+        carousel.addEventListener('mouseleave', function () { stopSpin(); if (!auto) auto = setInterval(function () { go(1); }, 5000); });
+      }
+
+      render();
     })();
   </script>
 
