@@ -357,8 +357,22 @@ const socialSubItems = [
     .tb-logo:hover { opacity: 1; }
     .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; flex: 0 0 auto; }
 
-    /* separate each section on the black page with a hairline divider */
-    .proof, #services, #process, #industries, #blog { border-top: 1px solid rgba(255,255,255,0.09); }
+    /* each section gets a distinct green position + subtly different near-black shade so they read as
+       separate blocks that still flow as one page (not identical slides) */
+    #industries {
+      position: relative;
+      background:
+        radial-gradient(50% 55% at 10% 8%, rgba(73,184,137,0.13) 0%, transparent 62%),
+        linear-gradient(180deg, #070709 0%, #040405 100%);
+    }
+    #industries > .container { position: relative; z-index: 1; }
+    #blog {
+      position: relative;
+      background:
+        radial-gradient(52% 55% at 90% 92%, rgba(57,187,157,0.13) 0%, transparent 62%),
+        linear-gradient(180deg, #000000 0%, #000000 100%);
+    }
+    #blog > .container { position: relative; z-index: 1; }
 
     /* Proof block */
     .proof {
@@ -409,9 +423,9 @@ const socialSubItems = [
       justify-content: center;
       padding: 48px 0 96px;
       background:
-        radial-gradient(58% 55% at 16% 10%, rgba(73,184,137,0.26) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
-        radial-gradient(52% 58% at 90% 92%, rgba(57,187,157,0.20) 0%, transparent 60%),
-        linear-gradient(180deg, #000000 0%, #000000 100%);
+        radial-gradient(55% 52% at 85% 6%, rgba(73,184,137,0.24) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(50% 56% at 6% 66%, rgba(57,187,157,0.17) 0%, transparent 60%),
+        linear-gradient(180deg, #08080b 0%, #050506 100%);
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
 
@@ -419,8 +433,8 @@ const socialSubItems = [
     #process.hp-proc {
       position: relative; overflow: hidden;
       background:
-        radial-gradient(52% 55% at 88% 8%, rgba(73,184,137,0.24) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
-        radial-gradient(50% 56% at 10% 94%, rgba(57,187,157,0.18) 0%, transparent 60%),
+        radial-gradient(48% 52% at 90% 44%, rgba(73,184,137,0.22) 0%, rgba(73,184,137,0.05) 42%, transparent 66%),
+        radial-gradient(52% 55% at 14% 96%, rgba(57,187,157,0.16) 0%, transparent 60%),
         linear-gradient(180deg, #000000 0%, #000000 100%);
     }
     #process.hp-proc > .container { position: relative; z-index: 1; }
