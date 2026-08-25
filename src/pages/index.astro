@@ -386,11 +386,37 @@ const socialSubItems = [
     }
     #services > .container { position: relative; z-index: 1; width: 100%; }
     /* shrink service cards so the section fits the window */
-    #services .services-grid { margin-top: 34px; gap: 18px; }
-    #services :global(.service-card) { min-height: 0 !important; height: 188px !important; }
     #services .section-header h2 { color: var(--accent); }
-    .svc-card-link { display: block; text-decoration: none; color: inherit; cursor: pointer; }
-    @media (max-width: 700px) { #services { min-height: auto; padding: 64px 0; } }
+    #services :global(.service-card) { min-height: 0 !important; height: 260px !important; }
+    /* services carousel (preview) */
+    .svc-carousel { position: relative; margin-top: 36px; }
+    .svc-track {
+      display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; padding: 6px 2px; cursor: grab;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .svc-track:active { cursor: grabbing; }
+    .svc-track::-webkit-scrollbar { display: none; }
+    .svc-card-link {
+      display: block; text-decoration: none; color: inherit;
+      flex: 0 0 clamp(280px, 32%, 380px); scroll-snap-align: start;
+    }
+    .svc-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 6;
+      width: 46px; height: 46px; border-radius: 50%;
+      border: 1px solid rgba(73,184,137,0.4); background: rgba(11,13,17,0.82);
+      color: var(--accent); font-size: 1.7rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px); transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .svc-nav:hover { background: rgba(73,184,137,0.16); border-color: var(--accent); }
+    .svc-prev { left: -10px; }
+    .svc-next { right: -10px; }
+    @media (max-width: 700px) {
+      #services { min-height: auto; padding: 64px 0; }
+      .svc-nav { display: none; }
+      .svc-card-link { flex: 0 0 82%; }
+    }
   </style>
 
   <!-- ========== SERVICES ========== -->
@@ -403,7 +429,9 @@ const socialSubItems = [
       <div class="section-content reveal">
         <p><a href="/services/website-development/">Websites</a>, <a href="/services/seo-performance/">SEO</a>, <a href="/google-ads-agency-singapore/">Google Ads</a>, <a href="/services/social-media/">social</a>, and <a href="/geo-agency-singapore/">AI search (GEO)</a> — one team, under one roof. Strategy through execution, measured on what it brings back.</p>
       </div>
-      <div class="services-grid services-grid-5">
+      <div class="svc-carousel">
+        <button class="svc-nav svc-prev" type="button" aria-label="Previous services">&lsaquo;</button>
+        <div class="svc-track" id="svcTrack">
         <a class="svc-card-link" href="/services/website-development/">
           <ServiceCard
             title="Website Development"
@@ -444,10 +472,35 @@ const socialSubItems = [
             revealClass="reveal-d1"
           />
         </a>
+        </div>
+        <button class="svc-nav svc-next" type="button" aria-label="Next services">&rsaquo;</button>
       </div>
 
     </div>
   </section>
+
+  <script>
+    (function () {
+      const track = document.getElementById('svcTrack');
+      if (!track) return;
+      const step = () => {
+        const card = track.querySelector('.svc-card-link');
+        const gap = parseInt(getComputedStyle(track).columnGap || '20', 10) || 20;
+        return (card ? card.offsetWidth : 340) + gap;
+      };
+      const prev = document.querySelector('.svc-prev');
+      const next = document.querySelector('.svc-next');
+      prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+      next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+      // drag-to-scroll (desktop)
+      let down = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('pointerdown', (e) => { down = true; moved = false; startX = e.clientX; startScroll = track.scrollLeft; track.setPointerCapture(e.pointerId); });
+      track.addEventListener('pointermove', (e) => { if (!down) return; const dx = e.clientX - startX; if (Math.abs(dx) > 5) moved = true; track.scrollLeft = startScroll - dx; });
+      track.addEventListener('pointerup', (e) => { down = false; track.releasePointerCapture(e.pointerId); });
+      // prevent a drag from triggering the card link click
+      track.querySelectorAll('.svc-card-link').forEach((a) => a.addEventListener('click', (e) => { if (moved) e.preventDefault(); }));
+    })();
+  </script>
 
 
   <!-- ========== TRUST BAR ========== -->
