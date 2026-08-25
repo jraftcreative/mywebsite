@@ -476,21 +476,28 @@ const socialSubItems = [
     .hp-flow {
       list-style: none; margin: 56px 0 0; padding: 0;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 30px;
+      position: relative; text-align: center;
+    }
+    /* connecting line behind the centred dots (dot centres sit at 12.5 / 37.5 / 62.5 / 87.5%) */
+    .hp-flow::before {
+      content: ''; position: absolute; top: 6px; left: 12.5%; right: 12.5%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(73,184,137,0.4) 10%, rgba(73,184,137,0.4) 90%, transparent);
     }
     .hp-step { position: relative; }
-    .hp-step-top { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; height: 14px; }
+    .hp-step-top { display: flex; justify-content: center; margin-bottom: 22px; height: 13px; }
+    .hp-line { display: none; }
     .hp-dot {
-      flex: 0 0 auto; width: 13px; height: 13px; border-radius: 50%;
+      position: relative; z-index: 1;
+      width: 13px; height: 13px; border-radius: 50%;
       background: var(--accent); box-shadow: 0 0 0 5px rgba(73,184,137,0.14);
       transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
-    .hp-line { flex: 1 1 auto; height: 1px; background: linear-gradient(90deg, rgba(73,184,137,0.5), rgba(73,184,137,0.04)); }
     .hp-step h3 { font-size: 1.18rem; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
-    .hp-step p { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); margin: 0; max-width: 26ch; }
+    .hp-step p { font-size: 0.92rem; line-height: 1.65; color: var(--text-muted); margin: 0 auto; max-width: 26ch; }
     .hp-step:hover .hp-dot { box-shadow: 0 0 0 7px rgba(73,184,137,0.22); transform: scale(1.15); }
     @media (max-width: 860px) {
       .hp-flow { grid-template-columns: 1fr 1fr; gap: 40px 30px; }
-      .hp-line { display: none; }
+      .hp-flow::before { display: none; }
     }
     @media (max-width: 520px) {
       .hp-flow { grid-template-columns: 1fr; gap: 28px; }
@@ -646,7 +653,7 @@ const socialSubItems = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">How We Work</p>
-        <h2>From first call to launch</h2>
+        <h2>From <span style="color: var(--accent)">first call</span> to <span style="color: var(--accent)">launch</span></h2>
         <p>A clear path from the first conversation to results you can measure — in as fast as two weeks.</p>
       </div>
       <ol class="hp-flow reveal">
