@@ -49,7 +49,7 @@ Google Ads runs on a cost-per-click (CPC) model. You pay each time someone click
 - **$3–$8** for moderately competitive industries (education, healthcare)
 - **$8–$20+** for highly competitive industries (legal, insurance, finance)
 
-Most Singapore SMEs we work with spend **$1,000–$3,000/month** on Google Ads. At that budget, you're looking at roughly 150–500 clicks per month depending on your industry.
+Most Singapore SMEs we work with spend **$1,000–$3,000/month** on Google Ads. At that budget, you're looking at roughly 150–500 clicks per month depending on your industry. For the full picture — including management fees and how to set a starting budget — see our guide on [how much Google and Meta ads cost in Singapore](/blog/google-meta-ads-cost-singapore-2026/).
 
 ## How Meta Ads Works
 
