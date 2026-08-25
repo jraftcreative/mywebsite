@@ -240,21 +240,23 @@ const socialSubItems = [
   </section>
 
   <!-- ========== TRUSTED BY — client-logo conveyor (naming cleared by Jeremy) ========== -->
-  <section class="trust-by" aria-label="Trusted by businesses across Singapore">
+  <section class="trust-by" aria-label="Trusted by businesses in Singapore">
     <div class="container">
-      <p class="tb-label">Trusted by businesses across Singapore</p>
+      <p class="tb-label">Trusted by businesses in Singapore</p>
     </div>
     <div class="tb-marquee">
-      <div class="tb-track">
-        {[0, 1].map(() => (
-          <div class="tb-group" aria-hidden={false}>
-            {clientLogos.map((logo) => (
-              <img class="tb-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
-            ))}
-            <span class="tb-more">…and many more</span>
-          </div>
-        ))}
+      <div class="tb-viewport">
+        <div class="tb-track">
+          {[0, 1].map((_, i) => (
+            <div class="tb-group" aria-hidden={i === 1 ? 'true' : 'false'}>
+              {clientLogos.map((logo) => (
+                <img class="tb-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
+      <div class="tb-more-wrap"><span class="tb-more">…and many more</span></div>
     </div>
   </section>
 
@@ -333,16 +335,16 @@ const socialSubItems = [
     .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
     /* Trusted-by conveyor */
-    .trust-by { padding: 28px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
+    .trust-by { padding: 46px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
     .trust-by .container { text-align: center; }
-    .tb-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 22px; }
-    .tb-marquee {
-      position: relative;
+    .tb-label { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 30px; }
+    .tb-marquee { position: relative; overflow: hidden; }
+    .tb-viewport {
       overflow: hidden;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 5%, #000 100%);
     }
-    .tb-track { display: flex; align-items: center; width: max-content; --tb-h: 34px; animation: tb-scroll 48s linear infinite; }
+    .tb-track { display: flex; align-items: center; width: max-content; --tb-h: 40px; animation: tb-scroll 48s linear infinite; }
     .tb-group { display: contents; }
     .tb-marquee:hover .tb-track { animation-play-state: paused; }
     .tb-logo {
@@ -352,16 +354,27 @@ const socialSubItems = [
       transition: opacity 0.25s ease;
     }
     .tb-logo:hover { opacity: 1; }
-    .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; flex: 0 0 auto; margin-right: 62px; }
+    /* '…and many more' stays pinned on the right; logos scroll behind it and fade out */
+    .tb-more-wrap {
+      position: absolute; top: 0; right: 0; height: 100%;
+      display: flex; align-items: center;
+      padding-left: 104px;
+      padding-right: max(28px, calc((100vw - 1160px) / 2 + 28px));
+      background: linear-gradient(90deg, transparent 0, #0d0d12 92px);
+      pointer-events: none;
+    }
+    .tb-more { color: var(--accent); font-weight: 600; font-size: 0.98rem; white-space: nowrap; }
     @keyframes tb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) {
       .tb-track { animation: none; flex-wrap: wrap; justify-content: center; }
-      .tb-logo, .tb-more { margin: 10px 28px; }
+      .tb-logo { margin: 10px 28px; }
+      .tb-more-wrap { position: static; height: auto; padding: 4px 0 10px; justify-content: center; background: none; }
     }
     @media (max-width: 640px) {
-      .tb-track { --tb-h: 26px; }
+      .tb-track { --tb-h: 30px; }
       .tb-logo { margin-right: 44px; max-width: 128px; }
-      .tb-more { margin-right: 44px; font-size: 0.9rem; }
+      .tb-more { font-size: 0.9rem; }
+      .tb-more-wrap { padding-left: 56px; padding-right: 18px; background: linear-gradient(90deg, transparent 0, #0d0d12 46px); }
     }
 
     /* Proof block */
