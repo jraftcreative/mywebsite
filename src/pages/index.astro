@@ -418,6 +418,10 @@ const socialSubItems = [
       margin: 0; padding: 0 22px 20px; color: var(--text-muted); line-height: 1.7; font-size: 0.96rem;
     }
 
+    /* industries: make the internal-link line read as links, not grey text */
+    #industries .section-content a { color: var(--accent); font-weight: 500; text-decoration: none; }
+    #industries .section-content a:hover { text-decoration: underline; }
+
     /* Proof block */
     .proof {
       position: relative;
@@ -686,7 +690,7 @@ const socialSubItems = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Industries</p>
-        <h2>Industries We Specialise In</h2>
+        <h2><span style="color: var(--accent)">Industries</span> We <span style="color: var(--accent)">Specialise In</span></h2>
         <p>Deep expertise in the industries where we deliver the most impact.</p>
       </div>
       <div class="industries-grid">
