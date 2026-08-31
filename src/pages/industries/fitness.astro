@@ -148,6 +148,62 @@ const schemaData = [
       display: none;
     }
   }
+
+  /* Case study — KPI stat grid */
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 40px;
+  }
+  .case-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 158px;
+    padding: 26px 12px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .case-stat:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .case-stat .num {
+    display: block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .case-stat .lbl {
+    display: block;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    opacity: 0.85;
+    margin-top: 12px;
+    line-height: 1.35;
+    max-width: 13ch;
+  }
+  #case-study a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s ease;
+  }
+  #case-study a:hover { opacity: 0.8; }
+  @media (max-width: 1150px) { .case-stats { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 760px) { .case-stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .case-stats { grid-template-columns: 1fr; } }
 </style>
 
 <ServiceLayout
@@ -211,6 +267,63 @@ const schemaData = [
       </div>
     </div>
   </section>
+
+  <!-- ========== CASE STUDY ========== -->
+  <section class="section" id="case-study" aria-label="PIKE SIX pilates studio case study">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Case Study</p>
+        <h2>How We Launched <span class="highlight">PIKE SIX</span> Before <span class="highlight">Opening Day</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>A new reformer pilates studio came to us before opening with one goal — fill its founding presale. We built a <a href="https://joinpikesix.com/" target="_blank" rel="noopener">high-converting landing page</a> and ran Meta and Google ads to it. In the first 19 days, here's what it returned.</p>
+      </div>
+      <div class="case-stats reveal">
+        <div class="case-stat"><span class="num" data-target="269">0</span><span class="lbl">Registrations captured</span></div>
+        <div class="case-stat"><span class="num" data-target="89">0</span><span class="lbl">Paying members</span></div>
+        <div class="case-stat"><span class="num" data-prefix="S$" data-target="3.85" data-decimals="2">0</span><span class="lbl">Cost per lead</span></div>
+        <div class="case-stat"><span class="num" data-prefix="~S$" data-target="17">0</span><span class="lbl">Ad cost per member</span></div>
+        <div class="case-stat"><span class="num" data-target="2.9" data-decimals="1" data-suffix="×">0</span><span class="lbl">Return on ad spend</span></div>
+      </div>
+      <div class="section-content reveal" style="margin-top: 32px;">
+        <p>The standout: that cost-per-lead sits three to nine times below the S$13–33 boutique-fitness norm — the kind of efficiency that fills a studio before it opens. This is the same playbook we bring to every studio launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function format(el, val) {
+        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        return prefix + val.toFixed(decimals) + suffix;
+      }
+      function run(el) {
+        var target = parseFloat(el.getAttribute('data-target')) || 0;
+        if (reduce) { el.textContent = format(el, target); return; }
+        var dur = 1600, start = null;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / dur, 1);
+          el.textContent = format(el, easeOut(p) * target);
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = format(el, target);
+        }
+        requestAnimationFrame(step);
+      }
+      var nums = document.querySelectorAll('#case-study .num[data-target]');
+      if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      nums.forEach(function (n) { io.observe(n); });
+    })();
+  </script>
 
   <!-- ========== WHAT WE DELIVER ========== -->
   <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="The six marketing channels we deliver for fitness and sports businesses">
