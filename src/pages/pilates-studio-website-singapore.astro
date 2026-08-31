@@ -29,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a Pilates studio website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you integrate online booking for reformer classes?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Can you integrate online booking for reformer classes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We integrate the booking system your studio already uses — Mindbody, ClassPass, Momence, or similar — so clients see live availability, reserve a specific reformer position, and get automated confirmations and reminders. If you don't have a system yet, we'll recommend one that fits your class formats and budget." } },
       { "@type": "Question", "name": "Do you showcase Pilates equipment on the website?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We build dedicated equipment pages that explain each apparatus — reformer, cadillac, Wunda chair, tower, and spine corrector — with photos and descriptions of how they are used in your classes. This educates new clients who may not know the difference between mat and reformer Pilates, helping them choose the right class type." } },
       { "@type": "Question", "name": "Can you build pages for prenatal and postnatal Pilates programmes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create dedicated programme pages for prenatal and postnatal Pilates — explaining benefits, safety considerations, trimester-specific modifications, and instructor qualifications. These pages are essential for reaching the large number of expectant and new mothers in Singapore who search specifically for pregnancy-safe exercise options." } },
-      { "@type": "Question", "name": "How long does it take to build a Pilates studio website?", "acceptedAnswer": { "@type": "Answer", "text": "Most Pilates studio websites go live within 2 weeks for our Starter package. Business-tier sites with online booking, instructor profiles, and equipment showcases typically take 3 weeks. Premium builds with member portals, video libraries, and multi-location support take 4–5 weeks. We provide a clear timeline before starting." } }
+      { "@type": "Question", "name": "How long does it take to build a Pilates studio website?", "acceptedAnswer": { "@type": "Answer", "text": "Most Pilates studio websites go live within about 2 weeks. Sites with online booking, instructor profiles, and equipment showcases take a little longer, and multi-location builds with member portals longer still. We give you a clear timeline before we start." } }
     ]
   },
   {
@@ -46,6 +46,119 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force even service card grid on desktop per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Pilates Website Flow — horizontal process flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Pilates Studio Website Singapore — Jraft Creative"
   description="Website design for Pilates studios in Singapore — reformer and mat class timetables, instructor profiles with Stott."
@@ -57,16 +170,16 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Pilates Studio Websites"
   heroTitle='Website Design for <span class="highlight">Pilates Studios in Singapore</span>'
-  heroSubtitle="Reformer Pilates has become one of Singapore's fastest-growing fitness segments, and clients are researching studios online before booking their first session. We build Pilates studio websites that showcase your equipment, highlight instructor certifications, and make class booking seamless — so you can keep every reformer bed full."
+  heroSubtitle="Reformer pilates is one of Singapore's fastest-growing fitness segments, and clients research studios online before booking their first session. We build pilates studio websites that showcase your equipment, prove your instructors' credentials, and make booking effortless — so every reformer bed stays full."
   heroImage="/images/service-pilates.webp"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Request a Quote", href: "/contact/", class: "btn btn-secondary" }
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my pilates studio in Singapore."
   ctaLabel="Ready to Grow Your Pilates Studio?"
   ctaTitle="Get Your Pilates Studio Online"
-  ctaDescription="Tell us about your studio and we'll recommend the right website package. Free consultation — no obligations, no pressure."
+  ctaDescription="Tell us about your studio and we'll recommend the right website approach. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20pilates%20studio%20in%20Singapore.", class: "btn btn-secondary" }
@@ -78,50 +191,67 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Clients Are Comparing Pilates Studios Online — Is Yours Making the Cut?</h2>
+        <h2>Clients Compare Studios <span class="highlight">Online</span> — Is Yours <span class="highlight">Making the Cut</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Reformer Pilates has surged in popularity across Singapore over the past few years. With new studios opening regularly in neighbourhoods from Tanjong Pagar to Holland Village to Tampines, prospective clients have more choices than ever. Before committing to a class package, they search "reformer Pilates near me" or "best Pilates studio Singapore", compare studios by scrolling through class descriptions, checking instructor certifications, and looking for transparent pricing. If your studio doesn't appear on Google — or your website doesn't answer these questions clearly — those clients are booking elsewhere.</p>
-        <p>Social media helps build awareness, but it can't replace a proper website. A client researching whether to try mat or reformer for the first time needs structured information: what equipment you use, how small your class sizes are, whether your instructors hold Stott, Polestar, or BASI certifications, and how to book a trial. Instagram stories disappear in 24 hours; a well-built website works around the clock.</p>
-        <p>Singapore's Pilates market also serves a significant prenatal and postnatal clientele. Expectant mothers specifically search for pregnancy-safe exercise options and need to see instructor qualifications, safety protocols, and class formats before they commit. Without a dedicated page addressing these concerns, you're leaving a high-value client segment on the table.</p>
+        <p>Reformer pilates is booming across Singapore, and clients compare three to five studios online before they commit. If your website doesn't answer their questions fast, they book the studio that does.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Online Comparison</h3>
+            <p>Before committing, clients scroll class descriptions, check instructor certifications, and look for transparent pricing. A thin or dated site quietly loses them to the studio that presents itself clearly.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Social Isn't Enough</h3>
+            <p>Instagram builds awareness but disappears in 24 hours. A first-timer choosing between mat and reformer needs structured info — equipment, class sizes, certifications, how to book — working around the clock.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Prenatal Gap</h3>
+            <p>Singapore has a large prenatal and postnatal clientele who search specifically for pregnancy-safe classes. With no page addressing safety and qualifications, a high-value segment books elsewhere.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Pilates studio website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Pilates studio website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Pilates Studios</h2>
+        <h2>What We Build for <span class="highlight">Pilates Studios</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every Pilates studio website we create is purpose-built for the industry. We go beyond generic fitness templates — your site will feature dedicated pages for each class type, an equipment showcase that educates first-timers, instructor profiles with recognised certifications, online booking tailored to small-group reformer formats, and membership displays that make pricing crystal clear.</p>
-        <p>Pair your Pilates studio site with <a href="/services/seo-performance/">local SEO services</a> to rank for "reformer Pilates near me" searches in your area, <a href="/services/social-media/">social media marketing</a> to grow your community on Instagram, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak sign-up periods.</p>
+        <p>Every pilates site we build is purpose-made for the industry — dedicated class pages, an equipment showcase that educates first-timers, credentialled instructor profiles, and booking built for small-group reformer formats.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Class Types &amp; Equipment Showcase</h3>
-            <p>Dedicated pages for every class format — mat, reformer, cadillac, tower, and Wunda chair. Each page explains the apparatus, class intensity, group size, and what clients can expect. First-time visitors often don't know the difference between mat and reformer; clear equipment pages convert curious browsers into booked clients.</p>
+            <p>Dedicated pages for mat, reformer, cadillac, tower, and Wunda chair — each explaining the apparatus, intensity, and group size. Clear equipment pages turn curious first-timers into booked clients.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Online Booking for Small-Group Classes</h3>
-            <p>Reformer classes typically cap at 8-12 clients per session, making real-time availability essential. Our booking system shows open spots, lets clients reserve their preferred reformer position, and sends automated confirmations and reminders — reducing no-shows and keeping your schedule optimised.</p>
+            <h3>Online Booking for Small Groups</h3>
+            <p>Reformer classes cap at 8–12, so real-time availability matters. Clients see open spots, reserve a reformer position, and get automated reminders — fewer no-shows, a fuller schedule.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Instructor Profiles &amp; Certifications</h3>
-            <p>Each instructor gets a profile page featuring their certifications — Stott Pilates, Polestar, BASI, or Peak Pilates — along with specialisations such as rehabilitation, prenatal, or athletic performance. Training lineage, years of experience, and a personal teaching philosophy give clients confidence before they book.</p>
+            <p>Profile pages featuring Stott, Polestar, BASI, or Peak Pilates certifications and specialisations like rehab or prenatal. Training and experience give clients confidence before they book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Prenatal, Postnatal &amp; Membership Pages</h3>
-            <p>Dedicated programme pages for prenatal and postnatal Pilates — covering safety, trimester modifications, and instructor qualifications. Membership and pricing pages present your drop-in rates, class packages, and monthly plans side by side, so clients can compare options and purchase directly online.</p>
+            <h3>Prenatal, Postnatal &amp; Membership</h3>
+            <p>Programme pages covering safety, trimester modifications, and qualifications — plus membership pages that lay out your packages side by side so clients compare and purchase online.</p>
           </div>
         </div>
       </div>
@@ -129,51 +259,75 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for Pilates studio website design">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for Pilates studio website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Your Pilates Studio Website</h2>
+        <h2>Why Choose Us for Your <span class="highlight">Pilates Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the Pilates industry in Singapore. Our websites are designed to address the specific challenges Pilates studios face — from differentiating reformer and mat offerings to converting first-time visitors into long-term members in a competitive boutique fitness market.</p>
+        <p>We understand the pilates industry in Singapore — from differentiating reformer and mat offerings to converting first-time visitors into long-term members in a competitive boutique fitness market.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Boutique Fitness Experience</h3>
-            <p>We've built websites for Pilates studios, yoga spaces, and boutique fitness brands across Singapore. We understand the premium, small-group experience your clients expect and we translate that into a digital presence that feels polished, professional, and aligned with your studio's identity.</p>
+            <p>We've built for pilates studios, yoga spaces, and boutique fitness brands across Singapore. We translate the premium, small-group feel into a site that looks the part — polished, not a generic gym template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most Pilates studio websites go live within 2 weeks. We move quickly so you can start capturing online bookings ahead of a new location opening, a studio rebrand, or a seasonal promotion push.</p>
+            <h3>Fast Turnaround</h3>
+            <p>Most pilates sites go live in about 2 weeks — quick enough to catch a new location opening, a studio rebrand, or a seasonal promotion push without missing the demand.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clean, Premium Design</h3>
-            <p>Pilates clients expect a premium experience from the moment they find you online. We design with refined typography, spacious layouts, and a visual language that reflects the sophistication of your studio — not a generic gym website template.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management. We can handle your entire online presence so you can concentrate on delivering exceptional Pilates instruction and growing your client base.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Beyond the site, we run SEO, social, and Google Ads — so your whole online presence pulls in one direction while you concentrate on teaching and growing the studio.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== WEBSITE FLOW ========== -->
+  <section class="section" id="website-flow" style="background: var(--bg-alt);" aria-label="How we build your pilates studio website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From First Call to <span class="highlight">Live Bookings</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>We run the same four-step build on every pilates studio — clear, quick, and made to start taking bookings the moment you go live.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>We map your classes, instructors, and booking needs</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Design</h3>
+          <p>Bespoke pilates design, built mobile-first</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Build</h3>
+          <p>Booking, schedules, and pages wired and tested</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Launch</h3>
+          <p>Live in about 2 weeks, tuned for bookings</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Pilates studio website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Pilates Studio Website Questions Answered</h2>
+        <h2><span class="highlight">Pilates Studio Website</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,11 +336,11 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Can you integrate online booking for reformer classes?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <div class="faq-answer"><p>Yes. We integrate the booking system your studio already uses — Mindbody, ClassPass, Momence, or similar — so clients see live availability, reserve a specific reformer position, and get automated confirmations and reminders. If you don't have a system yet, we'll recommend one that fits your class formats and budget.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Do you showcase Pilates equipment on the website?</summary>
-          <div class="faq-answer"><p>Absolutely. We build dedicated equipment pages that explain each apparatus — reformer, cadillac, Wunda chair, tower, and spine corrector — with photos and descriptions of how they are used in your classes. This educates new clients who may not know the difference between mat and reformer Pilates, helping them choose the right class type for their goals.</p></div>
+          <div class="faq-answer"><p>Absolutely. We build dedicated equipment pages that explain each apparatus — reformer, cadillac, Wunda chair, tower, and spine corrector — with photos and descriptions of how they are used in your classes. This educates new clients who may not know the difference between mat and reformer Pilates, helping them choose the right class type.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>Can you build pages for prenatal and postnatal Pilates programmes?</summary>
@@ -194,13 +348,11 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build a Pilates studio website?</summary>
-          <div class="faq-answer"><p>Most Pilates studio websites go live within 2 weeks for our Starter package. Business-tier sites with online booking, instructor profiles, and equipment showcases typically take 3 weeks. Premium builds with member portals, video libraries, and multi-location support take 4-5 weeks. We provide a clear timeline before starting.</p></div>
+          <div class="faq-answer"><p>Most Pilates studio websites go live within about 2 weeks. Sites with online booking, instructor profiles, and equipment showcases take a little longer, and multi-location builds with member portals longer still. We give you a clear timeline before we start.</p></div>
         </details>
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
@@ -213,6 +365,10 @@ const schemaData = [
       <div class="related-services-grid reveal">
           <a href="/pilates-marketing-singapore/" class="related-service-link">Pilates Marketing</a>
           <a href="/pilates-seo-singapore/" class="related-service-link">Pilates SEO</a>
+          <a href="/pilates-geo-singapore/" class="related-service-link">Pilates GEO</a>
+          <a href="/pilates-ads-singapore/" class="related-service-link">Pilates Google &amp; Meta Ads</a>
+          <a href="/pilates-social-media-singapore/" class="related-service-link">Pilates Social Media</a>
+          <a href="/pilates-branding-singapore/" class="related-service-link">Pilates Branding</a>
       </div>
     </div>
   </section>

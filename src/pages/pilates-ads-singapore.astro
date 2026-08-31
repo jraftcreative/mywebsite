@@ -1,0 +1,340 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pilates Google & Meta Ads Singapore",
+    "description": "Google Ads and Meta (Instagram & Facebook) advertising for pilates studios in Singapore — high-intent search, social campaigns, retargeting, and conversion tracking that fills trial classes.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Pilates Studio Paid Advertising"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should my pilates studio spend on ads?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your goals, your catchment, and your class capacity — there's no one-size number. We size the budget to fill the trial slots you actually have, then scale as the numbers prove out. Book a consultation and we'll recommend a figure." } },
+      { "@type": "Question", "name": "Google Ads or Meta Ads — which is better for a pilates studio?", "acceptedAnswer": { "@type": "Answer", "text": "Usually both, for different jobs. Google captures people already searching for a class; Meta builds demand and shows your studio to the right demographic before they search. We recommend the exact mix in your strategy session." } },
+      { "@type": "Question", "name": "How quickly will I see trial bookings from ads?", "acceptedAnswer": { "@type": "Answer", "text": "Paid ads can drive bookings within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per booked trial." } },
+      { "@type": "Question", "name": "Do you handle the ad creative too?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our team scripts and produces the reels and statics and writes the ad copy. If you have your own class footage, even better — we shape it into ads built to convert." } },
+      { "@type": "Question", "name": "Does the management fee include ad spend?", "acceptedAnswer": { "@type": "Answer", "text": "No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Pilates Google & Meta Ads Singapore", "item": "https://jraftcreative.com/pilates-ads-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Pilates Google & Meta Ads Singapore — Jraft Creative"
+  description="Google Ads and Meta ads for pilates studios in Singapore — high-intent search, Instagram campaigns, retargeting, and tracking that fills trial classes."
+  canonical="https://jraftcreative.com/pilates-ads-singapore/"
+  ogTitle="Pilates Google & Meta Ads Singapore — Jraft Creative"
+  ogDescription="Paid ads for pilates studios in Singapore. Google Search, Instagram, and retargeting that fills trial classes — with tracking that proves every booking."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="pilates google ads singapore, pilates meta ads, pilates instagram ads singapore, pilates studio advertising, reformer pilates ads, pilates marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Pilates Google & Meta Ads"
+  heroTitle='Google &amp; Meta Ads for <span class="highlight">Pilates Studios in Singapore</span>'
+  heroSubtitle="When someone searches 'reformer pilates near me' or scrolls past your studio on Instagram, paid ads put you in front of them the moment they're ready to book — with tracking that proves every trial back to the dollar that won it."
+  heroImage="/images/service-pilates.webp"
+  heroButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need Google and Meta ads for my pilates studio in Singapore."
+  ctaLabel="Ready to Fill Your Trial Classes?"
+  ctaTitle='Get a Free <span class="highlight">Pilates Ad Strategy</span>'
+  ctaDescription="Book a free consultation and we'll map the channels, budget, and tracking that will fill your trial slots — and show you what a booked trial should cost. No obligations."
+  ctaButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20and%20Meta%20ads%20for%20my%20pilates%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why pilates studios need paid ads in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Spending on Ads Without <span class="highlight">Filling Classes</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most pilates studios either boost a post and hope, or avoid ads entirely. Both leave trial slots empty. The studios winning the bookings run tracked campaigns that put them in front of ready-to-book clients.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Boosting Isn't a Strategy</h3>
+            <p>Hitting "boost" on a reel spends money without a plan — no proper targeting, no conversion goal, no idea which dollar brought a trial. Just spend, and a vague hope it worked.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The High-Intent Search You're Missing</h3>
+            <p>"Reformer pilates Orchard", "pilates trial class near me" — these searchers are ready to book now. If you're not in that result, a competitor's ad takes the click and the client.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Tracking, No Truth</h3>
+            <p>Without a pixel and conversion tracking wired properly, you can't tell a booked trial from a wasted click — so you can't scale what works or cut what doesn't.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Paid ad services for pilates studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Ads Built to Fill <span class="highlight">Reformer Beds</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Search captures the clients already looking; social builds the demand and shows your studio to the right people. We run both, wired to a page and a booking system built to convert.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Search Ads</h3>
+            <p>Capture high-intent searches like "reformer pilates Orchard" and "pilates trial class near me" with tightly-themed campaigns that send ready-to-book clients to a page built to convert.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Meta Ads (Instagram &amp; Facebook)</h3>
+            <p>Reformer and movement content that stops the scroll, targeted at the women-25–55 demographic pilates skews towards — driving trial bookings and intro-pack sign-ups.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-retargeting.jpg');">
+          <div class="service-detail-card__content">
+            <h3>Retargeting</h3>
+            <p>The client who viewed your schedule but didn't book gets a timely reminder across Instagram and Google — recovering the trials that would otherwise slip away.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Tracking &amp; Reporting</h3>
+            <p>Pixel, conversion events, and GCLID wired and tested before a dollar is spent — so every trial ties back to the campaign that won it. Monthly reporting on cost per lead, not impressions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for pilates ads">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Campaigns Built to Prove <span class="highlight">Cost Per Trial</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run paid media the way it should be run for a class-based business — tracking first, tuned to bookings, and reported in the numbers that decide whether your studio is growing.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Tracking Before Spend</h3>
+            <p>We wire and test conversion tracking before launch. A silent tracking failure looks exactly like "no demand" — we never let your ad spend fly blind.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Class Bookings</h3>
+            <p>Campaigns tuned to trial classes, intro packs, and memberships — the way pilates actually sells — not a generic lead-gen funnel pointed at a contact form.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In, Real Numbers</h3>
+            <p>Month-to-month, with reporting on cost per trial and cost per member — the numbers that matter, not vanity reach and impressions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADS FLOW ========== -->
+  <section class="section" id="ads-flow" style="background: var(--bg-alt);" aria-label="How pilates ads work">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Wasted Spend</span> to <span class="highlight">Booked Trials</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Four steps, run in order, so no dollar goes out before we can measure what it brings back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Goals, budget, and channel mix set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Track</h3>
+          <p>Pixel and conversions wired and tested</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Launch</h3>
+          <p>Search and social campaigns go live</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Scale what books trials, cut the rest</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about pilates ads in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Pilates Ads</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should my pilates studio spend on ads?</summary>
+          <div class="faq-answer"><p>It depends on your goals, your catchment, and your class capacity — there's no one-size number. We size the budget to fill the trial slots you actually have, then scale as the numbers prove out. Book a consultation and we'll recommend a figure.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Google Ads or Meta Ads — which is better for a pilates studio?</summary>
+          <div class="faq-answer"><p>Usually both, for different jobs. Google captures people already searching for a class; Meta builds demand and shows your studio to the right demographic before they search. We recommend the exact mix in your strategy session.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly will I see trial bookings from ads?</summary>
+          <div class="faq-answer"><p>Paid ads can drive bookings within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per booked trial.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Do you handle the ad creative too?</summary>
+          <div class="faq-answer"><p>Yes. Our team scripts and produces the reels and statics and writes the ad copy. If you have your own class footage, even better — we shape it into ads built to convert.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Does the management fee include ad spend?</summary>
+          <div class="faq-answer"><p>No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Pilates Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/pilates-marketing-singapore/" class="related-service-link">Pilates Marketing</a>
+          <a href="/pilates-seo-singapore/" class="related-service-link">Pilates SEO</a>
+          <a href="/pilates-geo-singapore/" class="related-service-link">Pilates GEO</a>
+          <a href="/pilates-social-media-singapore/" class="related-service-link">Pilates Social Media</a>
+          <a href="/pilates-branding-singapore/" class="related-service-link">Pilates Branding</a>
+          <a href="/pilates-studio-website-singapore/" class="related-service-link">Pilates Studio Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

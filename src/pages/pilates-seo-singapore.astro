@@ -46,6 +46,119 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force even service card grid on desktop per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Pilates SEO Flow — horizontal process flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Pilates SEO Singapore — Jraft Creative"
   description="SEO services for pilates studios in Singapore. Local SEO, Google Business Profile optimisation, class-specific landing pages."
@@ -57,7 +170,7 @@ const schemaData = [
   schemaData={schemaData}
   heroLabel="Pilates Studio SEO"
   heroTitle='SEO for <span class="highlight">Pilates Studios in Singapore</span>'
-  heroSubtitle="Reformer pilates is one of the fastest-growing fitness segments in Singapore, and search demand has surged alongside it. Hundreds of studios now compete for searches like 'reformer pilates near me' and 'pilates Singapore'. If your studio isn't ranking on page one, those potential clients are booking beds at the studio that does."
+  heroSubtitle="Reformer pilates is one of the fastest-growing fitness segments in Singapore, and search demand has surged with it. When someone searches 'reformer pilates near me', the studios ranking on page one and in the Maps 3-pack take the booking. We get your studio there."
   heroImage="/images/service-pilates.webp"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
@@ -73,108 +186,148 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for pilates studios in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Reformer Pilates Demand Is Surging — Is Your Studio Capturing It?</h2>
+        <h2>Reformer Demand Is <span class="highlight">Surging</span> — Is Your Studio <span class="highlight">Capturing It</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's pilates market has grown dramatically over the past three years. Reformer pilates, in particular, has moved from niche fitness trend to mainstream demand, with new studios opening every month across Tanjong Pagar, Orchard, River Valley, Bukit Timah, and the CBD. The result is intense competition for a finite pool of clients who almost always begin their search on Google.</p>
-        <p>"Reformer pilates near me", "pilates Singapore", "mat pilates class Bugis" — these searches happen thousands of times each month from people ready to book their first session. The studios appearing in the top three Google results and the Maps 3-pack capture the overwhelming majority of these bookings. Everyone else is left competing on Instagram visibility or discounting through marketplace platforms that erode margins and commoditise your brand.</p>
-        <p>The challenge for pilates studios is that most operate with beautiful spaces and excellent instructors but minimal online visibility beyond social media. Without dedicated class pages, a properly optimised Google Business Profile, and local SEO signals, even the most premium studio in the best location can be invisible to the exact clients searching for reformer pilates two streets away.</p>
+        <p>Pilates has exploded in Singapore — but skilled instructors and a beautiful space count for nothing if you're invisible the moment someone searches for a studio near them.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The "Reformer Near Me" Moment</h3>
+            <p>Someone searching "reformer pilates Tanjong Pagar" or "clinical pilates near me" is ready to book today. If you're not in the top results and the Maps 3-pack, that booking goes to the studio that is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Map-Pack Shutout</h3>
+            <p>Most studios have a great space but thin online visibility. Without an optimised Google Business Profile and local signals, you never enter the 3-pack where "pilates near me" bookings are won.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Marketplace Margin Trap</h3>
+            <p>Left off page one, studios lean on ClassPass and discount platforms just to stay visible — eroding margins and commoditising a brand that should command a premium.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for pilates studios">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for pilates studios">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Pilates Studios</h2>
+        <h2>SEO Built for <span class="highlight">Pilates Studios</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Pilates studio SEO needs a specialist approach. Clients search by class format, equipment type, neighbourhood, and experience level — reformer vs mat, group vs private, beginner vs advanced. We build SEO strategies tailored to how Singapore residents actually research and choose pilates studios.</p>
-        <p>From technical foundations to class-specific landing pages and Google Maps dominance, every element of our approach is designed to drive trial bookings from people actively searching for pilates near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/pilates-studio-website-singapore/">pilates studio website</a>, <a href="/services/social-media/">social media marketing</a> for community growth, or <a href="/services/paid-ads/">Google Ads</a> to capture demand during peak New Year and post-holiday fitness seasons.</p>
+        <p>Pilates SEO is a specialist job — clients search by format, equipment, and neighbourhood. We build around exactly how Singapore residents look for and choose a studio.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your pilates studio website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your studio for searches like "reformer pilates near me" and "pilates Singapore" in your area.</p>
+            <p>A full crawl to fix indexing gaps, broken links, missing schema, and slow mobile loads — the technical barriers stopping Google from ranking your studio.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised landing pages for every class format — reformer pilates, mat pilates, clinical pilates, prenatal pilates, and private sessions. Meta titles, descriptions, heading structures, and internal links targeting searches like "reformer pilates Tanjong Pagar", "mat pilates near me", and "private pilates session Singapore".</p>
+            <p>Keyword-optimised pages for every format — reformer, mat, clinical, prenatal, private — targeting searches like "reformer pilates Tanjong Pagar" and "private pilates Singapore".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct pilates categories, class schedules, studio photos, client review management, and local citation building across Singapore directories. Designed to get your studio into the Google Maps 3-pack for every "pilates near me" and "reformer pilates near me" search in your neighbourhood.</p>
+            <p>Correct categories, class schedules, studio photos, review management, and local citations that put you in the Maps 3-pack for every "pilates near me" search in your area.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-speed-vitals.webp');">
           <div class="service-detail-card__content">
-            <h3>Class-Focused Content Strategy</h3>
-            <p>Blog articles and guides answering the questions potential clients search — "reformer pilates vs mat pilates", "pilates for back pain Singapore", "how often should I do pilates". Content that builds your authority, earns organic backlinks, and captures clients during their decision-making phase.</p>
+            <h3>Class-Focused Content</h3>
+            <p>Guides answering what clients actually search — "reformer vs mat pilates", "pilates for back pain Singapore" — that build authority and capture them while they're deciding.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for pilates studio SEO">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for pilates studio SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands Pilates Studios</h2>
+        <h2>An SEO Agency That <span class="highlight">Understands Pilates</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with fitness and wellness businesses across Singapore. We understand class-based booking models, peak and off-peak demand patterns, and which search terms actually convert browsers into long-term pilates members.</p>
+        <p>We work with fitness and wellness businesses across Singapore — we know class-based booking, peak and off-peak demand, and which searches actually convert into long-term members.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Pilates Industry Knowledge</h3>
-            <p>We understand the difference between reformer, mat, clinical, and contemporary pilates — and we know which formats drive the most search volume in Singapore. Our strategies are tailored to how pilates clients actually search, not pulled from a generic fitness SEO template.</p>
+            <p>We know reformer vs mat vs clinical, and which formats drive real search volume here. Strategy tailored to how pilates clients search — not a generic fitness template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Neighbourhood-Level Local SEO</h3>
-            <p>Pilates is hyper-local. Clients want a studio near their home or office — preferably within a 10-minute walk of an MRT station. We optimise for neighbourhood-level searches — Tanjong Pagar, River Valley, Bukit Timah, Tiong Bahru, Novena — so your studio ranks where your ideal clients live and work.</p>
+            <p>Pilates is hyper-local. We optimise for the MRT-radius searches — Tanjong Pagar, River Valley, Bukit Timah, Novena — so you rank where your ideal clients live and work.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We show you the numbers that matter — not vanity metrics, but data tied directly to class discovery and trial sign-ups.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle pilates studio website design, social media content, and paid ads — so your entire digital marketing works together as a single system to fill your reformer beds and mat classes.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO is one piece. We also handle your website, social, and paid ads — so every channel works together to fill reformer beds, instead of pulling in different directions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== SEO FLOW ========== -->
+  <section class="section" id="seo-flow" style="background: var(--bg-alt);" aria-label="How pilates studio SEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>How Pilates SEO <span class="highlight">Fills Your Schedule</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first audit to booked trials, we run the same four-step system on every pilates studio we take on — and report the numbers that tie back to sign-ups.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Technical and local audit of where you rank today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Class pages, on-page, and site speed fixed</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Localise</h3>
+          <p>GBP and citations built for the Maps 3-pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rank &amp; Report</h3>
+          <p>Rankings, traffic, and bookings tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about pilates studio SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Pilates Studio SEO — Questions Answered</h2>
+        <h2><span class="highlight">Pilates Studio SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -202,8 +355,6 @@ const schemaData = [
   </section>
 
 
-
-
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
@@ -213,7 +364,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/pilates-marketing-singapore/" class="related-service-link">Pilates Marketing</a>
-          <a href="/pilates-studio-website-singapore/" class="related-service-link">Pilates Studio Website Design</a>
+          <a href="/pilates-geo-singapore/" class="related-service-link">Pilates GEO</a>
+          <a href="/pilates-ads-singapore/" class="related-service-link">Pilates Google &amp; Meta Ads</a>
+          <a href="/pilates-social-media-singapore/" class="related-service-link">Pilates Social Media</a>
+          <a href="/pilates-branding-singapore/" class="related-service-link">Pilates Branding</a>
+          <a href="/pilates-studio-website-singapore/" class="related-service-link">Pilates Studio Websites</a>
       </div>
     </div>
   </section>

@@ -1,0 +1,340 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Pilates Social Media Singapore",
+    "description": "Social media marketing for pilates studios in Singapore — Instagram and TikTok content, reels, graphic design, and community management that turns followers into trial bookings.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Pilates Studio Social Media Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What content works best for a pilates studio?", "acceptedAnswer": { "@type": "Answer", "text": "Short-form video is the winner — reformer clips, instructor tips, and real client transformations. It shows the movement and aesthetic pilates sells on, and it's what Instagram and TikTok push hardest right now." } },
+      { "@type": "Question", "name": "Do I need to be on camera?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Plenty of high-performing content features the space, the equipment, and clients with their consent. If you or your instructors are comfortable on camera it builds a personal connection, but we can work either way." } },
+      { "@type": "Question", "name": "Instagram or TikTok for a pilates studio?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the core for most Singapore studios — that's where your clients research and book. TikTok is a strong growth channel for reach. We usually lead with Instagram and cross-post to TikTok, tuned per platform." } },
+      { "@type": "Question", "name": "How often will you post?", "acceptedAnswer": { "@type": "Answer", "text": "We set a consistent cadence that fits your goals and keeps the account active without burning out the content. The exact frequency is agreed in your plan — consistency matters more than raw volume." } },
+      { "@type": "Question", "name": "Do you film at my studio?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we can arrange shoots at your studio, and we can also work from footage you capture on your phone between classes. We set up a simple system so there's always content in the pipeline." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Pilates Social Media Singapore", "item": "https://jraftcreative.com/pilates-social-media-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Pilates Social Media Singapore — Jraft Creative"
+  description="Social media marketing for pilates studios in Singapore — Instagram and TikTok content, reels, and community management that fills trial classes."
+  canonical="https://jraftcreative.com/pilates-social-media-singapore/"
+  ogTitle="Pilates Social Media Singapore — Jraft Creative"
+  ogDescription="Instagram and TikTok content for pilates studios in Singapore. Reels, design, and community management that turn followers into trial bookings."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="pilates social media singapore, pilates instagram marketing, pilates tiktok singapore, pilates studio content, reformer pilates reels, pilates marketing singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Pilates Social Media"
+  heroTitle='Social Media for <span class="highlight">Pilates Studios in Singapore</span>'
+  heroSubtitle="Pilates sells on movement and aesthetic, and Instagram and TikTok are where clients decide which studio feels like theirs. We create content that captures your space, your instructors, and your community — and turns followers into trial bookings."
+  heroImage="/images/service-pilates.webp"
+  heroButtons={[
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need social media content for my pilates studio in Singapore."
+  ctaLabel="Ready to Grow Your Following?"
+  ctaTitle='Get a Free <span class="highlight">Pilates Content Plan</span>'
+  ctaDescription="Book a free consultation and we'll show you the content pillars, formats, and cadence that will grow your studio's following — and turn it into trial bookings. No obligations."
+  ctaButtons={[
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20content%20for%20my%20pilates%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why pilates studios need social media in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Posting a Lot, <span class="highlight">Booking Little</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Pilates is one of the most visual businesses there is — but a busy grid isn't the same as a growing studio. The content that fills classes looks and works differently from content that just fills a feed.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Grid That Looks Like Everyone Else</h3>
+            <p>Reformer clips and quote tiles that could belong to any studio. Sameness gets scrolled past — nothing about it says why a client should choose you over the studio down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Likes That Don't Book Classes</h3>
+            <p>Reach and likes feel good but don't fill your schedule. Content that isn't built to drive a trial — with a reason and a way to book — is just decoration.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Time to Post Consistently</h3>
+            <p>Running classes all day leaves no time to shoot, edit, caption, and reply. The account goes quiet — and quiet accounts don't grow or get found.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE MAKE ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for pilates studios">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Make</p>
+        <h2>Content Built to <span class="highlight">Fill Classes</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>End-to-end social, from strategy to the last caption — planned around your classes and community, and made to earn the save, the share, and the trial booking.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Strategy &amp; Planning</h3>
+            <p>A monthly plan with a real angle — pillar themes, platform-specific formats, and a calendar built around your classes and community, not posting for the sake of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reels &amp; Short-Form Video</h3>
+            <p>Reformer clips, instructor moments, and client journeys — shot and edited to stop the scroll in the first second and hold it. The format that wins reach in Singapore.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Graphic Design &amp; Visuals</h3>
+            <p>Carousels, class-menu tiles, and stories that look unmistakably like your studio — a recognisable brand in the feed, not another lookalike template.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>Replies, DMs, and comment moderation that turn a following into a community — and answer the "how do I book a trial?" questions that quietly convert.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for pilates social media">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Content People Watch — <span class="highlight">Built to Sell</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Plenty of agencies fill a grid. We do the rarer thing — content clients actually want to watch, made and measured to bring bookings, not just likes.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Content That's Measured</h3>
+            <p>We make content people want to watch, then judge it on saves, shares, and enquiries — the signals that actually predict trial bookings, not vanity likes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One In-House Team</h3>
+            <p>Strategy, filming, editing, design, and captions under one roof — consistent, on-brand, and no chasing three different freelancers for one post.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Built for How SG Scrolls</h3>
+            <p>We know what performs for a Singapore fitness audience — the formats, hooks, and timing tuned to the feed your clients actually use every day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL FLOW ========== -->
+  <section class="section" id="social-flow" style="background: var(--bg-alt);" aria-label="How pilates social media works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Quiet Grid</span> to <span class="highlight">Booked Classes</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A simple monthly rhythm that keeps your studio visible, consistent, and growing — without adding to your workload.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Plan</h3>
+          <p>Content pillars and monthly calendar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Create</h3>
+          <p>Reels, statics, and captions produced</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Publish</h3>
+          <p>Posted consistently, at the right times</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Report</h3>
+          <p>Saves, shares, and enquiries tracked</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about pilates social media in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Pilates Social Media</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What content works best for a pilates studio?</summary>
+          <div class="faq-answer"><p>Short-form video is the winner — reformer clips, instructor tips, and real client transformations. It shows the movement and aesthetic pilates sells on, and it's what Instagram and TikTok push hardest right now.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do I need to be on camera?</summary>
+          <div class="faq-answer"><p>Not necessarily. Plenty of high-performing content features the space, the equipment, and clients with their consent. If you or your instructors are comfortable on camera it builds a personal connection, but we can work either way.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Instagram or TikTok for a pilates studio?</summary>
+          <div class="faq-answer"><p>Instagram is the core for most Singapore studios — that's where your clients research and book. TikTok is a strong growth channel for reach. We usually lead with Instagram and cross-post to TikTok, tuned per platform.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How often will you post?</summary>
+          <div class="faq-answer"><p>We set a consistent cadence that fits your goals and keeps the account active without burning out the content. The exact frequency is agreed in your plan — consistency matters more than raw volume.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you film at my studio?</summary>
+          <div class="faq-answer"><p>Yes, we can arrange shoots at your studio, and we can also work from footage you capture on your phone between classes. We set up a simple system so there's always content in the pipeline.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Pilates Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/pilates-marketing-singapore/" class="related-service-link">Pilates Marketing</a>
+          <a href="/pilates-seo-singapore/" class="related-service-link">Pilates SEO</a>
+          <a href="/pilates-geo-singapore/" class="related-service-link">Pilates GEO</a>
+          <a href="/pilates-ads-singapore/" class="related-service-link">Pilates Google &amp; Meta Ads</a>
+          <a href="/pilates-branding-singapore/" class="related-service-link">Pilates Branding</a>
+          <a href="/pilates-studio-website-singapore/" class="related-service-link">Pilates Studio Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
