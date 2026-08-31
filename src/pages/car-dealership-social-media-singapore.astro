@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership Social Media Singapore",
+    "description": "Social media marketing for used-car dealerships and parallel importers in Singapore — walkaround reels, new-arrival drops, offer graphics, and community management that keep your inventory in front of buyers and build trust.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership Social Media Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What social media content works best for a car dealership?", "acceptedAnswer": { "@type": "Answer", "text": "Walkaround videos and new-arrival reels win — they show the car properly and build desire. Behind-the-scenes and happy-handover clips build the trust a used-car buyer needs before they visit." } },
+      { "@type": "Question", "name": "Do you film the cars at my lot?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we can arrange shoots at your lot, and we can also work from footage your team captures on a phone between deals. We set up a simple system so there's always content in the pipeline as stock turns over." } },
+      { "@type": "Question", "name": "Instagram or TikTok for a car dealership?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the core for most dealerships — that's where buyers follow you while deciding and send enquiries. TikTok is strong for discovery and reach. We usually lead with Instagram and cross-post to TikTok, tuned per platform." } },
+      { "@type": "Question", "name": "Can social media really bring showroom visits?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Consistent inventory content plus responsive DMs turns followers into enquiries and visits, especially for in-market buyers who follow a few dealers while they decide. The dealer who stays visible and trusted wins the visit." } },
+      { "@type": "Question", "name": "How often will you post?", "acceptedAnswer": { "@type": "Answer", "text": "We set a consistent cadence that fits your goals and keeps the account active without burning out the content. The exact frequency is agreed in your plan — consistency matters more than raw volume." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership Social Media Singapore", "item": "https://jraftcreative.com/car-dealership-social-media-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership Social Media Singapore — Jraft Creative"
+  description="Social media marketing for car dealerships in Singapore — walkaround reels, new-arrival drops, and community management that fills enquiries and builds trust."
+  canonical="https://jraftcreative.com/car-dealership-social-media-singapore/"
+  ogTitle="Car Dealership Social Media Singapore — Jraft Creative"
+  ogDescription="Instagram and TikTok content for car dealerships in Singapore. Walkaround reels, new-arrival drops, and community management that turn followers into visits."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership social media singapore, used car dealer instagram, car dealership tiktok singapore, car walkaround reels, dealership content marketing, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership Social Media"
+  heroTitle='Social Media for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="Cars sell on desire and trust — exactly what Instagram and TikTok are built for. We create walkaround reels, new-arrival drops, and customer handovers that keep your inventory in front of buyers and make your dealership the one they trust."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership social media"
+  heroButtons={[
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need social media content for my car dealership in Singapore."
+  ctaLabel="Ready to Fill Your Feed?"
+  ctaTitle='Get a Free <span class="highlight">Dealership Content Plan</span>'
+  ctaDescription="Book a free consultation and we'll show you the content pillars, formats, and cadence that will keep your inventory in front of buyers — and turn followers into showroom visits. No obligations."
+  ctaButtons={[
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20content%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need social media in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Great Stock, <span class="highlight">Nobody Watching</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Cars are one of the most visual, desire-driven things you can sell — but a quiet or classifieds-style feed builds neither desire nor trust. The dealers winning on social show the car properly and feel like people you'd buy from.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Inventory Nobody Sees</h3>
+            <p>Your cars sit on the portal until someone searches. A quiet social presence means buyers never stumble on your stock or your dealership between active searches.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Trust Problem, Again</h3>
+            <p>A feed full of price tags and nothing else reads like every other dealer. Nothing there earns the trust a wary used-car buyer needs before they message you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Time to Post</h3>
+            <p>Running the lot, handling enquiries, closing deals — there's no time to shoot, edit, and post consistently. The account goes quiet and disappears from feeds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE MAKE ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for car dealerships">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Make</p>
+        <h2>Content Built to <span class="highlight">Move Metal</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>End-to-end social, from strategy to the last caption — planned around your inventory and your buyers, and made to earn the enquiry and the showroom visit, not just the like.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Strategy &amp; Planning</h3>
+            <p>A monthly plan built around your inventory and your buyers — new arrivals, model spotlights, buyer tips — with a real angle, not random posts.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Walkaround Reels &amp; Video</h3>
+            <p>Cinematic walkarounds, feature highlights, and start-ups that show the car properly and stop the scroll — the format that moves metal on social.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>New-Arrival &amp; Offer Graphics</h3>
+            <p>Clean, on-brand posts for fresh stock, price drops, and finance offers — a feed that looks like a dealership buyers trust, not a classifieds dump.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>Replies, DMs, and comment handling that answer "is this still available?" and turn interest into a booked showroom visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership social media">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Content People Watch — <span class="highlight">Built to Sell Cars</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Plenty of agencies fill a grid. We do the rarer thing — content buyers actually want to watch, made and measured to bring enquiries and showroom visits, not just likes.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Content That Sells Cars</h3>
+            <p>We make content buyers want to watch, then judge it on enquiries and showroom visits — the signals that predict a sale, not vanity likes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One In-House Team</h3>
+            <p>Strategy, filming, editing, design, and captions under one roof — consistent, on-brand, and no chasing three different freelancers for one reel.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Built for How SG Scrolls</h3>
+            <p>We know what performs for a Singapore automotive audience — the formats, hooks, and timing tuned to the feed your buyers actually use.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOCIAL FLOW ========== -->
+  <section class="section" id="social-flow" style="background: var(--bg-alt);" aria-label="How car dealership social media works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Quiet Feed</span> to <span class="highlight">Showroom Visits</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A simple monthly rhythm that keeps your inventory visible, consistent, and in front of buyers — without adding to your workload.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Plan</h3>
+          <p>Content pillars and monthly calendar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Create</h3>
+          <p>Walkarounds, graphics, and captions produced</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Publish</h3>
+          <p>Posted consistently, at the right times</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Report</h3>
+          <p>Reach, saves, and enquiries tracked</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership social media in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership Social Media</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What social media content works best for a car dealership?</summary>
+          <div class="faq-answer"><p>Walkaround videos and new-arrival reels win — they show the car properly and build desire. Behind-the-scenes and happy-handover clips build the trust a used-car buyer needs before they visit.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you film the cars at my lot?</summary>
+          <div class="faq-answer"><p>Yes, we can arrange shoots at your lot, and we can also work from footage your team captures on a phone between deals. We set up a simple system so there's always content in the pipeline as stock turns over.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Instagram or TikTok for a car dealership?</summary>
+          <div class="faq-answer"><p>Instagram is the core for most dealerships — that's where buyers follow you while deciding and send enquiries. TikTok is strong for discovery and reach. We usually lead with Instagram and cross-post to TikTok, tuned per platform.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can social media really bring showroom visits?</summary>
+          <div class="faq-answer"><p>Yes. Consistent inventory content plus responsive DMs turns followers into enquiries and visits, especially for in-market buyers who follow a few dealers while they decide. The dealer who stays visible and trusted wins the visit.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How often will you post?</summary>
+          <div class="faq-answer"><p>We set a consistent cadence that fits your goals and keeps the account active without burning out the content. The exact frequency is agreed in your plan — consistency matters more than raw volume.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

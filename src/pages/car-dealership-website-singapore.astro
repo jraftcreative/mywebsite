@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership Website Design Singapore",
+    "description": "Website design for used-car dealerships and parallel importers in Singapore — live inventory listings, trade-in and finance tools, enquiry and WhatsApp capture, and trust pages that let you own the lead instead of the portal.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership Website Design"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does a car dealership website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Can the website sync with sgCarMart or my existing inventory?", "acceptedAnswer": { "@type": "Answer", "text": "We can integrate or import your inventory where a feed exists, or build a simple system to manage listings directly on your site. We scope the right setup for your stock and workflow so listings stay current as cars sell." } },
+      { "@type": "Question", "name": "Can buyers apply for financing or a trade-in valuation on the site?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Finance calculators and trade-in valuation forms are core to our dealership builds — they're two of the highest-intent actions a buyer takes, captured as leads straight to you with the car they're interested in." } },
+      { "@type": "Question", "name": "How long does it take to build a dealership website?", "acceptedAnswer": { "@type": "Answer", "text": "Most dealership sites go live within a few weeks. Larger inventory systems with integrations take longer. We give you a clear timeline before we start." } },
+      { "@type": "Question", "name": "Will the website work well on mobile?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most car research happens on mobile, so we build mobile-first with fast loads and one-tap WhatsApp enquiry on every listing." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership Website Singapore", "item": "https://jraftcreative.com/car-dealership-website-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership Website Singapore — Jraft Creative"
+  description="Website design for used-car dealerships and parallel importers in Singapore — live inventory, trade-in and finance tools, and enquiry capture that owns the lead."
+  canonical="https://jraftcreative.com/car-dealership-website-singapore/"
+  ogTitle="Car Dealership Website Singapore — Jraft Creative"
+  ogDescription="Dealership websites for Singapore. Live inventory, trade-in and finance tools, WhatsApp enquiry — own the lead instead of the portal."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership website singapore, used car dealer website, car inventory website singapore, parallel importer website, car dealer web design, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership Websites"
+  heroTitle='Website Design for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="A sgCarMart listing sells the car for the portal — your own site sells it for you. We build dealership websites with live inventory, trade-in and finance tools, and enquiry capture, so the lead comes to you instead of the platform."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership website design"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need a website for my car dealership in Singapore."
+  ctaLabel="Ready to Own Your Leads?"
+  ctaTitle="Get Your Dealership Online"
+  ctaDescription="Tell us about your dealership and inventory and we'll recommend the right website approach. Free consultation — no obligations, no pressure."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need their own website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Portal Sells the Car — <span class="highlight">For the Portal</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Buyers comparing your cars want more than a listing — they want to trust the dealer. Your own site is where that trust is won or lost, and where the lead becomes yours instead of the platform's.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Renting a Storefront</h3>
+            <p>On the portal your listing sits beside every competitor, and the customer belongs to the platform. You're paying to sell inside someone else's shop, deal after deal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Nowhere to Build Trust</h3>
+            <p>A wary buyer wants reviews, your track record, warranty and inspection details, real photos. A portal listing can't carry that — so trust defaults to whoever looks safest.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Leads That Leak</h3>
+            <p>No enquiry form, no WhatsApp, no trade-in tool on your own site means an interested buyer bounces back to the portal — and the lead scatters across five dealers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Car dealership website design services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Build</p>
+        <h2>What We Build for <span class="highlight">Car Dealerships</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Every dealership site we build is made for how cars are actually sold in Singapore — live inventory, high-intent tools, and enquiry capture that keeps the buyer on your side of the deal.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Live Inventory &amp; Listing Pages</h3>
+            <p>A searchable, filterable inventory with rich listing pages — specs, real photos, COE and depreciation, finance estimate — that update as your stock turns over.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
+          <div class="service-detail-card__content">
+            <h3>Trade-In &amp; Finance Tools</h3>
+            <p>Trade-in valuation and finance calculators that turn browsers into high-intent leads, captured straight to you with the exact car they're interested in.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-web-app.webp');">
+          <div class="service-detail-card__content">
+            <h3>Enquiry &amp; WhatsApp Capture</h3>
+            <p>Clear enquiry forms and WhatsApp on every listing, wired and tested, so an interested buyer reaches you in one tap — not back to the portal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Trust &amp; Credibility Pages</h3>
+            <p>Reviews, warranty and inspection process, your story and track record — the pages that turn a cautious buyer into a confident one before they visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership website design">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Why Choose Us for Your <span class="highlight">Dealership Website</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We understand how cars are sold in Singapore — inventory turnover, trade-ins, financing, and the trust barrier a used-car dealer starts behind. Your site is built to convert around all of it.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Automotive-First Builds</h3>
+            <p>We build for how cars actually sell — inventory turnover, trade-ins, financing, the trust barrier — not a generic template with a car photo dropped in.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Own the Lead</h3>
+            <p>Every tool and form is built to capture the buyer on your site, so you stop handing the relationship — and the margin — to the portal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Your site plugs into SEO, ads, and social — so the traffic we drive lands somewhere built to convert, not a dead-end brochure page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEBSITE FLOW ========== -->
+  <section class="section" id="website-flow" style="background: var(--bg-alt);" aria-label="How we build your car dealership website">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From First Call to <span class="highlight">Live Enquiries</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>We run the same four-step build on every dealership — clear, quick, and made to start capturing leads the moment you go live.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>We map your inventory, tools, and lead flow</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Design</h3>
+          <p>Bespoke dealership design, built mobile-first</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Build</h3>
+          <p>Inventory, tools, and enquiry capture wired and tested</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Launch</h3>
+          <p>Live and tuned for enquiries</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership website design in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership Website</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does a car dealership website cost in Singapore?</summary>
+          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can the website sync with sgCarMart or my existing inventory?</summary>
+          <div class="faq-answer"><p>We can integrate or import your inventory where a feed exists, or build a simple system to manage listings directly on your site. We scope the right setup for your stock and workflow so listings stay current as cars sell.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can buyers apply for financing or a trade-in valuation on the site?</summary>
+          <div class="faq-answer"><p>Yes. Finance calculators and trade-in valuation forms are core to our dealership builds — they're two of the highest-intent actions a buyer takes, captured as leads straight to you with the car they're interested in.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How long does it take to build a dealership website?</summary>
+          <div class="faq-answer"><p>Most dealership sites go live within a few weeks. Larger inventory systems with integrations take longer. We give you a clear timeline before we start.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Will the website work well on mobile?</summary>
+          <div class="faq-answer"><p>Yes. Most car research happens on mobile, so we build mobile-first with fast loads and one-tap WhatsApp enquiry on every listing.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

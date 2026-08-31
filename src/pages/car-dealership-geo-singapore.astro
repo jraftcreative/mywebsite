@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership GEO Singapore",
+    "description": "Generative Engine Optimisation (GEO) for used-car dealerships and parallel importers in Singapore — get your dealership named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews when buyers ask which dealer to trust.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership GEO / AI Search Optimisation"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is GEO and how is it different from SEO for a car dealership?", "acceptedAnswer": { "@type": "Answer", "text": "SEO gets you ranked in Google's blue links. GEO gets your dealership named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party reviews differently. We do both." } },
+      { "@type": "Question", "name": "Can AI search really send my dealership buyers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A growing share of buyers ask AI which dealer to trust before they open a portal. Being the named, trusted dealer in that answer puts you on the shortlist before they compare a single price." } },
+      { "@type": "Question", "name": "How long does GEO take to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority and reviews build. We track it monthly so you see the movement." } },
+      { "@type": "Question", "name": "How do you measure GEO success?", "acceptedAnswer": { "@type": "Answer", "text": "We re-run the same buyer question bank each month and track how often your dealership is mentioned, how often it's cited with a link, your share of voice versus other dealers, and AI-referral traffic." } },
+      { "@type": "Question", "name": "Do I need SEO and reviews in place first?", "acceptedAnswer": { "@type": "Answer", "text": "Strong SEO and a solid review base are the foundation GEO builds on, so we usually run them together. Reviews matter even more for dealerships — AI leans heavily on reputation signals when it decides which dealer to vouch for." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership GEO Singapore", "item": "https://jraftcreative.com/car-dealership-geo-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership GEO Singapore — Get Cited in AI Search — Jraft Creative"
+  description="GEO for car dealerships in Singapore — get named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews when buyers ask which dealer to trust."
+  canonical="https://jraftcreative.com/car-dealership-geo-singapore/"
+  ogTitle="Car Dealership GEO Singapore — Jraft Creative"
+  ogDescription="Get your dealership named in AI search. GEO that makes ChatGPT, Gemini, Perplexity, and Google's AI recommend your dealership to Singapore buyers."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership geo singapore, used car dealer ai search, car dealer chatgpt singapore, generative engine optimisation car dealership, dealership ai visibility, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership GEO / AI Search"
+  heroTitle='Get Your <span class="highlight">Dealership</span> Named in <span class="highlight">AI Search</span>'
+  heroSubtitle="Buyers now ask ChatGPT and Google's AI 'which used car dealer in Singapore can I trust' or 'best place to buy a parallel import BMW' — and get a named answer. GEO is how we make that answer your dealership."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership GEO and AI search"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I want my car dealership cited in AI search (GEO)."
+  ctaLabel="Ready to Be the AI's Answer?"
+  ctaTitle='Get Your <span class="highlight">Dealership</span> Cited in AI Search'
+  ctaDescription="Book a free AI visibility check and we'll show you exactly what ChatGPT, Gemini, and Google's AI say about your dealership today — and which dealers are getting named instead. No obligations."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20want%20my%20car%20dealership%20cited%20in%20AI%20search%20%28GEO%29.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need GEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Buyers Ask AI <span class="highlight">Who to Trust</span> — Is It <span class="highlight">You</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>A growing share of buyers ask AI for a recommendation before they ever open a portal. If the answer names three dealers and you're not one, you're out before the shortlist even forms.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Answer Names a Dealer</h3>
+            <p>Ask AI where to buy a used car in Singapore and it recommends specific dealers. If that's not you, the buyer never sees you at the moment they decide who to trust.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Portals Get Cited, Not You</h3>
+            <p>AI often cites the big portals and review sites. Individual dealers get left out — unless their entity and reputation are made legible to the engines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Trust Is the Whole Game</h3>
+            <p>Used-car buyers ask AI precisely because they're wary. The dealer the AI vouches for starts the conversation already trusted — and usually wins the visit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="GEO services for car dealerships">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>How We Get Your Dealership <span class="highlight">Cited</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>GEO is an additive layer on strong SEO and reviews. We make your dealership legible to the engines, worth citing, and easy to verify — then track it every month.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We run the real questions buyers ask ChatGPT, Perplexity, Gemini, and Google AI Mode about used-car dealers, and map who gets named — so you see exactly where you stand.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Layer</h3>
+            <p>Structured data — dealership, inventory, reviews — plus consistent entity signals across the web that make your dealership legible and verifiable to the engines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reputation &amp; Citation Building</h3>
+            <p>Presence on the review platforms and sources AI trusts, so the engines have consistent, positive signals to cite when a buyer asks which dealer is reliable.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Answer-First Content</h3>
+            <p>Buyer-question content — "is buying a parallel import safe", "how to check a used car in Singapore" — structured so AI pulls your dealership as the trusted answer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership GEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>We Don't Just Sell GEO — <span class="highlight">We Practise It</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>GEO is new, and most agencies are still guessing at it. We run the same playbook on our dealership work and on Jraft Creative itself — and report what actually moves citations.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cited in AI Ourselves</h3>
+            <p>Jraft Creative got its own site cited in Google's AI Overview. We run the same citation playbook for your dealership — receipts, not a slide deck of theory.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Automotive Trust</h3>
+            <p>GEO tuned to the trust questions car buyers actually ask AI — reliability, warranty, parallel-import safety — not a generic approach bolted onto a dealership.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>GEO reinforced by your SEO, reviews, website, and social — so every signal tells the engines the same story: a trusted dealer worth recommending.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GEO FLOW ========== -->
+  <section class="section" id="geo-flow" style="background: var(--bg-alt);" aria-label="How car dealership GEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Invisible</span> to <span class="highlight">the Answer</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>We run the same four-step system on every dealership — and re-test the AI answers monthly so you can watch your visibility climb.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Map what AI says about your dealership today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Structure</h3>
+          <p>Schema and entity signals put in place</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Build Authority</h3>
+          <p>Reviews and trusted citations grown</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Monitor</h3>
+          <p>Citations and visibility tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership GEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership GEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is GEO and how is it different from SEO for a car dealership?</summary>
+          <div class="faq-answer"><p>SEO gets you ranked in Google's blue links. GEO gets your dealership named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party reviews differently. We do both.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can AI search really send my dealership buyers?</summary>
+          <div class="faq-answer"><p>Yes. A growing share of buyers ask AI which dealer to trust before they open a portal. Being the named, trusted dealer in that answer puts you on the shortlist before they compare a single price.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does GEO take to show results?</summary>
+          <div class="faq-answer"><p>Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority and reviews build. We track it monthly so you see the movement.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure GEO success?</summary>
+          <div class="faq-answer"><p>We re-run the same buyer question bank each month and track how often your dealership is mentioned, how often it's cited with a link, your share of voice versus other dealers, and AI-referral traffic.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do I need SEO and reviews in place first?</summary>
+          <div class="faq-answer"><p>Strong SEO and a solid review base are the foundation GEO builds on, so we usually run them together. Reviews matter even more for dealerships — AI leans heavily on reputation signals when it decides which dealer to vouch for.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

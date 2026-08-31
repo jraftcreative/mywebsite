@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership Branding Singapore",
+    "description": "Branding for used-car dealerships and parallel importers in Singapore — logo and visual identity, brand strategy and positioning, brand guidelines, and showroom and listing collateral that signals a dealership buyers trust.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership Branding"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why does a car dealership need branding?", "acceptedAnswer": { "@type": "Answer", "text": "In a market where buyers start wary and most dealers look alike, branding is what earns trust and lets you compete on more than price. It's the difference between 'just another used-car lot' and 'the dealer I'd recommend to a friend'." } },
+      { "@type": "Question", "name": "Do you only design the logo, or the whole brand?", "acceptedAnswer": { "@type": "Answer", "text": "The whole brand. A logo alone doesn't hold up. We build the identity, colours, type, positioning, and the guidelines and collateral that keep it consistent from your showroom signage to your portal listings." } },
+      { "@type": "Question", "name": "Can you rebrand my existing dealership?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, and rolling it out across your showroom, portal listings, website, and socials so nothing looks half-changed." } },
+      { "@type": "Question", "name": "Will the branding carry across my listings and showroom?", "acceptedAnswer": { "@type": "Answer", "text": "That's the point. We design the brand as a system and apply it everywhere buyers meet you — portal listing templates, showroom signage, website, social, and sales paperwork — so you look like one professional operation." } },
+      { "@type": "Question", "name": "How long does a branding project take?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope — a focused identity is quicker than a full rebrand with collateral and guidelines. We'll give you a clear timeline once we understand what you need. Book a consultation to scope it." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership Branding Singapore", "item": "https://jraftcreative.com/car-dealership-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership Branding Singapore — Jraft Creative"
+  description="Branding for car dealerships in Singapore — logo and visual identity, brand strategy, guidelines, and showroom and listing collateral that signals a dealer buyers trust."
+  canonical="https://jraftcreative.com/car-dealership-branding-singapore/"
+  ogTitle="Car Dealership Branding Singapore — Jraft Creative"
+  ogDescription="Branding for car dealerships in Singapore. Identity, positioning, and collateral that move you out of the 'dodgy dealer' bracket and let you compete on trust."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership branding singapore, used car dealer branding, car dealer logo design, dealership rebrand singapore, car dealership brand identity, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership Branding"
+  heroTitle='Branding for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="Used-car buyers walk in wary. Your brand is what decides whether they see a trustworthy dealership or just another lot. We build the identity that makes buyers feel safe spending a hundred thousand dollars with you."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership branding"
+  heroButtons={[
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need branding for my car dealership in Singapore."
+  ctaLabel="Ready to Stand Out?"
+  ctaTitle='Build a <span class="highlight">Dealership Brand</span> Buyers Trust'
+  ctaDescription="Book a free consultation and we'll look at how your dealership shows up today, where it blends in with every other lot, and the brand direction that would set you apart. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Do Buyers See a <span class="highlight">Trusted Dealer</span> — or Just <span class="highlight">Another Lot</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Used-car buyers approach every dealer braced for a hard sell. When your dealership looks like all the others, they decide on price alone. A brand that signals trust is the only thing that changes that.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The "Dodgy Dealer" Default</h3>
+            <p>Buyers walk in expecting the worst of used-car dealers. Without a brand that signals trust and professionalism, you start every deal behind before a word is said.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Indistinguishable on the Lot</h3>
+            <p>A generic logo and a classifieds-style presence make you look like every other dealer — so buyers have nothing to go on but price, and margin bleeds away.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Inconsistent Everywhere</h3>
+            <p>Your signage, portal listings, socials, and paperwork don't match. Inconsistency reads as small-time — and undercuts a six-figure purchase decision.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for car dealerships">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>A Brand That <span class="highlight">Earns Trust</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build the full brand — not just a logo — as one system that carries from your showroom signage to your portal listings, so your dealership reads as the safe, professional choice everywhere buyers meet it.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p>A distinctive, professional identity — logo, colours, type — that looks credible across your showroom, your listings, and your feed.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Strategy &amp; Positioning</h3>
+            <p>What makes your dealership different — transparency, warranty, selection, service — and how to say it, so you compete on trust, not just on price.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A style guide that keeps every listing, post, and salesperson consistent — a dealership that looks like one professional operation, not a patchwork.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
+          <div class="service-detail-card__content">
+            <h3>Collateral &amp; Showroom Branding</h3>
+            <p>Signage, listing templates, sales paperwork, and social templates designed as one system — so every touchpoint signals the same quality and care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Design That <span class="highlight">Sells</span>, Not Just <span class="highlight">Decorates</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We treat branding as a business decision, not a beauty contest. Every choice traces back to the same goal — a dealership buyers trust enough to spend big with, at the price you want to hold.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Strategy-Led Design</h3>
+            <p>We start with positioning — your trust story — not just a logo. The design flows from what makes your dealership different, so it does a job.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Automotive Trust</h3>
+            <p>We design to move a used-car dealer out of the "dodgy" bracket and into "the dealer I'd recommend" — the shift that wins the sale.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>Your brand carries into your website, ads, and social — one trusted dealership everywhere buyers meet you, built by one team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BRANDING FLOW ========== -->
+  <section class="section" id="branding-flow" style="background: var(--bg-alt);" aria-label="How car dealership branding works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Blend-In</span> to <span class="highlight">Trusted Name</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A clear four-step process that takes your dealership from generic lot to a name buyers recognise and trust — applied everywhere they see you.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>We learn your dealership, buyers, and edge</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Positioning and brand direction set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Design</h3>
+          <p>Identity and collateral created</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rollout</h3>
+          <p>Applied across every touchpoint</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership branding in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership Branding</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Why does a car dealership need branding?</summary>
+          <div class="faq-answer"><p>In a market where buyers start wary and most dealers look alike, branding is what earns trust and lets you compete on more than price. It's the difference between "just another used-car lot" and "the dealer I'd recommend to a friend".</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you only design the logo, or the whole brand?</summary>
+          <div class="faq-answer"><p>The whole brand. A logo alone doesn't hold up. We build the identity, colours, type, positioning, and the guidelines and collateral that keep it consistent from your showroom signage to your portal listings.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you rebrand my existing dealership?</summary>
+          <div class="faq-answer"><p>Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, and rolling it out across your showroom, portal listings, website, and socials so nothing looks half-changed.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will the branding carry across my listings and showroom?</summary>
+          <div class="faq-answer"><p>That's the point. We design the brand as a system and apply it everywhere buyers meet you — portal listing templates, showroom signage, website, social, and sales paperwork — so you look like one professional operation.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long does a branding project take?</summary>
+          <div class="faq-answer"><p>It depends on scope — a focused identity is quicker than a full rebrand with collateral and guidelines. We'll give you a clear timeline once we understand what you need. Book a consultation to scope it.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

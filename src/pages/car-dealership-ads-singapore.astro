@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership Google & Meta Ads Singapore",
+    "description": "Google Ads and Meta (Instagram & Facebook) advertising for used-car dealerships and parallel importers in Singapore — high-intent search, inventory-led social ads, retargeting, and conversion tracking that fills test-drive enquiries.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership Paid Advertising"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much should my car dealership spend on ads?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your goals, your inventory, and your margins — there's no one-size number. We size the budget to the enquiries you can actually handle, then scale as the numbers prove out. Book a consultation and we'll recommend a figure." } },
+      { "@type": "Question", "name": "Google Ads or Meta Ads — which is better for a car dealership?", "acceptedAnswer": { "@type": "Answer", "text": "Usually both, for different jobs. Google captures buyers already searching for a specific model; Meta puts your inventory and offers in front of in-market buyers before they search. We recommend the exact mix in your strategy session." } },
+      { "@type": "Question", "name": "How quickly will I see enquiries from ads?", "acceptedAnswer": { "@type": "Answer", "text": "Paid ads can drive test-drive enquiries within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per enquiry." } },
+      { "@type": "Question", "name": "Can you advertise specific cars or offers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We run inventory-led and offer-led campaigns for specific models, price drops, new arrivals, and finance promotions — so your ads move real stock, not just build awareness." } },
+      { "@type": "Question", "name": "Does the management fee include ad spend?", "acceptedAnswer": { "@type": "Answer", "text": "No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership Google & Meta Ads Singapore", "item": "https://jraftcreative.com/car-dealership-ads-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership Google & Meta Ads Singapore — Jraft Creative"
+  description="Google Ads and Meta ads for used-car dealerships in Singapore — high-intent search, inventory-led social ads, retargeting, and tracking that fills test-drive enquiries."
+  canonical="https://jraftcreative.com/car-dealership-ads-singapore/"
+  ogTitle="Car Dealership Google & Meta Ads Singapore — Jraft Creative"
+  ogDescription="Paid ads for car dealerships in Singapore. Google Search, inventory-led Instagram ads, and retargeting — with tracking that proves every enquiry."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership google ads singapore, used car meta ads, car dealer instagram ads singapore, car dealership advertising, parallel importer ads, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership Google & Meta Ads"
+  heroTitle='Google &amp; Meta Ads for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="When a buyer searches 'used BMW Singapore' or scrolls Instagram, paid ads put your cars and your dealership in front of them — with tracking from the click to the booked test drive, so you know exactly what each enquiry costs."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership Google and Meta ads"
+  heroButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need Google and Meta ads for my car dealership in Singapore."
+  ctaLabel="Ready to Fill Your Enquiries?"
+  ctaTitle='Get a Free <span class="highlight">Dealership Ad Strategy</span>'
+  ctaDescription="Book a free consultation and we'll map the channels, budget, and tracking that will fill your test-drive enquiries — and show you what a booked enquiry should cost. No obligations."
+  ctaButtons={[
+    { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20and%20Meta%20ads%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need paid ads in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Spending on the Portals, <span class="highlight">Competing on Price Alone</span>?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Most dealers' entire ad budget goes into portal listing fees, bidding against every other dealer on price. Paid ads you control put your cars in front of ready buyers and build a channel the portal can't rent back to you.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>All Spend Goes to the Portal</h3>
+            <p>Your budget is portal listing fees, bidding against every other dealer on price. You never build a direct channel you own — just a bigger bill next month.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The High-Intent Search You're Missing</h3>
+            <p>"Used BMW Singapore", "cheapest COE car", "[model] for sale" — buyers ready to enquire now. Without search ads, a competitor takes that click and the test drive.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Tracking, No Truth</h3>
+            <p>Boosting a car post or running ads without conversion tracking means you can't tell a real enquiry from a wasted click — so you can't scale what works.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Paid ad services for car dealerships">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Ads Built to Fill Your <span class="highlight">Showroom</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Search captures the buyers already hunting for a model; social puts your inventory in front of in-market buyers. We run both, wired to a page and enquiry system built to convert.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Google Search Ads</h3>
+            <p>Capture high-intent searches like "used Mercedes Singapore" and "parallel importer [model]" with campaigns that send ready buyers to your inventory, not the portal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Meta &amp; Inventory Ads</h3>
+            <p>Your cars and offers shown to in-market buyers by location, budget, and interest — new arrivals, price drops, and financing offers that drive enquiries on Instagram and Facebook.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-retargeting.jpg');">
+          <div class="service-detail-card__content">
+            <h3>Retargeting</h3>
+            <p>The buyer who viewed a listing but didn't enquire gets that car back in front of them across Instagram and Google — recovering leads that would otherwise cool off.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Tracking &amp; Reporting</h3>
+            <p>Pixel, conversion events, and GCLID wired and tested before spend — so every enquiry ties to the campaign and car that won it. Reporting on cost per lead, not clicks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership ads">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>Campaigns Built to Prove <span class="highlight">Cost Per Enquiry</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run paid media the way it should be run for a high-ticket, trust-driven business — tracking first, tuned to enquiries, and reported in the numbers that decide whether you grow.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Tracking Before Spend</h3>
+            <p>We wire and test conversion tracking before launch. A silent tracking failure looks exactly like "no demand" — we never let your ad spend fly blind.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Car Enquiries</h3>
+            <p>Campaigns tuned to test-drive enquiries, trade-ins, and finance leads — the actions that sell cars — not vanity reach and impressions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Lock-In, Real Numbers</h3>
+            <p>Month-to-month, with reporting on cost per enquiry and per sale — the numbers that matter, not clicks and reach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ADS FLOW ========== -->
+  <section class="section" id="ads-flow" style="background: var(--bg-alt);" aria-label="How car dealership ads work">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Portal Fees</span> to <span class="highlight">Booked Enquiries</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Four steps, run in order, so no dollar goes out before we can measure what it brings back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Goals, budget, and channel mix set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Track</h3>
+          <p>Pixel and conversions wired and tested</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Launch</h3>
+          <p>Search and inventory campaigns go live</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Scale what books enquiries, cut the rest</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership ads in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership Ads</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much should my car dealership spend on ads?</summary>
+          <div class="faq-answer"><p>It depends on your goals, your inventory, and your margins — there's no one-size number. We size the budget to the enquiries you can actually handle, then scale as the numbers prove out. Book a consultation and we'll recommend a figure.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Google Ads or Meta Ads — which is better for a car dealership?</summary>
+          <div class="faq-answer"><p>Usually both, for different jobs. Google captures buyers already searching for a specific model; Meta puts your inventory and offers in front of in-market buyers before they search. We recommend the exact mix in your strategy session.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How quickly will I see enquiries from ads?</summary>
+          <div class="faq-answer"><p>Paid ads can drive test-drive enquiries within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per enquiry.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you advertise specific cars or offers?</summary>
+          <div class="faq-answer"><p>Yes. We run inventory-led and offer-led campaigns for specific models, price drops, new arrivals, and finance promotions — so your ads move real stock, not just build awareness.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Does the management fee include ad spend?</summary>
+          <div class="faq-answer"><p>No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

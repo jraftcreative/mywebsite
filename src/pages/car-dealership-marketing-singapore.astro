@@ -1,0 +1,392 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership Marketing Singapore",
+    "description": "Full-service digital marketing for used-car dealerships and parallel importers in Singapore — website, SEO, GEO, Google and Meta ads, social media, and branding that builds a direct lead pipeline beyond the portals.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership Marketing"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why market my dealership when sgCarMart already sends leads?", "acceptedAnswer": { "@type": "Answer", "text": "Portals send leads to whoever's cheapest that day, and you pay for every one while competing on price. Your own marketing builds a direct pipeline — buyers who find and trust you first — so you rely less on portal pricing wars and keep more margin." } },
+      { "@type": "Question", "name": "How long before marketing brings in enquiries for my dealership?", "acceptedAnswer": { "@type": "Answer", "text": "Paid ads can drive test-drive enquiries within the first week. SEO and your own inventory site build over 3 to 6 months into a steady stream of direct leads. Most dealers see a meaningful lift in direct enquiries within the first 60 days of a full-service campaign." } },
+      { "@type": "Question", "name": "Do you work with parallel importers and used-car dealers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's our focus. Pre-owned dealers, parallel importers, and multi-brand used-car lots. We understand your margins, your inventory turnover, and the trust barrier you're up against in the Singapore market." } },
+      { "@type": "Question", "name": "Can you help with trade-in and financing enquiries?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build campaigns and website tools specifically for trade-in valuations and financing enquiries — two of the highest-intent actions a buyer takes — and capture them as leads straight to you." } },
+      { "@type": "Question", "name": "Do you handle the content and photos of the cars?", "acceptedAnswer": { "@type": "Answer", "text": "We can produce walkaround videos, listing photography direction, and social content for your inventory. Strong visuals are what separate a scroll-past from an enquiry, so this is core to the work, not an add-on." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership Marketing Singapore", "item": "https://jraftcreative.com/car-dealership-marketing-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Car Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership Marketing Singapore — Jraft Creative"
+  description="Full-service digital marketing for used-car dealerships and parallel importers in Singapore — website, SEO, Google Ads, social media, and branding."
+  canonical="https://jraftcreative.com/car-dealership-marketing-singapore/"
+  ogTitle="Car Dealership Marketing Singapore — Jraft Creative"
+  ogDescription="Full-service marketing for car dealerships in Singapore. Website, SEO, Google Ads, social, and branding — build a direct lead pipeline beyond the portals."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership marketing singapore, used car dealer marketing, parallel importer marketing singapore, car dealership advertising, used car seo singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Marketing for Car Dealerships"
+  heroTitle='Full-Service Marketing for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="Buyers spend weeks researching before they message a single dealer — comparing prices, depreciation, and reviews across sgCarMart and Carousell. We build the marketing that gets your dealership found, trusted, and enquired with directly, so you stop renting every lead from the portals."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Modern car dealership showroom in Singapore — car dealership marketing"
+  heroVideo="/videos/hero-car-dealership.mp4"
+  heroButtons={[
+    { text: "Get a Free Marketing Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need marketing for my car dealership in Singapore."
+  ctaLabel="Ready to Own Your Leads?"
+  ctaTitle='Get Your Free <span class="highlight">Car Dealership Marketing</span> Audit'
+  ctaDescription="Book a free consultation and we'll review how your dealership shows up today, where you're over-reliant on the portals, and the strategy to build a direct lead pipeline. No obligations."
+  ctaButtons={[
+    { text: "Book a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20marketing%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why car dealerships need full-service marketing in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>The Cheapest Listing <span class="highlight">Wins the Click</span> — Until Buyers <span class="highlight">Trust You First</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Singapore has hundreds of used-car dealers and parallel importers, and most fight for the same enquiries on the same portals. The ones that win aren't the cheapest listing — they're the dealership buyers already trust before they walk in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Renting Leads From the Portals</h3>
+            <p>Every enquiry comes through sgCarMart or Carousell, and you pay per listing to compete on price alone. The portal owns the customer — you just rent access to them, deal by deal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Used-Car Trust Gap</h3>
+            <p>Buyers arrive wary of used-car dealers. Without visible reviews, transparent listings, and a credible presence, a fair-priced car loses to the dealer who simply looks more trustworthy online.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Invisible Off the Portals</h3>
+            <p>Search your dealership by name, or "used BMW Singapore", or ask AI which dealer to trust — and there's nothing but the portal listing again. No direct presence, and no brand of your own.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for car dealerships in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Channels</span> That Fill Your <span class="highlight">Showroom</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build marketing specifically for used-car dealers and parallel importers — combining search, AI visibility, paid ads, social, branding, and your own inventory site to turn a portal-dependent business into one that owns its leads.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-seo-singapore/">SEO for Dealerships</a></h3>
+            <p>Rank for "used BMW Singapore", "parallel importer [model]", and your dealership name — so buyers find you directly, not only through a paid portal listing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-geo-singapore/">GEO (AI Search Optimisation)</a></h3>
+            <p>Get named when buyers ask ChatGPT or Google's AI "which used car dealer in Singapore can I trust" — the recommendation that decides their shortlist.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-google-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-ads-singapore/">Google &amp; Meta Ads</a></h3>
+            <p>High-intent search plus inventory-led social ads that put your cars and offers in front of ready buyers — with tracking from click to booked test drive.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-social-media-singapore/">Social Media for Dealers</a></h3>
+            <p>Walkaround reels, new-arrival drops, and customer handovers that build trust and keep your inventory in front of buyers between showroom visits.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-branding-singapore/">Branding for Dealers</a></h3>
+            <p>The identity that lifts you out of the "dodgy used-car dealer" bracket and signals a dealership buyers feel safe spending a hundred thousand dollars with.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3><a href="/car-dealership-website-singapore/">Dealership Websites</a></h3>
+            <p>Your own inventory site with live listings, finance and trade-in tools, and enquiry capture — so you own the lead instead of handing it to the portal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Marketing</span> Built for How <span class="highlight">Car Buyers</span> Actually <span class="highlight">Decide</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with used-car dealers and parallel importers who are tired of competing on price on the portals. We build around how Singapore buyers really shop — the research, the trust barrier, the trade-in and finance maths — not generic lead-gen.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Automotive Market Knowledge</h3>
+            <p>We understand how Singapore buyers shop for cars — COE and depreciation maths, portal behaviour, the trust barrier a used-car dealer starts behind — and build marketing around how they actually decide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO, GEO, Google Ads, social, branding, and your website — under one roof. No coordinating between vendors. Every channel points the same buyers to your inventory, not to a portal.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Pipeline, Not Vanity Metrics</h3>
+            <p>We measure enquiries, test drives, and cost per lead — not impressions. Month-to-month retainers with no lock-in, because you should stay for the results, not a contract.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CAR BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The car buyer funnel — how Singapore buyers decide on a dealer">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>How <span class="highlight">Singapore Buyers</span> Choose a <span class="highlight">Dealer</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first search to signed sales agreement, every car buyer moves through the same five stages. We build marketing that shows up at each one — so the enquiry comes to you, not the dealer with the cheapest listing.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Research</h3>
+          <p>sgCarMart, Google, YouTube reviews, AI search</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Price, mileage, and dealer reviews compared</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>WhatsApp or form to the shortlisted dealers</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Test Drive</h3>
+          <p>Showroom visit and inspection</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Purchase</h3>
+          <p>Trade-in, financing, and handover</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about car dealership marketing">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership Marketing</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Why market my dealership when sgCarMart already sends leads?</summary>
+          <div class="faq-answer"><p>Portals send leads to whoever's cheapest that day, and you pay for every one while competing on price. Your own marketing builds a direct pipeline — buyers who find and trust you first — so you rely less on portal pricing wars and keep more margin.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before marketing brings in enquiries for my dealership?</summary>
+          <div class="faq-answer"><p>Paid ads can drive test-drive enquiries within the first week. SEO and your own inventory site build over 3 to 6 months into a steady stream of direct leads. Most dealers see a meaningful lift in direct enquiries within the first 60 days of a full-service campaign.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Do you work with parallel importers and used-car dealers?</summary>
+          <div class="faq-answer"><p>Yes — that's our focus. Pre-owned dealers, parallel importers, and multi-brand used-car lots. We understand your margins, your inventory turnover, and the trust barrier you're up against in the Singapore market.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you help with trade-in and financing enquiries?</summary>
+          <div class="faq-answer"><p>Yes. We build campaigns and website tools specifically for trade-in valuations and financing enquiries — two of the highest-intent actions a buyer takes — and capture them as leads straight to you.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle the content and photos of the cars?</summary>
+          <div class="faq-answer"><p>We can produce walkaround videos, listing photography direction, and social content for your inventory. Strong visuals are what separate a scroll-past from an enquiry, so this is core to the work, not an add-on.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-seo-singapore/" class="related-service-link">Dealership SEO</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

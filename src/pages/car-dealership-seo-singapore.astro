@@ -1,0 +1,341 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Car Dealership SEO Singapore",
+    "description": "SEO for used-car dealerships and parallel importers in Singapore — indexable inventory pages, model and neighbourhood keyword optimisation, Google Business Profile, and buyer-guide content that builds a direct lead pipeline beyond the portals.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Car Dealership SEO"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How much does SEO cost for a car dealership in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "How long before dealership SEO shows results?", "acceptedAnswer": { "@type": "Answer", "text": "Most dealers see ranking movement within 3 to 4 months. Google Business Profile and technical fixes can win quicker. Long-tail model and neighbourhood terms like 'used Audi A4 Singapore' rank faster than broad competitive ones." } },
+      { "@type": "Question", "name": "Can SEO reduce my reliance on sgCarMart?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SEO builds a direct pipeline of buyers who find you on Google and your own site, so you depend less on paid portal listings and their pricing wars. Most dealers run both alongside each other, with SEO steadily lowering the share of leads they pay the portal for." } },
+      { "@type": "Question", "name": "Can you get my individual car listings to rank on Google?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. With indexable inventory pages and the right structured data, individual listings can rank for specific 'used [model] Singapore' searches, and they refresh as your stock turns over." } },
+      { "@type": "Question", "name": "Do you handle multi-location dealerships?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build location pages, manage a Google Business Profile per branch, and keep NAP data consistent so each showroom ranks in its own area." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Car Dealership SEO Singapore", "item": "https://jraftcreative.com/car-dealership-seo-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Car Dealership SEO Singapore — Jraft Creative"
+  description="SEO for used-car dealerships and parallel importers in Singapore — indexable inventory pages, model keyword optimisation, Google Business Profile, and buyer-guide content."
+  canonical="https://jraftcreative.com/car-dealership-seo-singapore/"
+  ogTitle="Car Dealership SEO Singapore — Jraft Creative"
+  ogDescription="SEO for car dealerships in Singapore. Rank your inventory and dealership on Google, get into the Maps pack, and build leads beyond the portals."
+  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
+  keywords="car dealership seo singapore, used car seo singapore, parallel importer seo, car dealer google ranking, used car dealer local seo, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Car Dealership SEO"
+  heroTitle='SEO for <span class="highlight">Car Dealerships in Singapore</span>'
+  heroSubtitle="When a buyer searches 'used Mercedes Singapore' or 'parallel importer BMW', the dealers ranking on page one and in the Maps pack get the enquiry. If you only exist on sgCarMart, you're invisible the moment a buyer looks beyond the portal. We fix that."
+  heroImage="/images/hero-car-dealership.jpg"
+  heroImageAlt="Car dealership showroom in Singapore — car dealership SEO"
+  heroButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I need SEO for my car dealership in Singapore."
+  ctaLabel="Ready to Rank Beyond the Portals?"
+  ctaTitle="Get Your Dealership Found on Google"
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your dealership ranks today against nearby competitors, and where the portal is the only place buyers can find you. We'll respond within 24 hours."
+  ctaButtons={[
+    { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20car%20dealership%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for car dealerships in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Buyers Research on <span class="highlight">Google</span> — Can They <span class="highlight">Find You</span> There?</h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Buyers research a car for weeks before they enquire, and most of that happens on Google, not just the portals. If your dealership doesn't show up there, the enquiry goes to one that does.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Only Findable on the Portal</h3>
+            <p>Search your dealership name or "used BMW Singapore" and there's nothing but your sgCarMart listing. No site ranking, no map pack — so every buyer stays inside the portal's pricing war.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Inventory Google Can't See</h3>
+            <p>Your stock lives on a portal, not on pages Google can index. High-intent searches — "used Audi A4 Singapore", "cheapest COE car" — rank other dealers, not you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Local Map Presence</h3>
+            <p>"Car dealer near me" and "used car dealer [area]" pull a Maps 3-pack. Without an optimised Google Business Profile and reviews, you're not in it — and walk-in intent goes elsewhere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for car dealerships">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Our SEO Services</p>
+        <h2>SEO Built for <span class="highlight">Car Dealerships</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Dealership SEO is a specialist job — buyers search by brand, model, budget, and neighbourhood. We build around how Singaporeans actually shop for a car, and make your inventory something Google can rank.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>Technical &amp; Inventory SEO</h3>
+            <p>We make your stock indexable — structured listing pages Google can read, fast mobile loads, clean architecture — so your inventory ranks, not just your homepage.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Model-Page Optimisation</h3>
+            <p>Pages targeting how buyers actually search — "used [brand] [model] Singapore", "parallel importer [model]", "[budget] car Singapore" — with the titles and structure to rank.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Local SEO &amp; Google Business Profile</h3>
+            <p>GBP optimisation, review management, and local citations that put your dealership in the Maps 3-pack for "used car dealer near me" in your area.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Buyer-Guide Content</h3>
+            <p>Guides answering what buyers search before buying — "COE renewal or scrap", "PARF rebate explained", "best used family cars Singapore" — that build authority and capture buyers early.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for car dealership SEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>An SEO Agency That <span class="highlight">Understands Car Buyers</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We work with used-car dealers and parallel importers across Singapore — we know how buyers search, the trust barrier you start behind, and which terms actually turn into enquiries.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Automotive Search Knowledge</h3>
+            <p>We know how Singaporeans search for cars — by brand, model, budget, COE, PARF — and build SEO around the terms that actually bring enquiries, not vanity keywords.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Beyond the Portals</h3>
+            <p>We build your own rankings so you depend less on paid portal listings and keep more margin on every sale — a channel you own, not one you rent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>SEO plus your website, ads, and social under one roof — every channel pointing buyers to your inventory, working as one system.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEO FLOW ========== -->
+  <section class="section" id="seo-flow" style="background: var(--bg-alt);" aria-label="How car dealership SEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>How Dealership SEO <span class="highlight">Fills Your Pipeline</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first audit to booked test drives, we run the same four-step system on every dealership — and report the numbers that tie back to enquiries.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Technical and local audit of where you rank today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Inventory pages, model pages, and site speed fixed</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Localise</h3>
+          <p>GBP and citations built for the Maps 3-pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rank &amp; Report</h3>
+          <p>Rankings, traffic, and enquiries tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about car dealership SEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Car Dealership SEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How much does SEO cost for a car dealership in Singapore?</summary>
+          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How long before dealership SEO shows results?</summary>
+          <div class="faq-answer"><p>Most dealers see ranking movement within 3 to 4 months. Google Business Profile and technical fixes can win quicker. Long-tail model and neighbourhood terms like "used Audi A4 Singapore" rank faster than broad competitive ones.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can SEO reduce my reliance on sgCarMart?</summary>
+          <div class="faq-answer"><p>Yes. SEO builds a direct pipeline of buyers who find you on Google and your own site, so you depend less on paid portal listings and their pricing wars. Most dealers run both alongside each other, with SEO steadily lowering the share of leads they pay the portal for.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Can you get my individual car listings to rank on Google?</summary>
+          <div class="faq-answer"><p>Yes. With indexable inventory pages and the right structured data, individual listings can rank for specific "used [model] Singapore" searches, and they refresh as your stock turns over.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Do you handle multi-location dealerships?</summary>
+          <div class="faq-answer"><p>Yes. We build location pages, manage a Google Business Profile per branch, and keep NAP data consistent so each showroom ranks in its own area.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Car Dealership Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/car-dealership-marketing-singapore/" class="related-service-link">Dealership Marketing</a>
+          <a href="/car-dealership-geo-singapore/" class="related-service-link">Dealership GEO</a>
+          <a href="/car-dealership-ads-singapore/" class="related-service-link">Dealership Google &amp; Meta Ads</a>
+          <a href="/car-dealership-social-media-singapore/" class="related-service-link">Dealership Social Media</a>
+          <a href="/car-dealership-branding-singapore/" class="related-service-link">Dealership Branding</a>
+          <a href="/car-dealership-website-singapore/" class="related-service-link">Dealership Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
