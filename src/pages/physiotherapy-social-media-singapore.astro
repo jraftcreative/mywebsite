@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Physiotherapy Social Media Marketing Singapore",
-    "description": "Social media marketing for physiotherapy clinics in Singapore. Exercise tips, patient education content, therapist credibility building, and appointment-driving campaigns across Instagram and Facebook.",
+    "name": "Social Media Agency for Physiotherapy Clinics Singapore",
+    "description": "Social media agency for physiotherapy clinics in Singapore. Therapist-led exercise and rehab content, injury-prevention education and community management that builds trust and books appointments within AHPC advertising rules.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Physiotherapy Social Media Marketing"
+    "serviceType": "Physiotherapy Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for physiotherapy clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What social media content works best for physiotherapy clinics?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective physiotherapy content includes exercise demonstration videos, injury prevention tips, therapist credentials and specialisations, patient recovery stories (with consent), and educational content about common conditions like lower back pain, sports injuries, and post-surgery rehabilitation. Reels showing simple home exercises consistently generate the highest engagement." } },
-      { "@type": "Question", "name": "How do you handle patient privacy in physiotherapy social media content?", "acceptedAnswer": { "@type": "Answer", "text": "We strictly follow PDPA guidelines and your clinic's consent policies. Content focuses on exercise demonstrations, therapist expertise, facility showcases, and educational graphics — none of which require patient identification. When patients consent to testimonials or recovery stories, we follow a documented approval process." } },
-      { "@type": "Question", "name": "Can social media help a physiotherapy clinic get more patients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Social media builds credibility and trust that drives referrals and direct bookings. When someone searches for a physiotherapist or gets a recommendation, they typically check the clinic's social media before booking. A strong presence with educational content and therapist profiles significantly increases the conversion rate from awareness to appointment." } },
-      { "@type": "Question", "name": "Which platforms are best for physiotherapy clinics in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and Facebook are the most effective platforms for physiotherapy clinics in Singapore. Instagram works well for exercise videos, therapist spotlights, and educational carousels. Facebook is strong for community engagement, patient reviews, and reaching the 35+ demographic. LinkedIn can be valuable for clinics targeting corporate wellness partnerships and sports teams." } }
+      { "@type": "Question", "name": "Which platforms should a physiotherapy clinic in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "For most clinics, Instagram and TikTok do the heavy lifting. Short video of a physiotherapist demonstrating a stretch or explaining what causes lower back pain reaches people while they are still deciding what to do about an injury. We usually recommend depth on those two platforms rather than a thin presence on five." } },
+      { "@type": "Question", "name": "What should a physiotherapy clinic actually post?", "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapist-led explainers and simple exercise demonstrations are the strongest content a clinic has. Around that we build injury-prevention education, day-in-the-clinic content, and clear walkthroughs of treatments like dry needling and manual therapy. Education and reassurance earn saves and shares, and those convert far better than promotion." } },
+      { "@type": "Question", "name": "Are there advertising rules for physiotherapy content in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Physiotherapists are registered with the Allied Health Professions Council, and content must avoid guaranteed recovery, cure or outcome claims. We keep every post educational and evidence-led, and review it against AHPC guidance and PDPA before it reaches you for approval." } },
+      { "@type": "Question", "name": "Do we need consent to feature patients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Any patient image or recovery story needs written consent, and it is framed as one person's experience, never as a promised result. Most physiotherapy content needs no patient at all — exercise demonstrations, therapist profiles and education carry the feed on their own." } },
+      { "@type": "Question", "name": "How does social media bring in appointments?", "acceptedAnswer": { "@type": "Answer", "text": "Rarely with a single post. Social validates you — someone who has watched your physiotherapists explain their injury calmly and correctly arrives ready to book. We track that through profile-to-website clicks and enquiries that mention social, not follower count." } }
     ]
   },
   {
@@ -40,88 +40,150 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Physiotherapy Social Media", "item": "https://jraftcreative.com/physiotherapy-social-media-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Social Media Agency for Physiotherapy Clinics Singapore", "item": "https://jraftcreative.com/physiotherapy-social-media-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Physiotherapy Social Media — Jraft Creative"
-  description="Social media marketing for physiotherapy clinics in Singapore. Exercise tips, patient education, therapist credibility content."
+  title="Social Media Agency for Physiotherapy Clinics Singapore"
+  description="Social media agency for physiotherapy clinics in Singapore — therapist-led exercise and rehab content that turns followers into booked patients."
   canonical="https://jraftcreative.com/physiotherapy-social-media-singapore/"
-  ogTitle="Physiotherapy Social Media — Jraft Creative"
-  ogDescription="Social media marketing for physiotherapy clinics in Singapore. Build therapist credibility, educate patients, and drive appointments. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="physiotherapy social media singapore, physio clinic marketing singapore, physiotherapy instagram marketing, physiotherapy digital marketing singapore, physio content creation, healthcare social media singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Physiotherapy Clinics Singapore"
+  ogDescription="Social media for physiotherapy clinics in Singapore. Therapist-led exercise and education content built to book appointments, within AHPC rules."
+  ogImage="https://jraftcreative.com/images/og-physiotherapy.jpg"
+  keywords="social media agency for physiotherapy clinics, physiotherapy clinic social media singapore, physio instagram singapore, physiotherapy tiktok, physio content marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Physiotherapy Social Media Marketing"
-  heroTitle='Social Media for <span class="highlight">Physiotherapy Clinics</span> in Singapore'
-  heroSubtitle="Exercise tips, patient education content, and therapist credibility campaigns that position your clinic as a trusted authority. We help physiotherapy practices in Singapore build reputation, educate their community, and convert followers into booked appointments."
-  heroImage="/images/service-physiotherapy.webp"
+  heroLabel="Social Media Agency for Physiotherapy Clinics"
+  heroTitle='Social Media Agency for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
+  heroSubtitle="Patients pick a physiotherapist they already trust, and that trust is built long before the first session. We turn your therapists' expertise into content that answers real questions, shows what treatment looks like, and books appointments — all within AHPC rules."
+  heroImage="/images/hero-physiotherapy-poster.jpg"
+  heroImageAlt="Physiotherapy clinic in Singapore — social media content for Instagram and TikTok"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Physiotherapy SEO", href: "/physiotherapy-seo-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my physiotherapy clinic in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Physiotherapy Practice with Social Media"
-  ctaDescription="Book a free consultation and tell us about your clinic. We'll get back to you within 24 hours with a tailored social media strategy."
+  whatsappText="Hi Jraft Creative, I need social media for my physiotherapy clinic in Singapore."
+  ctaLabel="Book More Appointments"
+  ctaTitle="Get a Free Physiotherapy Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you post now, what your physiotherapists could be sharing, and where the gap is between followers and booked appointments. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Social media challenges for physiotherapy clinics in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Social Media challenges for physiotherapy clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Patients Google Their Symptoms Before They Book Your Clinic</h2>
+        <h2>People Google Their Pain First — <span class="highlight">Content</span> Is How You <span class="highlight">Get Chosen</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has hundreds of physiotherapy clinics — from hospital-affiliated rehabilitation centres to independent sports physio practices in shophouse units. When someone twists an ankle playing futsal, develops chronic back pain from sitting at a desk in the CBD, or needs post-surgery rehabilitation, their first instinct is not to call a clinic. It is to search online. They look up their condition, read about treatment options, and then start evaluating which physiotherapist seems most credible and experienced for their specific problem.</p>
-        <p>This is where social media becomes your most powerful trust-building tool. A clinic that publishes regular exercise demonstrations, explains common conditions in plain language, and shows the faces and qualifications of its therapists gives potential patients exactly what they need to feel confident booking. Clinics that post nothing — or post only clinic opening hours and holiday greetings — lose these patients to competitors who show up consistently with helpful, credible content. In healthcare, trust is earned before the first appointment, and social media is where that trust begins.</p>
+        <p>When someone twists an ankle at futsal or wakes up with back pain after a week at a Tanjong Pagar desk, they search before they call. The clinics that already explain the problem online — clearly, from a real physiotherapist — are the ones that get the booking.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Patients Self-Diagnose First</h3>
+            <p>By the time someone calls, they have already read about their injury and decided who seems credible. A feed of therapist-led explainers makes that decision fall your way.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>An Empty Feed Reads as Distant</h3>
+            <p>A profile with only opening hours and public-holiday greetings gives a nervous patient no reason to choose you. Consistent, human content signals a clinic that knows its work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Compliant but Still Compelling</h3>
+            <p>Allied health content must stay clear of guaranteed-recovery and cure claims under AHPC guidance. Most clinics either post nothing or overpromise. Neither books patients.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for physiotherapy clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social Media services for physiotherapy clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Physiotherapy Clinics</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Physiotherapy <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create educational, trust-building social media content for physiotherapy clinics in Singapore. From exercise demonstration videos and condition explainers to therapist profiles and patient recovery stories, every post positions your clinic as the go-to authority for musculoskeletal care in your area.</p>
-        <p>Our team handles content strategy, graphic design, video editing, copywriting, and community management — ensuring your therapists spend their time treating patients, not struggling with Canva or caption writing.</p>
+        <p>We build a cadence around what your clinic already does each week, turning routine expertise into trust. It pairs naturally with your <a href="/physiotherapy-website-singapore/">physiotherapy website</a>, your <a href="/physiotherapy-seo-singapore/">local SEO</a>, and your <a href="/physiotherapy-google-ads-singapore/">Google Ads</a> so every channel points the same patient toward a booking.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Exercise &amp; Rehab Reels</h3>
-            <p>Short-form video content demonstrating stretches, strengthening exercises, and rehabilitation techniques — therapist-led videos that showcase your clinical expertise while providing genuine value to viewers dealing with pain or injury.</p>
+            <h3>Physiotherapist-Led Explainers</h3>
+            <p>Short video of your physiotherapists answering the questions patients actually type — 'why does my lower back hurt', 'is it safe to run on this knee' — building trust in the person, not just the clinic.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Patient Education &amp; Engagement</h3>
-            <p>Educational carousels explaining common conditions, injury prevention tips, and rehabilitation timelines. Proactive community management answering health questions and directing enquiries to your booking system.</p>
+            <h3>Exercise &amp; Rehab Tips</h3>
+            <p>Simple stretches, mobility drills and desk-posture fixes filmed for Instagram and TikTok — the saveable, shareable content that keeps your clinic on a patient's radar until they book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Therapist Credibility Content</h3>
-            <p>Professional profiles highlighting your therapists' qualifications, specialisations, and clinical experience. Thought leadership posts that establish each practitioner as a trusted authority in their area — sports injuries, spinal conditions, paediatric physio, or post-operative care.</p>
+            <h3>Injury-Prevention Education</h3>
+            <p>Clear, evidence-led carousels and Stories on common conditions — runner's knee, office neck, ACL rehab — that position your therapists as the people who understand the problem.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Appointment-Driving Campaigns</h3>
-            <p>Targeted campaigns promoting specific services — sports physio during marathon season, office ergonomics assessments for CBD workers, post-surgical rehab packages — timed to capture demand when patients are actively searching.</p>
+            <h3>Community Management</h3>
+            <p>Prompt, professional handling of DMs, comments and enquiries — nurturing a lead from first message to booked appointment across Novena, Orchard, Katong and beyond.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Treatment Demystified &amp; Recovery Stories</h3>
+            <p>Plain-language walkthroughs of dry needling, manual therapy and shockwave, plus patient recovery stories shared with proper consent — framed as real experiences, never guaranteed outcomes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries</h3>
+            <p>We track profile-to-enquiry and bookings that mention social — follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -129,47 +191,60 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for physiotherapy clinic social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for physiotherapy social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Understands Healthcare</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Respects <span class="highlight">Clinical Standards</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Healthcare marketing has different rules. Content must be accurate, compliant, and credible — while still being engaging enough to stop the scroll. We create social media strategies that build genuine clinical authority without sensationalism or unsubstantiated claims.</p>
+        <p>Physiotherapy social fails on either credibility or compliance. We handle both, with your clinical team in control of every post. It sits inside our wider <a href="/industries/healthcare/">healthcare marketing in Singapore</a> practice, and if you want the fuller picture on channels, our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing for Singapore businesses</a> is a good place to start.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare Content Expertise</h3>
-            <p>We create content that is clinically accurate and patient-friendly. Your therapists review all health-related claims before publishing, and we ensure content follows AHPC advertising guidelines and PDPA privacy requirements.</p>
+            <h3>AHPC Compliance Expertise</h3>
+            <p>Every piece is checked against AHPC advertising guidance and PDPA before it reaches you — educational content that avoids guaranteed-recovery and cure claims while still stopping the scroll.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Privacy-First Approach</h3>
-            <p>All content complies with the Personal Data Protection Act. We never use patient images or testimonials without documented consent, and we can create effective content entirely without featuring identifiable patients.</p>
+            <h3>Therapist-Centric Content</h3>
+            <p>We put your physiotherapists at the centre. A trusted, qualified face demonstrating an exercise converts far better than generic brand posts or stock health tips.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Review &amp; Approval</h3>
-            <p>Every post, caption, and video is sent to your clinical team for review before publishing. Healthcare content demands accuracy — nothing goes live without your therapists' sign-off on clinical claims and exercise demonstrations.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because your appointment bookings are increasing and your online reputation is growing — not because of a binding agreement.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>You and your clinical team sign off every post, caption and exercise demonstration. Nothing goes live without your approval on the clinical detail.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A physiotherapy patient moves through five stages before booking. Social rarely wins the first search — its job is Validate and Compare, where therapist-led exercise and education content proves you understand the injury before anyone calls.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a share puts you on the radar</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Therapist-led content proves the expertise</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Reviews and credibility weigh the clinics</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>DMs and profile link turn interest into a booking</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A confident first session, then reviews &amp; referrals</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about physiotherapy social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about physiotherapy social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -177,44 +252,43 @@ const schemaData = [
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for physiotherapy clinics in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which platforms should a physiotherapy clinic in Singapore be on?</summary>
+          <div class="faq-answer"><p>For most clinics, Instagram and TikTok do the heavy lifting. Short video of a physiotherapist demonstrating a stretch or explaining what causes lower back pain reaches people while they are still deciding what to do about an injury. We usually recommend depth on those two platforms rather than a thin presence on five.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What social media content works best for physiotherapy clinics?</summary>
-          <div class="faq-answer"><p>The most effective physiotherapy content includes exercise demonstration videos, injury prevention tips, therapist credentials and specialisations, patient recovery stories (with consent), and educational content about common conditions like lower back pain, sports injuries, and post-surgery rehabilitation. Reels showing simple home exercises consistently generate the highest engagement.</p></div>
+          <summary>What should a physiotherapy clinic actually post?</summary>
+          <div class="faq-answer"><p>Physiotherapist-led explainers and simple exercise demonstrations are the strongest content a clinic has. Around that we build injury-prevention education, day-in-the-clinic content, and clear walkthroughs of treatments like dry needling and manual therapy. Education and reassurance earn saves and shares, and those convert far better than promotion.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you handle patient privacy in physiotherapy social media content?</summary>
-          <div class="faq-answer"><p>We strictly follow PDPA guidelines and your clinic's consent policies. Content focuses on exercise demonstrations, therapist expertise, facility showcases, and educational graphics — none of which require patient identification. When patients consent to testimonials or recovery stories, we follow a documented approval process.</p></div>
+          <summary>Are there advertising rules for physiotherapy content in Singapore?</summary>
+          <div class="faq-answer"><p>Yes. Physiotherapists are registered with the Allied Health Professions Council, and content must avoid guaranteed recovery, cure or outcome claims. We keep every post educational and evidence-led, and review it against AHPC guidance and PDPA before it reaches you for approval.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help a physiotherapy clinic get more patients?</summary>
-          <div class="faq-answer"><p>Yes. Social media builds credibility and trust that drives referrals and direct bookings. When someone searches for a physiotherapist or gets a recommendation, they typically check the clinic's social media before booking. A strong presence with educational content and therapist profiles significantly increases the conversion rate from awareness to appointment.</p></div>
+          <summary>Do we need consent to feature patients?</summary>
+          <div class="faq-answer"><p>Yes. Any patient image or recovery story needs written consent, and it is framed as one person's experience, never as a promised result. Most physiotherapy content needs no patient at all — exercise demonstrations, therapist profiles and education carry the feed on their own.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which platforms are best for physiotherapy clinics in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram and Facebook are the most effective platforms for physiotherapy clinics in Singapore. Instagram works well for exercise videos, therapist spotlights, and educational carousels. Facebook is strong for community engagement, patient reviews, and reaching the 35+ demographic. LinkedIn can be valuable for clinics targeting corporate wellness partnerships and sports teams.</p></div>
+          <summary>How does social media bring in appointments?</summary>
+          <div class="faq-answer"><p>Rarely with a single post. Social validates you — someone who has watched your physiotherapists explain their injury calmly and correctly arrives ready to book. We track that through profile-to-website clicks and enquiries that mention social, not follower count.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Physiotherapy Services</h2>
+        <h2>More <span class="highlight">Physiotherapy Clinic</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Website Design</a>
-          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
           <a href="/physiotherapy-marketing-singapore/" class="related-service-link">Physiotherapy Marketing</a>
+          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
+          <a href="/physiotherapy-ai-search-optimisation-singapore/" class="related-service-link">Physiotherapy GEO</a>
           <a href="/physiotherapy-google-ads-singapore/" class="related-service-link">Physiotherapy Google Ads</a>
           <a href="/physiotherapy-branding-singapore/" class="related-service-link">Physiotherapy Branding</a>
-          <a href="/physiotherapy-content-marketing-singapore/" class="related-service-link">Physiotherapy Content Marketing</a>
+          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Websites</a>
       </div>
     </div>
   </section>

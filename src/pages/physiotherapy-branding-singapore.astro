@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Physiotherapy Branding Singapore",
-    "description": "Professional branding for physiotherapy clinics in Singapore — logo design, healthcare brand identity, clinic visual language, and professional marketing materials. Build patient trust.",
+    "name": "Branding Agency for Physiotherapy Clinics Singapore",
+    "description": "Branding agency for physiotherapy clinics in Singapore. Positioning, identity, clinic and collateral design that build patient trust and earn referrals, within AHPC advertising guidelines.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does branding cost for a physiotherapy clinic in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Why is branding important for physiotherapy clinics?", "acceptedAnswer": { "@type": "Answer", "text": "Patients choose physiotherapists based on perceived credibility and professionalism. In Singapore's competitive healthcare market, a clinic with a polished, cohesive brand identity signals that it invests in quality across the board — from its treatment rooms to its patient communications. Professional branding builds the trust that drives referrals, improves patient retention, and justifies premium pricing." } },
-      { "@type": "Question", "name": "What makes healthcare branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Healthcare branding must project clinical credibility while remaining approachable and human. It needs to inspire confidence without feeling cold or corporate. The colour palette, typography, and imagery must convey professionalism and cleanliness while avoiding the sterile, intimidating aesthetic that makes patients uncomfortable. Branding must also comply with AHPC advertising guidelines." } },
-      { "@type": "Question", "name": "How long does the physiotherapy branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most physiotherapy branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and patient materials take 4 to 6 weeks. We can coordinate with your fit-out contractor to align branding deliverables with your clinic launch timeline." } },
-      { "@type": "Question", "name": "Can you design patient-facing materials like exercise handouts?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include patient-facing materials — exercise handout templates, care instruction sheets, appointment reminder cards, and treatment brochures. These are designed with your brand identity and formatted so your therapists can easily customise content for individual patients. Well-designed patient materials reinforce your professional image at every touchpoint." } }
+      { "@type": "Question", "name": "Why does a physiotherapy clinic need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because a patient can't assess your clinical skill before treatment, so they read everything around it — your shopfront, logo, website, exercise sheets and appointment cards. Two equally capable clinics rarely win the same patients; the one that looks professional and considered gets chosen, earns the referral, and holds full-fee patients rather than competing on discounts." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand. What reassures a patient is consistency across everything they see — the signage, the website, the reminder message, the exercise handout. When those look disconnected, a patient senses it. We build the full system so every touchpoint says the same trustworthy thing." } },
+      { "@type": "Question", "name": "Will rebranding lose our existing patients?", "acceptedAnswer": { "@type": "Answer", "text": "Not if it's handled carefully. Most established clinics don't need a clean slate — they need their equity sharpened. We keep what your patients already recognise, retire what looks dated, and introduce the new identity as the clinic maturing rather than starting over." } },
+      { "@type": "Question", "name": "Are there rules on how physiotherapy clinics can brand and advertise?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As an AHPC-registered allied health profession, physiotherapy branding and advertising sit under the Allied Health Professions Council guidelines and wider MOH advertising rules on claims, testimonials and imagery. We design and write within those rules — building trust and recognition without making recovery or outcome promises — so your brand is compelling and compliant at once." } },
+      { "@type": "Question", "name": "Do you handle the design in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, collateral and guidelines are produced by our team and connect to the rest of what we do — website, social, SEO — so the brand doesn't stop at a PDF. We make sure it actually lands on every surface a patient sees, from the reception wall to the exercise sheet they take home." } }
     ]
   },
   {
@@ -40,87 +40,150 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
-      { "@type": "ListItem", "position": 3, "name": "Physiotherapy Branding", "item": "https://jraftcreative.com/physiotherapy-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Physiotherapy Clinics Singapore", "item": "https://jraftcreative.com/physiotherapy-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Physiotherapy Branding Singapore — Jraft Creative"
-  description="Branding for physiotherapy clinics in Singapore — logo design, healthcare brand identity, clinic visual language, and patient-facing materials."
+  title="Branding Agency for Physiotherapy Clinics Singapore"
+  description="Branding agency for physiotherapy clinics in Singapore — positioning, identity and collateral that build patient trust and set your clinic apart."
   canonical="https://jraftcreative.com/physiotherapy-branding-singapore/"
-  ogTitle="Physiotherapy Branding Singapore — Jraft Creative"
-  ogDescription="Logo design, brand identity, and professional materials for physiotherapy clinics in Singapore. Build a brand that patients trust and refer."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="physiotherapy branding singapore, physio clinic logo design, healthcare branding singapore, physiotherapy brand identity, clinic branding singapore, physio marketing materials, Jraft Creative"
+  ogTitle="Branding Agency for Physiotherapy Clinics Singapore"
+  ogDescription="Branding for physiotherapy clinics in Singapore. Positioning, identity and collateral that build trust and earn referrals."
+  ogImage="https://jraftcreative.com/images/og-physiotherapy.jpg"
+  keywords="branding agency for physiotherapy clinics, physiotherapy clinic branding singapore, physio logo design, physiotherapy practice branding, physio clinic rebrand singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Physiotherapy Branding"
-  heroTitle='Professional <span class="highlight">Branding for Physiotherapy Clinics</span> in Singapore'
-  heroSubtitle="Your clinical expertise earns patient trust on the treatment table. We create brand identities that earn it everywhere else — professional, credible healthcare branding that positions your clinic as the trusted choice in a competitive market."
-  heroImage="/images/service-physiotherapy.webp"
+  heroLabel="Branding Agency for Physiotherapy Clinics"
+  heroTitle='Branding Agency for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
+  heroSubtitle="A patient can't judge your clinical skill before the first session — so they judge your brand. We build physiotherapy clinic brands that read as trustworthy, professional and approachable, from the shopfront signage to the exercise sheet they take home."
+  heroImage="/images/hero-physiotherapy-poster.jpg"
+  heroImageAlt="Physiotherapy clinic in Singapore — branding and clinic identity"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Request a Quote", href: "/contact/", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Physiotherapy Marketing", href: "/physiotherapy-marketing-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my physiotherapy clinic in Singapore."
-  ctaLabel="Ready to Elevate Your Clinic Brand?"
-  ctaTitle="Get a Brand That Builds Patient Trust"
-  ctaDescription="Book a free consultation and tell us about your physiotherapy clinic. We will put together a tailored branding proposal — no obligations, no hard sell."
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my physiotherapy clinic in Singapore."
+  ctaLabel="Look Worth the Referral"
+  ctaTitle="Get a Free Physio Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your clinic presents itself — logo, signage, website, patient materials — and where the gaps are between how good your care is and how good it looks. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for physiotherapy clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Patients Judge Your Clinical Quality by How Your Clinic Looks</h2>
+        <h2>Patients Can't Tell a <span class="highlight">Great Physio</span> from an <span class="highlight">Average One</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>In healthcare, perception shapes trust. When a patient walks into a physiotherapy clinic with a pixelated logo on the wall, mismatched signage, and exercise handouts printed on plain A4 paper, they subconsciously question the professionalism of the care they are about to receive. It may not be fair — but it is how patients evaluate clinical quality in a market where they cannot directly assess your medical expertise before treatment begins.</p>
-        <p>Singapore's physiotherapy market has grown considerably, with clinics ranging from hospital-affiliated centres to independent shophouse practices. Patients searching for a physio now have dozens of options in any given area. When they compare clinics online, the one with a cohesive, professional brand identity — clean website, consistent visual language, and polished marketing materials — appears more established, more trustworthy, and more capable than the clinic that looks like it was set up on a weekend. Branding does not replace clinical skill, but it ensures that your expertise is perceived accurately from the very first impression.</p>
+        <p>Clinical skill is invisible before the first session. From Novena and Orchard to Tampines, Jurong, Katong and Bishan, patients now compare a shortlist of physio clinics online before they book. When those clinics look the same, patients default to price and proximity — and the referral goes to whoever simply looks more established.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Every Clinic Looks the Same</h3>
+            <p>Generic blue-and-white logos and stock physio photos make a skilled practice look interchangeable with the chain down the road. Sameness invites price shopping.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Trust Is Won Before the First Session</h3>
+            <p>A patient decides whether to trust you from the shopfront, the website and the appointment reminder. A weak, inconsistent brand plants doubt before you say a word.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Full Fee, Budget Look</h3>
+            <p>A full-fee session attached to a dated brand reads as overpriced. The identity has to earn the number before a patient accepts it over a cheaper clinic.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Physiotherapy branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for physiotherapy clinics">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Physiotherapy Clinics</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for Physiotherapy <span class="highlight">Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities for physiotherapy clinics that project clinical credibility while remaining warm and approachable. Every element — from your logo and clinic signage to your patient handouts and social media templates — is designed to build the trust that turns first-time patients into long-term clients who refer their friends, family, and colleagues.</p>
+        <p>We build the full system — everything a patient sees, made to say the same reassuring thing. The identity then carries through to your <a href="/physiotherapy-website-singapore/">website</a>, <a href="/physiotherapy-social-media-singapore/">social</a> and <a href="/physiotherapy-seo-singapore/">search presence</a> so nothing drifts.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your clinic stands for and who it's for — the sports-injury specialist, the women's-health practice, the calm rehab studio. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo that conveys clinical professionalism and trustworthiness. Includes primary, horizontal, icon, and monochrome variations designed to work on clinic signage, uniforms, letterheads, digital platforms, and patient-facing materials at every scale.</p>
+            <p>A mark, colour palette and type system that looks professional and approachable on the shopfront, the screen and the appointment card, at every scale.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Clinic Interior &amp; Signage</h3>
-            <p>Exterior signage, reception area branding, treatment room wayfinding, and wall graphics designed to create a cohesive, professional environment. Patients should feel the quality of your clinic from the moment they see your shopfront to the moment they leave their treatment room.</p>
+            <p>Shopfront signage, reception branding, treatment-room wayfinding and wall graphics that make the clinic feel considered from the door to the plinth.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Patient-Facing Materials</h3>
-            <p>Exercise handout templates, treatment brochures, care instruction sheets, appointment reminder cards, and referral cards — professionally designed materials that reinforce your brand at every patient interaction and set you apart from clinics using plain printouts.</p>
+            <h3>Patient-Facing Collateral</h3>
+            <p>Appointment cards, exercise sheets, care-instruction handouts and referral cards — the touchpoints patients handle, designed within AHPC advertising rules.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Professional Collateral</h3>
-            <p>Business cards, letterheads, corporate rate cards, referral partner kits, and presentation templates — polished materials for professional networking, GP referral relationships, and corporate wellness partnerships.</p>
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A consistent way to shoot the clinic, team and treatment, so your feed and site stop looking like a stock library and start looking like you.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Tone of Voice &amp; Guidelines</h3>
+            <p>How your clinic sounds, plus a simple rulebook your front desk and any freelancer can follow, so the brand holds together after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -128,92 +191,104 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for physiotherapy clinic branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for physiotherapy branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Physiotherapy Clinics Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Branding Agency</span> That Understands <span class="highlight">Physio Trust</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Healthcare branding requires a specific understanding of what builds patient trust. We design brand identities that project clinical credibility without feeling cold, and warmth without compromising professionalism.</p>
+        <p>Physio branding sits between clinical credibility and human warmth. Get that balance right and price stops being the conversation. As a team that handles <a href="/industries/healthcare/">healthcare marketing in Singapore</a> across clinics, we know how patients read an allied health brand — and if you're still weighing partners, our guide on <a href="/blog/how-to-choose-digital-marketing-agency-singapore/">how to choose a digital marketing agency in Singapore</a> lays out what to look for.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare Branding Expertise</h3>
-            <p>We understand the balance between clinical authority and patient approachability. Your brand will project the credibility of a healthcare professional while remaining warm and accessible — encouraging patients to seek help rather than feel intimidated.</p>
+            <h3>Healthcare Brand Fluency</h3>
+            <p>We design for clinics — professional and approachable without crossing into non-compliant claims — attracting patients who value care over the cheapest quote.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/physiotherapy-website-singapore/" class="inline-link">website design</a>, and <a href="/physiotherapy-social-media-singapore/" class="inline-link">social media marketing</a> — all handled by one team. Your brand identity is implemented consistently across every channel from day one, without the delays of coordinating multiple vendors.</p>
+            <h3>Built to Earn the Referral</h3>
+            <p>Every decision serves one goal: making your clinic look worth recommending, so patients choose you on trust and pass your name on, not on discount.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Scope &amp; Full Ownership</h3>
-            <p>No hidden fees, no surprises. You own every asset we create — logos, guidelines, templates, source files. We scope your branding project up front and give you a transparent quote, so you know exactly what's included before we begin.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Compliance Awareness</h3>
-            <p>We are familiar with AHPC advertising guidelines and ensure that all patient-facing branding materials comply with healthcare advertising regulations in Singapore. Your brand looks professional and stays compliant.</p>
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the identity onto your <a href="/physiotherapy-website-singapore/">website</a>, <a href="/physiotherapy-social-media-singapore/">social</a> and collateral — one agency, so nothing drifts.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand is the layer over every stage. It decides whether a patient takes you seriously in the first search, believes you at the comparison, and feels the fee is fair enough to book.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A polished first impression earns the click</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Consistency signals a real, trusted clinic</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>A clear identity lifts you above price alone</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Looking the part makes the fee feel fair</p></li>
+        <li class="funnel-stage"><h3>Refer</h3><p>Patients rebook and pass your name on with confidence</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about physiotherapy branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about physiotherapy branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Physiotherapy Branding Questions Answered</h2>
+        <h2>Physiotherapy <span class="highlight">Branding</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does branding cost for a physiotherapy clinic in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does a physiotherapy clinic need branding?</summary>
+          <div class="faq-answer"><p>Because a patient can't assess your clinical skill before treatment, so they read everything around it — your shopfront, logo, website, exercise sheets and appointment cards. Two equally capable clinics rarely win the same patients; the one that looks professional and considered gets chosen, earns the referral, and holds full-fee patients rather than competing on discounts.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Why is branding important for physiotherapy clinics?</summary>
-          <div class="faq-answer"><p>Patients choose physiotherapists based on perceived credibility and professionalism. In Singapore's competitive healthcare market, a clinic with a polished, cohesive brand identity signals that it invests in quality across the board — from its treatment rooms to its patient communications. Professional branding builds the trust that drives referrals, improves patient retention, and justifies premium pricing.</p></div>
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand. What reassures a patient is consistency across everything they see — the signage, the website, the reminder message, the exercise handout. When those look disconnected, a patient senses it. We build the full system so every touchpoint says the same trustworthy thing.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes healthcare branding different from regular branding?</summary>
-          <div class="faq-answer"><p>Healthcare branding must project clinical credibility while remaining approachable and human. It needs to inspire confidence without feeling cold or corporate. The colour palette, typography, and imagery must convey professionalism and cleanliness while avoiding the sterile, intimidating aesthetic that makes patients uncomfortable. Branding must also comply with AHPC advertising guidelines.</p></div>
+          <summary>Will rebranding lose our existing patients?</summary>
+          <div class="faq-answer"><p>Not if it's handled carefully. Most established clinics don't need a clean slate — they need their equity sharpened. We keep what your patients already recognise, retire what looks dated, and introduce the new identity as the clinic maturing rather than starting over.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long does the physiotherapy branding process take?</summary>
-          <div class="faq-answer"><p>Most physiotherapy branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and patient materials take 4 to 6 weeks. We can coordinate with your fit-out contractor to align branding deliverables with your clinic launch timeline.</p></div>
+          <summary>Are there rules on how physiotherapy clinics can brand and advertise?</summary>
+          <div class="faq-answer"><p>Yes. As an AHPC-registered allied health profession, physiotherapy branding and advertising sit under the Allied Health Professions Council guidelines and wider MOH advertising rules on claims, testimonials and imagery. We design and write within those rules — building trust and recognition without making recovery or outcome promises — so your brand is compelling and compliant at once.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you design patient-facing materials like exercise handouts?</summary>
-          <div class="faq-answer"><p>Yes. Our Business and Premium packages include patient-facing materials — exercise handout templates, care instruction sheets, appointment reminder cards, and treatment brochures. These are designed with your brand identity and formatted so your therapists can easily customise content for individual patients. Well-designed patient materials reinforce your professional image at every touchpoint.</p></div>
+          <summary>Do you handle the design in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, collateral and guidelines are produced by our team and connect to the rest of what we do — website, social, SEO — so the brand doesn't stop at a PDF. We make sure it actually lands on every surface a patient sees, from the reception wall to the exercise sheet they take home.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Physiotherapy Services</h2>
+        <h2>More <span class="highlight">Physiotherapy Clinic</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Website Design</a>
-          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
           <a href="/physiotherapy-marketing-singapore/" class="related-service-link">Physiotherapy Marketing</a>
-          <a href="/physiotherapy-social-media-singapore/" class="related-service-link">Physiotherapy Social Media</a>
+          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
+          <a href="/physiotherapy-ai-search-optimisation-singapore/" class="related-service-link">Physiotherapy GEO</a>
           <a href="/physiotherapy-google-ads-singapore/" class="related-service-link">Physiotherapy Google Ads</a>
-          <a href="/physiotherapy-content-marketing-singapore/" class="related-service-link">Physiotherapy Content Marketing</a>
+          <a href="/physiotherapy-social-media-singapore/" class="related-service-link">Physiotherapy Social Media</a>
+          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Websites</a>
       </div>
     </div>
   </section>

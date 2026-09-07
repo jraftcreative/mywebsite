@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Physiotherapy SEO Singapore",
-    "description": "SEO services for physiotherapy clinics in Singapore. Local SEO, Google Business Profile optimisation, treatment-specific keyword strategy, and content marketing to fill your appointment book",
+    "name": "SEO Agency for Physiotherapy Clinics Singapore",
+    "description": "SEO agency for physiotherapy clinics in Singapore. Local SEO, condition-page optimisation, Google Business Profile and content that ranks a clinic for the searches patients actually make.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Physiotherapy Clinic SEO"
+    "serviceType": "Physiotherapy SEO"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for a physiotherapy clinic in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for physiotherapy SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most physiotherapy clinics see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Treatment-specific keywords like 'sports physio Orchard' or 'back pain physiotherapy near me' often rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "Can SEO help my physiotherapy clinic rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our physiotherapy SEO service. We optimise your listing categories, upload clinic photos, manage patient reviews, and build local citations so your clinic appears in the Maps 3-pack for 'physio near me' and 'physiotherapy near me' searches in your area." } },
-      { "@type": "Question", "name": "What keywords do patients search when looking for physiotherapy in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'physio near me', 'physiotherapy Singapore', 'sports physio Singapore', 'physiotherapy for back pain', 'ACL rehab physiotherapy', 'post surgery physiotherapy near me', and condition-specific queries. We research the exact terms driving appointments in your area and build your SEO strategy around them." } },
-      { "@type": "Question", "name": "Do you ensure physiotherapy SEO content complies with AHPC guidelines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All content we create for physiotherapy clinics in Singapore is written with AHPC advertising guidelines in mind. We avoid prohibited claims, unsubstantiated testimonials, and misleading language. Our content builds trust through clinical expertise and evidence-based information rather than promotional hyperbole." } }
+      { "@type": "Question", "name": "How long does physiotherapy SEO take to work in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable movement within 3 to 5 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while competitive terms like 'sports physio Singapore' take longer to climb. We prioritise the searches most likely to fill your appointment book first." } },
+      { "@type": "Question", "name": "Which keywords should a physiotherapy clinic target?", "acceptedAnswer": { "@type": "Answer", "text": "A mix of local ('physio Tampines', 'physiotherapy near me'), condition-specific ('back pain physiotherapy Novena', 'sports physio Singapore', 'ACL rehab', 'frozen shoulder treatment') and question-based terms ('how long does physio take for sciatica'). We research the exact searches your prospective patients use in your area." } },
+      { "@type": "Question", "name": "Is physiotherapy advertising restricted in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Physiotherapists are AHPC-registered allied health professionals, and AHPC advertising guidelines restrict claims, unsubstantiated testimonials and misleading efficacy language. All content we produce is structured to promote your clinic within those rules, so your visibility never puts your registration at risk." } },
+      { "@type": "Question", "name": "Can SEO help my clinic appear on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO and Google Business Profile optimisation are core to physiotherapy SEO. We optimise your listing with accurate services, photos, hours and reviews so you appear in the Maps three-pack when patients search 'physio near me' in your area." } },
+      { "@type": "Question", "name": "Do you handle SEO for clinics with multiple branches?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create distinct location pages and separate Google Business Profiles for each branch, with location-specific content, so every clinic ranks in its own neighbourhood rather than competing with itself." } }
     ]
   },
   {
@@ -40,89 +40,150 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Physiotherapy SEO Singapore", "item": "https://jraftcreative.com/physiotherapy-seo-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "SEO Agency for Physiotherapy Clinics Singapore", "item": "https://jraftcreative.com/physiotherapy-seo-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Physiotherapy SEO Singapore — Jraft Creative"
-  description="SEO services for physiotherapy clinics in Singapore. Local SEO, Google Business Profile optimisation, treatment-specific landing pages."
+  title="SEO Agency for Physiotherapy Clinics Singapore"
+  description="SEO agency for physiotherapy clinics in Singapore — local SEO, condition pages and Google Business Profile that rank you for the searches patients make."
   canonical="https://jraftcreative.com/physiotherapy-seo-singapore/"
-  ogTitle="Physiotherapy SEO Singapore — Jraft Creative"
-  ogDescription="SEO for physiotherapy clinics in Singapore. Local search optimisation, Google Maps ranking, and treatment-specific content to drive patient bookings. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="physiotherapy seo singapore, physio seo, seo for physiotherapy clinics, physiotherapy google ranking, physio local seo, physiotherapy marketing singapore, sports physio seo, Jraft Creative"
+  ogTitle="SEO Agency for Physiotherapy Clinics Singapore"
+  ogDescription="SEO for physiotherapy clinics in Singapore. Rank for sports physio, back pain and physio-near-me searches with local SEO and condition-page optimisation."
+  ogImage="https://jraftcreative.com/images/og-physiotherapy.jpg"
+  keywords="seo agency for physiotherapy clinics, physiotherapy clinic seo singapore, physio seo singapore, physiotherapy seo, physio google business profile, sports physio seo, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Physiotherapy SEO"
-  heroTitle='SEO for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
-  heroSubtitle="Singapore has hundreds of physiotherapy clinics competing for patients searching 'physio near me' and 'sports physio Singapore'. When someone needs rehab after surgery, relief from chronic back pain, or a sports injury assessment, they turn to Google first. If your clinic doesn't rank on page one, those patients book with the physio that does."
-  heroImage="/images/service-physiotherapy.webp"
+  heroLabel="SEO Agency for Physiotherapy Clinics"
+  heroTitle='SEO Agency for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
+  heroSubtitle="When back pain flares up or a runner tears a ligament, they search — 'physio near me', 'sports physio Singapore', 'back pain physiotherapy Novena'. We rank physiotherapy clinics for the exact searches that end in a booked appointment."
+  heroImage="/images/hero-physiotherapy-poster.jpg"
+  heroImageAlt="Physiotherapist treating a patient in a Singapore clinic"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See Physiotherapy Marketing", href: "/physiotherapy-marketing-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need SEO for my physiotherapy clinic in Singapore."
-  ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Physiotherapy Clinic Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your physiotherapy clinic stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  ctaLabel="Get Found by More Patients"
+  ctaTitle="Get a Free Physiotherapy Clinic SEO Audit"
+  ctaDescription="Book a free consultation and we'll review how your clinic ranks for condition and neighbourhood searches, check your Google Business Profile, and show you where enquiries are leaking. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for physiotherapy clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Hundreds of Physio Clinics in Singapore — Can Patients Find Yours?</h2>
+        <h2>Patients Search for a Physio — Does Your Clinic <span class="highlight">Show Up</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's physiotherapy sector is highly competitive. Hundreds of clinics — from large multi-branch chains to solo practitioners in shophouse units — serve a population that is increasingly active, ageing, and dealing with the postural consequences of desk-bound work. Patients searching for physiotherapy almost always start with Google, and they expect to find qualified, conveniently located clinics within seconds.</p>
-        <p>"Physio near me", "sports physiotherapy Singapore", "physiotherapy for lower back pain", "post-ACL surgery rehab" — these are high-intent searches from patients who need treatment now, not next month. The clinics appearing in the top Google results and the Maps 3-pack capture the majority of these bookings. Everyone else is relying on referral networks or insurance panels that they can't scale.</p>
-        <p>The challenge is compounded by regulatory constraints. AHPC guidelines restrict how healthcare professionals can advertise, which means your website content and Google Business Profile need to build trust through clinical authority rather than promotional claims. Many physio clinics have websites that are either too generic to rank or too cautious to convert. A specialist SEO strategy bridges that gap — ranking your clinic for the right searches while maintaining full compliance with Singapore's healthcare advertising regulations.</p>
+        <p>Physiotherapy demand is search-driven and local. Someone in pain after surgery, or a runner needing a sports injury assessment, starts on Google and rarely scrolls past the first few results.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible for 'Physio Near Me'</h3>
+            <p>Most physio visits start with a local search. If your clinic isn't in the map pack, the patient books with whoever is — often the clinic one MRT stop closer.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Conditions Compete Separately</h3>
+            <p>Sports injury, post-surgery rehab, back and neck pain, sciatica, frozen shoulder — each is its own search with its own intent. One generic page can't rank for all of them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Established Chains Own Page One</h3>
+            <p>Larger groups have years of authority on 'physiotherapy Singapore'. Without a structured local and condition SEO strategy, an independent clinic stays invisible.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for physiotherapy clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for physiotherapy clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Physiotherapy Clinics</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Physiotherapy Clinic <span class="highlight">SEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Physiotherapy SEO requires a specialist approach that balances clinical authority with search visibility. Patients search by condition, treatment type, location, and urgency — creating dozens of keyword combinations that need dedicated, AHPC-compliant pages. We build SEO strategies specifically for how Singapore patients research and choose physiotherapy providers.</p>
-        <p>From technical foundations to treatment-specific landing pages and Google Maps dominance, every element of our approach is designed to drive qualified patient bookings from people actively searching for physio near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/physiotherapy-website-singapore/">physiotherapy website</a>, <a href="/services/social-media/">social media marketing</a> to build patient trust, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches from patients needing immediate treatment.</p>
+        <p>Patients search by condition and by neighbourhood, so we build the site around exactly how they look for a physio. Pair SEO with a purpose-built <a href="/physiotherapy-website-singapore/">physiotherapy website</a>, <a href="/physiotherapy-social-media-singapore/">social media</a> that builds trust, or <a href="/physiotherapy-google-ads-singapore/">Google Ads</a> for patients who need treatment now — the same approach we take to <a href="/industries/healthcare/">healthcare marketing in Singapore</a> across every allied-health vertical. If you want the mechanics, our guide on <a href="/blog/rank-google-maps-singapore/">how to rank on Google Maps in Singapore</a> walks through the local signals that decide the three-pack.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
-          <div class="service-detail-card__content">
-            <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your physiotherapy website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your clinic for searches like "physio near me" and "sports physiotherapy Singapore" in your area.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
-          <div class="service-detail-card__content">
-            <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised treatment pages for every service you offer — sports physiotherapy, post-surgical rehab, spinal physiotherapy, paediatric physio, and musculoskeletal conditions. Meta titles, descriptions, heading structures, and internal links targeting searches like "sports physio Orchard", "back pain physiotherapy near me", and "ACL rehab Singapore".</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct physiotherapy categories, treatment details, clinic photos, patient review management, and local citation building across Singapore healthcare directories. Designed to get your clinic into the Google Maps 3-pack for every "physio near me" search in your area.</p>
+            <p>Optimised GBP with services, photos, hours and review management — built to land you in the Maps three-pack for 'physio near me' in Novena, Tampines, Jurong and beyond.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>AHPC-Compliant Content Strategy</h3>
-            <p>Blog articles and treatment guides answering the questions patients search — "how long does physio take for frozen shoulder", "physiotherapy vs chiropractor Singapore", "what to expect at your first physio session". Evidence-based content that builds clinical authority and captures patients during their research phase — fully compliant with AHPC advertising guidelines.</p>
+            <h3>Condition Page Optimisation</h3>
+            <p>A dedicated, optimised page per service — sports injury rehab, post-surgery rehab, back and neck pain, dry needling, manual therapy — so each ranks for its own high-intent search.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>A full crawl for indexing issues, broken links, missing schema and slow mobile loads — the barriers stopping Google ranking you at all.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood Landing Pages</h3>
+            <p>Location pages for each estate or branch you serve, so 'physio Tampines' or 'sports physio Orchard' finds the right clinic in Novena, Tanjong Pagar, Katong or Bishan.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Patient-Question Content</h3>
+            <p>Guides answering what patients search — 'how long does physio take for frozen shoulder', 'physiotherapy for sciatica', 'what to expect at your first physio session' — earning trust and traffic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reviews &amp; Reputation</h3>
+            <p>A steady, compliant review flow and response strategy — the strongest local ranking signal and the deciding factor for a patient choosing between clinics.</p>
           </div>
         </div>
       </div>
@@ -130,47 +191,60 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for physiotherapy clinic SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for physiotherapy seo">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands Healthcare Marketing</h2>
+        <h2>An <span class="highlight">SEO Agency</span> That Understands <span class="highlight">Physiotherapy Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with healthcare and wellness businesses across Singapore. We understand patient acquisition cycles, AHPC compliance requirements, and which search terms actually convert online browsers into booked physiotherapy appointments.</p>
+        <p>Physiotherapy SEO is local, condition-specific and regulated. We build for all three, and report on booked appointments rather than vanity rankings.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare SEO Expertise</h3>
-            <p>We understand the difference between sports physio, musculoskeletal rehab, and post-surgical recovery — and we know which treatment types drive the most search volume in Singapore. Our strategies are built around patient search behaviour, not generic SEO templates.</p>
+            <h3>Local &amp; Condition-Led</h3>
+            <p>We rank you for the neighbourhood you draw from and the conditions you most want to treat — sports rehab, chronic pain, women's health physio — not broad terms that never convert.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>AHPC-Aware Content</h3>
-            <p>Healthcare advertising in Singapore is regulated. We create SEO content that builds clinical authority and patient trust without making prohibited claims, using unsubstantiated testimonials, or violating AHPC advertising guidelines. Compliance is built into every page we optimise.</p>
+            <p>Physiotherapists are AHPC-registered allied health professionals. We keep content within AHPC advertising rules — no prohibited claims, no unsubstantiated testimonials, no misleading efficacy language.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings across treatment types, organic traffic, Google Business Profile insights, and appointment booking trends. We show you the numbers that matter — data tied directly to patient discovery and conversion.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle physiotherapy website design, social media content, and paid ads — so your entire digital marketing works together as a single system to grow your patient base.</p>
+            <h3>Search, Website &amp; Ads Together</h3>
+            <p>We also build the <a href="/physiotherapy-website-singapore/">clinic website</a> and run <a href="/physiotherapy-google-ads-singapore/">Google Ads</a> — one system for filling the appointment book.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where seo fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Organic Search</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A physiotherapy patient moves through the same five stages before booking. SEO owns the earliest and most repeated moments — Discover, when they first search a condition or 'near me', and Validate, when they check your reviews and credentials.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>Organic and map results catch the first search</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Reviews, condition pages and AHPC credentials reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>They weigh clinics by location and treatment fit</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Contact and booking turn intent into an appointment</p></li>
+        <li class="funnel-stage"><h3>Treat</h3><p>A good first session, then rehab follow-ups &amp;amp; referrals</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about physiotherapy clinic SEO in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about physiotherapy seo">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -178,44 +252,43 @@ const schemaData = [
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for a physiotherapy clinic in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How long does physiotherapy SEO take to work in Singapore?</summary>
+          <div class="faq-answer"><p>Most clinics see measurable movement within 3 to 5 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while competitive terms like 'sports physio Singapore' take longer to climb. We prioritise the searches most likely to fill your appointment book first.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for physiotherapy SEO to show results?</summary>
-          <div class="faq-answer"><p>Most physiotherapy clinics see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Treatment-specific keywords like "sports physio Orchard" or "back pain physiotherapy near me" often rank faster than broad competitive terms.</p></div>
+          <summary>Which keywords should a physiotherapy clinic target?</summary>
+          <div class="faq-answer"><p>A mix of local ('physio Tampines', 'physiotherapy near me'), condition-specific ('back pain physiotherapy Novena', 'sports physio Singapore', 'ACL rehab', 'frozen shoulder treatment') and question-based terms ('how long does physio take for sciatica'). We research the exact searches your prospective patients use in your area.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can SEO help my physiotherapy clinic rank in Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our physiotherapy SEO service. We optimise your listing categories, upload clinic photos, manage patient reviews, and build local citations so your clinic appears in the Maps 3-pack for "physio near me" and "physiotherapy near me" searches in your area.</p></div>
+          <summary>Is physiotherapy advertising restricted in Singapore?</summary>
+          <div class="faq-answer"><p>Yes. Physiotherapists are AHPC-registered allied health professionals, and AHPC advertising guidelines restrict claims, unsubstantiated testimonials and misleading efficacy language. All content we produce is structured to promote your clinic within those rules, so your visibility never puts your registration at risk.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>What keywords do patients search when looking for physiotherapy in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "physio near me", "physiotherapy Singapore", "sports physio Singapore", "physiotherapy for back pain", "post surgery physiotherapy", "frozen shoulder treatment", and condition-specific queries like "ACL rehab physiotherapy". We research the exact terms driving appointments in your area and optimise accordingly.</p></div>
+          <summary>Can SEO help my clinic appear on Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Local SEO and Google Business Profile optimisation are core to physiotherapy SEO. We optimise your listing with accurate services, photos, hours and reviews so you appear in the Maps three-pack when patients search 'physio near me' in your area.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Does your SEO content comply with AHPC advertising guidelines?</summary>
-          <div class="faq-answer"><p>Yes. All content we create for physiotherapy clinics is written with AHPC advertising guidelines in mind. We avoid prohibited claims, unsubstantiated testimonials, and misleading language. Our content builds trust through clinical expertise, evidence-based information, and clear descriptions of treatment processes and expected outcomes.</p></div>
+          <summary>Do you handle SEO for clinics with multiple branches?</summary>
+          <div class="faq-answer"><p>Yes. We create distinct location pages and separate Google Business Profiles for each branch, with location-specific content, so every clinic ranks in its own neighbourhood rather than competing with itself.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Physiotherapy Services</h2>
+        <h2>More <span class="highlight">Physiotherapy Clinic</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Website Design</a>
           <a href="/physiotherapy-marketing-singapore/" class="related-service-link">Physiotherapy Marketing</a>
-          <a href="/physiotherapy-social-media-singapore/" class="related-service-link">Physiotherapy Social Media</a>
+          <a href="/physiotherapy-ai-search-optimisation-singapore/" class="related-service-link">Physiotherapy GEO</a>
           <a href="/physiotherapy-google-ads-singapore/" class="related-service-link">Physiotherapy Google Ads</a>
+          <a href="/physiotherapy-social-media-singapore/" class="related-service-link">Physiotherapy Social Media</a>
           <a href="/physiotherapy-branding-singapore/" class="related-service-link">Physiotherapy Branding</a>
-          <a href="/physiotherapy-content-marketing-singapore/" class="related-service-link">Physiotherapy Content Marketing</a>
+          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Websites</a>
       </div>
     </div>
   </section>
