@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Tuition Centre Branding Singapore",
-    "description": "Professional branding for tuition centres in Singapore — logo design, colour palette, typography, marketing collateral, signage, and parent-facing materials. Build a brand parents trust.",
+    "name": "Branding Agency for Tuition Centres Singapore",
+    "description": "Branding agency for tuition centres in Singapore — positioning, logo and visual identity, centre and signage direction, collateral and brand guidelines built to earn parent trust and referrals.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does branding cost for a tuition centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What should a tuition centre brand include?", "acceptedAnswer": { "@type": "Answer", "text": "A complete tuition centre brand includes a professional logo with variations, a colour palette that conveys trust and academic excellence, typography selections, brand guidelines, signage design for your centre, parent-facing collateral like brochures and enrolment packs, social media templates, and uniform or staff wear design. The brand should project credibility to parents while remaining approachable to students." } },
-      { "@type": "Question", "name": "How long does the branding process take for a tuition centre?", "acceptedAnswer": { "@type": "Answer", "text": "A typical tuition centre branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and parent materials take 4 to 6 weeks. We time our deliverables to align with your term schedule so you can launch your new brand between terms." } },
-      { "@type": "Question", "name": "Can you rebrand an existing tuition centre?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Many tuition centres in Singapore start with a basic logo and outgrow it as they expand. We handle complete rebrands including a new visual identity, updated signage, refreshed marketing materials, and a rollout plan to transition across all touchpoints — from your website to your centre's physical space and parent communications." } },
-      { "@type": "Question", "name": "Do you design signage and physical materials for tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include signage design for your centre — including exterior signage, reception area branding, classroom signage, and directional signage. We also design print materials like brochures, enrolment forms, certificates, and report card templates that parents interact with directly." } }
+      { "@type": "Question", "name": "Why does a tuition centre need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because parents cannot sit in on a lesson before they enrol, so they judge everything around it — your logo, your centre, the flyer in the letterbox, the way your programmes are presented. In estates like Tampines and Bishan a parent can pass four or five centres in one mall, and most look interchangeable. The one that looks established and considered is the one parents trust first and recommend to other parents. Branding is what earns that first look and the referral that follows." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand, not the whole of it. What actually persuades a parent is consistency across everything they see — the website, the programme brochure, the report cover that goes home, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they cannot name it. We build the full system so every touchpoint reinforces the same impression of a serious, well-run centre." } },
+      { "@type": "Question", "name": "Will rebranding lose the trust we have built with existing families?", "acceptedAnswer": { "@type": "Answer", "text": "Only if it is done carelessly. Most established centres do not need a clean slate — they need their existing reputation sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as the centre growing up rather than starting over. Current families should feel the centre got more professional, not unrecognisable." } },
+      { "@type": "Question", "name": "Can branding help us stop competing on discounts?", "acceptedAnswer": { "@type": "Answer", "text": "It is one of the few things that reliably helps. When a centre looks generic, price and promotions become the only things left to compare, and you get drawn into a discount race with the shop down the road. A considered identity, a polished centre and materials parents are proud to hand on give families a reason to choose you that has nothing to do with the cheapest rate. That is how you earn referrals instead of chasing sign-up offers." } },
+      { "@type": "Question", "name": "Do you handle the design work in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, ads, SEO — so the brand does not stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees, from the shopfront signage to the programme brochure and the report cover." } }
     ]
   },
   {
@@ -40,87 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Tuition Centre Branding Singapore", "item": "https://jraftcreative.com/tuition-centre-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Tuition Centres Singapore", "item": "https://jraftcreative.com/tuition-centre-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Tuition Centre Branding Singapore — Jraft Creative"
-  description="Branding for tuition centres in Singapore — logo design, colour palette, typography, marketing collateral, and signage."
+  title="Branding Agency for Tuition Centres Singapore"
+  description="Branding for tuition centres in Singapore — positioning, identity, signage direction, and collateral that earn parent trust and referrals."
   canonical="https://jraftcreative.com/tuition-centre-branding-singapore/"
-  ogTitle="Tuition Centre Branding Singapore — Jraft Creative"
-  ogDescription="Logo design, brand identity, and marketing collateral for tuition centres in Singapore. Build a brand that earns parent trust and stands out from the competition."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="tuition centre branding singapore, tuition centre logo design, tuition centre brand identity, education branding singapore, tuition centre marketing materials, tuition centre signage design, Jraft Creative"
+  ogTitle="Branding Agency for Tuition Centres Singapore"
+  ogDescription="Branding for Singapore tuition centres. Positioning, logo, centre and signage direction, collateral and guidelines built to earn parent trust and referrals."
+  ogImage="https://jraftcreative.com/images/og-tuition.jpg"
+  keywords="branding agency for tuition centres, tuition centre branding singapore, tuition centre logo design, tuition centre brand identity, tuition centre rebrand singapore, tuition centre signage design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Tuition Centre Branding"
-  heroTitle='Professional <span class="highlight">Branding for Tuition Centres in Singapore</span>'
-  heroSubtitle="Parents judge your tuition centre before their child ever steps inside. We create brand identities that project academic credibility, earn trust at first glance, and set your centre apart from the hundreds of competitors in your neighbourhood."
+  heroLabel="Branding Agency for Tuition Centres"
+  heroTitle='Branding Agency for <span class="highlight">Tuition Centres in Singapore</span>'
+  heroSubtitle="A parent cannot sit in on a lesson before they enrol. So they judge everything else — your logo, your centre, the flyer in the letterbox, the way your programmes are presented. We build tuition centre brands that look trusted and results-focused, so parents choose you and recommend you to other parents."
   heroImage="/images/service-tuition.webp"
+  heroImageAlt="Students studying at a Singapore tuition centre — tuition centre branding"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Tuition Centre Marketing", href: "/tuition-centre-marketing-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my tuition centre in Singapore."
-  ctaLabel="Ready to Build Your Tuition Centre Brand?"
-  ctaTitle="Get a Brand That Parents Trust"
-  ctaDescription="Book a free consultation and tell us about your tuition centre. We will put together a tailored branding proposal — no obligations, no hard sell."
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my tuition centre in Singapore."
+  ctaLabel="Earn the Parent's Trust"
+  ctaTitle="Get a Free Tuition Centre Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your centre currently presents itself — logo, website, signage, flyers, brochures — and where the gaps are between how good your teaching is and how good it looks. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for tuition centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Tuition Centre Looks Like Every Other One on the Block</h2>
+        <h2>Parents Can't Judge <span class="highlight">Teaching</span>. So They Judge <span class="highlight">Everything Else</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 800 registered tuition centres, and in areas like Bukit Timah, Tampines, and Bishan, parents can walk past four or five in a single mall. Most of these centres look identical — a generic name in a standard font, clip-art visuals, and flyers printed on budget paper. When every centre looks the same, parents default to the one they have heard of before, or the one their friend recommended. Your centre never gets a chance.</p>
-        <p>The problem runs deeper than aesthetics. Without a cohesive brand identity, your marketing materials contradict each other. The brochure uses different colours from the website. The signage does not match the social media posts. Enrolment packs look like they were assembled from different centres entirely. This inconsistency signals to parents that your centre lacks attention to detail — a perception you cannot afford in an industry built on trust and academic rigour.</p>
-        <p>Professional tuition centre branding solves this by giving your centre a unified visual identity that parents recognise and trust. A logo designed for the education sector. A colour palette that conveys both credibility and warmth. Signage that looks polished. Marketing collateral that parents feel confident handing to other parents. It is the difference between being perceived as a serious education provider and being dismissed as another neighbourhood tuition shop.</p>
+        <p>Your teaching may be the best in the estate. Before a child ever enrols, a parent has no way to know that — and in a mall in Tampines or Bishan they can pass four or five centres that all look the same.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Credibility Judged in Seconds</h3>
+            <p>A dated logo or a flyer printed on budget paper tells a parent you're small and unsure — long before they read a single testimonial.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Good Centres Blur Together</h3>
+            <p>Hundreds of tuition centres across Singapore look interchangeable. If nothing sets yours apart on sight, parents default to the name they've already heard of.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Stuck in a Discount Race</h3>
+            <p>When a centre looks generic, price and promotions become the only things left to compare — and you're pulled into a sign-up offer race you can't win.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Tuition centre branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for tuition centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Tuition Centres</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for <span class="highlight">Tuition Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build complete brand identities tailored to the tuition centre industry in Singapore. From logo design and brand guidelines through to signage, enrolment packs, and parent-facing collateral — every element is designed to project academic credibility and build trust with parents who are choosing where to invest in their child's education.</p>
+        <p>We build the full system, not just a logo — everything a parent sees, made to say the same thing. The identity then carries through to your <a href="/tuition-centre-website-singapore/">website</a>, your <a href="/tuition-centre-social-media-singapore/">social channels</a> and how you show up in <a href="/tuition-centre-seo-singapore/">search</a>.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your centre stands for and who it's for — the exam-focused academy or the small-group centre that knows every child. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo designed for the education sector — professional enough to command respect from parents, approachable enough to feel welcoming to students. Includes primary, secondary, and icon variations for signage, print, digital, and merchandise.</p>
+            <p>A mark, colour system and type system that looks established at the shopfront, on a screen, and on the report cover that goes home to parents.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Colour Palette &amp; Typography</h3>
-            <p>A defined colour system and font selection that conveys trust, academic rigour, and warmth. We specify exact colour codes, usage rules, and font pairings so every piece of material your centre produces — from worksheets to banners — looks consistent.</p>
+            <h3>Centre &amp; Signage Direction</h3>
+            <p>Exterior signage, reception branding and classroom wayfinding — the physical space a parent walks into and decides about in seconds.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Marketing Collateral &amp; Enrolment Packs</h3>
-            <p>Brochures, flyers, enrolment forms, certificates, report card templates, and parent information packs — all designed to match your brand identity. Professionally printed materials that parents feel confident sharing with other families.</p>
+            <h3>Brand Voice &amp; Messaging</h3>
+            <p>A tone that reassures parents — from the website headline to the WhatsApp reply — calm, capable and honest, without over-promising on results.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Signage &amp; Environmental Design</h3>
-            <p>Exterior signage, reception area branding, classroom headers, directional signage, and wall graphics designed for your physical space. We provide print-ready files with specifications your signage vendor can work from directly.</p>
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A consistent way to shoot the centre, tutors and classrooms, so your feed and website stop looking like a folder of phone snaps.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Collateral &amp; Guidelines</h3>
+            <p>Flyers, programme brochures and report covers, plus a simple rulebook your front desk and any freelancer can follow, so the brand holds after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -128,93 +260,120 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for tuition centre branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your tuition centre branding agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Tuition Centres Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Brand</span> That Doesn't Stop at a <span class="highlight">PDF</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the Singapore tuition industry. Our branding is designed to speak directly to parents — the decision-makers — while maintaining the warmth and professionalism that defines a credible education provider. Here is what sets us apart:</p>
+        <p>Most branding projects end with a guidelines document nobody opens again. Ours end with the brand actually live across every parent touchpoint. It sits inside our wider work on <a href="/industries/education/">education marketing in Singapore</a>, and if you're still weighing up partners, our guide on <a href="/blog/how-to-choose-digital-marketing-agency-singapore/">how to choose a digital marketing agency in Singapore</a> lays out what to ask before you sign anything.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Education Sector Expertise</h3>
-            <p>We have built brands for tuition centres, enrichment centres, and preschools across Singapore. We understand the parent decision journey — from Google search to walk-in — and design brands that convert at every touchpoint.</p>
+            <h3>Education Sector Fluency</h3>
+            <p>We already run search, ads and social for tuition and enrichment centres, so we know what makes a parent in Punggol or Bukit Timah trust one centre over another.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Under One Roof</h3>
-            <p>Branding, <a href="/tuition-centre-website-singapore/">website design</a>, <a href="/tuition-centre-seo-singapore/">SEO</a>, and <a href="/services/social-media/">social media</a> — all handled by one team. Your brand identity flows seamlessly into every channel without miscommunication between vendors.</p>
+            <h3>Built to Earn Referrals</h3>
+            <p>Every decision serves one goal — making your centre look trusted and results-focused, so parents choose you on merit and pass your name on rather than a discount.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Fixed Pricing &amp; No Lock-ins</h3>
-            <p>A clear, agreed scope with no hidden costs. You receive full ownership of all brand assets, source files, and guidelines. No monthly retainers, no ongoing fees for the branding work itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Parent-Centric Design</h3>
-            <p>Every design decision is filtered through one question: will this build trust with parents? We design brands that signal academic credibility, professional management, and genuine care for students — the three things parents look for most.</p>
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the new identity onto your <a href="/tuition-centre-website-singapore/">website</a>, <a href="/tuition-centre-social-media-singapore/">social</a> and ads — one agency, so nothing drifts between vendors.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand isn't one stage — it's the layer over all of them. It decides whether a parent in Jurong East or Woodlands takes you seriously in the first search, believes you at the comparison, and feels confident enough to recommend you to another family.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A polished first impression earns the click</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Consistency signals a real, established centre</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>A clear identity lifts you above the discount race</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Looking the part makes the decision feel safe</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Refer</h3>
+          <p>Families feel proud to recommend you on</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about tuition centre branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about tuition centre branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Tuition Centre Branding Questions Answered</h2>
+        <h2>Tuition Centre <span class="highlight">Branding</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does branding cost for a tuition centre in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does a tuition centre need branding?</summary>
+          <div class="faq-answer"><p>Because parents can't sit in on a lesson before they enrol, so they judge everything around it — your logo, your centre, the flyer in the letterbox, the way your programmes are presented. In estates like Tampines and Bishan a parent can pass four or five centres in one mall, and most look interchangeable. The one that looks established and considered is the one parents trust first and recommend to other parents. Branding is what earns that first look and the referral that follows.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What should a tuition centre brand include?</summary>
-          <div class="faq-answer"><p>A complete tuition centre brand includes a professional logo with variations, a colour palette that conveys trust and academic excellence, typography selections, brand guidelines, signage design for your centre, parent-facing collateral like brochures and enrolment packs, social media templates, and uniform or staff wear design. The brand should project credibility to parents while remaining approachable to students.</p></div>
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand, not the whole of it. What actually persuades a parent is consistency across everything they see — the website, the programme brochure, the report cover that goes home, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint reinforces the same impression of a serious, well-run centre.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How long does the branding process take for a tuition centre?</summary>
-          <div class="faq-answer"><p>A typical tuition centre branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and parent materials take 4 to 6 weeks. We time our deliverables to align with your term schedule so you can launch your new brand between terms.</p></div>
+          <summary>Will rebranding lose the trust we have built with existing families?</summary>
+          <div class="faq-answer"><p>Only if it's done carelessly. Most established centres don't need a clean slate — they need their existing reputation sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as the centre growing up rather than starting over. Current families should feel the centre got more professional, not unrecognisable.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can you rebrand an existing tuition centre?</summary>
-          <div class="faq-answer"><p>Absolutely. Many tuition centres in Singapore start with a basic logo and outgrow it as they expand. We handle complete rebrands including a new visual identity, updated signage, refreshed marketing materials, and a rollout plan to transition across all touchpoints — from your <a href="/tuition-centre-website-singapore/">website</a> to your centre's physical space and parent communications.</p></div>
+          <summary>Can branding help us stop competing on discounts?</summary>
+          <div class="faq-answer"><p>It's one of the few things that reliably helps. When a centre looks generic, price and promotions become the only things left to compare, and you get drawn into a discount race with the shop down the road. A considered identity, a polished centre and materials parents are proud to hand on give families a reason to choose you that has nothing to do with the cheapest rate. That's how you earn referrals instead of chasing sign-up offers.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you design signage and physical materials for tuition centres?</summary>
-          <div class="faq-answer"><p>Yes. Our Business and Premium packages include signage design for your centre — including exterior signage, reception area branding, classroom signage, and directional signage. We also design print materials like brochures, enrolment forms, certificates, and report card templates that parents interact with directly.</p></div>
+          <summary>Do you handle the design work in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, ads, SEO — so the brand doesn't stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees, from the shopfront signage to the programme brochure and the report cover.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Tuition Centre Services</h2>
+        <h2>More <span class="highlight">Tuition Centre</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Website Design</a>
-          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
           <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
-          <a href="/tuition-centre-social-media-singapore/" class="related-service-link">Tuition Centre Social Media</a>
+          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
+          <a href="/tuition-centre-ai-search-optimisation-singapore/" class="related-service-link">Tuition Centre GEO</a>
           <a href="/tuition-centre-google-ads-singapore/" class="related-service-link">Tuition Centre Google Ads</a>
           <a href="/tuition-centre-facebook-ads-singapore/" class="related-service-link">Tuition Centre Facebook Ads</a>
-          <a href="/tuition-centre-content-marketing-singapore/" class="related-service-link">Tuition Centre Content Marketing</a>
+          <a href="/tuition-centre-social-media-singapore/" class="related-service-link">Tuition Centre Social Media</a>
+          <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Websites</a>
       </div>
     </div>
   </section>

@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import MarketingFunnelBlock from '../components/MarketingFunnelBlock.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Tuition Centre Website Design Singapore",
-    "description": "Custom website design for tuition centres and enrichment centres in Singapore — class schedules, online enrolment, parent testimonials, and local SEO.",
+    "description": "Custom website design for tuition and enrichment centres in Singapore — programme pages by level and subject, tutor profiles, timetables, and trial-class enquiry forms.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a tuition centre website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you integrate online enrolment forms into our website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include online enrolment forms that let parents register their children directly through your website. Forms can capture student details, preferred class timings, subject selections, and even process deposit payments — reducing your admin workload and making enrolment seamless for parents." } },
-      { "@type": "Question", "name": "Do you support multi-branch tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Premium package is designed for tuition centres with multiple branches across Singapore. Each branch gets its own page with location-specific class schedules, teacher profiles, Google Maps embed, and unique local SEO targeting so parents searching near each branch can find you." } },
-      { "@type": "Question", "name": "How do you help tuition centres rank on Google?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise your website for keywords parents actually search — like 'tuition near me', 'maths tuition Tampines', or 'primary school English tuition Singapore'. This includes on-page SEO, schema markup for educational organisations, Google Business Profile optimisation, and location-targeted content that helps each branch rank in local search results." } },
-      { "@type": "Question", "name": "How long does it take to build a tuition centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Most tuition centre websites go live within 2 weeks for our Starter package. Business-tier sites with online enrolment and blog typically take 3 weeks, while Premium builds with multi-branch support and parent portals take 4–5 weeks. We provide a clear timeline before starting so you can plan around your term schedule." } }
+      { "@type": "Question", "name": "Can you add a trial-class enquiry form to our tuition centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build trial-class and registration enquiry forms straight into your site so parents can request a slot without calling. Forms capture the child's level, preferred subject, and preferred timing, then land in your inbox with an automatic confirmation to the parent — cutting phone tag and manual admin for your front desk." } },
+      { "@type": "Question", "name": "Can you build programme pages by level and subject?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each programme gets its own page organised by level and subject — PSLE, O-Level and A-Level streams across English, Math, Science and Chinese. Every page sets out the format, class size and who the programme suits, so a parent can judge fit before they enquire." } },
+      { "@type": "Question", "name": "How do you handle testimonials and student results?", "acceptedAnswer": { "@type": "Answer", "text": "We present genuine parent testimonials and student achievements as records of past work, never as promised outcomes. As an MOE-registered private education space, results are shown honestly and in context, so parents get an accurate picture of your centre without any guaranteed-grade claims." } },
+      { "@type": "Question", "name": "How do you help a tuition centre website rank on Google?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise your site for what parents actually search — like 'tuition near me', 'math tuition Tampines', or 'PSLE English tuition Singapore'. That covers on-page SEO, schema markup for educational organisations, Google Business Profile optimisation, and location-targeted content so each branch can surface in local search and Google Maps." } }
     ]
   },
   {
@@ -47,134 +46,294 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Tuition Centre Website Singapore — Jraft Creative"
-  description="Website design for Singapore tuition and enrichment centres — class schedules, online enrolment, parent testimonials, local SEO."
+  title="Tuition Centre Website Singapore — Web Design Agency"
+  description="Websites for tuition centres in Singapore — programme pages by level and subject, tutor profiles, timetables, and trial-class enquiry forms."
   canonical="https://jraftcreative.com/tuition-centre-website-singapore/"
-  ogTitle="Tuition Centre Website Singapore — Jraft Creative"
-  ogDescription="Website design for Singapore tuition and enrichment centres — class schedules, online enrolment, parent testimonials, local SEO."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="tuition centre website design singapore, tuition centre website singapore, enrichment centre website singapore, tuition near me, education website design singapore, tuition website design, Jraft Creative"
+  ogTitle="Tuition Centre Website Singapore — Web Design Agency"
+  ogDescription="Custom website design for tuition and enrichment centres in Singapore. Programme pages by level and subject, tutor profiles, timetables, and trial-class enquiry forms."
+  ogImage="https://jraftcreative.com/images/og-tuition.jpg"
+  keywords="web design agency for tuition centres, tuition centre website design singapore, tuition centre website singapore, enrichment centre website singapore, tuition website design, education website singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Tuition Centre Websites"
-  heroTitle='Website Design for <span class="highlight">Tuition Centres in Singapore</span>'
-  heroSubtitle="Parents are searching for tuition centres online every day. We build websites that showcase your classes, highlight student results, and make enrolment effortless — so you can focus on teaching, not chasing leads."
+  heroLabel="Web Design Agency for Tuition Centres"
+  heroTitle='Web Design Agency for <span class="highlight">Tuition Centres in Singapore</span>'
+  heroSubtitle="Parents are comparing tuition centres online before they ever call. We build websites that lay out your programmes by level and subject, introduce your tutors, and turn a visit into a booked trial or an enrolment enquiry — so you can focus on teaching, not chasing leads."
   heroImage="/images/service-tuition.webp"
+  heroImageAlt="Primary school students in a Singapore tuition class — tuition centre web design"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See Tuition Centre SEO", href: "/tuition-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my tuition centre in Singapore."
-  ctaLabel="Ready to Enrol More Students?"
+  ctaLabel="Ready to Fill Your Next Intake?"
   ctaTitle="Get Your Tuition Centre Online"
-  ctaDescription="Tell us about your tuition centre and we'll recommend the right website package. Free consultation — no obligations, no pressure."
+  ctaDescription="Tell us about your tuition centre and we'll recommend the right website scope. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why tuition centres need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for tuition centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Searching — Can They Find You?</h2>
+        <h2>Parents Are <span class="highlight">Searching</span> — Can They <span class="highlight">Find Your Centre</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Every week, thousands of parents in Singapore search "tuition near me" on Google. They compare centres side by side, reading reviews, checking class schedules, and looking at teacher credentials. If your tuition centre doesn't have a professional website, you're invisible to these parents — and they're enrolling their children with your competitors instead.</p>
-        <p>A Facebook page or a listing on a tuition directory is not enough. Parents want to see your full programme lineup, understand your teaching methodology, and read real testimonials from other parents. They want to know your class sizes, your tutors' qualifications, and whether you offer trial classes — all before they ever pick up the phone.</p>
-        <p>Tuition centres that invest in a proper website with clear class information, visible results, and easy enrolment consistently outperform those relying on word of mouth alone. In a market as competitive as Singapore's education sector, your website is the first impression that determines whether a parent chooses you or scrolls past.</p>
+        <p>Parents shortlist centres side by side — subjects, levels, timetable, tutors — long before they ever call or walk in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Facebook Page Isn't Enough</h3>
+            <p>Parents want programmes, tutor credentials, class timings and a way to book a trial in one place. A directory listing answers none of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Research Thoroughly</h3>
+            <p>They read testimonials, check which levels and subjects you cover, and study the timetable against a child's school hours. Anything missing is a reason to look elsewhere.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Decide It</h3>
+            <p>From national chains to neighbourhood centres in Tampines and Bishan, the market is crowded. Your site decides whether a parent enquires or scrolls past.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Tuition centre website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Tuition centre website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Tuition Centres</h2>
+        <h2>Six <span class="highlight">Pillars</span> of a Tuition Centre <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every tuition centre website we deliver is built to convert visitors into enrolled students. We go beyond a generic school template — your site will feature structured class schedules, compelling teacher profiles, and a frictionless enrolment flow that makes it easy for parents to sign up.</p>
-        <p>A great website is just the starting point. Pair your tuition centre site with <a href="/services/seo-performance/">local SEO services</a> to rank for "tuition near me" searches in your area, <a href="/services/social-media/">social media marketing</a> to reach parents on Facebook and Instagram, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak enrolment periods.</p>
+        <p>Every site is built to turn a browsing parent into a booked trial or an enrolment enquiry, not just to look good. It pairs naturally with <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a>, <a href="/tuition-centre-social-media-singapore/">social media</a> and <a href="/tuition-centre-google-ads-singapore/">Google Ads</a> when you are ready to drive traffic to it.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Class Schedules &amp; Timetables</h3>
-            <p>Organised, easy-to-read timetables for every subject and level. Parents can quickly find available slots, check timings, and see which branch offers the classes they need — without calling to ask.</p>
+            <h3>Programme Pages by Level &amp; Subject</h3>
+            <p>A page per stream — PSLE, O-Level and A-Level across English, Math, Science and Chinese — setting out format, class size and who each programme suits.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Online Enrolment Forms</h3>
-            <p>Let parents register their children directly through your website. Capture student details, subject preferences, and preferred timings in one streamlined form — reducing phone tag and manual admin work.</p>
+            <h3>Trial-Class &amp; Enrolment Enquiry Forms</h3>
+            <p>Parents request a trial or register straight from the site — child's level, subject and preferred timing captured, with automatic confirmation. Fewer phone calls for your front desk.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Testimonials &amp; Results</h3>
-            <p>Showcase real testimonials from satisfied parents and highlight student results. Visible proof of your track record builds trust and gives hesitant parents the confidence to enrol their children.</p>
+            <h3>Tutor Profiles &amp; Timetable</h3>
+            <p>Qualifications, teaching background and the subjects each tutor covers, alongside a clear timetable parents can read against a child's school hours.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Subject &amp; Programme Pages</h3>
-            <p>Dedicated pages for each subject and level you offer — from primary school Maths to O-Level Science. Detailed programme descriptions help parents understand your curriculum and teaching approach.</p>
+            <h3>Testimonials &amp; Results, Handled Honestly</h3>
+            <p>Genuine parent testimonials and student achievements shown as records of past work, in context — never as promised outcomes or guaranteed grades.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Branch Ready</h3>
+            <p>A page per branch — Jurong East, Punggol, Woodlands, Ang Mo Kio — with its own timetable, map and local targeting, so parents find the outlet nearest them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First, Search-Ready Foundations</h3>
+            <p>Clean structure, fast mobile loads and schema built in from day one, because parents browse on their phones between drop-offs and late at night.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for tuition centre website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your tuition centre web design agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Your Tuition Centre Website</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Tuition Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the education industry in Singapore. Our websites are built to address the specific challenges tuition centres face — from competing for "tuition near me" searches to converting parent visits into student enrolments.</p>
+        <p>We build for the specific problem tuition centres have — competing locally, then converting a parent's enquiry into a term-long enrolment. It is one part of our wider approach to <a href="/industries/education/">education marketing in Singapore</a>, and if you want the groundwork first, our guide to <a href="/blog/good-business-website-singapore/">what makes a good business website in Singapore</a> is a useful starting point.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Education Industry Experience</h3>
-            <p>We've built websites for tuition centres, enrichment centres, and education businesses across Singapore. We know what parents look for and how to structure content that converts enquiries into enrolments.</p>
+            <p>We've built for tuition and enrichment centres across Singapore, and we know how to structure content that moves a browsing parent towards an enquiry.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most tuition centre websites go live within 2 weeks. We work fast so you can start capturing online enrolments before the next term begins — no dragging projects out for months.</p>
+            <h3>Live Before the Next Term</h3>
+            <p>Most tuition centre sites go live within two weeks, so you start capturing enrolment enquiries before the next intake rather than after it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Parents browse on their phones — between drop-offs, during lunch breaks, and late at night. Every page we build is optimised for mobile first, so your site works perfectly on any device.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management — everything your tuition centre needs to grow its online presence and fill more class slots.</p>
+            <h3>Website, SEO &amp; Ads Together</h3>
+            <p>We also run <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a> and <a href="/tuition-centre-google-ads-singapore/">Google Ads</a> — one system for filling class slots.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the tuition parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts classes. Your website carries the middle three — it is where a parent validates your tutors, compares you against the shortlist, and finally requests the trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Tutor profiles, testimonials, real student results</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Programme pages answer level, subject and fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Enquiry form turns interest into a booked trial</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about tuition centre website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about tuition centre website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Tuition Centre Website Questions Answered</h2>
+        <h2>Tuition Centre <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,20 +341,20 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you integrate online enrolment forms into our website?</summary>
-          <div class="faq-answer"><p>Yes. Our Business and Premium packages include online enrolment forms that let parents register their children directly through your website. Forms can capture student details, preferred class timings, subject selections, and even process deposit payments — reducing your admin workload and making enrolment seamless for parents.</p></div>
+          <summary>Can you add a trial-class enquiry form to our tuition centre website?</summary>
+          <div class="faq-answer"><p>Yes. We build trial-class and registration enquiry forms straight into your site so parents can request a slot without calling. Forms capture the child's level, preferred subject, and preferred timing, then land in your inbox with an automatic confirmation to the parent — cutting phone tag and manual admin for your front desk.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you support multi-branch tuition centres?</summary>
-          <div class="faq-answer"><p>Yes. Our Premium package is designed for tuition centres with multiple branches across Singapore. Each branch gets its own page with location-specific class schedules, teacher profiles, Google Maps embed, and unique local SEO targeting so parents searching near each branch can find you.</p></div>
+          <summary>Can you build programme pages by level and subject?</summary>
+          <div class="faq-answer"><p>Yes. Each programme gets its own page organised by level and subject — PSLE, O-Level and A-Level streams across English, Math, Science and Chinese. Every page sets out the format, class size and who the programme suits, so a parent can judge fit before they enquire.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you help tuition centres rank on Google?</summary>
-          <div class="faq-answer"><p>We optimise your website for keywords parents actually search — like "tuition near me", "maths tuition Tampines", or "primary school English tuition Singapore". This includes on-page SEO, schema markup for educational organisations, Google Business Profile optimisation, and location-targeted content that helps each branch rank in local search results.</p></div>
+          <summary>How do you handle testimonials and student results?</summary>
+          <div class="faq-answer"><p>We present genuine parent testimonials and student achievements as records of past work, never as promised outcomes. As an MOE-registered private education space, results are shown honestly and in context, so parents get an accurate picture of your centre without any guaranteed-grade claims.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take to build a tuition centre website?</summary>
-          <div class="faq-answer"><p>Most tuition centre websites go live within 2 weeks for our Starter package. Business-tier sites with online enrolment and blog typically take 3 weeks, while Premium builds with multi-branch support and parent portals take 4-5 weeks. We provide a clear timeline before starting so you can plan around your term schedule.</p></div>
+          <summary>How do you help a tuition centre website rank on Google?</summary>
+          <div class="faq-answer"><p>We optimise your site for what parents actually search — like "tuition near me", "math tuition Tampines", or "PSLE English tuition Singapore". That covers on-page SEO, schema markup for educational organisations, Google Business Profile optimisation, and location-targeted content so each branch can surface in local search and Google Maps.</p></div>
         </details>
       </div>
     </div>
@@ -207,25 +366,17 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Tuition Centre Services</h2>
+        <h2>More <span class="highlight">Tuition Centre</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
           <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
-          <a href="/tuition-centre-social-media-singapore/" class="related-service-link">Tuition Centre Social Media</a>
+          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
+          <a href="/tuition-centre-ai-search-optimisation-singapore/" class="related-service-link">Tuition Centre GEO</a>
           <a href="/tuition-centre-google-ads-singapore/" class="related-service-link">Tuition Centre Google Ads</a>
           <a href="/tuition-centre-facebook-ads-singapore/" class="related-service-link">Tuition Centre Facebook Ads</a>
+          <a href="/tuition-centre-social-media-singapore/" class="related-service-link">Tuition Centre Social Media</a>
           <a href="/tuition-centre-branding-singapore/" class="related-service-link">Tuition Centre Branding</a>
-          <a href="/tuition-centre-content-marketing-singapore/" class="related-service-link">Tuition Centre Content Marketing</a>
       </div>
     </div>
   </section>
-
-  <MarketingFunnelBlock
-    industry="tuition centre"
-    marketingHref="/tuition-centre-marketing-singapore/"
-    outcomeLine="See how we'd fill your next term intake"
-    ctaText="Tuition Centre Marketing Singapore"
-  />
-
 </ServiceLayout>

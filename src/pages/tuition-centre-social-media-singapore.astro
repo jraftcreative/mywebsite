@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Tuition Centre Social Media Marketing Singapore",
-    "description": "Social media marketing for tuition centres in Singapore. Parent engagement on Facebook and Instagram, student success stories, exam tips content, and trust-building through strategic social media.",
+    "name": "Social Media Agency for Tuition Centres Singapore",
+    "description": "Social media agency for tuition centres in Singapore. Exam tips, subject explainers, teacher introductions, student milestone posts and enrolment content on Facebook, Instagram and TikTok, built to reach parents and fill classes.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Tuition Centre Social Media Marketing"
+    "serviceType": "Tuition Centre Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for tuition centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which social media platforms work best for tuition centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Facebook and Instagram are the most effective platforms for tuition centres in Singapore. Facebook excels at reaching parents through community groups and targeted ads, while Instagram is ideal for showcasing student achievements and learning environments through visual content and Reels." } },
-      { "@type": "Question", "name": "What kind of content do you create for tuition centres?", "acceptedAnswer": { "@type": "Answer", "text": "We create exam tips and study guides, student success stories and testimonials, behind-the-scenes classroom content, tutor introductions, programme highlights, and enrolment campaign posts. Every piece of content is designed to build trust with parents and position your centre as a credible educational partner." } },
-      { "@type": "Question", "name": "How do you help tuition centres build trust with parents online?", "acceptedAnswer": { "@type": "Answer", "text": "We build trust through consistent, value-driven content — real student results, parent testimonials, transparent communication about teaching methods, and educational tips parents can use at home. This positions your centre as an authority and makes parents feel confident choosing you over competitors." } },
-      { "@type": "Question", "name": "Can social media marketing help my tuition centre get more enrolments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Strategic social media marketing drives awareness, builds credibility, and generates enquiries from parents actively looking for tuition in Singapore. We combine organic content with targeted campaigns around peak enrolment periods like post-PSLE, mid-year, and year-end registration windows." } }
+      { "@type": "Question", "name": "Which social platforms should a tuition centre in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "Parents are the decision-makers, and in Singapore they are on Facebook and Instagram — Facebook for neighbourhood parent groups and reviews, Instagram for classroom moments and short exam-tip clips. TikTok reaches younger parents and older students, and it is where study-technique content travels furthest. We usually recommend depth on Facebook and Instagram first, then adding TikTok once the content habit is in place, rather than spreading thin across five platforms." } },
+      { "@type": "Question", "name": "What should a tuition centre actually post?", "acceptedAnswer": { "@type": "Answer", "text": "The content parents save and forward is practical: exam tips and study techniques, subject explainers that break down a tricky topic, teacher introductions, and PSLE or exam-season reminders. Around that we run student milestone celebrations shared with parent consent, plus enrolment and holiday-programme announcements. Pure promotion stops working quickly, so the mix leans towards genuinely useful content that positions your centre as one that knows the syllabus." } },
+      { "@type": "Question", "name": "Do you promise specific grades or results in the content?", "acceptedAnswer": { "@type": "Answer", "text": "No. As a registered private education provider you cannot promise outcomes, and neither will we. Student milestones and results are only ever shown as genuine, past achievements with the family's written consent — never as a guarantee of what a new student will score. The persuasion comes from real teaching and real stories, not from claims about grades we cannot make." } },
+      { "@type": "Question", "name": "How does social media actually bring in enrolments?", "acceptedAnswer": { "@type": "Answer", "text": "Social rarely closes a sign-up on its own. Its job is to reach and reassure parents so that by the time they enquire or visit, they already trust that your teachers know the syllabus. We measure that by tracking saves and sends over likes, profile-to-website clicks, and enquiries that mention seeing you on social — not follower count on its own." } },
+      { "@type": "Question", "name": "Which neighbourhoods do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work with tuition centres across Singapore, including Tampines, Jurong East, Bishan, Bukit Timah, Punggol, Woodlands and Ang Mo Kio. Local targeting matters for tuition — most families choose a centre they can reach after school, so we make sure your content and any boosting reach parents in the estates around your branch rather than the whole island." } }
     ]
   },
   {
@@ -40,88 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Tuition Centre Social Media", "item": "https://jraftcreative.com/tuition-centre-social-media-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Social Media Agency for Tuition Centres Singapore", "item": "https://jraftcreative.com/tuition-centre-social-media-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Tuition Centre Social Media — Jraft Creative"
-  description="Social media marketing for tuition centres in Singapore. Parent engagement, student success stories, exam tips content, and enrolment campaigns."
+  title="Social Media Agency for Tuition Centres Singapore"
+  description="Social media for tuition centres in Singapore — exam tips, subject explainers and enrolment content that reaches parents and fills classes."
   canonical="https://jraftcreative.com/tuition-centre-social-media-singapore/"
-  ogTitle="Tuition Centre Social Media — Jraft Creative"
-  ogDescription="Social media marketing built for tuition centres in Singapore. Content that builds trust with parents and drives enrolments. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="tuition centre social media singapore, tuition centre marketing singapore, social media for tuition centres, tuition centre instagram, tuition centre facebook marketing, tuition centre digital marketing singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Tuition Centres Singapore"
+  ogDescription="Social media for tuition centres in Singapore. Exam tips, subject explainers, teacher intros and enrolment posts built to reach parents and fill classes."
+  ogImage="https://jraftcreative.com/images/og-tuition.jpg"
+  keywords="social media agency for tuition centres, tuition centre social media singapore, social media marketing for tuition centres, tuition centre instagram singapore, tuition centre facebook marketing, tuition centre content marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Tuition Centre Social Media"
-  heroTitle='Social Media for <span class="highlight">Tuition Centres</span> in Singapore'
-  heroSubtitle="Content strategy, parent engagement, and enrolment campaigns built specifically for tuition centres. We help you build trust with parents and turn your social media presence into a consistent source of new student sign-ups."
+  heroLabel="Social Media Agency for Tuition Centres"
+  heroTitle='Social Media Agency for <span class="highlight">Tuition Centres in Singapore</span>'
+  heroSubtitle="Singapore parents research a centre online before they ever call. We turn exam tips, subject explainers and your teachers' expertise into content parents actually save and share — then into enrolment enquiries."
   heroImage="/images/service-tuition.webp"
+  heroImageAlt="Students in a Singapore tuition class — tuition centre social media"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Tuition Centre SEO", href: "/tuition-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my tuition centre in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Tuition Centre with Social Media"
-  ctaDescription="Book a free consultation and tell us about your tuition centre. We'll get back to you within 24 hours with a tailored social media strategy."
+  whatsappText="Hi Jraft Creative, I need social media for my tuition centre in Singapore."
+  ctaLabel="Fill Your Classes"
+  ctaTitle="Get a Free Tuition Centre Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you're posting now, what your teachers and classes are already doing that you aren't filming, and where the gap is between followers and enrolment enquiries. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20for%20my%20tuition%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for tuition centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Searching — But Are They Finding Your Centre?</h2>
+        <h2>Parents Check You <span class="highlight">Online First</span> — and Your Feed <span class="highlight">Looks Quiet</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore parents are some of the most research-driven in the world when it comes to education. Before committing to a tuition centre, they scroll through Instagram pages, read Facebook reviews, and compare centres based on what they see online. If your social media looks inactive or generic, parents move on to the next option — even if your teaching quality is excellent.</p>
-        <p>The tuition industry in Singapore is fiercely competitive. From Orchard to Tampines, centres are fighting for the same pool of parents preparing their children for PSLE, O-Levels, and A-Levels. Without a consistent social media presence that showcases real results, shares valuable study tips, and builds trust through testimonials, you're invisible to the parents who matter most. Posting once a month with a stock image and a "registration open" caption is not a strategy — it's a missed opportunity.</p>
+        <p>Singapore parents are the most research-driven education buyers in the world. Before they call a centre in Tampines, Jurong East or Bishan, they have already scrolled your Instagram and read your Facebook page.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Great Teaching, Invisible Online</h3>
+            <p>Your classes explain hard topics clearly every week, then the page shows a stock image and a term-dates caption. Parents can't tell you're good.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Posting Stops During Term</h3>
+            <p>Marking and lessons fill the week and the feed goes silent. A parent researching in that gap sees a centre that looks inactive.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Followers Who Never Enquire</h3>
+            <p>An audience of current parents feels reassuring and signs up nobody new. Reach only counts if it lands with families still choosing a centre.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for tuition centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for tuition centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services Built for Tuition Centres</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> Every Tuition Centre <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle your tuition centre's entire social media presence — from content planning to community engagement. Every post is crafted to resonate with Singaporean parents and position your centre as a trusted educational partner that delivers real academic results.</p>
-        <p>Our team creates content around exam preparation tips, student achievement spotlights, tutor profiles, and programme launches. We time campaigns around key Singapore education milestones — PSLE registration, mid-year enrolment drives, and holiday intensive sign-ups — so your content lands when parents are actively searching.</p>
+        <p>We build a cadence around what your centre already does each week, so filming and posting become a habit rather than a scramble before enrolment season. It works best alongside your <a href="/tuition-centre-website-singapore/">tuition centre website</a>, <a href="/tuition-centre-seo-singapore/">SEO</a> and <a href="/tuition-centre-google-ads-singapore/">Google Ads</a> — one system for filling classes.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Student Success Reels</h3>
-            <p>Short-form video content featuring grade improvements, student testimonials, and exam preparation tips that parents share and engage with across Instagram and TikTok.</p>
+            <h3>Exam Tips &amp; Study Techniques</h3>
+            <p>Short, practical clips and carousels that break down how to revise, tackle a paper, or manage exam stress — the posts parents save and send to each other.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Community Engagement</h3>
-            <p>Active management of comments, DMs, and parent enquiries. We respond promptly, answer questions about programmes, and nurture leads from first contact to enrolment.</p>
+            <h3>Subject Explainers</h3>
+            <p>A teacher unpacking one tricky topic — a Maths heuristic, a Science concept, a composition tip. Proof your centre knows the syllabus, not just a claim.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Exam Tips &amp; Study Guides</h3>
-            <p>Branded carousel posts and infographics with practical study tips for PSLE, O-Level, and A-Level subjects that position your centre as a knowledgeable authority parents trust.</p>
+            <h3>Teacher Introductions</h3>
+            <p>Parents choose a teacher, not a shophouse unit. We put credentials, subject and teaching style on camera so the choice feels safe.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Enrolment Campaigns</h3>
-            <p>Targeted social media campaigns timed around Singapore's academic calendar — term breaks, post-exam periods, and year-end registration drives that convert interest into sign-ups.</p>
+            <h3>Student Milestones, With Consent</h3>
+            <p>Genuine achievements and classroom moments, shared only with the family's written permission — real stories, never a promise of what a new student will score.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Exam-Season &amp; Enrolment Posts</h3>
+            <p>PSLE and exam-season reminders, plus holiday-programme and enrolment announcements timed to Singapore's academic calendar, when parents are actively deciding.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries, Not Likes</h3>
+            <p>We track saves and sends, profile-to-website clicks and enquiries that mention social. Follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -129,93 +260,120 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for tuition centre social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your tuition centre social media agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Understands Education</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands <span class="highlight">Tuition Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with tuition centres across Singapore and understand what parents look for when evaluating their options online. Our content is built to build credibility, answer parent concerns, and drive enrolment enquiries.</p>
+        <p>Tuition social fails for specific reasons — term-time capacity, the compliance lines a registered centre has to respect, and content that flatters current parents instead of reaching new families in estates like Bukit Timah, Punggol, Woodlands and Ang Mo Kio.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Education Sector Experience</h3>
-            <p>We know the Singapore education landscape — from MOE syllabus changes to peak enrolment seasons. Your content reflects what parents actually care about, not generic marketing fluff.</p>
+            <h3>Parent-First, Not Fluff</h3>
+            <p>Every post is written for the decision-maker: the parent. We answer what they actually worry about — the syllabus, the teacher, whether it's worth the trip.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Parent-First Content</h3>
-            <p>Every post is written for the decision-maker: the parent. We create content that addresses their concerns about academic results, teaching quality, and learning environment.</p>
+            <h3>Compliant by Default</h3>
+            <p>No guaranteed grades, no promised results. As a registered private education provider you can't make those claims — so our content leans on genuine work and honest stories.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Approval Before Publishing</h3>
-            <p>You review and approve every post, caption, and design before it goes live. Full content calendar delivered in advance so nothing is published without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your enrolments are growing and the content is working — not because of a contract clause.</p>
+            <h3>Social, Search &amp; Ads Together</h3>
+            <p>We also run <a href="/tuition-centre-seo-singapore/">tuition centre SEO</a> and <a href="/tuition-centre-google-ads-singapore/">Google Ads</a> — one system for filling classes.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the tuition parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts classes. Social rarely wins the first search — its job is Validate and Compare, where a parent decides whether your teaching is worth switching for. It's one part of the wider picture we cover in <a href="/industries/education/">education marketing in Singapore</a>, and there's more on the fundamentals in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing for Singapore businesses</a>.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A reel or a parent's share puts you on the radar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Exam tips and explainers prove the teaching is real</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Teacher intros make the choice feel personal</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Profile link and DMs turn interest into a message</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Milestone posts keep families renewing &amp; referring</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about tuition centre social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about social media for tuition centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Tuition Centre Social Media — Questions Answered</h2>
+        <h2>Tuition Centre <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for tuition centres in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which social platforms should a tuition centre in Singapore be on?</summary>
+          <div class="faq-answer"><p>Parents are the decision-makers, and in Singapore they're on Facebook and Instagram — Facebook for neighbourhood parent groups and reviews, Instagram for classroom moments and short exam-tip clips. TikTok reaches younger parents and older students, and it's where study-technique content travels furthest. We usually recommend depth on Facebook and Instagram first, then adding TikTok once the content habit is in place, rather than spreading thin across five platforms.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which social media platforms work best for tuition centres in Singapore?</summary>
-          <div class="faq-answer"><p>Facebook and Instagram are the most effective platforms for tuition centres in Singapore. Facebook excels at reaching parents through community groups and targeted ads, while Instagram is ideal for showcasing student achievements and learning environments through visual content and Reels.</p></div>
+          <summary>What should a tuition centre actually post?</summary>
+          <div class="faq-answer"><p>The content parents save and forward is practical: exam tips and study techniques, subject explainers that break down a tricky topic, teacher introductions, and PSLE or exam-season reminders. Around that we run student milestone celebrations shared with parent consent, plus enrolment and holiday-programme announcements. Pure promotion stops working quickly, so the mix leans towards genuinely useful content that positions your centre as one that knows the syllabus.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What kind of content do you create for tuition centres?</summary>
-          <div class="faq-answer"><p>We create exam tips and study guides, student success stories and testimonials, behind-the-scenes classroom content, tutor introductions, programme highlights, and enrolment campaign posts. Every piece of content is designed to build trust with parents and position your centre as a credible educational partner.</p></div>
+          <summary>Do you promise specific grades or results in the content?</summary>
+          <div class="faq-answer"><p>No. As a registered private education provider you can't promise outcomes, and neither will we. Student milestones and results are only ever shown as genuine, past achievements with the family's written consent — never as a guarantee of what a new student will score. The persuasion comes from real teaching and real stories, not from claims about grades we can't make.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you help tuition centres build trust with parents online?</summary>
-          <div class="faq-answer"><p>We build trust through consistent, value-driven content — real student results, parent testimonials, transparent communication about teaching methods, and educational tips parents can use at home. This positions your centre as an authority and makes parents feel confident choosing you over competitors.</p></div>
+          <summary>How does social media actually bring in enrolments?</summary>
+          <div class="faq-answer"><p>Social rarely closes a sign-up on its own. Its job is to reach and reassure parents so that by the time they enquire or visit, they already trust that your teachers know the syllabus. We measure that by tracking saves and sends over likes, profile-to-website clicks, and enquiries that mention seeing you on social — not follower count on its own.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can social media marketing help my tuition centre get more enrolments?</summary>
-          <div class="faq-answer"><p>Yes. Strategic social media marketing drives awareness, builds credibility, and generates enquiries from parents actively looking for tuition in Singapore. We combine organic content with targeted campaigns around peak enrolment periods like post-PSLE, mid-year, and year-end registration windows.</p></div>
+          <summary>Which neighbourhoods do you work with?</summary>
+          <div class="faq-answer"><p>We work with tuition centres across Singapore, including Tampines, Jurong East, Bishan, Bukit Timah, Punggol, Woodlands and Ang Mo Kio. Local targeting matters for tuition — most families choose a centre they can reach after school, so we make sure your content and any boosting reach parents in the estates around your branch rather than the whole island.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Tuition Centre Services</h2>
+        <h2>More <span class="highlight">Tuition Centre</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Website Design</a>
-          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
           <a href="/tuition-centre-marketing-singapore/" class="related-service-link">Tuition Centre Marketing</a>
+          <a href="/tuition-centre-seo-singapore/" class="related-service-link">Tuition Centre SEO</a>
+          <a href="/tuition-centre-ai-search-optimisation-singapore/" class="related-service-link">Tuition Centre GEO</a>
           <a href="/tuition-centre-google-ads-singapore/" class="related-service-link">Tuition Centre Google Ads</a>
           <a href="/tuition-centre-facebook-ads-singapore/" class="related-service-link">Tuition Centre Facebook Ads</a>
           <a href="/tuition-centre-branding-singapore/" class="related-service-link">Tuition Centre Branding</a>
-          <a href="/tuition-centre-content-marketing-singapore/" class="related-service-link">Tuition Centre Content Marketing</a>
+          <a href="/tuition-centre-website-singapore/" class="related-service-link">Tuition Centre Websites</a>
       </div>
     </div>
   </section>
