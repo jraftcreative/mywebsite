@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "TCM Clinic SEO Singapore",
-    "description": "SEO services for TCM clinics in Singapore. Local SEO, Google Business Profile optimisation, bilingual keyword strategy (English and Chinese), and content marketing to grow your patient base",
+    "name": "SEO Agency for TCM Clinics Singapore",
+    "description": "SEO agency for TCM clinics in Singapore. Local SEO, bilingual keyword strategy (English and Chinese), Google Business Profile and content that ranks a clinic for the searches patients actually make.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for a TCM clinic in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for TCM clinic SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most TCM clinics see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Treatment-specific keywords like 'acupuncture near Chinatown' or 'TCM fertility Singapore' often rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "Can you do bilingual SEO in English and Chinese for my TCM clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bilingual SEO is a key component of our TCM clinic strategy. Many patients search in Chinese — '中医诊所', '针灸新加坡', '推拿按摩' — alongside English terms. We optimise for both languages to capture the full spectrum of patient searches in Singapore's multilingual market." } },
-      { "@type": "Question", "name": "What keywords do patients search when looking for TCM in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'TCM clinic near me', 'acupuncture Singapore', 'TCM for fertility', 'tuina massage near me', 'Chinese medicine clinic Singapore', and treatment-specific queries like 'TCM for eczema' or 'cupping therapy Singapore'. We also target Chinese-language keywords for clinics serving Mandarin-speaking patients." } },
-      { "@type": "Question", "name": "Does your SEO content comply with TCMPB advertising regulations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All content we create for TCM clinics is written with TCMPB (Traditional Chinese Medicine Practitioners Board) guidelines in mind. We avoid prohibited treatment claims and ensure all content accurately represents the services your clinic provides, building patient trust through informative, compliant content." } }
+      { "@type": "Question", "name": "How long does TCM clinic SEO take to work in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most clinics see measurable movement within 3 to 4 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while broad terms like 'TCM clinic Singapore' take longer to climb. Service-specific searches such as 'acupuncture Chinatown' or 'tuina massage Singapore' usually rank faster. We prioritise the searches most likely to fill your appointment book first." } },
+      { "@type": "Question", "name": "Can you do bilingual SEO in English and Chinese for my TCM clinic?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bilingual SEO is central to how we approach TCM clinics. Many patients search in Chinese — '中医诊所', '针灸新加坡', '推拿按摩' — alongside English terms. We optimise for both so your clinic shows up across the full range of patient searches in Singapore's multilingual market." } },
+      { "@type": "Question", "name": "Which keywords should a TCM clinic target?", "acceptedAnswer": { "@type": "Answer", "text": "A mix of local ('TCM clinic near me', 'TCM physician Toa Payoh'), service-specific ('acupuncture Singapore', 'tuina massage Singapore', 'cupping therapy'), and Chinese-language terms ('中医 Ang Mo Kio', '针灸新加坡'). We research the exact searches your prospective patients use in your area, across both languages." } },
+      { "@type": "Question", "name": "Can SEO help my TCM clinic appear on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO and Google Business Profile optimisation are core to TCM clinic SEO. We optimise your listing with accurate services, categories, photos, hours and reviews so you appear in the Maps three-pack when patients search 'TCM near me' or 'acupuncture near me' in your neighbourhood." } },
+      { "@type": "Question", "name": "Does your SEO content comply with TCMPB advertising rules?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All content we produce is written with the Singapore TCM Practitioners Board and MOH advertising guidelines in mind. We describe the services your clinic offers without prohibited treatment claims, so your visibility grows without putting your registration at risk." } }
     ]
   },
   {
@@ -41,89 +40,150 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "TCM Clinic SEO Singapore", "item": "https://jraftcreative.com/tcm-clinic-seo-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "SEO Agency for TCM Clinics Singapore", "item": "https://jraftcreative.com/tcm-clinic-seo-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="TCM Clinic SEO Singapore — Jraft Creative"
-  description="SEO services for TCM clinics in Singapore. Local SEO, Google Business Profile optimisation, bilingual keyword strategy (EN/CN)."
+  title="SEO Agency for TCM Clinics Singapore"
+  description="SEO agency for TCM clinics in Singapore — local SEO, bilingual (EN/CN) keyword strategy and Google Business Profile that rank you for the searches patients make."
   canonical="https://jraftcreative.com/tcm-clinic-seo-singapore/"
-  ogTitle="TCM Clinic SEO Singapore — Jraft Creative"
-  ogDescription="SEO for TCM clinics in Singapore. Local search optimisation, Google Maps ranking, and bilingual content strategy to drive patient bookings. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="tcm clinic seo singapore, tcm seo, seo for tcm clinics, acupuncture seo singapore, chinese medicine seo, tcm google ranking, tcm local seo, tcm marketing singapore, Jraft Creative"
+  ogTitle="SEO Agency for TCM Clinics Singapore"
+  ogDescription="SEO for TCM clinics in Singapore. Rank for acupuncture, tuina and TCM-near-me searches with local SEO and bilingual English-and-Chinese content."
+  ogImage="https://jraftcreative.com/images/og-tcm.jpg"
+  keywords="seo agency for tcm clinics, tcm clinic seo singapore, acupuncture seo singapore, chinese medicine seo, tcm local seo, tcm google business profile, bilingual tcm seo, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="TCM Clinic SEO"
-  heroTitle='SEO for <span class="highlight">TCM Clinics in Singapore</span>'
-  heroSubtitle="Singapore has over 2,800 registered TCM practitioners and hundreds of clinics across the island. When patients search 'acupuncture near me', 'TCM Singapore', or '中医诊所' on Google, they choose from the clinics that appear first. If your clinic isn't ranking, those patients — and the lifetime value they represent — go to the competitor down the street."
+  heroLabel="SEO Agency for TCM Clinics"
+  heroTitle='SEO Agency for <span class="highlight">TCM Clinics in Singapore</span>'
+  heroSubtitle="When someone wants relief or a wellness routine, they search — 'acupuncture near me', 'TCM Singapore', '中医诊所附近'. We rank TCM clinics for the exact searches, in both English and Chinese, that end in a booked appointment."
   heroImage="/images/service-tcm.webp"
+  heroImageAlt="TCM clinic in Singapore — seo"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See TCM Marketing", href: "/tcm-marketing-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need SEO for my TCM clinic in Singapore."
-  ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your TCM Clinic Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your TCM clinic stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  ctaLabel="Get Found by More Patients"
+  ctaTitle="Get a Free TCM Clinic SEO Audit"
+  ctaDescription="Book a free consultation and we'll review how your clinic ranks for service and neighbourhood searches in English and Chinese, check your Google Business Profile, and show you where enquiries are leaking. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20TCM%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for TCM clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>2,800+ TCM Practitioners in Singapore — Can Patients Find Your Clinic?</h2>
+        <h2>Patients Search for TCM — Does Your Clinic <span class="highlight">Show Up</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Traditional Chinese Medicine is deeply embedded in Singapore's healthcare landscape. Over 2,800 registered TCM practitioners serve a population that increasingly blends conventional and traditional medicine — using acupuncture alongside physiotherapy, tuina alongside sports massage, and herbal remedies alongside western prescriptions. But the way patients find their TCM practitioner has fundamentally shifted. Word-of-mouth referrals still matter, but the first stop for most new patients is now Google.</p>
-        <p>"Acupuncture near me", "TCM clinic Singapore", "中医诊所附近", "TCM for fertility", "cupping therapy near MRT" — these searches happen thousands of times each month from patients ready to book an appointment. The clinics appearing in the top three Google results and the Maps 3-pack capture the overwhelming majority of these new patients. The rest depend on walk-ins and an ageing referral base that shrinks with each passing year.</p>
-        <p>TCM clinics face a unique SEO challenge in Singapore: many patients search in both English and Chinese. A clinic optimising only for English keywords misses the significant volume of Mandarin-language searches. Add to this the TCMPB advertising regulations that restrict what practitioners can claim online, and most TCM clinics find themselves with websites that are either invisible to Google or too generic to convert the patients who do find them.</p>
+        <p>TCM demand is search-driven, local and bilingual. Someone looking for acupuncture or a tuina session starts on Google — in English or Chinese — and rarely scrolls past the first few results.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible for 'TCM Near Me'</h3>
+            <p>Most new patients start with a local search. If your clinic isn't in the map pack, they book with whoever is — often the clinic one MRT stop closer in Toa Payoh, Tampines or Ang Mo Kio.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>English and Chinese Searches</h3>
+            <p>Many patients search in Chinese — '中医诊所', '针灸新加坡', '推拿按摩'. A clinic optimised only for English quietly misses a large share of the people looking for it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Services Compete Separately</h3>
+            <p>Acupuncture, herbal medicine, tuina, cupping, moxibustion — each is its own search with its own intent. One generic page can't rank for all of them.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for TCM clinics">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for TCM clinics">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for TCM Clinics</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of TCM Clinic <span class="highlight">SEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>TCM clinic SEO requires a specialist approach that accounts for bilingual search behaviour, treatment diversity, and regulatory compliance. Patients search by treatment type, condition, language, and neighbourhood — creating dozens of keyword combinations in both English and Chinese that need dedicated, compliant pages. We build SEO strategies specifically for how Singapore patients research and choose TCM providers.</p>
-        <p>From technical foundations to treatment-specific landing pages and Google Maps dominance, every element of our approach is designed to drive qualified patient bookings from people actively searching for TCM near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/tcm-clinic-website-singapore/">TCM clinic website</a>, <a href="/services/social-media/">social media marketing</a> to build patient trust, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches from patients seeking immediate treatment.</p>
+        <p>Patients search by service, by language and by neighbourhood, so we build the site around exactly how they look for a TCM clinic. SEO also works best alongside a fast <a href="/tcm-clinic-website-singapore/">TCM clinic website</a>, <a href="/tcm-clinic-social-media-singapore/">social media</a> that builds trust, and <a href="/tcm-clinic-google-ads-singapore/">Google Ads</a> for the highest-intent searches.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
-          <div class="service-detail-card__content">
-            <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your TCM clinic website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your clinic for searches like "acupuncture near me", "TCM Singapore", and "中医诊所" in your area.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
-          <div class="service-detail-card__content">
-            <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised treatment pages for every service you offer — acupuncture, tuina, cupping, herbal medicine, moxibustion, and fertility TCM. Meta titles, descriptions, heading structures, and internal links targeting searches like "acupuncture Chinatown", "TCM fertility Singapore", and "tuina massage near me" in both English and Chinese.</p>
-          </div>
-        </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct TCM categories, treatment details, clinic photos, patient review management, and local citation building across Singapore healthcare directories. Designed to get your clinic into the Google Maps 3-pack for every "TCM near me" and "acupuncture near me" search in your neighbourhood.</p>
+            <p>Optimised GBP with the right TCM categories, services, photos, hours and review management — built to land you in the Maps three-pack for 'TCM near me' and 'acupuncture near me'.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Bilingual Content Strategy</h3>
-            <p>Blog articles and treatment guides in English and Chinese answering the questions patients search — "does acupuncture hurt", "TCM vs western medicine for fertility", "针灸治疗有用吗". Content that builds your clinical authority, earns organic backlinks, and captures patients in both language segments — fully compliant with TCMPB advertising guidelines.</p>
+            <h3>Service Page Optimisation</h3>
+            <p>A dedicated, optimised page per service — acupuncture, Chinese herbal medicine (中药), tuina (推拿), cupping (拔罐), moxibustion — so each ranks for its own high-intent search.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>Technical SEO Audit</h3>
+            <p>A full crawl for indexing issues, broken links, missing schema and slow mobile loads — the barriers stopping Google ranking you at all.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood Landing Pages</h3>
+            <p>Location pages for each estate you serve, so 'TCM physician Tampines', 'acupuncture Katong' or '中医 Jurong' finds the right clinic.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Bilingual Patient Content</h3>
+            <p>Guides in English and Chinese answering what patients search — 'what is tuina massage', 'does acupuncture hurt', '针灸是什么' — earning trust and traffic, written within TCMPB rules.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reviews &amp; Reputation</h3>
+            <p>A steady, compliant review flow and response strategy — the strongest local ranking signal and the deciding factor for a first-time patient choosing between clinics.</p>
           </div>
         </div>
       </div>
@@ -131,47 +191,60 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for TCM clinic SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for TCM clinic seo">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands TCM Marketing</h2>
+        <h2>An <span class="highlight">SEO Agency</span> That Understands <span class="highlight">TCM Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with healthcare and wellness businesses across Singapore. We understand patient acquisition in the TCM sector, bilingual search behaviour, TCMPB compliance requirements, and which search terms actually convert online browsers into booked appointments.</p>
+        <p>TCM SEO is local, bilingual and regulated. We build for all three, and report on booked appointments rather than vanity rankings.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Bilingual SEO Expertise</h3>
-            <p>Singapore's TCM patients search in both English and Chinese. We optimise for both — targeting "acupuncture Singapore" and "针灸新加坡", "TCM clinic near me" and "中医诊所附近". This bilingual approach captures the full spectrum of patient searches that monolingual SEO misses entirely.</p>
+            <h3>Bilingual by Default</h3>
+            <p>We optimise for both languages — 'acupuncture Singapore' and '针灸新加坡', 'TCM clinic near me' and '中医诊所附近' — capturing searches that English-only SEO misses.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>TCMPB-Compliant Content</h3>
-            <p>TCM advertising in Singapore is regulated by the Traditional Chinese Medicine Practitioners Board. We create SEO content that builds clinical authority and patient trust without making prohibited treatment claims. Compliance is built into every page we optimise and every article we publish.</p>
+            <h3>TCMPB-Aware Content</h3>
+            <p>We keep content within Singapore TCM Practitioners Board and MOH advertising rules — describing the services you offer, with no prohibited treatment claims or non-compliant testimonials.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings across treatments and languages, organic traffic, Google Business Profile insights, and appointment booking trends. We show you the numbers that matter — data tied directly to patient discovery and conversion.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle TCM clinic website design, social media content, and paid ads — so your entire digital marketing works together as a single system to grow your patient base across both English and Chinese-speaking audiences.</p>
+            <h3>Search, Website &amp; Ads Together</h3>
+            <p>We also build the <a href="/tcm-clinic-website-singapore/">clinic website</a> and run <a href="/tcm-clinic-google-ads-singapore/">Google Ads</a> — one system for filling the appointment book.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where seo fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Organic Search</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A TCM patient moves through the same five stages before booking. SEO owns the earliest and most repeated moments — Discover, when they first search a service or 'near me', and Validate, when they check your reviews and credentials.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>Organic and map results catch the first search</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Reviews, service pages and a registered physician reassure</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>They weigh clinics by location and service fit</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Contact and booking turn intent into an appointment</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>A good first visit, then follow-ups &amp;amp; referrals</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about TCM clinic SEO in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about TCM clinic seo">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -179,30 +252,44 @@ const schemaData = [
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for a TCM clinic in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How long does TCM clinic SEO take to work in Singapore?</summary>
+          <div class="faq-answer"><p>Most clinics see measurable movement within 3 to 4 months. Local SEO and Google Business Profile work often produces quick wins in the first few weeks, while broad terms like 'TCM clinic Singapore' take longer to climb. Service-specific searches such as 'acupuncture Chinatown' or 'tuina massage Singapore' usually rank faster. We prioritise the searches most likely to fill your appointment book first.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for TCM clinic SEO to show results?</summary>
-          <div class="faq-answer"><p>Most TCM clinics see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Treatment-specific keywords like "acupuncture near Chinatown" or "TCM fertility Singapore" often rank faster than broad competitive terms like "TCM clinic Singapore".</p></div>
+          <summary>Can you do bilingual SEO in English and Chinese for my TCM clinic?</summary>
+          <div class="faq-answer"><p>Yes. Bilingual SEO is central to how we approach TCM clinics. Many patients search in Chinese — '中医诊所', '针灸新加坡', '推拿按摩' — alongside English terms. We optimise for both so your clinic shows up across the full range of patient searches in Singapore's multilingual market.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can you do bilingual SEO in English and Chinese for my TCM clinic?</summary>
-          <div class="faq-answer"><p>Yes. Bilingual SEO is a key component of our TCM clinic strategy. Many patients in Singapore search in Chinese — "中医诊所", "针灸新加坡", "推拿按摩" — alongside English terms. We optimise for both languages to capture the full spectrum of patient searches in Singapore's multilingual market.</p></div>
+          <summary>Which keywords should a TCM clinic target?</summary>
+          <div class="faq-answer"><p>A mix of local ('TCM clinic near me', 'TCM physician Toa Payoh'), service-specific ('acupuncture Singapore', 'tuina massage Singapore', 'cupping therapy'), and Chinese-language terms ('中医 Ang Mo Kio', '针灸新加坡'). We research the exact searches your prospective patients use in your area, across both languages.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>What keywords do patients search when looking for TCM in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "TCM clinic near me", "acupuncture Singapore", "TCM for fertility", "tuina massage near me", "Chinese medicine clinic", "cupping therapy Singapore", and Chinese-language terms like "中医诊所" and "针灸治疗". We research the exact terms driving appointments in your area across both languages.</p></div>
+          <summary>Can SEO help my TCM clinic appear on Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Local SEO and Google Business Profile optimisation are core to TCM clinic SEO. We optimise your listing with accurate services, categories, photos, hours and reviews so you appear in the Maps three-pack when patients search 'TCM near me' or 'acupuncture near me' in your neighbourhood.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Does your SEO content comply with TCMPB advertising regulations?</summary>
-          <div class="faq-answer"><p>Yes. All content we create for TCM clinics is written with TCMPB (Traditional Chinese Medicine Practitioners Board) guidelines in mind. We avoid prohibited treatment claims and ensure all content accurately represents your clinic's services, building patient trust through informative, compliant content rather than promotional language.</p></div>
+          <summary>Does your SEO content comply with TCMPB advertising rules?</summary>
+          <div class="faq-answer"><p>Yes. All content we produce is written with the Singapore TCM Practitioners Board and MOH advertising guidelines in mind. We describe the services your clinic offers without prohibited treatment claims, so your visibility grows without putting your registration at risk.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="seo" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">TCM Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/tcm-marketing-singapore/" class="related-service-link">TCM Clinic Marketing</a>
+          <a href="/tcm-clinic-ai-search-optimisation-singapore/" class="related-service-link">TCM Clinic GEO</a>
+          <a href="/tcm-clinic-google-ads-singapore/" class="related-service-link">TCM Clinic Google Ads</a>
+          <a href="/tcm-clinic-social-media-singapore/" class="related-service-link">TCM Clinic Social Media</a>
+          <a href="/tcm-clinic-branding-singapore/" class="related-service-link">TCM Clinic Branding</a>
+          <a href="/tcm-clinic-website-singapore/" class="related-service-link">TCM Clinic Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

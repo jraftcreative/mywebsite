@@ -1,0 +1,295 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Branding Agency for TCM Clinics Singapore",
+    "description": "Branding agency for TCM clinics in Singapore. Bilingual (English and Chinese) naming, logo, colour and type systems, clinic collateral, photography direction and tone of voice that build patient trust — within TCMPB advertising rules.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "TCM Clinic Branding"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why does a TCM clinic need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because a patient can't judge your practice before their first visit, so they judge everything around it — your signboard, logo, website and materials. Many TCM clinics look dated and blur into one another, which leaves patients choosing on price and proximity. A considered brand makes your clinic look trustworthy and current, so it stands apart and earns the appointment." } },
+      { "@type": "Question", "name": "We already have a name and a signboard. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A name and a signboard are one part of a brand. What builds trust is consistency across everything a patient sees — the shopfront, the website, the WhatsApp reply, the appointment reminder. When those look disconnected, a patient senses it. We build the full system, in English and Chinese, so every touchpoint says the same thing." } },
+      { "@type": "Question", "name": "Can you brand our clinic in both English and Chinese?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Bilingual identity is central to TCM branding in Singapore. We handle the English and Chinese name pairing, bilingual logo lockups, and collateral that reads naturally in both languages — so the clinic feels right to a Mandarin-speaking regular and to a younger, English-first patient alike." } },
+      { "@type": "Question", "name": "Will a modern rebrand put off our older, loyal patients?", "acceptedAnswer": { "@type": "Answer", "text": "Not if it's handled with care. Most established clinics don't need a clean slate — they need their heritage sharpened. We keep what long-standing patients already recognise, retire what looks tired, and introduce a cleaner identity as the clinic growing up rather than starting over. The aim is modern and trustworthy without losing the sense of tradition." } },
+      { "@type": "Question", "name": "Are there rules on how TCM clinics can brand and advertise?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Traditional Chinese Medicine Practitioners Board and MOH advertising guidelines govern the claims, testimonials and imagery a clinic can use. We design and write the brand within those rules, so it reads as credible and current without crossing into prohibited treatment claims." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for TCM Clinics Singapore", "item": "https://jraftcreative.com/tcm-clinic-branding-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Branding Agency for TCM Clinics Singapore"
+  description="Branding agency for TCM clinics in Singapore — bilingual naming, logo, collateral and tone of voice that build patient trust and set you apart."
+  canonical="https://jraftcreative.com/tcm-clinic-branding-singapore/"
+  ogTitle="Branding Agency for TCM Clinics Singapore"
+  ogDescription="Branding for TCM clinics in Singapore. Bilingual identity, collateral and tone of voice that read as modern and trustworthy."
+  ogImage="https://jraftcreative.com/images/og-tcm.jpg"
+  keywords="branding agency for tcm clinics, tcm clinic branding singapore, chinese medicine clinic branding, tcm logo design, bilingual clinic branding, tcm rebrand singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Branding Agency for TCM Clinics"
+  heroTitle='Branding Agency for <span class="highlight">TCM Clinics in Singapore</span>'
+  heroSubtitle="Most TCM clinics look dated and blur into one another — so patients choose on price and proximity. We build TCM clinic brands, in English and Chinese, that read as modern and trustworthy while respecting tradition, from the signboard to the appointment reminder."
+  heroImage="/images/service-tcm.webp"
+  heroImageAlt="TCM clinic in Singapore — branding"
+  heroButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See TCM Clinic Marketing", href: "/tcm-marketing-singapore/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my TCM clinic in Singapore."
+  ctaLabel="Look Modern and Trusted"
+  ctaTitle="Get a Free TCM Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your clinic presents itself — name, signboard, logo, website, materials — and where the gaps are between the standing of your practice and how it looks. We'll get back to you within 24 hours."
+  ctaButtons={[
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20TCM%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for TCM clinics in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Most TCM Clinics Look the <span class="highlight">Same</span> — and <span class="highlight">Dated</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>From Chinatown to Toa Payoh to Tampines, many TCM clinics share the same tired red-and-gold signboard and the same faded shopfront. When clinics look interchangeable, patients default to price and proximity — and a younger generation walks past entirely.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>They All Blur Together</h3>
+            <p>The same red-and-gold signboards and generic layouts make a respected practice look identical to the clinic two units down. Sameness invites price shopping and forgettable first impressions.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Younger Patients Walk Past</h3>
+            <p>A dated look reads as "not for me" to patients in their twenties and thirties, who are open to acupuncture and tuina but choose the clinic that feels current and easy to trust online.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Tradition Reads as Old-Fashioned</h3>
+            <p>Deep heritage is an asset, but presented poorly it looks stuck in the past. The brand has to carry the sense of tradition while looking like a clinic patients want to visit today.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for TCM clinics">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for TCM <span class="highlight">Clinics</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We build the full system — everything a patient sees, in English and Chinese, made to say the same trustworthy thing. It carries through to your <a href="/tcm-clinic-website-singapore/">clinic website</a>, <a href="/tcm-clinic-social-media-singapore/">social media</a> and <a href="/tcm-clinic-seo-singapore/">search presence</a>.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your clinic stands for and who it's for — the family practice in Ang Mo Kio, the acupuncture-led studio in Katong, the multi-therapist clinic in Jurong. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Bilingual Naming &amp; Logo</h3>
+            <p>An English and Chinese name pairing and a logo lockup that work together — a mark, palette and type system that looks modern and trustworthy on the shopfront, the screen and the appointment card.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Clinic &amp; Collateral Design</h3>
+            <p>Signage, treatment menus, herbal packaging labels, aftercare cards and reminder templates — the touchpoints patients handle — designed in both languages and within TCMPB rules.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Tone of Voice</h3>
+            <p>How your clinic sounds, from the website headline to the WhatsApp reply, in English and Chinese — warm, clear and credible, so every message feels like the same practice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Photography Direction</h3>
+            <p>A consistent way to shoot the clinic, practitioners and treatment rooms, so your feed and site look calm, clean and real — not like a stock library of herbs and needles.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand Guidelines</h3>
+            <p>A simple bilingual rulebook your front desk and any freelancer can follow, so the brand holds together across both languages after we hand it over.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for TCM clinic branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>A <span class="highlight">Branding Agency</span> That Understands <span class="highlight">TCM Trust</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>TCM branding sits between heritage and modern credibility. Get that balance right and your clinic reads as current and trusted without losing what makes it a TCM practice.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Bilingual by Default</h3>
+            <p>We build the identity in English and Chinese together — names, logos and collateral that read naturally to a Mandarin-speaking regular and a younger, English-first patient alike.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Modern, Still Traditional</h3>
+            <p>We design clinics to look current and trustworthy while keeping the sense of heritage that patients value — never a cold clinic look, never a dated one.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the identity onto your <a href="/tcm-clinic-website-singapore/">website</a>, <a href="/tcm-clinic-social-media-singapore/">social</a> and collateral — one agency, so nothing drifts, and everything stays within TCMPB rules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the patient journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand is the layer over every stage. It decides whether a patient takes your clinic seriously in the first search, believes you at the comparison, and feels comfortable enough to book — in whichever language they think in.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A modern first impression earns the click</p></li>
+        <li class="funnel-stage"><h3>Validate</h3><p>Consistency signals a real, trusted clinic</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>A clear identity lifts you above the look-alikes</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Looking current makes new patients comfortable</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>Patients rebook &amp;amp; refer with confidence</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about TCM clinic branding">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2>TCM Clinic Branding — Questions Answered</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>Why does a TCM clinic need branding?</summary>
+          <div class="faq-answer"><p>Because a patient can't judge your practice before their first visit, so they judge everything around it — your signboard, logo, website and materials. Many TCM clinics look dated and blur into one another, which leaves patients choosing on price and proximity. A considered brand makes your clinic look trustworthy and current, so it stands apart and earns the appointment.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>We already have a name and a signboard. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A name and a signboard are one part of a brand. What builds trust is consistency across everything a patient sees — the shopfront, the website, the WhatsApp reply, the appointment reminder. When those look disconnected, a patient senses it. We build the full system, in English and Chinese, so every touchpoint says the same thing.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Can you brand our clinic in both English and Chinese?</summary>
+          <div class="faq-answer"><p>Yes. Bilingual identity is central to TCM branding in Singapore. We handle the English and Chinese name pairing, bilingual logo lockups, and collateral that reads naturally in both languages — so the clinic feels right to a Mandarin-speaking regular and to a younger, English-first patient alike.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>Will a modern rebrand put off our older, loyal patients?</summary>
+          <div class="faq-answer"><p>Not if it's handled with care. Most established clinics don't need a clean slate — they need their heritage sharpened. We keep what long-standing patients already recognise, retire what looks tired, and introduce a cleaner identity as the clinic growing up rather than starting over. The aim is modern and trustworthy without losing the sense of tradition.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Are there rules on how TCM clinics can brand and advertise?</summary>
+          <div class="faq-answer"><p>Yes. The Traditional Chinese Medicine Practitioners Board and MOH advertising guidelines govern the claims, testimonials and imagery a clinic can use. We design and write the brand within those rules, so it reads as credible and current without crossing into prohibited treatment claims.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">TCM Clinic</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/tcm-marketing-singapore/" class="related-service-link">TCM Clinic Marketing</a>
+          <a href="/tcm-clinic-seo-singapore/" class="related-service-link">TCM Clinic SEO</a>
+          <a href="/tcm-clinic-ai-search-optimisation-singapore/" class="related-service-link">TCM Clinic GEO</a>
+          <a href="/tcm-clinic-google-ads-singapore/" class="related-service-link">TCM Clinic Google Ads</a>
+          <a href="/tcm-clinic-social-media-singapore/" class="related-service-link">TCM Clinic Social Media</a>
+          <a href="/tcm-clinic-website-singapore/" class="related-service-link">TCM Clinic Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
