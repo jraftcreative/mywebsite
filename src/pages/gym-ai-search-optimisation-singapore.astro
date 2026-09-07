@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Gym AI Search Optimisation Singapore",
-    "description": "AI search optimisation for gyms in Singapore — get your gym recommended by ChatGPT, Google Gemini, Perplexity, and AI Overviews when fitness consumers ask for gym recommendations.",
+    "description": "Generative Engine Optimisation (GEO) for gyms in Singapore — get your gym named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Gym AI Search Optimisation (GEO)"
+    "serviceType": "Gym GEO / AI Search Optimisation"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "Why does my gym need AI search optimisation?", "acceptedAnswer": { "@type": "Answer", "text": "Fitness consumers increasingly ask ChatGPT and Gemini for gym recommendations before visiting or signing up for trials. If your gym isn't appearing in these AI-generated answers, you're losing potential members to competitors that AI does recommend." } },
-      { "@type": "Question", "name": "What AI platforms recommend gyms in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "The main platforms are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each one pulls from different sources when recommending gyms, so a multi-platform strategy is essential for full visibility." } },
-      { "@type": "Question", "name": "How does GEO differ from regular SEO for gyms?", "acceptedAnswer": { "@type": "Answer", "text": "Traditional SEO helps your gym rank in Google search results. GEO ensures AI platforms actually name your gym when someone asks for a recommendation. The overlap between Google rankings and AI citations is below 20%, so ranking well on Google doesn't mean AI will mention you." } },
-      { "@type": "Question", "name": "How long before my gym appears in AI recommendations?", "acceptedAnswer": { "@type": "Answer", "text": "Most gyms see changes in AI citation rates within 30 to 90 days. Schema markup and llms.txt implementation can deliver quick wins within weeks, while review building and authority signals compound over time." } },
-      { "@type": "Question", "name": "How much does gym AI search optimisation cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } }
+      { "@type": "Question", "name": "What is GEO and how is it different from SEO for a gym?", "acceptedAnswer": { "@type": "Answer", "text": "SEO gets your gym ranked in Google's blue links. GEO (generative engine optimisation) gets your gym named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party mentions differently. We do both." } },
+      { "@type": "Question", "name": "Can AI search really send my gym new members?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A growing share of people ask AI for a recommendation before they search or book a trial. Being the named gym in that answer — for a query like 'best gym near Tanjong Pagar' or '24 hour gym in Singapore' — puts you on the shortlist before they ever open Google Maps." } },
+      { "@type": "Question", "name": "How long does GEO take to show results for a gym?", "acceptedAnswer": { "@type": "Answer", "text": "Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority builds across directories and review sites. We track it monthly so you see the movement." } },
+      { "@type": "Question", "name": "How do you measure GEO success for a gym?", "acceptedAnswer": { "@type": "Answer", "text": "We re-run the same question bank each month — prompts like 'good gym for beginners near me' and '24 hour gym in Jurong' — and track how often your gym is mentioned, how often it's cited with a link, your share of voice versus competitors, and AI-referral traffic." } },
+      { "@type": "Question", "name": "Do I need SEO before GEO for my gym?", "acceptedAnswer": { "@type": "Answer", "text": "Strong technical and content SEO is the foundation GEO builds on, so we usually run them together. If your SEO is weak, we fix that first — it makes the AI-citation work land faster." } }
     ]
   },
   {
@@ -46,99 +46,177 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
-  title="Gym AI Search Optimisation Singapore — Jraft Creative"
-  description="Get your gym recommended by ChatGPT and Gemini when people search for the best gym in Singapore. GEO for fitness"
+  title="Gym GEO & AI Search Singapore — Jraft Creative"
+  description="GEO for gyms in Singapore — get named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews."
   canonical="https://jraftcreative.com/gym-ai-search-optimisation-singapore/"
-  ogTitle="Gym AI Search Optimisation Singapore — Jraft Creative"
-  ogDescription="Get your gym recommended by ChatGPT, Gemini, and Perplexity. Specialist AI search optimisation for gyms in Singapore."
-  ogImage="https://jraftcreative.com/images/og-seo.jpg"
-  keywords="gym ai search optimisation singapore, gym geo singapore, gym ai visibility, gym chatgpt optimisation, gym generative engine optimisation, fitness ai search singapore, Jraft Creative"
+  ogTitle="Gym GEO & AI Search Singapore — Jraft Creative"
+  ogDescription="Get your gym named in AI search. GEO that makes ChatGPT, Gemini, Perplexity, and Google's AI recommend your gym."
+  ogImage="https://jraftcreative.com/images/og-gym.jpg"
+  keywords="gym ai search optimisation singapore, gym geo singapore, gym chatgpt optimisation, generative engine optimisation gym, gym ai visibility, 24 hour gym singapore ai, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Gym GEO"
-  heroTitle='Gym AI Search Optimisation in <span class="highlight">Singapore</span>'
-  heroSubtitle="Fitness consumers ask ChatGPT 'best gym in Singapore' or 'CrossFit gym near Tanjong Pagar' before they ever walk through your doors. With 60.9% of Singapore using AI to search, your gym needs to be the one AI recommends — not just the one that ranks on Google."
-  heroImage="/images/service-seo.webp"
+  heroLabel="Gym GEO / AI Search"
+  heroTitle='Get Your <span class="highlight">Gym</span> Named in <span class="highlight">AI Search</span>'
+  heroSubtitle="When someone asks ChatGPT, Gemini, or Google's AI for the best gym near Tanjong Pagar or a 24 hour gym in Singapore, one gym gets named — and it takes the trial booking. GEO is how we make that gym yours."
+  heroImage="/images/service-gym.webp"
   heroButtons={[
-    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20gym.", class: "btn btn-secondary" }
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my gym in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Gym Into AI Answers"
-  ctaDescription="Book a free AI visibility audit and we'll show you exactly how your gym appears — and where it's missing — across ChatGPT, Gemini, Perplexity, and Google AI Overviews. We'll respond within 24 hours."
+  whatsappText="Hi Jraft Creative, I want my gym cited in AI search (GEO)."
+  ctaLabel="Ready to Be the AI's Answer?"
+  ctaTitle='Get Your <span class="highlight">Gym</span> Cited in AI Search'
+  ctaDescription="Book a free AI visibility check and we'll show you exactly what ChatGPT, Gemini, and Google's AI say about your gym today — and who's getting named instead. No obligations."
   ctaButtons={[
-    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20gym.", class: "btn btn-secondary" }
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20want%20my%20gym%20cited%20in%20AI%20search%20%28GEO%29.", class: "btn btn-secondary" }
   ]}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why gyms need AI search optimisation">
+  <section class="section" id="challenge" aria-label="Why gyms need GEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Gym Members Are Asking AI — Not Scrolling Google</h2>
+        <h2>Search Has <span class="highlight">Split in Two</span> — and AI Is Naming <span class="highlight">Someone Else</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>People looking for a new gym no longer scroll through ten Google results. They ask ChatGPT "best gym near Orchard Road" or tell Gemini "recommend a CrossFit gym in Singapore." AI responds with 3-4 names and a brief summary for each. If your gym isn't on that shortlist, you never even enter the consideration set — prospects book a trial somewhere else without knowing you exist.</p>
-        <p>Singapore has the second highest AI adoption rate globally, with 60.9% of the population already using generative AI for everyday searches. The overlap between Google rankings and AI citations has dropped below 20%. A gym that ranks on page one of Google for "best gym Singapore" can still be completely invisible to ChatGPT and Gemini. AI models decide which gyms to recommend based on review signals, programme details, structured data, and third-party authority — not traditional search rankings.</p>
-        <p>Most gym marketing focuses on Instagram reels and Google Ads. That still matters, but it misses the fast-growing audience that discovers and evaluates gyms through AI-generated answers. Without a dedicated Generative Engine Optimisation strategy, your gym is leaving membership leads on the table every single day. AI-referred visitors convert at 4.4x the rate of traditional search — these are high-intent prospects ready to sign up.</p>
+        <p>More people now ask ChatGPT, Gemini, or Google's AI for a gym recommendation than scroll ten blue links. If the answer names three gyms and yours isn't one, you never enter the shortlist.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== HOW AI RECOMMENDS FITNESS ========== -->
-  <section class="section" id="how-ai-recommends-fitness" style="background: var(--bg-alt);" aria-label="How AI recommends fitness brands in Singapore">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Fitness Discovery</p>
-        <h2>How AI Recommends Fitness Brands in Singapore</h2>
-      </div>
-      <div class="section-content reveal">
-        <p>Fitness consumers in Singapore ask AI questions that are far more specific than a simple "best gym near me." The prompts reflect real decision-making criteria: "best gym near Tanjong Pagar," "CrossFit classes Singapore," "affordable yoga studio with membership," "24-hour gym in Jurong with free weights," and "Muay Thai classes for beginners in CBD." Each prompt targets a specific combination of workout type, location, price point, and facility feature. AI platforms respond by recommending 3-4 gyms that match these criteria — and the gyms that appear are the ones whose online presence provides the structured data AI needs to verify the match.</p>
-        <p>Class and programme data is one of the strongest signals AI uses when recommending fitness brands. Gyms that publish detailed information about their class types, weekly schedules, pricing tiers, and membership options in structured, machine-readable formats give AI the specificity it needs to make confident recommendations. When someone asks Gemini "yoga classes near Orchard Road with drop-in pricing," the AI needs to find a gym that explicitly lists yoga as a class type, confirms the Orchard Road location, and publishes drop-in pricing. A gym that buries this information in a PDF timetable or behind a login wall is invisible to AI, regardless of how good the actual classes are.</p>
-        <p>In Singapore, AI also draws heavily from fitness booking and review platforms when assembling gym recommendations. ClassPass and Mindbody are particularly influential citation sources — gyms listed on these platforms with complete profiles, class descriptions, ratings, and booking data have stronger AI citation signals than gyms that operate only through their own website. AI cross-references these third-party platforms with Google Reviews and social media presence to build a credibility score for each gym. A gym with 200+ Google Reviews, an active ClassPass listing, and a Mindbody profile gives AI three independent sources to verify its recommendation.</p>
-        <p>Community signals are an increasingly important factor in how AI evaluates fitness brands. Social media presence — not just follower count, but engagement rates, community event posts, member transformations, and coach spotlights — contributes to what AI perceives as brand authenticity. Gyms that host community events (charity workouts, competitions, open days) and generate online discussion around these events build the kind of organic mention frequency that AI interprets as authority. Review engagement matters too: gyms that respond to Google Reviews, address feedback, and maintain active dialogue with their member community signal to AI that the business is credible, responsive, and invested in client experience.</p>
-        <p>For gyms looking to build AI visibility across all platforms simultaneously, our <a href="/geo-agency-singapore/">GEO agency services</a> provide a comprehensive multi-platform strategy. Gyms that also need stronger Google search rankings should pair GEO with our <a href="/gym-seo-singapore/">gym SEO</a> programme for maximum visibility across both traditional and AI-driven search channels.</p>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Answer, Not the List</h3>
+            <p>People ask AI "best gym near Tanjong Pagar" or "24 hour gym in Bugis" and get a named recommendation, not a page of links. If your gym isn't in that answer, the prospect never sees you at the moment they decide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Ranking on Google Isn't Enough</h3>
+            <p>AI engines choose who to cite differently — on entity clarity, structured data, and trusted third-party mentions, not just backlinks. A gym that ranks on Google can still be invisible in AI answers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Your Competitor Is Getting Cited</h3>
+            <p>Right now, an AI query for a gym in your area is naming someone. Every week you're not the one cited, that gym compounds the trust and takes the trial bookings.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE DELIVER ========== -->
-  <section class="section" id="sub-services" aria-label="AI search optimisation services for gyms">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="GEO services for gyms">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>AI Search Optimisation Built for Gyms</h2>
+        <h2>How We Get Your Gym <span class="highlight">Cited</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We cover every signal that determines whether AI recommends your gym — from structured data about your classes and trainers to citation-ready content that matches the exact prompts fitness consumers use. Our strategies integrate with your existing gym marketing, not against it.</p>
-        <p>Pair GEO with our <a href="/gym-seo-singapore/">gym SEO services</a> for maximum search visibility, or combine with <a href="/gym-marketing-singapore/">gym marketing</a> for a full membership growth strategy.</p>
+        <p>GEO is an additive layer on strong SEO. We make your gym legible to the engines, worth citing, and easy to verify — then track it every month. It pairs with your <a href="/gym-seo-singapore/">gym SEO</a>, your <a href="/gym-website-design-singapore/">gym website</a>, and your <a href="/gym-social-media-singapore/">gym social media</a> so every signal points the same way.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
             <h3>AI Visibility Audit</h3>
-            <p>We test 20-30 fitness-specific prompts across ChatGPT, Gemini, Perplexity, and Copilot — prompts like "best gym in Singapore," "CrossFit gym near CBD," and "affordable gym with personal training." You'll see exactly where your gym appears, where it doesn't, and how competitors stack up.</p>
+            <p>We run the real questions your prospects ask ChatGPT, Perplexity, Gemini, and Google AI Mode — "24 hour gym in Singapore", "good gym for beginners near me" — and map who gets cited, so you see where you stand and who to overtake.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Schema &amp; Entity Optimisation</h3>
-            <p>Advanced JSON-LD markup that tells AI exactly what your gym offers — class types, opening hours, locations, trainer credentials, and membership tiers. We implement GymOrFitnessCenter, Service, FAQ, and Speakable schemas plus llms.txt so AI can crawl your details directly.</p>
+            <h3>Schema &amp; Entity Layer</h3>
+            <p>Structured data — LocalBusiness, FAQ, class, trainer and opening-hours info — plus consistent entity signals across directories and review sites that make your gym legible and verifiable to the engines.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Citation-Ready Content</h3>
-            <p>Content restructured for AI consumption — detailed programme descriptions, trainer bios, comparison tables, and FAQ sections that match the exact prompts fitness consumers use. When AI needs to recommend a gym for strength training or yoga, your content gives it the answer.</p>
+            <h3>Answer-First Content</h3>
+            <p>Class pages, membership FAQs, and an llms.txt file written to answer the exact questions AI pulls from — clear, extractable, and specific to your formats, neighbourhood, and opening hours.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-analytics-reporting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Authority Building</h3>
-            <p>AI models assess gym credibility through reviews, fitness directory listings, and third-party mentions. We build your gym's presence on Google Reviews, fitness platforms, and authority sites that AI trusts — strengthening the signals that get your gym recommended over competitors.</p>
+            <h3>Citation &amp; Monitoring</h3>
+            <p>Building mentions on the review sites and directories AI trusts, then tracking your AI visibility month over month against competitors — mention rate, citation rate, and share of voice.</p>
           </div>
         </div>
       </div>
@@ -146,71 +224,96 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for gym AI search optimisation">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for gym GEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>AI Search Optimisation Specialists for the Fitness Industry</h2>
+        <h2>We Don't Just Sell GEO — <span class="highlight">We Practise It</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand both AI search and the fitness business. Our team knows how gym members search, what prompts they ask, and what signals AI uses to recommend one gym over another — so we build strategies that actually convert AI visibility into trial bookings.</p>
+        <p>GEO is new, and most agencies are still guessing at it. We run the same playbook on our own gym work and on Jraft Creative itself — and report what actually moves citations.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Fitness Industry Knowledge</h3>
-            <p>We understand the gym membership journey — from the first "best gym near me" prompt to the trial booking. Our strategies target the specific AI prompts fitness consumers use, including class-type queries, location queries, and comparison prompts.</p>
+            <h3>Cited in AI Ourselves</h3>
+            <p>Jraft Creative got its own site cited in Google's AI Overview. We run the same citation playbook for your gym — receipts, not a slide deck of theory.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Programme-Specific Targeting</h3>
-            <p>CrossFit, HIIT, yoga, personal training, strength &amp; conditioning — each programme attracts different AI prompts. We optimise your visibility for every programme you offer so AI recommends your gym no matter what type of workout someone asks for.</p>
+            <h3>Built for Local Fitness</h3>
+            <p>GEO tuned to neighbourhood, class format, and the way gym-goers actually phrase questions to AI — from "24 hour gym in Tampines" to "personal training near Novena" — not a generic B2B approach.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Review &amp; Social Proof Building</h3>
-            <p>AI heavily weighs review volume and sentiment when choosing which gyms to recommend. We implement systems that drive authentic member reviews and ensure your social proof signals reach the platforms AI trusts most.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Membership Conversion Focus</h3>
-            <p>AI visibility is only valuable if it drives trials and sign-ups. We track the full pipeline from AI mention to gym visit, optimising not just for citations but for the content and calls-to-action that turn AI referrals into paying members.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>GEO sits alongside your SEO, social, ads, and website — so every signal reinforces the same authority, and the engines see one consistent, trusted gym.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== GEO FLOW ========== -->
+  <section class="section" id="geo-flow" style="background: var(--bg-alt);" aria-label="How gym GEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Invisible</span> to <span class="highlight">the Answer</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>We run the same four-step system on every gym — and re-test the AI answers monthly so you can watch your visibility climb.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Map what AI says about your gym today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Structure</h3>
+          <p>Schema and entity signals put in place</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Answer</h3>
+          <p>Content rewritten for AI extraction</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Monitor</h3>
+          <p>Citations and visibility tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about gym AI search optimisation in Singapore">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about gym GEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Gym AI Search Optimisation — Questions Answered</h2>
+        <h2><span class="highlight">Gym GEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>Why does my gym need AI search optimisation?</summary>
-          <div class="faq-answer"><p>Fitness consumers increasingly ask ChatGPT and Gemini for gym recommendations before visiting or signing up for trials. If your gym isn't appearing in these AI-generated answers, you're losing potential members to competitors that AI does recommend.</p></div>
+          <summary>What is GEO and how is it different from SEO for a gym?</summary>
+          <div class="faq-answer"><p>SEO gets your gym ranked in Google's blue links. GEO (generative engine optimisation) gets your gym named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party mentions differently. We do both.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What AI platforms recommend gyms in Singapore?</summary>
-          <div class="faq-answer"><p>The main platforms are ChatGPT, Google Gemini, Google AI Overviews, Perplexity, and Microsoft Copilot. Each one pulls from different sources when recommending gyms, so a multi-platform strategy is essential for full visibility.</p></div>
+          <summary>Can AI search really send my gym new members?</summary>
+          <div class="faq-answer"><p>Yes. A growing share of people ask AI for a recommendation before they search or book a trial. Being the named gym in that answer — for a query like "best gym near Tanjong Pagar" or "24 hour gym in Singapore" — puts you on the shortlist before they ever open Google Maps.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How does GEO differ from regular SEO for gyms?</summary>
-          <div class="faq-answer"><p>Traditional SEO helps your gym rank in Google search results. GEO ensures AI platforms actually name your gym when someone asks for a recommendation. The overlap between Google rankings and AI citations is below 20%, so ranking well on Google doesn't mean AI will mention you.</p></div>
+          <summary>How long does GEO take to show results for a gym?</summary>
+          <div class="faq-answer"><p>Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority builds across directories and review sites. We track it monthly so you see the movement.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long before my gym appears in AI recommendations?</summary>
-          <div class="faq-answer"><p>Most gyms see changes in AI citation rates within 30 to 90 days. Schema markup and llms.txt implementation can deliver quick wins within weeks, while review building and authority signals compound over time.</p></div>
+          <summary>How do you measure GEO success for a gym?</summary>
+          <div class="faq-answer"><p>We re-run the same question bank each month — prompts like "good gym for beginners near me" and "24 hour gym in Jurong" — and track how often your gym is mentioned, how often it's cited with a link, your share of voice versus competitors, and AI-referral traffic.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How much does gym AI search optimisation cost in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Do I need SEO before GEO for my gym?</summary>
+          <div class="faq-answer"><p>Strong technical and content SEO is the foundation GEO builds on, so we usually run them together. If your SEO is weak, we fix that first — it makes the AI-citation work land faster.</p></div>
         </details>
       </div>
     </div>
@@ -226,11 +329,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/gym-marketing-singapore/" class="related-service-link">Gym Marketing</a>
-          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Website Design</a>
           <a href="/gym-seo-singapore/" class="related-service-link">Gym SEO</a>
           <a href="/gym-google-ads-singapore/" class="related-service-link">Gym Google Ads</a>
           <a href="/gym-social-media-singapore/" class="related-service-link">Gym Social Media</a>
           <a href="/gym-branding-singapore/" class="related-service-link">Gym Branding</a>
+          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Websites</a>
       </div>
     </div>
   </section>

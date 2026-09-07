@@ -29,9 +29,9 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does SEO cost for a gym in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for gym SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most gyms see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like 'gym near Tanjong Pagar' or 'personal training Orchard' often rank faster than broad competitive terms like 'gym Singapore'." } },
-      { "@type": "Question", "name": "Can SEO help my gym rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our gym SEO service. We optimise your listing categories, upload facility photos, manage member reviews, and build local citations so your gym appears in the Maps 3-pack for 'gym near me' and 'fitness centre near me' searches in your area." } },
-      { "@type": "Question", "name": "What keywords do people search when looking for a gym in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'gym near me', 'fitness centre Singapore', 'personal training Singapore', '24 hour gym near me', 'gym membership Singapore', 'CrossFit Singapore', 'strength training gym', and neighbourhood-specific queries. We research the exact terms driving memberships in your area and build your SEO strategy around them." } },
+      { "@type": "Question", "name": "How long does it take for gym SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most gyms see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like 'gym near Tanjong Pagar' or 'personal trainer Tampines' often rank faster than broad competitive terms like 'gym Singapore'." } },
+      { "@type": "Question", "name": "Can SEO help my gym rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our gym SEO service. We optimise your listing categories, upload facility photos, manage member reviews, and build local citations so your gym appears in the Maps 3-pack for 'gym near me' and '24 hour gym Singapore' searches in your area." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for a gym in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'gym near me', '24 hour gym Singapore', 'personal trainer Tampines', 'HIIT class near me', 'gym membership Jurong', 'CrossFit Singapore', and 'group fitness class near me'. We research the exact terms driving trials and sign-ups in your area and optimise your gym's presence around them." } },
       { "@type": "Question", "name": "Do you work with gyms that have multiple locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-location gym SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each gym ranks independently in its own neighbourhood." } }
     ]
   },
@@ -46,22 +46,135 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force even service card grid on desktop per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Gym SEO Flow — horizontal process flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Gym SEO Singapore — Jraft Creative"
-  description="SEO services for gyms and fitness centres in Singapore. Local SEO, Google Business Profile optimisation, personal training keywords."
+  description="SEO services for gyms and fitness centres in Singapore. Local SEO, Google Business Profile optimisation, membership and personal-training landing pages."
   canonical="https://jraftcreative.com/gym-seo-singapore/"
   ogTitle="Gym SEO Singapore — Jraft Creative"
-  ogDescription="SEO for gyms and fitness centres in Singapore. Local search optimisation, Google Maps ranking, and membership-focused content to drive sign-ups. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="gym seo singapore, fitness centre seo, seo for gyms, gym google ranking, gym local seo, gym marketing singapore, personal training seo, fitness seo singapore, Jraft Creative"
+  ogDescription="SEO for gyms and fitness centres in Singapore. Local search optimisation, Google Maps ranking, and membership-focused content to drive trials and sign-ups."
+  ogImage="https://jraftcreative.com/images/og-gym.jpg"
+  keywords="gym seo singapore, fitness centre seo, seo for gyms, 24 hour gym seo, personal training seo, gym google ranking, gym local seo, gym marketing singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Gym SEO"
-  heroTitle='SEO for <span class="highlight">Gyms & Fitness Centres in Singapore</span>'
-  heroSubtitle="Singapore's fitness industry is worth over $500 million, and competition for members has never been more intense. From boutique studios to 24-hour chains, hundreds of gyms compete for the same searches — 'gym near me', 'fitness centre Singapore', 'personal training near me'. If your gym doesn't rank on page one, those potential members sign up somewhere else."
+  heroTitle='SEO for <span class="highlight">Gyms & Fitness Studios in Singapore</span>'
+  heroSubtitle="When someone searches 'gym near me' or '24 hour gym Singapore', the gyms ranking on page one and in the Maps 3-pack get the trial booking and the sign-up. From boutique studios to 24-hour chains, we get your gym in front of the members searching in your neighbourhood."
   heroImage="/images/service-gym.webp"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Book a Consultation", href: "/contact/", class: "btn btn-secondary" }
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need SEO for my gym in Singapore."
   ctaLabel="Ready to Rank Higher?"
@@ -73,108 +186,148 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for gyms in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Hundreds of Gyms in Singapore — Can Members Find Yours?</h2>
+        <h2>Hundreds of Gyms Compete — Is Yours the One <span class="highlight">Members Find</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's fitness landscape has transformed dramatically. Budget 24-hour gyms, premium boutique studios, functional training boxes, and full-service fitness clubs all compete for a health-conscious population that spends over $500 million annually on gym memberships, personal training, and group fitness. The market is saturated in nearly every district — and the battleground for new members has shifted decisively to Google.</p>
-        <p>"Gym near me", "fitness centre Singapore", "personal training near me", "24 hour gym Clementi" — these searches happen thousands of times each month from people ready to tour a facility and sign up. The gyms appearing in the top Google results and the Maps 3-pack capture the overwhelming majority of these walk-in visits. Everyone else is competing on price through aggregator platforms, losing margins, and training members who never develop brand loyalty.</p>
-        <p>The challenge is that most gym websites are glorified brochures — a homepage, an "About" page, and a generic timetable. Without dedicated pages for each service (personal training, group classes, strength training, weight loss programmes), without proper local SEO signals, and without content that answers the questions potential members actually search for, even the best-equipped gym in the most convenient location remains invisible to the thousands of people searching online every week.</p>
+        <p>Great equipment, strong trainers, and a prime location count for nothing if you're invisible the moment someone searches for a gym near them.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The "Gym Near Me" Moment</h3>
+            <p>Someone searching "24 hour gym Jurong" or "personal trainer Tampines" is ready to book a trial today. If you're not in the top results and the Maps 3-pack, that member walks into the gym that is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Map-Pack Shutout</h3>
+            <p>Most gyms have a full timetable but thin online visibility. Without an optimised Google Business Profile and local signals, you never enter the 3-pack where "gym near me" trials are won.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Aggregator Margin Trap</h3>
+            <p>Left off page one, gyms lean on ClassPass and discount platforms just to stay visible — eroding margins and filling classes with drop-ins who never convert into loyal members.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for gyms">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for gyms">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Gyms and Fitness Centres</h2>
+        <h2>SEO Built for <span class="highlight">Gyms and Fitness Studios</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Gym SEO requires a specialist approach. Potential members search by service type, facility features, training style, and neighbourhood — creating dozens of keyword combinations that need dedicated pages and strong local signals. We build SEO strategies specifically for how Singapore residents research and choose gyms.</p>
-        <p>From technical foundations to service-specific landing pages and Google Maps dominance, every element of our approach is designed to drive membership sign-ups from people actively searching for a gym near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/gym-website-design-singapore/">gym website</a>, <a href="/services/social-media/">social media marketing</a> to build community, or <a href="/services/paid-ads/">Google Ads</a> to capture peak demand during January, post-Chinese New Year, and other seasonal fitness surges.</p>
+        <p>Gym SEO is a specialist job — members search by service, class type, opening hours, and neighbourhood. We build around exactly how Singapore residents look for and choose a gym, and pair it with a fast <a href="/gym-website-design-singapore/">gym website</a>, <a href="/gym-social-media-singapore/">social media</a>, and <a href="/gym-google-ads-singapore/">Google Ads</a> so every channel works together.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your gym website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your gym for searches like "gym near me", "fitness centre Singapore", and "personal training near me" in your area.</p>
+            <p>A full crawl to fix indexing gaps, broken links, missing schema, and slow mobile loads — the technical barriers stopping Google from ranking your gym.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised landing pages for every service you offer — personal training, group fitness, strength and conditioning, weight loss programmes, and specialised training. Meta titles, descriptions, heading structures, and internal links targeting searches like "personal trainer Tanjong Pagar", "CrossFit gym near me", and "strength training gym Singapore".</p>
+            <p>Keyword-optimised pages for every offering — personal training, group classes, HIIT, spin, CrossFit, strength — targeting searches like "personal trainer Tampines" and "HIIT class near me".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct fitness categories, facility details, gym photos, member review management, and local citation building across Singapore directories. Designed to get your gym into the Google Maps 3-pack for every "gym near me" and "fitness centre near me" search in your neighbourhood.</p>
+            <p>Correct categories, opening hours, facility photos, review management, and local citations that put you in the Maps 3-pack for every "gym near me" and "24 hour gym Singapore" search in your area.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-speed-vitals.webp');">
           <div class="service-detail-card__content">
-            <h3>Membership-Focused Content Strategy</h3>
-            <p>Blog articles and guides answering the questions potential members search — "best gyms in Singapore for beginners", "personal training vs gym membership", "how to choose a gym in Singapore". Content that builds your authority, earns organic backlinks, and captures prospects during their comparison and decision-making phase.</p>
+            <h3>Membership-Focused Content</h3>
+            <p>Guides answering what members actually search — "how to choose a gym in Singapore", "personal training vs group classes" — that build authority and capture prospects while they're deciding.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for gym SEO">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for gym SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands the Fitness Industry</h2>
+        <h2>An SEO Agency That <span class="highlight">Understands Gyms</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with fitness businesses across Singapore. We understand membership-based revenue models, seasonal demand patterns, and which search terms actually convert online browsers into paying gym members who stay beyond their first three months.</p>
+        <p>We work with fitness businesses across Singapore — we know membership and free-trial models, peak and off-peak demand, and which searches actually convert into members who stay.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Fitness Industry Knowledge</h3>
-            <p>We understand the difference between personal training SEO, group class discovery, and facility-based searches — and we know which service types drive the most search volume in Singapore. Our strategies are built around member acquisition behaviour, not pulled from generic SEO templates.</p>
+            <p>We know the difference between personal-training searches, group-class discovery, and 24-hour access queries — and which drive real search volume here. Strategy built around how members search, not a generic template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Neighbourhood-Level Local SEO</h3>
-            <p>Most gym members want a facility within 10 to 15 minutes of home or the office. We optimise for neighbourhood-level searches — Raffles Place, Tanjong Pagar, Novena, Jurong East, Tampines — so your gym ranks exactly where your potential members live and work.</p>
+            <p>Members want a gym close to home or the office. We optimise for the MRT-radius searches — Tanjong Pagar, Bugis, Tampines, Jurong, Novena, Paya Lebar — so you rank where your ideal members live and work.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings across services, organic traffic, Google Business Profile insights, and membership inquiry trends. We show you the numbers that matter — not vanity metrics, but data tied directly to facility tours and membership sign-ups.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle gym website design, social media content, and paid ads — so your entire digital marketing works together as a single system to grow your membership base and reduce churn.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO is one piece. We also handle your website, social, and paid ads — so every channel works together to fill classes and sign up members, instead of pulling in different directions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== SEO FLOW ========== -->
+  <section class="section" id="seo-flow" style="background: var(--bg-alt);" aria-label="How gym SEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>How Gym SEO <span class="highlight">Fills Your Floor</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first audit to booked trials, we run the same four-step system on every gym we take on — and report the numbers that tie back to sign-ups.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Technical and local audit of where you rank today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Service pages, on-page, and site speed fixed</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Localise</h3>
+          <p>GBP and citations built for the Maps 3-pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rank &amp; Report</h3>
+          <p>Rankings, traffic, and trials tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about gym SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Gym SEO — Questions Answered</h2>
+        <h2><span class="highlight">Gym SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -183,15 +336,15 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take for gym SEO to show results?</summary>
-          <div class="faq-answer"><p>Most gyms see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like "gym near Tanjong Pagar" or "personal training Orchard" often rank faster than broad competitive terms like "gym Singapore".</p></div>
+          <div class="faq-answer"><p>Most gyms see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like "gym near Tanjong Pagar" or "personal trainer Tampines" often rank faster than broad competitive terms like "gym Singapore".</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Can SEO help my gym rank in Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our gym SEO service. We optimise your listing categories, upload facility photos, manage member reviews, and build local citations so your gym appears in the Maps 3-pack for "gym near me" and "fitness centre near me" searches in your neighbourhood.</p></div>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our gym SEO service. We optimise your listing categories, upload facility photos, manage member reviews, and build local citations so your gym appears in the Maps 3-pack for "gym near me" and "24 hour gym Singapore" searches in your area.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>What keywords do people search when looking for a gym in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "gym near me", "fitness centre Singapore", "personal training near me", "24 hour gym Singapore", "CrossFit gym near me", "strength training gym", "gym membership Singapore", and neighbourhood-specific queries. We research the exact terms driving memberships in your area and build your strategy around them.</p></div>
+          <div class="faq-answer"><p>Common search terms include "gym near me", "24 hour gym Singapore", "personal trainer Tampines", "HIIT class near me", "gym membership Jurong", "CrossFit Singapore", and "group fitness class near me". We research the exact terms driving trials and sign-ups in your area and build your SEO strategy around them.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Do you work with gyms that have multiple locations?</summary>
@@ -200,7 +353,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
 
 
   <!-- Related Services -->
@@ -212,11 +364,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/gym-marketing-singapore/" class="related-service-link">Gym Marketing</a>
-          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Website Design</a>
+          <a href="/gym-ai-search-optimisation-singapore/" class="related-service-link">Gym GEO</a>
           <a href="/gym-google-ads-singapore/" class="related-service-link">Gym Google Ads</a>
           <a href="/gym-social-media-singapore/" class="related-service-link">Gym Social Media</a>
           <a href="/gym-branding-singapore/" class="related-service-link">Gym Branding</a>
-          <a href="/gym-ai-search-optimisation-singapore/" class="related-service-link">Gym AI Search Optimisation</a>
+          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Websites</a>
       </div>
     </div>
   </section>

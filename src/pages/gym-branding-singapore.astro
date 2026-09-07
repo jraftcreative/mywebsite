@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Gym Branding Singapore",
-    "description": "Professional branding for gyms and fitness centres in Singapore — logo design, energetic brand identity, gym visual language, and merchandise design.",
+    "description": "Branding for gyms and fitness studios in Singapore — logo and visual identity, colour and type system, interior and signage direction, photography and video direction, tone of voice, and merch and collateral that build a membership community.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does branding cost for a gym in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Why does branding matter for gyms and fitness centres?", "acceptedAnswer": { "@type": "Answer", "text": "In Singapore's saturated fitness market, brand identity is what separates a gym that thrives from one that struggles with membership churn. Members join gyms they identify with — the brand becomes part of their lifestyle and identity. A strong gym brand creates that emotional connection, builds community loyalty, and makes members proud to wear your logo, share your content, and bring their friends." } },
-      { "@type": "Question", "name": "What makes gym branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Gym branding must project energy, motivation, and community. It needs to be bold enough to stand out in a crowded market, aspirational enough to attract new members, and authentic enough to retain existing ones. The brand also needs to translate into merchandise that members actually want to wear — because every member in a branded shirt is a walking billboard for your gym." } },
-      { "@type": "Question", "name": "How long does the gym branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most gym branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, merchandise, and signage take 4 to 6 weeks. We can coordinate with your fit-out team to align branding deliverables with your gym launch or renovation timeline." } },
-      { "@type": "Question", "name": "Can you design gym merchandise like T-shirts and stringer tanks?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Merchandise design is a core part of gym branding. Our Business and Premium packages include apparel design — T-shirts, stringer tanks, hoodies, shorts, and accessories. We design merchandise that members genuinely want to wear outside the gym, turning your community into brand ambassadors. We can also source production partners and manage the printing process." } }
+      { "@type": "Question", "name": "Why does a gym need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Most gyms in a neighbourhood run the same racks, cables, and cardio machines, so equipment alone gives members no reason to pick you. Branding is what makes people choose your gym over the one down the road — and what keeps them renewing instead of chasing the next joining promo. It turns a room full of equipment into a place members identify with." } },
+      { "@type": "Question", "name": "Do you only design the logo, or the whole brand?", "acceptedAnswer": { "@type": "Answer", "text": "The whole brand. A logo on its own doesn't hold up on a wall mural, an Instagram grid, and a stringer tank at the same time. We build the identity, colour and type system, tone of voice, and the templates and collateral that keep it consistent everywhere members see you." } },
+      { "@type": "Question", "name": "Can you rebrand my existing gym?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, then rolling it out across your space, signage, site, and socials so nothing looks half-changed to your members." } },
+      { "@type": "Question", "name": "Do you design gym merch and apparel?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Merch is part of the brand system, not an afterthought. We design tees, stringer tanks, hoodies, shorts, and accessories that members actually want to wear outside the gym — every member in your gear is a walking billboard. We keep production methods like screen print and embroidery in mind while designing so it prints sharp." } },
+      { "@type": "Question", "name": "Will the branding work across my website, signage, and social media?", "acceptedAnswer": { "@type": "Answer", "text": "That's the point. We design the brand as one system and apply it to your signage, website, Instagram, ads, and print — so your gym floor, your feed, and your storefront all read as the same gym." } }
     ]
   },
   {
@@ -40,165 +40,284 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
-      { "@type": "ListItem", "position": 3, "name": "Gym Branding", "item": "https://jraftcreative.com/gym-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Gym Branding Singapore", "item": "https://jraftcreative.com/gym-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
   title="Gym Branding Singapore — Jraft Creative"
-  description="Branding for gyms and fitness centres in Singapore — logo design, energetic brand identity, gym visual language, and merchandise design."
+  description="Branding for gyms in Singapore — logo and identity, colour and type system, signage direction, and merch that build a membership community."
   canonical="https://jraftcreative.com/gym-branding-singapore/"
   ogTitle="Gym Branding Singapore — Jraft Creative"
-  ogDescription="Logo design, brand identity, and merchandise design for gyms in Singapore. Build a fitness brand that members are proud to represent."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="gym branding singapore, fitness centre logo design, gym brand identity, fitness branding singapore, gym merchandise design, gym visual identity, Jraft Creative"
+  ogDescription="Branding for gyms in Singapore. Identity, signage direction, and merch that make members choose you and stop competing on joining promos."
+  ogImage="https://jraftcreative.com/images/og-gym.jpg"
+  keywords="gym branding singapore, gym brand identity, fitness studio branding, gym logo design, 24 hour gym branding, boutique fitness branding, gym rebrand, gym merch design, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Gym Branding"
-  heroTitle='Professional <span class="highlight">Branding for Gyms</span> in Singapore'
-  heroSubtitle="Your gym is more than equipment and floor space — it is a community, a culture, and a lifestyle. We create brand identities that capture that energy and make members proud to represent your gym inside and outside the facility."
+  heroTitle='Branding for <span class="highlight">Gyms in Singapore</span>'
+  heroSubtitle="Most gyms in a neighbourhood run the same equipment, so members have no reason to pick you on kit alone. Your brand is what makes people choose your gym and keep renewing — instead of chasing whoever runs the next joining promo. We build the identity that turns a room of equipment into a community members want to belong to."
   heroImage="/images/service-gym.webp"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Book a Consultation", href: "/contact/", class: "btn btn-secondary" }
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need branding for my gym in Singapore."
-  ctaLabel="Ready to Build a Stronger Brand?"
-  ctaTitle="Get a Brand Your Members Are Proud Of"
-  ctaDescription="Book a free consultation and tell us about your gym. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaLabel="Ready to Stand Out?"
+  ctaTitle='Build a <span class="highlight">Gym Brand</span> Members Belong To'
+  ctaDescription="Book a free consultation and we'll look at how your gym shows up today, where it blends in with every other box in the area, and the brand direction that would set you apart. No obligations."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20gym%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Branding challenges for gyms in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why gyms need branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Members Do Not Stay Loyal to Equipment — They Stay Loyal to a Brand</h2>
+        <h2>Is Your Gym <span class="highlight">Blending In</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's fitness market has never been more competitive. Between budget chains offering memberships, boutique CrossFit boxes, condo gyms, and premium fitness clubs, potential members can choose from dozens of options within any neighbourhood. The equipment at most gyms is largely the same — racks, cables, dumbbells, cardio machines. What makes a member walk past five other options and choose your gym is not your equipment list. It is your brand.</p>
-        <p>The gyms that dominate in Singapore — the ones with waiting lists, sold-out classes, and members wearing their logo on the street — have one thing in common: a brand identity that people want to be part of. They look, feel, and communicate differently from every other gym in the area. Their members share their content, tag the gym in stories, and buy the merchandise because they identify with what the brand represents. That kind of loyalty does not happen by accident. It starts with a strategically designed brand that captures the specific energy, culture, and community that makes your gym different.</p>
+        <p>Between budget chains, 24-hour gyms, boutique studios, and condo gyms, members in Tanjong Pagar, Bugis, or Tampines can pick from a dozen options within a few MRT stops. When the racks and cardio machines are the same everywhere, members decide on price — and a strong brand is the only thing that keeps you out of that race.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Blending Into the Crowd</h3>
+            <p>A generic logo, grey walls, and the same stock look as every other box on the street. If members can't tell you apart, they choose on price — and that's a race to the bottom.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Churning on Joining Promos</h3>
+            <p>Without a brand people identify with, members sign up for the discount and leave the moment a cheaper gym opens nearby. A strong identity is what earns loyalty and renewals instead of price-hoppers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Inconsistent Everywhere</h3>
+            <p>The logo on your shopfront, your Instagram, and your class schedule don't quite match. Inconsistency reads as amateur — and undercuts the energy members feel on the gym floor.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Gym branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for gyms">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Gyms &amp; Fitness Centres</h2>
+        <h2>A Brand Members <span class="highlight">Want to Belong To</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities for gyms that are bold, distinctive, and built to scale. From your logo and gym signage to your Instagram templates and merchandise line, every element is designed to communicate what makes your gym worth joining — and worth staying at.</p>
+        <p>We build the full brand — not just a logo — as one system that carries from your signage to your feed to a member's stringer tank on the street. It then plugs straight into your <a href="/gym-website-design-singapore/" class="inline-link">gym website</a>, <a href="/gym-social-media-singapore/" class="inline-link">social content</a>, and <a href="/gym-seo-singapore/" class="inline-link">local search presence</a>, so every touchpoint reads as the same gym.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo that captures the energy and character of your gym — whether that is raw strength, community spirit, boutique exclusivity, or high-performance athleticism. Includes primary, stacked, icon, and monochrome variations for signage, apparel, digital, and print.</p>
+            <h3>Logo, Colour &amp; Type System</h3>
+            <p>A distinctive logo with primary, stacked, icon, and monochrome variants, plus a colour palette and type system built to hold up on a wall mural, an app, a feed, and a printed tee.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Gym Interior &amp; Signage</h3>
-            <p>Exterior signage, reception area branding, training zone graphics, wall murals, and environmental design — transforming your physical space into an immersive brand experience that motivates members and photographs well for social media content.</p>
+            <h3>Interior &amp; Signage Direction</h3>
+            <p>Shopfront signage, reception branding, training-zone graphics, and wall murals — direction that turns your space into somewhere members feel the energy and want to shoot content.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Marketing Collateral</h3>
-            <p>Membership brochures, trial pass cards, class schedule designs, referral cards, and promotional materials — branded assets that convert prospects into members and give your sales team polished tools to work with.</p>
+            <h3>Photo, Video &amp; Voice Direction</h3>
+            <p>A photography and video look for your shoots, plus a tone of voice for captions, class names, and signage — so your gym sounds and looks like itself everywhere, not like stock fitness content.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Merchandise &amp; Apparel Design</h3>
-            <p>T-shirts, stringer tanks, hoodies, shorts, gym bags, shaker bottles, and accessories — merchandise that members genuinely want to wear and use. Every member in your branded gear is a walking advertisement for your gym.</p>
+            <h3>Merch &amp; Collateral</h3>
+            <p>Tees, stringer tanks, hoodies, class schedules, trial-pass cards, and social templates designed as one system — merch members want to wear, so every one of them becomes a walking billboard.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for gym branding">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for gym branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Gyms Choose Us for Branding</h2>
+        <h2>Design That <span class="highlight">Fills Memberships</span>, Not Just <span class="highlight">Decorates Walls</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Gym branding needs to hit differently. It has to be bold, energetic, and culturally relevant while still functioning professionally across every touchpoint. We design fitness brands that look as good on a wall mural as they do on an Instagram story — and on a T-shirt your members actually want to wear.</p>
+        <p>We treat branding as a business decision, not a beauty contest. Every choice traces back to the same goal — a gym members choose, identify with, and keep renewing at.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Fitness Branding Expertise</h3>
-            <p>We understand what makes fitness brands work. Your brand identity is designed to project the specific energy of your gym — whether that is a hardcore powerlifting culture, a welcoming functional fitness community, or a premium boutique experience.</p>
+            <h3>Strategy-Led Design</h3>
+            <p>We start with positioning, not a logo. The design flows from what makes your gym different — a hardcore lifting culture, a welcoming community, a premium boutique feel — so it does a job, not just fills a moodboard.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/gym-website-design-singapore/" class="inline-link">website design</a>, and <a href="/gym-social-media-singapore/" class="inline-link">social media marketing</a> — all handled by one team. Your brand identity is implemented consistently across every channel from day one, creating a seamless experience from online to gym floor.</p>
+            <h3>Built for Fitness</h3>
+            <p>We know the world your gym competes in — commercial gyms, 24-hour gyms, boutique studios, PT, and group classes — and we design so it reads as energy and belonging to the exact members you want.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Ownership, No Hidden Fees</h3>
-            <p>You own every asset we create — logos, guidelines, templates, apparel designs, source files. No hidden fees, no monthly retainers, and no ongoing charges for the branding project itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Merchandise-Ready Design</h3>
-            <p>Every logo and brand element we create is designed with merchandise in mind from day one. Screen printing, embroidery, sublimation — we consider production methods during the design phase so your merch looks sharp on every format.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Your brand then carries straight into your website, social, signage, and ads — one consistent gym everywhere members meet you, built by one team, and yours to keep.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== BRANDING FLOW ========== -->
+  <section class="section" id="branding-flow" style="background: var(--bg-alt);" aria-label="How gym branding works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Blend-In</span> to <span class="highlight">Stand-Out</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A clear four-step process that takes your gym from generic to unmistakable — and applies it everywhere members see you.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>We learn your gym, members, and edge</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Positioning and brand direction set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Design</h3>
+          <p>Identity, signage, and merch created</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rollout</h3>
+          <p>Applied across every touchpoint</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about gym branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Gym Branding Questions Answered</h2>
+        <h2><span class="highlight">Gym Branding</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does branding cost for a gym in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does a gym need branding?</summary>
+          <div class="faq-answer"><p>Most gyms in a neighbourhood run the same racks, cables, and cardio machines, so equipment alone gives members no reason to pick you. Branding is what makes people choose your gym over the one down the road — and what keeps them renewing instead of chasing the next joining promo. It turns a room full of equipment into a place members identify with.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Why does branding matter for gyms and fitness centres?</summary>
-          <div class="faq-answer"><p>In Singapore's saturated fitness market, brand identity is what separates a gym that thrives from one that struggles with membership churn. Members join gyms they identify with — the brand becomes part of their lifestyle and identity. A strong gym brand creates that emotional connection, builds community loyalty, and makes members proud to wear your logo, share your content, and bring their friends.</p></div>
+          <summary>Do you only design the logo, or the whole brand?</summary>
+          <div class="faq-answer"><p>The whole brand. A logo on its own doesn't hold up on a wall mural, an Instagram grid, and a stringer tank at the same time. We build the identity, colour and type system, tone of voice, and the templates and collateral that keep it consistent everywhere members see you.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes gym branding different from regular branding?</summary>
-          <div class="faq-answer"><p>Gym branding must project energy, motivation, and community. It needs to be bold enough to stand out in a crowded market, aspirational enough to attract new members, and authentic enough to retain existing ones. The brand also needs to translate into merchandise that members actually want to wear — because every member in a branded shirt is a walking billboard for your gym.</p></div>
+          <summary>Can you rebrand my existing gym?</summary>
+          <div class="faq-answer"><p>Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, then rolling it out across your space, signage, site, and socials so nothing looks half-changed to your members.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long does the gym branding process take?</summary>
-          <div class="faq-answer"><p>Most gym branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, merchandise, and signage take 4 to 6 weeks. We can coordinate with your fit-out team to align branding deliverables with your gym launch or renovation timeline.</p></div>
+          <summary>Do you design gym merch and apparel?</summary>
+          <div class="faq-answer"><p>Yes. Merch is part of the brand system, not an afterthought. We design tees, stringer tanks, hoodies, shorts, and accessories that members actually want to wear outside the gym — every member in your gear is a walking billboard. We keep production methods like screen print and embroidery in mind while designing so it prints sharp.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you design gym merchandise like T-shirts and stringer tanks?</summary>
-          <div class="faq-answer"><p>Yes. Merchandise design is a core part of gym branding. Our Business and Premium packages include apparel design — T-shirts, stringer tanks, hoodies, shorts, and accessories. We design merchandise that members genuinely want to wear outside the gym, turning your community into brand ambassadors. We can also source production partners and manage the printing process.</p></div>
+          <summary>Will the branding work across my website, signage, and social media?</summary>
+          <div class="faq-answer"><p>That's the point. We design the brand as one system and apply it to your signage, website, Instagram, ads, and print — so your gym floor, your feed, and your storefront all read as the same gym.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
 
   <!-- Related Services -->
@@ -210,11 +329,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/gym-marketing-singapore/" class="related-service-link">Gym Marketing</a>
-          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Website Design</a>
           <a href="/gym-seo-singapore/" class="related-service-link">Gym SEO</a>
+          <a href="/gym-ai-search-optimisation-singapore/" class="related-service-link">Gym GEO</a>
           <a href="/gym-google-ads-singapore/" class="related-service-link">Gym Google Ads</a>
           <a href="/gym-social-media-singapore/" class="related-service-link">Gym Social Media</a>
-          <a href="/gym-ai-search-optimisation-singapore/" class="related-service-link">Gym AI Search Optimisation</a>
+          <a href="/gym-website-design-singapore/" class="related-service-link">Gym Websites</a>
       </div>
     </div>
   </section>
