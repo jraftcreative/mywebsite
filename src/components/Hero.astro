@@ -11,10 +11,12 @@ interface Props {
 }
 
 const { title, subtitle, backgroundImage, backgroundImageAlt = '', backgroundVideo, heroLabel, heroClass = '', buttons = [] } = Astro.props;
+// Fall back to the (keyword-rich) hero title, tags stripped, when no explicit alt is supplied — keeps every hero image described for SEO + accessibility.
+const heroAlt = (backgroundImageAlt && backgroundImageAlt.trim()) ? backgroundImageAlt : title.replace(/<[^>]+>/g, '').trim();
 ---
 <section class={`hero ${heroClass}`} aria-label="Page introduction">
   <div class="hero-bg">
-    <img src={backgroundImage} alt={backgroundImageAlt} fetchpriority="high" decoding="async" class="hero-bg-img" width="800" height="1000">
+    <img src={backgroundImage} alt={heroAlt} fetchpriority="high" decoding="async" class="hero-bg-img" width="800" height="1000">
     {backgroundVideo && (
       <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster={backgroundImage} aria-hidden="true">
         <source src={backgroundVideo} type="video/mp4">
