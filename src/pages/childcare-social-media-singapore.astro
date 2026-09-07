@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Childcare Social Media Marketing Singapore",
-    "description": "Social media marketing for childcare centres in Singapore. Trust-building content, daily learning highlights, facility showcases, and enrolment campaigns across Instagram and Facebook.",
+    "name": "Childcare Social Media Agency Singapore",
+    "description": "Social media agency for childcare centres in Singapore. Facebook and Instagram content that reassures parents, shows daily care and learning-through-play, and fills enrolment and waitlists.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Childcare Social Media Marketing"
+    "serviceType": "Childcare Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for childcare centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What social media content builds trust for childcare centres?", "acceptedAnswer": { "@type": "Answer", "text": "Trust-building content for childcare centres includes facility walkthroughs, caregiver introductions, daily routine highlights, safety and hygiene showcases, parent testimonials, and transparent communication about your care philosophy. Parents want to see the environment their child will spend the day in — authentic, unscripted content performs best." } },
-      { "@type": "Question", "name": "How do you manage child privacy in social media content for childcare centres?", "acceptedAnswer": { "@type": "Answer", "text": "We strictly follow your centre's consent and privacy policies. Content can focus on learning environments, activity setups, meal preparation, outdoor spaces, and branded graphics without featuring identifiable children. When consent is provided, we use tasteful, activity-focused imagery that parents feel comfortable with." } },
-      { "@type": "Question", "name": "Can social media help fill vacancies at our childcare centre?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Targeted social media campaigns drive awareness among parents actively searching for childcare in your area. We create enrolment-focused content timed around common placement windows, use location-targeted promotions, and build organic content that positions your centre as a trusted choice for working parents in Singapore." } },
-      { "@type": "Question", "name": "Which platforms are most effective for childcare centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Facebook and Instagram are the most effective platforms for childcare centres in Singapore. Facebook reaches parents through neighbourhood groups, local community pages, and targeted advertising. Instagram is ideal for visual content showcasing your facilities, daily activities, and the warmth of your caregiving team through photos and Reels." } }
+      { "@type": "Question", "name": "Which social platforms should a childcare centre in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "For most centres the parents are on Facebook and Instagram, and both matter. Facebook reaches families through neighbourhood and estate groups in areas like Punggol, Sengkang and Tampines, while Instagram is where a warm look inside the centre lands best through photos and Reels. We usually recommend depth on those two rather than a thin presence spread across five platforms." } },
+      { "@type": "Question", "name": "What should a childcare centre actually post?", "acceptedAnswer": { "@type": "Answer", "text": "A reassuring look inside the centre is the strongest content you have. Around that we build learning-through-play moments, teacher and caregiver introductions, daily-routine and mealtime highlights, simple parenting tips, and timely reminders about registration windows and subsidies. The mix matters: pure enrolment promotion tires quickly, while everyday care and learning keeps parents watching and sending posts to each other." } },
+      { "@type": "Question", "name": "Do you need permission to post children in photos and videos?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and it should be handled properly. Children are minors, so we only publish a child's image with written consent from a parent or guardian, and we follow your centre's own consent and privacy policy. Where consent is not on file we focus on learning spaces, activity setups, outdoor areas and branded graphics, so the feed stays full without featuring identifiable children." } },
+      { "@type": "Question", "name": "How does social media actually help fill enrolment and the waitlist?", "acceptedAnswer": { "@type": "Answer", "text": "Social rarely closes a placement on its own. What it does is reassure a parent long before the centre visit, so a family that has seen your rooms, your teachers and your daily routine arrives already comfortable. We track that by watching profile-to-website clicks, open-house sign-ups and enquiries that mention social, rather than judging the work on likes or follower count." } },
+      { "@type": "Question", "name": "Can this work for a single centre, not just a large chain?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single centre with warm teachers and a genuine daily routine often connects better than a large chain, because the content feels like a real place near home rather than a brand. The constraint is usually time during care hours, not scale, so we build a cadence your team can sustain and handle the filming, editing and captions around it." } }
     ]
   },
   {
@@ -41,88 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Childcare Social Media", "item": "https://jraftcreative.com/childcare-social-media-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Childcare Social Media Agency Singapore", "item": "https://jraftcreative.com/childcare-social-media-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Childcare Social Media Singapore — Jraft Creative"
-  description="Social media marketing for childcare centres in Singapore. Trust-building content, daily learning highlights, facility showcases, and enrolment campaigns."
+  title="Childcare Social Media Agency Singapore"
+  description="Social media agency for childcare centres in Singapore — Facebook and Instagram content that reassures parents and fills enrolment and waitlists."
   canonical="https://jraftcreative.com/childcare-social-media-singapore/"
-  ogTitle="Childcare Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing for childcare centres in Singapore. Trust-building content that reassures parents and fills vacancies. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="childcare social media singapore, childcare centre marketing singapore, social media for childcare, childcare instagram marketing, childcare centre digital marketing, childcare enrolment marketing singapore, Jraft Creative"
+  ogTitle="Childcare Social Media Agency Singapore"
+  ogDescription="Social media for childcare centres in Singapore. A warm look inside the centre, teacher intros and open-house posts built to fill enrolment and waitlists."
+  ogImage="https://jraftcreative.com/images/og-childcare.jpg"
+  keywords="childcare social media agency, childcare social media singapore, social media marketing for childcare centres, childcare instagram singapore, childcare facebook marketing, childcare enrolment content, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Childcare Social Media Marketing"
-  heroTitle='Social Media for <span class="highlight">Childcare Centres</span> in Singapore'
-  heroSubtitle="Trust-building content, daily learning highlights, and enrolment campaigns designed for childcare centres. We help you show parents what exceptional care looks like — and turn that trust into consistent enrolments."
+  heroLabel="Social Media Agency for Childcare Centres"
+  heroTitle='Social Media Agency for <span class="highlight">Childcare Centres in Singapore</span>'
+  heroSubtitle="Parents choose a centre they trust long before they visit — and most of that trust is now built on a phone screen. We turn everyday care, learning-through-play and your teachers into Facebook and Instagram content parents actually watch, then into enrolment enquiries and waitlist sign-ups."
   heroImage="/images/service-childcare.webp"
+  heroImageAlt="Teacher reading with a young child at a Singapore childcare centre"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Childcare SEO", href: "/childcare-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my childcare centre in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Childcare Centre with Social Media"
-  ctaDescription="Book a free consultation and tell us about your childcare centre. We'll get back to you within 24 hours with a tailored social media strategy."
+  whatsappText="Hi Jraft Creative, I need social media for my childcare centre in Singapore."
+  ctaLabel="Fill Your Enrolment & Waitlist"
+  ctaTitle="Get a Free Childcare Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you're posting now, what your daily routine already gives you to work with that you aren't filming, and where the gap is between followers and enrolment enquiries. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for childcare centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Working Parents Need to Trust You Before They Even Walk In</h2>
+        <h2>Parents Decide They <span class="highlight">Trust You</span> Before They Ever <span class="highlight">Walk In</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>For working parents in Singapore, choosing a childcare centre is one of the highest-stakes decisions they face. They're entrusting their child's daily care, safety, and early development to your team — and they need to feel confident before they ever step through your door. That confidence starts online. Parents search Google, browse Instagram pages, and scan Facebook reviews before shortlisting centres to visit. If your social media doesn't reflect the quality of care you provide, you won't make the shortlist.</p>
-        <p>Singapore's childcare sector has over 1,500 licensed centres, and parents within any HDB estate or residential neighbourhood can choose from multiple options within walking distance. Centres that invest in consistent, trust-building social media content stand out. Those that rely on a static website and an occasional Facebook post about registration dates blend into the background. In a market where parents are comparing safety standards, caregiver qualifications, and daily routines side by side, your online presence needs to reassure them at every scroll.</p>
+        <p>Choosing a childcare centre is one of the highest-stakes decisions a working parent makes — and most of it happens online, before your team ever meets them.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Day Happens, Then Vanishes</h3>
+            <p>A morning full of sensory play, outdoor time and settled little ones goes by, gets nothing filmed, and is never seen by a parent deciding where to place their child.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Feed Goes Quiet</h3>
+            <p>Care hours fill the day and the page falls silent for weeks. A parent in Punggol or Tampines checking you out in that gap sees a centre that looks inactive.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Followers Who Never Enquire</h3>
+            <p>An audience of current parents feels reassuring and fills nothing. Reach only matters if it lands with families who haven't chosen a centre yet.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for childcare centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for childcare centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Childcare Centres</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> Every Childcare Centre <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build and manage your childcare centre's social media presence with content designed to earn parent trust. From daily routine showcases and facility highlights to caregiver spotlights and enrolment campaigns, every post demonstrates the quality of care that sets your centre apart.</p>
-        <p>Our team handles content strategy, graphic design, video production, copywriting, and community management — so your team can focus on what matters most: caring for children. We plan campaigns around ECDA registration windows, subsidy application periods, and seasonal enrolment drives to capture interest when parents are actively searching.</p>
+        <p>We build a cadence around what your centre already does each day, so filming becomes a habit rather than a project — and it connects to your <a href="/childcare-centre-website-singapore/">childcare website</a>, <a href="/childcare-centre-seo-singapore/">childcare SEO</a> and <a href="/childcare-centre-advertising-singapore/">childcare advertising</a> as one enrolment system.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Daily Learning Reels</h3>
-            <p>Short-form video content showcasing sensory play, outdoor time, meal preparation, and structured learning activities — giving parents an authentic look at their child's daily experience at your centre.</p>
+            <h3>A Warm Look Inside the Centre</h3>
+            <p>Short, gentle clips of learning-through-play, outdoor time and mealtimes — the single most reassuring thing a centre can post, because it shows the day rather than describing it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Trust &amp; Engagement</h3>
-            <p>Proactive community management — responding to enquiries, addressing concerns, and building genuine relationships with current and prospective parents through consistent, caring interactions.</p>
+            <h3>Teacher &amp; Caregiver Intros</h3>
+            <p>Parents entrust a person, not a building. We put your teachers, their warmth and their approach on camera so the choice to visit feels natural.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Facility &amp; Safety Showcases</h3>
-            <p>Professionally designed posts and virtual tours highlighting your centre's learning spaces, safety measures, hygiene protocols, and outdoor areas — addressing the concerns parents care about most.</p>
+            <h3>Parenting Tips &amp; Learning Moments</h3>
+            <p>Simple, useful posts on settling in, routines and early learning — the content parents in Sengkang and Bishan save and forward to other families.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Enrolment Campaigns</h3>
-            <p>Targeted social media campaigns timed around registration windows, subsidy application periods, and residential area launches to generate waitlist sign-ups and centre visit bookings.</p>
+            <h3>Registration &amp; Open-House Posts</h3>
+            <p>Timely reminders on registration windows, subsidies and open-house dates, planned around when parents in your estate are actively looking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Consent-Safe Filming Process</h3>
+            <p>Children are minors. We build media consent into your enrolment paperwork and follow your privacy policy, so permission is on file before we ever film.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries, Not Likes</h3>
+            <p>We track profile-to-website clicks, open-house sign-ups and enquiries that mention social. Follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -130,78 +260,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for childcare centre social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your childcare social media agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Understands Childcare</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands <span class="highlight">Childcare</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We know that childcare marketing is different from every other industry. The stakes are personal, the audience is cautious, and the content needs to be warm, genuine, and trust-building. Our team creates social media strategies that respect that dynamic while delivering measurable results.</p>
+        <p>Childcare social fails for specific reasons — care-hour capacity, child privacy, and content that reassures existing parents instead of reaching new families. As a specialist in <a href="/industries/education/">education marketing in Singapore</a>, we plan around all three, and you can see the wider picture in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a>.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Childcare Sector Experience</h3>
-            <p>We understand ECDA regulations, subsidy structures, and the concerns Singaporean parents prioritise — safety, nutrition, caregiver ratios, and curriculum approach. Your content addresses what parents actually want to know.</p>
+            <h3>Privacy-First, Consent-Gated</h3>
+            <p>All content follows your centre's consent policy. We keep the feed full with learning spaces, activity setups and branded graphics, and only feature identifiable children with parent consent on file.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Privacy-First Approach</h3>
-            <p>All content follows your centre's consent policies. We create engaging social media without compromising child privacy — using environmental shots, activity setups, and branded graphics when required.</p>
+            <h3>Built for Enrolment, Not Vanity</h3>
+            <p>Every workstream ends in an enquiry, an open-house visit or a waitlist sign-up. We would rather reach the right families near your centre than chase an audience that never enrols.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Review &amp; Approval</h3>
-            <p>Every post, caption, and design is sent for your review before publishing. You maintain complete oversight of your centre's public messaging, and nothing goes live without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because parent enquiries are increasing and your vacancies are filling — not because of a binding agreement.</p>
+            <h3>Full Review Before Anything Goes Live</h3>
+            <p>Every post, caption and photo is sent for your sign-off first. You keep complete oversight of how your centre is presented to parents — nothing publishes without approval.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the childcare parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents in estates like Jurong, Woodlands and Ang Mo Kio move through the same five stages before a child starts. Social rarely wins the first search — its job is Reassure and Compare, where a parent decides whether your centre is worth the visit.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A Reel or a parent's share puts you on the radar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Reassure</h3>
+          <p>A warm look inside shows the daily care is real</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Teacher intros make the choice feel personal</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Open-house posts and DMs turn interest into a tour</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Daily posts keep families renewing &amp; referring</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about childcare centre social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about social media for childcare centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Childcare Social Media — Questions Answered</h2>
+        <h2>Childcare <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for childcare centres in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which social platforms should a childcare centre in Singapore be on?</summary>
+          <div class="faq-answer"><p>For most centres the parents are on Facebook and Instagram, and both matter. Facebook reaches families through neighbourhood and estate groups in areas like Punggol, Sengkang and Tampines, while Instagram is where a warm look inside the centre lands best through photos and Reels. We usually recommend depth on those two rather than a thin presence spread across five platforms.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What social media content builds trust for childcare centres?</summary>
-          <div class="faq-answer"><p>Trust-building content for childcare centres includes facility walkthroughs, caregiver introductions, daily routine highlights, safety and hygiene showcases, parent testimonials, and transparent communication about your care philosophy. Parents want to see the environment their child will spend the day in — authentic, unscripted content performs best.</p></div>
+          <summary>What should a childcare centre actually post?</summary>
+          <div class="faq-answer"><p>A reassuring look inside the centre is the strongest content you have. Around that we build learning-through-play moments, teacher and caregiver introductions, daily-routine and mealtime highlights, simple parenting tips, and timely reminders about registration windows and subsidies. The mix matters: pure enrolment promotion tires quickly, while everyday care and learning keeps parents watching and sending posts to each other.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you manage child privacy in social media content for childcare centres?</summary>
-          <div class="faq-answer"><p>We strictly follow your centre's consent and privacy policies. Content can focus on learning environments, activity setups, meal preparation, outdoor spaces, and branded graphics without featuring identifiable children. When consent is provided, we use tasteful, activity-focused imagery that parents feel comfortable with.</p></div>
+          <summary>Do you need permission to post children in photos and videos?</summary>
+          <div class="faq-answer"><p>Yes, and it should be handled properly. Children are minors, so we only publish a child's image with written consent from a parent or guardian, and we follow your centre's own consent and privacy policy. Where consent is not on file we focus on learning spaces, activity setups, outdoor areas and branded graphics, so the feed stays full without featuring identifiable children.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help fill vacancies at our childcare centre?</summary>
-          <div class="faq-answer"><p>Yes. Targeted social media campaigns drive awareness among parents actively searching for childcare in your area. We create enrolment-focused content timed around common placement windows, use location-targeted promotions, and build organic content that positions your centre as a trusted choice for working parents in Singapore.</p></div>
+          <summary>How does social media actually help fill enrolment and the waitlist?</summary>
+          <div class="faq-answer"><p>Social rarely closes a placement on its own. What it does is reassure a parent long before the centre visit, so a family that has seen your rooms, your teachers and your daily routine arrives already comfortable. We track that by watching profile-to-website clicks, open-house sign-ups and enquiries that mention social, rather than judging the work on likes or follower count.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which platforms are most effective for childcare centres in Singapore?</summary>
-          <div class="faq-answer"><p>Facebook and Instagram are the most effective platforms for childcare centres in Singapore. Facebook reaches parents through neighbourhood groups, local community pages, and targeted advertising. Instagram is ideal for visual content showcasing your facilities, daily activities, and the warmth of your caregiving team through photos and Reels.</p></div>
+          <summary>Can this work for a single centre, not just a large chain?</summary>
+          <div class="faq-answer"><p>Yes. A single centre with warm teachers and a genuine daily routine often connects better than a large chain, because the content feels like a real place near home rather than a brand. The constraint is usually time during care hours, not scale, so we build a cadence your team can sustain and handle the filming, editing and captions around it.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="social" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Childcare</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/childcare-marketing-singapore/" class="related-service-link">Childcare Marketing</a>
+          <a href="/childcare-centre-seo-singapore/" class="related-service-link">Childcare SEO</a>
+          <a href="/childcare-centre-ai-search-optimisation-singapore/" class="related-service-link">Childcare GEO</a>
+          <a href="/childcare-centre-advertising-singapore/" class="related-service-link">Childcare Advertising</a>
+          <a href="/childcare-centre-website-singapore/" class="related-service-link">Childcare Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

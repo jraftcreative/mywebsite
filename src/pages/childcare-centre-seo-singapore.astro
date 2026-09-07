@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Childcare Centre SEO Singapore",
-    "description": "SEO services for childcare centres in Singapore. Local SEO, Google Business Profile optimisation, parent-focused keyword strategy, and content marketing to fill enrolment spots",
+    "description": "SEO services for childcare centres in Singapore. Local SEO, Google Business Profile optimisation, programme page SEO, and parent-focused content to drive enrolment and waitlist enquiries",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does SEO cost for a childcare centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for childcare SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most childcare centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like 'childcare near Jurong East' often rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "Can SEO help my childcare centre rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our childcare SEO service. We optimise your listing categories, upload photos, manage parent reviews, and build local citations so your centre appears in the Maps 3-pack for 'childcare near me' searches in your neighbourhood." } },
-      { "@type": "Question", "name": "What keywords do parents search when looking for childcare in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'childcare near me', 'infant care Singapore', 'childcare centre [neighbourhood]', 'full day childcare fees Singapore', and programme-specific queries like 'Montessori childcare' or 'bilingual childcare centre'. We research the exact terms driving enrolment in your area and build your SEO strategy around them." } },
-      { "@type": "Question", "name": "Do you work with childcare centres that have multiple locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-centre childcare SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each centre ranks independently in its own neighbourhood." } }
+      { "@type": "Question", "name": "How long does childcare centre SEO take to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most childcare centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes often produce quick visibility gains in the first few weeks. Location-based keywords like 'infant care Punggol' or 'childcare Sengkang' tend to rank faster than broad competitive terms." } },
+      { "@type": "Question", "name": "Can SEO help my childcare centre show up in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our childcare SEO service. We set the right categories, upload classroom and facility photos, manage parent reviews, and build local citations so your centre appears in the Maps three-pack for 'childcare near me' searches in your neighbourhood." } },
+      { "@type": "Question", "name": "What do parents search for when looking for childcare in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common searches include 'childcare near me', 'infant care Punggol', 'full day childcare Sengkang', 'childcare Tampines', and information queries like 'childcare subsidy Singapore' or 'Baby Bonus'. We research the exact terms parents in your estate use and build your programme and location pages around them." } },
+      { "@type": "Question", "name": "Do you work with childcare centres that have multiple branches?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create a unique location page for each centre, optimise a separate Google Business Profile per branch, and build location-specific citations with consistent name, address and phone data across directories, so every centre ranks independently in its own neighbourhood." } }
     ]
   },
   {
@@ -47,83 +46,213 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Childcare Centre SEO Singapore — Jraft Creative"
-  description="SEO services for childcare centres in Singapore. Local SEO, Google Business Profile optimisation, parent-focused content."
+  title="Childcare Centre SEO Singapore — SEO Agency for Centres"
+  description="SEO agency for childcare centres in Singapore. Local SEO, Google Business Profile, and parent-focused content that fills enrolment enquiries."
   canonical="https://jraftcreative.com/childcare-centre-seo-singapore/"
-  ogTitle="Childcare Centre SEO Singapore — Jraft Creative"
-  ogDescription="SEO for childcare centres in Singapore. Local search optimisation, Google Maps ranking, and parent-focused content to drive enrolment inquiries. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="childcare centre seo singapore, childcare seo, seo for childcare centres, childcare google ranking, childcare local seo, childcare marketing singapore, infant care seo, Jraft Creative"
+  ogTitle="Childcare Centre SEO Singapore — SEO Agency for Centres"
+  ogDescription="SEO agency for childcare centres in Singapore. Local SEO, Google Business Profile, and parent-focused content that fills enrolment enquiries."
+  ogImage="https://jraftcreative.com/images/og-childcare.jpg"
+  keywords="childcare centre seo singapore, seo agency for childcare centres, seo for childcare centres, childcare local seo, infant care seo, childcare centre marketing singapore, childcare google ranking, childcare google maps, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Childcare Centre SEO"
-  heroTitle='SEO for <span class="highlight">Childcare Centres in Singapore</span>'
-  heroSubtitle="Over 1,500 licensed childcare centres compete for the same parents searching 'childcare near me' and 'infant care Singapore'. If your centre doesn't rank on page one, those families never find you. We help childcare operators climb Google rankings and turn search visibility into filled enrolment spots."
+  heroLabel="SEO Agency for Childcare Centres"
+  heroTitle='SEO Agency for <span class="highlight">Childcare Centres in Singapore</span>'
+  heroSubtitle="Parents searching 'childcare near me' and 'infant care Punggol' are choosing a centre and joining waitlists right now. If your centre doesn't appear in those results, those families enquire with a competitor instead. We help childcare centres rank higher on Google and turn search visibility into enrolment enquiries."
   heroImage="/images/service-childcare.webp"
+  heroImageAlt="Teacher reading with a young child at a Singapore childcare centre"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See Childcare Advertising", href: "/childcare-centre-advertising-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need SEO services for my childcare centre in Singapore."
-  ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Childcare Centre Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your childcare centre stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  whatsappText="Hi Jraft Creative, I need SEO for my childcare centre in Singapore."
+  ctaLabel="Get Found by More Parents"
+  ctaTitle="Get a Free Childcare Centre SEO Audit"
+  ctaDescription="Book a free consultation and we'll review how your centre currently ranks for neighbourhood and infant care searches, check your Google Business Profile, and show you where enrolment enquiries are leaking. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20services%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for childcare centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>1,500+ Childcare Centres in Singapore — Can Parents Find Yours?</h2>
+        <h2>Parents Search for <span class="highlight">Childcare</span> Online — Does Your Centre <span class="highlight">Show Up</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's childcare sector is one of the most competitive in the education space. With over 1,500 ECDA-licensed childcare centres across the island and new HDB estates bringing additional competition every year, simply having a website is no longer enough. Parents searching "childcare near me", "infant care Woodlands", or "full day childcare Tampines" expect Google to show them the best options within seconds — and they rarely look past the top three results.</p>
-        <p>Most childcare centres rely on signage, word-of-mouth, or listings on directories like SgChildcare that they can't control. Meanwhile, the centres actively investing in SEO are capturing the Google Maps 3-pack, ranking for high-intent keywords, and filling spots while competitors wait for walk-ins. In a market where waitlists can stretch six months or more for infant care, losing visibility during the parent's initial online search means losing that family permanently to a centre that appeared first.</p>
-        <p>The Government's push for accessible childcare — including increased subsidies and the expansion of anchor operators — has made the sector more competitive than ever. Whether you run a single-centre operation in Pasir Ris or a growing chain across multiple estates, your ability to be discovered online directly impacts occupancy rates and long-term sustainability.</p>
+        <p>Parents start on Google, compare a handful of nearby centres, then enquire or ask to join a waitlist — often across one or two evenings. Childcare is one of the most local searches there is, which is why solid <a href="/industries/education/">education marketing in Singapore</a> and strong Google Maps presence decide who gets the enquiry. Our guide to <a href="/blog/rank-google-maps-singapore/">ranking in Google Maps in Singapore</a> covers the local signals that matter most.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible in the Search That Matters</h3>
+            <p>"Childcare near me" and "infant care Punggol" are searched every day across Singapore. If your centre isn't in those results, those families never learn you exist.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Every Estate Is Crowded</h3>
+            <p>Anchor operators, franchises and independents compete for the same parents in every neighbourhood. Centres investing in search quietly take the top Maps positions without spending more on ads.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Search Demand Is Fragmented</h3>
+            <p>Infant care, full-day, half-day and before or after-school care — each across several estates. Without structure, a centre spreads thin and ranks for nothing at all.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for childcare centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for childcare centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Childcare Centres</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Childcare Centre <span class="highlight">SEO</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Generic SEO doesn't work for childcare centres. Parents searching for infant care, toddler programmes, and full-day childcare have specific needs and specific search patterns. Our SEO strategy is built around the childcare enrolment journey — from the first "near me" search to the moment a parent submits an enquiry form on your website.</p>
-        <p>We target the keywords that actually drive enrolment — location-based searches, programme queries, fee comparisons, and subsidy-related terms — and optimise every touchpoint so your childcare centre appears where parents are looking.</p>
-        <p>Pair SEO with a professionally designed <a href="/childcare-centre-website-singapore/">childcare centre website</a>, <a href="/services/social-media/">social media marketing</a> for parent engagement, or <a href="/services/paid-ads/">Google Ads</a> to capture demand during peak registration seasons.</p>
+        <p>Parents search by programme, age, estate and cost — so we build the site around how families actually look for a centre. We also pair SEO with a <a href="/childcare-centre-website-singapore/">childcare centre website</a>, <a href="/childcare-social-media-singapore/">social media</a> and <a href="/childcare-centre-advertising-singapore/">advertising</a> when a centre wants the full picture.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your childcare website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your centre for parent search queries in your area.</p>
+            <p>A full crawl for indexing issues, broken links, missing schema and slow mobile loads — the barriers stopping Google from ranking your centre at all.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised programme pages for infant care, playgroup, nursery, and kindergarten. Meta titles, descriptions, heading structures, and internal links targeting searches like "childcare centre Punggol", "infant care near MRT", and "full day childcare fees Singapore".</p>
+            <h3>Programme &amp; Age-Band Pages</h3>
+            <p>A dedicated page for infant care, full-day, half-day and before or after-school care across ages two months to six years, each written around what parents ask.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct childcare categories, programme details, classroom photos, parent review management, and local citation building across Singapore directories. Designed to get your centre into the Google Maps 3-pack for every "childcare near me" search in your estate.</p>
+            <p>Classroom photos, programme details, review management and citations — built to land you in the Maps three-pack for "childcare near me" searches in your estate.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent-Focused Content Strategy</h3>
-            <p>Blog articles and landing pages answering the questions parents search — "how to choose a childcare centre", "childcare subsidy Singapore 2026", "infant care vs nanny". Content that builds your authority, earns organic backlinks, and captures parents during their research phase.</p>
+            <h3>Neighbourhood Keyword Clusters</h3>
+            <p>Punggol, Sengkang, Tampines, Jurong, Woodlands, Bishan and Ang Mo Kio each have their own search landscape. Every estate gets its own page and ranking strategy.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Subsidy &amp; Cost Content</h3>
+            <p>Parents research ECDA subsidies and the Baby Bonus before they enquire. We answer "childcare subsidy Singapore" and cost questions clearly, so you meet families mid-decision.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Built for Research Mode</h3>
+            <p>Guides on choosing a centre, teacher-child ratios, safety and curriculum — earning authority and traffic from parents still weighing their options.</p>
           </div>
         </div>
       </div>
@@ -131,51 +260,80 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for childcare centre SEO">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your childcare centre SEO agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Knows the Childcare Sector</h2>
+        <h2>An <span class="highlight">SEO Agency</span> That Understands <span class="highlight">Childcare Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with childcare operators across Singapore. We understand enrolment cycles, subsidy structures, parent decision-making patterns, and which search terms actually convert into centre visits and registrations.</p>
+        <p>We work with education providers across Singapore that need to rank for dozens of programme, estate and age-band combinations, and we understand the ECDA-licensed context childcare operates in.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Childcare Industry Knowledge</h3>
-            <p>We understand the difference between infant care, playgroup, N1, and K2 — and we know which programmes parents search for most by location. Our strategies are tailored to the childcare enrolment cycle, not lifted from a generic SEO playbook.</p>
+            <h3>Built Around Enrolment, Not Traffic</h3>
+            <p>Rankings only matter if parents enquire. We optimise the path from search result to enrolment enquiry and waitlist sign-up, not just the position on the page.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Estate-Level Local SEO</h3>
-            <p>Childcare is hyper-local. Parents want a centre near their home or workplace. We optimise for estate-level searches — Sengkang, Jurong West, Ang Mo Kio, Toa Payoh — so your centre ranks exactly where your potential families are searching.</p>
+            <p>Childcare is hyper-local. We optimise for estate-level searches across Sengkang, Jurong, Woodlands and beyond, so your centre shows exactly where nearby families are looking.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and enquiry trends. We show you the numbers that matter — not vanity metrics, but data tied directly to parent discovery and enrolment.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle childcare website design, social media content, and paid ads — so your entire digital marketing works together as a single system to drive enrolment.</p>
+            <h3>Website, SEO &amp; Ads Together</h3>
+            <p>We handle <a href="/childcare-centre-website-singapore/">childcare websites</a> and <a href="/childcare-centre-advertising-singapore/">advertising</a> under one roof — one system for parent acquisition.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where SEO fits the childcare parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Organic Search</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts at a centre. SEO owns the earliest and the most repeated moments — Discover, when the first "childcare near me" search happens, and Validate, when a parent checks your licensing, safety and reviews.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Organic and Maps results catch the first estate search</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Licensing, safety, ratios, curriculum &amp; Google reviews</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist centres within travel distance of home or work</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Programme pages turn the shortlist into a tour or enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Join the waitlist, register &amp; refer other parents</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about childcare centre SEO in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about childcare centre SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Childcare Centre SEO — Questions Answered</h2>
+        <h2>Childcare Centre <span class="highlight">SEO</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -183,26 +341,40 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for childcare SEO to show results?</summary>
-          <div class="faq-answer"><p>Most childcare centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like "childcare near Jurong East" or "infant care Bishan" often rank faster than broad national terms.</p></div>
+          <summary>How long does childcare centre SEO take to show results?</summary>
+          <div class="faq-answer"><p>Most childcare centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes often produce quick visibility gains in the first few weeks. Location-based keywords like "infant care Punggol" or "full day childcare Sengkang" tend to rank faster than broad competitive terms.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can SEO help my childcare centre rank in Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our childcare SEO service. We optimise your listing categories, upload facility photos, manage parent reviews, and build local citations so your centre appears in the Maps 3-pack for "childcare near me" searches in your neighbourhood.</p></div>
+          <summary>Can SEO help my childcare centre show up in Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our childcare SEO service. We set the right categories, upload classroom and facility photos, manage parent reviews, and build local citations so your centre appears in the Maps three-pack for "childcare near me" searches in your neighbourhood.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>What keywords do parents search when looking for childcare in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "childcare near me", "infant care Singapore", "childcare centre [neighbourhood]", "full day childcare fees", and programme-specific terms like "Montessori childcare" or "bilingual childcare centre". We research the exact keywords driving enrolment inquiries in your specific area and optimise accordingly.</p></div>
+          <summary>What do parents search for when looking for childcare in Singapore?</summary>
+          <div class="faq-answer"><p>Common searches include "childcare near me", "infant care Punggol", "full day childcare Sengkang", "childcare Tampines", and information queries like "childcare subsidy Singapore" or "Baby Bonus". We research the exact terms parents in your estate use and build your programme and location pages around them.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you work with childcare centres that have multiple locations?</summary>
-          <div class="faq-answer"><p>Yes. Multi-centre childcare SEO is a core capability. We create unique location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each centre ranks independently in its own estate.</p></div>
+          <summary>Do you work with childcare centres that have multiple branches?</summary>
+          <div class="faq-answer"><p>Yes. We create a unique location page for each centre, optimise a separate Google Business Profile per branch, and build location-specific citations with consistent name, address and phone data across directories, so every centre ranks independently in its own neighbourhood.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="seo" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Childcare</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/childcare-marketing-singapore/" class="related-service-link">Childcare Marketing</a>
+          <a href="/childcare-centre-ai-search-optimisation-singapore/" class="related-service-link">Childcare GEO</a>
+          <a href="/childcare-centre-advertising-singapore/" class="related-service-link">Childcare Advertising</a>
+          <a href="/childcare-social-media-singapore/" class="related-service-link">Childcare Social Media</a>
+          <a href="/childcare-centre-website-singapore/" class="related-service-link">Childcare Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

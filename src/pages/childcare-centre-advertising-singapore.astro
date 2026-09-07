@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Childcare Centre Advertising Singapore",
-    "description": "Google and Facebook ads management for childcare centres in Singapore — infant care and toddler programme promotion, location-based targeting, and enrolment campaigns. Plans",
+    "name": "Advertising Agency for Childcare Centres Singapore",
+    "description": "Paid advertising agency for childcare centres in Singapore. Google Search and Facebook and Instagram campaigns by neighbourhood, waitlist and centre-tour lead ads, open-house and enrolment-window flighting, and conversion tracking.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Advertising for Childcare Centres"
+    "serviceType": "Childcare Centre Advertising"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does advertising cost for a childcare centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How do you target parents looking for infant care in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "We combine Google search targeting for keywords like 'infant care near me' and 'baby daycare Singapore' with Facebook demographic targeting focused on new parents, expecting parents, and parents with children under 18 months. Location targeting ensures ads reach families within a practical commuting radius of your centre." } },
-      { "@type": "Question", "name": "Can Google Ads help fill infant care spots specifically?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Infant care has some of the highest demand in Singapore due to limited spots and long waitlists. We create dedicated campaigns targeting infant care-specific keywords and demographics, with landing pages that highlight your infant-to-caregiver ratio, facilities, and programme approach to convert searches into tour bookings." } },
-      { "@type": "Question", "name": "What platforms should childcare centres advertise on?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads captures parents actively searching for childcare options, while Facebook and Instagram reach parents who match your ideal family profile through demographic and interest targeting. For childcare centres, we recommend both platforms — Google for high-intent searches and Facebook for awareness, tour promotions, and waitlist building." } },
-      { "@type": "Question", "name": "How long before I see enrolment enquiries from ads?", "acceptedAnswer": { "@type": "Answer", "text": "Google Ads can generate enquiries within the first week as parents searching for childcare see your ads immediately. Facebook campaigns typically take 2–3 weeks to optimise as the algorithm learns your target audience. Full campaign performance usually stabilises after 4–6 weeks of data and ongoing optimisation." } }
+      { "@type": "Question", "name": "How much does advertising cost for a childcare centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how many centres you run, which age groups you need to fill, and how competitive your catchment is — there is no single package. Infant-care searches in a dense estate like Punggol or Sengkang carry a different cost than a full-day toddler programme in a quieter area. Book a consultation and we will scope your catchment and give you a transparent quote." } },
+      { "@type": "Question", "name": "Should a childcare centre advertise on Google or on Facebook and Instagram?", "acceptedAnswer": { "@type": "Answer", "text": "Both, for different jobs. Google Search captures parents actively looking — 'childcare near me', 'infant care Punggol', 'full-day childcare Tampines' — the moment they decide to act. Facebook and Instagram reach parents in your catchment before they search, promoting open houses, centre tours and waitlist sign-ups to new and expecting parents nearby. Most centres run both, with budget weighted to whichever is filling spots." } },
+      { "@type": "Question", "name": "How do you reach parents in my centre's catchment?", "acceptedAnswer": { "@type": "Answer", "text": "We set tight location targeting around your centre and the estates and MRT lines that feed it — Punggol, Sengkang, Tampines, Jurong, Woodlands, Bishan, Ang Mo Kio — so budget is not wasted on families who will never commute daily. On Google that means location-tuned search campaigns; on Facebook and Instagram it means radius targeting layered with parent demographics, plus retargeting for people who visited your enquiry page." } },
+      { "@type": "Question", "name": "How do you measure enquiries and tour bookings from ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking with GCLID on Google and the Meta pixel on Facebook and Instagram, then tie every enquiry form, centre-tour request and click-to-WhatsApp back to the exact campaign, ad and keyword that produced it. For a childcare centre the number that matters is cost per enquiry and per booked tour, not clicks — so that is what we report on." } },
+      { "@type": "Question", "name": "When should a childcare centre run ads?", "acceptedAnswer": { "@type": "Answer", "text": "Demand is steady year-round because parents plan childcare months ahead, but it spikes around the start-of-year intake, before open-house dates, and whenever an infant-care or toddler cohort opens up. We scale spend into your enrolment windows and open-house campaigns and hold a lower always-on baseline the rest of the year, so your waitlist keeps building between peaks." } }
     ]
   },
   {
@@ -41,88 +40,218 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Childcare Centre Advertising Singapore", "item": "https://jraftcreative.com/childcare-centre-advertising-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Advertising Agency for Childcare Centres Singapore", "item": "https://jraftcreative.com/childcare-centre-advertising-singapore/" }
     ]
   }
 ];
 ---
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
 
 <ServiceLayout
-  title="Childcare Centre Advertising — Jraft Creative"
-  description="Google and Facebook ads for childcare centres in Singapore. Infant care and toddler programme promotion, location-based targeting."
+  title="Childcare Centre Advertising Singapore | Jraft Creative"
+  description="Google and Facebook ads for childcare centres in Singapore — reach parents by neighbourhood and turn searches into tours, waitlist enquiries and enrolments."
   canonical="https://jraftcreative.com/childcare-centre-advertising-singapore/"
-  ogTitle="Childcare Centre Advertising — Jraft Creative"
-  ogDescription="Google and Facebook ads for childcare centres in Singapore. Infant care promotion, location targeting, and enrolment campaigns. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="childcare centre advertising singapore, childcare marketing singapore, google ads childcare centre singapore, facebook ads childcare centre, infant care advertising singapore, childcare enrolment marketing, Jraft Creative"
+  ogTitle="Advertising Agency for Childcare Centres Singapore"
+  ogDescription="Paid ads for childcare centres in Singapore. Google Search and Facebook and Instagram by catchment, waitlist and tour lead ads, and conversion tracking."
+  ogImage="https://jraftcreative.com/images/og-childcare.jpg"
+  keywords="childcare centre advertising singapore, advertising agency for childcare centres, google ads for childcare centres, facebook ads childcare centre, infant care advertising singapore, childcare enrolment marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Childcare Centre Advertising Singapore"
-  heroTitle='Advertising for Childcare Centres <span class="highlight">in Singapore</span>'
-  heroSubtitle="Parents are searching for trusted childcare near their home and workplace. We run Google and Facebook ad campaigns that put your childcare centre in front of the right families — driving tour bookings, infant care enquiries, and enrolments."
+  heroLabel="Advertising Agency for Childcare Centres"
+  heroTitle='Advertising for <span class="highlight">Childcare Centres in Singapore</span>'
+  heroSubtitle="A parent typing 'infant care Punggol' at 11pm is deciding where to book a tour that week. We build and manage Google and Facebook ad campaigns for childcare centres that capture those parents — by neighbourhood, by age group, and at the moments families actually decide."
   heroImage="/images/service-childcare.webp"
+  heroImageAlt="Teacher reading with a young child at a Singapore childcare centre"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See Childcare SEO", href: "/childcare-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need advertising for my childcare centre in Singapore."
   ctaLabel="Fill Your Centre"
-  ctaTitle="Get a Free Childcare Advertising Strategy"
-  ctaDescription="Book a free consultation and we'll review your enrolment pipeline, analyse competitor advertising in your neighbourhood, and build a Google and Facebook campaign strategy for your childcare centre. We'll get back to you within 24 hours."
+  ctaTitle="Get a Free Childcare Advertising Strategy Session"
+  ctaDescription="Book a free consultation and we'll review your current ad performance, look at which age groups and neighbourhoods are worth targeting, and map the searches parents near your centre are already making. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20advertising%20for%20my%20childcare%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Advertising challenges for childcare centres">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Advertising challenges for childcare centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Empty Spots While Parents Search for Childcare Elsewhere?</h2>
+        <h2>Your Centre Has <span class="highlight">Spots</span>. Parents Are Touring <span class="highlight">Elsewhere</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore parents plan childcare months in advance — researching centres near their home or workplace, comparing infant-to-caregiver ratios, and shortlisting options based on reviews and location. If your childcare centre doesn't appear when they search "infant care near Clementi" or "childcare centre Bishan", they'll tour your competitor down the road instead.</p>
-        <p>Without targeted advertising, your centre depends on signage and referrals while parents scroll past your listing in favour of centres with stronger digital visibility. Infant care spots — the most in-demand and profitable age group — go to centres that reach parents early in the decision process. Every unfilled spot is months of lost revenue that a well-targeted ad campaign could have captured.</p>
+        <p>Singapore parents plan childcare months ahead, and the shortlist forms online long before anyone calls your centre.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Parents Decide in One Search</h3>
+            <p>A parent types "childcare near me" and books a tour with whoever appears first and replies fastest. Signage and referrals never reach them in time.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Catchment Is Everything</h3>
+            <p>Families choose by commute, not island-wide. Untargeted spend buys clicks from parents in Woodlands for a centre in Tampines who will never enrol.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Infant-Care Demand Goes Unmet</h3>
+            <p>Your infant room has a waitlist while toddler spots sit open — or the reverse. Enquiries rarely match where you actually have capacity.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Advertising services for childcare centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Advertising services for childcare centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Childcare Centre Ad Services</p>
-        <h2>Google &amp; Facebook Ads Built for Childcare Enrolment</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Childcare Centre <span class="highlight">Advertising</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build advertising campaigns specifically for childcare centres in Singapore — targeting parents searching for infant care, toddler programmes, and full-day childcare in your neighbourhood. Google Ads captures high-intent searches while Facebook reaches parents who match your ideal family profile.</p>
-        <p>Every campaign is structured around your centre's age groups, location, and capacity — promoting infant care spots when availability is low, running open house campaigns before registration periods, and building waitlists during peak demand months.</p>
-        <p>Complement your ads with a professional <a href="/childcare-centre-website-singapore/">childcare centre website</a>, <a href="/services/seo-performance/">SEO for organic search rankings</a>, or <a href="/services/social-media/">social media content</a> to build a trusted brand presence.</p>
+        <p>We structure ad accounts the way a childcare centre actually fills — by age group, by catchment, and by the enrolment windows that drive enquiries. Pair your ads with a <a href="/childcare-centre-website-singapore/">childcare centre website</a> built to convert, <a href="/childcare-centre-seo-singapore/">SEO for organic search</a>, and <a href="/childcare-social-media-singapore/">social media content</a> that keeps parents warm between campaigns.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Location-Based Search Ads</h3>
-            <p>Google Ads targeting parents searching for childcare near specific MRT stations, HDB estates, and office districts — "childcare near Paya Lebar", "infant care Jurong East" — capturing families within commuting distance of your centre.</p>
+            <h3>Catchment Search Campaigns</h3>
+            <p>Google Search built around neighbourhood intent — "infant care Punggol", "childcare Sengkang", "full-day childcare Tampines" — so you appear the moment a nearby parent looks.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Demographic Targeting</h3>
-            <p>Facebook and Instagram ads reaching new parents, expecting parents, and families with children under 4 years old — filtered by neighbourhood, household profile, and parenting interests to match your centre's ideal families.</p>
+            <h3>Parent Reach on Facebook &amp; Instagram</h3>
+            <p>Radius targeting layered with new-parent and expecting-parent demographics across Jurong, Woodlands, Bishan and Ang Mo Kio — reaching families before they even search.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Enrolment Drive Campaigns</h3>
-            <p>Targeted campaigns for registration periods and new intake windows — combining search ads, social campaigns, and retargeting to maximise enquiries during your centre's key enrolment dates.</p>
+            <h3>Waitlist &amp; Tour Lead Ads</h3>
+            <p>Lead forms and click-to-WhatsApp that let parents request a centre tour or join a waitlist in one tap — the enquiry is what you are buying, not the click.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Infant Care Lead Campaigns</h3>
-            <p>Dedicated campaigns for infant care spots — the highest-demand age group in Singapore childcare. Separate landing pages, tailored messaging, and waitlist forms designed to convert parents searching for infant care.</p>
+            <h3>Open-House &amp; Enrolment Flighting</h3>
+            <p>We scale spend into your open-house dates and intake windows, then hold an always-on baseline so the waitlist keeps building between peaks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Catchment Retargeting</h3>
+            <p>Parents rarely book on the first visit. We bring back families who viewed your programme or enquiry page with reminders timed to how parents decide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Conversion Tracking That Ties Back</h3>
+            <p>GCLID on Google and the Meta pixel on Facebook and Instagram, so every enquiry, tour request and WhatsApp click is attributed to the exact campaign that produced it.</p>
           </div>
         </div>
       </div>
@@ -130,78 +259,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for childcare centre advertising">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your childcare centre advertising agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand Singapore's Childcare Landscape</h2>
+        <h2>An <span class="highlight">Advertising Agency</span> Built for <span class="highlight">Childcare Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed advertising for childcare centres across Singapore and understand the parent decision journey — from initial online search to centre tour to signed enrolment form. Here's why childcare centres choose us:</p>
+        <p>A generalist agency will build a competent account — and miss that childcare centres convert on tours and waitlist sign-ups, inside a specific catchment, under ECDA rules.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Childcare Sector Knowledge</h3>
-            <p>We understand ECDA-regulated environments, the infant care waitlist challenge, and what matters to Singapore parents — caregiver ratios, curriculum approach, facilities, and proximity. Our ad copy addresses these directly.</p>
+            <h3>We Know the ECDA Landscape</h3>
+            <p>Caregiver ratios, infant-care demand and enrolment windows shape how parents decide. Our ad copy speaks to that plainly, without making promises a licensed centre cannot.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google and Meta — we never mark up media spend. You have full access to your ad accounts and see exactly what each tour booking and enquiry costs.</p>
+            <h3>Catchment-Led Budgeting</h3>
+            <p>Spend follows the neighbourhoods and age groups where you actually have spots — not wherever clicks happen to be cheapest across the island.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that align with your centre's capacity. Scale up when you have spots to fill, reduce when you're at capacity — no penalties, no minimum terms.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Enquiry-to-Enrolment Tracking</h3>
-            <p>We track the full parent journey — from ad click to tour booking to enrolment. You'll know exactly which campaigns, keywords, and platforms deliver families who actually sign up.</p>
+            <h3>Tracked to the Tour Booking</h3>
+            <p>We report cost per enquiry and per booked tour, not cost per click. Your budget goes straight to Google and Meta, never marked up, and the accounts stay yours.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where paid advertising fits the childcare parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Paid Ads</span> Fit the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts. Paid advertising owns the two highest-intent moments — Discover, when a parent first searches or sees your centre nearby, and Enquire, when catchment retargeting brings a shortlister back to book a tour. This sits inside broader <a href="/industries/education/">education marketing in Singapore</a>, and if you are weighing platforms, our guide to <a href="/blog/google-ads-vs-meta-ads-singapore/">Google Ads versus Meta Ads in Singapore</a> breaks down where each one earns its budget.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Search and social put your centre in the catchment</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Caregiver ratios, facilities, reviews, curriculum</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist centres within commuting distance</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Tour</h3>
+          <p>Retargeting brings shortlisters back to book</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign, join the waitlist, renew &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about childcare centre advertising">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about advertising for childcare centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Childcare Centre Advertising — Questions Answered</h2>
+        <h2>Advertising for <span class="highlight">Childcare Centres</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
           <summary>How much does advertising cost for a childcare centre in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <div class="faq-answer"><p>It depends on how many centres you run, which age groups you need to fill, and how competitive your catchment is — there's no single package. Infant-care searches in a dense estate like Punggol or Sengkang carry a different cost than a full-day toddler programme in a quieter area. Book a consultation and we'll scope your catchment and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you target parents looking for infant care in Singapore?</summary>
-          <div class="faq-answer"><p>We combine Google search targeting for keywords like "infant care near me" and "baby daycare Singapore" with Facebook demographic targeting focused on new parents, expecting parents, and parents with children under 18 months. Location targeting ensures ads reach families within a practical commuting radius of your centre.</p></div>
+          <summary>Should a childcare centre advertise on Google or on Facebook and Instagram?</summary>
+          <div class="faq-answer"><p>Both, for different jobs. Google Search captures parents actively looking — "childcare near me", "infant care Punggol", "full-day childcare Tampines" — the moment they decide to act. Facebook and Instagram reach parents in your catchment before they search, promoting open houses, centre tours and waitlist sign-ups to new and expecting parents nearby. Most centres run both, with budget weighted to whichever is filling spots.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can Google Ads help fill infant care spots specifically?</summary>
-          <div class="faq-answer"><p>Yes. Infant care has some of the highest demand in Singapore due to limited spots and long waitlists. We create dedicated campaigns targeting infant care-specific keywords and demographics, with landing pages that highlight your infant-to-caregiver ratio, facilities, and programme approach to convert searches into tour bookings.</p></div>
+          <summary>How do you reach parents in my centre's catchment?</summary>
+          <div class="faq-answer"><p>We set tight location targeting around your centre and the estates and MRT lines that feed it — Punggol, Sengkang, Tampines, Jurong, Woodlands, Bishan, Ang Mo Kio — so budget isn't wasted on families who'll never commute daily. On Google that means location-tuned search campaigns; on Facebook and Instagram it means radius targeting layered with parent demographics, plus retargeting for people who visited your enquiry page.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>What platforms should childcare centres advertise on?</summary>
-          <div class="faq-answer"><p>Google Ads captures parents actively searching for childcare options, while Facebook and Instagram reach parents who match your ideal family profile through demographic and interest targeting. For childcare centres, we recommend both platforms — Google for high-intent searches and Facebook for awareness, tour promotions, and waitlist building.</p></div>
+          <summary>How do you measure enquiries and tour bookings from ads?</summary>
+          <div class="faq-answer"><p>We set up conversion tracking with GCLID on Google and the Meta pixel on Facebook and Instagram, then tie every enquiry form, centre-tour request and click-to-WhatsApp back to the exact campaign, ad and keyword that produced it. For a childcare centre the number that matters is cost per enquiry and per booked tour, not clicks — so that's what we report on.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long before I see enrolment enquiries from ads?</summary>
-          <div class="faq-answer"><p>Google Ads can generate enquiries within the first week as parents searching for childcare see your ads immediately. Facebook campaigns typically take 2–3 weeks to optimise as the algorithm learns your target audience. Full campaign performance usually stabilises after 4–6 weeks of data and ongoing optimisation.</p></div>
+          <summary>When should a childcare centre run ads?</summary>
+          <div class="faq-answer"><p>Demand is steady year-round because parents plan childcare months ahead, but it spikes around the start-of-year intake, before open-house dates, and whenever an infant-care or toddler cohort opens up. We scale spend into your enrolment windows and open-house campaigns and hold a lower always-on baseline the rest of the year, so your waitlist keeps building between peaks.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="ads" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Childcare Centre</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/childcare-marketing-singapore/" class="related-service-link">Childcare Marketing</a>
+          <a href="/childcare-centre-seo-singapore/" class="related-service-link">Childcare SEO</a>
+          <a href="/childcare-centre-ai-search-optimisation-singapore/" class="related-service-link">Childcare GEO</a>
+          <a href="/childcare-social-media-singapore/" class="related-service-link">Childcare Social Media</a>
+          <a href="/childcare-centre-website-singapore/" class="related-service-link">Childcare Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
