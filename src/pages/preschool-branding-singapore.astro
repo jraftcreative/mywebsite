@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Preschool Branding Singapore",
-    "description": "Professional branding for preschools in Singapore — child-friendly logo design, visual identity, trust-building collateral, signage, and parent communication materials.",
+    "name": "Branding Agency for Preschools Singapore",
+    "description": "Branding agency for preschools in Singapore — logo, a warm and playful colour and type system, centre interior and signage direction, photography direction, and parent collateral built to make your centre feel safe, trusted and worth choosing.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does preschool branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What should a preschool brand look like?", "acceptedAnswer": { "@type": "Answer", "text": "A preschool brand should be child-friendly without being childish. It needs to feel warm, nurturing, and safe to parents while being visually engaging for young children. The best preschool brands use soft but confident colour palettes, rounded and approachable typography, and imagery that conveys a caring educational environment. Critically, the brand must also project professionalism and credibility — parents are entrusting their youngest children to your care." } },
-      { "@type": "Question", "name": "How long does preschool branding take?", "acceptedAnswer": { "@type": "Answer", "text": "A typical preschool branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines are completed in 2 to 3 weeks. Full brand identity systems with signage, parent materials, and uniform design take 4 to 6 weeks. We work with your timeline and can align delivery with your registration season." } },
-      { "@type": "Question", "name": "Do you design uniforms and merchandise for preschools?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Premium package includes uniform design — polo shirts, PE wear, school bags, and other merchandise items featuring your brand identity. We provide design files and specifications that your uniform supplier can produce directly. Many preschools find branded uniforms strengthen parent perception and build community among students." } },
-      { "@type": "Question", "name": "Can you help with ECDA compliance for branding materials?", "acceptedAnswer": { "@type": "Answer", "text": "While branding itself does not fall under ECDA regulations, we are familiar with the guidelines that govern how preschools in Singapore communicate with parents. We ensure your branding materials — including prospectuses, fee schedules, and parent handbooks — are formatted appropriately and present your centre as a professionally managed early childhood education provider." } }
+      { "@type": "Question", "name": "Why does a preschool need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because a parent is handing you their youngest child for hours a day, and they decide whether to trust you long before the tour. They form that first impression from your logo, your signage, your enrolment pack and your photos. A warm, considered brand reassures a parent that the centre is safe, cared-for and professionally run. A dated or mismatched one raises quiet doubts a parent can't always name. Branding is what makes the reassurance land at a glance." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand, not the whole of it. What actually reassures a parent is consistency across everything they see — the gate signage, the enrolment pack, the newsletter, the WhatsApp reply, the photos on your feed. When those look like they came from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint tells the same warm, trustworthy story." } },
+      { "@type": "Question", "name": "Will a rebrand unsettle the families we already have?", "acceptedAnswer": { "@type": "Answer", "text": "Only if it's done carelessly. Most established centres don't need a clean slate — they need their existing warmth sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity so it reads as the centre growing up rather than starting over. Existing parents should feel the place got more considered, not unrecognisable." } },
+      { "@type": "Question", "name": "How do you keep a preschool brand warm but still professional?", "acceptedAnswer": { "@type": "Answer", "text": "By treating warmth and credibility as one job, not two. A brand that's all rainbows and bubble fonts reads as childish and can make a parent question the care behind it; one that's too corporate feels cold for a place meant to nurture toddlers. We work in a soft but confident colour and type system, rounded and approachable shapes, and photography direction that shows real care in a real space — so the centre feels both nurturing and grown-up." } },
+      { "@type": "Question", "name": "Do you handle the design work in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, signage direction, parent collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, SEO — so the brand doesn't stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees, from the gate to the newsletter." } }
     ]
   },
   {
@@ -40,87 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Preschool Branding Singapore", "item": "https://jraftcreative.com/preschool-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Preschools Singapore", "item": "https://jraftcreative.com/preschool-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Preschool Branding Singapore — Jraft Creative"
-  description="Branding for preschools in Singapore — child-friendly logo design, visual identity, trust-building collateral, signage."
+  title="Branding Agency for Preschools in Singapore"
+  description="Branding agency for preschools in Singapore — logo, warm identity, signage and parent collateral that make your centre feel safe, trusted and worth choosing."
   canonical="https://jraftcreative.com/preschool-branding-singapore/"
-  ogTitle="Preschool Branding Singapore — Jraft Creative"
-  ogDescription="Child-friendly yet professional brand identity for preschools in Singapore. Logo design, signage, parent materials, and uniform design that builds trust."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="preschool branding singapore, preschool logo design, preschool brand identity, kindergarten branding singapore, early childhood branding, childcare branding singapore, preschool marketing materials, Jraft Creative"
+  ogTitle="Branding Agency for Preschools in Singapore"
+  ogDescription="Branding for Singapore preschools. Logo, warm colour and type system, signage direction and parent collateral built to earn trust before the tour."
+  ogImage="https://jraftcreative.com/images/og-preschool.jpg"
+  keywords="branding agency for preschools, preschool branding singapore, preschool logo design, kindergarten branding singapore, childcare branding singapore, early childhood branding, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Preschool Branding"
-  heroTitle='Professional <span class="highlight">Branding for Preschools in Singapore</span>'
-  heroSubtitle="Parents choosing a preschool are making one of their most emotionally charged decisions. Your brand needs to project warmth, safety, and educational excellence — all at a single glance. We build preschool identities that earn trust before a parent ever visits your centre."
-  heroImage="/images/service-preschool.webp"
+  heroLabel="Branding Agency for Preschools"
+  heroTitle='Branding Agency for <span class="highlight">Preschools in Singapore</span>'
+  heroSubtitle="A parent decides whether to trust you long before the tour. They judge everything they can see first — your gate signage, your logo, your enrolment pack, your photos. We build preschool brands that feel warm, safe and cared-for at a glance, so your centre earns the visit and the referral."
+  heroImage="/images/service-childcare.webp"
+  heroImageAlt="Teacher reading with a young child at a Singapore preschool"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Request a Quote", href: "/contact/", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Preschool Marketing", href: "/preschool-marketing-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my preschool in Singapore."
-  ctaLabel="Ready to Build Your Preschool Brand?"
-  ctaTitle="Get a Brand That Parents Trust with Their Children"
-  ctaDescription="Book a free consultation and tell us about your preschool. We will put together a tailored branding proposal — no obligations, no hard sell."
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my preschool in Singapore."
+  ctaLabel="Feel Safe & Cared-For"
+  ctaTitle="Get a Free Preschool Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your centre currently presents itself — logo, signage, enrolment pack, photos, newsletters — and where the gaps are between how much you care and how much you look like you care. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for preschools in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Preschool's First Impression Decides Everything</h2>
+        <h2>Parents Can't See Your <span class="highlight">Care</span>. So They Judge <span class="highlight">Everything Else</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Choosing a preschool is deeply personal for Singapore parents. They are entrusting their youngest children — some as young as 18 months — to your care for hours each day. Before they visit, they research online. Before they research, they form a first impression based on your brand. A dated logo, inconsistent colours, and amateur-looking flyers do not just fail to impress — they actively erode the trust parents need to feel before they even book a tour.</p>
-        <p>Singapore has over 1,800 registered preschools and kindergartens. Competition is fierce, and new centres open every year. Many operators focus entirely on curriculum and facilities, treating branding as an afterthought. The result is a sea of preschools with forgettable names, generic rainbow logos, and marketing materials that look like they were designed in PowerPoint. Parents cannot tell them apart, so they default to the established names or the centre their colleague recommended.</p>
-        <p>A professionally branded preschool breaks through this noise. It communicates three things parents need to feel before they enrol: this centre is safe, this centre is professionally managed, and this centre cares about quality in everything it does. From your signage to your parent handbook to your staff uniforms, every brand touchpoint either builds or breaks that perception.</p>
+        <p>Your teachers may be the warmest in Punggol. Before a tour, a parent has no way to feel that — so they read the trust off everything around it instead.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Trust Judged in Seconds</h3>
+            <p>A dated logo or an amateur flyer quietly tells a parent the care might be uneven too — long before they set foot inside the centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Centres Blur Together</h3>
+            <p>Half the preschools in Sengkang and Tampines look interchangeable — rainbow logos, stock smiles. If nothing sets yours apart, fees become the only thing left to compare.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Warm or Serious, Rarely Both</h3>
+            <p>Too playful reads as childish; too corporate feels cold. A preschool brand has to hold warmth and credibility at the same time.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Preschool branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for preschools">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Preschools</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for <span class="highlight">Preschools</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build complete brand identities designed specifically for the early childhood education sector. Every element — from your logo and colour palette to your parent communication templates and centre signage — is crafted to project the warmth, safety, and professionalism that Singapore parents demand from a preschool.</p>
+        <p>We build the full system, not just a logo — every surface a parent sees in Jurong or Woodlands, made to say the same warm, trustworthy thing. It sits alongside our <a href="/preschool-website-design-singapore/">preschool website design</a>, <a href="/preschool-social-media-marketing-singapore/">social media</a> and <a href="/preschool-seo-singapore/">SEO</a>, so the brand carries all the way through.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your centre stands for and who it's for — the nature-play house, or the structured school-ready programme. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo that feels warm and nurturing without being cartoonish. Designed to work on signage, uniforms, stationery, and digital platforms. Includes primary, stacked, icon, and monochrome variations with clear usage rules.</p>
+            <p>A warm, playful colour and type system and a mark that feels nurturing without being cartoonish — working on the gate, on a uniform, and on a screen.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Communication Materials</h3>
-            <p>Prospectus, parent handbook, fee schedule templates, progress report designs, and event invitation templates — all branded and formatted to give parents confidence in your centre's professionalism and attention to detail.</p>
+            <h3>Interior &amp; Signage Direction</h3>
+            <p>Gate and wall signage, classroom labels and safety notices — the physical touchpoints a parent reads while deciding whether the place feels safe and cared-for.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Enrolment Collateral &amp; Brochures</h3>
-            <p>Registration packs, programme brochures, open house flyers, and waiting list communications designed to convert enquiring parents into enrolled families. Materials that look polished enough to share with friends and family.</p>
+            <h3>Brand Messaging &amp; Voice</h3>
+            <p>How your centre sounds — from the website headline to the WhatsApp reply — so every message feels like the same caring, capable school.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Signage &amp; Uniform Design</h3>
-            <p>Centre signage, classroom labels, safety signage, wall graphics, staff uniform design, and student uniform design. Every physical touchpoint in your centre reflects your brand identity and reinforces the quality parents expect.</p>
+            <h3>Photography &amp; Tone Direction</h3>
+            <p>A consistent, reassuring way to shoot children, teachers and the space — so your feed conveys safety and care instead of looking like a scrapbook.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Parent Collateral &amp; Guidelines</h3>
+            <p>Enrolment packs, newsletters and a simple rulebook your front desk can follow — so the brand holds together in Bishan or Ang Mo Kio after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -128,92 +260,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for preschool branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your preschool branding agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Preschools Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Brand</span> That Doesn't Stop at a <span class="highlight">PDF</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand that preschool branding operates in a uniquely sensitive space. Parents are making an emotional decision about their child's safety and development. Every design choice we make is informed by this reality. Here is what sets our preschool branding apart:</p>
+        <p>Most branding projects end with a guidelines document nobody opens again. Ours end with the brand actually live — on the gate, in the enrolment pack, across your feed. It's part of how we approach <a href="/industries/education/">education marketing in Singapore</a>, and if you're weighing up partners, our guide to <a href="/blog/how-to-choose-digital-marketing-agency-singapore/">how to choose a digital marketing agency in Singapore</a> is a good place to start.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Early Childhood Sector Expertise</h3>
-            <p>We have built brands for preschools, kindergartens, and childcare centres across Singapore. We understand ECDA expectations, parent psychology, and the visual language that signals trust and nurturing care to families with young children.</p>
+            <h3>Early Childhood Fluency</h3>
+            <p>We already run search, ads and social for centres across Singapore, so we know the visual language that signals safety and care to a parent.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Capability</h3>
-            <p>Branding, <a href="/preschool-website-design-singapore/">website design</a>, <a href="/preschool-seo-singapore/">SEO</a>, and <a href="/services/social-media/">social media</a> — all under one roof. Your preschool brand flows seamlessly from centre signage to your online presence without miscommunication between agencies.</p>
+            <h3>Warm, But Credible</h3>
+            <p>Every decision passes one filter — does this help a parent trust you? We keep the brand nurturing without tipping into childish or cold.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Scope &amp; Full Ownership</h3>
-            <p>No hidden costs, no surprises. You receive full ownership of every asset — logos, guidelines, templates, source files, and print-ready artwork. We scope your branding project up front and give you a transparent quote, so you know exactly what's included before we begin.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Trust-First Design Philosophy</h3>
-            <p>Every design decision passes through one filter: does this build parent trust? We avoid gimmicky designs and overly childish aesthetics that undermine credibility. The result is a brand that feels warm and child-friendly while projecting the professional management parents need to see.</p>
+            <h3>Applied Across Every Channel</h3>
+            <p>We put the new identity onto your <a href="/preschool-website-design-singapore/">website</a>, <a href="/preschool-social-media-marketing-singapore/">social</a> and search presence — one agency, so nothing drifts.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand isn't one stage — it's the layer over all of them. It decides whether a parent takes you seriously in the first search, feels reassured at the comparison, and stays proud to recommend you at the gate.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A warm first impression earns the click</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Reassure</h3>
+          <p>Consistency signals a safe, well-run centre</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>A clear identity lifts you above fees alone</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Tour</h3>
+          <p>Looking cared-for makes the visit feel right</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Families stay proud to belong &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about preschool branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about preschool branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Preschool Branding Questions Answered</h2>
+        <h2>Preschool <span class="highlight">Branding</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does preschool branding cost in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does a preschool need branding?</summary>
+          <div class="faq-answer"><p>Because a parent is handing you their youngest child for hours a day, and they decide whether to trust you long before the tour. They form that first impression from your logo, your signage, your enrolment pack and your photos. A warm, considered brand reassures a parent that the centre is safe, cared-for and professionally run. A dated or mismatched one raises quiet doubts a parent can't always name. Branding is what makes the reassurance land at a glance.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What should a preschool brand look like?</summary>
-          <div class="faq-answer"><p>A preschool brand should be child-friendly without being childish. It needs to feel warm, nurturing, and safe to parents while being visually engaging for young children. The best preschool brands use soft but confident colour palettes, rounded and approachable typography, and imagery that conveys a caring educational environment. Critically, the brand must also project professionalism and credibility — parents are entrusting their youngest children to your care.</p></div>
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand, not the whole of it. What actually reassures a parent is consistency across everything they see — the gate signage, the enrolment pack, the newsletter, the WhatsApp reply, the photos on your feed. When those look like they came from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint tells the same warm, trustworthy story.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How long does preschool branding take?</summary>
-          <div class="faq-answer"><p>A typical preschool branding project takes 3 to 6 weeks. Starter packages with logo and basic guidelines are completed in 2 to 3 weeks. Full brand identity systems with signage, parent materials, and uniform design take 4 to 6 weeks. We work with your timeline and can align delivery with your registration season.</p></div>
+          <summary>Will a rebrand unsettle the families we already have?</summary>
+          <div class="faq-answer"><p>Only if it's done carelessly. Most established centres don't need a clean slate — they need their existing warmth sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity so it reads as the centre growing up rather than starting over. Existing parents should feel the place got more considered, not unrecognisable.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Do you design uniforms and merchandise for preschools?</summary>
-          <div class="faq-answer"><p>Yes. Our Premium package includes uniform design — polo shirts, PE wear, school bags, and other merchandise items featuring your brand identity. We provide design files and specifications that your uniform supplier can produce directly. Many preschools find branded uniforms strengthen parent perception and build community among students.</p></div>
+          <summary>How do you keep a preschool brand warm but still professional?</summary>
+          <div class="faq-answer"><p>By treating warmth and credibility as one job, not two. A brand that's all rainbows and bubble fonts reads as childish and can make a parent question the care behind it; one that's too corporate feels cold for a place meant to nurture toddlers. We work in a soft but confident colour and type system, rounded and approachable shapes, and photography direction that shows real care in a real space — so the centre feels both nurturing and grown-up.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you help with ECDA compliance for branding materials?</summary>
-          <div class="faq-answer"><p>While branding itself does not fall under ECDA regulations, we are familiar with the guidelines that govern how preschools in Singapore communicate with parents. We ensure your branding materials — including prospectuses, fee schedules, and parent handbooks — are formatted appropriately and present your centre as a professionally managed early childhood education provider.</p></div>
+          <summary>Do you handle the design work in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, signage direction, parent collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, SEO — so the brand doesn't stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees, from the gate to the newsletter.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Preschool Services</h2>
+        <h2>More <span class="highlight">Preschool</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/preschool-ai-search-optimisation-singapore/" class="related-service-link">Preschool GEO / AI Search</a>
-          <a href="/preschool-website-design-singapore/" class="related-service-link">Preschool Website Design</a>
-          <a href="/preschool-seo-singapore/" class="related-service-link">Preschool SEO</a>
           <a href="/preschool-marketing-singapore/" class="related-service-link">Preschool Marketing</a>
-          <a href="/preschool-social-media-marketing-singapore/" class="related-service-link">Preschool Social Media</a>
+          <a href="/preschool-seo-singapore/" class="related-service-link">Preschool SEO</a>
+          <a href="/preschool-ai-search-optimisation-singapore/" class="related-service-link">Preschool GEO</a>
           <a href="/preschool-advertising-singapore/" class="related-service-link">Preschool Advertising</a>
+          <a href="/preschool-social-media-marketing-singapore/" class="related-service-link">Preschool Social Media</a>
+          <a href="/preschool-website-design-singapore/" class="related-service-link">Preschool Websites</a>
       </div>
     </div>
   </section>

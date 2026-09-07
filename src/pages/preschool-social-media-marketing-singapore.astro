@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Preschool Social Media Marketing Singapore",
-    "description": "Social media marketing for preschools in Singapore. Daily activity showcases, milestone celebrations, parent community building, and open house promotion across Instagram and Facebook.",
+    "description": "Social media marketing for preschools in Singapore. A warm look inside the centre, daily learning-through-play, teacher intros, parenting tips and open-house posts built to reach parents and fill enrolment.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for preschools in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What social media content works best for preschools?", "acceptedAnswer": { "@type": "Answer", "text": "The best-performing preschool content includes daily learning activity snapshots, milestone celebrations, curriculum highlights, teacher introductions, facility tours, and parent testimonials. Short-form video content showing children engaged in play-based learning consistently generates the highest reach and engagement from parents." } },
-      { "@type": "Question", "name": "How do you handle child privacy on social media for preschools?", "acceptedAnswer": { "@type": "Answer", "text": "We take child privacy seriously. All content follows your centre's consent policies. We work with photos and videos that have parental consent, and we can create content strategies that showcase your environment, curriculum, and facilities without featuring identifiable children — using activity close-ups, classroom setups, and branded graphics instead." } },
-      { "@type": "Question", "name": "Can social media help promote our preschool open house events?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We create multi-phase open house campaigns with announcement posts, countdown stories, virtual tour Reels, and follow-up content. Campaigns are targeted to parents in your area and timed to align with ECDA registration periods and common decision-making windows for preschool placement." } },
-      { "@type": "Question", "name": "Which platforms should preschools focus on in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Facebook and Instagram are the primary platforms for preschools in Singapore. Facebook is effective for reaching parents through local community groups and neighbourhood discussions, while Instagram excels at visual storytelling through photos, carousels, and Reels that showcase your learning environment and daily activities." } }
+      { "@type": "Question", "name": "Which social platforms should a preschool in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "Facebook and Instagram are where Singapore parents actually are. Facebook reaches families through neighbourhood and estate groups in areas like Punggol, Sengkang and Tampines, while Instagram carries the visual storytelling — carousels and Reels that show daily life inside the centre. We usually recommend depth on those two rather than a thin presence spread across five." } },
+      { "@type": "Question", "name": "What should a preschool actually post?", "acceptedAnswer": { "@type": "Answer", "text": "A warm look inside the centre works far better than a promotional graphic. That means daily activities and learning-through-play, teacher introductions, short parenting and child-development tips, and enrolment-window or open-house announcements. Parents save and forward posts that feel useful and genuine, so we build the mix around trust rather than pure promotion." } },
+      { "@type": "Question", "name": "How do you handle child imagery and consent?", "acceptedAnswer": { "@type": "Answer", "text": "Carefully, and always to your centre's policy. We only publish photos and videos of children where written parental consent is on file, and we build a simple media-consent step into your enrolment paperwork so permission is captured up front. Where consent is limited, we still create strong content using activity close-ups, classroom setups, teacher-led moments and branded graphics that never identify a child." } },
+      { "@type": "Question", "name": "How does social media actually bring in enrolments?", "acceptedAnswer": { "@type": "Answer", "text": "Social rarely closes a placement on its own. Its job is to reassure — a parent who has seen your classrooms, your teachers and a normal day arrives at an open house already comfortable. We measure that by watching profile-to-website clicks, saves, sends and enquiries that mention social, rather than judging the work on follower count." } },
+      { "@type": "Question", "name": "Can this work for a single-centre preschool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A single centre with warm teachers and a clear routine often connects with parents better than a large chain, because the content feels like a real place rather than a brand template. The usual constraint is time during term, so we build a filming cadence your teachers can sustain around the school day, not one that stops the moment an open house is over." } }
     ]
   },
   {
@@ -40,88 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Preschool Social Media Marketing", "item": "https://jraftcreative.com/preschool-social-media-marketing-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Preschool Social Media Marketing Singapore", "item": "https://jraftcreative.com/preschool-social-media-marketing-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Preschool Social Media Marketing — Jraft Creative"
-  description="Social media marketing for preschools in Singapore. Daily activities, milestone celebrations, parent community building, and open house promotion."
+  title="Preschool Social Media Marketing Singapore"
+  description="Facebook and Instagram content for Singapore preschools — daily activities, teacher intros and open-house posts that reach parents and fill enrolment."
   canonical="https://jraftcreative.com/preschool-social-media-marketing-singapore/"
-  ogTitle="Preschool Social Media Marketing — Jraft Creative"
-  ogDescription="Social media marketing for preschools in Singapore. Warm, trust-building content that connects with parents and drives enrolment. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="preschool social media marketing singapore, preschool marketing singapore, social media for preschools, preschool instagram marketing, preschool facebook marketing, kindergarten marketing singapore, Jraft Creative"
+  ogTitle="Preschool Social Media Marketing Singapore"
+  ogDescription="Social media for Singapore preschools. A warm look inside the centre, teacher intros, parenting tips and open-house posts built to reach parents and fill enrolment."
+  ogImage="https://jraftcreative.com/images/og-preschool.jpg"
+  keywords="preschool social media marketing singapore, social media for preschools, preschool instagram marketing, preschool facebook marketing, childcare social media singapore, kindergarten social media singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Preschool Social Media Marketing"
-  heroTitle='Social Media Marketing for <span class="highlight">Preschools</span> in Singapore'
-  heroSubtitle="Warm, authentic content that shows parents what daily life at your preschool looks like. We build trust through storytelling, celebrate milestones, and turn your social media into a reliable source of new enrolments."
-  heroImage="/images/service-preschool.webp"
+  heroTitle='Social Media Marketing for <span class="highlight">Preschools in Singapore</span>'
+  heroSubtitle="A day inside your centre is the most reassuring thing a parent can see — and most preschools never film it. We turn learning-through-play, teacher warmth and open-house moments into content that reaches parents on Facebook and Instagram, then into enrolment enquiries."
+  heroImage="/images/service-childcare.webp"
+  heroImageAlt="Teacher reading with a young child at a Singapore preschool"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Preschool SEO", href: "/preschool-seo-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need social media marketing for my preschool in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Preschool with Social Media"
-  ctaDescription="Book a free consultation and tell us about your preschool. We'll get back to you within 24 hours with a tailored social media strategy."
+  ctaLabel="Fill Your Enrolment"
+  ctaTitle="Get a Free Preschool Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you're posting now, what a normal day at your centre already offers that parents never get to see, and where the gap is between followers and enrolment enquiries. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20preschool%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for preschools in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Choose Preschools Based on What They See Online</h2>
+        <h2>Parents Decide From <span class="highlight">What They See Online</span> — Before They Ever <span class="highlight">Visit</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Choosing a preschool is one of the most emotionally charged decisions Singaporean parents make. They want to see what a typical day looks like, how teachers interact with children, and whether the environment feels safe, nurturing, and stimulating. Before booking a visit, they check your Instagram, scroll through your Facebook page, and read what other parents have said. If what they find is a handful of outdated posts or a page that hasn't been touched in months, they move on.</p>
-        <p>Singapore's preschool landscape is intensely competitive. From anchor operators like PCF Sparkletots and My First Skool to boutique centres in Holland Village and Tiong Bahru, parents have dozens of options within a short drive. The preschools that win enrolments are the ones that show — not just tell — what makes them special. A dormant social media page doesn't just look unprofessional; it raises questions about whether your centre is still actively operating.</p>
+        <p>Choosing a preschool is one of the most emotional decisions a Singapore parent makes, and most of it happens on a phone before anyone books a tour.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Page Looks Dormant</h3>
+            <p>A parent in Punggol or Sengkang finds a handful of old posts and quietly assumes the centre isn't active. The tour they never booked goes to a competitor down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Posting Stops During Term</h3>
+            <p>Teachers are with the children all day and the feed goes quiet for a month — exactly when families in Tampines and Jurong are researching for the next intake.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Followers Who Never Enquire</h3>
+            <p>An audience of current parents feels good and enrols nobody new. Reach only matters when it lands in front of families who haven't chosen a centre yet.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for preschools">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for preschools">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Preschools in Singapore</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> Every Preschool <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create warm, engaging social media content that gives parents an authentic window into your preschool. From daily learning activities and milestone celebrations to open house promotions and parent testimonials, every post is crafted to build trust and drive enrolment enquiries.</p>
-        <p>Our team handles content planning, photography direction, graphic design, Reels production, and community management — giving your preschool a professional, consistent social media presence that parents notice and remember when they're making their decision.</p>
+        <p>We build a cadence around what your centre already does each day, so filming becomes a habit rather than a project — and it sits alongside your <a href="/preschool-website-design-singapore/">preschool website</a>, <a href="/preschool-seo-singapore/">SEO</a> and <a href="/preschool-advertising-singapore/">advertising</a> as one system for filling enrolment.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Daily Activity Reels</h3>
-            <p>Short-form video content capturing the joy of daily learning — outdoor play, art sessions, story time, and group activities that let parents see and feel your preschool experience.</p>
+            <h3>A Day-Inside-the-Centre Reels</h3>
+            <p>Short, warm clips of learning-through-play — outdoor time, art, story corner and group activities that let a parent feel the room before they visit.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Community Building</h3>
-            <p>Active engagement with parents across comments, DMs, and group discussions. We build a supportive online community that strengthens loyalty and generates organic word-of-mouth referrals.</p>
+            <h3>Teacher Introductions</h3>
+            <p>Parents choose the person who will care for their child, not a logo. We put your teachers, their warmth and their approach on camera so the trust starts early.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Milestone &amp; Event Graphics</h3>
-            <p>Beautifully designed posts celebrating graduations, festive celebrations, Children's Day, and developmental milestones — content that parents love to share and that showcases your centre's culture.</p>
+            <h3>Milestones &amp; Festive Moments</h3>
+            <p>Graduations, Children's Day, festive celebrations and everyday firsts — the posts parents in Bishan and Ang Mo Kio love to save and forward to family.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Open House Campaigns</h3>
-            <p>Multi-phase campaigns with virtual tours, parent testimonials, and countdown content timed around ECDA registration periods and peak decision-making windows for preschool placement.</p>
+            <h3>Parenting &amp; Development Tips</h3>
+            <p>Short, useful clips that answer what parents actually search — settling-in, screen time, school readiness — the kind of post families send to each other.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Consent-Safe Filming Process</h3>
+            <p>Your children are young, so consent comes first. We build a media-consent step into enrolment and shoot in ways that respect families who opt out.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Enrolment-Window &amp; Open-House Posts</h3>
+            <p>Announcement, countdown and tour content timed to ECDA registration periods — reported on saves, sends and enquiries, not on likes.</p>
           </div>
         </div>
       </div>
@@ -129,92 +260,119 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for preschool social media marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your preschool social media agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Social Media That Reflects the Heart of Your Preschool</h2>
+        <h2>A <span class="highlight">Social Media Partner</span> That Understands <span class="highlight">Preschools</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We don't treat preschool marketing the same as every other industry. Our team creates content that captures the warmth and care parents are looking for, while maintaining the professionalism and consistency that builds genuine trust over time.</p>
+        <p>Preschool social fails for specific reasons — term-time capacity, child-imagery consent, and content that flatters current parents instead of reaching new families. We plan for all three, as part of our wider <a href="/industries/education/">education marketing in Singapore</a>, and you can read our thinking on the <a href="/blog/social-media-marketing-singapore/">social media marketing blog</a>.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Privacy-Conscious Content</h3>
-            <p>We follow your centre's consent policies and can create compelling content using activity close-ups, classroom setups, and branded graphics — without compromising child privacy.</p>
+            <h3>A Cadence You Can Sustain</h3>
+            <p>We plan around the school day and the enrolment calendar, so the feed doesn't go silent exactly when parents are researching for the next intake.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Warm, Authentic Tone</h3>
-            <p>No corporate jargon. Our content sounds like your centre — caring, approachable, and genuine. Parents connect with your story, not a sales pitch.</p>
+            <h3>Consent-First, Trust-Building</h3>
+            <p>Every post respects your centre's consent policy and your review sign-off. We would rather build slow trust with the right families than chase reach that unsettles parents.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Approval Workflow</h3>
-            <p>Every post, caption, and design goes through your review before publishing. You see the full content calendar in advance and nothing is shared without your explicit sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans. Stay because you're seeing more parent enquiries and enrolment growth, not because of a contract obligation.</p>
+            <h3>Social, Search &amp; Ads Together</h3>
+            <p>We also run <a href="/preschool-seo-singapore/">preschool SEO</a> and <a href="/preschool-advertising-singapore/">preschool advertising</a> — one system for filling enrolment across Woodlands and beyond.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the preschool parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts. Social rarely wins the first search — its job is Reassure and Compare, where a parent decides whether your centre is worth the visit and the waitlist.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A Reel or a parent's share puts you on the radar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Reassure</h3>
+          <p>A day inside the centre shows the care is real</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Teacher intros make the choice feel personal</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Open-house posts and DMs turn interest into a tour</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Milestone posts keep families renewing &amp; referring</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about preschool social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about social media for preschools">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Preschool Social Media Marketing — Questions Answered</h2>
+        <h2>Preschool <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for preschools in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which social platforms should a preschool in Singapore be on?</summary>
+          <div class="faq-answer"><p>Facebook and Instagram are where Singapore parents actually are. Facebook reaches families through neighbourhood and estate groups in areas like Punggol, Sengkang and Tampines, while Instagram carries the visual storytelling — carousels and Reels that show daily life inside the centre. We usually recommend depth on those two rather than a thin presence spread across five.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What social media content works best for preschools?</summary>
-          <div class="faq-answer"><p>The best-performing preschool content includes daily learning activity snapshots, milestone celebrations, curriculum highlights, teacher introductions, facility tours, and parent testimonials. Short-form video content showing children engaged in play-based learning consistently generates the highest reach and engagement from parents.</p></div>
+          <summary>What should a preschool actually post?</summary>
+          <div class="faq-answer"><p>A warm look inside the centre works far better than a promotional graphic. That means daily activities and learning-through-play, teacher introductions, short parenting and child-development tips, and enrolment-window or open-house announcements. Parents save and forward posts that feel useful and genuine, so we build the mix around trust rather than pure promotion.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you handle child privacy on social media for preschools?</summary>
-          <div class="faq-answer"><p>We take child privacy seriously. All content follows your centre's consent policies. We work with photos and videos that have parental consent, and we can create content strategies that showcase your environment, curriculum, and facilities without featuring identifiable children — using activity close-ups, classroom setups, and branded graphics instead.</p></div>
+          <summary>How do you handle child imagery and consent?</summary>
+          <div class="faq-answer"><p>Carefully, and always to your centre's policy. We only publish photos and videos of children where written parental consent is on file, and we build a simple media-consent step into your enrolment paperwork so permission is captured up front. Where consent is limited, we still create strong content using activity close-ups, classroom setups, teacher-led moments and branded graphics that never identify a child.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help promote our preschool open house events?</summary>
-          <div class="faq-answer"><p>Absolutely. We create multi-phase open house campaigns with announcement posts, countdown stories, virtual tour Reels, and follow-up content. Campaigns are targeted to parents in your area and timed to align with ECDA registration periods and common decision-making windows for preschool placement.</p></div>
+          <summary>How does social media actually bring in enrolments?</summary>
+          <div class="faq-answer"><p>Social rarely closes a placement on its own. Its job is to reassure — a parent who has seen your classrooms, your teachers and a normal day arrives at an open house already comfortable. We measure that by watching profile-to-website clicks, saves, sends and enquiries that mention social, rather than judging the work on follower count.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which platforms should preschools focus on in Singapore?</summary>
-          <div class="faq-answer"><p>Facebook and Instagram are the primary platforms for preschools in Singapore. Facebook is effective for reaching parents through local community groups and neighbourhood discussions, while Instagram excels at visual storytelling through photos, carousels, and Reels that showcase your learning environment and daily activities.</p></div>
+          <summary>Can this work for a single-centre preschool?</summary>
+          <div class="faq-answer"><p>Yes. A single centre with warm teachers and a clear routine often connects with parents better than a large chain, because the content feels like a real place rather than a brand template. The usual constraint is time during term, so we build a filming cadence your teachers can sustain around the school day, not one that stops the moment an open house is over.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Preschool Services</h2>
+        <h2>More <span class="highlight">Preschool</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/preschool-ai-search-optimisation-singapore/" class="related-service-link">Preschool GEO / AI Search</a>
-          <a href="/preschool-website-design-singapore/" class="related-service-link">Preschool Website Design</a>
-          <a href="/preschool-seo-singapore/" class="related-service-link">Preschool SEO</a>
           <a href="/preschool-marketing-singapore/" class="related-service-link">Preschool Marketing</a>
+          <a href="/preschool-seo-singapore/" class="related-service-link">Preschool SEO</a>
+          <a href="/preschool-ai-search-optimisation-singapore/" class="related-service-link">Preschool GEO</a>
           <a href="/preschool-advertising-singapore/" class="related-service-link">Preschool Advertising</a>
           <a href="/preschool-branding-singapore/" class="related-service-link">Preschool Branding</a>
+          <a href="/preschool-website-design-singapore/" class="related-service-link">Preschool Websites</a>
       </div>
     </div>
   </section>
