@@ -1,0 +1,328 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Spa AI Search Optimisation Singapore",
+    "description": "Specialist AI search optimisation (GEO) for spas and wellness businesses in Singapore. Get your spa named by ChatGPT, Google Gemini, Perplexity, Copilot, and Google AI Overviews when people ask AI for the best massage, facial, body treatment, reflexology, or couples spa in Singapore. Machine-citable structured data, llms.txt, entity and review authority, and answer-engine content.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Spa Generative Engine Optimisation (GEO)"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do people find spas through AI in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "People ask ChatGPT, Gemini, and Perplexity questions like 'best spa in Singapore', 'couples massage near Orchard', or 'good aromatherapy spa near me'. The AI reads your structured data, your reviews across Google and directories, and clear answer-first content, then names three to four spas per query. Spas without those signals in place are left out of the recommendation entirely, no matter how good the treatments are." } },
+      { "@type": "Question", "name": "How is spa GEO different from spa SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Spa SEO targets the Google Maps three-pack and the blue-link rankings for terms like 'spa Orchard' or 'facial near me'. GEO targets the answer an AI writes when someone asks it to recommend a spa. They share signals — Google reviews, a complete Google Business Profile, structured data — but GEO also rewards LocalBusiness and FAQ schema, an llms.txt file, extractable facts, and citations from the directories and review sites AI trusts. The overlap between top Google rankings and AI citations is now low, so ranking well on Google does not guarantee your spa gets named by ChatGPT." } },
+      { "@type": "Question", "name": "Which AI platforms recommend spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer spa and wellness queries such as 'best foot reflexology Singapore' or 'relaxing couples spa package near Sentosa'. Each platform weighs sources and structured data slightly differently, so we build your spa's presence across all of them rather than optimising for one." } },
+      { "@type": "Question", "name": "What structured data does a spa need to get cited by AI?", "acceptedAnswer": { "@type": "Answer", "text": "We mark up your spa with LocalBusiness schema — treatments, opening hours, neighbourhood, price range signals, and booking details — plus FAQ schema that answers the exact questions people ask AI. We also publish an llms.txt file so AI crawlers get a clean, machine-readable summary of what your spa offers. Together these give the models the extractable facts they need to name you with confidence." } },
+      { "@type": "Question", "name": "How do you measure whether AI is recommending my spa?", "acceptedAnswer": { "@type": "Answer", "text": "We build a query bank of the real prompts your clients use — 'best aromatherapy spa near me', 'couples massage Tanjong Pagar', 'good foot reflexology Bugis' — and re-test them across every major AI platform each month. You get an AI Visibility Score, a mention rate versus citation rate breakdown, and the actual answers the AI returned, so you can see exactly how often your spa is named versus competitors and whether it is trending up." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Spa AI Search Optimisation Singapore", "item": "https://jraftcreative.com/spa-ai-search-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Spa AI Search Optimisation Singapore"
+  description="Spa GEO agency in Singapore. Get your spa cited by ChatGPT, Gemini and Perplexity when people ask AI for the best massage, facial, or couples spa."
+  canonical="https://jraftcreative.com/spa-ai-search-optimisation-singapore/"
+  ogTitle="Spa AI Search Optimisation Singapore"
+  ogDescription="Spa GEO agency in Singapore. Get your spa cited by ChatGPT, Gemini, Perplexity, and Google AI Mode when people ask AI for the best massage, facial, or couples spa."
+  ogImage="https://jraftcreative.com/images/og-spa.jpg"
+  keywords="spa ai search optimisation singapore, spa geo singapore, spa generative engine optimisation, chatgpt spa singapore, gemini spa recommendation, massage spa ai visibility singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Spa AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="When someone asks ChatGPT 'best spa in Singapore' or tells Gemini 'recommend a couples massage near Orchard,' the AI names three to four spas. If yours is not one of them, that booking goes to a competitor. AI-referred clients arrive already decided — they just needed a name. We build spa GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/service-spa.webp"
+  heroImageAlt="Singapore spa recommended by AI search — spa GEO agency"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my spa in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Get Your <span class="highlight">Spa Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when people search for a massage, facial, or couples spa like yours — and how to make sure your spa comes up. We'll respond within 24 hours with a tailored spa GEO plan."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why spas need AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>People Are Asking <span class="highlight">AI</span> Which Spa to <span class="highlight">Book</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Choosing a spa is a trust decision — a couple booking an anniversary massage, a tired professional after a long week, a group planning a wellness day out. More of them now start by asking ChatGPT "best spa in Singapore" or telling Gemini "recommend a good aromatherapy spa near me." The AI answers with three to four names, and people treat those as a personal recommendation. Most Singapore spas are still optimising only for Google and marketplace listings around Orchard, Bugis, and Tanjong Pagar — leaving the AI channel wide open.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most spa marketing still focuses on Google and marketplace platforms like Fave and Klook, treating AI search as a future concern. That leaves ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new first stop for people deciding where to book a massage or facial.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A strong Google ranking does not guarantee an AI citation — the overlap is now low. AI weighs your structured data, review sentiment across Google and directories, brand mentions, and how clearly your treatments are described. Different signal set, different work — for every treatment and neighbourhood you serve.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Higher-Intent Bookings</h3>
+            <p>Someone who was handed your spa's name by ChatGPT didn't scroll past ten Orchard listings — the AI recommended you specifically for what they asked. They arrive with built-in trust, already decided to book. They just needed a name they could act on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Machine-Citable or Invisible</h3>
+            <p>AI models can only name a spa they can read cleanly. Without LocalBusiness and FAQ schema, an llms.txt file, and extractable facts about your treatments and hours, the model has nothing solid to cite — so it recommends the spa whose data it can actually parse.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most Singapore spas are not yet investing in GEO. The ones that move in 2026 own AI citations for their treatments and area — couples massage in Orchard, foot reflexology in Bugis — before competitors catch on, building visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, winning spa bookings through ChatGPT and Gemini is no longer a niche channel. Your Google presence and marketplace listings don't translate into AI visibility — it is separate work that spas can no longer put off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Spa GEO services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Spa GEO Workstreams</span> Every Spa <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run spa GEO as a six-workstream system — AI visibility audit, machine-citable structured data, answer-engine content, brand and review authority, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your treatments and neighbourhood. Pair it with strong <a href="/spa-seo-singapore/">spa SEO</a>, a professionally built <a href="/spa-website-design-singapore/">spa website</a>, and <a href="/spa-social-media-singapore/">spa social media</a> for a complete digital presence.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We test 20-30 real prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best spa in Singapore," "couples massage near Orchard," "good aromatherapy spa near me," "best foot reflexology Singapore." Reveals which spas AI names instead of yours, and the signals driving those choices.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Machine-Citable Structured Data</h3>
+            <p>LocalBusiness and FAQ schema plus an llms.txt file, so AI crawlers get a clean, machine-readable picture of your spa — treatments, massage and facial types, reflexology, body treatments, couples packages, hours, and neighbourhood — and can cite you with confidence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Answer-Engine Content</h3>
+            <p>Treatment guides and clear Q&amp;A pages structured answer-first — "aromatherapy vs Swedish massage," "how often should you get a facial," "what to expect at a couples spa." Fact-dense, extractable content that gives AI models the confidence to name your spa.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Review Authority</h3>
+            <p>Strengthen the entity signals AI trusts most — consistent Google reviews, accurate profiles across wellness directories and booking platforms, and brand mentions in the sources AI reads. These citations are what AI uses to decide which spa to vouch for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your spa's AI Visibility Score, mention rate versus citation rate, and share of voice across every major AI platform each month — per treatment and area. Quantify exactly how often AI names your spa versus competitors, with the actual prompts and answers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each weighs sources and structured data differently and pulls from different places — our work covers all five so your spa gets cited regardless of which AI tool the person asks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for spa AI search optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Spa GEO</span> That <span class="highlight">Fills Your Treatment Rooms</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run the GEO playbook for our own agency — and the same methodology for spa and wellness clients. We map the exact treatment-and-area prompts Singapore clients use, build the schema and llms.txt stack that earns the citation, and re-test a query bank across all five major AI platforms every month. This work sits alongside our broader <a href="/industries/beauty-aesthetics/">beauty and aesthetics marketing</a> practice, so your spa GEO connects to a full digital strategy rather than standing on its own.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Treatment-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG clients use — "best couples massage near Orchard," "good foot reflexology Bugis," "relaxing spa day Dempsey" — and optimise against those specific queries, not generic GEO templates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built Machine-First</h3>
+            <p>Every page, schema block, and llms.txt file we ship is built so AI models can parse your treatments, hours, and neighbourhood cleanly. If a model can't read it, it can't cite it — so we make your spa the easiest one to name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measurable AI Metrics</h3>
+            <p>AI Visibility Score, mention rate versus citation rate, and share of voice across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — tracked monthly with a re-tested query bank and the actual answers. Not vanity "AI score" reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENT FUNNEL ========== -->
+  <section class="section" id="client-funnel" style="background: var(--bg-alt);" aria-label="The spa booking journey — and where GEO shows up">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Spa Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore spa clients move through five stages. GEO is the emerging dominant channel in Compare and Choose — the moment someone asks AI which spa to book for a treatment or occasion and it returns three to four names. AI citations also reinforce Research, when a client looks up a treatment before ever naming a spa.</p>
+      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Research</h3>
+          <p>Client asks AI about a treatment or occasion — massage, facial, couples day (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>AI returns 3-4 spa names for the treatment and area (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>AI-cited clients book at high intent, often at full price</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Experience</h3>
+          <p>The treatment reinforces the next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews and referrals compound back into AI trust signals</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Spa GEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do people find spas through AI in Singapore?</summary>
+          <div class="faq-answer"><p>People ask ChatGPT, Gemini, and Perplexity questions like "best spa in Singapore", "couples massage near Orchard", or "good aromatherapy spa near me". The AI reads your structured data, your reviews across Google and directories, and clear answer-first content, then names three to four spas per query. Spas without those signals in place are left out of the recommendation entirely, no matter how good the treatments are.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is spa GEO different from spa SEO?</summary>
+          <div class="faq-answer"><p>Spa SEO targets the Google Maps three-pack and the blue-link rankings for terms like "spa Orchard" or "facial near me". GEO targets the answer an AI writes when someone asks it to recommend a spa. They share signals — Google reviews, a complete Google Business Profile, structured data — but GEO also rewards LocalBusiness and FAQ schema, an llms.txt file, extractable facts, and citations from the directories and review sites AI trusts. The overlap between top Google rankings and AI citations is now low, so ranking well on Google does not guarantee your spa gets named by ChatGPT.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which AI platforms recommend spas in Singapore?</summary>
+          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer spa and wellness queries such as "best foot reflexology Singapore" or "relaxing couples spa package near Sentosa". Each platform weighs sources and structured data slightly differently, so we build your spa's presence across all of them rather than optimising for one.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What structured data does a spa need to get cited by AI?</summary>
+          <div class="faq-answer"><p>We mark up your spa with LocalBusiness schema — treatments, opening hours, neighbourhood, price range signals, and booking details — plus FAQ schema that answers the exact questions people ask AI. We also publish an llms.txt file so AI crawlers get a clean, machine-readable summary of what your spa offers. Together these give the models the extractable facts they need to name you with confidence.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure whether AI is recommending my spa?</summary>
+          <div class="faq-answer"><p>We build a query bank of the real prompts your clients use — "best aromatherapy spa near me", "couples massage Tanjong Pagar", "good foot reflexology Bugis" — and re-test them across every major AI platform each month. You get an AI Visibility Score, a mention rate versus citation rate breakdown, and the actual answers the AI returned, so you can see exactly how often your spa is named versus competitors and whether it is trending up.</p></div>
+        </details>
+      </div>
+      <div class="section-content reveal" style="margin-top: 32px;">
+        <p>New to answer-engine optimisation? Our guide on <a href="/blog/what-is-geo-ai-search-optimisation/">what GEO and AI search optimisation actually mean</a> walks through how the models pick who to cite and why it now matters for local businesses like spas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services for spas">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Spa</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/spa-marketing-singapore/" class="related-service-link">Spa Marketing</a>
+          <a href="/spa-seo-singapore/" class="related-service-link">Spa SEO</a>
+          <a href="/spa-google-ads-singapore/" class="related-service-link">Spa Google Ads</a>
+          <a href="/spa-social-media-singapore/" class="related-service-link">Spa Social Media</a>
+          <a href="/spa-branding-singapore/" class="related-service-link">Spa Branding</a>
+          <a href="/spa-website-design-singapore/" class="related-service-link">Spa Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

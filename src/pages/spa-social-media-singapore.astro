@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Spa Social Media Marketing Singapore",
-    "description": "Social media marketing for spas in Singapore. Wellness content, relaxation aesthetics, treatment showcases, seasonal promotions, and gift voucher campaigns to grow your spa's presence and bookings.",
+    "description": "Social media marketing for spas in Singapore. Treatment-room and ambience Reels, therapist tips, seasonal and couples-package promotions, and content that fills the appointment book.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which social media platforms work best for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the strongest platform for spas — calming visuals, treatment Reels, and Stories create an aspirational brand experience. Facebook is excellent for promoting gift vouchers and reaching a professional demographic. TikTok is growing for wellness and self-care content in the Singapore market." } },
-      { "@type": "Question", "name": "What kind of content do you create for spas?", "acceptedAnswer": { "@type": "Answer", "text": "We create serene treatment environment videos, therapist spotlight posts, wellness tips and self-care guides, seasonal promotion graphics, gift voucher campaigns, couples package features, and behind-the-scenes content. Every post is designed to evoke relaxation and inspire bookings." } },
-      { "@type": "Question", "name": "Can social media help promote my spa gift vouchers?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Gift voucher campaigns on social media perform exceptionally well during Valentine's Day, Mother's Day, Christmas, and birthday seasons. We create targeted campaigns with compelling visuals and clear purchase links that drive voucher sales — often one of the highest-margin revenue streams for spas." } },
-      { "@type": "Question", "name": "How do you capture the right mood and aesthetic for spa content?", "acceptedAnswer": { "@type": "Answer", "text": "We develop a visual identity and content style guide specific to your spa's brand — from colour palettes and typography to photography mood boards and video editing styles. Whether your spa is minimal and Zen-inspired or luxurious and indulgent, every piece of content reinforces that experience." } }
+      { "@type": "Question", "name": "Which social media platforms work best for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and TikTok carry a spa. Both are visual-first, which suits an experience built on atmosphere — calming treatment-room Reels, therapist tips, and Stories that let people feel the escape before they arrive. Instagram holds your grid and Stories audience across Orchard, Tanjong Pagar and Holland Village; TikTok reaches self-care and wellness viewers earlier in their search." } },
+      { "@type": "Question", "name": "What kind of content do you create for spas?", "acceptedAnswer": { "@type": "Answer", "text": "Ambience and treatment-room Reels, satisfying massage and body-treatment clips, therapist tips on recovery and self-care, seasonal and couples-package promotions, and quiet behind-the-scenes moments — the steam room, the facial, the reflexology. Every post is built to evoke the sensory escape and prompt a booking." } },
+      { "@type": "Question", "name": "Why does visual content matter so much for a spa?", "acceptedAnswer": { "@type": "Answer", "text": "A spa sells atmosphere, so people decide with their eyes. A calming, consistent feed makes the escape feel real before they book; a quiet or generic one reads as an afterthought. We treat the feed as a preview of the room — light, texture, pace and sound all working to make someone want to switch off and come in." } },
+      { "@type": "Question", "name": "Do you measure saves and shares rather than likes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. For a spa, saves and sends are the signals that matter — someone bookmarking a treatment for later or sending a couples package to a partner is far closer to a booking than a like. We build content for that intent and report on profile-to-enquiry and bookings that mention social, not vanity counts." } },
+      { "@type": "Question", "name": "Can social media promote couples packages and seasonal treatments?", "acceptedAnswer": { "@type": "Answer", "text": "That is where social earns its keep. Couples packages, festive treatments and quieter-season promotions all move well when the content captures the feeling and the timing is planned in advance — around Valentine's, year-end, and the gifting moments when people are already looking for something to send." } }
     ]
   },
   {
@@ -47,82 +47,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Spa Social Media Singapore — Jraft Creative"
-  description="Social media marketing for spas in Singapore. Wellness content, treatment showcases, seasonal promotions, and gift voucher campaigns that drive bookings."
+  title="Social Media Agency for Spas"
+  description="Social media marketing for spas in Singapore. Ambience and treatment-room Reels, therapist tips, and seasonal campaigns that fill the appointment book."
   canonical="https://jraftcreative.com/spa-social-media-singapore/"
-  ogTitle="Spa Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing built for spas in Singapore. Calming visuals, wellness content, and gift voucher campaigns that drive bookings. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="spa social media singapore, spa marketing singapore, social media for spas, spa instagram marketing, spa digital marketing singapore, wellness social media singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Spas"
+  ogDescription="Social media marketing built for spas in Singapore. Calming, visual-first content that captures the escape and turns followers into bookings."
+  ogImage="https://jraftcreative.com/images/og-spa.jpg"
+  keywords="spa social media singapore, spa marketing singapore, social media for spas, spa instagram marketing, spa tiktok singapore, wellness social media singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Spa Social Media"
-  heroTitle='Social Media Marketing for <span class="highlight">Spas in Singapore</span>'
-  heroSubtitle="Calming visuals, wellness content, and seasonal campaigns that showcase your spa experience and turn social media followers into loyal clients. We manage your spa's online presence so you can focus on delivering exceptional relaxation and renewal."
+  heroLabel="Social Media Agency for Spas"
+  heroTitle='Social Media Agency for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="Calming ambience and treatment-room content, therapist tips, and seasonal campaigns that capture the escape your spa offers and turn Instagram and TikTok followers into booked appointments. Visual-first social media management built for Singapore's wellness industry."
   heroImage="/images/service-spa.webp"
+  heroImageAlt="Serene spa treatment room in Singapore with soft lighting and a massage bed prepared for a client"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need social media marketing for my spa in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Spa with Social Media"
-  ctaDescription="Book a free consultation and tell us about your spa. We'll get back to you within 24 hours with a tailored social media strategy that drives bookings and gift voucher sales."
+  ctaTitle="Fill Your Spa's Appointment Book with Social Media"
+  ctaDescription="Book a free consultation and tell us about your spa. We'll get back to you within 24 hours with a tailored social media plan that captures your atmosphere and drives bookings."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for spas in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Spa Experience Needs to Be Felt Before It's Booked</h2>
+        <h2>People Book the Spa Whose Feed Makes Them Feel <span class="highlight">Calm</span> Before They <span class="highlight">Arrive</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry is booming, but so is the competition. From luxury hotel spas in Marina Bay to neighbourhood wellness centres in Tiong Bahru, clients have more options than ever. The decision to book often happens on social media — clients scroll through Instagram looking for the spa that resonates with their mood, and they book the one whose content makes them feel relaxed just by looking at it. If your social media doesn't evoke that experience, you're invisible to an audience ready to spend.</p>
-        <p>Most spas in Singapore struggle with social media because the content requires a specific aesthetic sensibility. Generic stock photos of candles and stones don't differentiate your spa from hundreds of others. Inconsistent posting makes your business look neglected. And when someone searches for "spa Singapore" on Instagram and your page hasn't been updated in weeks, they move on to a competitor whose feed looks active, inviting, and professional.</p>
-        <p>The spa industry also has significant seasonal and gift-giving opportunities that most businesses miss on social media. Valentine's Day, Mother's Day, Christmas, and corporate wellness season are all periods when a well-timed campaign can generate thousands in gift voucher sales and group bookings. Without a planned content strategy, these high-revenue moments pass by untapped.</p>
+        <p>A spa sells atmosphere, and people decide with their eyes. They scroll Instagram and TikTok for the room that matches the escape they want — and book the one whose content already makes them exhale. If your feed doesn't carry that feeling, a ready-to-spend audience never sees you. It sits inside broader <a href="/industries/beauty-aesthetics/">beauty and aesthetics marketing</a>, and the visual bar is high.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Quiet Feed Breaks the Spell</h3>
+            <p>Stock photos of candles and stones look like everyone else, and a page last updated weeks ago reads as neglected. Neither invites someone to switch off and book.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Atmosphere Never Comes Through</h3>
+            <p>The light, the texture, the quiet — the details that make your spa worth the trip rarely survive a rushed phone snap. On screen the experience falls flat and so does the booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Peak Gifting Moments Slip By</h3>
+            <p>Valentine's couples packages, year-end treatments, quieter-season promotions — the moments that fill the book pass untapped without content planned and timed for them.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for spas">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for spas">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services Built for Spas</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> That Fill Your <span class="highlight">Appointment Book</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle your spa's entire social media presence — from curating calming visual content to running seasonal gift voucher campaigns. Every post is designed to transport your audience into your spa experience and convert that aspiration into confirmed bookings.</p>
-        <p>Our team creates treatment showcase Reels, therapist introductions, wellness tips, and promotional campaigns timed around key occasions — Valentine's Day couples packages, Mother's Day gift vouchers, year-end corporate wellness offers, and more. We build the kind of social media presence that makes people tag their friends and say "we need this".</p>
+        <p>Every post is built to capture the sensory escape and prompt a booking — measured on saves, sends and enquiries, not likes. Social works best alongside a fast <a href="/spa-website-design-singapore/">spa website</a>, strong <a href="/spa-seo-singapore/">spa SEO</a>, and where it fits, <a href="/spa-google-ads-singapore/">spa Google Ads</a>. See how the pieces connect in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a>.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment Showcase Reels</h3>
-            <p>Atmospheric short-form videos capturing your spa environment, treatment processes, and the sensory details that make your spa unique — the content that makes viewers stop scrolling and start dreaming of their next visit.</p>
+            <h3>Ambience &amp; Treatment-Room Reels</h3>
+            <p>Atmospheric short-form video of the light, the room and the pace — the sensory details that make a viewer stop scrolling and picture their next visit.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Gift Voucher Campaigns</h3>
-            <p>Targeted social media campaigns around Valentine's Day, Mother's Day, Christmas, and birthdays that drive gift voucher purchases — one of the highest-margin revenue streams for spas in Singapore.</p>
+            <h3>Satisfying Treatment Clips</h3>
+            <p>Massage, facials, body treatments and reflexology captured for the quiet, satisfying moments that hold attention and earn the save — never a hard sell.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Wellness &amp; Self-Care Content</h3>
-            <p>Branded posts and Stories sharing relaxation tips, skincare routines, stress management advice, and seasonal wellness guides that position your spa as a trusted resource for health-conscious Singaporeans.</p>
+            <h3>Therapist Tips &amp; Self-Care</h3>
+            <p>Short, warm tips from your therapists on recovery, stress and self-care — content that positions your spa as the place people trust to switch off.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Seasonal &amp; Corporate Campaigns</h3>
-            <p>Campaigns for festive packages, couples retreats, corporate wellness days, and membership drives — timed to maximise bookings and voucher sales during the highest-demand periods of the year.</p>
+            <h3>Community &amp; DM Management</h3>
+            <p>Prompt, warm handling of DMs, comments and enquiries — nurturing someone from a saved Reel to a confirmed appointment or couples booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Seasonal &amp; Couples Promotions</h3>
+            <p>Campaigns for couples packages, festive treatments and quieter-season offers — timed around Valentine's and year-end gifting when people are already looking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Bookings</h3>
+            <p>We track saves, sends, profile-to-enquiry and appointments that mention social — follower count is context, the booked room is the result.</p>
           </div>
         </div>
       </div>
@@ -130,72 +191,85 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for spa social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Understands Wellness</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands <span class="highlight">Wellness</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with spas and wellness businesses across Singapore and understand the visual language, seasonal patterns, and content strategies that drive bookings and gift voucher sales. Here's why spas choose us:</p>
+        <p>Spa social lives or dies on how the room feels on screen. We handle the look, the timing and the response — so the escape comes through and the booking follows.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Aesthetic Expertise</h3>
-            <p>We craft content that captures the calming, restorative essence of your spa. From colour grading to copywriting tone, every detail reinforces the relaxation experience your clients are seeking.</p>
+            <h3>A Feel for Atmosphere</h3>
+            <p>We shoot and edit for calm — light, texture, sound and pace — so the feed reads as a preview of the room across Orchard, Dempsey, Bugis and Sentosa.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Revenue-Focused Campaigns</h3>
-            <p>We tie social media directly to revenue — gift voucher sales, package bookings, and membership sign-ups. Every campaign is designed to generate measurable returns, not just likes and comments.</p>
+            <h3>Booking-Focused, Not Vanity</h3>
+            <p>We build for saves and sends and tie content to real outcomes — couples packages, seasonal treatments and appointments — not likes that never fill a room.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Approval Before Publishing</h3>
-            <p>You review and approve every post, caption, and visual before it goes live. Full content calendar delivered in advance so nothing is published without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your bookings are growing and your gift voucher revenue is climbing — not because of a contract clause.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>A full content calendar comes to you in advance. You sign off every post, caption and visual — nothing goes live without your approval.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Social fits the spa booking journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Booking Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Someone choosing a spa moves through five stages before booking. Social rarely wins the first search — its job is Feel and Compare, where the atmosphere and real treatment content earn the desire to book and send it to a friend.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A Reel or a share puts your spa on the radar</p></li>
+        <li class="funnel-stage"><h3>Feel</h3><p>Ambience content sells the escape on sight</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Saves, sends and reviews weigh the options</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>DMs and profile link turn desire into an appointment</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>A calm first visit, then rebook &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about spa social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about spa social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Spa Social Media — Questions Answered</h2>
+        <h2>Spa <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for spas in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which social media platforms work best for spas in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram and TikTok carry a spa. Both are visual-first, which suits an experience built on atmosphere — calming treatment-room Reels, therapist tips, and Stories that let people feel the escape before they arrive. Instagram holds your grid and Stories audience across Orchard, Tanjong Pagar and Holland Village; TikTok reaches self-care and wellness viewers earlier in their search.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which social media platforms work best for spas in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram is the strongest platform for spas — calming visuals, treatment Reels, and Stories create an aspirational brand experience. Facebook is excellent for promoting gift vouchers and reaching a professional demographic. TikTok is growing for wellness and self-care content in the Singapore market.</p></div>
+          <summary>What kind of content do you create for spas?</summary>
+          <div class="faq-answer"><p>Ambience and treatment-room Reels, satisfying massage and body-treatment clips, therapist tips on recovery and self-care, seasonal and couples-package promotions, and quiet behind-the-scenes moments — the steam room, the facial, the reflexology. Every post is built to evoke the sensory escape and prompt a booking.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What kind of content do you create for spas?</summary>
-          <div class="faq-answer"><p>We create serene treatment environment videos, therapist spotlight posts, wellness tips and self-care guides, seasonal promotion graphics, gift voucher campaigns, couples package features, and behind-the-scenes content. Every post is designed to evoke relaxation and inspire bookings.</p></div>
+          <summary>Why does visual content matter so much for a spa?</summary>
+          <div class="faq-answer"><p>A spa sells atmosphere, so people decide with their eyes. A calming, consistent feed makes the escape feel real before they book; a quiet or generic one reads as an afterthought. We treat the feed as a preview of the room — light, texture, pace and sound all working to make someone want to switch off and come in.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help promote my spa gift vouchers?</summary>
-          <div class="faq-answer"><p>Absolutely. Gift voucher campaigns on social media perform exceptionally well during Valentine's Day, Mother's Day, Christmas, and birthday seasons. We create targeted campaigns with compelling visuals and clear purchase links that drive voucher sales — often one of the highest-margin revenue streams for spas.</p></div>
+          <summary>Do you measure saves and shares rather than likes?</summary>
+          <div class="faq-answer"><p>Yes. For a spa, saves and sends are the signals that matter — someone bookmarking a treatment for later or sending a couples package to a partner is far closer to a booking than a like. We build content for that intent and report on profile-to-enquiry and bookings that mention social, not vanity counts.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you capture the right mood and aesthetic for spa content?</summary>
-          <div class="faq-answer"><p>We develop a visual identity and content style guide specific to your spa's brand — from colour palettes and typography to photography mood boards and video editing styles. Whether your spa is minimal and Zen-inspired or luxurious and indulgent, every piece of content reinforces that experience.</p></div>
+          <summary>Can social media promote couples packages and seasonal treatments?</summary>
+          <div class="faq-answer"><p>That is where social earns its keep. Couples packages, festive treatments and quieter-season promotions all move well when the content captures the feeling and the timing is planned in advance — around Valentine's, year-end, and the gifting moments when people are already looking for something to send.</p></div>
         </details>
       </div>
     </div>
@@ -210,11 +284,12 @@ const schemaData = [
         <h2>More Spa Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/spa-website-design-singapore/" class="related-service-link">Spa Website Design</a>
-          <a href="/spa-seo-singapore/" class="related-service-link">Spa SEO</a>
           <a href="/spa-marketing-singapore/" class="related-service-link">Spa Marketing</a>
+          <a href="/spa-seo-singapore/" class="related-service-link">Spa SEO</a>
+          <a href="/spa-ai-search-optimisation-singapore/" class="related-service-link">Spa GEO</a>
           <a href="/spa-google-ads-singapore/" class="related-service-link">Spa Google Ads</a>
           <a href="/spa-branding-singapore/" class="related-service-link">Spa Branding</a>
+          <a href="/spa-website-design-singapore/" class="related-service-link">Spa Websites</a>
       </div>
     </div>
   </section>

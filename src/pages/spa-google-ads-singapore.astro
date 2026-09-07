@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Spa Google Ads Singapore",
-    "description": "Google Ads management for spas in Singapore — target clients searching for massage, spa treatments, and wellness packages near them.",
+    "description": "Google Ads management for spas in Singapore — target clients searching for massage, facials, body treatments, reflexology, and couples packages near them. Booking-focused campaigns with conversion tracking.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much do Google Ads cost for spas in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which keywords should spas target on Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent keywords include treatment-specific searches like 'deep tissue massage Singapore', 'couples spa package', and 'body scrub treatment near me'. We also target location-based terms like 'spa Orchard Road' or 'massage Chinatown' plus gift-related searches like 'spa gift voucher Singapore'." } },
-      { "@type": "Question", "name": "Can Google Ads help promote my spa gift vouchers?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Gift voucher campaigns are one of the highest-ROI strategies for spas. We run targeted campaigns around occasions like Valentine's Day, Mother's Day, Christmas, and birthdays — capturing people searching for 'spa gift card Singapore' and similar terms at the exact moment they're ready to purchase." } },
-      { "@type": "Question", "name": "How do you track spa bookings from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking to monitor online bookings, phone calls, WhatsApp enquiries, and gift voucher purchases from ad traffic. Each booking is attributed to the specific keyword and campaign that drove it, so you can see exactly which treatments and promotions deliver the best return." } },
-      { "@type": "Question", "name": "When is the best time to run Google Ads for a spa in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Spa searches peak during festive seasons (Christmas, CNY), gift-giving occasions (Valentine's Day, Mother's Day), and long weekends. We recommend maintaining a baseline campaign year-round and increasing budgets 2–3 weeks before these peak periods. Corporate wellness bookings also spike in Q4 when companies plan team wellness activities." } }
+      { "@type": "Question", "name": "Which keywords should spas target on Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent keywords include treatment-specific searches like 'deep tissue massage Singapore', 'couples spa package', and 'foot reflexology near me'. We also target neighbourhood terms like 'spa Orchard', 'massage Tanjong Pagar', or 'facial Holland Village', plus gift-related searches like 'spa gift voucher Singapore' that spike around festive seasons." } },
+      { "@type": "Question", "name": "Do you run booking lead ads for spas on Google and Meta?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Search is the primary channel because it captures people actively looking for a spa or massage in their area. Where it fits, we add Meta lead and booking ads to fill quieter weekdays and promote couples packages or seasonal offers. Every enquiry lands in one place so your front desk can respond fast." } },
+      { "@type": "Question", "name": "How do you track spa bookings from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking on online bookings, WhatsApp enquiries, and gift voucher purchases from ad traffic, and we pass the Google Click ID (GCLID) so every booking is attributed to the exact keyword and campaign that drove it. You see cost per booking by treatment, not just clicks." } },
+      { "@type": "Question", "name": "When is the best time to run Google Ads for a spa in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Spa demand peaks around gift-giving occasions — Valentine's Day, Mother's Day, Christmas, and Chinese New Year — and on long weekends. We keep a baseline campaign running year-round and scale budgets two to three weeks before those windows. Couples packages climb before anniversaries, and corporate wellness enquiries rise in Q4." } }
     ]
   },
   {
@@ -46,83 +46,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Spa Google Ads Singapore — Jraft Creative"
-  description="Google Ads for Singapore spas — target searches for massage, spa treatments, wellness packages, and gift vouchers."
+  title="Google Ads Agency for Spas in Singapore"
+  description="Google Ads for spas in Singapore — booking-focused campaigns for massage, facials, body treatments, reflexology, couples packages, and gift vouchers."
   canonical="https://jraftcreative.com/spa-google-ads-singapore/"
-  ogTitle="Spa Google Ads Singapore — Jraft Creative"
-  ogDescription="Google Ads for Singapore spas — target searches for massage, spa treatments, wellness packages, and gift vouchers."
-  ogImage="https://jraftcreative.com/images/og-ads.jpg"
-  keywords="spa google ads singapore, spa advertising singapore, google ads for spa, ppc spa singapore, spa marketing singapore, massage google ads singapore, Jraft Creative"
+  ogTitle="Google Ads Agency for Spas in Singapore"
+  ogDescription="Google Ads for spas in Singapore — booking-focused campaigns that fill treatment rooms and sell gift vouchers, tracked to cost per booking."
+  ogImage="https://jraftcreative.com/images/og-spa.jpg"
+  keywords="spa google ads singapore, spa advertising singapore, google ads for spa, ppc spa singapore, massage google ads singapore, reflexology ads singapore, spa marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Spa Google Ads"
-  heroTitle='Google Ads for <span class="highlight">Spas in Singapore</span>'
-  heroSubtitle="Clients are searching for spa treatments and massage right now. We build and manage Google Ads campaigns that put your spa at the top of search results — driving bookings for massages, wellness packages, and gift vouchers."
+  heroLabel="Google Ads Agency for Spas"
+  heroTitle='Google Ads Agency for <span class="highlight">Spas in Singapore</span>'
+  heroSubtitle="Clients are searching for a massage, a facial, or a couples package right now. We build and manage Google Ads campaigns that put your spa at the top of search results — filling treatment rooms and driving gift voucher sales, with every booking tracked back to the ad that earned it."
   heroImage="/images/service-spa.webp"
+  heroImageAlt="Calm Singapore spa treatment room set up for a massage, representing bookings driven by Google Ads"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "Book a Consultation", href: "/contact/", class: "btn btn-secondary" }
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need Google Ads for my spa in Singapore."
   ctaLabel="Grow Your Bookings"
   ctaTitle="Get a Free Spa Ads Strategy Session"
-  ctaDescription="Book a free consultation and we'll review your current ad performance, analyse your local competition, and identify the highest-value keywords for your spa. We'll get back to you within 24 hours."
+  ctaDescription="Book a free consultation and we'll review your current ad performance, analyse your local competition, and identify the highest-value treatment and gift-voucher keywords for your spa. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20spa%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Google Ads challenges for spas">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Struggling to Keep Your Treatment Rooms Full?</h2>
+        <h2>Struggling to Keep Your <span class="highlight">Treatment Rooms Full</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's spa and wellness industry generates over S$500 million annually, and the market is growing as more professionals seek stress relief and self-care. But with hundreds of spas competing across the island — from luxury hotel spas to neighbourhood wellness centres — standing out is harder than ever. When a client searches "spa near me" or "best massage Singapore", the spas running Google Ads capture those bookings first.</p>
-        <p>Relying on walk-in traffic, hotel concierge referrals, or directory listings means missing the 70% of spa clients who start their search on Google. Without targeted campaigns, your spa loses visibility during high-demand periods like festive seasons and long weekends, your gift voucher sales plateau, and competitors with stronger online presence capture the clients who would have been yours.</p>
-        <p>The spa industry in Singapore also faces unique seasonality — gift voucher searches spike around Valentine's Day and Christmas, couples packages peak before anniversaries and special occasions, and corporate wellness enquiries increase in Q4. Without ads timed to these patterns, you miss the highest-value booking windows of the year.</p>
+        <p>Singapore's spa and wellness market runs into the hundreds of millions a year, and the spas that appear at the moment someone searches "spa near me" or "massage Orchard" are the ones that get booked. As part of our wider <a href="/industries/beauty-aesthetics/">beauty and aesthetics marketing</a>, we help spas capture that demand instead of losing it to whoever ranks first. If you're weighing search versus social, our guide on <a href="/blog/google-ads-vs-meta-ads-singapore/">choosing between Google Ads and Meta Ads in Singapore</a> walks through where each channel earns its place for a spa.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible When Intent Is Highest</h3>
+            <p>When someone searches "couples spa package" or "foot reflexology Tampines", they book with whoever shows up — even if your therapists and rooms are better.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Missed Gift and Seasonal Windows</h3>
+            <p>Gift voucher searches spike around Valentine's Day, Mother's Day, and Christmas. Without ads timed to those weeks, your quietest months stay quiet.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Budget Spent Without Bookings</h3>
+            <p>Broad keywords and an untended account burn spend on browsers who never book. Without proper tracking, you can't tell which treatments pay for themselves.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for spas">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for spas">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Spa Ad Services</p>
-        <h2>Google Ads Built for Spa Bookings</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Spa <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in Google Ads for spas and wellness centres across Singapore — from boutique day spas to full-service wellness retreats. Every campaign targets the treatments your clients search for, in the areas where your spa operates, and at the times when booking intent is highest.</p>
-        <p>Our campaigns cover treatment-specific searches (Swedish massage, aromatherapy, body scrub), gift voucher keywords, couples packages, and corporate wellness enquiries — so every ad dollar drives real bookings and revenue.</p>
-        <p>Complement your paid ads with a professional <a href="/services/website-development/">spa website</a>, <a href="/services/seo-performance/">SEO for organic search visibility</a>, or <a href="/spa-social-media-singapore/">social media marketing to build your wellness brand</a>.</p>
+        <p>Every campaign is built around the treatments your clients search for, the neighbourhoods your spa serves, and the seasons when booking intent peaks — and judged on confirmed bookings, not clicks. Pair your ads with a booking-ready <a href="/spa-website-design-singapore/">spa website</a>, ongoing <a href="/spa-seo-singapore/">spa SEO</a> for organic visibility, and <a href="/spa-social-media-singapore/">spa social media</a> to keep your rooms full between campaigns.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment-Specific PPC</h3>
-            <p>Keyword campaigns targeting what clients actually search — "deep tissue massage Singapore", "hot stone spa near me", "body scrub treatment" — capturing high-intent traffic ready to book their next spa visit.</p>
+            <h3>Treatment-Specific Search Campaigns</h3>
+            <p>Keyword campaigns for what clients actually type — "deep tissue massage Singapore", "hot stone facial", "foot reflexology near me" — high-intent searches ready to book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Gift Voucher Campaigns</h3>
-            <p>Targeted campaigns for spa gift voucher searches around Valentine's Day, Mother's Day, Christmas, and birthdays — capturing gift buyers at the exact moment they're ready to purchase for someone they care about.</p>
+            <h3>Gift Voucher &amp; Seasonal Campaigns</h3>
+            <p>Campaigns timed to Valentine's Day, Mother's Day, Christmas, and Chinese New Year, catching gift buyers searching "spa gift voucher Singapore" at the moment they're ready to buy.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Wellness Package Promotions</h3>
-            <p>Seasonal and event-based campaigns promoting couples packages, corporate wellness days, membership plans, and treatment bundles — timed to maximise bookings during peak demand and quieter periods alike.</p>
+            <h3>Couples &amp; Package Promotions</h3>
+            <p>Ads for couples packages, body treatment bundles, membership plans, and corporate wellness days — timed to fill peak weekends and steady the quieter weekdays.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Booking-Optimised Landing Pages</h3>
-            <p>Dedicated landing pages for each treatment or package that showcase your spa environment, therapist expertise, and client reviews — designed to turn ad clicks into confirmed appointments and voucher sales.</p>
+            <h3>Booking Lead Ads &amp; Landing Pages</h3>
+            <p>Google Search leads the way, with Meta booking and lead ads added where they fit. Each treatment gets a landing page built to turn a click into a confirmed appointment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood &amp; Radius Targeting</h3>
+            <p>Ads focused on where your clients are — Orchard, Tanjong Pagar, Bugis, Dempsey, Holland Village, Tampines, and Sentosa — so budget follows people who can actually visit.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Conversion Tracking &amp; Cost-Per-Booking Reporting</h3>
+            <p>We track click to confirmed booking with GCLID attribution and report cost per booking by treatment — so you know which campaigns pay for themselves.</p>
           </div>
         </div>
       </div>
@@ -130,51 +190,65 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for spa Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for spa Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand Singapore's Spa &amp; Wellness Market</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> That Understands <span class="highlight">Spas</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns for spas and wellness businesses across Singapore and understand the seasonal trends, competitive landscape, and client behaviour that drive bookings. Here's why spas choose us:</p>
+        <p>We manage spa and wellness ad accounts across Singapore and know the seasonal rhythm, the neighbourhood competition, and the copy that turns a stressed professional into a booking.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Industry Expertise</h3>
-            <p>We know which keywords convert for spas, when to scale budgets around festive and gift-giving seasons, and how to write ad copy that appeals to stressed-out professionals and self-care enthusiasts in Singapore.</p>
+            <h3>Wellness Market Know-How</h3>
+            <p>We know which keywords convert for spas, when to scale around festive and gift-giving seasons, and how to write copy that appeals to people looking for rest and self-care.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You see every dollar in your own Google Ads account and know exactly what each booking or voucher sale costs.</p>
+            <p>Your budget goes straight to Google, never marked up. The account stays in your name, so you see every dollar and exactly what each booking or voucher sale costs.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Scale up during Christmas and CNY, and adjust during quieter months — you're never locked into a fixed term.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Revenue-Based Tracking</h3>
-            <p>We track the full journey from ad click to confirmed booking and voucher sale. You'll know exactly which treatments, keywords, and campaigns generate the best return on your ad investment.</p>
+            <h3>Tracked to the Booking</h3>
+            <p>We report cost per confirmed booking, not clicks — and also run <a href="/spa-seo-singapore/">spa SEO</a> and <a href="/spa-website-design-singapore/">spa websites</a> to convert the traffic your ads bring in.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Google Ads fits the spa client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A spa client moves through five stages before booking. Google Ads owns the two highest-intent moments — Discover, when they first search a treatment or a nearby spa, and Book, when a remarketing ad brings a researcher back to confirm.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>An ad captures the first "spa near me" search</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>They read treatments, therapists, and the setting</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Photos and reviews weigh the nearby spas</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Remarketing brings them back to confirm</p></li>
+        <li class="funnel-stage"><h3>Rebook</h3><p>A first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for spas">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for spas">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Google Ads for Spas — Questions Answered</h2>
+        <h2>Spa <span class="highlight">Google Ads</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -183,19 +257,19 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Which keywords should spas target on Google Ads?</summary>
-          <div class="faq-answer"><p>High-intent keywords include treatment-specific searches like "deep tissue massage Singapore", "couples spa package", and "body scrub treatment near me". We also target location-based terms like "spa Orchard Road" or "massage Chinatown" plus gift-related searches like "spa gift voucher Singapore".</p></div>
+          <div class="faq-answer"><p>High-intent keywords include treatment-specific searches like "deep tissue massage Singapore", "couples spa package", and "foot reflexology near me". We also target neighbourhood terms like "spa Orchard", "massage Tanjong Pagar", or "facial Holland Village", plus gift-related searches like "spa gift voucher Singapore" that spike around festive seasons.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can Google Ads help promote my spa gift vouchers?</summary>
-          <div class="faq-answer"><p>Absolutely. Gift voucher campaigns are one of the highest-ROI strategies for spas. We run targeted campaigns around occasions like Valentine's Day, Mother's Day, Christmas, and birthdays — capturing people searching for "spa gift card Singapore" and similar terms at the exact moment they're ready to purchase.</p></div>
+          <summary>Do you run booking lead ads for spas on Google and Meta?</summary>
+          <div class="faq-answer"><p>Yes. Google Search is the primary channel because it captures people actively looking for a spa or massage in their area. Where it fits, we add Meta lead and booking ads to fill quieter weekdays and promote couples packages or seasonal offers. Every enquiry lands in one place so your front desk can respond fast.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>How do you track spa bookings from Google Ads?</summary>
-          <div class="faq-answer"><p>We set up conversion tracking to monitor online bookings, phone calls, WhatsApp enquiries, and gift voucher purchases from ad traffic. Each booking is attributed to the specific keyword and campaign that drove it, so you can see exactly which treatments and promotions deliver the best return.</p></div>
+          <div class="faq-answer"><p>We set up conversion tracking on online bookings, WhatsApp enquiries, and gift voucher purchases from ad traffic, and we pass the Google Click ID (GCLID) so every booking is attributed to the exact keyword and campaign that drove it. You see cost per booking by treatment, not just clicks.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>When is the best time to run Google Ads for a spa in Singapore?</summary>
-          <div class="faq-answer"><p>Spa searches peak during festive seasons (Christmas, CNY), gift-giving occasions (Valentine's Day, Mother's Day), and long weekends. We recommend maintaining a baseline campaign year-round and increasing budgets 2–3 weeks before these peak periods. Corporate wellness bookings also spike in Q4 when companies plan team wellness activities.</p></div>
+          <div class="faq-answer"><p>Spa demand peaks around gift-giving occasions — Valentine's Day, Mother's Day, Christmas, and Chinese New Year — and on long weekends. We keep a baseline campaign running year-round and scale budgets two to three weeks before those windows. Couples packages climb before anniversaries, and corporate wellness enquiries rise in Q4.</p></div>
         </details>
       </div>
     </div>
@@ -207,14 +281,15 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Spa Services</h2>
+        <h2>More <span class="highlight">Spa Services</span></h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/spa-website-design-singapore/" class="related-service-link">Spa Website Design</a>
-          <a href="/spa-seo-singapore/" class="related-service-link">Spa SEO</a>
           <a href="/spa-marketing-singapore/" class="related-service-link">Spa Marketing</a>
+          <a href="/spa-seo-singapore/" class="related-service-link">Spa SEO</a>
+          <a href="/spa-ai-search-optimisation-singapore/" class="related-service-link">Spa GEO</a>
           <a href="/spa-social-media-singapore/" class="related-service-link">Spa Social Media</a>
           <a href="/spa-branding-singapore/" class="related-service-link">Spa Branding</a>
+          <a href="/spa-website-design-singapore/" class="related-service-link">Spa Websites</a>
       </div>
     </div>
   </section>
