@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Yoga Studio Social Media Marketing Singapore",
-    "description": "Social media marketing for yoga studios in Singapore. Class highlights, wellness lifestyle content, instructor spotlights, and community-building campaigns across Instagram and Facebook.",
+    "name": "Yoga Studio Social Media Singapore",
+    "description": "Social media marketing for yoga studios in Singapore — Instagram and TikTok content, Reels, graphic design, and community management that turns followers into trial bookings.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for yoga studios in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What type of social media content works best for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective yoga studio content combines instructor-led tutorials, class atmosphere videos, student progress stories, wellness tips, and behind-the-scenes studio moments. Reels showing pose breakdowns and short flow sequences consistently generate the highest engagement. Lifestyle content connecting yoga to Singapore's fast-paced work culture resonates strongly with the local audience." } },
-      { "@type": "Question", "name": "Which social media platforms should yoga studios in Singapore focus on?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the primary platform for yoga studios in Singapore due to its visual nature and strong wellness community. TikTok is growing rapidly for short-form yoga content. Facebook remains effective for community building, event promotion, and reaching the 35+ demographic. We recommend starting with Instagram and expanding based on your target audience." } },
-      { "@type": "Question", "name": "How can social media help my yoga studio attract new students?", "acceptedAnswer": { "@type": "Answer", "text": "Social media builds awareness and trust before a potential student books their first class. Consistent content showcasing your teaching style, studio atmosphere, and community helps people overcome the intimidation factor. Targeted local campaigns, trial class promotions, and student testimonial content convert followers into first-time visitors. Most studios see measurable growth in trial bookings within 2 to 3 months of consistent social media activity." } },
-      { "@type": "Question", "name": "Do you create video content for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Video is central to yoga studio social media. We produce Reels and short-form videos including pose tutorials, class previews, instructor introductions, studio tours, and student testimonials. Our Professional plan includes 4 Reels per month, and our Full-Service plan includes 8+ Reels per month. We handle filming direction, editing, music selection, and caption writing." } }
+      { "@type": "Question", "name": "What content works best for a yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "Short-form video leads — class clips, pose breakdowns, and instructor moments across vinyasa, hatha, yin, and hot yoga. It shows the practice and the feel of your room, and it's what Instagram and TikTok push hardest right now. Real student stories, shared with consent, do the quiet convincing." } },
+      { "@type": "Question", "name": "Do I need to be on camera?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. Plenty of strong content features the space, a flow sequence, and students who've agreed to be filmed. If you or your instructors are comfortable teaching to camera it builds a real connection, but we can work either way." } },
+      { "@type": "Question", "name": "Instagram or TikTok for a yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the core for most Singapore studios — that's where students in Tanjong Pagar, Tiong Bahru, or Novena research and book. TikTok is a strong growth channel for discovery. We usually lead with Instagram and cross-post to TikTok, cut and captioned per platform." } },
+      { "@type": "Question", "name": "How often will you post?", "acceptedAnswer": { "@type": "Answer", "text": "We set a consistent cadence that fits your goals and keeps the account active without burning through content. The exact frequency is agreed in your plan — showing up regularly matters more than raw volume." } },
+      { "@type": "Question", "name": "Do you film at my studio?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can arrange shoots at your studio around class times, and we can also work from footage you capture on your phone between sessions. We set up a simple system so there's always content in the pipeline." } }
     ]
   },
   {
@@ -40,167 +40,284 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Yoga Studio Social Media", "item": "https://jraftcreative.com/yoga-studio-social-media-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Yoga Studio Social Media Singapore", "item": "https://jraftcreative.com/yoga-studio-social-media-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
   title="Yoga Studio Social Media Singapore — Jraft Creative"
-  description="Social media marketing for yoga studios in Singapore. Class highlights, wellness lifestyle content, instructor spotlights."
+  description="Social media marketing for yoga studios in Singapore — Instagram and TikTok content, Reels, and community management that fills trial classes."
   canonical="https://jraftcreative.com/yoga-studio-social-media-singapore/"
   ogTitle="Yoga Studio Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing for yoga studios in Singapore. Build your community, fill more classes, and grow your studio brand online. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="yoga studio social media singapore, yoga social media marketing, yoga instagram marketing singapore, yoga studio digital marketing, yoga content creation singapore, wellness social media singapore, Jraft Creative"
+  ogDescription="Instagram and TikTok content for yoga studios in Singapore. Reels, design, and community management that turn followers into trial bookings."
+  ogImage="https://jraftcreative.com/images/og-yoga.jpg"
+  keywords="yoga studio social media singapore, yoga instagram marketing, yoga tiktok singapore, yoga studio content, vinyasa hot yoga reels, yoga marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Yoga Studio Social Media Marketing"
-  heroTitle='Social Media for <span class="highlight">Yoga Studios</span> in Singapore'
-  heroSubtitle="Class highlights, wellness lifestyle content, and instructor spotlights that build your community online. We help yoga studios in Singapore attract new students, retain existing members, and grow a brand people genuinely connect with."
+  heroLabel="Yoga Studio Social Media"
+  heroTitle='Social Media for <span class="highlight">Yoga Studios in Singapore</span>'
+  heroSubtitle="Students decide which studio feels like theirs long before they book a trial — usually on Instagram or TikTok, mid-scroll. We create content that captures your room, your instructors, and your community across vinyasa, hatha, hot, and yin — and turns followers into bookings."
   heroImage="/images/service-yoga.webp"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my yoga studio in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Yoga Studio with Social Media"
-  ctaDescription="Book a free consultation and tell us about your studio. We'll get back to you within 24 hours with a tailored social media strategy."
+  whatsappText="Hi Jraft Creative, I need social media content for my yoga studio in Singapore."
+  ctaLabel="Ready to Grow Your Following?"
+  ctaTitle='Get a Free <span class="highlight">Yoga Content Plan</span>'
+  ctaDescription="Book a free consultation and we'll show you the content pillars, formats, and cadence that will grow your studio's following — and turn it into trial bookings. No obligations."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Content Plan", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20content%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Social media challenges for yoga studios in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why yoga studios need social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Beautiful Classes Alone Will Not Fill Your Studio</h2>
+        <h2>Posting a Lot, <span class="highlight">Booking Little</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 300 yoga studios — from boutique shalas in Tiong Bahru to large franchise operations in Orchard Road. ClassPass, online yoga platforms, and home practice apps have given students more options than ever. The studios that consistently fill classes are not necessarily the ones with the best teachers or the most beautiful spaces. They are the ones students find, follow, and feel connected to before they ever roll out a mat.</p>
-        <p>Social media is where that connection begins. A potential student scrolling through Instagram at lunch decides whether your studio feels right for them based on a 15-second Reel or a single post. If your feed is sparse, inconsistent, or looks like a schedule board with stock imagery, they scroll past. The studio that shows up with authentic class footage, instructor personality, and genuine community moments earns the trial booking. In a market where switching studios costs nothing, your social media is the reason students choose you — and keep choosing you.</p>
+        <p>Yoga is deeply visual and deeply personal — but a busy grid isn't the same as a full class schedule. With ClassPass and home-practice apps a tap away, the content that fills a Bugis or Holland Village studio looks and works differently from content that just fills a feed.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Grid That Looks Like Everyone Else</h3>
+            <p>Sunset warrior poses and quote tiles that could belong to any studio. Sameness gets scrolled past — nothing about it says why a student should choose your room over the one down the street.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Likes That Don't Book Classes</h3>
+            <p>Reach and likes feel good but don't fill your mats. Content that isn't built to drive a trial — with a reason and a clear way to book — is just decoration.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Time to Post Consistently</h3>
+            <p>Teaching back-to-back classes leaves no time to shoot, edit, caption, and reply. The account goes quiet — and quiet accounts don't grow or get found by new students.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for yoga studios">
+  <!-- ========== WHAT WE MAKE ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for yoga studios">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Yoga Studios</h2>
+        <p class="section-label">What We Make</p>
+        <h2>Content Built to <span class="highlight">Fill Classes</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create and manage social media content that captures the energy, warmth, and expertise of your yoga studio. From flowing Reels and pose breakdowns to wellness lifestyle posts and student stories, every piece of content is designed to reflect your teaching philosophy and bring the right students through your door.</p>
-        <p>Our team handles strategy, design, video production, copywriting, and community management — so you can focus on teaching. We plan content around workshop launches, seasonal campaigns, and the natural rhythms of Singapore's yoga calendar.</p>
+        <p>End-to-end social, from strategy to the last caption — planned around your timetable, from early hot yoga to evening yin, and made to earn the save, the share, and the trial booking. It pairs naturally with your <a href="/yoga-studio-website-singapore/">yoga studio website</a>, your <a href="/yoga-studio-seo-singapore/">local SEO</a>, and any <a href="/yoga-studio-google-ads-singapore/">Google Ads</a> running alongside.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Class &amp; Flow Reels</h3>
-            <p>Short-form video content capturing the atmosphere of your classes — flowing sequences, pose breakdowns, breathing exercises, and studio ambience that gives potential students a genuine feel for what practising at your studio is like.</p>
+            <h3>Content Strategy &amp; Planning</h3>
+            <p>A monthly plan with a real angle — pillar themes, platform-specific formats, and a calendar built around your classes, workshops, and community, not posting for the sake of it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Community Building</h3>
-            <p>Proactive engagement with your students and followers — responding to comments, answering class enquiries, sharing student milestones, and fostering the sense of community that keeps members loyal and turns first-timers into regulars.</p>
+            <h3>Reels &amp; Short-Form Video</h3>
+            <p>Flow clips, pose breakdowns, instructor moments, and real student journeys — shot and edited to stop the scroll in the first second and hold it. The format that wins discovery in Singapore.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Wellness Lifestyle Content</h3>
-            <p>Branded graphics and lifestyle posts covering mindfulness tips, nutrition guidance, stress management, and holistic wellness — positioning your studio as more than just a place to exercise, but a resource for balanced living in Singapore.</p>
+            <h3>Graphic Design &amp; Visuals</h3>
+            <p>Carousels, class-menu tiles, and stories that look unmistakably like your studio — a recognisable brand across vinyasa, hatha, and prenatal, not another lookalike wellness template.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Instructor Spotlights &amp; Campaigns</h3>
-            <p>Featured profiles of your teaching team, workshop promotions, seasonal challenges, and trial class campaigns — designed to showcase your studio's expertise and drive bookings during peak interest periods.</p>
+            <h3>Community Management</h3>
+            <p>Replies, DMs, and comment moderation that turn a following into a community — and answer the "how do I book a trial?" questions that quietly convert first-timers into regulars.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio social media">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for yoga studio social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Gets Yoga</h2>
+        <h2>Content People Watch — <span class="highlight">Built to Sell</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Yoga is personal, and your social media should feel that way too. We create content that honours your teaching style, respects the practice, and speaks to the people in Singapore who are looking for exactly what your studio offers — without the generic wellness cliches.</p>
+        <p>Plenty of agencies fill a grid. We do the rarer thing — content students actually want to watch, made and measured to bring bookings, not just likes.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Industry Experience</h3>
-            <p>We understand the yoga and wellness landscape in Singapore — from boutique Vinyasa studios to large Bikram chains. Your content reflects the nuances of your teaching style, lineage, and the community you are building.</p>
+            <h3>Content That's Measured</h3>
+            <p>We make content people want to watch, then judge it on saves, sends, and enquiries — the signals that actually predict trial bookings, not vanity likes.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Authentic, Not Performative</h3>
-            <p>No over-filtered, contortionist-level poses that intimidate beginners. We create content that feels real, approachable, and inclusive — reflecting how yoga is actually practised in your studio, not how it looks on stock image sites.</p>
+            <h3>Real, Not Performative</h3>
+            <p>No over-filtered, contortionist poses that scare off beginners. We show yoga as it's actually practised in your room — approachable, inclusive, and true to your teaching.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Review &amp; Approval</h3>
-            <p>Every post, caption, and Reel is sent for your review before publishing. You maintain full control over your studio's voice and messaging. Nothing goes live without your approval.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because your classes are filling up and your community is growing — not because of a binding contract.</p>
+            <h3>Built for How SG Scrolls</h3>
+            <p>We know what performs for a Singapore wellness audience — the formats, hooks, and timing tuned to the feed your students in Katong, Orchard, or Tanjong Pagar actually use.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== SOCIAL FLOW ========== -->
+  <section class="section" id="social-flow" style="background: var(--bg-alt);" aria-label="How yoga studio social media works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Quiet Grid</span> to <span class="highlight">Booked Classes</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A simple monthly rhythm that keeps your studio visible, consistent, and growing — without adding to your teaching load.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Plan</h3>
+          <p>Content pillars and monthly calendar</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Create</h3>
+          <p>Reels, statics, and captions produced</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Publish</h3>
+          <p>Posted consistently, at the right times</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Report</h3>
+          <p>Saves, sends, and enquiries tracked</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio social media marketing">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio social media in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Yoga Studio Social Media — Questions Answered</h2>
+        <h2><span class="highlight">Yoga Studio Social Media</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for yoga studios in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>What content works best for a yoga studio?</summary>
+          <div class="faq-answer"><p>Short-form video leads — class clips, pose breakdowns, and instructor moments across vinyasa, hatha, yin, and hot yoga. It shows the practice and the feel of your room, and it's what Instagram and TikTok push hardest right now. Real student stories, shared with consent, do the quiet convincing.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What type of social media content works best for yoga studios?</summary>
-          <div class="faq-answer"><p>The most effective yoga studio content combines instructor-led tutorials, class atmosphere videos, student progress stories, wellness tips, and behind-the-scenes studio moments. Reels showing pose breakdowns and short flow sequences consistently generate the highest engagement. Lifestyle content connecting yoga to Singapore's fast-paced work culture resonates strongly with the local audience.</p></div>
+          <summary>Do I need to be on camera?</summary>
+          <div class="faq-answer"><p>Not necessarily. Plenty of strong content features the space, a flow sequence, and students who've agreed to be filmed. If you or your instructors are comfortable teaching to camera it builds a real connection, but we can work either way.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Which social media platforms should yoga studios in Singapore focus on?</summary>
-          <div class="faq-answer"><p>Instagram is the primary platform for yoga studios in Singapore due to its visual nature and strong wellness community. TikTok is growing rapidly for short-form yoga content. Facebook remains effective for community building, event promotion, and reaching the 35+ demographic. We recommend starting with Instagram and expanding based on your target audience.</p></div>
+          <summary>Instagram or TikTok for a yoga studio?</summary>
+          <div class="faq-answer"><p>Instagram is the core for most Singapore studios — that's where students in Tanjong Pagar, Tiong Bahru, or Novena research and book. TikTok is a strong growth channel for discovery. We usually lead with Instagram and cross-post to TikTok, cut and captioned per platform.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How can social media help my yoga studio attract new students?</summary>
-          <div class="faq-answer"><p>Social media builds awareness and trust before a potential student books their first class. Consistent content showcasing your teaching style, studio atmosphere, and community helps people overcome the intimidation factor. Targeted local campaigns, trial class promotions, and student testimonial content convert followers into first-time visitors. Most studios see measurable growth in trial bookings within 2 to 3 months of consistent social media activity.</p></div>
+          <summary>How often will you post?</summary>
+          <div class="faq-answer"><p>We set a consistent cadence that fits your goals and keeps the account active without burning through content. The exact frequency is agreed in your plan — showing up regularly matters more than raw volume.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you create video content for yoga studios?</summary>
-          <div class="faq-answer"><p>Yes. Video is central to yoga studio social media. We produce Reels and short-form videos including pose tutorials, class previews, instructor introductions, studio tours, and student testimonials. Our Professional plan includes 4 Reels per month, and our Full-Service plan includes 8+ Reels per month. We handle filming direction, editing, music selection, and caption writing.</p></div>
+          <summary>Do you film at my studio?</summary>
+          <div class="faq-answer"><p>Yes. We can arrange shoots at your studio around class times, and we can also work from footage you capture on your phone between sessions. We set up a simple system so there's always content in the pipeline.</p></div>
         </details>
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
@@ -212,10 +329,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/yoga-studio-marketing-singapore/" class="related-service-link">Yoga Studio Marketing</a>
-          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Website Design</a>
           <a href="/yoga-studio-seo-singapore/" class="related-service-link">Yoga Studio SEO</a>
+          <a href="/yoga-studio-geo-singapore/" class="related-service-link">Yoga Studio GEO</a>
           <a href="/yoga-studio-google-ads-singapore/" class="related-service-link">Yoga Studio Google Ads</a>
           <a href="/yoga-studio-branding-singapore/" class="related-service-link">Yoga Studio Branding</a>
+          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Websites</a>
       </div>
     </div>
   </section>

@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Yoga Studio Branding Singapore",
-    "description": "Professional branding for yoga studios in Singapore — logo design, visual identity, zen wellness aesthetic, studio design language, and marketing materials. Stand out from the competition.",
+    "description": "Branding for yoga studios in Singapore — logo and visual identity, colour and type system, studio photography direction, tone of voice, and print and digital collateral that signals a premium studio.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does branding cost for a yoga studio in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Why does branding matter for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "Singapore has over 300 yoga studios competing for the same audience. Students often choose where to practise based on how a studio feels — and that feeling starts with your brand. A professionally designed identity that reflects your teaching philosophy, studio atmosphere, and values helps you attract students who genuinely align with what you offer, rather than competing solely on price or location." } },
-      { "@type": "Question", "name": "What makes yoga studio branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Yoga studio branding must capture something intangible — a sense of calm, mindfulness, and intentionality. It needs to resonate emotionally while remaining professional and distinctive. The challenge is avoiding both the clinical look of a healthcare brand and the cliched lotus-and-om aesthetic that makes studios look interchangeable. We create identities that honour the practice while establishing a unique, memorable visual presence." } },
-      { "@type": "Question", "name": "How long does the yoga studio branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most yoga studio branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, merchandise, and studio signage take 4 to 6 weeks. We can time deliverables around your studio launch or rebrand date." } },
-      { "@type": "Question", "name": "Can you help with interior design and studio signage?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include studio signage design, and our Premium package includes interior branding guidelines — wall treatments, reception area design, wayfinding signage, and environmental graphics. We ensure your physical space reflects the brand identity so students feel the same energy online and in-studio." } }
+      { "@type": "Question", "name": "Why does a yoga studio need branding?", "acceptedAnswer": { "@type": "Answer", "text": "When every studio uses the same lotus mark and muted earth tones, students choose on price and location. A distinctive brand is what lets you hold a premium instead of matching ClassPass discounts. It's the difference between 'a yoga studio near me' and 'the studio I want to practise at'." } },
+      { "@type": "Question", "name": "Do you only design the logo, or the whole brand?", "acceptedAnswer": { "@type": "Answer", "text": "The whole brand. A logo on its own doesn't hold up. We build the identity, colour and type system, photography direction, tone of voice, and the templates and collateral that keep it consistent everywhere students see you — from your Tiong Bahru shopfront to your class schedule." } },
+      { "@type": "Question", "name": "Can you rebrand my existing yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, then rolling it out across your space, website, and socials so nothing looks half-changed while students are watching." } },
+      { "@type": "Question", "name": "Will the branding work across vinyasa, hot, yin and prenatal classes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design one system flexible enough to carry a heated vinyasa class card and a quiet yin or prenatal one, so the timetable reads as the same studio while each format still has its own feel. It applies the same way across your website, Instagram, ads, and print." } },
+      { "@type": "Question", "name": "How long does a branding project take?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on scope — a focused identity is quicker than a full rebrand with collateral, studio signage, and guidelines. We'll give you a clear timeline once we understand what you need. Book a consultation to scope it." } }
     ]
   },
   {
@@ -40,166 +40,284 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Branding Agency Singapore", "item": "https://jraftcreative.com/branding-agency-singapore/" },
-      { "@type": "ListItem", "position": 3, "name": "Yoga Studio Branding", "item": "https://jraftcreative.com/yoga-studio-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Yoga Studio Branding Singapore", "item": "https://jraftcreative.com/yoga-studio-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
   title="Yoga Studio Branding Singapore — Jraft Creative"
-  description="Branding for yoga studios in Singapore — logo design, zen wellness aesthetic, visual identity, and studio design language."
+  description="Branding for yoga studios in Singapore — logo and visual identity, colour and type system, photography direction, tone of voice, and collateral that signals a premium studio."
   canonical="https://jraftcreative.com/yoga-studio-branding-singapore/"
   ogTitle="Yoga Studio Branding Singapore — Jraft Creative"
-  ogDescription="Logo design, brand identity, and studio design language for yoga studios in Singapore. Create a brand that reflects your teaching philosophy and attracts your ideal students."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="yoga studio branding singapore, yoga logo design, yoga brand identity singapore, yoga studio design, wellness branding singapore, yoga marketing materials, Jraft Creative"
+  ogDescription="Branding for yoga studios in Singapore. Identity, positioning, and collateral that justify your price and stop students comparing you on discounts."
+  ogImage="https://jraftcreative.com/images/og-yoga.jpg"
+  keywords="yoga studio branding singapore, yoga studio brand identity, yoga logo design, vinyasa studio branding, hot yoga rebrand, yoga marketing singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Yoga Studio Branding"
-  heroTitle='Professional <span class="highlight">Branding for Yoga Studios</span> in Singapore'
-  heroSubtitle="Your teaching transforms lives on the mat. We create brand identities that capture that transformation — zen wellness aesthetics, intentional design language, and a visual presence that attracts students who share your philosophy."
+  heroTitle='Branding for <span class="highlight">Yoga Studios in Singapore</span>'
+  heroSubtitle="Scroll the studios in Tanjong Pagar or Tiong Bahru and they blur together — same lotus mark, same muted tones. Your brand is what justifies your price and stops students comparing you on ClassPass discounts alone. We build the identity that makes your studio the one they want to practise at."
   heroImage="/images/service-yoga.webp"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need branding for my yoga studio in Singapore."
-  ctaLabel="Ready to Elevate Your Yoga Studio Brand?"
-  ctaTitle="Get a Brand That Reflects Your Practice"
-  ctaDescription="Book a free consultation and tell us about your yoga studio. We will put together a tailored branding proposal — no obligations, no hard sell."
+  ctaLabel="Ready to Stand Out?"
+  ctaTitle='Build a <span class="highlight">Yoga Brand</span> Students Choose'
+  ctaDescription="Book a free consultation and we'll look at how your studio shows up today, where it blends in, and the brand direction that would set you apart. No obligations."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Book a Free Brand Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Branding challenges for yoga studios in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why yoga studios need branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Every Yoga Studio Looks the Same — Lotus Flowers and Muted Earth Tones</h2>
+        <h2>Is Your Studio <span class="highlight">Blending In</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Open Instagram, search for yoga studios in Singapore, and scroll. Within the first dozen results, you will see the same visual language repeated endlessly — lotus flowers, om symbols, muted earth tones, thin serif fonts, and watercolour textures. Every studio looks like a variation of the same template. Which one teaches powerful Vinyasa flows? Which one specialises in therapeutic Yin? Which one has the warm, inclusive community you have been looking for? You cannot tell from looking at their branding, because they all look identical.</p>
-        <p>This visual sameness is a problem because it forces students to choose based on price, location, or a friend's recommendation rather than genuine connection with what your studio offers. A distinctive brand identity changes this dynamic. When your visual presence reflects the specific energy of your practice — whether that is the intensity of an Ashtanga shala, the gentleness of a restorative studio, or the modern wellness approach of a hybrid concept — students recognise and remember you. They walk past other studios because yours feels different. That feeling starts with your brand, and it carries through every touchpoint — from your logo and website to your studio entrance and the schedule card they take home.</p>
+        <p>Search yoga in Singapore and the first dozen studios look interchangeable — a lotus, a thin serif, the same earth tones. When students can't tell a heated vinyasa class from a quiet yin one at a glance, they decide on price and postcode. A strong brand is what keeps you out of that race.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Blending Into the Crowd</h3>
+            <p>Lotus mark, muted palette, the same stock calm as ten studios down the road. If students can't tell your vinyasa from someone else's, they pick on price — and that's a race to the bottom.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Priced Like a Commodity</h3>
+            <p>Without a brand that signals quality, you're compared on ClassPass credits and intro packs. A distinctive identity is what lets you hold a premium and fill classes with full-fee members.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Inconsistent Everywhere</h3>
+            <p>The sign at your Holland Village shopfront, your Instagram, and your schedule card don't quite match. That gap reads as amateur, and it undercuts the calm, considered experience waiting inside your studio.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Yoga studio branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for yoga studios">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Yoga Studios</h2>
+        <h2>A Brand That <span class="highlight">Commands a Premium</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities that capture the essence of your yoga practice and translate it into a visual language that works everywhere — from your studio entrance and mat tags to your Instagram feed and booking platform. Every element is designed with intention, reflecting your teaching philosophy while standing apart from the hundreds of other studios in Singapore.</p>
+        <p>We build the full brand — not just a logo — as one system that carries from your shopfront to your feed. It flows straight into your <a href="/yoga-studio-website-singapore/" class="inline-link">studio website</a>, your <a href="/yoga-studio-social-media-singapore/" class="inline-link">social media</a>, and the way you show up in <a href="/yoga-studio-seo-singapore/" class="inline-link">search</a>, so your studio reads as the premium choice everywhere students meet it.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo that captures the spirit of your practice — whether that is grounded and traditional, modern and dynamic, or warm and inclusive. Includes primary, stacked, icon, and monochrome variations designed to work on signage, merchandise, digital platforms, and print.</p>
+            <p>A distinctive logo, colour palette, and type system that captures your studio's feel — grounded and traditional, or modern and dynamic — and looks premium on your sign, your app, and your feed.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Studio Design Language</h3>
-            <p>A comprehensive aesthetic system covering colour palette, typography, photography direction, texture choices, and layout principles — ensuring every visual expression of your studio feels cohesive, whether it is a poster on your wall or a story on Instagram.</p>
+            <h3>Positioning &amp; Tone of Voice</h3>
+            <p>Who you're for, what makes your practice different, and how you talk about it — the positioning and voice that lift you out of discount comparisons and give students a real reason to choose you.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Marketing Collateral</h3>
-            <p>Class schedule cards, workshop flyers, membership brochures, gift vouchers, and welcome packs — designed to reflect the quality of your teaching and leave a lasting impression that students share with friends and keep at home.</p>
+            <h3>Photography Direction &amp; Guidelines</h3>
+            <p>A clear style guide plus studio photography direction, so every instructor, designer, and post stays consistent — your brand holds together no matter who's shooting or creating for it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Merchandise &amp; Space Branding</h3>
-            <p>Mat bags, water bottles, towels, studio signage, and reception area design — extending your brand into the physical experience of practising at your studio. Students should feel your brand before, during, and after class.</p>
+            <h3>Print &amp; Digital Collateral</h3>
+            <p>Class schedules, workshop flyers, mat tags, studio signage, and social templates designed as one system — so vinyasa, hot, yin, prenatal, and aerial all read as the same studio.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio branding">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for yoga studio branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Yoga Studios Choose Us for Branding</h2>
+        <h2>Design That <span class="highlight">Sells</span>, Not Just <span class="highlight">Decorates</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand that a yoga studio brand must do more than look good — it must feel right. The visual identity has to capture something that words alone cannot express: the energy of your classes, the warmth of your community, and the intention behind your teaching.</p>
+        <p>We treat branding as a business decision, not a beauty contest. Every choice traces back to the same goal — a studio students choose, at the price you want to charge.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Aesthetic Expertise</h3>
-            <p>We design within the wellness space — which means we know how to create brands that feel calming, intentional, and premium without falling into the tired cliches that make every yoga studio look the same. Your brand will be unmistakably yours.</p>
+            <h3>Strategy-Led Design</h3>
+            <p>We start with positioning, not a logo. The design flows from what makes your practice different, so it does a job — pulling in the right students — rather than just filling a moodboard.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/yoga-studio-website-singapore/" class="inline-link">website design</a>, and <a href="/yoga-studio-social-media-singapore/" class="inline-link">social media marketing</a> — all handled by one team. Your brand identity is implemented consistently across every channel from day one.</p>
+            <h3>Built for Wellness</h3>
+            <p>We design in the wellness space, so your brand feels calm and premium without the tired lotus-and-om cliches — and reads as quality to exactly the students willing to pay full fee.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Pricing &amp; Full Ownership</h3>
-            <p>Transparent, agreed scope with no hidden fees. You own every asset we create — logos, guidelines, templates, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Singapore Market Knowledge</h3>
-            <p>We know the yoga landscape in Singapore — from the boutique studios of Tiong Bahru to the chain operations on Orchard Road. We research your area, your competitors, and your student demographic before designing, so your brand is positioned to stand out.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>Your brand then carries straight into your website, social, and ads — one consistent studio everywhere students meet you, from Novena to Katong, built by one team.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== BRANDING FLOW ========== -->
+  <section class="section" id="branding-flow" style="background: var(--bg-alt);" aria-label="How yoga studio branding works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Blend-In</span> to <span class="highlight">Stand-Out</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A clear four-step process that takes your studio from generic to unmistakable — and applies it everywhere students see you.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>We learn your studio, students, and edge</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Positioning and brand direction set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Design</h3>
+          <p>Identity and collateral created</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rollout</h3>
+          <p>Applied across every touchpoint</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Yoga Studio Branding Questions Answered</h2>
+        <h2><span class="highlight">Yoga Studio Branding</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does branding cost for a yoga studio in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does a yoga studio need branding?</summary>
+          <div class="faq-answer"><p>When every studio uses the same lotus mark and muted earth tones, students choose on price and location. A distinctive brand is what lets you hold a premium instead of matching ClassPass discounts. It's the difference between "a yoga studio near me" and "the studio I want to practise at".</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Why does branding matter for yoga studios?</summary>
-          <div class="faq-answer"><p>Singapore has over 300 yoga studios competing for the same audience. Students often choose where to practise based on how a studio feels — and that feeling starts with your brand. A professionally designed identity that reflects your teaching philosophy, studio atmosphere, and values helps you attract students who genuinely align with what you offer, rather than competing solely on price or location.</p></div>
+          <summary>Do you only design the logo, or the whole brand?</summary>
+          <div class="faq-answer"><p>The whole brand. A logo on its own doesn't hold up. We build the identity, colour and type system, photography direction, tone of voice, and the templates and collateral that keep it consistent everywhere students see you — from your Tiong Bahru shopfront to your class schedule.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes yoga studio branding different from regular branding?</summary>
-          <div class="faq-answer"><p>Yoga studio branding must capture something intangible — a sense of calm, mindfulness, and intentionality. It needs to resonate emotionally while remaining professional and distinctive. The challenge is avoiding both the clinical look of a healthcare brand and the cliched lotus-and-om aesthetic that makes studios look interchangeable. We create identities that honour the practice while establishing a unique, memorable visual presence.</p></div>
+          <summary>Can you rebrand my existing yoga studio?</summary>
+          <div class="faq-answer"><p>Yes. We handle full rebrands — refreshing or rebuilding your identity while keeping what already works, then rolling it out across your space, website, and socials so nothing looks half-changed while students are watching.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long does the yoga studio branding process take?</summary>
-          <div class="faq-answer"><p>Most yoga studio branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, merchandise, and studio signage take 4 to 6 weeks. We can time deliverables around your studio launch or rebrand date.</p></div>
+          <summary>Will the branding work across vinyasa, hot, yin and prenatal classes?</summary>
+          <div class="faq-answer"><p>Yes. We design one system flexible enough to carry a heated vinyasa class card and a quiet yin or prenatal one, so the timetable reads as the same studio while each format still has its own feel. It applies the same way across your website, Instagram, ads, and print.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you help with interior design and studio signage?</summary>
-          <div class="faq-answer"><p>Yes. Our Business and Premium packages include studio signage design, and our Premium package includes interior branding guidelines — wall treatments, reception area design, wayfinding signage, and environmental graphics. We ensure your physical space reflects the brand identity so students feel the same energy online and in-studio.</p></div>
+          <summary>How long does a branding project take?</summary>
+          <div class="faq-answer"><p>It depends on scope — a focused identity is quicker than a full rebrand with collateral, studio signage, and guidelines. We'll give you a clear timeline once we understand what you need. Book a consultation to scope it.</p></div>
         </details>
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
@@ -211,10 +329,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/yoga-studio-marketing-singapore/" class="related-service-link">Yoga Studio Marketing</a>
-          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Website Design</a>
           <a href="/yoga-studio-seo-singapore/" class="related-service-link">Yoga Studio SEO</a>
+          <a href="/yoga-studio-geo-singapore/" class="related-service-link">Yoga Studio GEO</a>
           <a href="/yoga-studio-google-ads-singapore/" class="related-service-link">Yoga Studio Google Ads</a>
           <a href="/yoga-studio-social-media-singapore/" class="related-service-link">Yoga Studio Social Media</a>
+          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Websites</a>
       </div>
     </div>
   </section>

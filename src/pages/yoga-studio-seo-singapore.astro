@@ -29,9 +29,9 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does SEO cost for a yoga studio in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for yoga studio SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most yoga studios see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like 'yoga near Tanjong Pagar' or 'hot yoga Orchard' often rank faster than broad national terms." } },
+      { "@type": "Question", "name": "How long does it take for yoga studio SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most yoga studios see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like 'yoga studio Bugis' or 'hot yoga Tanjong Pagar' often rank faster than broad national terms." } },
       { "@type": "Question", "name": "Can SEO help my yoga studio rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our yoga studio SEO service. We optimise your listing categories, upload studio photos, manage student reviews, and build local citations so your studio appears in the Maps 3-pack for 'yoga near me' searches in your area." } },
-      { "@type": "Question", "name": "What keywords do people search when looking for yoga in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'yoga near me', 'hot yoga Singapore', 'yoga studio Bugis', 'prenatal yoga Singapore', 'vinyasa yoga class near me', and 'beginner yoga classes'. We research the exact terms driving sign-ups in your area and build your SEO strategy around them." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for yoga in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'yoga near me', 'hot yoga Singapore', 'yoga studio Bugis', 'prenatal yoga near me', 'vinyasa class near me', and style-specific queries like 'yin yoga Singapore' or 'aerial yoga class'. We research the exact terms driving sign-ups in your area and build your SEO strategy around them." } },
       { "@type": "Question", "name": "Do you work with yoga studios that have multiple locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-studio yoga SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and ensure consistent NAP data across all directories so each studio ranks independently in its own neighbourhood." } }
     ]
   },
@@ -46,18 +46,131 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force even service card grid on desktop per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Yoga SEO Flow — horizontal process flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Yoga Studio SEO Singapore — Jraft Creative"
   description="SEO services for yoga studios in Singapore. Local SEO, Google Business Profile optimisation, class-specific landing pages."
   canonical="https://jraftcreative.com/yoga-studio-seo-singapore/"
   ogTitle="Yoga Studio SEO Singapore — Jraft Creative"
-  ogDescription="SEO for yoga studios in Singapore. Local search optimisation, Google Maps ranking, and class-specific content to drive sign-ups. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="yoga studio seo singapore, yoga seo, seo for yoga studios, yoga google ranking, yoga local seo, yoga marketing singapore, hot yoga seo, Jraft Creative"
+  ogDescription="SEO for yoga studios in Singapore. Local search optimisation, Google Maps ranking, and class-specific content to drive sign-ups."
+  ogImage="https://jraftcreative.com/images/og-yoga.jpg"
+  keywords="yoga studio seo singapore, yoga seo, seo for yoga studios, hot yoga seo, vinyasa yoga seo, yoga google ranking, yoga local seo, yoga marketing singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Yoga Studio SEO"
   heroTitle='SEO for <span class="highlight">Yoga Studios in Singapore</span>'
-  heroSubtitle="Over 400 yoga studios across Singapore compete for the same students searching 'yoga near me' and 'hot yoga Singapore'. If your studio doesn't appear on page one, those potential members sign up elsewhere. We help yoga studios climb Google rankings and turn search visibility into packed classes."
+  heroSubtitle="When someone searches 'yoga near me' or 'hot yoga Singapore', they book from the studios ranking on page one and in the Maps 3-pack. It's rarely the studio with the best teachers — it's the one that shows up first. We get your studio there."
   heroImage="/images/service-yoga.webp"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
@@ -73,108 +186,149 @@ const schemaData = [
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for yoga studios in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>400+ Yoga Studios in Singapore — Can Students Find Yours?</h2>
+        <h2>Singapore Has <span class="highlight">Hundreds of Studios</span> — Can Students <span class="highlight">Find Yours</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's yoga scene has exploded. From boutique hot yoga studios in Tanjong Pagar to large-format vinyasa spaces in Orchard, over 400 studios now compete for the same pool of health-conscious residents. The problem is that most studios rely on Instagram posts and ClassPass listings to attract students — channels they don't own and can't control. When someone searches "yoga near me" or "hot yoga Singapore" on Google, they see the studios that have invested in SEO, not the studios with the best teachers or the most beautiful space.</p>
-        <p>Google processes thousands of yoga-related searches in Singapore every month. "Yoga class Bugis", "prenatal yoga near MRT", "beginner yoga Singapore" — these are high-intent searches from people ready to book their first class today. If your studio doesn't rank for these terms, you're paying for ads or relying on marketplace platforms that take a cut of every booking and commoditise your brand alongside dozens of competitors.</p>
-        <p>The studios winning the SEO game have dedicated landing pages for each class type, optimised Google Business Profiles with hundreds of reviews, and blog content answering the questions new yoga students actually search for. Without this foundation, even the most beautiful studio in the best location remains invisible to the thousands of potential students searching online every week.</p>
+        <p>Great teachers and a beautiful space count for nothing if you're invisible the moment someone searches for a class near them. Most studios lean on Instagram and ClassPass — channels they don't own — while the students ready to book today go to whoever ranks first on Google.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The "Yoga Near Me" Moment</h3>
+            <p>Someone searching "hot yoga Singapore" or "vinyasa class near me" wants to book their first class this week. If you're not in the top results and the Maps 3-pack, that trial goes to the studio that is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Map-Pack Shutout</h3>
+            <p>Most studios have a lovely space but thin online visibility. Without an optimised Google Business Profile and local signals, you never enter the 3-pack where "yoga near me" bookings are decided.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Marketplace Margin Trap</h3>
+            <p>Left off page one, studios rely on ClassPass and discount platforms just to stay visible. Every booking gets a cut taken out, and your brand sits alongside a dozen competitors on the same tile.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for yoga studios">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services for yoga studios">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Yoga Studios</h2>
+        <h2>SEO Built for <span class="highlight">Yoga Studios</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Yoga studio SEO requires a specialist approach. Students search by class type, neighbourhood, experience level, and schedule — creating dozens of keyword combinations that need dedicated pages and local signals. We build SEO strategies specifically for how Singapore residents research and choose yoga studios.</p>
-        <p>From technical foundations to class-specific landing pages and Google Maps dominance, every element of our approach is designed to drive trial bookings from people actively searching for yoga classes near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/yoga-studio-website-singapore/">yoga studio website</a>, <a href="/services/social-media/">social media marketing</a> for community building, or <a href="/services/paid-ads/">Google Ads</a> to capture demand during peak New Year and post-holiday fitness seasons.</p>
+        <p>Yoga SEO is a specialist job. Students search by style, experience level, and neighbourhood — vinyasa, hatha, hot, yin, prenatal, aerial, power, ashtanga — creating dozens of keyword combinations that each need their own page and local signals. We build around exactly how Singapore residents look for and choose a studio.</p>
+        <p>Pair SEO with a purpose-built <a href="/yoga-studio-website-singapore/">yoga studio website</a>, <a href="/yoga-studio-social-media-singapore/">social media</a> to grow your community, or <a href="/yoga-studio-google-ads-singapore/">Google Ads</a> to capture demand during the New Year and post-holiday rush.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your yoga studio website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your studio for searches like "yoga near me" and "hot yoga Singapore" in your area.</p>
+            <p>A full crawl to fix indexing gaps, broken links, missing schema, and slow mobile loads — the technical barriers stopping Google from ranking your studio.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
             <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised landing pages for every class you offer — vinyasa, hatha, hot yoga, yin, prenatal, aerial, and power yoga. Meta titles, descriptions, heading structures, and internal links targeting searches like "hot yoga Tanjong Pagar", "prenatal yoga near me", and "beginner yoga class Singapore".</p>
+            <p>Keyword-optimised pages for every style — vinyasa, hatha, hot, yin, prenatal, aerial, power, ashtanga — targeting searches like "hot yoga Tanjong Pagar" and "prenatal yoga near me".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct yoga categories, class schedules, studio photos, student review management, and local citation building across Singapore directories. Designed to get your studio into the Google Maps 3-pack for every "yoga near me" search in your neighbourhood.</p>
+            <p>Correct categories, class schedules, studio photos, review management, and local citations that put you in the Maps 3-pack for every "yoga studio Bugis" search in your area.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-speed-vitals.webp');">
           <div class="service-detail-card__content">
-            <h3>Class-Focused Content Strategy</h3>
-            <p>Blog articles and guides answering the questions potential students search — "hot yoga vs regular yoga", "best yoga for back pain", "what to wear to your first yoga class Singapore". Content that builds your authority, earns organic backlinks, and captures students during their research phase before they book.</p>
+            <h3>Class-Focused Content</h3>
+            <p>Guides answering what students actually search — "hot yoga vs regular yoga", "best yoga for back pain" — that build authority and capture them while they're deciding.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio SEO">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for yoga studio SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands the Yoga Industry</h2>
+        <h2>An SEO Agency That <span class="highlight">Understands Yoga</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with fitness and wellness businesses across Singapore. We understand class-based booking cycles, seasonal demand patterns, and which search terms actually convert browsers into paying members who show up on the mat week after week.</p>
+        <p>We work with fitness and wellness businesses across Singapore — we know class-based booking, peak and off-peak demand, and which searches actually convert into members who keep coming back to the mat.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Yoga Industry Knowledge</h3>
-            <p>We understand the difference between vinyasa, hatha, ashtanga, and yin — and we know which class types drive the most search volume in Singapore. Our strategies are tailored to how yoga students actually search, not pulled from a generic fitness SEO playbook.</p>
+            <p>We know the difference between vinyasa, hatha, ashtanga, and yin — and which styles drive real search volume here. Strategy tailored to how yoga students search, not a generic fitness template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Neighbourhood-Level Local SEO</h3>
-            <p>Yoga is hyper-local. Students want a studio near their home or office. We optimise for neighbourhood-level searches — Tanjong Pagar, Bugis, Tiong Bahru, Holland Village, Novena — so your studio ranks exactly where your potential members are searching.</p>
+            <p>Yoga is hyper-local. We optimise for the MRT-radius searches — Tanjong Pagar, Bugis, Tiong Bahru, Holland Village, Novena, Katong — so you rank where your ideal students live and work.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We show you the numbers that matter — not vanity metrics, but data tied directly to class discovery and trial sign-ups.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle yoga studio website design, social media content, and paid ads — so your entire digital marketing works together as a single system to fill your classes.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>SEO is one piece. We also handle your website, social, and paid ads — so every channel works together to fill classes, instead of pulling in different directions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== SEO FLOW ========== -->
+  <section class="section" id="seo-flow" style="background: var(--bg-alt);" aria-label="How yoga studio SEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>How Yoga SEO <span class="highlight">Fills Your Classes</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From first audit to booked trials, we run the same four-step system on every yoga studio we take on — and report the numbers that tie back to sign-ups.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Technical and local audit of where you rank today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Style pages, on-page, and site speed fixed</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Localise</h3>
+          <p>GBP and citations built for the Maps 3-pack</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rank &amp; Report</h3>
+          <p>Rankings, traffic, and bookings tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Yoga Studio SEO — Questions Answered</h2>
+        <h2><span class="highlight">Yoga Studio SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -183,7 +337,7 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take for yoga studio SEO to show results?</summary>
-          <div class="faq-answer"><p>Most yoga studios see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like "yoga near Tanjong Pagar" or "hot yoga Bugis" often rank faster than broad competitive terms like "yoga Singapore".</p></div>
+          <div class="faq-answer"><p>Most yoga studios see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Location-specific keywords like "yoga studio Bugis" or "hot yoga Tanjong Pagar" often rank faster than broad competitive terms like "yoga Singapore".</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Can SEO help my yoga studio rank in Google Maps?</summary>
@@ -191,7 +345,7 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>What keywords do people search when looking for yoga in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "yoga near me", "hot yoga Singapore", "yoga studio [neighbourhood]", "prenatal yoga near me", "beginner yoga class", and style-specific queries like "vinyasa yoga" or "yin yoga Singapore". We research the exact terms driving bookings in your area and build your SEO strategy around them.</p></div>
+          <div class="faq-answer"><p>Common search terms include "yoga near me", "hot yoga Singapore", "yoga studio Bugis", "prenatal yoga near me", "vinyasa class near me", and style-specific queries like "yin yoga Singapore" or "aerial yoga class". We research the exact terms driving bookings in your area and build your SEO strategy around them.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Do you work with yoga studios that have multiple locations?</summary>
@@ -200,8 +354,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
@@ -213,11 +365,14 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/yoga-studio-marketing-singapore/" class="related-service-link">Yoga Studio Marketing</a>
-          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Website Design</a>
+          <a href="/yoga-studio-geo-singapore/" class="related-service-link">Yoga Studio GEO</a>
           <a href="/yoga-studio-google-ads-singapore/" class="related-service-link">Yoga Studio Google Ads</a>
           <a href="/yoga-studio-social-media-singapore/" class="related-service-link">Yoga Studio Social Media</a>
           <a href="/yoga-studio-branding-singapore/" class="related-service-link">Yoga Studio Branding</a>
+          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Websites</a>
       </div>
     </div>
   </section>
 </ServiceLayout>
+</content>
+</invoke>

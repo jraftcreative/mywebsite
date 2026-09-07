@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Yoga Studio Google Ads Singapore",
-    "description": "Google Ads management for yoga studios in Singapore — trial class campaigns, membership promotions, class-specific targeting, and conversion tracking. Plans",
+    "name": "Yoga Studio Google & Meta Ads Singapore",
+    "description": "Google Ads and Meta (Instagram & Facebook) advertising for yoga studios in Singapore — high-intent search, social campaigns, retargeting, and conversion tracking that fills trial classes.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Google Ads Management for Yoga Studios"
+    "serviceType": "Yoga Studio Paid Advertising"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much should yoga studios budget for Google Ads in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which yoga keywords convert best in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent keywords like 'yoga trial class Singapore', 'beginner yoga near me', and class-specific terms like 'prenatal yoga Singapore' or 'hot yoga CBD' tend to convert best. We also target neighbourhood-level queries — 'yoga studio Tiong Bahru' or 'yoga class Tanjong Pagar' — to capture students near your studio." } },
-      { "@type": "Question", "name": "Can Google Ads promote trial class offers for yoga studios?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How do you track whether Google Ads lead to actual memberships?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking across form submissions, booking widget completions, phone calls, and WhatsApp messages. Each conversion is attributed to the specific keyword and ad that generated it. Over time, we can map the full journey from ad click to trial booking to paid membership sign-up." } },
-      { "@type": "Question", "name": "How long before Google Ads campaigns deliver consistent leads for a yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "You can expect initial enquiries within the first week. However, it takes 4–6 weeks for campaigns to gather enough data for proper optimisation — refining keyword bids, testing ad copy, and improving landing page conversion rates. Most studios see stable, cost-effective lead flow from month two onwards." } }
+      { "@type": "Question", "name": "How much should my yoga studio spend on ads?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your goals, your catchment, and how many trial mats you need to fill — there's no one-size number. We size the budget to the trial slots you actually have, then scale as the numbers prove out. Book a consultation and we'll recommend a figure." } },
+      { "@type": "Question", "name": "Google Ads or Meta Ads — which is better for a yoga studio?", "acceptedAnswer": { "@type": "Answer", "text": "Usually both, for different jobs. Google captures people already searching 'hot yoga near me' or 'yoga class Tiong Bahru'; Meta and Instagram build demand and put your studio in front of the right people before they search. We recommend the exact mix in your strategy session." } },
+      { "@type": "Question", "name": "Which yoga searches convert best in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent terms like 'yoga trial class Singapore', 'beginner yoga near me', and style-specific searches like 'hot yoga Tanjong Pagar', 'prenatal yoga Novena', or 'aerial yoga Orchard'. We also run neighbourhood queries — 'yoga studio Katong', 'yoga class Bugis' — to catch students close to your studio." } },
+      { "@type": "Question", "name": "How quickly will I see trial bookings from ads?", "acceptedAnswer": { "@type": "Answer", "text": "Paid ads can drive bookings within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per booked trial — and January and post-holiday demand can move faster." } },
+      { "@type": "Question", "name": "Does the management fee include ad spend?", "acceptedAnswer": { "@type": "Answer", "text": "No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control and keep full access to." } }
     ]
   },
   {
@@ -40,166 +40,284 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Yoga Studio Google Ads Singapore", "item": "https://jraftcreative.com/yoga-studio-google-ads-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Yoga Studio Google & Meta Ads Singapore", "item": "https://jraftcreative.com/yoga-studio-google-ads-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
 <ServiceLayout
-  title="Yoga Studio Google Ads Singapore — Jraft Creative"
-  description="Google Ads management for yoga studios in Singapore. Trial class campaigns, membership promotions, class-specific targeting, and full conversion tracking."
+  title="Yoga Studio Google & Meta Ads Singapore — Jraft Creative"
+  description="Google Ads and Meta ads for yoga studios in Singapore — high-intent search, Instagram campaigns, retargeting, and tracking that fills trial classes."
   canonical="https://jraftcreative.com/yoga-studio-google-ads-singapore/"
-  ogTitle="Yoga Studio Google Ads Singapore — Jraft Creative"
-  ogDescription="Google Ads for yoga studios in Singapore. Fill trial classes, drive memberships, and target students by class type and location. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="yoga studio google ads singapore, yoga studio advertising singapore, google ads for yoga studios, ppc yoga singapore, yoga marketing singapore, yoga studio digital advertising, Jraft Creative"
+  ogTitle="Yoga Studio Google & Meta Ads Singapore — Jraft Creative"
+  ogDescription="Paid ads for yoga studios in Singapore. Google Search, Instagram, and retargeting that fills trial classes — with tracking that proves every booking."
+  ogImage="https://jraftcreative.com/images/og-yoga.jpg"
+  keywords="yoga studio google ads singapore, yoga meta ads, yoga instagram ads singapore, hot yoga ads singapore, yoga trial class ads, yoga studio advertising, yoga marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Yoga Studio Google Ads Singapore"
-  heroTitle='Google Ads for Yoga Studios <span class="highlight">in Singapore</span>'
-  heroSubtitle="Students are searching for yoga classes right now — hot yoga, vinyasa, Yin, prenatal, and everything in between. We build Google Ads campaigns that put your studio at the top of search results, fill trial classes, and convert first-timers into long-term members."
+  heroLabel="Yoga Studio Google & Meta Ads"
+  heroTitle='Google &amp; Meta Ads for <span class="highlight">Yoga Studios in Singapore</span>'
+  heroSubtitle="When someone searches 'hot yoga near me' or scrolls past your studio on Instagram, paid ads put you in front of them the moment they're ready to book a class — with tracking that proves every trial back to the dollar that won it."
   heroImage="/images/service-yoga.webp"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need Google Ads for my yoga studio in Singapore."
-  ctaLabel="Grow Your Studio"
-  ctaTitle="Get a Free Yoga Studio Ad Strategy Session"
-  ctaDescription="Book a free consultation and we'll review your local competition, identify the highest-value keywords for your class types and location, and map out a Google Ads strategy to fill your studio. We'll get back to you within 24 hours."
+  whatsappText="Hi Jraft Creative, I need Google and Meta ads for my yoga studio in Singapore."
+  ctaLabel="Ready to Fill Your Trial Classes?"
+  ctaTitle='Get a Free <span class="highlight">Yoga Ad Strategy</span>'
+  ctaDescription="Book a free consultation and we'll map the channels, budget, and tracking that will fill your trial slots — and show you what a booked trial should cost. No obligations."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20and%20Meta%20ads%20for%20my%20yoga%20studio%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for yoga studios">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why yoga studios need paid ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Losing New Students to Studios That Show Up First?</h2>
+        <h2>Spending on Ads Without <span class="highlight">Filling Mats</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has over 300 yoga studios competing for a health-conscious audience that keeps growing. When someone searches "yoga class near me" or "hot yoga Singapore", they see a page of paid ads and map results. If your studio isn't visible, that potential student books a trial at the studio that is — often a competitor less than two MRT stops away.</p>
-        <p>Without structured Google Ads, yoga studios waste budget on broad keywords that attract casual browsers, send traffic to a homepage that doesn't mention the specific class being searched, and have no tracking to know which campaigns actually drive trial bookings. Meanwhile, studios with optimised campaigns are filling mats at a fraction of the cost.</p>
+        <p>Most yoga studios either boost a post and hope, or skip ads altogether. Both leave trial mats empty. The studios winning the bookings run tracked campaigns that reach ready-to-book students the moment they search — including the January and post-holiday rush when demand spikes.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Boosting Isn't a Strategy</h3>
+            <p>Hitting "boost" on a reel spends money without a plan — no proper targeting, no conversion goal, no idea which dollar brought a trial. Just spend, and a vague hope it worked.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The High-Intent Search You're Missing</h3>
+            <p>"Hot yoga Tanjong Pagar", "yoga trial class near me", "prenatal yoga Novena" — these searchers are ready to book now. If you're not in that result, a studio two MRT stops away takes the click and the student.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>No Tracking, No Truth</h3>
+            <p>Without a pixel and conversion tracking wired properly, you can't tell a booked trial from a wasted click — so you can't scale what works or cut what doesn't.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for yoga studios">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Paid ad services for yoga studios">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Yoga Studio Ad Services</p>
-        <h2>Google Ads Strategy Built for Yoga Studios</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Ads Built to Fill <span class="highlight">Trial Classes</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build Google Ads campaigns specifically for yoga studios in Singapore — targeting the exact class types students search for, in the neighbourhoods where your studio operates. Whether you run hot yoga in the CBD, prenatal classes in the East, or vinyasa in Bukit Timah, every campaign is designed to drive trial bookings and membership sign-ups.</p>
-        <p>Our approach covers class-specific keywords, location targeting around your studio, and seasonal campaigns for New Year resolutions, corporate wellness partnerships, and workshop promotions — ensuring your ad budget captures students with real intent to practise.</p>
+        <p>Search captures the students already looking; social builds the demand and shows your studio to the right people. We run both, wired to a <a href="/yoga-studio-website-singapore/">studio website</a> and a booking flow built to convert — and we align the campaigns with your <a href="/yoga-studio-seo-singapore/">organic search</a> and <a href="/yoga-studio-social-media-singapore/">social content</a> so paid and unpaid pull in the same direction.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Trial Class &amp; Intro Offer Campaigns</h3>
-            <p>Dedicated campaigns promoting your trial classes, first-class-free offers, or intro week passes. Ad copy and landing pages designed to reduce friction and get students booked — targeting high-intent keywords like "yoga trial class Singapore" and "beginner yoga near me".</p>
+            <h3>Google Search Ads</h3>
+            <p>Capture high-intent searches like "hot yoga Tanjong Pagar" and "yoga trial class near me" with tightly-themed campaigns — split by style and neighbourhood — that send ready-to-book students to a page built to convert.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Class-Specific &amp; Location Targeting</h3>
-            <p>Separate campaigns for each class type — hot yoga, Yin, vinyasa, Ashtanga, prenatal — combined with neighbourhood-level targeting. Reach students searching for the specific style of yoga you teach, within walking or commuting distance of your studio.</p>
+            <h3>Meta Ads (Instagram &amp; Facebook)</h3>
+            <p>Vinyasa, hot yoga, yin, and aerial content that stops the scroll, plus lead ads with a one-tap trial-class form — driving first-timers and intro-pack sign-ups from the feeds where they already spend time.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-retargeting.jpg');">
           <div class="service-detail-card__content">
-            <h3>Membership Conversion Tracking</h3>
-            <p>Full tracking setup across booking widget completions, form submissions, phone calls, and WhatsApp messages. Every trial booking and membership enquiry is attributed to the keyword and ad that generated it — so you know your true cost per new member.</p>
+            <h3>Retargeting</h3>
+            <p>The student who viewed your schedule but didn't book gets a timely reminder across Instagram and Google — recovering the trials that would otherwise slip away.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Seasonal &amp; Promo Campaigns</h3>
-            <p>Timed campaigns for peak interest periods — January fitness resolutions, post-holiday wellness, teacher training sign-ups, and workshop promotions. Capture surge demand when it happens with ready-to-launch ad sets and landing pages.</p>
+            <h3>Tracking &amp; Reporting</h3>
+            <p>Pixel, conversion events, and GCLID wired and tested before a dollar is spent — so every trial ties back to the campaign that won it. Monthly reporting on cost per trial, not impressions.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for yoga studio Google Ads">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for yoga studio ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand What Fills Yoga Studios</h2>
+        <h2>Campaigns Built to Prove <span class="highlight">Cost Per Trial</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've run ad campaigns for fitness and wellness businesses across Singapore and understand how yoga students search, compare, and book. Here's why studios choose us:</p>
+        <p>We run paid media the way it should be run for a class-based business — tracking first, tuned to bookings, and reported in the numbers that decide whether your studio is growing.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Yoga &amp; Wellness Market Knowledge</h3>
-            <p>We know which class types have the highest search volume in Singapore, how students compare studios, and which keywords signal a student ready to book versus one still browsing. That knowledge shapes every campaign we build.</p>
+            <h3>Tracking Before Spend</h3>
+            <p>We wire and test conversion tracking before launch. A silent tracking failure looks exactly like "no demand" — we never let your ad spend fly blind.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You maintain full access to your Google Ads account and see exactly what each trial booking and membership enquiry costs.</p>
+            <h3>Built for Class Bookings</h3>
+            <p>Campaigns split by style — vinyasa, hatha, hot, yin, prenatal, aerial, power — and tuned to trial classes, intro packs, and memberships, not a generic lead-gen funnel pointed at a contact form.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that scale with your studio. Ramp up before peak seasons, pause during quieter months — no penalties, no minimum commitments, no long-term lock-ins.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Trial-to-Member Optimisation</h3>
-            <p>We don't just drive trial bookings — we optimise the entire funnel from ad click to trial attendance to paid membership. Continuous testing, bid adjustments, and landing page improvements lower your cost per member over time.</p>
+            <h3>No Lock-In, Real Numbers</h3>
+            <p>Month-to-month, with reporting on cost per trial and cost per member — the numbers that matter, not vanity reach and impressions. Scale up before January, ease off in quiet months.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ADS FLOW ========== -->
+  <section class="section" id="ads-flow" style="background: var(--bg-alt);" aria-label="How yoga studio ads work">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Wasted Spend</span> to <span class="highlight">Booked Trials</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Four steps, run in order, so no dollar goes out before we can measure what it brings back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Strategy</h3>
+          <p>Goals, budget, and channel mix set</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Track</h3>
+          <p>Pixel and conversions wired and tested</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Launch</h3>
+          <p>Search and social campaigns go live</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Optimise</h3>
+          <p>Scale what books trials, cut the rest</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for yoga studios">
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about yoga studio ads in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Yoga Studio Google Ads — Questions Answered</h2>
+        <h2><span class="highlight">Yoga Studio Ads</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much should yoga studios budget for Google Ads in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How much should my yoga studio spend on ads?</summary>
+          <div class="faq-answer"><p>It depends on your goals, your catchment, and how many trial mats you need to fill — there's no one-size number. We size the budget to the trial slots you actually have, then scale as the numbers prove out. Book a consultation and we'll recommend a figure.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which yoga keywords convert best in Singapore?</summary>
-          <div class="faq-answer"><p>High-intent keywords like "yoga trial class Singapore", "beginner yoga near me", and class-specific terms like "prenatal yoga Singapore" or "hot yoga CBD" tend to convert best. We also target neighbourhood-level queries — "yoga studio Tiong Bahru" or "yoga class Tanjong Pagar" — to capture students near your studio.</p></div>
+          <summary>Google Ads or Meta Ads — which is better for a yoga studio?</summary>
+          <div class="faq-answer"><p>Usually both, for different jobs. Google captures people already searching "hot yoga near me" or "yoga class Tiong Bahru"; Meta and Instagram build demand and put your studio in front of the right people before they search. We recommend the exact mix in your strategy session.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can Google Ads promote trial class offers for yoga studios?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which yoga searches convert best in Singapore?</summary>
+          <div class="faq-answer"><p>High-intent terms like "yoga trial class Singapore", "beginner yoga near me", and style-specific searches like "hot yoga Tanjong Pagar", "prenatal yoga Novena", or "aerial yoga Orchard". We also run neighbourhood queries — "yoga studio Katong", "yoga class Bugis" — to catch students close to your studio.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you track whether Google Ads lead to actual memberships?</summary>
-          <div class="faq-answer"><p>We set up conversion tracking across form submissions, booking widget completions, phone calls, and WhatsApp messages. Each conversion is attributed to the specific keyword and ad that generated it. Over time, we can map the full journey from ad click to trial booking to paid membership sign-up.</p></div>
+          <summary>How quickly will I see trial bookings from ads?</summary>
+          <div class="faq-answer"><p>Paid ads can drive bookings within the first week, unlike SEO. Campaigns usually need 2 to 4 weeks of data to reach peak performance as we optimise toward the lowest cost per booked trial — and January and post-holiday demand can move faster.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long before Google Ads campaigns deliver consistent leads for a yoga studio?</summary>
-          <div class="faq-answer"><p>You can expect initial enquiries within the first week. However, it takes 4–6 weeks for campaigns to gather enough data for proper optimisation — refining keyword bids, testing ad copy, and improving landing page conversion rates. Most studios see stable, cost-effective lead flow from month two onwards.</p></div>
+          <summary>Does the management fee include ad spend?</summary>
+          <div class="faq-answer"><p>No. The fee covers strategy, setup, creative, optimisation, and reporting. Ad spend is paid directly to Google and Meta and is a separate budget that you control and keep full access to.</p></div>
         </details>
       </div>
     </div>
   </section>
-
-
 
 
   <!-- Related Services -->
@@ -211,10 +329,11 @@ const schemaData = [
       </div>
       <div class="related-services-grid reveal">
           <a href="/yoga-studio-marketing-singapore/" class="related-service-link">Yoga Studio Marketing</a>
-          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Website Design</a>
           <a href="/yoga-studio-seo-singapore/" class="related-service-link">Yoga Studio SEO</a>
+          <a href="/yoga-studio-geo-singapore/" class="related-service-link">Yoga Studio GEO</a>
           <a href="/yoga-studio-social-media-singapore/" class="related-service-link">Yoga Studio Social Media</a>
           <a href="/yoga-studio-branding-singapore/" class="related-service-link">Yoga Studio Branding</a>
+          <a href="/yoga-studio-website-singapore/" class="related-service-link">Yoga Studio Websites</a>
       </div>
     </div>
   </section>
