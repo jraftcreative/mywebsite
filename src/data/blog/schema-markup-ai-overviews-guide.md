@@ -17,6 +17,17 @@ keywords:
   - llms.txt
   - AI overviews structured data
   - schema markup Singapore
+faq:
+  - question: "Which schema types matter most for AI visibility?"
+    answer: "Five carry the most weight: Organisation, Service, FAQ, Speakable, and HowTo schema. Organisation schema is the most critical and the one most businesses skip or leave incomplete, since every AI recommendation starts with recognising your brand as a real entity. Service and FAQ schemas then give AI structured pricing and question-and-answer pairs it can lift straight into an answer."
+  - question: "Should I use JSON-LD or Microdata for schema?"
+    answer: "Use JSON-LD. Google explicitly recommends it, and it is easier for AI to parse because it sits as a clean data block in your head section rather than being tangled through your HTML. It is simpler to maintain, less prone to breaking when your layout changes, and handles complex links between Organisation, Services and Reviews far more cleanly. Existing Microdata still works, but new builds should use JSON-LD only."
+  - question: "What is llms.txt and does my business need one?"
+    answer: "llms.txt is a plain-text file at your domain root that gives AI crawlers a structured summary of your business, a bit like robots.txt but for large language models. Keep it under 2,000 words, factual, and updated whenever details change, since a stale file is worse than none. It is still early-stage, but Perplexity and several AI research crawlers already check for it."
+  - question: "What is the most common schema mistake Singapore businesses make?"
+    answer: "Missing areaServed is the single most common error. Without it, AI may not associate your brand with local queries that pair a service with a location, like the best physiotherapist in Singapore. Include SGD pricing in your Service schema too, since AI models serving Singapore users preferentially cite locally-priced services. Also keep your name, address and phone identical across schema, Google Business Profile, directories and your footer."
+  - question: "How do I test whether my schema is working?"
+    answer: "Run three checks. Google's Rich Results Test confirms your schema is valid and eligible, and the Schema.org validator catches issues Google's tool might miss. Then test manually by asking ChatGPT, Gemini and Perplexity about your business directly. If they return accurate information matching your schema, it is reaching them; if answers are vague, it is not. Test monthly, as AI models update their understanding over time."
 draft: false
 ---
 

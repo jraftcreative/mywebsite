@@ -14,6 +14,17 @@ keywords:
   - how much does a website cost
   - Singapore website development price
   - website design Singapore 2026
+faq:
+  - question: "How much does a website cost in Singapore in 2026?"
+    answer: "A professionally built website typically costs between S$800 and S$15,000 or more, depending on type, complexity, and who builds it. A simple five-page business site starts around S$1,500 to S$3,000, while a custom ecommerce build with integrations can go well above S$10,000. These ranges assume you are working with a local freelancer or small agency; enterprise agencies charge significantly more."
+  - question: "What is the difference between a template and a custom website?"
+    answer: "Template-based sites built on WordPress themes, Wix, or Squarespace are the cheapest route, usually S$800 to S$2,500. Custom-designed sites with unique layouts, branding, and interactions cost more but deliver a professional, differentiated look, typically S$3,000 to S$10,000 or above. The right choice depends on how much a distinct, credible presence matters for your business."
+  - question: "What ongoing costs come after the website is built?"
+    answer: "A website is not a one-time expense. Budget for a domain name at S$15 to S$60 a year, hosting at S$60 to S$500 a year, maintenance and updates at S$50 to S$300 a month, and email hosting at S$5 to S$12 per user each month. An SSL certificate is usually free with hosting through Let's Encrypt."
+  - question: "Does SEO cost extra on top of the website build?"
+    answer: "Usually yes. A site that actually ranks needs site architecture planning, meta tags and schema markup, page speed work, mobile responsiveness, and an XML sitemap. Budget an extra S$500 to S$2,000 for SEO foundations at build time, or an ongoing monthly retainer of S$500 to S$3,000 for continued work. Many quotes also leave out copywriting, which runs S$500 to S$1,500 for a five-page site."
+  - question: "Should I use a freelancer, an agency, or build it myself?"
+    answer: "For most Singapore SMEs, a small agency or an experienced freelancer offers the best balance of quality and affordability. DIY tools like Wix or Squarespace are cheapest at S$200 to S$800 a year but limit customisation. Freelancers run roughly S$1,000 to S$5,000 with variable reliability, while small agencies sit around S$3,000 to S$15,000 with professional quality and ongoing support."
 draft: false
 ---
 

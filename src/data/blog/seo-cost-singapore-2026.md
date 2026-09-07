@@ -14,6 +14,17 @@ keywords:
   - how much does SEO cost
   - SEO packages Singapore
   - monthly SEO retainer Singapore
+faq:
+  - question: "How much does SEO cost per month in Singapore?"
+    answer: "Most Singapore businesses pay between S$800 and S$6,000 a month for SEO, and small businesses usually sit in the S$800 to S$2,500 range. Competitive industries like clinics, property, and finance often pay past S$6,000 because they are fighting more rivals for the same keywords. One-off work such as an audit or Google Business Profile setup runs S$500 to S$2,500."
+  - question: "Why is S$300-a-month SEO a bad idea?"
+    answer: "At S$300 a month something has to give, and it is usually thin spun content, cheap backlinks from spammy sites, or a package that quietly does almost nothing. The real danger is penalties. Bad link building can trigger a Google penalty that takes months to recover from, so cheap SEO often costs more than doing nothing at all."
+  - question: "What makes one SEO quote higher than another?"
+    answer: "Five things move the price: how competitive your keywords are, the current state of your website, what is actually in scope, how much content gets produced each month, and whether AI-search optimisation is included. A S$800 retainer and a S$4,000 retainer are usually buying different work, not the same work at different prices, so always ask what is included."
+  - question: "Should GEO or AI-search be part of my SEO in 2026?"
+    answer: "Yes. Google AI Overviews now answer a large share of searches on the results page, and many people ask ChatGPT or Perplexity instead of Googling. Getting cited by those tools is not a bolt-on service but a layer on top of good SEO: structured data, content that clearly answers real questions, and a consistent brand presence. If your provider has not mentioned it, that is a flag."
+  - question: "How do I know I am paying for real SEO?"
+    answer: "A legitimate retainer shows its work. You should get monthly reporting you can understand, real technical fixes to your site rather than just advice, Google Business Profile management if you are local, visible content or on-page work, and a person who answers when you ask what is happening. If you pay every month and cannot point to what changed, that is a problem."
 draft: false
 ---
 

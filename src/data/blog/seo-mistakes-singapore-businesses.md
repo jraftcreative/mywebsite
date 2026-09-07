@@ -14,6 +14,17 @@ keywords:
   - small business SEO
   - Google ranking Singapore
   - SEO for SMEs
+faq:
+  - question: "What is the most common SEO mistake Singapore SMEs make?"
+    answer: "Ignoring local SEO is the big one. Many Singapore businesses optimise for generic terms like web design or best restaurant with no local intent, while Google heavily favours location-specific results for commercial queries. The fixes are practical: claim and fully complete your Google Business Profile, keep your name, address, and phone identical everywhere online, and work Singapore and your area name into titles and H1 tags naturally."
+  - question: "How fast does my website need to load for SEO?"
+    answer: "Aim for under three seconds on mobile. Google says 53% of mobile visitors leave a site that takes longer than three seconds to load, so a slow site loses over half your potential customers before they see anything. Page speed has been a ranking factor since 2018 and Core Web Vitals since 2021, yet many Singapore sites still take five to ten seconds or more."
+  - question: "What are the Core Web Vitals targets I should hit?"
+    answer: "Aim for Largest Contentful Paint under 2.5 seconds, Interaction to Next Paint under 200 milliseconds, and Cumulative Layout Shift under 0.1. Test your site at PageSpeed Insights and target a mobile score of 80 or above. Common culprits behind poor scores are unoptimised images, too many plugins, cheap overseas hosting, and render-blocking JavaScript and CSS."
+  - question: "How long should my service pages be to avoid thin content?"
+    answer: "Aim for at least 500 to 800 words on service pages, written to answer the questions your customers actually ask. Pages with a heading, a few sentences, and a contact form signal to Google that they are not worth ranking. Add genuine value with case studies, local data, pricing information, comparison tables, and FAQs, and merge near-duplicate pages that target the same keyword."
+  - question: "Which free tools should every Singapore business set up?"
+    answer: "Three free tools cover the essentials: Google Search Console for the keywords you appear for, click-through rates, and indexing issues; Google Analytics 4 for visitor behaviour, traffic sources, and conversions; and Google Business Profile Insights for how people find your listing and what they do next. Set them up today and review a simple dashboard of five or six key metrics each month."
 draft: false
 ---
 

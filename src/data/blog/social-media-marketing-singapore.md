@@ -14,6 +14,17 @@ keywords:
   - Instagram marketing Singapore
   - TikTok business Singapore
   - social media strategy small business
+faq:
+  - question: "How many social media platforms should a Singapore SME be on?"
+    answer: "Two to three, chosen where your audience actually spends time. The biggest mistake SMEs make is trying to be everywhere and doing all of it thinly. Pick the platforms that fit your business and do those well. Singapore has over 5.4 million active social users spending around two hours a day, so focused effort still reaches plenty of people."
+  - question: "Which social media platform is best for my Singapore business?"
+    answer: "It depends on what you sell and who you are targeting. Instagram suits F&B, retail, beauty, fitness and lifestyle brands. TikTok works for businesses reaching ages 16 to 40. Facebook still reaches the 35-plus crowd and community-based businesses well. LinkedIn is where to focus if your customers are other businesses. Match the platform to your audience, not the hype."
+  - question: "How often should a small business post on social media?"
+    answer: "It varies by platform. On Instagram, aim for three to five feed posts a week plus daily Stories. TikTok wants three to five times a week minimum. Facebook sits around three to four, and LinkedIn two to three. Consistency matters more than perfection — a steady rhythm you can actually keep beats a burst of posts that fizzles out."
+  - question: "What social media metrics actually matter for a small business?"
+    answer: "The ones that connect to business outcomes, not vanity. Track enquiries and conversions — DMs, WhatsApp messages and form submissions that come from social. Watch website clicks as the bridge to sales, and engagement rate, where two to five percent is healthy for Singapore business accounts and below one percent means your content is not resonating. Followers and likes feel good but do not pay rent."
+  - question: "When should a Singapore SME start paid social ads?"
+    answer: "Start once you have consistent organic content, roughly one to two months of regular posting, and you know what resonates with your audience. You also need a clear goal and a way to convert — a landing page, contact form or WhatsApp. For most Singapore SMEs, a small budget of S$300 to S$1,000 a month can meaningfully amplify results."
 draft: false
 ---
 

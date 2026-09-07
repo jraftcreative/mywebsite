@@ -18,6 +18,17 @@ keywords:
   - get recommended by ChatGPT
   - AI visibility
   - digital marketing Singapore
+faq:
+  - question: "What does GEO stand for and what is it?"
+    answer: "GEO stands for Generative Engine Optimisation. It is the practice of optimising your brand's online presence so AI platforms like ChatGPT, Gemini, Perplexity, Microsoft Copilot and Google AI Overviews recommend your business when users ask for suggestions. Where a Google search returns ten blue links to choose from, an AI answer names just three or four specific brands. GEO is how you become one of them."
+  - question: "How is GEO different from SEO?"
+    answer: "SEO aims to rank you higher among ten blue links; GEO aims to make you one of the three or four brands AI names in its answer. They optimise different things: SEO leans on keywords, backlinks and page speed, while GEO leans on entity clarity, structured data and third-party mentions. The overlap between top Google links and AI-cited sources has dropped below 20 percent, so ranking first is no guarantee of being mentioned."
+  - question: "Does GEO replace SEO?"
+    answer: "No, GEO complements SEO rather than replacing it. Think of SEO as your storefront, getting people to your door when they search Google, and GEO as word-of-mouth, getting AI to recommend you before people even start browsing. A strong SEO foundation actually helps GEO, because well-structured sites with good schema give AI models more to work with. You need both."
+  - question: "What makes AI recommend one brand over another?"
+    answer: "AI assesses five things: entity clarity, content extractability, third-party credibility, freshness, and consistency. It wants to understand who you are and where you operate, pull a clear quotable answer from your pages, see other trusted sources mention you, find recent content, and read consistent brand information everywhere it appears. Conflicting information across your site, Google Business Profile and directories confuses AI models."
+  - question: "How quickly can GEO produce results?"
+    answer: "Expect 30 to 90 days for measurable citation changes, which is faster than the three to six months traditional SEO typically needs. That speed comes with a maintenance cost: GEO rewards freshness heavily, on roughly a 7 to 14 day refresh cycle, so content left untouched for weeks loses citation priority. It is measured by citation rate, brand visibility and share of voice rather than rankings and traffic."
 draft: false
 ---
 

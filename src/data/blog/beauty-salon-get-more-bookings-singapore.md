@@ -15,6 +15,17 @@ keywords:
   - hair salon marketing
   - salon Instagram marketing
   - beauty salon website
+faq:
+  - question: "How do beauty clients in Singapore find a salon now?"
+    answer: "They pull out their phone and search, using queries like hair salon near me or best nail salon Bukit Timah. Within about 30 seconds they have seen roughly 10 options, read reviews for a few, and picked one to contact. The full journey from awareness to booking takes 10 to 30 minutes, and if any step feels hard or untrustworthy they simply skip you and move on to the next salon."
+  - question: "What is the single highest-ROI thing a salon can do online?"
+    answer: "Set up and optimise your Google Business Profile. It is free, and it is often the first thing a client sees in map results and on Google Maps. Complete every field, add 20 or more high-quality photos, write a clear keyword-rich description, post weekly, actively request reviews from happy clients, and reply to every review. Salons that do this properly win the clients that incomplete profiles lose."
+  - question: "How often should a beauty salon post on Instagram?"
+    answer: "Post 3 to 5 times per week, mixing static posts, Reels, and Stories. For beauty businesses Instagram is arguably more important than Google, since it is where clients scroll for inspiration and decide whether to trust you. Show real work like before-and-afters and close-ups, tag your location so you appear in local search, use a mix of broad and niche hashtags, and reply to every DM quickly."
+  - question: "What booking options work best for a Singapore salon?"
+    answer: "Ranked by effectiveness, a native booking system such as Fresha, Booksy, or Timely comes first because it lets clients self-book 24/7. A WhatsApp button is next for its low friction and local popularity, followed by a booking form on your website, then a phone number for older clients. We usually recommend combining a native booking system with a WhatsApp button for the widest coverage."
+  - question: "How much should a salon budget for paid ads?"
+    answer: "A reasonable starting point is S$500 to S$2,000 a month for a single-location salon, once your website, SEO, and Instagram foundations are in place. Put Google Ads behind high-intent searches like hair salon in your neighbourhood, use Meta Ads for neighbourhood targeting and awareness, boost your best-performing organic posts, and retarget people who visited your website but did not book."
 draft: false
 ---
 

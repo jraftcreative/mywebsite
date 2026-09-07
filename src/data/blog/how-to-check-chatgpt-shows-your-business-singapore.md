@@ -18,6 +18,17 @@ keywords:
   - GEO Singapore
   - get recommended by ChatGPT
   - AI SEO Singapore
+faq:
+  - question: "How do I check if ChatGPT recommends my business?"
+    answer: "Run five prompts across ChatGPT, Gemini and Perplexity in three tabs, which takes about five minutes on free accounts. This post lays out a category prompt, a neighbourhood prompt, a trust-and-criteria prompt, a versus prompt and a first-person recommendation prompt. Swap in your industry and area, then note where you appear, where competitors appear, and what reasoning the AI gives for its picks."
+  - question: "Why do I get different answers when I ask ChatGPT the same question twice?"
+    answer: "Because these are probabilistic models, not ranking systems. This post is explicit that the same prompt can return different brand lists each time you run it. What matters is whether your brand surfaces consistently across multiple runs and multiple platforms, not whether you show up in any single answer. Judge the pattern over several runs, not one screenshot."
+  - question: "My business does not show up in ChatGPT. What is causing it?"
+    answer: "This post points to four likely reasons: weak structured data on your website, no authoritative mentions on the open web, weak entity definition, and not being present in the sources the AI draws from. Diagnose which one applies before you act. Weak schema is the most fixable of the four and usually the best place to start."
+  - question: "How do I check my own website's schema?"
+    answer: "Use Google's Rich Results Test, which this post recommends. Paste your homepage URL, and if nothing shows up you have a structured-data problem. AI models lean heavily on schema, specifically JSON-LD, to understand who you are and what you do. Adding Organization, LocalBusiness and, where relevant, Service or FAQ schema is the first fix to make."
+  - question: "How long before changes improve my AI visibility?"
+    answer: "Typically 30 to 90 days after you make structured changes, according to this post. It recommends re-running the five-prompt check once a month on all three platforms and logging what you see, because AI visibility is not a one-time fix. Engines update, competitors optimise and source weights shift, so monitoring is part of the ongoing work."
 ---
 
 We're using ChatGPT as the lens because it's what most people search by name — but the same checks work for Gemini, Perplexity, Google AI Mode, and Claude.
@@ -121,7 +132,7 @@ If your brand isn't appearing — or is appearing inconsistently — there are f
 
 AI models lean heavily on **schema markup** (specifically JSON-LD) to understand who you are, what you do, and where you operate. If your site has no Organization, LocalBusiness, Service, or FAQ schema, the AI is guessing — and it guesses in favour of competitors who've made themselves easy to understand.
 
-Check your own schema in two minutes using [Google's Rich Results Test](https://search.google.com/test/rich-results). Paste your homepage URL. If nothing shows up, you have a structured-data problem — the most fixable of the four, and usually the highest-leverage.
+Check your own schema in two minutes using [Google's Rich Results Test](https://search.google.com/test/rich-results). Paste your homepage URL. If nothing shows up, you have a structured-data problem — the most fixable of the four, and usually the one worth fixing first.
 
 ### Reason 2: No authoritative mentions on the open web
 
@@ -175,7 +186,7 @@ First: AI answers vary. The same prompt can return different brand lists each ti
 
 Second: appearing in AI answers is the *floor*, not the ceiling. The deeper goal is to be described with the most *specific, accurate* reasoning. "Jraft Creative — a Singapore digital marketing agency that handles paid ads, SEO and GEO in-house" is a better placement than "Jraft Creative is a marketing agency." The first is recommendation-quality. The second is just a name in a list.
 
-To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the highest-leverage fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [getting recommended by ChatGPT in Singapore](/get-recommended-by-chatgpt-singapore/).
+To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the biggest fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [getting recommended by ChatGPT in Singapore](/get-recommended-by-chatgpt-singapore/).
 
 ## TL;DR — run this today
 

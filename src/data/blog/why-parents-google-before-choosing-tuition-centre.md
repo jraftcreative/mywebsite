@@ -14,6 +14,17 @@ keywords:
   - tuition centre SEO
   - education marketing Singapore
   - tuition centre website
+faq:
+  - question: "Do parents really Google before choosing a tuition centre?"
+    answer: "Yes. Across the tuition centres Jraft Creative works with in Singapore, the majority of new enquiries start with a Google search. Parents who walk in or call have almost always Googled you first. Rather than ask a friend or check a flyer, they pull out their phone and type things like math tuition near Tampines or PSLE tuition centre reviews. If your centre does not show up, or shows up but does not impress, you have lost that parent before they knew you existed."
+  - question: "How long does a parent take from first search to enquiry?"
+    answer: "Typically one to three weeks, across three stages. On day one they run an initial search, scan results, and click 3 to 5 centres, forming quick first impressions. Over days 2 to 7 they shortlist 2 to 3 options and look deeper at teaching approach, tutors, results, reviews, and cost. By days 7 to 21 they contact their top choices. By the time a parent reaches out, they have already decided you are a contender, so the sale is half made."
+  - question: "What is the most influential factor for parents researching online?"
+    answer: "Google reviews, and how you respond to them. A centre with 50 or more reviews averaging 4.5 stars will consistently beat one with 5 reviews, even if the teaching quality is identical. Parents also read your responses, so thanking positive reviewers and professionally addressing negative feedback signals that you care. If you are not actively asking satisfied parents to leave reviews, you are leaving your reputation to chance."
+  - question: "Should I put tuition fees on my website?"
+    answer: "Yes, even a range helps. Cost is one of the things parents actively search for, and being transparent about pricing builds trust and saves time for both you and the parent. Something like 200 to 350 dollars a month depending on subject and level answers the question directly. Every unanswered question, fees included, is a reason for a parent to look at your competitor instead."
+  - question: "Why does a WhatsApp button matter for tuition centre websites?"
+    answer: "Because it is low-friction and feels less formal than a phone call, which suits how many Singapore parents prefer to enquire. Some parents want to call, some prefer a form, but a visible WhatsApp button captures those who would not do either. We have seen tuition centres double their enquiry rate simply by adding one. Offer all three contact options so no parent hits a dead end."
 draft: false
 ---
 

@@ -14,6 +14,17 @@ keywords:
   - food business website
   - cafe website design
   - Singapore food industry digital
+faq:
+  - question: "Do I really need a website if my F&B business is already on Instagram and Facebook?"
+    answer: "Yes, because you don't own your social pages and they don't win you Google searches. Meta can change its algorithm or restrict your reach at any time, and Facebook organic reach has fallen to around 5.2% of followers. When diners search for a cuisine or an area, Google surfaces websites and Maps listings, not Instagram profiles. Social still has a role, but it shouldn't be your only home online."
+  - question: "How much does an F&B website cost in Singapore?"
+    answer: "Based on the market ranges in this post, a simple 3 to 5 page site runs about S$1,500 to S$3,000, a site with online ordering S$3,000 to S$6,000, one with a reservation system S$2,000 to S$4,000, and a full-featured build S$5,000 to S$10,000. Exact scope depends on features, so it is worth a short consultation to price your specific needs."
+  - question: "Can a restaurant website help me cut delivery platform commissions?"
+    answer: "Yes. GrabFood, foodpanda, and Deliveroo charge F&B businesses commissions of 25 to 35% per order, which bites hard when typical Singapore F&B net margins sit at 5 to 15%. A website with its own online ordering lets you take direct orders at lower or no commission, build a customer database, and run your own promotions and loyalty rewards."
+  - question: "What pages should a restaurant or cafe website include?"
+    answer: "At minimum, include a homepage with a clear reserve or order call-to-action, a menu page with current prices and dietary labels, an about page, a contact page with address and hours, a gallery, and a Google Maps embed. Add Restaurant schema markup so Google can show rich results with your rating, price range, and hours. Online ordering, a blog, and testimonials are valuable extras."
+  - question: "Will a website help my restaurant show up on Google?"
+    answer: "Yes, when it is built with proper local SEO. Searches like restaurants near me and specific queries such as Italian restaurant Orchard Road or halal restaurant Bugis carry high intent from diners ready to eat. A website lets you rank for those searches, while social media profiles rarely appear in them, so relying on Instagram alone leaves you invisible to those searchers."
 draft: false
 ---
 

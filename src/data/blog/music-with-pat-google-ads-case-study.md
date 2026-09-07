@@ -14,6 +14,17 @@ keywords:
   - google ads for small business singapore
   - marketing agency results singapore
   - jraft creative case study
+faq:
+  - question: "Is hiring a marketing agency worth it for a small business in Singapore?"
+    answer: "It can be, but only if the agency measures the thing that actually pays you. Plenty of retainers deliver pretty reports and a few hundred followers while customer numbers stay flat. A good agency for a small business points every dollar at a real outcome — a booking, an enquiry, a sale — and can show you a result for a business your size, not a Fortune 500 case study."
+  - question: "What results did Jraft Creative get for Music with Pat?"
+    answer: "Over three months, her Google Ads produced 45 booked trial lessons — around 15 a month — on a small budget. Those were real bookings from parents and adult learners who found her and put a trial in the calendar, not impressions or follower counts. For a solo teacher, it meant a steadily filling diary instead of hoping the phone would ring."
+  - question: "Do you need a big budget to get results from Google Ads?"
+    answer: "No. Music with Pat ran on a modest budget and still filled her diary month after month. What made it work was focus, not spend — every search and every dollar aimed at one action, a booked trial lesson, with nothing wasted on numbers that do not pay. Small budgets get real results when they are pointed at the right thing."
+  - question: "Why doesn't this case study quote a return on ad spend?"
+    answer: "Because a trial lesson is counted as a booking, not a dollar amount, so any ROAS figure would be invented. We would rather stand behind the number we can actually prove — 45 real trial lessons booked over three months. Honest reporting matters more than a shiny percentage that does not reflect how the result was measured."
+  - question: "What should I ask a marketing agency before hiring them?"
+    answer: "Ask three plain questions. What will you measure — bookings and enquiries, or impressions and likes? Will you take a modest budget seriously? And can you point to a real result for a business my size? If an agency cannot answer those clearly, keep looking. How they handle plain questions tells you a lot before you sign anything."
 draft: false
 ---
 

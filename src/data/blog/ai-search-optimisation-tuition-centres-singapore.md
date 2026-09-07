@@ -18,6 +18,17 @@ keywords:
   - PSLE tuition Singapore
   - tuition centre structured data
   - education marketing Singapore
+faq:
+  - question: "Do Singapore parents actually use AI to find tuition centres?"
+    answer: "Yes, and more than you might expect. A 2025 survey found that 44% of Singapore parents aged 25 to 44 have used AI tools to research education options for their children. Among parents with household incomes above 10,000 dollars a month, a core demographic for enrichment and tuition, that figure rises to 58%. These are high-intent searches from parents who have already decided they need tuition."
+  - question: "What signals does AI use to recommend a tuition centre?"
+    answer: "AI evaluates specific, verifiable data signals. The main ones are tutor qualifications and credentials, student results and track record, clearly described teaching methodology, consistent parent testimonials, structured data on your website, and mentions in Singapore education forums. A statement like 85% of our PSLE students scored A or A star in Mathematics in 2025 is the kind of specific claim AI can quote. Vague phrases like excellent results carry no weight."
+  - question: "How important is KiasuParents for AI tuition recommendations?"
+    answer: "KiasuParents is the single most influential Singapore-specific source for tuition recommendations in AI. Forum threads that discuss centres, compare options, and share results are frequently cited by ChatGPT and Gemini. You cannot directly control what is said about you, but you can influence it by delivering strong results and encouraging satisfied parents to share their experiences. A centre discussed positively across multiple threads has a measurable advantage."
+  - question: "What structured data should a tuition centre add to its website?"
+    answer: "Use the EducationalOrganization schema so AI platforms know exactly what you offer. Include your organisation name, address, phone, and operating hours, the subjects you teach, the levels you cover from Primary through PSLE, O-Level, IP, JC, and A-Level, your teaching format, the number of students per class, and any accreditations. Without it, AI has to guess from unstructured webpage text, and it frequently guesses wrong."
+  - question: "How should tuition centre testimonials be written for AI visibility?"
+    answer: "Write them with verifiable specifics, because generic praise like great centre, highly recommended is effectively invisible to AI. Include the exact subject and level, the grade improvement before and after, the timeframe, and what the parent valued most, such as class size or exam preparation. A testimonial describing a jump from C5 to A2 in O-level Additional Mathematics over 8 months gives AI concrete details it can reference with confidence."
 draft: false
 ---
 

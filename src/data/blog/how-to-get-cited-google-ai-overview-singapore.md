@@ -18,6 +18,17 @@ keywords:
   - get recommended by ChatGPT Singapore
   - AI visibility Singapore
   - AI search marketing Singapore
+faq:
+  - question: "Is getting cited in Google's AI Overview the same as ranking well on Google?"
+    answer: "No, they are two separate games. Independent studies put the overlap between Google's top traditional results and the brands named in its AI Overview at below 30 percent. You can sit at position one for a keyword and still be absent when the AI writes its answer, because the two systems weigh different signals."
+  - question: "How long does it take a Singapore business to earn an AI Overview citation?"
+    answer: "Budget four to six months of focused, consistent work. When Jraft Creative earned its own citations it took roughly six months across schema, content depth, third-party citations and ongoing maintenance, running at once rather than as one clever fix. Anyone promising a citation in two weeks is selling a tool, not the actual work."
+  - question: "What signals does Google's AI weigh when deciding who to cite?"
+    answer: "Four signals matter most: entity clarity, content it can actually quote, third-party corroboration, and freshness with consistency. The AI needs to understand who you are and where you operate, find specific quotable answers on your pages, see your claims echoed by reviews and directories, and confirm your information is current. A polished site with no outside footprint reads as an unverified claim."
+  - question: "How can I check whether AI is already citing my business?"
+    answer: "Open Google in an incognito window and type the exact query your customers use, naming your service and your area, then read the AI Overview at the top. Repeat the same question inside ChatGPT and Gemini. If you are absent, look at who is cited instead. Do this once a month, since AI answers shift as the web around you changes."
+  - question: "Can I fix my structured data myself to get cited?"
+    answer: "Adding schema to one page is a tutorial-level task you can do yourself, and running your site through Google's Rich Results Test will show whether Organisation and LocalBusiness schema are present. Doing it correctly across a whole site, with the right schema per page type, is a coordinated technical job. That is often where the difference between having schema and actually getting cited lives."
 draft: false
 ---
 

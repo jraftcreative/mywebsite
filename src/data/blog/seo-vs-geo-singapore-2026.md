@@ -19,6 +19,17 @@ keywords:
   - should I invest in SEO or GEO
   - AI visibility Singapore
   - digital marketing Singapore 2026
+faq:
+  - question: "Do I still need SEO if I invest in GEO?"
+    answer: "Yes. SEO and GEO are complementary, not either/or. GEO is built on the same foundations as SEO — clean technical structure, schema, an accurate Google Business Profile, and specific, citable content. There is no shortcut that skips SEO, because the things that make an AI cite you are largely the same things that make Google rank you."
+  - question: "What is the difference between SEO and GEO?"
+    answer: "SEO gets your website ranking in Google's classic results — the blue links, the map pack, the people-also-ask boxes — so someone clicks through and lands on your site. GEO gets your brand named and recommended inside an AI-generated answer from ChatGPT, Gemini, Perplexity or Google's AI Overview. With SEO you compete for a position in a list of links; with GEO you compete to be mentioned in a sentence."
+  - question: "How should a Singapore business split its budget between SEO and GEO?"
+    answer: "Fund foundations first, then weight the split toward whichever channel your buyers actually use. The post lays out four factors: buyer behaviour in your category, business type, budget, and timeline. For most SMEs we work with, the practical shape is foundations first, then a roughly 60/40 lean toward the channel buyers use most, built so the SEO work also feeds GEO."
+  - question: "Why does GEO matter now in Singapore rather than later?"
+    answer: "Because discovery is already moving. Google's AI Overviews reached roughly 2.5 billion monthly users as of Google's 2026 announcement, so an AI answer now sits at the top of many searches and names a few brands before anyone clicks. Singapore is one of the highest AI-adoption markets in the world, and most local businesses still have no GEO strategy — that gap is the window."
+  - question: "How long does SEO or GEO take to show results?"
+    answer: "Both are slow-burn, and neither is a two-week fix. Earning your way into classic rankings or AI answers is a multi-quarter effort across schema, content depth and third-party signals. If you need enquiries this month, that is a paid-ads conversation, not an SEO or GEO one — set the expectation honestly up front."
 draft: false
 ---
 

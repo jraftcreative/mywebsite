@@ -15,6 +15,17 @@ keywords:
   - Facebook Ads Singapore
   - which ad platform Singapore
   - paid advertising Singapore SME
+faq:
+  - question: "Should my Singapore business start with Google Ads or Meta Ads?"
+    answer: "It depends on whether people already search for what you sell. Google Ads captures existing demand — someone types tuition centre near Tampines and your ad appears, so service businesses usually start there. Meta Ads creates demand by putting your business in front of people based on who they are, which suits visual consumer brands nobody is searching for yet."
+  - question: "What do Google Ads and Meta Ads cost in Singapore?"
+    answer: "Google Ads charges per click, with typical CPCs ranging from S$1 to S$3 in less competitive industries, S$3 to S$8 for education and healthcare, and S$8 to S$20 or more for legal, insurance and finance. Meta Ads runs cheaper per click, roughly S$0.50 to S$2.00, but those people were not searching for you, so intent and conversion rates tend to be lower."
+  - question: "Can I run Google Ads and Meta Ads at the same time?"
+    answer: "You can, and most successful Singapore businesses eventually do, but not when you are starting with a limited budget of S$1,000 to S$2,000 a month. Both platforms need data to optimise, and splitting a small budget means neither gets enough to learn. Get one platform profitable over two to three months first, then add the second and let its data inform the first."
+  - question: "Is Google Ads or Meta Ads better for a service business?"
+    answer: "Google Ads almost always wins first for service businesses like clinics, law firms, tuition centres and contractors. The intent is already there — people are actively searching for the service — so you are paying to be found rather than to interrupt a scroll. Higher intent means better conversion rates, faster ROI and clearer data to learn from."
+  - question: "What about TikTok Ads for a Singapore SME?"
+    answer: "TikTok is a viable third option in Singapore, especially for reaching 18 to 35 year olds, with CPMs still lower than Meta and a format that rewards authentic content over polish. For most Singapore SMEs in 2026, though, Google and Meta remain the two platforms that reliably generate leads. Test TikTok once you have at least one of the big two working."
 draft: false
 ---
 

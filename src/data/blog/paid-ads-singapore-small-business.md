@@ -14,6 +14,17 @@ keywords:
   - Meta Ads Singapore
   - digital advertising Singapore SME
   - ad campaigns small business
+faq:
+  - question: "Do Singapore small businesses really need paid ads in 2026?"
+    answer: "If you rely on organic reach alone, you are leaving money on the table. Google's results page is now dominated by ads, AI overviews and featured snippets, and organic post reach on Instagram and TikTok has dropped below 5 percent for most business accounts. Businesses that pair solid organic foundations with targeted paid campaigns grow faster and more predictably than those relying on organic alone."
+  - question: "How much should a Singapore SME budget for paid ads?"
+    answer: "Paid advertising does not mean throwing S$10,000 a month at Facebook. For most Singapore SMEs we recommend starting with S$1,000 to S$2,000 per month on a single platform. That is enough to generate meaningful data within two to four weeks without burning through your budget, and it keeps the campaign focused while the platform learns who your best customers are."
+  - question: "Which platform should a Singapore small business start with?"
+    answer: "Start with one channel and get it profitable before expanding. Service-based businesses usually begin with Google Search Ads, because the intent is already there and cost per lead is measurable from day one. Consumer brands and businesses targeting a younger demographic often start with Meta or TikTok, where audience targeting and lower cost-per-impression rates do the work."
+  - question: "How long before paid ads start working?"
+    answer: "Give it at least three months before making big decisions. One week tells you almost nothing — paid advertising needs three to four weeks minimum to generate reliable data while the algorithm learns who your best customers are. Pulling the plug early is one of the most common mistakes we see, and it usually happens right before a campaign would have found its footing."
+  - question: "Should I start ads before or after fixing my website?"
+    answer: "Fix the website first. If your site does not clearly explain what you offer and make it easy to enquire, ads will just drive traffic to a dead end. You should also be able to handle the leads — there is no point generating 50 enquiries a week if you can serve only 10 — and commit to at least three months, since one month of data tells you very little."
 draft: false
 ---
 

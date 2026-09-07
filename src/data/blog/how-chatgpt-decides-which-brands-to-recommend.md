@@ -21,6 +21,17 @@ keywords:
   - ChatGPT browsing mode
   - AI search recommendations
   - LLM brand visibility Singapore
+faq:
+  - question: "Why does ChatGPT recommend my competitor but not me?"
+    answer: "Usually because your competitor sends stronger brand signals than you do. This post identifies four signals that matter across ChatGPT, Gemini, Claude and Perplexity: entity clarity from schema markup, content that AI can extract, third-party authority from reviews and directories, and information freshness. A brand with genuine Google Reviews, a Clutch profile and structured data often beats a bigger rival that has none of that."
+  - question: "Does ranking well on Google mean ChatGPT will recommend me?"
+    answer: "No. This post notes the overlap between top Google results and brands cited by AI has dropped below 20 percent. Google rewards backlinks, page authority and keyword optimisation, while ChatGPT weighs entity clarity, third-party mentions and content it can confidently attribute. You can sit at number one on Google for a query and still be absent from ChatGPT's answer to the same question."
+  - question: "What is the single highest-impact change for AI visibility?"
+    answer: "Adding schema markup to your website. This post calls JSON-LD schema, at minimum Organization, LocalBusiness and Service, the highest-impact technical change you can make for AI visibility. It gives AI a machine-readable identity card so it understands who you are, rather than piecing you together from scattered mentions across the web. Add FAQ schema too if you publish FAQ content."
+  - question: "How much do fresh content and recent reviews affect ChatGPT recommendations?"
+    answer: "A lot, especially in browsing mode. This post reports that brands publishing or updating content within the previous 14 days appeared in ChatGPT recommendations roughly three times more often than brands with identical authority but stale content. A steady trickle of recent Google Reviews counts too, more than a batch of reviews collected two years ago."
+  - question: "What is an llms.txt file and do I need one?"
+    answer: "An llms.txt is a plain-text file at your domain root that gives AI crawlers a structured summary of your business, services and key facts, similar to robots.txt but written for large language models. This post lists creating one among the practical steps to influence AI recommendations. It is a low-effort signal worth adding once your schema and reviews are in place."
 draft: false
 ---
 

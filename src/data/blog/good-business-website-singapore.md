@@ -14,6 +14,17 @@ keywords:
   - Singapore customer expectations
   - business website checklist
   - professional website features
+faq:
+  - question: "How fast should my business website load?"
+    answer: "Aim to load in under 3 seconds on mobile. Google research shows users form an opinion about a site in as little as 50 milliseconds, and a 1-second delay in load time can cut conversions by 7%. For a site getting 1,000 visitors a month at a 3% conversion rate, that is 2 lost customers every month from slowness alone. Target a PageSpeed Insights mobile score of 80 or above."
+  - question: "Should I show pricing on my website?"
+    answer: "Yes, show at least a starting price or a range. Many Singapore businesses hide pricing for fear of comparison, but visitors who already know your range arrive as more qualified leads, and you waste less time on enquiries that were never a fit. If your projects are genuinely custom, explain the factors that affect cost and give a ballpark figure instead of hiding it entirely."
+  - question: "Why does mobile design matter so much for Singapore websites?"
+    answer: "Because over 72% of web traffic in Singapore comes from mobile devices, so your site has to work flawlessly on a phone, not merely function. That means text readable without pinching, buttons easy to tap, forms simple to complete with a thumb, no horizontal scrolling, tappable phone numbers, and maps that open in the phone's map app. Desktop-only menus and oversized images are common failures we see."
+  - question: "What contact methods do Singapore customers expect?"
+    answer: "Singapore customers expect several convenient options. A floating WhatsApp button is now essentially mandatory for B2C businesses, given WhatsApp's 4.5 million-plus local users. Add a short contact form with minimal fields, a phone number that is clickable on mobile, a professional domain email rather than Gmail, a physical address with a Maps embed, and your operating hours. Responding within 5 minutes makes you far likelier to qualify a lead."
+  - question: "What makes a business website look outdated in 2026?"
+    answer: "Rotating image carousels, gradient buttons with heavy drop shadows, stock photos of handshaking businesspeople, walls of text with no visual breaks, and auto-playing background videos all read as dated. What looks current instead is a neutral palette with a single accent colour, large authentic photography, generous whitespace, subtle hover and scroll micro-interactions, and clean professional typography with good spacing."
 draft: false
 ---
 

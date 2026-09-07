@@ -14,6 +14,17 @@ keywords:
   - hire marketing agency
   - digital marketing agency tips
   - Singapore SME marketing
+faq:
+  - question: "What should I look for when choosing a marketing agency in Singapore?"
+    answer: "Start by getting clear on what you actually need — SEO, ads, web design, social — since the right agency for one is often the wrong one for another. Then check the agency's own marketing, look at portfolio work relevant to your industry, understand their pricing model, and ask pointed questions. Weigh chemistry and plain-language communication as heavily as credentials."
+  - question: "How much do marketing agencies charge in Singapore?"
+    answer: "As a rough guide for SME budgets, the post cites website design at $2,000 to $8,000, SEO retainers at $800 to $2,500 a month, Google or Meta Ads management at $800 to $2,000 a month plus ad spend, social media management at $800 to $2,000 a month, and full-service retainers at $2,500 to $6,000 a month. Agencies far below this may be cutting corners; far above should justify the premium with results. For a scoped figure, book a consultation."
+  - question: "What are the biggest red flags with marketing agencies?"
+    answer: "The clearest warning sign is any agency that guarantees first-page Google rankings — nobody controls Google's algorithm, so that is either a lie or a black-hat risk. Watch too for 12-month lock-ins with no exit clause, no transparency on how much of your money goes to ad platforms versus agency fees, agencies that skip questions about your business, and vague reporting."
+  - question: "What questions should I ask an agency before hiring them?"
+    answer: "Ask what specific results they have achieved for businesses like yours, who will actually work on your account, how they report on results, and what happens if it is not working. Also ask to speak with a current client. Vague answers and reluctance to give references are yellow flags; good agencies give specifics and connect you readily."
+  - question: "Should I commit to a long contract straight away?"
+    answer: "No. If you are not fully convinced, start small — a website or SEO audit, a one-month ad campaign test, a single landing page, or a brand strategy session lets you judge communication, quality and reliability first. A 3-month initial commitment is reasonable, but be cautious of 12-month lock-ins before you have seen any results."
 draft: false
 ---
 

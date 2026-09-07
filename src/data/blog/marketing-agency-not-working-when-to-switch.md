@@ -14,6 +14,17 @@ keywords:
   - is my marketing agency working
   - switch marketing agency Singapore
   - signs to fire marketing agency
+faq:
+  - question: "How long should I give a marketing agency before expecting results?"
+    answer: "It depends on the channel. Paid ads on Google or Meta show early signal in two to four weeks and a clear read on cost-per-lead within roughly six to eight weeks. SEO is slower at three to six months, longer for competitive terms. Building a social audience is a months-long game. Judge a pattern over time, not one slow month."
+  - question: "What are the signs my marketing agency isn't working?"
+    answer: "Watch for five recurring patterns. You cannot get a straight answer on results and reports are all reach and impressions. You only hear from them when you chase. It is the same work every month with no testing. You do not know how your money splits between ad spend and their fee. And they get defensive when you ask whether it is worth it."
+  - question: "How do I switch marketing agencies without losing my accounts and data?"
+    answer: "Get owner access to your Google Ads, Meta Business, Google Business Profile, domain and analytics in your own name before you give notice. Export past reports, creative, content and keyword lists. Check your contract for notice periods and what transfers on exit. And wind down cleanly rather than pulling the plug mid-campaign, so you do not lose live performance during the handover."
+  - question: "Is it always the agency's fault when marketing isn't working?"
+    answer: "Not always. Before switching, check your own side honestly — are you giving them admin access, timely approvals, clear goals and the assets they have asked for? An agency cannot run good ads if approvals sit in your inbox for a fortnight, or do SEO if you will not publish the content. If you have held up your end and the warning signs remain, it is them."
+  - question: "Is switching agencies a sign I made a mistake?"
+    answer: "No. Switching is not failure, but staying with one that is not working is. Marketing genuinely takes time, so set a fair baseline per channel first. A clear pattern of no results, no answers and no iteration over months is a very different story from one slow month. If you recognise your own setup in the signs, you probably already know."
 draft: false
 ---
 

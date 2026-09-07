@@ -18,6 +18,17 @@ keywords:
   - generative engine optimisation Singapore
   - organic traffic drop AI
   - digital marketing Singapore
+faq:
+  - question: "How many Singaporeans use AI search?"
+    answer: "60.9% of Singaporeans already use generative AI, making Singapore the country with the second highest AI adoption rate in the world, behind only the UAE. Per-capita AI usage here runs about 7x higher than population size alone would predict. When a Singaporean wants a recommendation, there is a better than even chance they ask ChatGPT or Gemini, not just Google."
+  - question: "Is AI search really cutting into website traffic?"
+    answer: "Yes, and the numbers are stark. Organic click-through rates dropped 61% on queries where a Google AI Overview appears, and 58.5% of all searches now end without a single click — 77% on mobile. Gartner projects Google search volume falling 25% by 2026 and half of all organic search traffic disappearing by 2028."
+  - question: "Which industries are hit hardest by AI search?"
+    answer: "Any industry where people ask questions an AI can answer directly. AI Overview growth is fastest in entertainment, restaurants and F&B, and travel, while DIY, how-to, health and recipe content see typical traffic drops of 40-70%. Named casualties include Digital Trends, down 97% in US Google traffic, and Business Insider, down 55%."
+  - question: "If AI sends less traffic, is it worth optimising for?"
+    answer: "Yes, because the traffic it does send converts far better. AI-referred visitors convert 4.4x better than traditional organic search, and in one documented case AI visitors were just 0.5% of traffic but drove 12.1% of signups — a 23x premium. Someone who arrives on an AI recommendation comes pre-sold, with built-in trust."
+  - question: "Can GEO guarantee my brand shows up in AI answers?"
+    answer: "No. AI recommendations are probabilistic — ask the same question 100 times and there is less than a 1 in 100 chance ChatGPT returns the identical brand list. GEO is about increasing the probability that your brand appears, not locking a fixed position. The better optimised you are, the more frequently you show up."
 draft: false
 ---
 

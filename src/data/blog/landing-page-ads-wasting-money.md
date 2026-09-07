@@ -17,6 +17,17 @@ keywords:
   - ad conversion rate Singapore
   - wasting ad budget
   - landing page design
+faq:
+  - question: "Why is my homepage a bad place to send ad traffic?"
+    answer: "A homepage gives the person who clicked too many choices and no clear next step. It carries a navigation bar, an About section, a services overview, a team photo and a footer — none of which is what someone who clicked a specific offer needs to see. They have to figure out where to go, and most will not bother. They leave, and every one of those clicks cost you money."
+  - question: "How much better does a dedicated landing page convert than a homepage?"
+    answer: "A lot. Across our client campaigns, homepages typically convert at 1 to 3 percent and generic contact pages at 2 to 4 percent, while dedicated landing pages convert at 8 to 15 percent. On a S$500 monthly budget with 200 clicks, a homepage at 2 percent gives four enquiries at S$125 each, while a landing page at 10 percent gives twenty enquiries at S$25 each. Same ad, same budget, five times the enquiries."
+  - question: "What makes a good landing page for ads?"
+    answer: "One job: convert the person who just clicked. It needs a headline that matches the exact promise in your ad (message match), one clear call to action rather than several, and social proof such as real Google reviews with names and star ratings. Remove the navigation so there are no exit doors, and design mobile-first, since over 80 percent of ad clicks in Singapore come from phones."
+  - question: "What should the call to action on my landing page be?"
+    answer: "Pick one action, not three. For most Singapore businesses that means WhatsApp, since that is how Singaporeans prefer to enquire, or a short form asking for name, phone number and one qualifying question, or a book-now option for salons, clinics and fitness studios. Put it above the fold so it is visible without scrolling, and repeat it once more at the bottom of the page."
+  - question: "Does every ad campaign need a landing page?"
+    answer: "No. Brand awareness campaigns aimed at reach rather than conversions can point to your homepage, retargeting can send people who already know you to product pages, and a well-optimised service page can work for very specific high-intent Google searches. But for lead generation campaigns, which is what most Singapore SMEs run, a dedicated landing page is non-negotiable."
 draft: false
 ---
 

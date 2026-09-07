@@ -18,6 +18,17 @@ keywords:
   - Google Business Profile restaurant
   - Burpple SEO
   - restaurant marketing Singapore
+faq:
+  - question: "How do AI platforms decide which restaurant to recommend?"
+    answer: "AI models match data signals rather than make taste judgements. The strongest ones are review volume and sentiment, structured menu data, specific cuisine type, consistent location details, a complete Google Business Profile, and presence on third-party platforms. A restaurant with 400 Google reviews at 4.3 stars will usually be recommended over one with 30 reviews at 4.7, because volume builds statistical confidence for the model."
+  - question: "Which review platforms matter most for restaurant AI visibility in Singapore?"
+    answer: "Google Maps reviews are the single most important, because Google's own AI products like Gemini and AI Overviews weight them heavily and other platforms reference them too. Beyond Google, build presence on Burpple, Singapore's most active food discovery platform, and TripAdvisor if you serve tourist-heavy areas. Aim for at least 50 genuine Google reviews as a baseline, and never buy fake ones."
+  - question: "What is an llms.txt file and does my restaurant need one?"
+    answer: "An llms.txt file is a relatively new standard that tells AI crawlers what matters most about your business. You place it at the root of your website and keep it factual, specific, and under 500 words. Include your cuisine type and neighbourhood, 5 to 10 signature dishes with brief descriptions, key differentiators, any awards or media mentions, and practical details like price range and booking info."
+  - question: "Can a small restaurant compete with bigger ones in AI search?"
+    answer: "Yes. AI recommendations favour a structured, up-to-date, widely referenced digital presence over marketing budget. A hawker stall with 500 genuine Google reviews, a well-maintained Google Business Profile, and mentions across several food blogs can outperform a fine-dining restaurant with a beautiful website but sparse reviews and no structured data. It is a genuine levelling of the playing field."
+  - question: "What structured data should a Singapore restaurant add to its website?"
+    answer: "Use the FoodEstablishment, Menu, and AggregateRating schemas so AI platforms can read your restaurant in a machine-readable format. At minimum include your name, address, phone, and opening hours, a specific cuisine type, menu items with SGD prices, your aggregate rating from Google Reviews, a price range indicator, accepted payment methods, and reservation links. Most modern website platforms offer schema plugins if you do not have a developer."
 draft: false
 ---
 

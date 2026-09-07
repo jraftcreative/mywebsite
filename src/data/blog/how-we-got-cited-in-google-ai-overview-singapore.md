@@ -16,6 +16,17 @@ keywords:
   - AI visibility Singapore
   - get cited by Google AI
   - AI search marketing Singapore
+faq:
+  - question: "Did Jraft Creative pay to appear in Google's AI Overview?"
+    answer: "No. This post shows Google's AI Overview naming Jraft Creative for two niche Singapore queries, best marketing agencies for music schools and best marketing agencies for enrichment schools, with no paid placement and no sponsored badge. Google's AI engine decided on its own that Jraft Creative was a reasonable answer to a real buyer's question. The citations were earned through the work described in the post."
+  - question: "What work does it take to get cited in Google's AI Overview?"
+    answer: "Four categories working together, according to this post: schema markup at scale across every service and industry page, content depth rather than volume, a citation footprint across third-party sources, and topical authority through dedicated vertical pages. The post is clear that most agencies do only one or two of these. Consistent citation across niche queries needs all four in coordination."
+  - question: "How long does it take to get cited in AI search?"
+    answer: "Budget at least four to six months of focused work, this post says, and it took Jraft Creative six months of consistent effort. You also need technical, content and outreach capacity running at the same time, plus ongoing maintenance once you are cited. Anyone promising it faster, easier or fully automatable is selling you a tool, not the actual work."
+  - question: "Can I do AI visibility work myself?"
+    answer: "Sometimes, but three places consistently break down, per this post: schema at scale across 100-plus pages, citation outreach that depends on knowing which Singapore sources count, and ongoing maintenance because AI engines reward freshness. If you have all three capacities running in-house, you can DIY it. The post notes that most Singapore SMBs do not, and points them to a consultation."
+  - question: "Why does ranking on Google not guarantee an AI Overview citation?"
+    answer: "Because the two systems evaluate different signals. This post cites multiple independent studies putting the overlap between Google's top-10 traditional results and the brands cited in its AI Overview below 30 percent. Ranking well on classic search no longer guarantees you appear when Google's AI generates an answer. The question has shifted from are we ranking well to is the AI naming us."
 draft: false
 ---
 
