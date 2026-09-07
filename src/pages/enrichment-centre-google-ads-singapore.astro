@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Enrichment Centre Google Ads Singapore",
-    "description": "Google Ads management for enrichment centres in Singapore — target parents searching for coding classes, art enrichment, and kids' programmes. Plans",
+    "name": "Google Ads Agency for Enrichment Centres Singapore",
+    "description": "Google Ads agency for enrichment centres in Singapore. Programme-level campaign structure, term-break and new-year enrolment timing, location targeting around each centre, and trial-class conversion tracking.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Google Ads Management for Enrichment Centres"
+    "serviceType": "Enrichment Centre Google Ads"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much should enrichment centres spend on Google Ads in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What types of enrichment programmes work best with Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Any programme parents actively search for performs well — coding and robotics classes, art and music enrichment, speech and drama, sports programmes, and STEM workshops. We build separate campaigns for each programme type so budgets and messaging are tailored to the specific audience and search intent." } },
-      { "@type": "Question", "name": "How do you target parents looking for enrichment classes?", "acceptedAnswer": { "@type": "Answer", "text": "We target parents through high-intent search keywords like 'coding class kids Singapore' or 'art enrichment Bukit Timah', combined with location targeting around your centre. We also use demographic targeting to focus on household income brackets and age groups most likely to enrol in enrichment programmes." } },
-      { "@type": "Question", "name": "Can Google Ads help fill trial class spots?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We create dedicated campaigns for trial class promotions with ad copy highlighting your free or discounted trial offer. Landing pages are designed specifically to capture trial sign-ups, and we track every booking back to the keyword and ad that generated it so you know your exact cost per trial." } },
-      { "@type": "Question", "name": "How quickly will I see enquiries from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Enrichment centre ads can generate clicks and enquiries within the first week. However, it typically takes 4–6 weeks of data and optimisation to reach peak performance. During this period, we refine keyword targeting, test ad copy variations, and adjust bids to achieve the lowest cost per lead." } }
+      { "@type": "Question", "name": "How much do Google Ads cost for an enrichment centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on which programmes you run, how many centres you operate, and how competitive your neighbourhood is — there is no single package. Coding and speech-and-drama keywords are contested across most of Singapore, while narrower programmes often cost far less per click because fewer centres bid on them. Book a consultation and we will scope your programme mix and give you a transparent quote." } },
+      { "@type": "Question", "name": "Which keywords should an enrichment centre bid on?", "acceptedAnswer": { "@type": "Answer", "text": "The highest-intent searches are programme plus location — 'coding class for kids Tampines', 'speech and drama Bishan', 'creative writing class Bukit Timah'. Near-me searches like 'enrichment centre near me' convert well because they signal a parent ready to visit. We usually avoid broad terms like 'enrichment centre' on their own, which attract browsers rather than parents ready to book a trial." } },
+      { "@type": "Question", "name": "When should an enrichment centre run Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Enquiries rise sharply around the year-end and January enrolment window, ahead of each new school term, and before the June and December holidays when parents look for camps and trial classes. We scale budgets into those surges and hold a lower baseline through quieter weeks, because parents search for classes across the whole year." } },
+      { "@type": "Question", "name": "How do you track trial-class sign-ups from ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking for enquiry forms, WhatsApp clicks, and call taps, then attribute each one back to the exact keyword and ad that produced it, carrying the GCLID through to your booking record. For enrichment centres the meaningful number is booked trial classes and cost per enquiry, not clicks — so that is what we report on." } },
+      { "@type": "Question", "name": "Can Google Ads work for a single-location enrichment centre?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, and often better than for large chains. A single centre can own a tight radius around one neighbourhood and a small set of programmes, where bidding is far cheaper than competing island-wide. Because you appear on relevance and bid rather than brand recognition, an independent centre can outrank an established chain for its own programme searches in its own estate." } }
     ]
   },
   {
@@ -41,88 +40,218 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Enrichment Centre Google Ads Singapore", "item": "https://jraftcreative.com/enrichment-centre-google-ads-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Google Ads Agency for Enrichment Centres Singapore", "item": "https://jraftcreative.com/enrichment-centre-google-ads-singapore/" }
     ]
   }
 ];
 ---
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
 
 <ServiceLayout
-  title="Enrichment Centre Google Ads — Jraft Creative"
-  description="Google Ads management for enrichment centres in Singapore. Target parents searching for coding classes, art enrichment, and kids' programmes near them."
+  title="Google Ads Agency for Enrichment Centres Singapore"
+  description="Google Ads for enrichment centres in Singapore — reach parents searching for coding, art and drama classes, and turn clicks into booked trial classes."
   canonical="https://jraftcreative.com/enrichment-centre-google-ads-singapore/"
-  ogTitle="Enrichment Centre Google Ads — Jraft Creative"
-  ogDescription="Google Ads for enrichment centres in Singapore. Capture parents searching for kids' coding, art, music, and STEM programmes. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="enrichment centre google ads singapore, enrichment centre advertising singapore, google ads for enrichment centres, ppc enrichment centre singapore, enrichment centre marketing singapore, Jraft Creative"
+  ogTitle="Google Ads Agency for Enrichment Centres Singapore"
+  ogDescription="Google Ads for enrichment centres in Singapore. Programme-level campaigns, enrolment-season timing, and trial-class tracking."
+  ogImage="https://jraftcreative.com/images/og-enrichment.jpg"
+  keywords="google ads agency for enrichment centres, enrichment centre google ads singapore, google ads for enrichment centres, advertising for enrichment centres singapore, coding class ads singapore, enrichment centre ppc, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Enrichment Centre Google Ads Singapore"
-  heroTitle='Google Ads for Enrichment Centres <span class="highlight">in Singapore</span>'
-  heroSubtitle="Parents are searching for coding, art, music, and STEM classes for their children. We build Google Ads campaigns that put your enrichment centre in front of parents at the exact moment they're looking — driving trial sign-ups and enrolments."
+  heroLabel="Google Ads Agency for Enrichment Centres"
+  heroTitle='Google Ads Agency for <span class="highlight">Enrichment Centres in Singapore</span>'
+  heroSubtitle="A parent searching 'enrichment centre near me' on a Sunday afternoon is ready to book a trial that week. We build and manage Google Ads campaigns for enrichment centres that capture those searches — by programme, by neighbourhood, and at the moments parents actually decide."
   heroImage="/images/service-enrichment.webp"
+  heroImageAlt="Children in an enrichment class in Singapore — enrichment centre Google Ads"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "See Enrichment Centre SEO", href: "/enrichment-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need Google Ads for my enrichment centre in Singapore."
-  ctaLabel="Grow Your Enrolments"
-  ctaTitle="Get a Free Enrichment Centre Ad Strategy"
-  ctaDescription="Book a free consultation and we'll analyse your local competition, identify the highest-value keywords for your programmes, and map out a campaign strategy tailored to your enrichment centre. We'll get back to you within 24 hours."
+  ctaLabel="Fill Your Trial Slots"
+  ctaTitle="Get a Free Enrichment Centre Ads Strategy Session"
+  ctaDescription="Book a free consultation and we'll review your current ad performance, look at which programmes are worth bidding on in your area, and map the keywords parents near your centre are already searching. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20enrichment%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for enrichment centres">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Google Ads challenges for enrichment centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Struggling to Stand Out in Singapore's Crowded Enrichment Market?</h2>
+        <h2>Your Centre Is Full of <span class="highlight">Programmes</span>. Your Trial Calendar <span class="highlight">Isn't</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore parents spend heavily on enrichment programmes, but with hundreds of centres offering everything from robotics to piano lessons, getting noticed is harder than ever. Parents turn to Google first — searching "coding class kids Singapore" or "art enrichment near me" — and if your centre doesn't appear, they'll book with a competitor who does.</p>
-        <p>Without targeted Google Ads, your enrichment centre relies on walk-ins and referrals while competitors capture every parent searching online. Generic social media posts don't reach parents at the moment of intent, and without conversion tracking, you have no way to measure which marketing efforts actually fill class spots.</p>
+        <p>Referrals arrive on their own schedule — and rarely for the programmes where you have class spots to fill.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Parents Decide in One Search</h3>
+            <p>A parent types "enrichment centre near me" and books a trial with whoever appears first and replies fastest. Word of mouth never reaches them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Broad Keywords Burn Budget</h3>
+            <p>Bidding on "enrichment classes" alone buys clicks from casual browsers and families across the island who will never travel weekly to your centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Enquiries Don't Match Capacity</h3>
+            <p>Twelve coding enquiries are worthless when your coding classes are full and the speech-and-drama room sits empty three afternoons a week.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for enrichment centres">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for enrichment centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Enrichment Centre Ad Services</p>
-        <h2>Google Ads Built for Enrichment Programmes</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Enrichment Centre <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create Google Ads campaigns specifically for enrichment centres in Singapore — targeting the programmes parents search for, in the neighbourhoods where your centres operate. Whether you run coding workshops in Novena or art classes in Clementi, every campaign is built to drive trial bookings and enrolments.</p>
-        <p>Our approach covers programme-specific keywords, location targeting around your centre, and seasonal campaigns for school holiday programmes — ensuring your ad budget captures the parents most likely to enrol.</p>
-        <p>Complement your Google Ads with a professional <a href="/enrichment-centre-website-singapore/">enrichment centre website</a>, <a href="/services/seo-performance/">SEO for long-term organic visibility</a>, or <a href="/services/social-media/">social media marketing</a> to build a complete digital presence.</p>
+        <p>We structure accounts the way an enrichment centre actually works — by programme, by age group, and by the catchment each centre realistically draws from. Round it out with an <a href="/enrichment-centre-website-singapore/">enrichment centre website</a>, <a href="/enrichment-centre-seo-singapore/">enrichment centre SEO</a>, or <a href="/enrichment-centre-social-media-singapore/">social media</a> for a complete presence.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Programme-Specific Campaigns</h3>
-            <p>Separate ad groups for each programme — coding, art, music, STEM, speech and drama — with tailored keywords, ad copy, and landing pages that speak directly to what parents are searching for.</p>
+            <h3>Programme Campaign Structure</h3>
+            <p>Separate campaigns for coding and robotics, speech and drama, art, creative writing and STEM. Budget follows the programmes with class spots to fill.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Audience Targeting</h3>
-            <p>Reach parents in your area through location-based targeting, household demographic filters, and in-market audience segments — ensuring your ads appear to families most likely to enrol their children.</p>
+            <h3>Age &amp; Term Intent</h3>
+            <p>Preschool, primary and trial-class searches are different buyers. New-year and term-break searches signal a parent already deciding where to enrol.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Lead Generation Campaigns</h3>
-            <p>Trial class landing pages, enquiry forms, and call tracking designed to convert ad clicks into booked trial sessions — with every lead attributed to the campaign and keyword that drove it.</p>
+            <h3>Centre Radius Targeting</h3>
+            <p>Parents choose by travel time. We target tight radii around each centre — Tampines, Jurong East, Punggol, Woodlands — and the MRT lines that feed them.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Holiday Programme Promotions</h3>
-            <p>Seasonal campaigns for school holiday workshops, June and December camps, and year-end programmes — timed to capture parents searching for enrichment activities during breaks.</p>
+            <h3>Ad Copy That Speaks to Parents</h3>
+            <p>Programme, age range and location do the selling. We write copy that speaks differently to a parent shopping for coding than one weighing speech and drama.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
+          <div class="service-detail-card__content">
+            <h3>Trial-Class Landing Pages</h3>
+            <p>A dedicated page per programme, with booking a trial class as the single obvious action. The enquiry is what you're buying.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Term &amp; Holiday Season Scaling</h3>
+            <p>We scale into the January enrolment surge, each term-break intake, and the June and December holiday camp rush — then ease off through quieter weeks.</p>
           </div>
         </div>
       </div>
@@ -130,78 +259,120 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for enrichment centre Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your enrichment centre Google Ads agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Know What Drives Enrichment Enrolments</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> Built for <span class="highlight">Enrichment Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns for enrichment centres across Singapore and understand the parent journey from search to trial booking. Here's why enrichment centres choose us:</p>
+        <p>A generalist agency will build you a competent account — and miss that enrichment centres convert on trial classes, not clicks. We plan every campaign around <a href="/industries/education/">education marketing in Singapore</a>, and if you are still weighing search against social, our guide to <a href="/blog/google-ads-vs-meta-ads-singapore/">Google Ads versus Meta Ads for Singapore lead generation</a> lays out where each one earns its place.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Education Market Knowledge</h3>
-            <p>We understand Singapore's enrichment landscape — which programme categories have the highest search volume, when parents search most actively, and how to position your centre against competitors in your area.</p>
+            <h3>We Know the Enrolment Calendar</h3>
+            <p>Year-end registration, term-break intakes and holiday-camp windows drive predictable enquiry spikes. We plan budget around them, not after them.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You have full access to your Google Ads account and see exactly what each trial booking costs.</p>
+            <h3>Capacity-Led Budgeting</h3>
+            <p>Spend shifts towards the programmes and time slots you can actually take students in, not wherever clicks happen to be cheapest.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that flex with your programme schedule. Scale up for holiday camps and new programme launches, scale down during quieter terms — no penalties, no fixed terms.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Trial-to-Enrolment Tracking</h3>
-            <p>We track every step from ad click to trial booking to paid enrolment. You'll know exactly which programmes, keywords, and campaigns deliver the best return on your ad investment.</p>
+            <h3>Tracked to the Trial Booking</h3>
+            <p>We report cost per booked trial and cost per enquiry, not cost per click. Your budget goes straight to Google, never marked up.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== TRIAL-TO-ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Google Ads fits the enrichment parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts a programme. Google Ads owns the two highest-intent moments — Discover, when a parent first searches, and Enquire, when a remarketed ad brings a shortlister back to book a trial class.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Google Ads captures the first programme search</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Programme details, curriculum, parent reviews</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Shortlist centres within travel distance</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Remarketing brings shortlisters back to book</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for enrichment centres">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for enrichment centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Enrichment Centre Google Ads — Questions Answered</h2>
+        <h2>Google Ads for <span class="highlight">Enrichment Centres</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much should enrichment centres spend on Google Ads in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How much do Google Ads cost for an enrichment centre in Singapore?</summary>
+          <div class="faq-answer"><p>It depends on which programmes you run, how many centres you operate, and how competitive your neighbourhood is — there's no single package. Coding and speech-and-drama keywords are contested across most of Singapore, while narrower programmes often cost far less per click because fewer centres bid on them. Book a consultation and we'll scope your programme mix and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of enrichment programmes work best with Google Ads?</summary>
-          <div class="faq-answer"><p>Any programme parents actively search for performs well — coding and robotics classes, art and music enrichment, speech and drama, sports programmes, and STEM workshops. We build separate campaigns for each programme type so budgets and messaging are tailored to the specific audience and search intent.</p></div>
+          <summary>Which keywords should an enrichment centre bid on?</summary>
+          <div class="faq-answer"><p>The highest-intent searches are programme plus location — "coding class for kids Tampines", "speech and drama Bishan", "creative writing class Bukit Timah". Near-me searches like "enrichment centre near me" convert well because they signal a parent ready to visit. We usually avoid broad terms like "enrichment centre" on their own, which attract browsers rather than parents ready to book a trial.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you target parents looking for enrichment classes?</summary>
-          <div class="faq-answer"><p>We target parents through high-intent search keywords like "coding class kids Singapore" or "art enrichment Bukit Timah", combined with location targeting around your centre. We also use demographic targeting to focus on household income brackets and age groups most likely to enrol in enrichment programmes.</p></div>
+          <summary>When should an enrichment centre run Google Ads?</summary>
+          <div class="faq-answer"><p>Enquiries rise sharply around the year-end and January enrolment window, ahead of each new school term, and before the June and December holidays when parents look for camps and trial classes. We scale budgets into those surges and hold a lower baseline through quieter weeks, because parents search for classes across the whole year.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can Google Ads help fill trial class spots?</summary>
-          <div class="faq-answer"><p>Yes. We create dedicated campaigns for trial class promotions with ad copy highlighting your free or discounted trial offer. Landing pages are designed specifically to capture trial sign-ups, and we track every booking back to the keyword and ad that generated it so you know your exact cost per trial.</p></div>
+          <summary>How do you track trial-class sign-ups from ads?</summary>
+          <div class="faq-answer"><p>We set up conversion tracking for enquiry forms, WhatsApp clicks, and call taps, then attribute each one back to the exact keyword and ad that produced it, carrying the GCLID through to your booking record. For enrichment centres the meaningful number is booked trial classes and cost per enquiry, not clicks — so that's what we report on.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How quickly will I see enquiries from Google Ads?</summary>
-          <div class="faq-answer"><p>Enrichment centre ads can generate clicks and enquiries within the first week. However, it typically takes 4–6 weeks of data and optimisation to reach peak performance. During this period, we refine keyword targeting, test ad copy variations, and adjust bids to achieve the lowest cost per lead.</p></div>
+          <summary>Can Google Ads work for a single-location enrichment centre?</summary>
+          <div class="faq-answer"><p>Yes, and often better than for large chains. A single centre can own a tight radius around one neighbourhood and a small set of programmes, where bidding is far cheaper than competing island-wide. Because you appear on relevance and bid rather than brand recognition, an independent centre can outrank an established chain for its own programme searches in its own estate.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="ads" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Enrichment Centre</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+          <a href="/enrichment-centre-seo-singapore/" class="related-service-link">Enrichment Centre SEO</a>
+          <a href="/enrichment-centre-ai-search-optimisation-singapore/" class="related-service-link">Enrichment Centre GEO</a>
+          <a href="/enrichment-centre-social-media-singapore/" class="related-service-link">Enrichment Centre Social Media</a>
+          <a href="/enrichment-centre-branding-singapore/" class="related-service-link">Enrichment Centre Branding</a>
+          <a href="/enrichment-centre-website-singapore/" class="related-service-link">Enrichment Centre Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

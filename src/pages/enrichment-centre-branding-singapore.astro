@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Enrichment Centre Branding Singapore",
-    "description": "Professional branding for enrichment centres in Singapore — logo design, visual identity, marketing materials, and parent-facing collateral. Stand out in a crowded market — custom-quoted to your scope.",
+    "name": "Branding Agency for Enrichment Centres Singapore",
+    "description": "Branding agency for enrichment centres in Singapore — positioning, logo and visual identity, centre and signage direction, photography and tone, collateral and brand guidelines built to earn parent trust and referrals.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does branding cost for an enrichment centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Why is branding important for enrichment centres?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What makes enrichment centre branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Enrichment centre branding must balance two audiences: parents (who make the payment decision) and children (who attend the classes). The brand needs to project professionalism and educational value to adults while remaining vibrant, engaging, and age-appropriate for children. This dual-audience approach requires careful consideration of colour psychology, visual tone, and messaging that generic branding agencies often overlook." } },
-      { "@type": "Question", "name": "How long does the enrichment centre branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most enrichment centre branding projects take 3 to 6 weeks from discovery to final delivery. Projects with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and programme brochures take 4 to 6 weeks. We can align deliverables with your term breaks for a smooth rollout." } },
-      { "@type": "Question", "name": "Can you help brand individual programmes within our centre?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many enrichment centres offer multiple programmes — art, coding, speech and drama, science — each with its own identity under the parent brand. We can also design sub-brands for individual programmes, ensuring each one has a distinct visual identity while remaining cohesive under your main brand umbrella." } }
+      { "@type": "Question", "name": "Why does an enrichment centre need branding?", "acceptedAnswer": { "@type": "Answer", "text": "Because a parent cannot sit in on a term before they commit, so they read everything around the teaching — your logo, your centre photos, the flyer in their letterbox, the way the front desk replies. In an estate with a dozen centres within walking distance, the one that looks considered and trustworthy is the one parents shortlist and recommend to other parents. Branding is what makes your centre the name that comes up first." } },
+      { "@type": "Question", "name": "We already have a logo. Isn't that enough?", "acceptedAnswer": { "@type": "Answer", "text": "A logo is one part of a brand, not the whole of it. What actually reassures a parent is consistency across everything they see — the website, the programme brochure, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint reinforces the same impression of a centre worth trusting a child with." } },
+      { "@type": "Question", "name": "Will rebranding lose the goodwill we have built?", "acceptedAnswer": { "@type": "Answer", "text": "Only if it is done carelessly. Most established centres do not need a clean slate — they need their existing equity sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as growing up rather than starting over. Existing families should feel the centre got better and more established, not unrecognisable." } },
+      { "@type": "Question", "name": "How do you keep the brand credible without over-promising?", "acceptedAnswer": { "@type": "Answer", "text": "We build brands on trust signals, not outcome claims. As an MOE-registered space you are limited in what you can say, and we work within that — the identity, photography and tone are designed to communicate that your centre is warm, professional and developmental, without promising results we cannot stand behind. That restraint is part of what makes it credible to Singapore parents in the first place." } },
+      { "@type": "Question", "name": "Do you handle the design work in-house?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Positioning, identity, centre and signage direction, photography direction, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, SEO — so the brand does not stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees." } }
     ]
   },
   {
@@ -41,87 +40,219 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Enrichment Centre Branding Singapore", "item": "https://jraftcreative.com/enrichment-centre-branding-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Branding Agency for Enrichment Centres Singapore", "item": "https://jraftcreative.com/enrichment-centre-branding-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Enrichment Centre Branding — Jraft Creative"
-  description="Branding for enrichment centres in Singapore — logo design, visual identity, marketing materials, and parent-facing collateral."
+  title="Branding Agency for Enrichment Centres Singapore"
+  description="Branding for enrichment centres in Singapore — positioning, identity, signage direction, and collateral that earn parent trust and referrals."
   canonical="https://jraftcreative.com/enrichment-centre-branding-singapore/"
-  ogTitle="Enrichment Centre Branding — Jraft Creative"
-  ogDescription="Logo design, brand identity, and marketing collateral for enrichment centres in Singapore. Build a brand that parents trust and children love."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="enrichment centre branding singapore, enrichment centre logo design, enrichment centre brand identity, enrichment centre marketing materials, education branding singapore, children enrichment branding, Jraft Creative"
+  ogTitle="Branding Agency for Enrichment Centres Singapore"
+  ogDescription="Branding for Singapore enrichment centres. Positioning, logo, photography and collateral built to look trusted and earn parent referrals."
+  ogImage="https://jraftcreative.com/images/og-enrichment.jpg"
+  keywords="branding agency for enrichment centres, enrichment centre branding singapore, enrichment centre logo design, enrichment centre brand identity, enrichment centre rebrand singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Enrichment Centre Branding"
-  heroTitle='Professional <span class="highlight">Branding for Enrichment Centres in Singapore</span>'
-  heroSubtitle="Singapore parents spend thousands on enrichment classes each year — and they choose centres that look the part. We build brand identities that project quality, earn parent trust, and make your centre the obvious choice in a saturated market."
+  heroLabel="Branding Agency for Enrichment Centres"
+  heroTitle='Branding Agency for <span class="highlight">Enrichment Centres in Singapore</span>'
+  heroSubtitle="A parent cannot sit through a term before they enrol. So they judge everything else — your logo, your centre, the flyer in the letterbox, the reply from your front desk. We build enrichment centre brands that look trusted and developmental, so parents shortlist you and refer you."
   heroImage="/images/service-enrichment.webp"
+  heroImageAlt="Children in a bright enrichment class in Singapore — enrichment centre branding"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/about/", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Enrichment Centre Marketing", href: "/enrichment-centre-marketing-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my enrichment centre in Singapore."
-  ctaLabel="Ready to Elevate Your Enrichment Centre Brand?"
-  ctaTitle="Get a Brand That Sets You Apart"
-  ctaDescription="Book a free consultation and tell us about your enrichment centre. We will put together a tailored branding proposal — no obligations, no hard sell."
+  whatsappText="Hi Jraft Creative, I'd like to talk about branding for my enrichment centre in Singapore."
+  ctaLabel="Look Worth the Trust"
+  ctaTitle="Get a Free Enrichment Centre Brand Review"
+  ctaDescription="Book a free consultation and we'll look at how your centre currently presents itself — logo, website, space, flyers, brochures — and where the gaps are between how good your programmes are and how good they look to a parent. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20enrichment%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20talk%20about%20branding%20for%20my%20enrichment%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Branding challenges for enrichment centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Cannot Tell Your Centre Apart from the One Next Door</h2>
+        <h2>Parents Can't Judge <span class="highlight">Teaching</span>. So They Judge <span class="highlight">Everything Else</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Walk through any mall in Singapore — Toa Payoh, Jurong East, Tampines — and you will pass half a dozen enrichment centres within a hundred metres of each other. Art studios, coding academies, music schools, speech and drama centres — all competing for the same parents' attention. Most of them look interchangeable. Same bright colours. Same generic clip-art of happy children. Same unmemorable names in fonts chosen on a whim.</p>
-        <p>When every enrichment centre looks the same, parents default to the safest option: the one their friend recommended, or the one with the most reviews. Your centre — no matter how strong your programmes are — gets passed over because nothing about your brand communicates why you are different or better. Your flyers end up in the bin. Your social media posts blend into the feed. Your shopfront window does not stop parents who walk past daily.</p>
-        <p>A strategically designed brand identity changes this dynamic entirely. It gives your enrichment centre a distinct visual presence that parents recognise and remember. A logo that looks professional on signage and online. A colour palette that differentiates you from competitors while remaining child-friendly. Marketing materials that parents actually keep instead of discarding. The goal is not just to look good — it is to be the centre parents recall when they decide to enrol.</p>
+        <p>Walk through a mall in Tampines, Jurong East or Bishan and you'll pass half a dozen enrichment centres within a hundred metres. Before a trial class, a parent has no way to tell which one is right for their child — so they read the brand instead.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Trust Judged in Seconds</h3>
+            <p>A dated logo or a mismatched website tells a parent you're small and unsure — long before they read a single word about your programmes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Good Centres Blur Together</h3>
+            <p>Same bright colours, same stock photos of happy children, same forgettable names. If nothing sets yours apart on sight, parents default to the cheapest or the one a friend named.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Warm or Credible, Rarely Both</h3>
+            <p>Too playful and parents doubt the rigour; too corporate and it feels cold for a child. The identity has to reassure the adult and still feel welcoming to the kid.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Enrichment centre branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Branding services for enrichment centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Enrichment Centres</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for <span class="highlight">Enrichment Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities that work across every touchpoint an enrichment centre has — from your shopfront signage and reception desk to your Instagram feed and parent WhatsApp groups. Every element is designed to project the quality of your programmes and build the trust that drives enrolments.</p>
+        <p>We build the full system, not just a logo — everything a parent sees, made to say the same thing. It connects to your <a href="/enrichment-centre-website-singapore/">website</a>, <a href="/enrichment-centre-social-media-singapore/">social</a> and <a href="/enrichment-centre-seo-singapore/">SEO</a> so the brand shows up consistently wherever a parent finds you.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Positioning &amp; Strategy</h3>
+            <p>What your centre stands for and who it's for — the rigorous academic programme, or the joyful discover-and-play studio. Clarity before design.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo that balances professionalism for parents with energy and approachability for children. Includes primary, stacked, icon, and monochrome variations designed to work on signage, merchandise, social media, and print at every scale.</p>
+            <p>A mark, colour palette and type system that looks warm and playful to a child yet considered and credible to a parent — working on signage, a screen and a certificate alike.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Programme Sub-Branding</h3>
-            <p>If your centre offers multiple programmes — art, coding, robotics, music — we create cohesive sub-brands for each discipline. Each programme gets its own visual flavour while remaining clearly part of your parent brand, making it easy for parents to navigate your offerings.</p>
+            <h3>Centre Interior &amp; Signage</h3>
+            <p>Storefront and wayfinding signage, reception and classroom direction — so the space parents walk into feels the same quality as the brand that brought them in.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Marketing Collateral</h3>
-            <p>Programme brochures, trial class flyers, enrolment packs, and achievement certificates — all designed to match your brand identity. High-quality materials that parents keep, share with other families, and pin on their fridges instead of throwing away.</p>
+            <h3>Brand Messaging &amp; Tone</h3>
+            <p>How your centre sounds — from the website headline to the WhatsApp reply — warm and reassuring to parents, without over-promising what a programme can do.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Signage &amp; Space Branding</h3>
-            <p>Exterior storefront signage, reception area branding, classroom signage, and wall murals designed to transform your physical space. Parents and children should feel the quality of your brand from the moment they walk through the door.</p>
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A warm, playful yet credible way to shoot classes, teachers and the space — real children learning, not stock clip-art — so your feed and website reassure rather than blend in.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Collateral &amp; Brand Guidelines</h3>
+            <p>Flyers, programme brochures and enrolment packs, plus a simple rulebook your front desk and any freelancer can follow — so the brand holds together after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -129,78 +260,123 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for enrichment centre branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your enrichment centre branding agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Enrichment Centres Choose Us for Branding</h2>
+        <h2>A <span class="highlight">Brand</span> That Doesn't Stop at a <span class="highlight">PDF</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the enrichment centre landscape in Singapore — the competition, the parent mindset, and the dual-audience challenge of designing for adults who pay and children who attend. Here is what sets our approach apart:</p>
+        <p>Most branding projects end with a guidelines document nobody opens again. Ours end with the brand actually live across your centre and your channels. If you're weighing up partners, here's <a href="/blog/how-to-choose-digital-marketing-agency-singapore/">how to choose a digital marketing agency in Singapore</a> without getting burned.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Dual-Audience Expertise</h3>
-            <p>Enrichment centre branding must appeal to two audiences simultaneously — parents and children. We design brands that feel premium and trustworthy to the adults making the purchase decision, while remaining vibrant and engaging for the children who attend classes.</p>
+            <h3>Enrichment Fluency</h3>
+            <p>We run search, ads and social for education businesses, so we know what makes a Singapore parent trust one centre over another — and what quietly puts them off.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/enrichment-centre-website-singapore/">website design</a>, <a href="/enrichment-centre-seo-singapore/">SEO</a>, and <a href="/services/social-media/">social media marketing</a> — all handled by one team. Your brand identity is implemented consistently across every channel without delays or miscommunication between vendors.</p>
+            <h3>Built for Trust &amp; Referrals</h3>
+            <p>Every decision serves one goal — making your centre look established and dependable, so parents feel comfortable enrolling and confident recommending you to other parents.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Pricing &amp; No Lock-ins</h3>
-            <p>Custom-quoted branding with no hidden fees. You own every asset we create — logos, guidelines, templates, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Local Market Understanding</h3>
-            <p>We know what Singapore parents respond to. Our branding is informed by the local competitive landscape — we research your area, your competitors, and your target demographic before designing, so your brand is positioned to stand out in your specific market.</p>
+            <h3>Compliant &amp; Considered</h3>
+            <p>As an MOE-registered space you can't promise outcomes — so we build the brand on trust signals, not claims, and apply it across your website, social and ads as one agency.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where branding fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand isn't one stage — it's the layer over all of them. It decides whether a parent takes you seriously in the first search across Bukit Timah, Punggol, Woodlands or Ang Mo Kio, believes you at the comparison, and feels proud enough to refer you afterwards.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A polished first impression earns the click</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Consistency signals a real, established centre</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>A clear identity lifts you above price alone</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>A warm, credible space makes parents comfortable</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Families stay proud to belong &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about enrichment centre branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about enrichment centre branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Enrichment Centre Branding Questions Answered</h2>
+        <h2>Enrichment Centre <span class="highlight">Branding</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does branding cost for an enrichment centre in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Why does an enrichment centre need branding?</summary>
+          <div class="faq-answer"><p>Because a parent can't sit in on a term before they commit, so they read everything around the teaching — your logo, your centre photos, the flyer in their letterbox, the way the front desk replies. In an estate with a dozen centres within walking distance, the one that looks considered and trustworthy is the one parents shortlist and recommend to other parents. Branding is what makes your centre the name that comes up first.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Why is branding important for enrichment centres?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>We already have a logo. Isn't that enough?</summary>
+          <div class="faq-answer"><p>A logo is one part of a brand, not the whole of it. What actually reassures a parent is consistency across everything they see — the website, the programme brochure, the WhatsApp reply, the signage at the door. When those look like they come from different places, a parent senses it even if they can't name it. We build the full system so every touchpoint reinforces the same impression of a centre worth trusting a child with.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes enrichment centre branding different from regular branding?</summary>
-          <div class="faq-answer"><p>Enrichment centre branding must balance two audiences: parents (who make the payment decision) and children (who attend the classes). The brand needs to project professionalism and educational value to adults while remaining vibrant, engaging, and age-appropriate for children. This dual-audience approach requires careful consideration of colour psychology, visual tone, and messaging that generic branding agencies often overlook.</p></div>
+          <summary>Will rebranding lose the goodwill we have built?</summary>
+          <div class="faq-answer"><p>Only if it's done carelessly. Most established centres don't need a clean slate — they need their existing equity sharpened. We keep what already means something to your families, retire what looks dated, and introduce the new identity in a way that reads as growing up rather than starting over. Existing families should feel the centre got better and more established, not unrecognisable.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long does the enrichment centre branding process take?</summary>
-          <div class="faq-answer"><p>Most enrichment centre branding projects take 3 to 6 weeks from discovery to final delivery. Projects with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and programme brochures take 4 to 6 weeks. We can align deliverables with your term breaks for a smooth rollout.</p></div>
+          <summary>How do you keep the brand credible without over-promising?</summary>
+          <div class="faq-answer"><p>We build brands on trust signals, not outcome claims. As an MOE-registered space you're limited in what you can say, and we work within that — the identity, photography and tone are designed to communicate that your centre is warm, professional and developmental, without promising results we can't stand behind. That restraint is part of what makes it credible to Singapore parents in the first place.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you help brand individual programmes within our centre?</summary>
-          <div class="faq-answer"><p>Yes. Many enrichment centres offer multiple programmes — art, coding, speech and drama, science — each with its own identity under the parent brand. We can also design sub-brands for individual programmes, ensuring each one has a distinct visual identity while remaining cohesive under your main brand umbrella.</p></div>
+          <summary>Do you handle the design work in-house?</summary>
+          <div class="faq-answer"><p>Yes. Positioning, identity, centre and signage direction, photography direction, collateral and brand guidelines are all produced by our team, and they connect to the rest of what we do — website, social, SEO — so the brand doesn't stop at a PDF. A guideline nobody applies is wasted; we make sure the identity actually lands on every surface a parent sees.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="branding" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Enrichment Centre</span> Services</h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 8px;">
+        <p>Branding is one part of our <a href="/industries/education/">education marketing in Singapore</a> — explore the rest of what we do for enrichment centres.</p>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+          <a href="/enrichment-centre-seo-singapore/" class="related-service-link">Enrichment Centre SEO</a>
+          <a href="/enrichment-centre-ai-search-optimisation-singapore/" class="related-service-link">Enrichment Centre GEO</a>
+          <a href="/enrichment-centre-google-ads-singapore/" class="related-service-link">Enrichment Centre Google Ads</a>
+          <a href="/enrichment-centre-social-media-singapore/" class="related-service-link">Enrichment Centre Social Media</a>
+          <a href="/enrichment-centre-website-singapore/" class="related-service-link">Enrichment Centre Websites</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

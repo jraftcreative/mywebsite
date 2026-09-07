@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Enrichment Centre Website Design Singapore",
-    "description": "Professional website design for enrichment centres, tuition centres, and learning studios in Singapore. Class schedules, online enrolment, parent testimonials — custom-quoted to your scope.",
+    "description": "Custom website design for enrichment and tuition centres in Singapore — programme pages, trial-class and registration enquiry forms, teacher profiles, class schedules, and local SEO.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does an enrichment centre website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you add online class registration to my enrichment centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Do you help with enrolment landing pages for enrichment centres?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We build dedicated landing pages for specific programmes — whether it's a holiday camp, PSLE preparation course, or creative arts workshop. Each landing page is optimised for conversions with clear pricing, class details, instructor profiles, and a prominent enrolment CTA." } },
-      { "@type": "Question", "name": "Will parents find my enrichment centre on Google?", "acceptedAnswer": { "@type": "Answer", "text": "We optimise your website for local SEO so you rank when parents search for 'enrichment centre near me' or 'tuition centre in [neighbourhood].' We also set up and optimise your Google Business Profile so your centre appears on Google Maps with reviews, photos, and contact details." } },
-      { "@type": "Question", "name": "How long does it take to build an enrichment centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Most enrichment centre websites go live within 2–3 weeks. A simple 5-page site can be ready in as little as 2 weeks, while larger projects with online enrolment, parent portals, or multi-branch features may take 3–4 weeks. We provide a clear timeline before starting." } }
+      { "@type": "Question", "name": "How much does an enrichment centre website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your programmes, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Can you add a trial-class or registration enquiry form to our website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build enquiry and registration forms that let parents request a trial class, ask about a holiday programme, or register interest in a term directly from the site. Forms can capture the child's age and level, route the enquiry to the right coordinator, and send an automatic acknowledgement — so your front desk spends less time on the phone and no enquiry slips through." } },
+      { "@type": "Question", "name": "How do you present teacher profiles and student work?", "acceptedAnswer": { "@type": "Answer", "text": "Each teacher gets a profile covering their qualifications, teaching experience, and the programmes they lead, with a headshot. For student work — writing samples, artwork, showcase clips or activity photos — we build a gallery you can add to over time, and we only publish material where you have parental consent on file." } },
+      { "@type": "Question", "name": "Can you help parents find our enrichment centre on Google?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your site for the searches parents actually use — like 'enrichment centre near me', 'speech and drama Tampines', or 'coding classes Punggol'. That includes on-page SEO, schema markup, and Google Business Profile setup so your centre shows up in local results and on Google Maps with your reviews, photos, and contact details." } },
+      { "@type": "Question", "name": "How long does it take to build an enrichment centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Most enrichment centre websites go live within 2 to 3 weeks. A focused site with programme pages and an enquiry form can be ready in about 2 weeks, while larger builds with class schedules, teacher profiles, a student-work gallery, or multi-branch pages typically take 3 to 4 weeks. We give you a clear timeline before starting so you can plan around your enrolment cycle." } }
     ]
   },
   {
@@ -41,167 +40,342 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Enrichment Centre Website Design Singapore", "item": "https://jraftcreative.com/enrichment-centre-website-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Enrichment Centre Website Singapore", "item": "https://jraftcreative.com/enrichment-centre-website-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Enrichment Centre Website — Jraft Creative"
-  description="Website design for enrichment centres, tuition centres, and learning studios in Singapore. Class schedules, online enrolment, parent testimonials."
+  title="Enrichment Centre Website Singapore — Web Design Agency"
+  description="Web design agency for enrichment and tuition centres in Singapore — programme pages, trial-class enquiry forms, teacher profiles, class schedules, local SEO."
   canonical="https://jraftcreative.com/enrichment-centre-website-singapore/"
-  ogTitle="Enrichment Centre Website — Jraft Creative"
-  ogDescription="Website design for enrichment centres, tuition centres, and learning studios in Singapore. Class schedules, online enrolment, parent testimonials — custom-quoted to your scope."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="enrichment centre website design singapore, tuition centre website singapore, learning centre website design, enrichment class website, education website design singapore, enrichment centre digital marketing, Jraft Creative"
+  ogTitle="Enrichment Centre Website Singapore — Web Design Agency"
+  ogDescription="Custom website design for enrichment and tuition centres in Singapore. Programme pages, trial-class enquiry forms, teacher profiles, class schedules, and local SEO."
+  ogImage="https://jraftcreative.com/images/og-enrichment.jpg"
+  keywords="web design agency for enrichment centres, enrichment centre website design singapore, tuition centre website singapore, learning centre website design, enrichment class website singapore, enrichment centre website design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Enrichment Centre Website Design"
-  heroTitle='Website Design for Enrichment Centres in <span class="highlight">Singapore</span>'
-  heroSubtitle="Parents are searching for enrichment classes online — and your website is where they decide to enrol. We build fast, mobile-friendly websites for enrichment and tuition centres with class schedules, online enrolment, and local SEO built in."
+  heroLabel="Web Design Agency for Enrichment Centres"
+  heroTitle='Web Design Agency for <span class="highlight">Enrichment Centres in Singapore</span>'
+  heroSubtitle="Parents research enrichment classes online long before they book a trial. We build fast, mobile-first websites that lay out your programmes, introduce your teachers, and turn a browsing parent into a trial-class or registration enquiry — so your front desk spends less time answering the same questions."
   heroImage="/images/service-enrichment.webp"
+  heroImageAlt="Children in an enrichment class in Singapore — enrichment centre web design"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/about/", class: "btn btn-secondary" }
+    { text: "See Enrichment Centre SEO", href: "/enrichment-centre-seo-singapore/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my enrichment centre in Singapore."
-  ctaLabel="Ready to Get Started?"
+  ctaLabel="Ready to Grow Your Enrichment Centre?"
   ctaTitle="Get Your Enrichment Centre Online"
-  ctaDescription="Book a free consultation and tell us about your enrichment centre, programmes, and goals. We'll get back to you within 24 hours with a tailored proposal."
+  ctaDescription="Tell us about your centre and programmes and we'll recommend the right website scope. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20enrichment%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why enrichment centres need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for enrichment centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Search Online Before They Enrol</h2>
+        <h2>Parents Are <span class="highlight">Searching</span> — Can They <span class="highlight">Find Your Centre</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's enrichment industry is worth an estimated $1.68 billion, with over 1,600 centres competing for the attention of parents who are actively researching programmes online. If your centre doesn't have a professional website — or relies on a dated page with no class details and no way to register — parents will move on to a competitor that makes the process easier.</p>
-        <p>Parents searching for "enrichment centre near me" or "tuition centre in Tampines" expect to see your programme details, class schedules, instructor profiles, and pricing within seconds — on their phone. If your site loads slowly, looks unprofessional, or buries key information behind multiple clicks, they'll pick the next centre that shows them what they need upfront.</p>
-        <p>Whether you run a STEM lab, a language school, an arts studio, or a multi-subject learning centre, your website is the first impression most parents will have of your centre. It needs to answer their questions, build trust, and make enrolment as frictionless as possible.</p>
+        <p>Singapore's enrichment market runs to an estimated $1.68 billion, with more than 1,600 centres competing for the same parents. They compare programmes, teachers and schedules side by side before they ever call or walk in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Facebook Page Isn't Enough</h3>
+            <p>Parents want programme details, class times, teacher backgrounds and a way to enquire in one place. A social page or directory listing answers none of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Research Thoroughly</h3>
+            <p>They check age groups, levels, schedules and reviews, and read what other parents say. Anything missing or unclear is a reason to pick the centre down the road.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Decide It</h3>
+            <p>From speech and drama to coding, art and abacus, the field is crowded. On a phone, your site is what decides whether a parent enquires or scrolls to the next result.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Enrichment centre website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Enrichment centre website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Enrichment Centres</h2>
+        <h2>Six <span class="highlight">Pillars</span> of an Enrichment Centre <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every enrichment centre website we deliver is purpose-built for the education industry. We go beyond a generic template — your site will feature structured programme listings, class schedules, instructor profiles, parent testimonials, and online enrolment so parents can register without picking up the phone.</p>
-        <p>We understand that enrichment centres in Singapore need more than just a website. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/">SEO services</a> to rank for local enrichment searches, <a href="/services/social-media/">social media marketing</a> to showcase student achievements and build community trust, and <a href="/services/paid-ads/">paid ads management</a> for targeted campaigns during peak enrolment seasons.</p>
+        <p>Every site is built to turn a browsing parent into a trial-class enquiry, not just to look good. Pair the build with <a href="/enrichment-centre-seo-singapore/">enrichment centre SEO</a>, <a href="/enrichment-centre-social-media-singapore/">social media</a>, and <a href="/enrichment-centre-google-ads-singapore/">Google Ads</a> and it becomes one system for filling classes.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Programme Pages &amp; Class Schedules</h3>
-            <p>Structured programme listings with age groups, class timings, fees, and curriculum details — so parents can find exactly the right class for their child without calling your front desk.</p>
+            <h3>Programme Pages</h3>
+            <p>A page per programme — speech &amp; drama, creative writing, coding and STEM, art, abacus, phonics — covering age groups, levels, class format and what a child works on.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Online Enrolment &amp; Registration</h3>
-            <p>Built-in enrolment forms that let parents register for trial classes, holiday camps, or regular programmes directly on your website. Reduce admin workload and capture leads 24/7.</p>
+            <h3>Trial-Class &amp; Registration Forms</h3>
+            <p>Parents enquire straight from the site — request a trial, ask about a holiday programme, or register interest. Enquiries route to the right coordinator with an automatic acknowledgement.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO &amp; "Near Me" Rankings</h3>
-            <p>We optimise your site for neighbourhood-level searches so parents in Bukit Timah, Jurong, Tampines, or Punggol find your centre first. Google Business Profile setup, schema markup, and maps integration included.</p>
+            <h3>Teacher Profiles</h3>
+            <p>Qualifications, teaching background and the programmes each teacher leads, with headshots — the detail that gives parents confidence before they book a trial.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Testimonials &amp; Trust Signals</h3>
-            <p>Dedicated testimonial sections, instructor profiles with qualifications, and award or certification badges that give parents the confidence to enrol their child with your centre.</p>
+            <h3>Class Schedules</h3>
+            <p>Clear timetables by programme, age group and branch, so parents can see when classes run and whether they fit around school and other commitments.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Student-Work Gallery</h3>
+            <p>Writing samples, artwork, showcase clips and activity photos — published only where you hold parental consent, as genuine proof of what happens in your classes.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Ready Foundations</h3>
+            <p>Clean structure, fast mobile loads and schema built in from day one, so the site is ready to rank locally rather than needing rescuing later.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for enrichment centre website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your enrichment centre web design agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Enrichment Centre Website Design</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Enrichment Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've worked with education businesses across Singapore and understand what drives parents to pick up the phone, book a trial, or submit an enrolment form. Every element of your website is designed around that decision-making process.</p>
+        <p>We build for the specific problem enrichment centres have — competing for parents in your neighbourhood, then turning an enquiry into an enrolled term. It is one strand of our wider work in <a href="/industries/education/">education marketing in Singapore</a>, and it starts from what actually makes <a href="/blog/good-business-website-singapore/">a good business website in Singapore</a>.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Education Industry Experience</h3>
-            <p>We understand the unique needs of enrichment centres — from programme structuring and class schedule layouts to enrolment funnels and parent communication flows.</p>
+            <p>We've built for enrichment, tuition and learning centres across Singapore, and know the programme, schedule and enquiry structure parents look for.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most enrichment centre websites go live within 2 weeks of kickoff. We know timing matters — especially when you're launching a new branch or preparing for the next enrolment cycle.</p>
+            <h3>Live Before Your Next Intake</h3>
+            <p>Most enrichment centre sites go live within two to three weeks, so you start capturing enquiries before the next term or holiday programme rather than after it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First for Parents on the Go</h3>
-            <p>Parents browse enrichment options between meetings, during lunch breaks, and while waiting at pickup. Your site will load fast and look sharp on every device, with tap-to-call and tap-to-WhatsApp built in.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on delivering great programmes to your students.</p>
+            <h3>Mobile-First for Busy Parents</h3>
+            <p>Parents browse between meetings and at pickup. Your site loads fast and reads clearly on any phone, with tap-to-WhatsApp and tap-to-call built in.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== TRIAL-TO-ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the enrichment parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts classes. Your website carries the middle three — it is where a parent validates your teachers, compares you against the shortlist, and finally sends the trial-class enquiry.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Teacher profiles, reviews, student-work gallery</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Programme pages answer age, level and schedule</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Form turns interest into a trial-class request</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Register for the term, stay &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about enrichment centre website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about enrichment centre website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Enrichment Centre Website Design Questions Answered</h2>
+        <h2>Enrichment Centre <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
           <summary>How much does an enrichment centre website cost in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <div class="faq-answer"><p>Pricing depends on your programmes, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you add online class registration to my enrichment centre website?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Can you add a trial-class or registration enquiry form to our website?</summary>
+          <div class="faq-answer"><p>Yes. We build enquiry and registration forms that let parents request a trial class, ask about a holiday programme, or register interest in a term directly from the site. Forms can capture the child's age and level, route the enquiry to the right coordinator, and send an automatic acknowledgement — so your front desk spends less time on the phone and no enquiry slips through.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you help with enrolment landing pages for enrichment centres?</summary>
-          <div class="faq-answer"><p>Absolutely. We build dedicated landing pages for specific programmes — whether it's a holiday camp, PSLE preparation course, or creative arts workshop. Each landing page is optimised for conversions with clear pricing, class details, instructor profiles, and a prominent enrolment CTA so parents can sign up without friction.</p></div>
+          <summary>How do you present teacher profiles and student work?</summary>
+          <div class="faq-answer"><p>Each teacher gets a profile covering their qualifications, teaching experience, and the programmes they lead, with a headshot. For student work — writing samples, artwork, showcase clips or activity photos — we build a gallery you can add to over time, and we only publish material where you have parental consent on file.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Will parents find my enrichment centre on Google?</summary>
-          <div class="faq-answer"><p>We optimise your website for local SEO so you rank when parents search for "enrichment centre near me" or "tuition centre in Tampines." We also set up and optimise your Google Business Profile so your centre appears on Google Maps with reviews, photos, and contact details — making it easy for nearby parents to discover you.</p></div>
+          <summary>Can you help parents find our enrichment centre on Google?</summary>
+          <div class="faq-answer"><p>Yes. We optimise your site for the searches parents actually use — like "enrichment centre near me", "speech and drama Tampines", or "coding classes Punggol". That includes on-page SEO, schema markup, and Google Business Profile setup so your centre shows up in local results and on Google Maps with your reviews, photos, and contact details.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build an enrichment centre website?</summary>
-          <div class="faq-answer"><p>Most enrichment centre websites go live within 2–3 weeks. A simple 5-page site can be ready in as little as 2 weeks, while larger projects with online enrolment, parent portals, or multi-branch features may take 3–4 weeks. We provide a clear timeline before starting.</p></div>
+          <div class="faq-answer"><p>Most enrichment centre websites go live within 2 to 3 weeks. A focused site with programme pages and an enquiry form can be ready in about 2 weeks, while larger builds with class schedules, teacher profiles, a student-work gallery, or multi-branch pages typically take 3 to 4 weeks. We give you a clear timeline before starting so you can plan around your enrolment cycle.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="website" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Enrichment Centre</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/enrichment-centre-marketing-singapore/" class="related-service-link">Enrichment Centre Marketing</a>
+          <a href="/enrichment-centre-seo-singapore/" class="related-service-link">Enrichment Centre SEO</a>
+          <a href="/enrichment-centre-ai-search-optimisation-singapore/" class="related-service-link">Enrichment Centre GEO</a>
+          <a href="/enrichment-centre-google-ads-singapore/" class="related-service-link">Enrichment Centre Google Ads</a>
+          <a href="/enrichment-centre-social-media-singapore/" class="related-service-link">Enrichment Centre Social Media</a>
+          <a href="/enrichment-centre-branding-singapore/" class="related-service-link">Enrichment Centre Branding</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
