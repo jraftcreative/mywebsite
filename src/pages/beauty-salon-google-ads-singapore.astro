@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Beauty Salon Google Ads Singapore",
-    "description": "Google Ads management for beauty salons in Singapore — target clients searching for facials, manicures, and beauty treatments near them. Plans",
+    "description": "Google Ads management for beauty salons in Singapore — capture high-intent searches for facials, nails, lashes, brows, waxing, and massage near you.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much do Google Ads cost for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which keywords should beauty salons target on Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent keywords include treatment-specific searches like 'facial treatment Singapore', 'eyelash extensions near me', and 'best manicure Orchard'. We also target location-based terms like 'beauty salon Bugis' or 'nail salon Tampines' to capture clients searching in your neighbourhood." } },
-      { "@type": "Question", "name": "How quickly can Google Ads generate bookings for my beauty salon?", "acceptedAnswer": { "@type": "Answer", "text": "Beauty salons typically see their first enquiries within 48–72 hours of launching campaigns. Google Ads places you at the top of search results immediately, capturing clients who are actively looking for beauty treatments. We optimise for bookings, not just clicks, so results improve steadily each week." } },
-      { "@type": "Question", "name": "Do you create landing pages for beauty salon ads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build conversion-optimised landing pages tailored to specific treatments or promotions — such as a facial package page or a first-visit discount offer. These dedicated pages convert ad clicks into bookings at a much higher rate than sending traffic to a generic homepage." } },
-      { "@type": "Question", "name": "Can Google Ads help a new beauty salon compete with established brands?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Google Ads ranks you based on relevance and bid strategy, not brand history. A new beauty salon in Tanjong Pagar can appear above established chains when someone searches 'facial near me' — giving you instant visibility from day one without waiting months for organic rankings." } }
+      { "@type": "Question", "name": "Which keywords should beauty salons target on Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "The searches that book fastest are treatment plus intent — 'nail salon near me', 'eyelash extensions Orchard', 'facial near me', 'brow threading Tampines', 'waxing Bugis'. We pair these with neighbourhood terms across Orchard, Bugis, Tanjong Pagar, Tampines, Jurong, Katong, and Holland Village so budget only chases clients who can actually walk into your salon." } },
+      { "@type": "Question", "name": "How do you track bookings from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking for form submissions, click-to-call, WhatsApp enquiries, and online booking completions, and pass the GCLID so each enquiry ties back to the exact keyword and ad that produced it. You see cost per booking by treatment, not just clicks." } },
+      { "@type": "Question", "name": "How quickly can Google Ads bring in bookings for my salon?", "acceptedAnswer": { "@type": "Answer", "text": "Search ads go live at the top of results the day they are approved, so first enquiries usually land within 48 to 72 hours. Beauty is impulse-driven in Singapore — people search, compare, and book within minutes — so being visible at that moment matters more than brand history." } },
+      { "@type": "Question", "name": "Do you build landing pages for beauty salon ads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build treatment-specific landing pages — a lash page, a facial page, a nails page — that match the search and make booking the obvious next step. A dedicated page converts far better than pointing ad clicks at a generic homepage." } },
+      { "@type": "Question", "name": "Can Google Ads help a new salon compete with established chains?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google ranks ads on relevance and bid, not how long you have been open. A new nail bar in Tanjong Pagar can appear above established chains when someone searches 'nail salon near me' — instant visibility without waiting months for organic rankings." } }
     ]
   },
   {
@@ -46,19 +46,50 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Beauty Salon Google Ads Singapore — Jraft Creative"
-  description="Google Ads management for beauty salons in Singapore. Target clients searching for facials, manicures, eyelash extensions, and beauty treatments."
+  title="Google Ads Agency for Beauty Salons Singapore"
+  description="Google Ads for beauty salons in Singapore — high-intent search campaigns that turn 'facial near me' and 'nail salon near me' into booked appointments."
   canonical="https://jraftcreative.com/beauty-salon-google-ads-singapore/"
-  ogTitle="Beauty Salon Google Ads Singapore — Jraft Creative"
-  ogDescription="Google Ads for beauty salons in Singapore. Capture clients searching for beauty treatments near them. Plans"
-  ogImage="https://jraftcreative.com/images/og-ads.jpg"
-  keywords="beauty salon google ads singapore, beauty salon advertising singapore, google ads for beauty salon, ppc beauty salon singapore, beauty salon marketing singapore, Jraft Creative"
+  ogTitle="Google Ads Agency for Beauty Salons Singapore"
+  ogDescription="Google Ads for beauty salons in Singapore. Capture clients searching for facials, nails, lashes, and brows near them, and turn clicks into bookings."
+  ogImage="https://jraftcreative.com/images/og-beauty-salon.jpg"
+  keywords="beauty salon google ads singapore, beauty salon advertising singapore, google ads for beauty salon, ppc beauty salon singapore, nail salon google ads singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Beauty Salon Google Ads"
-  heroTitle='Google Ads for <span class="highlight">Beauty Salons in Singapore</span>'
-  heroSubtitle="Clients are searching for beauty treatments right now. We build and manage Google Ads campaigns that put your salon at the top of search results — driving bookings for facials, nail treatments, lash extensions, and more."
-  heroImage="/images/service-beauty.webp"
+  heroLabel="Google Ads Agency for Beauty Salons"
+  heroTitle='Google Ads Agency for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="Clients are searching for facials, nails, lashes, and brows right now. We build and manage Google Search campaigns that put your salon at the top of results at the exact moment someone is ready to book — and track every enquiry back to the search that made it."
+  heroImage="/images/hero-beauty-salon.webp"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
@@ -66,63 +97,91 @@ const schemaData = [
   whatsappText="Hi Jraft Creative, I need Google Ads for my beauty salon in Singapore."
   ctaLabel="Grow Your Bookings"
   ctaTitle="Get a Free Beauty Salon Ads Strategy Session"
-  ctaDescription="Book a free consultation and we'll review your current ad performance, analyse your local competition, and identify the highest-value keywords for your beauty salon. We'll get back to you within 24 hours."
+  ctaDescription="Book a free consultation and we'll review your current ad performance, map your local competition, and identify the highest-intent treatment and neighbourhood keywords for your salon. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Google Ads challenges for beauty salons">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Struggling to Fill Your Appointment Book?</h2>
+        <h2>Losing Bookings to Salons That <span class="highlight">Show Up First</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's beauty industry is saturated — from HDB shophouse salons to premium outlets in Orchard and Marina Bay, thousands of beauty businesses compete for the same pool of clients. When someone searches "beauty salon near me" or "facial treatment Singapore", the salons that show up first capture the bookings. If yours isn't there, potential clients are walking into your competitor's door instead.</p>
-        <p>Relying solely on walk-ins, word-of-mouth, and Instagram posts means missing the vast majority of clients who begin their search on Google. Without targeted pay-per-click campaigns, your salon remains invisible during peak search periods, your marketing spend delivers unpredictable results, and newer salons with smarter ad strategies steadily chip away at your client base.</p>
-        <p>The reality is that beauty is an impulse-driven industry in Singapore. Clients search, compare, and book — often within minutes. If you're not showing up at the exact moment they're searching, that booking goes somewhere else. Google Ads ensures you're always visible when intent is highest.</p>
+        <p>Beauty is impulse-driven in Singapore. People search "nail salon near me" or "facial near me", scan the first few results, and book within minutes — the salon they see first usually wins.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible When They Search</h3>
+            <p>When someone searches "eyelash extensions Orchard" or "facial near me", they book with whoever appears first — even if your work and reviews are stronger.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Walk-Ins Alone Aren't Enough</h3>
+            <p>Relying on foot traffic, referrals, and the odd Instagram post means missing the clients who start on Google — the ones actively looking to book today.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Budget Burned on the Wrong Clicks</h3>
+            <p>A loosely managed account pays for browsers in the wrong part of the island and vague searches, spending the budget without filling a single chair.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for beauty salons">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for beauty salons">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Beauty Salon Ad Services</p>
-        <h2>Google Ads Built for Beauty Salon Bookings</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Beauty Salon <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in Google Ads for beauty salons across Singapore — from neighbourhood nail bars to full-service beauty studios. Every campaign targets the treatments your clients search for, in the areas where your salon operates, and at the times when booking intent peaks.</p>
-        <p>Our campaigns cover treatment-specific searches (facials, lash extensions, mani-pedi), location-based targeting (Bugis, Orchard, Jurong East), and promotional periods — so every ad dollar drives real appointments, not wasted clicks.</p>
-        <p>Complement your paid ads with a professional <a href="/beauty-salon-website-singapore/">beauty salon website</a>, <a href="/services/seo-performance/">SEO for organic visibility</a>, or <a href="/beauty-salon-facebook-ads-singapore/">Facebook Ads to reach beauty enthusiasts on social media</a>.</p>
+        <p>Every campaign targets the treatments and neighbourhoods your clients actually search, and is judged on booked appointments rather than clicks. It works best paired with a <a href="/beauty-salon-website-singapore/">booking-ready website</a>, ongoing <a href="/beauty-salon-seo-singapore/">salon SEO</a>, and <a href="/beauty-salon-facebook-ads-singapore/">Facebook and Instagram ads</a> for the discovery side.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment-Specific PPC</h3>
-            <p>Keyword campaigns built around what clients actually search — "facial treatment Singapore", "gel manicure near me", "eyelash extensions Orchard" — capturing high-intent traffic ready to book.</p>
+            <h3>Treatment-Specific Campaigns</h3>
+            <p>Keyword campaigns for what clients type — "gel manicure near me", "eyelash extensions Orchard", "brow threading", "Brazilian waxing Bugis" — high-intent and ready to book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Location-Based Campaigns</h3>
-            <p>Geo-targeted ads that appear when clients search for beauty services near your salon — covering specific MRT stations, malls, and neighbourhoods across Singapore to drive walk-ins and bookings.</p>
+            <h3>Neighbourhood &amp; Radius Targeting</h3>
+            <p>Ads focused on the catchment around your salon and the areas clients travel from — Orchard, Bugis, Tanjong Pagar, Tampines, Jurong, Katong, Holland Village.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
             <h3>Promotion &amp; Package Campaigns</h3>
-            <p>Seasonal and event-based ad campaigns for festive promotions, bridal packages, first-visit discounts, and treatment bundles — timed to maximise bookings during peak demand periods like CNY, Valentine's Day, and year-end parties.</p>
+            <p>Timed campaigns for first-visit offers, bridal packages, and festive demand around CNY, Valentine's, and year-end — scaled up when booking intent peaks.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Booking-Optimised Landing Pages</h3>
-            <p>Dedicated landing pages for each treatment category that showcase your services, pricing, and reviews — designed to turn ad clicks into confirmed bookings through clear calls-to-action and online scheduling.</p>
+            <h3>Booking-Ready Landing Pages</h3>
+            <p>A dedicated page per treatment — lashes, facials, nails — that matches the search, shows your work and reviews, and makes booking the obvious next tap.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Call &amp; Booking Extensions</h3>
+            <p>Click-to-call, WhatsApp, and booking links built into the ad, so a searcher on mobile can reach you in one tap without hunting for a contact number.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Cost-Per-Booking Reporting</h3>
+            <p>We track click to confirmed appointment with GCLID and report cost per booking by treatment — so you see which campaigns actually pay for themselves.</p>
           </div>
         </div>
       </div>
@@ -130,72 +189,85 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for beauty salon Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>We Understand Singapore's Beauty Market</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> That Knows <span class="highlight">Beauty Salons</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns for beauty businesses across Singapore and understand the seasonal trends, competitive landscape, and client behaviour that drive bookings. Here's why beauty salons choose us:</p>
+        <p>We run search accounts for beauty businesses across Singapore and know which keywords fill chairs, when to scale around festive demand, and how to write ad copy clients respond to.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Beauty Industry Expertise</h3>
-            <p>We know which keywords convert for beauty salons, when to scale budgets around festive seasons, and how to write ad copy that resonates with Singapore clients looking for quality treatments.</p>
+            <h3>Beauty Salon Expertise</h3>
+            <p>We know which treatment searches convert, when to lean into CNY and year-end demand, and how a client in Singapore decides between two salons on the same street.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You see every dollar in your own Google Ads account and know exactly what each booking costs.</p>
+            <p>Your budget goes straight to Google, never marked up. The account stays in your name, so you see every dollar and exactly what each booking costs.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Scale up during peak seasons like Christmas and CNY, and adjust during quieter months — you're never locked into a fixed term.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Click-to-Booking Tracking</h3>
-            <p>We track the full journey from ad click to confirmed appointment. You'll know exactly which keywords, ads, and campaigns generate actual bookings — not just website visits.</p>
+            <h3>Tracked to the Booking</h3>
+            <p>We report cost per booked appointment, not clicks — and also build <a href="/beauty-salon-seo-singapore/">salon SEO</a> and <a href="/beauty-salon-website-singapore/">websites</a> to convert the traffic.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Google Ads fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A beauty client moves through five stages before they sit in your chair. Google Ads owns the two highest-intent moments — Search, when they first look for a treatment near them, and Book, when a remarketing ad brings a browser back to confirm.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Search</h3><p>An ad captures the first treatment search</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>They weigh photos, reviews, and location</p></li>
+        <li class="funnel-stage"><h3>Decide</h3><p>Price, timing, and distance settle it</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Remarketing brings them back to confirm</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>A first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for beauty salons">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for beauty salons">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Google Ads for Beauty Salons — Questions Answered</h2>
+        <h2>Beauty Salon <span class="highlight">Google Ads</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much do Google Ads cost for beauty salons in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which keywords should beauty salons target on Google Ads?</summary>
+          <div class="faq-answer"><p>The searches that book fastest are treatment plus intent — "nail salon near me", "eyelash extensions Orchard", "facial near me", "brow threading Tampines", "waxing Bugis". We pair these with neighbourhood terms across Orchard, Bugis, Tanjong Pagar, Tampines, Jurong, Katong, and Holland Village so budget only chases clients who can actually walk into your salon.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which keywords should beauty salons target on Google Ads?</summary>
-          <div class="faq-answer"><p>High-intent keywords include treatment-specific searches like "facial treatment Singapore", "eyelash extensions near me", and "best manicure Orchard". We also target location-based terms like "beauty salon Bugis" or "nail salon Tampines" to capture clients searching in your neighbourhood.</p></div>
+          <summary>How do you track bookings from Google Ads?</summary>
+          <div class="faq-answer"><p>We set up conversion tracking for form submissions, click-to-call, WhatsApp enquiries, and online booking completions, and pass the GCLID so each enquiry ties back to the exact keyword and ad that produced it. You see cost per booking by treatment, not just clicks.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How quickly can Google Ads generate bookings for my beauty salon?</summary>
-          <div class="faq-answer"><p>Beauty salons typically see their first enquiries within 48–72 hours of launching campaigns. Google Ads places you at the top of search results immediately, capturing clients who are actively looking for beauty treatments. We optimise for bookings, not just clicks, so results improve steadily each week.</p></div>
+          <summary>How quickly can Google Ads bring in bookings for my salon?</summary>
+          <div class="faq-answer"><p>Search ads go live at the top of results the day they are approved, so first enquiries usually land within 48 to 72 hours. Beauty is impulse-driven in Singapore — people search, compare, and book within minutes — so being visible at that moment matters more than brand history.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Do you create landing pages for beauty salon ads?</summary>
-          <div class="faq-answer"><p>Yes. We build conversion-optimised landing pages tailored to specific treatments or promotions — such as a facial package page or a first-visit discount offer. These dedicated pages convert ad clicks into bookings at a much higher rate than sending traffic to a generic homepage.</p></div>
+          <summary>Do you build landing pages for beauty salon ads?</summary>
+          <div class="faq-answer"><p>Yes. We build treatment-specific landing pages — a lash page, a facial page, a nails page — that match the search and make booking the obvious next step. A dedicated page converts far better than pointing ad clicks at a generic homepage.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can Google Ads help a new beauty salon compete with established brands?</summary>
-          <div class="faq-answer"><p>Absolutely. Google Ads ranks you based on relevance and bid strategy, not brand history. A new beauty salon in Tanjong Pagar can appear above established chains when someone searches "facial near me" — giving you instant visibility from day one without waiting months for organic rankings.</p></div>
+          <summary>Can Google Ads help a new salon compete with established chains?</summary>
+          <div class="faq-answer"><p>Yes. Google ranks ads on relevance and bid, not how long you have been open. A new nail bar in Tanjong Pagar can appear above established chains when someone searches "nail salon near me" — instant visibility without waiting months for organic rankings.</p></div>
         </details>
       </div>
     </div>
@@ -210,12 +282,13 @@ const schemaData = [
         <h2>More Beauty Salon Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Website Design</a>
-          <a href="/beauty-salon-seo-singapore/" class="related-service-link">Beauty Salon SEO</a>
           <a href="/beauty-salon-marketing-singapore/" class="related-service-link">Beauty Salon Marketing</a>
-          <a href="/beauty-salon-social-media-singapore/" class="related-service-link">Beauty Salon Social Media</a>
+          <a href="/beauty-salon-seo-singapore/" class="related-service-link">Beauty Salon SEO</a>
+          <a href="/beauty-salon-ai-search-optimisation-singapore/" class="related-service-link">Beauty Salon GEO</a>
           <a href="/beauty-salon-facebook-ads-singapore/" class="related-service-link">Beauty Salon Facebook Ads</a>
+          <a href="/beauty-salon-social-media-singapore/" class="related-service-link">Beauty Salon Social Media</a>
           <a href="/beauty-salon-branding-singapore/" class="related-service-link">Beauty Salon Branding</a>
+          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Websites</a>
       </div>
     </div>
   </section>

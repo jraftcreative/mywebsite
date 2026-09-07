@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Beauty Salon Social Media Marketing Singapore",
-    "description": "Social media marketing for beauty salons in Singapore. Before/after content, beauty tutorials, Reels, influencer partnerships, and UGC campaigns to grow your salon's online presence and bookings.",
+    "description": "Social media marketing for beauty salons in Singapore. Before/after nail and lash content, transformation Reels, satisfying process clips, and promotions that fill the appointment book.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does social media marketing cost for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which social media platforms work best for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the most effective platform for beauty salons due to its visual nature — Reels, Stories, and carousel posts showcase treatments beautifully. TikTok is growing rapidly for beauty content, while Facebook remains strong for reaching older demographics and running local community engagement." } },
-      { "@type": "Question", "name": "What kind of content do you create for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "We create before/after transformation posts, treatment process Reels, beauty tips and tutorials, stylist spotlights, client testimonials, promotional campaign graphics, and seasonal content. Every piece is designed to showcase your salon's expertise and drive appointment bookings." } },
-      { "@type": "Question", "name": "Can you help my beauty salon work with influencers in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We identify and coordinate with Singapore-based beauty micro-influencers who align with your salon's brand. From sourcing influencers to managing collaborations and tracking results, we handle the entire partnership process to generate authentic content and reach new audiences." } },
-      { "@type": "Question", "name": "How do you measure social media results for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "We track engagement rates, follower growth, reach, website clicks, DM enquiries, and booking conversions. Monthly reports break down which content types and campaigns drive the most bookings, so you can see exactly how social media contributes to your salon's revenue." } }
+      { "@type": "Question", "name": "Which platforms work best for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and TikTok do the heavy lifting because beauty is a visual sell. Nail art, lash sets, facials and brows all look great on camera, and Reels and TikToks travel further than static posts. Instagram carries the polished grid and Stories bookings; TikTok wins discovery through satisfying process clips and transformations." } },
+      { "@type": "Question", "name": "What kind of content do you create for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "Before and after nail art and lash sets from real client work with permission, transformation reels, satisfying process clips (gel application, lash mapping, waxing, brow shaping), salon aesthetic and vibe content, and clear promotion posts. Every piece is built to earn saves and sends and turn a follower into a booked appointment." } },
+      { "@type": "Question", "name": "Why do saves and sends matter more than likes for a beauty salon?", "acceptedAnswer": { "@type": "Answer", "text": "A like is a passing tap. A save means someone is keeping your nail set or lash look as a reference for their next appointment, and a send means they're showing a friend and often deciding to come together. Saves and sends are the signals that lead to bookings, so we plan content to earn them, not to chase vanity numbers." } },
+      { "@type": "Question", "name": "Can you use photos and videos of my real clients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with permission. Real client work — actual nail sets, lash extensions and facials done in your chair — outperforms stock every time because it's proof people can book. We help you set up a simple consent process so you always have a steady, compliant stream of real before and after content to post." } }
     ]
   },
   {
@@ -47,82 +47,142 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Beauty Salon Social Media Singapore — Jraft Creative"
-  description="Social media marketing for beauty salons in Singapore. Before/after content, beauty Reels, influencer partnerships, and UGC campaigns that drive bookings."
+  title="Social Media Agency for Beauty Salons"
+  description="Social media marketing for beauty salons in Singapore. Before/after nail and lash content, transformation Reels, and promotions that fill the appointment book."
   canonical="https://jraftcreative.com/beauty-salon-social-media-singapore/"
-  ogTitle="Beauty Salon Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing built for beauty salons in Singapore. Visual content, influencer collaborations, and booking-driving campaigns. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="beauty salon social media singapore, beauty salon marketing singapore, social media for beauty salons, beauty salon instagram marketing, beauty salon tiktok, beauty salon digital marketing singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Beauty Salons"
+  ogDescription="Instagram and TikTok content built for beauty salons in Singapore. Real before/after work, satisfying process clips, and content that turns followers into bookings."
+  ogImage="https://jraftcreative.com/images/og-beauty-salon.jpg"
+  keywords="beauty salon social media singapore, beauty salon marketing singapore, social media for beauty salons, beauty salon instagram marketing, beauty salon tiktok, nail salon social media singapore, lash salon marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Beauty Salon Social Media"
-  heroTitle='Social Media Marketing for <span class="highlight">Beauty Salons in Singapore</span>'
-  heroSubtitle="Stunning visuals, engaging Reels, and strategic content that showcase your treatments and turn followers into loyal clients. We manage your salon's social media so you can focus on what you do best — making people look and feel beautiful."
-  heroImage="/images/service-beauty.webp"
+  heroLabel="Social Media Agency for Beauty Salons"
+  heroTitle='Social Media Agency for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="Instagram and TikTok content that shows off real nail sets, lash work and facials, earns saves and sends, and turns a scroll into a booked appointment. Visual-first social media management built for Singapore beauty salons."
+  heroImage="/images/hero-beauty-salon.webp"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need social media marketing for my beauty salon in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Beauty Salon with Social Media"
-  ctaDescription="Book a free consultation and tell us about your salon. We'll get back to you within 24 hours with a tailored social media strategy that drives bookings."
+  ctaTitle="Fill Your Salon's Appointment Book with Social"
+  ctaDescription="Book a free consultation and tell us about your salon. We'll get back to you within 24 hours with a tailored social media plan that shows off your best work and drives bookings."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for beauty salons in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Treatments Are Stunning — But Is Anyone Seeing Them?</h2>
+        <h2>Clients Pick Their Salon by the <span class="highlight">Feed</span>, Not the <span class="highlight">Signboard</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Beauty is one of the most visual industries on social media, and Singapore's beauty-savvy audience expects polished, inspiring content from the salons they follow. But between managing appointments, training staff, and running your business, creating consistent, high-quality social media content falls to the bottom of your priorities. The result? An inactive feed that makes your salon look outdated — even if your treatments are exceptional.</p>
-        <p>Competing salons in Orchard, Bugis, and Tanjong Pagar are posting daily transformation Reels, collaborating with beauty influencers, and running user-generated content campaigns that keep their brand top-of-mind. Clients in Singapore research salons on Instagram before booking — if your grid looks sparse or your last post was three weeks ago, they'll scroll past and book with someone who looks more active and professional.</p>
-        <p>Posting a few random photos each month without a content strategy is not social media marketing. It's a missed opportunity. You need a systematic approach that turns your best work into scroll-stopping content, builds a community of beauty enthusiasts, and converts followers into paying clients week after week.</p>
+        <p>People choosing a nail, lash or facial salon scroll Instagram and TikTok first. A sparse or stale feed loses the booking before anyone walks in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Quiet Feed Reads as Closed</h3>
+            <p>If your last post was three weeks ago, a new client assumes the work is dated too. An inactive grid quietly sends bookings to the salon next door.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Great Work, Filmed Badly</h3>
+            <p>Beautiful lash sets and nail art shot in poor light with no edit don't travel. The talent is there; the content isn't doing it justice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Rivals Post Every Day</h3>
+            <p>Salons in Orchard, Bugis and Tampines run daily transformation Reels and satisfying process clips. Against that, silence costs you the walk-in.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for beauty salons">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for beauty salons">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services Built for Beauty Salons</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> That Fill the <span class="highlight">Book</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle your beauty salon's entire social media presence — from content creation to community management. Every post is designed to showcase your treatments, build trust with potential clients, and drive bookings directly from your social channels.</p>
-        <p>Our team creates before/after transformations, treatment process videos, beauty tutorials, and promotional campaigns. We coordinate influencer partnerships with Singapore beauty creators and manage user-generated content that amplifies your salon's reach organically.</p>
+        <p>Beauty is a visual sell, so every post is built to be watched, saved and sent — then booked. Social pairs best with a <a href="/beauty-salon-website-singapore/">booking-ready salon website</a>, strong <a href="/beauty-salon-seo-singapore/">local search visibility</a>, and, when you want to scale fast, <a href="/beauty-salon-google-ads-singapore/">Google Ads</a>.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
             <h3>Before &amp; After Reels</h3>
-            <p>Short-form video content featuring dramatic treatment transformations — facials, lash lifts, nail art, and more. The content format that drives the highest engagement and shares in Singapore's beauty community.</p>
+            <p>Real client nail sets, lash extensions, lash lifts and brows — shot and cut to show the transformation in the first two seconds, with permission every time.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Influencer &amp; UGC Campaigns</h3>
-            <p>Partnerships with Singapore beauty micro-influencers and user-generated content campaigns that put real clients' experiences front and centre — building social proof that drives new bookings.</p>
+            <h3>Satisfying Process Clips</h3>
+            <p>Gel application, lash mapping, waxing and brow shaping filmed close and clean. The oddly satisfying format that earns rewatches and saves on TikTok.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Beauty Tips &amp; Tutorials</h3>
-            <p>Branded carousel posts, Stories, and Reels sharing skincare routines, treatment aftercare tips, and seasonal beauty guides that position your salon as a trusted authority clients return to again and again.</p>
+            <h3>Salon Aesthetic &amp; Vibe</h3>
+            <p>The interior, the playlist, the little rituals — content that sells the feeling of your space so a first-timer already knows they'll be comfortable.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Promotional Campaigns</h3>
-            <p>Targeted campaigns for new treatment launches, festive promotions, birthday offers, and membership drives — timed to convert interest into bookings during CNY, Mother's Day, and year-end party season.</p>
+            <h3>DM &amp; Comment Management</h3>
+            <p>Fast, warm replies to "how much" and "any slots this week" — nurturing every enquiry from a comment to a confirmed appointment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Promotions &amp; Seasonal Sets</h3>
+            <p>Clear promo posts for new nail collections, festive lash looks and package offers — timed for CNY, Deepavali, Hari Raya and year-end party season.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Bookings</h3>
+            <p>We track saves, sends, profile taps and DM enquiries that turn into appointments — follower count is context, bookings are the result.</p>
           </div>
         </div>
       </div>
@@ -130,51 +190,64 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for beauty salon social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Gets Beauty</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands the <span class="highlight">Beauty Sell</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with beauty salons across Singapore and understand what visual content, engagement tactics, and campaigns drive bookings in this market. Here's why salons choose us:</p>
+        <p>Beauty social fails on two things — flat visuals and no follow-through on enquiries. We fix both, and you approve everything first.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Beauty Industry Experience</h3>
-            <p>We understand Singapore's beauty trends, seasonal patterns, and what content resonates with local audiences. Your social media reflects real industry knowledge, not generic marketing templates.</p>
+            <h3>Visual-First by Default</h3>
+            <p>Good light, clean framing and tight edits so your nail art and lash work look as good on screen as they do in the chair. Presentation is the product here.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Visual-First Content</h3>
-            <p>Every post is crafted for visual impact — professional-grade graphics, Reels with trending audio, and curated grid aesthetics that make your salon's Instagram page a portfolio clients want to explore.</p>
+            <h3>Built for Saves &amp; Sends</h3>
+            <p>We plan content people keep as reference and send to a friend, because that's what turns into paired bookings — not a like that scrolls past.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Approval Before Publishing</h3>
-            <p>You review and approve every post, caption, and design before it goes live. Full content calendar delivered in advance so nothing is published without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your bookings are growing and the content is working — not because of a contract clause.</p>
+            <h3>You Approve Before It Posts</h3>
+            <p>A full content calendar comes to you in advance. Nothing goes live — no caption, no client photo — without your sign-off.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Booking Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A new client moves through five stages before they sit in your chair. Social does its best work at Discover and Decide — a scroll-stopping transformation gets you found, and real work plus fast replies earn the booking.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a friend's share puts you on the radar</p></li>
+        <li class="funnel-stage"><h3>Save</h3><p>A nail or lash look gets kept as a reference</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Real work and the vibe weigh you against nearby salons</p></li>
+        <li class="funnel-stage"><h3>Decide</h3><p>A quick DM reply turns interest into a slot</p></li>
+        <li class="funnel-stage"><h3>Rebook</h3><p>A great first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about beauty salon social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about beauty salon social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Beauty Salon Social Media — Questions Answered</h2>
+        <h2>Beauty Salon <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,20 +255,20 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which social media platforms work best for beauty salons in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram is the most effective platform for beauty salons due to its visual nature — Reels, Stories, and carousel posts showcase treatments beautifully. TikTok is growing rapidly for beauty content, while Facebook remains strong for reaching older demographics and running local community engagement.</p></div>
+          <summary>Which platforms work best for beauty salons in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram and TikTok do the heavy lifting because beauty is a visual sell. Nail art, lash sets, facials and brows all look great on camera, and Reels and TikToks travel further than static posts. Instagram carries the polished grid and Stories bookings; TikTok wins discovery through satisfying process clips and transformations.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>What kind of content do you create for beauty salons?</summary>
-          <div class="faq-answer"><p>We create before/after transformation posts, treatment process Reels, beauty tips and tutorials, stylist spotlights, client testimonials, promotional campaign graphics, and seasonal content. Every piece is designed to showcase your salon's expertise and drive appointment bookings.</p></div>
+          <div class="faq-answer"><p>Before and after nail art and lash sets from real client work with permission, transformation reels, satisfying process clips (gel application, lash mapping, waxing, brow shaping), salon aesthetic and vibe content, and clear promotion posts. Every piece is built to earn saves and sends and turn a follower into a booked appointment.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can you help my beauty salon work with influencers in Singapore?</summary>
-          <div class="faq-answer"><p>Yes. We identify and coordinate with Singapore-based beauty micro-influencers who align with your salon's brand. From sourcing influencers to managing collaborations and tracking results, we handle the entire partnership process to generate authentic content and reach new audiences.</p></div>
+          <summary>Why do saves and sends matter more than likes for a beauty salon?</summary>
+          <div class="faq-answer"><p>A like is a passing tap. A save means someone is keeping your nail set or lash look as a reference for their next appointment, and a send means they're showing a friend and often deciding to come together. Saves and sends are the signals that lead to bookings, so we plan content to earn them, not to chase vanity numbers.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you measure social media results for beauty salons?</summary>
-          <div class="faq-answer"><p>We track engagement rates, follower growth, reach, website clicks, DM enquiries, and booking conversions. Monthly reports break down which content types and campaigns drive the most bookings, so you can see exactly how social media contributes to your salon's revenue.</p></div>
+          <summary>Can you use photos and videos of my real clients?</summary>
+          <div class="faq-answer"><p>Yes, with permission. Real client work — actual nail sets, lash extensions and facials done in your chair — outperforms stock every time because it's proof people can book. We help you set up a simple consent process so you always have a steady, compliant stream of real before and after content to post.</p></div>
         </details>
       </div>
     </div>
@@ -210,12 +283,13 @@ const schemaData = [
         <h2>More Beauty Salon Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Website Design</a>
-          <a href="/beauty-salon-seo-singapore/" class="related-service-link">Beauty Salon SEO</a>
           <a href="/beauty-salon-marketing-singapore/" class="related-service-link">Beauty Salon Marketing</a>
+          <a href="/beauty-salon-seo-singapore/" class="related-service-link">Beauty Salon SEO</a>
+          <a href="/beauty-salon-ai-search-optimisation-singapore/" class="related-service-link">Beauty Salon GEO</a>
           <a href="/beauty-salon-google-ads-singapore/" class="related-service-link">Beauty Salon Google Ads</a>
           <a href="/beauty-salon-facebook-ads-singapore/" class="related-service-link">Beauty Salon Facebook Ads</a>
           <a href="/beauty-salon-branding-singapore/" class="related-service-link">Beauty Salon Branding</a>
+          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Websites</a>
       </div>
     </div>
   </section>

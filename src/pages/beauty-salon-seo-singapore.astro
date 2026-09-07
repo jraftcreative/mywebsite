@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Beauty Salon SEO Singapore",
-    "description": "SEO services for beauty salons in Singapore. Local SEO, Google Maps optimisation, service-specific landing pages, and review management to rank for 'beauty salon near me'",
+    "description": "SEO services for beauty salons in Singapore. Service-specific SEO for facials, nails, lashes, brows, waxing and massage, Google Maps optimisation, neighbourhood targeting, and review management to rank for 'nail salon near me' and 'eyelash extensions Singapore'.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -28,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for a beauty salon in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for beauty salon SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Neighbourhood-specific keywords like 'beauty salon near Bugis' or 'facial treatment Tanjong Pagar' often rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "Can SEO help my beauty salon appear in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches 'beauty salon near me' in your area." } },
-      { "@type": "Question", "name": "What keywords do people search when looking for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'beauty salon near me', 'facial treatment Singapore', 'eyelash extensions near me', 'waxing Singapore', 'beauty salon Orchard', and treatment-specific queries like 'hydrafacial Singapore' or 'Korean facial near me'. We research the exact terms driving bookings in your area." } },
-      { "@type": "Question", "name": "Do you create service-specific landing pages for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, eyelash extensions, waxing, brow treatments, body treatments — each targeting the exact keywords potential clients use when searching for that specific service." } }
+      { "@type": "Question", "name": "How long does it take for beauty salon SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Neighbourhood-specific keywords like 'facial Tampines' or 'manicure pedicure Orchard' often rank faster than broad terms like 'beauty salon Singapore'." } },
+      { "@type": "Question", "name": "Can SEO help my beauty salon appear in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches 'nail salon near me' or 'waxing salon near me' in your area." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for beauty salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common search terms include 'nail salon near me', 'eyelash extensions Singapore', 'facial Tampines', 'manicure pedicure Orchard', 'waxing salon near me', 'lash lift Singapore', 'brow threading near me', and 'massage near me'. We research the exact terms driving bookings in your neighbourhood and build your SEO around them." } },
+      { "@type": "Question", "name": "Do you create service-specific landing pages for beauty salons?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, manicures and pedicures, eyelash extensions and lash lifts, brow shaping and threading, waxing, and massage — each targeting the exact keywords clients use when searching for that specific service." } },
+      { "@type": "Question", "name": "How is beauty salon SEO different from generic SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Beauty is hyper-local and service-led. Clients search by service and by neighbourhood — 'facial Tampines', 'nail salon Katong', 'eyelash extensions Holland Village' — creating dozens of keyword combinations that each need their own page and local signals. Generic agencies build one thin 'beauty salon' page and stop. Beauty salon SEO means a page for every service, neighbourhood-level targeting, and a review engine that keeps you in the Maps 3-pack." } }
     ]
   },
   {
@@ -46,176 +46,280 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Beauty Salon SEO Singapore — Jraft Creative"
-  description="SEO services for beauty salons in Singapore. Local SEO, Google Maps optimisation, service-specific landing pages, and review management to rank for."
+  title="Beauty Salon SEO Singapore — SEO Agency"
+  description="SEO agency for beauty salons in Singapore. Rank for facials, nails, lashes, brows and waxing searches — service SEO, Google Maps, neighbourhood targeting."
   canonical="https://jraftcreative.com/beauty-salon-seo-singapore/"
-  ogTitle="Beauty Salon SEO Singapore — Jraft Creative"
-  ogDescription="SEO for beauty salons in Singapore. Local search optimisation, Google Maps ranking, and service-specific content to drive bookings. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="beauty salon seo singapore, beauty salon seo, seo for beauty salons, beauty salon google ranking, beauty salon local seo, beauty salon marketing singapore, facial treatment seo, Jraft Creative"
+  ogTitle="Beauty Salon SEO Singapore — SEO Agency"
+  ogDescription="SEO agency for beauty salons in Singapore. Rank for facials, nails, lashes, brows and waxing searches — service SEO, Google Maps, neighbourhood targeting."
+  ogImage="https://jraftcreative.com/images/og-beauty-salon.jpg"
+  keywords="beauty salon seo singapore, beauty salon seo, seo for beauty salons, nail salon seo singapore, beauty salon google ranking, beauty salon local seo, beauty salon marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Beauty Salon SEO"
-  heroTitle='SEO Services for <span class="highlight">Beauty Salons in Singapore</span>'
-  heroSubtitle="Thousands of potential clients search 'beauty salon near me', 'facial treatment Singapore', and 'eyelash extensions near me' every month. If your salon doesn't appear on page one, those clients book with competitors who do. We help beauty salons rank higher on Google and turn local search visibility into consistent bookings."
-  heroImage="/images/service-beauty.webp"
+  heroLabel="SEO Agency for Beauty Salons"
+  heroTitle='SEO Agency for <span class="highlight">Beauty Salons in Singapore</span>'
+  heroSubtitle="Clients searching 'nail salon near me', 'eyelash extensions Singapore', and 'facial Tampines' are ready to book today. If your salon doesn't rank on page one for these searches, you lose them to the salon that does. We build service-specific SEO and neighbourhood targeting that gets beauty salons found on Google."
+  heroImage="/images/hero-beauty-salon.webp"
+  heroImageAlt="Beauty salon ranking on Google in Singapore — beauty salon SEO agency"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need SEO for my beauty salon in Singapore."
   ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Beauty Salon Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your beauty salon stands in local search compared to nearby competitors. We'll respond within 24 hours."
+  ctaTitle='Get Your <span class="highlight">Beauty Salon</span> Found on <span class="highlight">Google</span>'
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your salon stands for the services you offer compared to nearby competitors. We'll respond within 24 hours with a tailored beauty salon SEO plan."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20beauty%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="SEO challenges for beauty salons in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Hundreds of Salons in Singapore — Can Clients Find Yours on Google?</h2>
+        <h2>Clients Search for a Salon on <span class="highlight">Google</span> — Does Yours <span class="highlight">Show Up</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore has hundreds of beauty salons competing for the same pool of clients. From facial studios in Orchard to waxing specialists in Bugis and lash bars in Tanjong Pagar, the competition is relentless. The problem is that most salons rely on Instagram and marketplace platforms like Fave or ClassPass to attract clients — platforms they don't own, can't control, and that charge a commission on every booking. Meanwhile, the salons that invest in SEO capture clients directly from Google at zero per-booking cost.</p>
-        <p>Google processes thousands of beauty-related searches in Singapore every month. "Beauty salon near me", "facial treatment Novena", "eyelash extensions Singapore", "waxing near MRT" — these are high-intent searches from people ready to book today. If your salon doesn't rank for these terms, you're paying for every new client through ads or marketplaces, or worse, losing them entirely to the salons that appear first in search results.</p>
-        <p>The beauty salons winning on Google have dedicated landing pages for each service they offer, optimised Google Business Profiles with dozens of five-star reviews, and blog content answering the questions potential clients search before they book. Without this SEO foundation, even a beautifully designed salon in a prime location remains invisible to the thousands of clients searching online every week.</p>
+        <p>Beauty is a local, spur-of-the-moment decision. Someone wants a fresh set of lashes before a wedding, a gel manicure on a lunch break, or a facial after a long week — and the first thing they do is search Google. "Nail salon near me", "eyelash extensions Singapore", and "facial Tampines" are searched thousands of times a month, and clients almost always book with a salon that appears in the first few results. Singapore has hundreds of salons packed into Orchard, Bugis, Tanjong Pagar and every heartland mall, so if you don't rank, the booking goes to whoever does.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Ready-to-Book Demand</h3>
+            <p>Someone searching "gel manicure near me" or "lash lift Singapore" has already decided what they want — they just need to pick a salon. SEO puts you in front of them at that moment, not days earlier when they were only browsing.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Instagram Alone Misses This</h3>
+            <p>Instagram and word-of-mouth work, but they miss the biggest group: people actively searching Google for a specific service right now. That high-intent demand only reaches you if your service pages rank.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>A Crowded Orchard &amp; Bugis Field</h3>
+            <p>Salons cluster along Orchard Road, around Bugis, and in every mall from Tampines to Jurong, all chasing the same searches. Ranking here takes a service-level, neighbourhood-level strategy — not one thin "beauty salon Singapore" page everyone else also has.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Marketplaces Take a Cut</h3>
+            <p>Booking platforms bring clients, but charge a commission on every visit and own the relationship. SEO brings clients to you directly from Google at no per-booking cost, and they come back to your name, not a marketplace app.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Generic Agencies Get It Wrong</h3>
+            <p>Most SEO agencies build a single "services" page and stop. They don't create a page for facials, another for nails, another for lashes — so the salon never ranks for the specific searches clients actually type.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Maps 3-Pack Wins the Click</h3>
+            <p>For "nail salon near me" and "waxing salon near me", the Google Maps 3-pack sits above every website. If your Google Business Profile isn't optimised with the right categories, photos and reviews, you're invisible before the client scrolls.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for beauty salons">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services we deliver for beauty salons">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Built for Beauty Salons</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">SEO Workstreams</span> Every Beauty Salon <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Beauty salon SEO requires a specialist approach. Clients search by treatment type, neighbourhood, and urgency — creating dozens of keyword combinations that need dedicated pages and local signals. We build SEO strategies specifically for how Singapore residents research and choose beauty salons.</p>
-        <p>Pair SEO with a professionally designed <a href="/beauty-salon-website-singapore/" class="inline-link">beauty salon website</a>, <a href="/services/social-media/" class="inline-link">social media marketing</a> for beauty content that drives engagement, or <a href="/services/paid-ads/" class="inline-link">Google Ads</a> to capture demand during peak festive seasons and promotion periods.</p>
+        <p>We run beauty salon SEO as a six-workstream system — technical audit, service-specific pages, local and Google Maps SEO, neighbourhood targeting, review management, and monthly reporting. Built for how Singapore clients search for and choose a salon. Pair it with a professionally designed <a href="/beauty-salon-website-singapore/">beauty salon website</a>, <a href="/beauty-salon-social-media-singapore/">social media</a> for beauty content that fills your feed, or <a href="/beauty-salon-google-ads-singapore/">Google Ads</a> to capture demand during festive and promotion periods.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your beauty salon website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your salon for searches like "beauty salon near me" and "facial treatment Singapore".</p>
+            <p>Full crawl of your salon website to surface indexing gaps, broken links, missing structured data, slow load times, and mobile issues. We fix every technical barrier stopping Google from ranking you for searches like "nail salon near me" and "facial Tampines".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Service-Specific Landing Pages</h3>
-            <p>Dedicated, keyword-optimised pages for every service — facials, eyelash extensions, waxing, brow treatments, body scrubs, manicures. Each page targets the exact terms clients use, like "hydrafacial near Orchard", "lash lift Singapore", or "Brazilian wax Bugis".</p>
+            <h3>Service-Specific SEO</h3>
+            <p>Dedicated, keyword-optimised pages for every service — facials, manicures and pedicures, eyelash extensions and lash lifts, brow shaping and threading, waxing, and massage. Each page targets the exact terms clients use: "eyelash extensions Singapore", "manicure pedicure Orchard", "brow threading near me".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content That Answers Questions</h3>
+            <p>Guides and FAQ content answering what clients search before they book — how long lash extensions last, what to expect from a first facial, how to prep for waxing. It captures search demand during the research phase and positions your salon as the trusted local choice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
             <h3>Local SEO &amp; Google Maps</h3>
-            <p>Google Business Profile optimisation with correct beauty service categories, salon photos, client review management, and local citation building across Singapore directories. Designed to get your salon into the Google Maps 3-pack for every "beauty salon near me" search in your neighbourhood.</p>
+            <p>Google Business Profile optimisation with the correct beauty service categories, salon photos, review management, and local citation building — engineered to get your salon into the Maps 3-pack for every "near me" search in your neighbourhood.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Review Management Strategy</h3>
-            <p>A structured approach to generating and managing Google reviews. We help you build a consistent flow of authentic reviews from satisfied clients — the single most influential factor in local search rankings and in convincing new clients to choose your salon over a competitor.</p>
+            <h3>Neighbourhood Targeting</h3>
+            <p>Beauty is hyper-local. We optimise for the neighbourhoods your clients actually search from — Orchard, Bugis, Tanjong Pagar, Tampines, Jurong, Katong, Holland Village — so your salon ranks exactly where the nearby demand is.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Review &amp; Reporting</h3>
+            <p>A structured way to earn a steady flow of genuine Google reviews — the single biggest factor in local rankings — plus a monthly report on keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We measure new clients, not vanity metrics.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for beauty salon SEO">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for beauty salon SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands the Beauty Industry</h2>
+        <h2>An SEO Agency That Understands <span class="highlight">the Beauty Industry</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with beauty businesses across Singapore. We understand seasonal demand patterns, treatment-based search behaviour, and which keywords actually convert browsers into paying clients who rebook month after month.</p>
+        <p>We work with beauty businesses across Singapore, so we understand seasonal demand, how clients search by service and location, and which keywords actually turn browsers into paying clients who rebook. Pair SEO with <a href="/beauty-salon-social-media-singapore/">social media</a> for beauty content that builds trust, or <a href="/beauty-salon-google-ads-singapore/">Google Ads</a> to capture high-intent searches straight away.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Beauty Industry Knowledge</h3>
-            <p>We know the difference between a hydrafacial and a chemical peel, between lash lifts and lash extensions. Our strategies are built around how beauty clients actually search — not pulled from a generic SEO template that ignores your industry.</p>
+            <p>We know the difference between a lash lift and lash extensions, between a manicure and a gel set, between threading and waxing. Strategies are built around how beauty clients actually search — not pulled from a generic SEO template that ignores your services.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Neighbourhood-Level Targeting</h3>
-            <p>Beauty is hyper-local. Clients want a salon near their home or office. We optimise for neighbourhood-level searches — Orchard, Bugis, Tanjong Pagar, Tiong Bahru, Novena — so your salon ranks exactly where your potential clients are searching.</p>
+            <h3>Service &amp; Neighbourhood Strategy</h3>
+            <p>We go beyond a broad "beauty salon" page to target high-intent searches — "facial Tampines", "manicure pedicure Orchard", "waxing salon near me" — the exact queries clients type when they're ready to book, in the neighbourhood they're booking from.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We focus on the metrics that matter — search visibility and new client acquisition, not vanity numbers.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
             <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of your digital strategy. We also handle beauty salon website design, social media content, and paid ads — so your entire marketing works together as a single system to keep your appointment book full.</p>
+            <p>SEO is one part of keeping your appointment book full. We also handle beauty salon website design, social content, and paid ads — so your entire marketing works together to drive bookings and build your salon's reputation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY ========== -->
+  <section class="section" id="client-journey" style="background: var(--bg-alt);" aria-label="The Client Journey — and where SEO shows up">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">SEO</span> Shows Up in the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Beauty clients move through five stages. SEO is the dominant channel in Search and Compare — when someone looks up a service, weighs nearby salons, and reads reviews — and it feeds the Maps 3-pack at the Book decision point. A strong review base then compounds back into rankings.</p>
+      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Search</h3>
+          <p>Client Googles a service near them (SEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>Reads salon pages, photos &amp; reviews (SEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Books via Maps 3-pack or service page (high intent)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Salon experience earns the next positive review</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Rebook</h3>
+          <p>Reviews &amp; referrals compound back into rankings</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about beauty salon SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Beauty Salon SEO — Questions Answered</h2>
+        <h2><span class="highlight">Beauty Salon SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for a beauty salon in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How long does it take for beauty salon SEO to show results?</summary>
+          <div class="faq-answer"><p>Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Neighbourhood-specific keywords like "facial Tampines" or "manicure pedicure Orchard" often rank faster than broad terms like "beauty salon Singapore".</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for beauty salon SEO to show results?</summary>
-          <div class="faq-answer"><p>Most beauty salons see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Neighbourhood-specific keywords like "beauty salon near Bugis" or "facial treatment Tanjong Pagar" often rank faster than broad competitive terms.</p></div>
+          <summary>Can SEO help my beauty salon appear in Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches "nail salon near me" or "waxing salon near me" in your area.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can SEO help my beauty salon appear in Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Google Business Profile optimisation is central to our beauty salon SEO service. We optimise your listing categories, upload salon photos, manage client reviews, and build local citations so your salon appears in the Maps 3-pack when someone searches "beauty salon near me" in your area.</p></div>
+          <summary>What keywords do people search when looking for beauty salons in Singapore?</summary>
+          <div class="faq-answer"><p>Common search terms include "nail salon near me", "eyelash extensions Singapore", "facial Tampines", "manicure pedicure Orchard", "waxing salon near me", "lash lift Singapore", "brow threading near me", and "massage near me". We research the exact terms driving bookings in your neighbourhood and build your SEO around them.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>What keywords do people search when looking for beauty salons in Singapore?</summary>
-          <div class="faq-answer"><p>Common search terms include "beauty salon near me", "facial treatment Singapore", "eyelash extensions near me", "waxing Singapore", "beauty salon Orchard", and treatment-specific queries like "hydrafacial Singapore" or "Korean facial near me". We research the exact terms driving bookings in your area.</p></div>
+          <summary>Do you create service-specific landing pages for beauty salons?</summary>
+          <div class="faq-answer"><p>Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, manicures and pedicures, eyelash extensions and lash lifts, brow shaping and threading, waxing, and massage — each targeting the exact keywords clients use when searching for that specific service.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you create service-specific landing pages for beauty salons?</summary>
-          <div class="faq-answer"><p>Yes. Service-specific pages are a core part of our SEO strategy. We create dedicated, optimised pages for each service you offer — facials, eyelash extensions, waxing, brow treatments, body treatments — each targeting the exact keywords potential clients use when searching for that specific service.</p></div>
+          <summary>How is beauty salon SEO different from generic SEO?</summary>
+          <div class="faq-answer"><p>Beauty is hyper-local and service-led. Clients search by service and by neighbourhood — "facial Tampines", "nail salon Katong", "eyelash extensions Holland Village" — creating dozens of keyword combinations that each need their own page and local signals. Generic agencies build one thin "beauty salon" page and stop. Beauty salon SEO means a page for every service, neighbourhood-level targeting, and a review engine that keeps you in the Maps 3-pack.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <!-- Related Services -->
-  <section class="section" id="related-services" aria-label="Related services">
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services for beauty salons">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Beauty Salon Services</h2>
+        <h2>More <span class="highlight">Beauty Salon</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Website Design</a>
           <a href="/beauty-salon-marketing-singapore/" class="related-service-link">Beauty Salon Marketing</a>
-          <a href="/beauty-salon-social-media-singapore/" class="related-service-link">Beauty Salon Social Media</a>
+          <a href="/beauty-salon-ai-search-optimisation-singapore/" class="related-service-link">Beauty Salon GEO</a>
           <a href="/beauty-salon-google-ads-singapore/" class="related-service-link">Beauty Salon Google Ads</a>
           <a href="/beauty-salon-facebook-ads-singapore/" class="related-service-link">Beauty Salon Facebook Ads</a>
+          <a href="/beauty-salon-social-media-singapore/" class="related-service-link">Beauty Salon Social Media</a>
           <a href="/beauty-salon-branding-singapore/" class="related-service-link">Beauty Salon Branding</a>
-          <a href="/beauty-salon-ai-search-optimisation-singapore/" class="related-service-link">Beauty Salon AI Search Optimisation</a>
+          <a href="/beauty-salon-website-singapore/" class="related-service-link">Beauty Salon Websites</a>
       </div>
     </div>
   </section>
