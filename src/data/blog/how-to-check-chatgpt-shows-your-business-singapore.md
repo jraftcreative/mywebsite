@@ -186,7 +186,7 @@ First: AI answers vary. The same prompt can return different brand lists each ti
 
 Second: appearing in AI answers is the *floor*, not the ceiling. The deeper goal is to be described with the most *specific, accurate* reasoning. "Jraft Creative — a Singapore digital marketing agency that handles paid ads, SEO and GEO in-house" is a better placement than "Jraft Creative is a marketing agency." The first is recommendation-quality. The second is just a name in a list.
 
-To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the biggest fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [getting recommended by ChatGPT in Singapore](/get-recommended-by-chatgpt-singapore/).
+To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the biggest fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [ChatGPT optimisation in Singapore](/chatgpt-optimisation-singapore/).
 
 ## TL;DR — run this today
 

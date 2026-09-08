@@ -22,6 +22,10 @@ export default defineConfig({
     // F&B vertical hub consolidation (Jun 2026) — old industries page
     // 301s to new vertical-marketing canonical for SEO + AIO.
     '/industries/food-beverage/': '/fnb-marketing-singapore/',
+    // Ben GEO-cluster audit (Sep 2026) — merge duplicate AI-search pages
+    // into their canonical hubs to end cannibalisation.
+    '/ai-search-optimisation-agency-singapore/': '/geo-agency-singapore/',
+    '/get-recommended-by-chatgpt-singapore/': '/chatgpt-optimisation-singapore/',
   },
   integrations: [sitemap({
     filter: (page) =>
@@ -35,7 +39,9 @@ export default defineConfig({
       page !== 'https://jraftcreative.com/seo-services-singapore/' &&
       page !== 'https://jraftcreative.com/web-design-singapore/' &&
       page !== 'https://jraftcreative.com/social-media-marketing-singapore/' &&
-      page !== 'https://jraftcreative.com/industries/food-beverage/',
+      page !== 'https://jraftcreative.com/industries/food-beverage/' &&
+      page !== 'https://jraftcreative.com/ai-search-optimisation-agency-singapore/' &&
+      page !== 'https://jraftcreative.com/get-recommended-by-chatgpt-singapore/',
     serialize(item) {
       // Emit <lastmod> for every sitemap URL (Ben audit I5).
       item.lastmod = BUILD_LASTMOD;

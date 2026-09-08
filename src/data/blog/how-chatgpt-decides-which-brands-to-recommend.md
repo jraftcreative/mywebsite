@@ -193,6 +193,6 @@ If you want to understand exactly how your brand currently performs across ChatG
 
 Getting recommended across ChatGPT, Gemini, Claude, and Perplexity requires the brand-signal architecture, content depth, and authority footprint this post walks through — built across your site and the wider web. Our service is built for exactly that.
 
-**[Get Recommended by ChatGPT — Singapore →](/get-recommended-by-chatgpt-singapore/)**
+**[ChatGPT Optimisation — Singapore →](/chatgpt-optimisation-singapore/)**
 
 ---
