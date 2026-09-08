@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Speech & Drama Website Design Singapore",
-    "description": "Custom website design for speech and drama schools in Singapore — programme pages for public speaking, drama, and exam prep, performance video galleries, instructor profiles, trial class booking, and local SEO.",
+    "description": "Custom website design for speech and drama enrichment schools in Singapore — programme pages by level, trial class booking, performance highlights, instructor profiles, and local SEO.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a speech and drama website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you include a video and performance showcase on our website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can include a dedicated performance gallery where you can showcase student recitals, drama productions, public speaking showcases, and storytelling performances. We embed videos from YouTube or Vimeo and optimise loading so the gallery stays fast on any device. Parents can see first-hand what your students achieve — a powerful trust signal that drives enrolments." } },
-      { "@type": "Question", "name": "Can parents register and pay for classes online through the website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build a full online registration system where parents browse programmes by age group or skill level, select a term or holiday workshop, and pay securely online. We can also add trial class booking with automated confirmation emails. Both reduce admin work and let parents sign up at any hour — not just during office hours." } },
-      { "@type": "Question", "name": "Can you help our speech and drama school rank on Google locally?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your website for keywords parents actually search — like 'speech and drama classes near me', 'public speaking for kids Singapore', or 'LAMDA exam prep Singapore'. This includes on-page SEO, schema markup for educational services, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps." } },
-      { "@type": "Question", "name": "How long does it take to build a speech and drama school website?", "acceptedAnswer": { "@type": "Answer", "text": "Most speech and drama school websites go live within 2 to 3 weeks. A straightforward site can be ready in about 2 weeks, while sites with instructor profiles, booking systems, and video galleries typically take 3 weeks. Larger builds with online registration, show calendars, and multi-location support take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your term and performance schedule." } }
+      { "@type": "Question", "name": "Can you add trial class booking to our speech and drama website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build an online booking flow that lets parents schedule a trial class directly from your site, filter by age group and level, and receive automated confirmation emails. It reduces phone calls and back-and-forth messages for your team and lets parents sign up outside office hours." } },
+      { "@type": "Question", "name": "Can you showcase student performances on the website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build a performance highlights gallery for recitals, drama productions, public speaking showcases, and storytelling sessions, embedding clips from YouTube or Vimeo and optimising loading so it stays fast on any device. We only publish student footage where you have the right consent in place." } },
+      { "@type": "Question", "name": "Can you help our speech and drama school rank on Google locally?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your website for terms parents actually search — like 'speech and drama classes near me', 'public speaking for kids Singapore', or 'LAMDA exam prep Singapore'. This includes on-page SEO, schema markup for educational services, Google Business Profile optimisation, and location-targeted content for areas like Tampines, Bishan, and Bukit Timah." } },
+      { "@type": "Question", "name": "How long does it take to build a speech and drama school website?", "acceptedAnswer": { "@type": "Answer", "text": "Most speech and drama school websites go live within about 2 weeks. Sites with instructor profiles, booking flows, and performance galleries typically take around 3 weeks, while larger builds with online registration, show calendars, and multi-location support take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your term and performance schedule." } }
     ]
   },
   {
@@ -47,134 +46,294 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Speech & Drama Website Singapore — Jraft Creative"
-  description="Website design for speech and drama schools in Singapore — programme pages for public speaking, drama, and exam prep."
+  title="Speech & Drama Website Singapore — Web Design"
+  description="Web design agency for speech and drama schools in Singapore — programme pages by level, trial class booking, and performance highlights."
   canonical="https://jraftcreative.com/speech-drama-website-singapore/"
-  ogTitle="Speech & Drama Website Singapore — Jraft Creative"
-  ogDescription="Custom website design for speech and drama schools in Singapore. Programme pages, performance galleries, instructor profiles, and local SEO."
+  ogTitle="Speech & Drama Website Singapore — Web Design"
+  ogDescription="Custom website design for speech and drama enrichment schools in Singapore. Programme pages, trial booking, performance highlights, and local SEO."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="speech and drama website design singapore, speech and drama website singapore, drama school website singapore, public speaking classes website singapore, speech and drama classes near me, LAMDA exam prep singapore, Jraft Creative"
+  keywords="web design agency for speech and drama schools, speech and drama website design singapore, speech and drama website singapore, drama school website singapore, public speaking classes website singapore, LAMDA exam prep singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Speech & Drama Websites"
-  heroTitle='Website Design for <span class="highlight">Speech &amp; Drama Schools in Singapore</span>'
-  heroSubtitle="Parents are searching online before enrolling their child in a single class. We build websites that showcase your programmes — from public speaking and drama to LAMDA and Trinity exam prep — highlight your instructors, and make trial class booking effortless so you can focus on developing confident communicators."
-  heroImage="/images/service-speechdrama.webp"
+  heroLabel="Web Design Agency for Speech & Drama"
+  heroTitle='Web Design Agency for <span class="highlight">Speech &amp; Drama Schools in Singapore</span>'
+  heroSubtitle="Parents are searching for enrichment classes online before booking a single trial. We build websites that lay out your programmes by level, show off performances and exam progress, and make trial booking effortless — so you can focus on building confident young speakers."
+  heroImage="/images/service-education.webp"
+  heroImageAlt="Speech and drama enrichment in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Book a Consultation", href: "/contact/", class: "btn btn-secondary" }
+    { text: "See Education Marketing", href: "/industries/education/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my speech and drama school in Singapore."
   ctaLabel="Ready to Grow Your Speech & Drama School?"
   ctaTitle="Get Your Speech & Drama School Online"
-  ctaDescription="Tell us about your school and we'll recommend the right approach for your website. Free consultation — no obligations, no pressure."
+  ctaDescription="Tell us about your school and we'll recommend the right website scope. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20speech%20and%20drama%20school%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why speech and drama schools need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for speech and drama schools in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Searching — Can They Find Your Speech &amp; Drama School?</h2>
+        <h2>Parents Are <span class="highlight">Searching</span> — Can They <span class="highlight">Find Your School</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Every week, thousands of parents in Singapore search "speech and drama classes near me", "public speaking for kids Singapore", or "LAMDA exam prep" on Google. They compare schools side by side, watching performance clips, reading instructor bios, and checking class schedules. If your speech and drama school doesn't have a professional website, you're invisible to these families — and they're signing up for trial classes with your competitors instead.</p>
-        <p>A Facebook page or an entry on a directory listing is not enough. Parents evaluating speech and drama programmes want to see the full range of what you offer — public speaking, creative drama, storytelling, musical theatre, debate, and exam preparation for LAMDA and Trinity. They want to know each instructor's background and teaching approach, watch clips from past performances and showcases, and check available class times for their child's age group — all before they ever contact you.</p>
-        <p>Speech and drama education is a growing segment in Singapore, driven by parents who recognise the importance of oral communication, confidence building, and presentation skills. Schools that invest in a professional website with clear programme details, compelling performance showcases, and easy trial class booking consistently outperform those relying on word of mouth or social media alone. In a market with established names and new entrants alike, your website is the first impression that determines whether a parent enrols their child or scrolls past.</p>
+        <p>Parents compare enrichment schools side by side — programmes, instructors, results — long before they ever call or walk in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Facebook Page Isn't Enough</h3>
+            <p>Parents want programmes by level, instructor backgrounds, performance clips and class times in one place. A directory listing answers none of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Research Thoroughly</h3>
+            <p>They check LAMDA and Trinity exam pathways, watch showcase videos and read what other families say. Anything missing is a reason to choose someone else.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Decide It</h3>
+            <p>From Tampines to Bukit Timah, the enrichment scene is crowded. Your site is what decides whether a parent enquires or scrolls past.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Speech and drama website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Speech and drama website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Speech &amp; Drama Schools</h2>
+        <h2>Six <span class="highlight">Pillars</span> of a Speech &amp; Drama <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every speech and drama website we deliver is built to convert visitors into enrolled students. We go beyond a generic template — your site will feature dedicated programme pages for public speaking, drama, storytelling, and exam preparation, instructor profiles that highlight credentials and teaching philosophy, and a frictionless booking flow that makes it easy to schedule a trial class.</p>
-        <p>A great website is just the starting point. Pair your speech and drama site with <a href="/services/seo-performance/">local SEO services</a> to rank for "speech and drama classes near me" searches in your area, <a href="/services/social-media/">social media marketing</a> to reach parents on Instagram and Facebook, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak enrolment periods.</p>
+        <p>Every site is built to turn a browsing parent into a booked trial class, not just to look good. It is a bespoke <a href="/services/website-development/">website development</a> build shaped for <a href="/industries/education/">education marketing</a>, not a generic template.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Programme &amp; Course Pages</h3>
-            <p>Dedicated pages for every programme you offer — public speaking, creative drama, storytelling, musical theatre, debate, and exam prep for LAMDA and Trinity. Each page details class formats, age groups from preschool to teens, skill levels, and learning outcomes so parents find exactly the right fit for their child.</p>
+            <h3>Programme Pages by Level</h3>
+            <p>A page per programme and level — public speaking, creative drama, storytelling, and exam prep for LAMDA and Trinity — covering age groups, class formats and learning outcomes.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Performance Video Gallery</h3>
-            <p>A dedicated showcase gallery featuring student recitals, drama productions, public speaking presentations, and storytelling performances. Parents can see first-hand what your students achieve on stage — a powerful trust signal that turns website visitors into enrolments.</p>
+            <h3>Trial Class Booking</h3>
+            <p>Parents book directly from the site — availability by age group and level, with automated confirmations. Fewer phone calls and messages for your team.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
             <h3>Instructor Profiles &amp; Credentials</h3>
-            <p>Each instructor gets a profile page with their qualifications, performance and directing experience, teaching philosophy, and specialisations. We include professional headshots, embedded video clips of their work, and certification details — giving parents full confidence in the people guiding their children.</p>
+            <p>Qualifications, performance and directing background, and teaching approach, with headshots and clips that give parents confidence in the people guiding their child.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Recital Calendar &amp; Trial Class Booking</h3>
-            <p>A built-in calendar for showcases, productions, and holiday workshops alongside an online booking system for trial classes. Parents can view upcoming events, filter classes by age group, and book a trial slot directly — reducing phone calls and admin time for your team.</p>
+            <h3>Performance Highlights &amp; Showcases</h3>
+            <p>A gallery for recitals, productions and public speaking showcases, plus a calendar for upcoming shows and holiday workshops. Published only where you hold the right consent.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Video &amp; Media Ready</h3>
+            <p>Embedded performance videos and showcase reels that load fast on any device, because seeing students on stage is your strongest selling material.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First &amp; Search-Ready</h3>
+            <p>Clean structure, fast mobile loads and schema built in from day one, so the site is ready to rank and read well on the phones most parents browse from.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for speech and drama website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your speech and drama web design agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Your Speech &amp; Drama Website</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Enrichment Schools</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the performing arts education industry in Singapore. Our websites are built to address the specific challenges speech and drama schools face — from competing for "speech and drama classes near me" searches to converting enquiries into long-term student enrolments.</p>
+        <p>We build for the specific problem enrichment schools have — competing locally across areas like Bishan, Jurong, Katong and Novena, then converting an enquiry into a term-long enrolment. If you want the fundamentals first, read our guide to <a href="/blog/good-business-website-singapore/">what makes a good business website in Singapore</a>.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Performing Arts Experience</h3>
-            <p>We've built websites for speech and drama schools, enrichment centres, and performing arts academies across Singapore. We know what parents look for — clear programme details, strong instructor credentials, and proof of student achievement — and how to present it in a way that drives enrolments.</p>
+            <h3>Enrichment Experience</h3>
+            <p>We've built for speech and drama schools, enrichment centres and performing arts academies across Singapore, and know what turns a browsing parent into a committed student.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most speech and drama school websites go live within 2 weeks. We work fast so you can start capturing online bookings before the next term begins — no dragging projects out for months.</p>
+            <h3>Live Before the Next Term</h3>
+            <p>Most sites go live within about two weeks, so you start capturing trial bookings before the next intake rather than after it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Video &amp; Media Optimised</h3>
-            <p>Your website will handle embedded performance videos, student showcase reels, and photo galleries without slowing down. We optimise media delivery so parents get a rich, immersive experience of your school on any device — desktop, tablet, or mobile.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management — everything your speech and drama school needs to grow its online presence and fill more class slots across all programmes and age groups.</p>
+            <h3>Website, SEO &amp; Social Together</h3>
+            <p>We also run <a href="/services/seo-performance/">SEO and performance</a> and <a href="/services/social-media/">social media</a> — one system for filling class slots.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the enrichment parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts classes. Your website carries the middle three — it is where a parent validates your instructors, compares you against the shortlist, and finally books the trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Instructor profiles, exam pathways, performance highlights</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Programme pages answer level, format and fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Booking flow turns interest into a scheduled class</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about speech and drama website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about speech and drama website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Speech &amp; Drama Website Questions Answered</h2>
+        <h2>Speech &amp; Drama <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,31 +341,39 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you include a video and performance showcase on our website?</summary>
-          <div class="faq-answer"><p>Yes. We can include a dedicated performance gallery where you can showcase student recitals, drama productions, public speaking showcases, and storytelling performances. We embed videos from YouTube or Vimeo and optimise loading so the gallery stays fast on any device. Parents can see first-hand what your students achieve on stage — a powerful trust signal that drives enrolments.</p></div>
+          <summary>Can you add trial class booking to our speech and drama website?</summary>
+          <div class="faq-answer"><p>Yes. We can build an online booking flow that lets parents schedule a trial class directly from your site, filter by age group and level, and receive automated confirmation emails. It reduces phone calls and back-and-forth messages for your team and lets parents sign up outside office hours.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can parents register and pay for classes online through the website?</summary>
-          <div class="faq-answer"><p>Yes. We can build a full online registration system where parents browse programmes by age group or skill level, select a term or holiday workshop, and pay securely online. We can also add trial class booking with automated confirmation emails. Both reduce admin work and let parents sign up at any hour — not just during office hours.</p></div>
+          <summary>Can you showcase student performances on the website?</summary>
+          <div class="faq-answer"><p>Yes. We can build a performance highlights gallery for recitals, drama productions, public speaking showcases, and storytelling sessions, embedding clips from YouTube or Vimeo and optimising loading so it stays fast on any device. We only publish student footage where you have the right consent in place.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>Can you help our speech and drama school rank on Google locally?</summary>
-          <div class="faq-answer"><p>Yes. We optimise your website for keywords parents actually search — like "speech and drama classes near me", "public speaking for kids Singapore", or "LAMDA exam prep Singapore". This includes on-page SEO, schema markup for educational services, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps.</p></div>
+          <div class="faq-answer"><p>Yes. We optimise your website for terms parents actually search — like "speech and drama classes near me", "public speaking for kids Singapore", or "LAMDA exam prep Singapore". This includes on-page SEO, schema markup for educational services, Google Business Profile optimisation, and location-targeted content for areas like Tampines, Bishan, and Bukit Timah.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build a speech and drama school website?</summary>
-          <div class="faq-answer"><p>Most speech and drama school websites go live within 2 to 3 weeks. A straightforward site can be ready in about 2 weeks, while sites with instructor profiles, booking systems, and video galleries typically take 3 weeks. Larger builds with online registration, show calendars, and multi-location support take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your term and performance schedule.</p></div>
+          <div class="faq-answer"><p>Most speech and drama school websites go live within about 2 weeks. Sites with instructor profiles, booking flows, and performance galleries typically take around 3 weeks, while larger builds with online registration, show calendars, and multi-location support take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your term and performance schedule.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices links={[
-    { href: '/speech-drama-marketing-singapore/', label: 'Speech &amp; Drama Marketing' },
-    { href: '/education-marketing-agency-singapore/', label: 'Full-Service Education Marketing' },
-    { href: '/education-ai-search-optimisation-singapore/', label: 'Education GEO / AI Search' },
-    { href: '/music-school-marketing-singapore/', label: 'Music School Marketing' },
-  ]} />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Speech &amp; Drama</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/education/" class="related-service-link">Education Marketing</a>
+          <a href="/services/website-development/" class="related-service-link">Website Development</a>
+          <a href="/services/seo-performance/" class="related-service-link">SEO &amp; Performance</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

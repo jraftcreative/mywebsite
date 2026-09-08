@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Art School Website Design Singapore",
-    "description": "Custom website design for art schools and enrichment centres in Singapore — student gallery showcases, course pages for drawing, painting, pottery and digital art, instructor portfolios, trial class booking, and local SEO.",
+    "description": "Custom website design for art schools and studios in Singapore — course pages for drawing, painting, pottery and digital art, instructor bios, student art galleries, trial class booking, and local SEO.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does an art school website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you build a student gallery to showcase artwork on our website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every package includes a student gallery section, but our Business and Premium tiers take it further with filterable galleries organised by medium (drawing, painting, pottery, digital art), age group, or programme. Students and parents can browse artwork in a lightbox view, and you can update the gallery easily as new pieces are completed — a powerful way to demonstrate the quality of your teaching." } },
-      { "@type": "Question", "name": "Can parents register for classes and make payments online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our Business and Premium packages include online registration forms that let parents sign up for trial classes, workshops, or term-long programmes directly through your website. The Premium tier adds payment integration so parents can pay course fees online via credit card or PayNow — reducing admin work and making enrolment seamless for busy Singapore families." } },
-      { "@type": "Question", "name": "Will you optimise our art school website for local search in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your website for keywords parents actually search — like 'art class for kids Singapore', 'drawing lessons near me', or 'pottery class Bukit Timah'. This includes on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps for your specific area." } },
-      { "@type": "Question", "name": "How long does it take to build an art school website?", "acceptedAnswer": { "@type": "Answer", "text": "Most art school websites go live within 2 weeks for our Starter package. Business-tier sites with trial class booking, instructor portfolios, and exhibition pages typically take 3 weeks, while Premium builds with online registration, payment integration, and multi-location support take 4–5 weeks. We provide a clear timeline before starting so you can plan around your term schedule." } }
+      { "@type": "Question", "name": "Can you add trial class booking to our art school website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build a booking flow that lets parents and adult students schedule trial classes and workshops directly from your website. It can display class availability by day and time, filter by age group and medium, and send automated confirmation emails — cutting the phone calls and admin your front desk handles each term." } },
+      { "@type": "Question", "name": "How do you showcase student artwork and instructor bios?", "acceptedAnswer": { "@type": "Answer", "text": "We build a filterable gallery so visitors can browse student work by medium — drawing, painting, pottery, digital art — age group, or programme, all published with consent. Each instructor gets a profile page covering their artistic background, qualifications, teaching approach, and a short portfolio of their own work, giving parents confidence in your team." } },
+      { "@type": "Question", "name": "Can you help our art school rank for 'art class near me' on Google?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We optimise your website for terms parents and adults actually search — like 'art class for kids Singapore', 'drawing lessons near me', or 'pottery class Bukit Timah'. That covers on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you show up in local results and Google Maps for your area." } },
+      { "@type": "Question", "name": "How long does it take to build an art school website?", "acceptedAnswer": { "@type": "Answer", "text": "Most art school websites go live within two weeks. Sites that add trial class booking, instructor bios and a full student gallery usually take around three weeks, and larger builds with online registration and multi-location support take four to five. We give you a clear timeline before starting so you can plan around your term or holiday-workshop schedule." } }
     ]
   },
   {
@@ -47,19 +46,120 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Art School Website Singapore — Jraft Creative"
-  description="Website design for art schools and enrichment centres in Singapore — student gallery showcases, course pages for drawing, painting."
+  title="Art School Website Singapore — Web Design Agency"
+  description="Web design agency for art schools and studios in Singapore — course pages, student art galleries, instructor bios, and trial class booking."
   canonical="https://jraftcreative.com/art-school-website-singapore/"
-  ogTitle="Art School Website Singapore — Jraft Creative"
-  ogDescription="Custom website design for art schools and art enrichment centres in Singapore. Student galleries, course pages, trial class booking, and local SEO."
+  ogTitle="Art School Website Singapore — Web Design Agency"
+  ogDescription="Custom website design for art schools and studios in Singapore. Course pages, student galleries, instructor bios, trial class booking, and local SEO."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="art school website design singapore, art school website singapore, art enrichment website singapore, drawing class website singapore, art class near me, art teacher website design, Jraft Creative"
+  keywords="web design agency for art schools, art school website design singapore, art school website singapore, art studio website singapore, drawing class website singapore, art teacher website design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Art School Websites"
-  heroTitle='Website Design for <span class="highlight">Art Schools in Singapore</span>'
-  heroSubtitle="Parents search online before enrolling their child in a single art class. We build websites that showcase your students' artwork, present your courses clearly by age group and medium, and make booking a trial class effortless — so you can focus on teaching, not chasing enquiries."
+  heroLabel="Web Design Agency for Art Schools"
+  heroTitle='Web Design Agency for <span class="highlight">Art Schools in Singapore</span>'
+  heroSubtitle="Parents and adult students look you up online before booking a single class. We build websites that showcase your students' artwork, present your programmes clearly by age and medium, and make booking a trial effortless — so you can focus on teaching, not chasing enquiries."
   heroImage="/images/service-artschool.webp"
+  heroImageAlt="Art school in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
@@ -67,114 +167,173 @@ const schemaData = [
   whatsappText="Hi Jraft Creative, I need a website for my art school in Singapore."
   ctaLabel="Ready to Grow Your Art School?"
   ctaTitle="Get Your Art School Online"
-  ctaDescription="Tell us about your art school and we'll recommend the right website package. Free consultation — no obligations, no pressure."
+  ctaDescription="Tell us about your art school and we'll recommend the right website scope. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20art%20school%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why art schools need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for art schools in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Searching — Can They Find Your Art School?</h2>
+        <h2>Parents Are <span class="highlight">Searching</span> — Can They <span class="highlight">Find Your Studio</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Every week, thousands of parents in Singapore search "art class for kids near me", "drawing lessons Singapore", or "pottery class for children" on Google. They compare enrichment centres side by side, scrolling through student artwork, reading instructor bios, and checking class schedules by age group. If your art school doesn't have a professional website, you're invisible to these families — and they're booking trial classes with your competitors instead.</p>
-        <p>A Facebook page or an Instagram account alone is not enough. Parents researching art enrichment for their children want to see the full range of programmes you offer — drawing, painting, pottery, digital art — understand each instructor's qualifications and teaching approach, view galleries of student work at different skill levels, and check available class timings — all before they ever call or walk in. They want proof that your school produces real results, not just a social media feed.</p>
-        <p>Art schools that invest in a proper website with clear programme information, compelling student galleries, and easy trial class booking consistently outperform those relying on word of mouth or marketplace listings alone. In a market as competitive as Singapore's art enrichment scene — from established chains to boutique studios in Bukit Timah, Tanjong Pagar, and Katong — your website is the first impression that determines whether a parent chooses your school or scrolls past.</p>
+        <p>Families compare art schools side by side — mediums, timings, the work students actually produce — long before they ever call or drop in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Social Feed Isn't Enough</h3>
+            <p>Prospective students want programmes, instructor backgrounds, a gallery of real work and class slots in one place. A scattered Instagram feed answers none of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Research Thoroughly</h3>
+            <p>They check which mediums you teach, read instructor bios and look for proof of student progress. Anything missing is a reason to pick another centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Decide It</h3>
+            <p>From chains to boutique studios across Tampines, Bishan and Bukit Timah, Singapore's art scene is crowded. Your site decides whether a parent enquires or scrolls on.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Art school website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Art school website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Art Schools</h2>
+        <h2>Six <span class="highlight">Pillars</span> of an Art School <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every art school website we deliver is built to convert visitors into enrolled students. We go beyond a generic template — your site will feature dedicated course pages for drawing, painting, pottery, and digital art, student gallery showcases that demonstrate your teaching quality, and a frictionless booking flow that makes it easy to sign up for a trial class.</p>
-        <p>A great website is just the starting point. Pair your art school site with <a href="/services/seo-performance/">local SEO services</a> to rank for "art class near me" searches in your neighbourhood, <a href="/services/social-media/">social media marketing</a> to reach parents on Instagram and Facebook, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak enrolment periods like June and December holidays.</p>
+        <p>Every site is built to turn a browsing parent into a booked trial class, not just to look good. If you want the reasoning behind that, our guide to <a href="/blog/good-business-website-singapore/">what makes a good business website in Singapore</a> covers it.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Course &amp; Programme Pages</h3>
-            <p>Dedicated pages for every medium and programme you offer — drawing, painting, watercolour, pottery, sculpture, and digital art. Each page details class formats, age groups from toddler to adult, skill levels from beginner to portfolio prep, and term schedules so parents find exactly the right fit for their child.</p>
+            <p>A page per medium and programme — drawing, painting, watercolour, pottery, sculpture, digital art — covering formats, age groups from kids to adults, and levels from beginner to portfolio prep.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Trial Class Booking</h3>
-            <p>Let parents book trial classes directly through your website. The booking system displays class availability by day and time, filters by age group and medium, and sends automated confirmation emails — reducing phone calls and giving your team more time to focus on students in the studio.</p>
+            <h3>Trial Class &amp; Enrolment Booking</h3>
+            <p>Parents and adults book directly from the site — availability by day and time, filtering by age and medium, automated confirmations. Fewer phone calls for your front desk.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Student Gallery &amp; Showcases</h3>
-            <p>A filterable gallery that lets visitors browse student artwork by medium, age group, or programme. Lightbox viewing, high-resolution images, and the option to feature standout pieces on the homepage — proof that your school produces real creative growth parents can see.</p>
+            <h3>Student Art Gallery</h3>
+            <p>A filterable gallery of student work by medium, age group or programme, published with consent. Lightbox viewing and fast-loading images — proof of real creative growth parents can see.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Instructor Portfolios &amp; Exhibition Pages</h3>
-            <p>Each instructor gets a profile page with their artistic background, qualifications, teaching philosophy, and a mini portfolio of their own work. Pair these with exhibition and event pages — open houses, student showcases, holiday workshops — to keep your community engaged year-round.</p>
+            <h3>Instructor Bios &amp; Exhibitions</h3>
+            <p>A profile page per instructor with background, qualifications, teaching approach and a short portfolio, paired with pages for open houses, showcases and holiday workshops.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Image &amp; Video Ready</h3>
+            <p>High-resolution artwork and short studio clips that load fast on any device, because your students' work is the strongest selling material you have.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First &amp; Search-Ready</h3>
+            <p>Clean structure, fast mobile loads and schema built in from day one, so the site is ready to rank rather than needing rescuing later.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for art school website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative as your art school web design agency">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Your Art School Website</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Art Schools</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the art enrichment industry in Singapore. Our websites are built to address the specific challenges art schools face — from competing for "art class near me" searches to converting browsing parents into long-term student enrolments.</p>
+        <p>We build for the specific problem art schools have — competing locally, then converting an enquiry into a term-long enrolment. Our <a href="/services/website-development/">website development</a> work sits inside broader <a href="/industries/education/">education marketing</a>, so the site fits the way parents actually decide.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
             <h3>Art &amp; Enrichment Experience</h3>
-            <p>We've built websites for art schools, enrichment centres, and creative studios across Singapore. We know what parents look for and how to structure content that turns casual browsers into committed students enrolling for full-term programmes.</p>
+            <p>We've built for art schools, studios and enrichment centres across Singapore, and know what turns a browsing parent into a committed student.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most art school websites go live within 2 weeks. We work fast so you can start capturing online bookings before the next term or holiday workshop season begins — no dragging projects out for months.</p>
+            <h3>Live Before the Next Term</h3>
+            <p>Most art school sites go live within two weeks, so you start capturing bookings before the next intake or holiday workshop rather than after it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Gallery-Ready Design</h3>
-            <p>Your website will display student artwork beautifully with optimised image loading, lightbox galleries, and responsive layouts that look stunning on desktop and mobile. We ensure high-resolution artwork loads fast without sacrificing visual quality.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management — everything your art school needs to grow its online presence, fill more class slots, and build a waitlist for popular programmes.</p>
+            <h3>Gallery-Ready by Design</h3>
+            <p>Your students' work loads fast and looks right on desktop and mobile — optimised images, lightbox galleries and responsive layouts, without sacrificing quality.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the art parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts classes. Your website carries the middle three — it is where a parent validates your instructors, compares you against the shortlist, and finally books the trial.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Instructor bios, student gallery, real work</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Course pages answer age, medium and fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Trial</h3>
+          <p>Booking flow turns interest into a scheduled class</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enrol</h3>
+          <p>Sign for the term, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about art school website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about art school website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Art School Website Questions Answered</h2>
+        <h2>Art School <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,31 +341,39 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you build a student gallery to showcase artwork on our website?</summary>
-          <div class="faq-answer"><p>Yes. Every package includes a student gallery section, but our Business and Premium tiers take it further with filterable galleries organised by medium — drawing, painting, pottery, digital art — age group, or programme. Students and parents can browse artwork in a lightbox view, and you can update the gallery easily as new pieces are completed. It's one of the most powerful ways to demonstrate the quality of your teaching to prospective families.</p></div>
+          <summary>Can you add trial class booking to our art school website?</summary>
+          <div class="faq-answer"><p>Yes. We can build a booking flow that lets parents and adult students schedule trial classes and workshops directly from your website. It can display class availability by day and time, filter by age group and medium, and send automated confirmation emails — cutting the phone calls and admin your front desk handles each term.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Can parents register for classes and make payments online?</summary>
-          <div class="faq-answer"><p>Yes. Our Business and Premium packages include online registration forms that let parents sign up for trial classes, workshops, or term-long programmes directly through your website. The Premium tier adds payment integration so parents can pay course fees online via credit card or PayNow — reducing admin work and making enrolment seamless for busy Singapore families.</p></div>
+          <summary>How do you showcase student artwork and instructor bios?</summary>
+          <div class="faq-answer"><p>We build a filterable gallery so visitors can browse student work by medium — drawing, painting, pottery, digital art — age group, or programme, all published with consent. Each instructor gets a profile page covering their artistic background, qualifications, teaching approach, and a short portfolio of their own work, giving parents confidence in your team.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Will you optimise our art school website for local search in Singapore?</summary>
-          <div class="faq-answer"><p>Yes. We optimise your website for keywords parents actually search — like "art class for kids Singapore", "drawing lessons near me", or "pottery class Bukit Timah". This includes on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you rank in local search results and Google Maps for your specific neighbourhood.</p></div>
+          <summary>Can you help our art school rank for "art class near me" on Google?</summary>
+          <div class="faq-answer"><p>Yes. We optimise your website for terms parents and adults actually search — like "art class for kids Singapore", "drawing lessons near me", or "pottery class Bukit Timah". That covers on-page SEO, schema markup for art schools, Google Business Profile optimisation, and location-targeted content that helps you show up in local results and Google Maps for your area — whether that's Jurong, Katong or Novena.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build an art school website?</summary>
-          <div class="faq-answer"><p>Most art school websites go live within 2 weeks for our Starter package. Business-tier sites with trial class booking, instructor portfolios, and exhibition pages typically take 3 weeks, while Premium builds with online registration, payment integration, and multi-location support take 4-5 weeks. We provide a clear timeline before starting so you can plan around your term schedule.</p></div>
+          <div class="faq-answer"><p>Most art school websites go live within two weeks. Sites that add trial class booking, instructor bios and a full student gallery usually take around three weeks, and larger builds with online registration and multi-location support take four to five. We give you a clear timeline before starting so you can plan around your term or holiday-workshop schedule.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices links={[
-    { href: '/art-school-marketing-singapore/', label: 'Art School Marketing' },
-    { href: '/education-marketing-agency-singapore/', label: 'Full-Service Education Marketing' },
-    { href: '/education-ai-search-optimisation-singapore/', label: 'Education GEO / AI Search' },
-    { href: '/music-school-marketing-singapore/', label: 'Music School Marketing' },
-  ]} />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Art School</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/education/" class="related-service-link">Education Marketing</a>
+          <a href="/services/website-development/" class="related-service-link">Website Development</a>
+          <a href="/services/seo-performance/" class="related-service-link">SEO &amp; Performance</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Student Care Centre Website Design Singapore",
-    "description": "Custom website design for student care centres in Singapore — programme schedules, online registration, enrichment activities, parent testimonials, and local SEO.",
+    "description": "Website design for student care centres in Singapore — programme and daily-schedule pages, online registration and visit booking, subsidy guidance, staff profiles, and local SEO.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a student care centre website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can parents register their children online through the website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can build in online registration forms that let parents sign up their children directly through your website. Forms can capture student details, school information, pickup arrangements, dietary requirements, and emergency contacts — reducing your admin workload and making registration seamless for busy working parents." } },
-      { "@type": "Question", "name": "How do you display programme schedules and enrichment activities?", "acceptedAnswer": { "@type": "Answer", "text": "We create structured, easy-to-read schedule pages that show your daily after-school programme, weekly enrichment activities, and holiday camp timetables. Parents can see homework supervision timings, enrichment classes like art or coding, and outdoor activities at a glance — so they know exactly what their child will be doing after school." } },
-      { "@type": "Question", "name": "Will the website include Google Maps and help with local SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We include Google Maps integration showing your centre's location, nearby schools, and pickup and drop-off information. We also optimise your site for local search terms like 'student care near me' and 'after-school care [neighbourhood]' so parents searching in your area find your centre first, and can set up your Google Business Profile with advanced local SEO." } },
-      { "@type": "Question", "name": "How long does it take to build a student care centre website?", "acceptedAnswer": { "@type": "Answer", "text": "Most student care centre websites go live within 2 to 3 weeks. A straightforward site can be ready in about 2 weeks, while sites with online registration and enrichment showcases typically take 3 weeks. Larger builds with multi-centre support and parent portals take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your school term schedule." } }
+      { "@type": "Question", "name": "Can parents register and book a centre visit online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build enquiry and registration forms plus a visit-booking flow so parents can start the sign-up or arrange a walkthrough directly from your site. Forms can capture the child's details, school, pickup arrangements, dietary needs, and emergency contacts — cutting phone calls and paperwork for your admin team." } },
+      { "@type": "Question", "name": "How do you display our programmes and daily schedules?", "acceptedAnswer": { "@type": "Answer", "text": "We create clear, structured pages for your before and after-school care, homework supervision, meal times, and holiday programmes. Parents can see the daily flow and enrichment activities at a glance, so they know exactly what their child's day looks like before they enquire." } },
+      { "@type": "Question", "name": "Will the website help us rank for 'student care near me' in our neighbourhood?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build in Google Maps, nearby-school and pickup information, and optimise for local searches like 'student care near me' and 'after-school care Punggol' across areas such as Sengkang, Tampines, Jurong, Woodlands, Bishan, and Ang Mo Kio. We can also set up and optimise your Google Business Profile so parents searching nearby find your centre first." } },
+      { "@type": "Question", "name": "How do you handle photos of children on the website?", "acceptedAnswer": { "@type": "Answer", "text": "Carefully. Any gallery of children is consent-gated — we only publish images where you hold written parental consent, and we can restrict or blur faces on request. This keeps your site aligned with parents' expectations and Singapore's data-protection norms while still giving families a genuine look inside your centre." } }
     ]
   },
   {
@@ -47,134 +46,294 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Trial-to-Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Student Care Centre Website — Jraft Creative"
-  description="Website design for student care centres in Singapore — programme schedules, online registration, enrichment activities, parent testimonials."
+  title="Student Care Website Singapore — Web Design Agency"
+  description="Web design agency for student care centres in Singapore — programme and daily-schedule pages, online registration, visit booking, and local SEO."
   canonical="https://jraftcreative.com/student-care-website-singapore/"
-  ogTitle="Student Care Centre Website — Jraft Creative"
-  ogDescription="Custom website design for student care centres in Singapore. Programme schedules, online registration, enrichment activities, and local SEO."
+  ogTitle="Student Care Website Singapore — Web Design Agency"
+  ogDescription="Website design for student care centres in Singapore. Programme and daily-schedule pages, online registration, visit booking, and local SEO."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="student care centre website singapore, student care website singapore, after-school care website singapore, student care near me, student care centre web design, student care registration website, Jraft Creative"
+  keywords="web design agency for student care centres, student care website singapore, student care centre website design, after-school care website singapore, student care near me, student care registration website, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Student Care Centre Websites"
-  heroTitle='Website Design for <span class="highlight">Student Care Centres in Singapore</span>'
-  heroSubtitle="Working parents are searching online for reliable after-school care. We build websites that showcase your programmes, highlight enrichment activities, and make registration effortless — so you can focus on caring for children, not chasing enrolments."
+  heroLabel="Web Design Agency for Student Care"
+  heroTitle='Web Design Agency for <span class="highlight">Student Care Centres in Singapore</span>'
+  heroSubtitle="Working parents are searching for reliable before and after-school care long before they visit a centre. We build websites that lay out your daily programme, introduce your staff, and make registration and visit booking effortless — so you can focus on caring for children, not chasing enrolments."
   heroImage="/images/service-studentcare.webp"
+  heroImageAlt="Student care centre in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Book a Consultation", href: "/contact/", class: "btn btn-secondary" }
+    { text: "See Education Marketing", href: "/industries/education/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my student care centre in Singapore."
   ctaLabel="Ready to Fill More Places?"
   ctaTitle="Get Your Student Care Centre Online"
-  ctaDescription="Tell us about your student care centre and we'll recommend the right approach for your website. Free consultation — no obligations, no pressure."
+  ctaDescription="Tell us about your student care centre and we'll recommend the right website scope. Free consultation — no obligations, no pressure."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20student%20care%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why student care centres need a proper website">
+  <section class="section" id="challenge" aria-label="Website challenges for student care centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Parents Are Searching for After-School Care — Can They Find You?</h2>
+        <h2>Parents Are <span class="highlight">Searching</span> — Can They <span class="highlight">Find Your Centre</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>In Singapore, dual-income families are the norm. Every year, thousands of working parents search for "student care near me" on Google, looking for a safe, enriching after-school environment for their children. They compare centres side by side — reading reviews, checking programme schedules, and evaluating enrichment activities. If your student care centre doesn't have a professional website, you're invisible to these parents, and they're registering their children somewhere else.</p>
-        <p>A basic listing on a school directory or a dormant Facebook page is not enough. Parents want to see your full daily programme, understand your approach to homework supervision, and know what enrichment activities you offer — from art and music to coding and sports. They want to see photos of your facilities, read testimonials from other parents, and confirm your centre is MOE-registered and SSDB-aligned, all before they ever visit in person.</p>
-        <p>Student care centres that invest in a proper website with clear programme information, transparent fee structures, and easy online registration consistently fill their places faster than those relying on word of mouth alone. In a market where parents have dozens of choices within a 2-kilometre radius of any primary school, your website is what separates your centre from the rest.</p>
+        <p>Dual-income families are the norm here, and a parent will shortlist a handful of centres near their child's school — reading through the daily schedule, staff and safety before they ever call. A <a href="/blog/good-business-website-singapore/">clear, trustworthy website</a> is what earns the visit.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Facebook Page Isn't Enough</h3>
+            <p>Parents want the daily programme, meal arrangements, staff and pickup logistics in one place. A dormant page or a school directory line answers none of it.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Parents Vet Every Centre</h3>
+            <p>Safety, staff-to-child ratios, homework supervision and meals all get checked. Anything unclear becomes a reason to choose the centre down the road instead.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Decide It</h3>
+            <p>From Punggol to Jurong, most primary schools sit within reach of several centres. Your site is what decides whether a parent enquires or scrolls to the next one.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Student care centre website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Student care centre website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Student Care Centres</h2>
+        <h2>Six <span class="highlight">Pillars</span> of a Student Care <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every student care centre website we deliver is built to convert parent enquiries into confirmed registrations. We go beyond a generic template — your site will feature structured programme schedules, enrichment activity showcases, and a frictionless registration flow that makes it easy for busy working parents to sign up their children.</p>
-        <p>A great website is just the starting point. Pair your student care site with <a href="/services/seo-performance/">local SEO services</a> to rank for "student care near me" searches in your neighbourhood, <a href="/services/social-media/">social media marketing</a> to reach parents on Facebook and Instagram, and <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during registration season.</p>
+        <p>Every site is built to turn a browsing parent into a booked visit and a confirmed place, not just to look good. It sits on our core <a href="/services/website-development/">website development</a> work, shaped for <a href="/industries/education/">education</a> operators.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Programme Schedules &amp; Enrichment Activities</h3>
-            <p>Clear, structured daily timetables showing homework supervision hours, enrichment classes, outdoor activities, and meal times. Parents can see exactly what their child will be doing after school — from guided study to creative workshops and sports.</p>
+            <h3>Registration &amp; Visit Booking</h3>
+            <p>Enquiry and registration forms plus a visit-booking flow, capturing the child's details, school, pickup arrangements, dietary needs and emergency contacts — fewer phone calls for your front desk.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Online Registration &amp; Waitlist Forms</h3>
-            <p>Let parents register their children directly through your website. Capture student details, school information, pickup authorisation, dietary requirements, and emergency contacts in one streamlined form — reducing phone calls and paperwork for your admin team.</p>
+            <h3>Programme &amp; Daily-Schedule Pages</h3>
+            <p>Clear timetables for before and after-school care, homework supervision, meal times and holiday programmes — so a parent sees exactly what their child's day looks like.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Location, Pickup Info &amp; Nearby Schools</h3>
-            <p>Embedded Google Maps with your centre's location, walking routes from nearby primary schools, and clear pickup and drop-off instructions. Parents need to know logistics before they commit — make it easy for them to see you're conveniently located.</p>
+            <h3>Subsidy &amp; Fee Guidance</h3>
+            <p>Plain-English pages explaining eligibility and how the Student Care Fee Assistance route works, so parents understand support before they enquire — no guesswork.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Parent Testimonials &amp; Facility Showcase</h3>
-            <p>Showcase real testimonials from satisfied parents alongside photos of your classrooms, play areas, and study spaces. Visible social proof and a look inside your centre build trust and give hesitant parents the confidence to register.</p>
+            <h3>Staff Profiles &amp; Credentials</h3>
+            <p>Profiles for your carers and educators — training, first-aid readiness and experience — presented alongside your MOE and ECDA alignment to reassure parents on safety and quality.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-reels-video.webp');">
+          <div class="service-detail-card__content">
+            <h3>Consent-Gated Photo Gallery</h3>
+            <p>A look inside your classrooms, study spaces and activities — published only where you hold written parental consent, with faces restricted or blurred on request.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First Speed</h3>
+            <p>Parents browse on their phones between meetings and on the MRT. Clean structure, fast mobile loads and schema built in from day one, ready to rank rather than rescued later.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for student care centre website design">
+  <!-- ========== WHY US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for your student care centre website">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Your Student Care Centre Website</h2>
+        <h2>A <span class="highlight">Web Design Agency</span> That Knows <span class="highlight">Student Care</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We understand the student care landscape in Singapore. Our websites are built to address the specific challenges student care operators face — from competing for "student care near me" searches to converting parent visits into confirmed registrations.</p>
+        <p>We build for the specific problem student care operators have — competing locally, then turning a parent's enquiry into a visit and a term-long place.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Student Care Industry Knowledge</h3>
-            <p>We've built websites for student care centres, enrichment centres, and education businesses across Singapore. We know what parents look for — MOE alignment, SSDB values, enrichment variety, and transparent fees — and how to present it effectively.</p>
+            <h3>Education Sector Experience</h3>
+            <p>We've built for student care, enrichment and education businesses across Singapore, and know what parents check — safety, staff, meals, MOE and ECDA alignment, and clear logistics.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most student care centre websites go live within 2 weeks. We work fast so you can start capturing online registrations before the next school term begins — no dragging projects out for months.</p>
+            <h3>Live Before the Next Term</h3>
+            <p>Most student care sites go live within two to three weeks, so you start capturing registrations before the next intake rather than after it.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First Always</h3>
-            <p>Parents browse on their phones — during lunch breaks, on the MRT, and after putting children to bed. Every page we build is optimised for mobile first, so your site works perfectly on any device.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Beyond the website, we offer SEO, social media marketing, and Google Ads management — everything your student care centre needs to grow its online presence and fill every available place.</p>
+            <h3>Website, SEO &amp; Social Together</h3>
+            <p>We also run <a href="/services/seo-performance/">SEO &amp; performance</a> and <a href="/services/social-media/">social media</a> — one system for filling places across your neighbourhood.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== ENROLMENT FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where your website fits the parent journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Enrolment Funnel</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Parent Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Parents move through the same five stages before a child starts. Your website carries the middle three — it is where a parent checks your staff and safety, compares you against the shortlist near their school, and finally books a visit.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>A local search or referral brings them to the site</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Staff profiles, safety, meals and the gallery</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Programme and daily-schedule pages answer fit</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Visit</h3>
+          <p>Booking flow turns interest into a walkthrough</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Register</h3>
+          <p>Confirm the place, renew &amp; refer</p>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about student care centre website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about student care centre website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Student Care Centre Website Questions Answered</h2>
+        <h2>Student Care <span class="highlight">Website</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,31 +341,39 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can parents register their children online through the website?</summary>
-          <div class="faq-answer"><p>Yes. We can build in online registration forms that let parents sign up their children directly through your website. Forms can capture student details, school information, pickup authorisation, dietary requirements, and emergency contacts — reducing your admin workload and making registration seamless for busy working parents.</p></div>
+          <summary>Can parents register and book a centre visit online?</summary>
+          <div class="faq-answer"><p>Yes. We build enquiry and registration forms plus a visit-booking flow so parents can start the sign-up or arrange a walkthrough directly from your site. Forms can capture the child's details, school, pickup arrangements, dietary needs, and emergency contacts — cutting phone calls and paperwork for your admin team.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you display programme schedules and enrichment activities?</summary>
-          <div class="faq-answer"><p>We create structured, easy-to-read schedule pages that show your daily after-school programme, weekly enrichment activities, and holiday camp timetables. Parents can see homework supervision timings, enrichment classes like art, coding, or sports, and outdoor activities at a glance — so they know exactly what their child will be doing after school.</p></div>
+          <summary>How do you display our programmes and daily schedules?</summary>
+          <div class="faq-answer"><p>We create clear, structured pages for your before and after-school care, homework supervision, meal times, and holiday programmes. Parents can see the daily flow and enrichment activities at a glance, so they know exactly what their child's day looks like before they enquire.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Will the website include Google Maps and help with local SEO?</summary>
-          <div class="faq-answer"><p>Yes. We include Google Maps integration showing your centre's location, nearby schools, and pickup and drop-off information. We also optimise your site for local search terms like "student care near me" and "after-school care [neighbourhood]" so parents searching in your area find your centre first, and can set up your Google Business Profile with advanced local SEO.</p></div>
+          <summary>Will the website help us rank for "student care near me" in our neighbourhood?</summary>
+          <div class="faq-answer"><p>Yes. We build in Google Maps, nearby-school and pickup information, and optimise for local searches like "student care near me" and "after-school care Punggol" across areas such as Sengkang, Tampines, Jurong, Woodlands, Bishan, and Ang Mo Kio. We can also set up and optimise your Google Business Profile so parents searching nearby find your centre first.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take to build a student care centre website?</summary>
-          <div class="faq-answer"><p>Most student care centre websites go live within 2 to 3 weeks. A straightforward site can be ready in about 2 weeks, while sites with online registration and enrichment showcases typically take 3 weeks. Larger builds with multi-centre support and parent portals take 4 to 5 weeks. We provide a clear timeline before starting so you can plan around your school term schedule.</p></div>
+          <summary>How do you handle photos of children on the website?</summary>
+          <div class="faq-answer"><p>Carefully. Any gallery of children is consent-gated — we only publish images where you hold written parental consent, and we can restrict or blur faces on request. This keeps your site aligned with parents' expectations and Singapore's data-protection norms while still giving families a genuine look inside your centre.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices links={[
-    { href: '/student-care-marketing-singapore/', label: 'Student Care Marketing' },
-    { href: '/education-marketing-agency-singapore/', label: 'Full-Service Education Marketing' },
-    { href: '/education-ai-search-optimisation-singapore/', label: 'Education GEO / AI Search' },
-    { href: '/tuition-centre-marketing-singapore/', label: 'Tuition Centre Marketing' },
-  ]} />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Student Care</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/education/" class="related-service-link">Education Marketing</a>
+          <a href="/services/website-development/" class="related-service-link">Website Development</a>
+          <a href="/services/seo-performance/" class="related-service-link">SEO &amp; Performance</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>
