@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Hair Salon Social Media Marketing Singapore",
-    "description": "Social media marketing for hair salons in Singapore. Hair transformation Reels, stylist spotlights, trend content, and booking-driving posts to grow your salon's presence and clientele.",
+    "description": "Social media marketing for hair salons in Singapore. Before/after colour and cut Reels, balayage and styling clips, stylist spotlights, and promotions that fill the chair.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does social media marketing cost for hair salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Which social media platforms work best for hair salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and TikTok are the top platforms for hair salons. Hair transformation Reels consistently go viral, making these platforms ideal for showcasing your stylists' work. Facebook is useful for reaching an older clientele and running local promotions." } },
-      { "@type": "Question", "name": "What kind of content do you create for hair salons?", "acceptedAnswer": { "@type": "Answer", "text": "We create hair transformation before/after Reels, colour correction videos, stylist spotlight posts, hair care tips, seasonal trend roundups, and promotional content. Every piece showcases your salon's technical skill and builds the personal brand of your stylists." } },
-      { "@type": "Question", "name": "Can social media help my hair salon attract new stylists?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A strong social media presence showcasing your salon's culture, team events, and stylists' creative work attracts talent who want to be part of an established, visible brand. We create content that appeals to both clients and potential team members." } },
-      { "@type": "Question", "name": "How do you handle hair trends that change every season?", "acceptedAnswer": { "@type": "Answer", "text": "We monitor global and Singapore-specific hair trends continuously — from balayage and curtain bangs to the latest K-beauty colour techniques popular in Singapore. Our content calendar incorporates trending styles, ensuring your salon is always positioned as on-trend and relevant." } }
+      { "@type": "Question", "name": "Which platforms work best for hair salons in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and TikTok do the heavy lifting because hair is a visual sell. Colour transformations, balayage reveals and fresh cuts all look great on camera, and Reels and TikToks travel further than static posts. Instagram carries the polished grid and Stories bookings; TikTok wins discovery through satisfying process clips and before-and-after reveals." } },
+      { "@type": "Question", "name": "What kind of content do you create for hair salons?", "acceptedAnswer": { "@type": "Answer", "text": "Before and after colour and cut Reels from real client work with permission, balayage and styling reveals, satisfying process clips (foiling, blow-dry, wash-and-set), stylist personality and salon vibe content, and clear promotion posts. Every piece is built to earn saves and sends and turn a follower into a booked appointment." } },
+      { "@type": "Question", "name": "Why do saves and sends matter more than likes for a hair salon?", "acceptedAnswer": { "@type": "Answer", "text": "A like is a passing tap. A save means someone is keeping your colour or cut as a reference for their next appointment, and a send means they're showing a friend and often deciding to come together. Saves and sends are the signals that lead to bookings, so we plan content to earn them, not to chase vanity numbers." } },
+      { "@type": "Question", "name": "Can you use photos and videos of my real clients?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with permission. Real client work — actual colour, cuts and styling done in your chair — outperforms stock every time because it's proof people can book. We help you set up a simple consent process so you always have a steady, compliant stream of real before and after content to post." } }
     ]
   },
   {
@@ -47,82 +47,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Hair Salon Social Media Singapore — Jraft Creative"
-  description="Social media marketing for hair salons in Singapore. Hair transformation Reels, stylist spotlights, trend content, and booking-driving campaigns."
+  title="Social Media Agency for Hair Salons"
+  description="Social media marketing for hair salons in Singapore. Before/after colour and cut Reels, balayage and styling clips, and promotions that fill the chair."
   canonical="https://jraftcreative.com/hair-salon-social-media-singapore/"
-  ogTitle="Hair Salon Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing built for hair salons in Singapore. Transformation Reels, stylist features, and trend-driven content. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="hair salon social media singapore, hair salon marketing singapore, social media for hair salons, hair salon instagram marketing, hair salon tiktok, hair salon digital marketing singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Hair Salons"
+  ogDescription="Instagram and TikTok content built for hair salons in Singapore. Real before/after colour and cut work, satisfying process clips, and content that turns followers into bookings."
+  ogImage="https://jraftcreative.com/images/og-hairsalon.jpg"
+  keywords="hair salon social media singapore, hair salon marketing singapore, social media for hair salons, hair salon instagram marketing, hair salon tiktok, hair colour salon social media singapore, balayage salon marketing, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Hair Salon Social Media"
-  heroTitle='Social Media Marketing for <span class="highlight">Hair Salons in Singapore</span>'
-  heroSubtitle="Transformation Reels, stylist spotlights, and trend-driven content that showcase your salon's creativity and fill your appointment book. We build your hair salon's social media into a client acquisition machine."
+  heroLabel="Social Media Agency for Hair Salons"
+  heroTitle='Social Media Agency for <span class="highlight">Hair Salons in Singapore</span>'
+  heroSubtitle="Instagram and TikTok content that shows off real colour, cuts and styling, earns saves and sends, and turns a scroll into a booked appointment. Visual-first social media management built for Singapore hair salons."
   heroImage="/images/service-hairsalon.webp"
+  heroImageAlt="Hair stylist applying colour foils at a Singapore salon"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need social media marketing for my hair salon in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Hair Salon with Social Media"
-  ctaDescription="Book a free consultation and tell us about your salon. We'll get back to you within 24 hours with a tailored social media strategy that drives bookings."
+  ctaTitle="Fill Your Salon's Chairs with Social"
+  ctaDescription="Book a free consultation and tell us about your salon. We'll get back to you within 24 hours with a tailored social media plan that shows off your best work and drives bookings."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20hair%20salon%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for hair salons in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Best Hair Work Deserves a Bigger Audience</h2>
+        <h2>Clients Pick Their Salon by the <span class="highlight">Feed</span>, Not the <span class="highlight">Signboard</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Hair is one of the most shareable categories on Instagram and TikTok — colour transformations, dramatic chops, and balayage reveals regularly go viral. But most hair salons in Singapore post sporadically, use poor-quality phone photos, and miss the opportunity to showcase their stylists' talent to an audience that's actively looking for their next salon. Your best work disappears the moment the client walks out the door.</p>
-        <p>Singapore's hair salon market is intensely competitive. From Japanese salons in Orchard to Korean-style studios in Tanjong Pagar, clients have hundreds of options. They scroll through Instagram grids, watch TikTok Reels, and read reviews before choosing a stylist. If your social media doesn't reflect the quality of your work — or worse, if it's been weeks since your last post — clients will assume you're not current with trends and book elsewhere.</p>
-        <p>Running a salon leaves little time for content creation, video editing, caption writing, and community engagement. But inconsistency on social media directly impacts bookings, especially for newer stylists building their personal brand. You need a dedicated social media team that understands the hair industry and can turn your daily work into a steady stream of clients.</p>
+        <p>People choosing a colourist or stylist scroll Instagram and TikTok first. A sparse or stale feed loses the booking before anyone walks in.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Quiet Feed Reads as Closed</h3>
+            <p>If your last post was three weeks ago, a new client assumes the work is dated too. An inactive grid quietly sends bookings to the salon next door.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Great Work, Filmed Badly</h3>
+            <p>Beautiful balayage and sharp cuts shot in poor light with no edit don't travel. The talent is there; the content isn't doing it justice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Rivals Post Every Day</h3>
+            <p>Salons in Orchard, Bugis and Tampines run daily transformation Reels and satisfying process clips. Against that, silence costs you the walk-in.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for hair salons">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for hair salons">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services Built for Hair Salons</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> That Fill the <span class="highlight">Chair</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We handle your hair salon's entire social media presence — from filming transformation Reels on-site to managing your community and running seasonal campaigns. Every piece of content is crafted to showcase your stylists' skills and drive appointment bookings.</p>
-        <p>Our team creates trend-driven content around the latest colour techniques, haircut styles, and treatment innovations popular in Singapore. We time campaigns around key periods — back-to-work January, CNY touch-ups, wedding season prep, and year-end transformations — so your content lands when booking intent peaks.</p>
+        <p>Hair is a visual sell, so every post is built to be watched, saved and sent — then booked. Social pairs best with a <a href="/hair-salon-website-singapore/">booking-ready salon website</a> and strong <a href="/hair-salon-seo-singapore/">local search visibility</a>. It's one channel in our wider <a href="/industries/beauty-aesthetics/">beauty and aesthetics marketing</a> work, and our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a> shows how the pieces fit together.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Hair Transformation Reels</h3>
-            <p>Cinematic before/after videos capturing colour corrections, dramatic cuts, and styling reveals. The content that generates the highest engagement and shares for hair salons on Instagram and TikTok in Singapore.</p>
+            <h3>Before &amp; After Reels</h3>
+            <p>Real client colour corrections, dramatic chops and balayage reveals — shot and cut to show the transformation in the first two seconds, with permission every time.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Stylist Spotlights</h3>
-            <p>Personal brand content for each of your stylists — showcasing their specialities, personality, and portfolio. Builds individual followings that drive client loyalty and attract new bookings to specific stylists.</p>
+            <h3>Satisfying Process Clips</h3>
+            <p>Foiling, toner reveals, blow-dry and wash-and-set filmed close and clean. The oddly satisfying format that earns rewatches and saves on TikTok.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Trend &amp; Hair Care Content</h3>
-            <p>Carousel posts and Stories covering trending styles, seasonal colour palettes, hair care routines for Singapore's humidity, and treatment guides that position your salon as a go-to authority for hair advice.</p>
+            <h3>Stylist &amp; Salon Vibe</h3>
+            <p>The stylist personalities, the interior, the little rituals — content that sells the feeling of your space so a first-timer already knows who they'll sit with.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Booking-Driving Campaigns</h3>
-            <p>Targeted campaigns for new stylist launches, seasonal promotions, referral programmes, and first-visit offers — designed to convert followers into confirmed appointments during high-demand periods.</p>
+            <h3>DM &amp; Comment Management</h3>
+            <p>Fast, warm replies to "how much" and "any slots this week" — nurturing every enquiry from a comment to a confirmed appointment.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Promotions &amp; Seasonal Looks</h3>
+            <p>Clear promo posts for new colour services, festive styling and package offers — timed for CNY, Deepavali, Hari Raya and year-end party season.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Bookings</h3>
+            <p>We track saves, sends, profile taps and DM enquiries that turn into appointments — follower count is context, bookings are the result.</p>
           </div>
         </div>
       </div>
@@ -130,51 +191,64 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for hair salon social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for hair salon social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Understands Hair</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands the <span class="highlight">Hair Sell</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with hair salons across Singapore and understand what content, trends, and strategies drive bookings in this highly visual industry. Here's why hair salons choose us:</p>
+        <p>Hair social fails on two things — flat visuals and no follow-through on enquiries. We fix both, and you approve everything first, so the feed always points back to a booking.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Hair Industry Knowledge</h3>
-            <p>We stay on top of global and Singapore hair trends — from K-beauty colour techniques to the latest layered cuts. Your content is always current, relevant, and aligned with what clients are searching for.</p>
+            <h3>Visual-First by Default</h3>
+            <p>Good light, clean framing and tight edits so your colour and cuts look as good on screen as they do in the chair. Presentation is the product here.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Stylist Brand Building</h3>
-            <p>We don't just grow your salon's page — we build individual stylist brands. Each stylist gets featured content that showcases their speciality, driving direct bookings and personal client loyalty.</p>
+            <h3>Built for Saves &amp; Sends</h3>
+            <p>We plan content people keep as reference and send to a friend, because that's what turns into paired bookings — not a like that scrolls past.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Approval Before Publishing</h3>
-            <p>You review and approve every post, caption, and creative before it goes live. Full content calendar delivered in advance so nothing is published without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no binding agreements. Stay because your chairs are full and the content is attracting new clients — not because of a contract clause.</p>
+            <h3>You Approve Before It Posts</h3>
+            <p>A full content calendar comes to you in advance. Nothing goes live — no caption, no client photo — without your sign-off.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Booking Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A new client moves through five stages before they sit in your chair. Social does its best work at Discover and Decide — a scroll-stopping transformation gets you found, and real work plus fast replies earn the booking.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a friend's share puts you on the radar</p></li>
+        <li class="funnel-stage"><h3>Save</h3><p>A colour or cut look gets kept as a reference</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Real work and the vibe weigh you against nearby salons</p></li>
+        <li class="funnel-stage"><h3>Decide</h3><p>A quick DM reply turns interest into a slot</p></li>
+        <li class="funnel-stage"><h3>Rebook</h3><p>A great first visit, then repeat &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about hair salon social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about hair salon social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Hair Salon Social Media — Questions Answered</h2>
+        <h2>Hair Salon <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -182,20 +256,20 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which social media platforms work best for hair salons in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram and TikTok are the top platforms for hair salons. Hair transformation Reels consistently go viral, making these platforms ideal for showcasing your stylists' work. Facebook is useful for reaching an older clientele and running local promotions.</p></div>
+          <summary>Which platforms work best for hair salons in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram and TikTok do the heavy lifting because hair is a visual sell. Colour transformations, balayage reveals and fresh cuts all look great on camera, and Reels and TikToks travel further than static posts. Instagram carries the polished grid and Stories bookings; TikTok wins discovery through satisfying process clips and before-and-after reveals.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>What kind of content do you create for hair salons?</summary>
-          <div class="faq-answer"><p>We create hair transformation before/after Reels, colour correction videos, stylist spotlight posts, hair care tips, seasonal trend roundups, and promotional content. Every piece showcases your salon's technical skill and builds the personal brand of your stylists.</p></div>
+          <div class="faq-answer"><p>Before and after colour and cut Reels from real client work with permission, balayage and styling reveals, satisfying process clips (foiling, blow-dry, wash-and-set), stylist personality and salon vibe content, and clear promotion posts. Every piece is built to earn saves and sends and turn a follower into a booked appointment.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help my hair salon attract new stylists?</summary>
-          <div class="faq-answer"><p>Yes. A strong social media presence showcasing your salon's culture, team events, and stylists' creative work attracts talent who want to be part of an established, visible brand. We create content that appeals to both clients and potential team members.</p></div>
+          <summary>Why do saves and sends matter more than likes for a hair salon?</summary>
+          <div class="faq-answer"><p>A like is a passing tap. A save means someone is keeping your colour or cut as a reference for their next appointment, and a send means they're showing a friend and often deciding to come together. Saves and sends are the signals that lead to bookings, so we plan content to earn them, not to chase vanity numbers.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you handle hair trends that change every season?</summary>
-          <div class="faq-answer"><p>We monitor global and Singapore-specific hair trends continuously — from balayage and curtain bangs to the latest K-beauty colour techniques popular in Singapore. Our content calendar incorporates trending styles, ensuring your salon is always positioned as on-trend and relevant.</p></div>
+          <summary>Can you use photos and videos of my real clients?</summary>
+          <div class="faq-answer"><p>Yes, with permission. Real client work — actual colour, cuts and styling done in your chair — outperforms stock every time because it's proof people can book. We help you set up a simple consent process so you always have a steady, compliant stream of real before and after content to post.</p></div>
         </details>
       </div>
     </div>
@@ -210,9 +284,10 @@ const schemaData = [
         <h2>More Hair Salon Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/hair-salon-website-singapore/" class="related-service-link">Hair Salon Website Design</a>
-          <a href="/hair-salon-seo-singapore/" class="related-service-link">Hair Salon SEO</a>
           <a href="/hair-salon-marketing-singapore/" class="related-service-link">Hair Salon Marketing</a>
+          <a href="/hair-salon-seo-singapore/" class="related-service-link">Hair Salon SEO</a>
+          <a href="/hair-salon-ai-search-optimisation-singapore/" class="related-service-link">Hair Salon GEO</a>
+          <a href="/hair-salon-website-singapore/" class="related-service-link">Hair Salon Websites</a>
       </div>
     </div>
   </section>
