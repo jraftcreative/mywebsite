@@ -5,8 +5,8 @@ const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Mental Health Social Media Marketing Singapore",
-    "description": "Social media marketing for mental health practices in Singapore. Mental wellness tips, destigmatisation content, therapist spotlights, and awareness campaigns across Instagram and Facebook.",
+    "name": "Social Media Agency for Mental Health Practices Singapore",
+    "description": "Social media agency for mental health practices in Singapore. Psychoeducation, therapist introductions and community management that build trust, gently reduce stigma and encourage a first enquiry — within AHPC guidelines.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -22,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Mental Health Social Media Marketing"
+    "serviceType": "Mental Health Social Media"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for mental health practices in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What social media content is appropriate for mental health practices?", "acceptedAnswer": { "@type": "Answer", "text": "Effective mental health content includes psychoeducational posts about common conditions (anxiety, burnout, relationship challenges), coping strategies, therapist introductions, myth-busting content, and normalisation of seeking help. Content must be carefully worded to avoid triggering language, unsolicited diagnoses, or oversimplification of complex conditions. We follow international best practices for responsible mental health communication." } },
-      { "@type": "Question", "name": "How do you maintain ethical standards in mental health social media?", "acceptedAnswer": { "@type": "Answer", "text": "We work closely with your clinical team to ensure all content meets ethical and professional standards. We never share client information, avoid sensationalising mental health conditions, include appropriate disclaimers and helpline numbers where relevant, and follow AHPC advertising guidelines. All content is reviewed by your licensed professionals before publishing." } },
-      { "@type": "Question", "name": "Can social media help reduce stigma around mental health in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Social media is one of the most effective channels for normalising mental health conversations in Singapore. Well-crafted content that addresses cultural barriers, workplace stigma, and common misconceptions helps shift public perception. When trusted practitioners share accessible, non-judgmental content, it gives potential clients permission to seek the help they need." } },
-      { "@type": "Question", "name": "Which platforms work best for mental health practices in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the most effective platform for mental health practices in Singapore — carousel posts explaining conditions, therapist Reels, and wellness tips perform well. Facebook is strong for community building and reaching the 35+ demographic. LinkedIn is valuable for practitioners targeting corporate wellness and EAP partnerships. TikTok is growing for short-form mental health education content reaching younger audiences." } }
+      { "@type": "Question", "name": "Which platforms should a mental health practice in Singapore be on?", "acceptedAnswer": { "@type": "Answer", "text": "For most practices, Instagram and Facebook reach the adults and parents who quietly research support, while TikTok reaches younger people looking for accessible, everyday content. We usually recommend depth on two platforms rather than a thin presence on five." } },
+      { "@type": "Question", "name": "What should a mental health practice actually post?", "acceptedAnswer": { "@type": "Answer", "text": "Calm, practical content works best — psychoeducation on common experiences like anxiety, burnout or grief, gentle coping tips, therapist introductions, and clear explainers on what a first session looks like. The aim is to make seeking help feel normal, not to diagnose or promise outcomes." } },
+      { "@type": "Question", "name": "How do you keep mental health content responsible and compliant?", "acceptedAnswer": { "@type": "Answer", "text": "We work closely with your clinical team and follow AHPC advertising guidelines. We avoid diagnosing, alarmist or stigmatising language, and any promise of a cure or specific outcome. Helpline references are included where appropriate, and every post is reviewed by your licensed professionals before it goes live." } },
+      { "@type": "Question", "name": "Can social media help reduce stigma around mental health in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "It can help. Thoughtful, non-judgemental content that speaks to real experiences — workplace pressure, cultural expectations, common misconceptions — gently normalises the idea of reaching out. When a trusted practitioner explains things plainly, it gives people quiet permission to take a first step." } },
+      { "@type": "Question", "name": "How does social media lead to enquiries for a practice?", "acceptedAnswer": { "@type": "Answer", "text": "Rarely from a single post. Social builds familiarity and trust over time — someone who has followed your practice for weeks arrives ready to reach out. We measure that through reach, saves and sends, profile-to-website clicks and enquiries that mention social, not follower count alone." } }
     ]
   },
   {
@@ -40,88 +40,151 @@ const schemaData = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Mental Health Social Media", "item": "https://jraftcreative.com/mental-health-social-media-singapore/" }
+      { "@type": "ListItem", "position": 2, "name": "Social Media Agency for Mental Health Practices Singapore", "item": "https://jraftcreative.com/mental-health-social-media-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Mental Health Social Media Singapore — Jraft Creative"
-  description="Social media marketing for mental health practices in Singapore. Mental wellness tips, destigmatisation content, therapist spotlights."
+  title="Mental Health Social Media Agency Singapore"
+  description="Social media for mental health practices in Singapore — compassionate psychoeducation and therapist content that builds trust and encourages enquiries."
   canonical="https://jraftcreative.com/mental-health-social-media-singapore/"
-  ogTitle="Mental Health Social Media Singapore — Jraft Creative"
-  ogDescription="Social media marketing for mental health practices in Singapore. Ethical, trust-building content that reduces stigma and connects people with help. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="mental health social media singapore, therapist marketing singapore, counselling social media marketing, psychology practice marketing, mental wellness content singapore, mental health digital marketing, Jraft Creative"
+  ogTitle="Mental Health Social Media Agency Singapore"
+  ogDescription="Social media for mental health practices in Singapore. Compassionate, destigmatising content that builds trust and encourages a first enquiry, within AHPC guidelines."
+  ogImage="https://jraftcreative.com/images/og-mentalhealth.jpg"
+  keywords="social media agency for mental health practices, mental health social media singapore, therapist instagram singapore, counselling social media, psychoeducation content, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Mental Health Social Media Marketing"
-  heroTitle='Social Media for <span class="highlight">Mental Health Practices</span> in Singapore'
-  heroSubtitle="Mental wellness tips, destigmatisation content, and therapist spotlights that break down barriers and connect people with help. We help mental health professionals in Singapore build trusted online presences that make seeking support feel normal, not shameful."
+  heroLabel="Social Media Agency for Mental Health Practices"
+  heroTitle='Social Media Agency for <span class="highlight">Mental Health Practices in Singapore</span>'
+  heroSubtitle="People choose a practitioner they feel safe with, long before they send a message. We turn your team's expertise into calm, compassionate content that gently reduces stigma, answers real questions, and makes a first enquiry feel possible — within AHPC guidelines."
   heroImage="/images/service-mentalhealth.webp"
+  heroImageAlt="Mental health professional in a Singapore clinic"
   heroButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "See Mental Health Websites", href: "/mental-health-clinic-website-singapore/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my mental health practice in Singapore."
-  ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Mental Health Practice with Social Media"
-  ctaDescription="Book a free consultation and tell us about your practice. We'll get back to you within 24 hours with a tailored social media strategy that respects your clinical standards."
+  whatsappText="Hi Jraft Creative, I need social media for my mental health practice in Singapore."
+  ctaLabel="Reach People Who Need Support"
+  ctaTitle="Get a Free Mental Health Content Review"
+  ctaDescription="Book a free consultation and we'll look at what you post now, what your team could gently be sharing, and where the gap is between followers and a first enquiry. We'll get back to you within 24 hours."
   ctaButtons={[
-    { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20mental%20health%20practice%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Get a Free Content Review", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20for%20my%20mental%20health%20practice%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Social media challenges for mental health practices in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>People Who Need Help the Most Are the Hardest to Reach</h2>
+        <h2>Stigma Keeps People Quiet — <span class="highlight">Content</span> Is How You <span class="highlight">Gently Open the Door</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Mental health awareness in Singapore has improved significantly — but stigma remains a formidable barrier. According to the Singapore Mental Health Study, only one in three people with a mental health condition seeks professional help. The gap is not about availability of services. It is about perception. Many Singaporeans still view therapy as a sign of weakness, something reserved for severe cases, or a private matter that should not be discussed openly. For mental health practitioners, the challenge is reaching people before they reach crisis point.</p>
-        <p>Social media is uniquely positioned to bridge this gap. When someone is lying awake at 2am anxious about work, scrolling through their feed after a difficult day, or quietly wondering if what they are feeling is normal — your content can be the first signal that help exists, is accessible, and is nothing to be ashamed of. But that content has to be done right. Overly clinical language alienates people. Toxic positivity undermines credibility. And generic mental health quotes do nothing to build trust in your specific practice. The mental health professionals who grow their practices through social media are the ones who show up consistently with thoughtful, ethical, genuinely helpful content.</p>
+        <p>The hardest part of mental health care is not the session — it is deciding to reach out. Many people in Singapore quietly wonder whether what they feel is normal, and whether help is even for them. The practices that speak to that hesitation online, with warmth and without judgement, are the ones people feel safe enough to message.</p>
+        <p>This sits within your wider <a href="/industries/healthcare/">healthcare marketing in Singapore</a>, and social is the channel that carries the human, trust-building side of it. If you want the fundamentals first, our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a> is a good place to start. Whether your practice is in Novena, Orchard, Tanjong Pagar, Tampines, Bishan or Katong, a compassionate feed reaches people long before they ever call.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Stigma Stops the First Enquiry</h3>
+            <p>Many people delay reaching out because seeking help still feels heavy. A calm, understanding feed does the reassuring that a service list never can — and makes that first message feel possible.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>A Quiet Feed Feels Out of Reach</h3>
+            <p>An empty or overly clinical profile can leave a hesitant person more unsure. Consistent, human content signals a practice that will meet them with patience and care.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Responsible but Still Relatable</h3>
+            <p>Mental health content must stay within AHPC guidelines and avoid diagnosing or alarmist language. Most practices either post nothing or post something that feels off. Neither builds trust.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for mental health practices">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for mental health practices">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Mental Health Practices</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Mental Health <span class="highlight">Practices</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create ethical, thoughtful social media content for mental health professionals in Singapore. From psychoeducational carousels and therapist introductions to destigmatisation campaigns and wellness tips, every post is designed to normalise help-seeking behaviour and position your practice as a safe, accessible resource.</p>
-        <p>Our team handles content strategy, graphic design, video editing, copywriting, and community management — working closely with your clinical team to ensure every piece of content meets professional and ethical standards.</p>
+        <p>We build a gentle cadence around the expertise your team already shares each week, turning it into content that earns saves and sends and encourages a first enquiry. It pairs naturally with a calm <a href="/mental-health-clinic-website-singapore/">mental health clinic website</a> and, when you are ready, <a href="/mental-health-google-ads-singapore/">mental health Google Ads</a>.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Therapist Spotlights &amp; Reels</h3>
-            <p>Short-form videos introducing your therapists, their specialisations, and their approach to care — giving potential clients a sense of who they will be working with and reducing the anxiety of booking a first session.</p>
+            <h3>Therapist Introductions</h3>
+            <p>Short, warm video of your practitioners sharing how they work and what a first session feels like — so a nervous person sees a real, approachable human, not just a clinic.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Community &amp; Crisis Response</h3>
-            <p>Careful community management that responds to comments with empathy, directs urgent enquiries to appropriate helplines (SOS, IMH), and maintains a safe, supportive online environment aligned with your clinical ethics.</p>
+            <h3>Psychoeducation Carousels</h3>
+            <p>Clear, non-clinical carousels and Stories on common experiences like anxiety, burnout, grief and relationship strain — helping people understand what they feel, without diagnosing.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Psychoeducational Content</h3>
-            <p>Carousels and graphics explaining anxiety, burnout, relationship patterns, grief, and other common concerns in accessible, non-clinical language — content that helps people understand their experiences and recognise when professional support could help.</p>
+            <h3>Coping &amp; Wellbeing Tips</h3>
+            <p>Practical, gentle tips for everyday moments — grounding techniques, rest, boundaries — the saveable content people return to and quietly send to someone they care about.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Awareness Campaigns</h3>
-            <p>Targeted campaigns around World Mental Health Day, Suicide Prevention Week, workplace burnout season, and exam stress periods — timed to reach people when they are most likely searching for support and validation.</p>
+            <h3>What-to-Expect Explainers</h3>
+            <p>Reassuring content on what happens in a first session, confidentiality, and how to take the first step — removing the unknowns that hold people back.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Community Management</h3>
+            <p>Thoughtful, empathetic handling of comments and DMs, directing urgent messages to appropriate helplines and nurturing a first enquiry with care and no pressure.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Enquiries</h3>
+            <p>We track reach, saves and sends, profile-to-enquiry and messages that mention social — follower count is context, not the result.</p>
           </div>
         </div>
       </div>
@@ -129,47 +192,60 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for mental health practice social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for mental health social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>A Social Media Partner That Respects the Work You Do</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Respects <span class="highlight">Clinical Care</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Mental health marketing demands more care and consideration than any other industry. Content must be clinically responsible, culturally sensitive, and ethically sound — while still being engaging enough to reach the people who need it most. We take that responsibility seriously.</p>
+        <p>Mental health social fails on either sensitivity or responsibility. We handle both, with your clinical team in control of every post.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Ethical Content Standards</h3>
-            <p>All content follows responsible mental health communication guidelines. We avoid triggering language, unsolicited diagnoses, toxic positivity, and sensationalised content. Helpline numbers are included where appropriate, and clinical claims are always reviewed by your qualified team.</p>
+            <h3>Responsible Content Standards</h3>
+            <p>Every piece follows AHPC guidelines and responsible communication practice — no diagnosing, no alarmist or stigmatising language, no promises of a cure or outcome. Helpline references included where appropriate.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Cultural Sensitivity</h3>
-            <p>We understand Singapore's multicultural context and the specific stigmas that exist across different communities. Your content addresses cultural barriers to seeking help — without being preachy or dismissive of the real concerns people face.</p>
+            <h3>Compassionate, Destigmatising Tone</h3>
+            <p>We write with warmth and cultural sensitivity for Singapore's communities — content that meets people where they are and gently normalises reaching out, never preachy or dismissive.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full Clinical Review</h3>
-            <p>Every post, caption, and piece of content is reviewed by your clinical team before publishing. Mental health content must be accurate, responsible, and aligned with your therapeutic approach. Nothing goes live without your sign-off.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because your practice is growing and your content is reaching the people who need it — not because of a binding agreement.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>You and your clinical team sign off every post, caption and visual. Nothing goes live without your approval.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where social media fits the client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Someone considering support moves through five quiet stages before they reach out. Social rarely wins the first search — its job is Understand and Trust, where compassionate, human content eases the hesitation that holds people back.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A reel or a saved post puts you on their radar</p></li>
+        <li class="funnel-stage"><h3>Understand</h3><p>Psychoeducation helps them make sense of it</p></li>
+        <li class="funnel-stage"><h3>Trust</h3><p>Warmth and consistency make you feel safe</p></li>
+        <li class="funnel-stage"><h3>Enquire</h3><p>A DM or profile link becomes a first message</p></li>
+        <li class="funnel-stage"><h3>Begin</h3><p>A calm first session, then quiet word of mouth</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about mental health social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about mental health social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -177,41 +253,41 @@ const schemaData = [
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for mental health practices in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which platforms should a mental health practice in Singapore be on?</summary>
+          <div class="faq-answer"><p>For most practices, Instagram and Facebook reach the adults and parents who quietly research support, while TikTok reaches younger people looking for accessible, everyday content. We usually recommend depth on two platforms rather than a thin presence on five.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What social media content is appropriate for mental health practices?</summary>
-          <div class="faq-answer"><p>Effective mental health content includes psychoeducational posts about common conditions (anxiety, burnout, relationship challenges), coping strategies, therapist introductions, myth-busting content, and normalisation of seeking help. Content must be carefully worded to avoid triggering language, unsolicited diagnoses, or oversimplification of complex conditions. We follow international best practices for responsible mental health communication.</p></div>
+          <summary>What should a mental health practice actually post?</summary>
+          <div class="faq-answer"><p>Calm, practical content works best — psychoeducation on common experiences like anxiety, burnout or grief, gentle coping tips, therapist introductions, and clear explainers on what a first session looks like. The aim is to make seeking help feel normal, not to diagnose or promise outcomes.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>How do you maintain ethical standards in mental health social media?</summary>
-          <div class="faq-answer"><p>We work closely with your clinical team to ensure all content meets ethical and professional standards. We never share client information, avoid sensationalising mental health conditions, include appropriate disclaimers and helpline numbers where relevant, and follow AHPC advertising guidelines. All content is reviewed by your licensed professionals before publishing.</p></div>
+          <summary>How do you keep mental health content responsible and compliant?</summary>
+          <div class="faq-answer"><p>We work closely with your clinical team and follow AHPC advertising guidelines. We avoid diagnosing, alarmist or stigmatising language, and any promise of a cure or specific outcome. Helpline references are included where appropriate, and every post is reviewed by your licensed professionals before it goes live.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>Can social media help reduce stigma around mental health in Singapore?</summary>
-          <div class="faq-answer"><p>Yes. Social media is one of the most effective channels for normalising mental health conversations in Singapore. Well-crafted content that addresses cultural barriers, workplace stigma, and common misconceptions helps shift public perception. When trusted practitioners share accessible, non-judgmental content, it gives potential clients permission to seek the help they need.</p></div>
+          <div class="faq-answer"><p>It can help. Thoughtful, non-judgemental content that speaks to real experiences — workplace pressure, cultural expectations, common misconceptions — gently normalises the idea of reaching out. When a trusted practitioner explains things plainly, it gives people quiet permission to take a first step.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which platforms work best for mental health practices in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram is the most effective platform for mental health practices in Singapore — carousel posts explaining conditions, therapist Reels, and wellness tips perform well. Facebook is strong for community building and reaching the 35+ demographic. LinkedIn is valuable for practitioners targeting corporate wellness and EAP partnerships. TikTok is growing for short-form mental health education content reaching younger audiences.</p></div>
+          <summary>How does social media lead to enquiries for a practice?</summary>
+          <div class="faq-answer"><p>Rarely from a single post. Social builds familiarity and trust over time — someone who has followed your practice for weeks arrives ready to reach out. We measure that through reach, saves and sends, profile-to-website clicks and enquiries that mention social, not follower count alone.</p></div>
         </details>
       </div>
     </div>
   </section>
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Explore More</p>
-        <h2>More Mental Health Services</h2>
+        <h2>More <span class="highlight">Mental Health</span> Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/mental-health-clinic-website-singapore/" class="related-service-link">Mental Health Website Design</a>
           <a href="/mental-health-marketing-singapore/" class="related-service-link">Mental Health Marketing</a>
+          <a href="/mental-health-ai-search-optimisation-singapore/" class="related-service-link">Mental Health GEO</a>
           <a href="/mental-health-google-ads-singapore/" class="related-service-link">Mental Health Google Ads</a>
+          <a href="/mental-health-clinic-website-singapore/" class="related-service-link">Mental Health Websites</a>
       </div>
     </div>
   </section>
