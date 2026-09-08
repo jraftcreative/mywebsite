@@ -1,0 +1,327 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wellness AI Search Optimisation Singapore",
+    "description": "Specialist AI search optimisation (GEO) for wellness centres in Singapore. Get your wellness centre named by ChatGPT, Google Gemini, Perplexity, Copilot, and Google AI Overviews when people ask AI for the best meditation studio, breathwork class, sound healing session, wellness coaching, or wellness retreat in Singapore. Machine-citable structured data, llms.txt, entity and review authority, and answer-engine content.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Wellness Centre Generative Engine Optimisation (GEO)"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How do people find wellness centres through AI in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "People ask ChatGPT, Gemini, and Perplexity questions like 'best wellness centre in Singapore', 'meditation studio near Orchard', or 'sound healing session near me'. The AI reads your structured data, your reviews across Google and directories, and clear answer-first content, then names three to four centres per query. Wellness centres without those signals in place are left out of the recommendation entirely, no matter how good the sessions are." } },
+      { "@type": "Question", "name": "How is wellness GEO different from wellness SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness SEO targets the Google Maps three-pack and the blue-link rankings for terms like 'meditation studio Orchard' or 'breathwork class near me'. GEO targets the answer an AI writes when someone asks it to recommend a wellness centre. They share signals — Google reviews, a complete Google Business Profile, structured data — but GEO also rewards LocalBusiness and FAQ schema, an llms.txt file, extractable facts, and citations from the directories and review sites AI trusts. The overlap between top Google rankings and AI citations is now low, so ranking well on Google does not guarantee your wellness centre gets named by ChatGPT." } },
+      { "@type": "Question", "name": "Which AI platforms recommend wellness centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer wellness queries such as 'best sound healing Singapore' or 'meditation and breathwork studio near Tanjong Pagar'. Each platform weighs sources and structured data slightly differently, so we build your centre's presence across all of them rather than optimising for one." } },
+      { "@type": "Question", "name": "What structured data does a wellness centre need to get cited by AI?", "acceptedAnswer": { "@type": "Answer", "text": "We mark up your wellness centre with LocalBusiness schema — sessions, class times, neighbourhood, and booking details — plus FAQ schema that answers the exact questions people ask AI. We also publish an llms.txt file so AI crawlers get a clean, machine-readable summary of what your centre offers. Together these give the models the extractable facts they need to name you with confidence." } },
+      { "@type": "Question", "name": "How do you measure whether AI is recommending my wellness centre?", "acceptedAnswer": { "@type": "Answer", "text": "We build a query bank of the real prompts your clients use — 'meditation studio near Orchard', 'sound healing near me', 'wellness retreat Singapore', 'breathwork class Novena' — and re-test them across every major AI platform each month. You get an AI Visibility Score, a mention rate versus citation rate breakdown, and the actual answers the AI returned, so you can see exactly how often your centre is named versus others and whether it is trending up." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Wellness AI Search Optimisation Singapore", "item": "https://jraftcreative.com/wellness-ai-search-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
+<ServiceLayout
+  title="Wellness AI Search Optimisation Singapore"
+  description="Wellness GEO agency in Singapore. Get your wellness centre cited by ChatGPT, Gemini and Perplexity when people ask AI for meditation or sound healing."
+  canonical="https://jraftcreative.com/wellness-ai-search-optimisation-singapore/"
+  ogTitle="Wellness AI Search Optimisation Singapore"
+  ogDescription="Wellness GEO agency in Singapore. Get your wellness centre cited by ChatGPT, Gemini, Perplexity, and Google AI Mode when people ask AI for the best meditation, breathwork, or sound healing."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness ai search optimisation singapore, wellness geo singapore, wellness generative engine optimisation, chatgpt wellness singapore, gemini wellness recommendation, meditation studio ai visibility singapore, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Wellness AI Search Optimisation Singapore"
+  heroTitle='GEO Agency for <span class="highlight">Wellness Centres in Singapore</span>'
+  heroSubtitle="When someone asks ChatGPT 'best wellness centre in Singapore' or tells Gemini 'recommend a meditation studio near Orchard,' the AI names three to four centres. If yours is not one of them, that booking goes elsewhere. AI-referred clients arrive already decided — they just needed a name. We build wellness GEO that gets you cited across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode."
+  heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness and relaxation in Singapore"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I'd like to learn about AI search optimisation for my wellness centre in Singapore."
+  ctaLabel="Ready to Get Started?"
+  ctaTitle='Get Your <span class="highlight">Wellness Centre Recommended</span> by <span class="highlight">AI</span>'
+  ctaDescription="Book a free GEO audit and we'll show you exactly what AI recommends when people search for a meditation, breathwork, or sound healing session like yours — and how to make sure your centre comes up. We'll respond within 24 hours with a tailored wellness GEO plan."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Audit", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%27d%20like%20to%20learn%20about%20AI%20search%20optimisation%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
+  ]}
+  hideDefaultCta={false}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why wellness centres need AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>People Are Asking <span class="highlight">AI</span> Which Wellness Centre to <span class="highlight">Choose</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>Choosing a wellness centre is a trust decision — someone easing into a first meditation class, a burnt-out professional looking for breathwork, a group planning a weekend wellness retreat. More of them now start by asking ChatGPT "best wellness centre in Singapore" or telling Gemini "recommend a sound healing studio near me." The AI answers with three to four names, and people treat those as a personal recommendation. Most Singapore wellness centres are still optimising only for Google and directory listings around Orchard, Tanjong Pagar, and Dempsey — leaving the AI channel wide open. If you want the fuller picture of how the models pick who to name, our team owns <a href="/industries/healthcare/">healthcare and wellness marketing</a> end to end, and the primer on <a href="/blog/what-is-geo-ai-search-optimisation/">what GEO and AI search optimisation actually mean</a> walks through the mechanics.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Google-Only Strategy Gap</h3>
+            <p>Most wellness marketing still focuses on Google and directory platforms, treating AI search as a future concern. That leaves ChatGPT, Gemini, and Perplexity untouched — even though these are becoming the new first stop for people deciding where to book a meditation class or sound bath.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>AI Reads Different Signals</h3>
+            <p>A strong Google ranking does not guarantee an AI citation — the overlap is now low. AI weighs your structured data, review sentiment across Google and directories, brand mentions, and how clearly your sessions are described. Different signal set, different work — for every practice and neighbourhood you serve.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Higher-Intent Bookings</h3>
+            <p>Someone who was handed your centre's name by ChatGPT didn't scroll past ten Orchard listings — the AI recommended you specifically for what they asked. They arrive with built-in trust, already decided to book. They just needed a name they could act on.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Machine-Citable or Invisible</h3>
+            <p>AI models can only name a centre they can read cleanly. Without LocalBusiness and FAQ schema, an llms.txt file, and extractable facts about your sessions and class times, the model has nothing solid to cite — so it recommends the centre whose data it can actually parse.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Open-Lane Window</h3>
+            <p>Most Singapore wellness centres are not yet investing in GEO. The ones that move in 2026 own AI citations for their sessions and area — meditation in Orchard, breathwork in Novena — before others catch on, building visibility that compounds as AI usage grows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>60.9% Now Use Generative AI</h3>
+            <p>With 60.9% of Singapore using generative AI, winning wellness bookings through ChatGPT and Gemini is no longer a niche channel. Your Google presence and directory listings don't translate into AI visibility — it is separate work that wellness centres can no longer put off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Wellness GEO services we deliver">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Wellness GEO Workstreams</span> Every Centre <span class="highlight">Needs</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run wellness GEO as a six-workstream system — AI visibility audit, machine-citable structured data, answer-engine content, brand and review authority, prompt monitoring, and multi-platform coverage. Built to win the AI citation for your sessions and neighbourhood. Pair it with strong <a href="/wellness-seo-singapore/">wellness SEO</a>, <a href="/wellness-google-ads-singapore/">wellness Google Ads</a>, and <a href="/wellness-social-media-marketing-singapore/">wellness social media</a> for a complete digital presence.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We test 20-30 real prompts across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — "best wellness centre in Singapore," "meditation studio near Orchard," "sound healing near me," "wellness retreat Singapore." Reveals which centres AI names instead of yours, and the signals driving those choices.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Machine-Citable Structured Data</h3>
+            <p>LocalBusiness and FAQ schema plus an llms.txt file, so AI crawlers get a clean, machine-readable picture of your centre — meditation, breathwork, sound healing, wellness coaching, retreats, class times, and neighbourhood — and can cite you with confidence.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Answer-Engine Content</h3>
+            <p>Practice guides and clear Q&amp;A pages structured answer-first — "meditation vs breathwork for beginners," "what to expect at a sound healing session," "how a wellness retreat weekend works." Fact-dense, extractable content that gives AI models the confidence to name your centre.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Brand &amp; Review Authority</h3>
+            <p>Strengthen the entity signals AI trusts most — consistent Google reviews, accurate profiles across wellness directories and booking platforms, and brand mentions in the sources AI reads. These citations are what AI uses to decide which centre to vouch for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Prompt Monitoring</h3>
+            <p>Track your centre's AI Visibility Score, mention rate versus citation rate, and share of voice across every major AI platform each month — per session type and area. Quantify exactly how often AI names your centre versus others, with the actual prompts and answers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Platform Coverage</h3>
+            <p>ChatGPT, Gemini, Google AI Mode and AI Overviews, Perplexity, Copilot. Each weighs sources and structured data differently and pulls from different places — our work covers all five so your centre gets cited regardless of which AI tool the person asks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness AI search optimisation">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2><span class="highlight">Wellness GEO</span> That <span class="highlight">Fills Your Classes</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>We run the GEO playbook for our own agency — and the same methodology for wellness clients. We map the exact session-and-area prompts Singapore clients use, build the schema and llms.txt stack that earns the citation, and re-test a query bank across all five major AI platforms every month. This work sits alongside our broader wellness practice, so your centre's GEO connects to a full digital strategy rather than standing on its own.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Session-Specific Prompt Research</h3>
+            <p>We map the exact prompts SG clients use — "best meditation studio near Orchard," "sound healing Holland Village," "wellness retreat near Dempsey" — and optimise against those specific queries, not generic GEO templates.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built Machine-First</h3>
+            <p>Every page, schema block, and llms.txt file we ship is built so AI models can parse your sessions, class times, and neighbourhood cleanly. If a model can't read it, it can't cite it — so we make your centre the easiest one to name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Measurable AI Metrics</h3>
+            <p>AI Visibility Score, mention rate versus citation rate, and share of voice across ChatGPT, Gemini, Perplexity, Copilot, and Google AI Mode — tracked monthly with a re-tested query bank and the actual answers. Not vanity "AI score" reports.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENT FUNNEL ========== -->
+  <section class="section" id="client-funnel" style="background: var(--bg-alt);" aria-label="The wellness booking journey — and where GEO shows up">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Journey</p>
+        <h2>Where <span class="highlight">AI Search</span> Shows Up in the <span class="highlight">Wellness Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Singapore wellness clients move through five stages. GEO is the emerging dominant channel in Compare and Choose — the moment someone asks AI which centre to book for a session or occasion and it returns three to four names. AI citations also reinforce Research, when a client looks up a practice before ever naming a centre.</p>
+      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Research</h3>
+          <p>Client asks AI about a practice or goal — meditation, breathwork, a retreat (GEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>AI returns 3-4 centre names for the session and area (GEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Choose</h3>
+          <p>AI-cited clients book at high intent, often at full price</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Experience</h3>
+          <p>The session reinforces the next-time AI mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews and referrals compound back into AI trust signals</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness AI search optimisation in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Wellness GEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do people find wellness centres through AI in Singapore?</summary>
+          <div class="faq-answer"><p>People ask ChatGPT, Gemini, and Perplexity questions like "best wellness centre in Singapore", "meditation studio near Orchard", or "sound healing session near me". The AI reads your structured data, your reviews across Google and directories, and clear answer-first content, then names three to four centres per query. Wellness centres without those signals in place are left out of the recommendation entirely, no matter how good the sessions are.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How is wellness GEO different from wellness SEO?</summary>
+          <div class="faq-answer"><p>Wellness SEO targets the Google Maps three-pack and the blue-link rankings for terms like "meditation studio Orchard" or "breathwork class near me". GEO targets the answer an AI writes when someone asks it to recommend a wellness centre. They share signals — Google reviews, a complete Google Business Profile, structured data — but GEO also rewards LocalBusiness and FAQ schema, an llms.txt file, extractable facts, and citations from the directories and review sites AI trusts. The overlap between top Google rankings and AI citations is now low, so ranking well on Google does not guarantee your wellness centre gets named by ChatGPT.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>Which AI platforms recommend wellness centres in Singapore?</summary>
+          <div class="faq-answer"><p>ChatGPT, Google Gemini, Google AI Overviews and AI Mode, Perplexity, and Microsoft Copilot all answer wellness queries such as "best sound healing Singapore" or "meditation and breathwork studio near Tanjong Pagar". Each platform weighs sources and structured data slightly differently, so we build your centre's presence across all of them rather than optimising for one.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>What structured data does a wellness centre need to get cited by AI?</summary>
+          <div class="faq-answer"><p>We mark up your wellness centre with LocalBusiness schema — sessions, class times, neighbourhood, and booking details — plus FAQ schema that answers the exact questions people ask AI. We also publish an llms.txt file so AI crawlers get a clean, machine-readable summary of what your centre offers. Together these give the models the extractable facts they need to name you with confidence.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>How do you measure whether AI is recommending my wellness centre?</summary>
+          <div class="faq-answer"><p>We build a query bank of the real prompts your clients use — "meditation studio near Orchard", "sound healing near me", "wellness retreat Singapore", "breathwork class Novena" — and re-test them across every major AI platform each month. You get an AI Visibility Score, a mention rate versus citation rate breakdown, and the actual answers the AI returned, so you can see exactly how often your centre is named versus others and whether it is trending up.</p></div>
+        </details>
+      </div>
+      <div class="section-content reveal" style="margin-top: 32px;">
+        <p>New to answer-engine optimisation? Our guide on <a href="/blog/what-is-geo-ai-search-optimisation/">what GEO and AI search optimisation actually mean</a> walks through how the models pick who to cite and why it now matters for local businesses like wellness centres.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services for wellness centres">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Wellness</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/wellness-marketing-agency-singapore/" class="related-service-link">Wellness Marketing</a>
+          <a href="/wellness-seo-singapore/" class="related-service-link">Wellness SEO</a>
+          <a href="/wellness-google-ads-singapore/" class="related-service-link">Wellness Google Ads</a>
+          <a href="/wellness-social-media-marketing-singapore/" class="related-service-link">Wellness Social Media</a>
+          <a href="/wellness-branding-agency-singapore/" class="related-service-link">Wellness Branding</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>

@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness Social Media Marketing Singapore",
-    "description": "Social media marketing for wellness businesses in Singapore. Content strategy for yoga studios, gyms, physiotherapy clinics, mental health practices, and holistic health brands across Instagram, TikTok, and Facebook.",
+    "description": "Social media marketing for wellness brands in Singapore. Calming ambience and practice clips, wellness tips, practitioner intros, community stories, and retreat and workshop announcements that fill sessions.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does social media marketing cost for wellness businesses in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What types of wellness businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work with the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry has unique audience dynamics, and we tailor content strategies accordingly." } },
-      { "@type": "Question", "name": "What makes wellness social media different from other industries?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness social media demands authenticity and trust above everything else. People making decisions about their physical or mental health are more cautious and discerning than typical consumers. Content must be genuinely helpful, avoid making unsubstantiated health claims, and build real credibility through education and transparency — not just polished visuals and aspirational messaging." } },
-      { "@type": "Question", "name": "Can social media help my wellness business stand out in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Singapore's wellness market is growing rapidly but is also increasingly competitive. Social media allows you to differentiate based on your practitioners' expertise, your unique approach, and the genuine results you deliver. Consistent, high-quality content builds the kind of trust and recognition that advertising alone cannot achieve." } },
-      { "@type": "Question", "name": "Which platforms are most effective for wellness businesses in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram is the primary platform for wellness businesses due to its visual nature and strong health-conscious community. TikTok is growing rapidly for short-form wellness content, particularly among younger audiences. Facebook remains effective for community building and reaching the 35+ demographic. LinkedIn is valuable for B2B wellness services like corporate wellness programmes and EAP partnerships." } }
+      { "@type": "Question", "name": "Which social media platforms work best for wellness brands in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Instagram and TikTok carry a wellness brand. Both are visual-first, which suits a practice built on calm and atmosphere — meditation and breathwork clips, sound-bath moments, practitioner intros, and Stories that let people feel the space before they arrive. Instagram holds your grid and Stories audience across Orchard, Tanjong Pagar and Holland Village; TikTok reaches self-care and mindfulness viewers earlier in their search." } },
+      { "@type": "Question", "name": "What kind of content do you create for wellness brands?", "acceptedAnswer": { "@type": "Answer", "text": "Calming ambience and practice clips — meditation, breathwork and sound baths — wellness tips, practitioner intros, member and community stories shared with consent, and retreat and workshop announcements. Every post is built to convey the sensory calm of your space and prompt someone to book a session." } },
+      { "@type": "Question", "name": "Why does visual content matter so much for a wellness brand?", "acceptedAnswer": { "@type": "Answer", "text": "A wellness brand sells a feeling, so people decide with their senses. A calm, consistent feed makes the space feel real before they book; a quiet or generic one reads as an afterthought. We treat the feed as a preview of the room — light, texture, pace and sound all working to make someone want to slow down and come in." } },
+      { "@type": "Question", "name": "Do you measure saves and sends rather than likes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. For a wellness brand, saves and sends are the signals that matter — someone bookmarking a workshop for later or sending a retreat to a friend is far closer to a booking than a like. We build content for that intent and report on profile-to-enquiry and sessions that mention social, not vanity counts." } },
+      { "@type": "Question", "name": "Can social media promote retreats and workshops?", "acceptedAnswer": { "@type": "Answer", "text": "That is where social earns its keep. Retreats, workshops and seasonal programmes all move well when the content captures the feeling and the timing is planned in advance — so an announcement lands with an audience that already trusts the space and is ready to reserve a spot." } }
     ]
   },
   {
@@ -42,87 +41,149 @@ const schemaData = [
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
       { "@type": "ListItem", "position": 2, "name": "Social Media Marketing Singapore", "item": "https://jraftcreative.com/services/social-media/" },
-      { "@type": "ListItem", "position": 3, "name": "Wellness Social Media Marketing", "item": "https://jraftcreative.com/wellness-social-media-marketing-singapore/" }
+      { "@type": "ListItem", "position": 3, "name": "Wellness Social Media", "item": "https://jraftcreative.com/wellness-social-media-marketing-singapore/" }
     ]
   }
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Wellness Social Media Marketing — Jraft Creative"
-  description="Social media marketing for wellness businesses in Singapore. Content, strategy & community management for yoga, gyms, clinics."
+  title="Social Media Agency for Wellness"
+  description="Social media marketing for wellness brands in Singapore. Calming Instagram and TikTok content, practitioner intros, and workshops that fill sessions."
   canonical="https://jraftcreative.com/wellness-social-media-marketing-singapore/"
-  ogTitle="Wellness Social Media Marketing — Jraft Creative"
-  ogDescription="Social media marketing for wellness businesses in Singapore. Authentic content that builds trust, grows communities, and drives bookings. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="wellness social media marketing singapore, health and wellness marketing, wellness instagram marketing, fitness social media singapore, wellness content creation, healthcare social media marketing singapore, Jraft Creative"
+  ogTitle="Social Media Agency for Wellness"
+  ogDescription="Social media marketing built for wellness brands in Singapore. Calming, visual-first content that captures the space and turns followers into booked sessions."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness social media singapore, wellness marketing singapore, social media for wellness, wellness instagram marketing, wellness tiktok singapore, holistic wellness social media singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wellness Social Media Marketing"
-  heroTitle='Social Media Marketing for <span class="highlight">Wellness Businesses</span> in Singapore'
-  heroSubtitle="Authentic, trust-building social media for yoga studios, gyms, clinics, therapists, and wellness brands across Singapore. We help health and wellness businesses grow their communities, build credibility, and turn followers into loyal clients."
+  heroLabel="Social Media Agency for Wellness"
+  heroTitle='Social Media Agency for <span class="highlight">Wellness in Singapore</span>'
+  heroSubtitle="Calming ambience and practice content, wellness tips, practitioner intros, and retreat and workshop campaigns that capture the sensory calm your brand offers and turn Instagram and TikTok followers into booked sessions. Visual-first social media management built for Singapore's wellness scene."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness and relaxation in Singapore"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need social media marketing for my wellness business in Singapore."
+  whatsappText="Hi Jraft Creative, I need social media marketing for my wellness brand in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Grow Your Wellness Business with Social Media"
-  ctaDescription="Book a free consultation and tell us about your wellness business. We'll get back to you within 24 hours with a tailored social media strategy."
+  ctaTitle="Fill Your Wellness Sessions with Social Media"
+  ctaDescription="Book a free consultation and tell us about your wellness brand. We'll get back to you within 24 hours with a tailored social media plan that captures your calm and drives bookings."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20social%20media%20marketing%20for%20my%20wellness%20brand%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Social media challenges for wellness businesses in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Social media challenges for wellness brands in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>In Wellness, Trust Is Your Most Valuable Currency — and It Is Built Online</h2>
+        <h2>People Book the Space Whose Feed Makes Them Feel <span class="highlight">Calm</span> Before They <span class="highlight">Arrive</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry is booming. From boutique yoga studios in Tanjong Pagar to physiotherapy clinics in Novena, mental health counsellors in the CBD, and gyms across every neighbourhood — the demand for health and wellness services has never been higher. But so has the competition. Singaporeans searching for a yoga class, a physiotherapist, or a mental health professional have more options than they can reasonably evaluate. They default to the businesses that feel the most credible, approachable, and trustworthy online.</p>
-        <p>This is where most wellness businesses fall short. They know their services are excellent, but their social media tells a different story — sporadic posting, outdated graphics, generic wellness quotes, and no real personality. In an industry where people are making deeply personal decisions about their bodies, minds, and health, a weak social media presence signals that your business is either too small to be serious or too indifferent to invest in how you present yourself. The wellness businesses that thrive in Singapore are the ones that show up consistently with genuine, helpful, expertly crafted content that earns trust before a client ever books a session.</p>
+        <p>A wellness brand sells a feeling, and people decide with their senses. They scroll Instagram and TikTok for the space that matches the calm they want — and book the one whose content already makes them slow down. If your feed doesn't carry that feeling, a ready-to-book audience never sees you. It sits inside broader <a href="/industries/healthcare/">healthcare and wellness marketing</a>, and the visual bar is high — you can see how the wider picture connects in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a>.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>A Quiet Feed Breaks the Calm</h3>
+            <p>Stock photos of candles and lotus leaves look like everyone else, and a page last updated weeks ago reads as neglected. Neither invites someone to slow down and book.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Atmosphere Never Comes Through</h3>
+            <p>The light, the stillness, the sound — the details that make your space worth the trip rarely survive a rushed phone snap. On screen the feeling falls flat and so does the booking.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Retreats &amp; Workshops Slip By</h3>
+            <p>New retreats, workshops and seasonal programmes — the moments that fill sessions pass half-noticed without content planned and timed to build anticipation for them.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Social media services for wellness businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Social media services for wellness brands">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Do</p>
-        <h2>Social Media Services for Wellness Businesses</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Content Workstreams</span> That Fill Your <span class="highlight">Sessions</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create and manage social media content for the full spectrum of wellness businesses in Singapore. Whether you run a <a href="/yoga-studio-social-media-singapore/" class="inline-link">yoga studio</a>, a <a href="/gym-social-media-singapore/" class="inline-link">gym</a>, a <a href="/physiotherapy-social-media-singapore/" class="inline-link">physiotherapy clinic</a>, a <a href="/mental-health-social-media-singapore/" class="inline-link">mental health practice</a>, or a <a href="/veterinary-clinic-social-media-singapore/" class="inline-link">veterinary clinic</a>, our team crafts content that resonates with your specific audience and drives real business results.</p>
-        <p>From strategy and design to video production, copywriting, and community management, we handle every aspect of your social media — so your practitioners and staff can focus on delivering exceptional care.</p>
+        <p>Every post is built to convey the sensory calm of your space and prompt a booking — measured on saves, sends and enquiries, not likes. Social works best alongside strong <a href="/wellness-seo-singapore/">wellness SEO</a>, where it fits <a href="/wellness-google-ads-singapore/">wellness Google Ads</a>, and a consistent <a href="/wellness-branding-agency-singapore/">wellness brand</a> holding it all together.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-reels-video.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Wellness Reels &amp; Video Content</h3>
-            <p>Short-form videos tailored to your wellness discipline — yoga flows, workout demonstrations, therapy exercises, health tips, and studio or clinic tours that give potential clients an authentic preview of your services.</p>
+            <h3>Ambience &amp; Practice Reels</h3>
+            <p>Atmospheric short-form video of the light, the room and the pace — meditation, breathwork and sound-bath moments that make a viewer stop scrolling and picture their next session.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-community-mgmt.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Community Management</h3>
-            <p>Proactive engagement with your audience — answering questions, responding to comments, sharing client milestones, and building the supportive online community that drives referrals and repeat bookings across your wellness business.</p>
+            <h3>Wellness Tips &amp; Self-Care</h3>
+            <p>Short, warm tips on rest, breath, movement and everyday calm — content that positions your space as the place people trust to slow down, never a hard sell or a health claim.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Educational &amp; Lifestyle Content</h3>
-            <p>Branded graphics, carousels, and posts covering health tips, wellness advice, practitioner expertise, and lifestyle content — positioning your business as a trusted, knowledgeable resource in your specific wellness niche.</p>
+            <h3>Practitioner Intros</h3>
+            <p>Warm, human introductions to the people behind the practice — their approach and their calm — so a first-time visitor already feels they know who they'll be sitting with.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-community-mgmt.webp');">
           <div class="service-detail-card__content">
-            <h3>Booking &amp; Awareness Campaigns</h3>
-            <p>Targeted campaigns designed around seasonal wellness trends, awareness days, launch events, and promotional periods — driving trial bookings, consultations, and sign-ups when your audience is most receptive.</p>
+            <h3>Community &amp; DM Management</h3>
+            <p>Prompt, warm handling of DMs, comments and enquiries — and member and community stories shared with consent — nurturing someone from a saved Reel to a confirmed session.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
+          <div class="service-detail-card__content">
+            <h3>Retreat &amp; Workshop Campaigns</h3>
+            <p>Announcement campaigns for retreats, workshops and seasonal programmes — timed and sequenced so a spot-limited launch lands with an audience that already trusts the space.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reporting on Bookings</h3>
+            <p>We track saves, sends, profile-to-enquiry and sessions that mention social — follower count is context, the booked session is the result.</p>
           </div>
         </div>
       </div>
@@ -130,78 +191,105 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness social media">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness social media">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Singapore's Wellness Social Media Specialists</h2>
+        <h2>A <span class="highlight">Social Media Agency</span> That Understands <span class="highlight">Wellness</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in social media for health and wellness businesses. We understand the unique challenges — building trust with cautious audiences, maintaining ethical standards, and creating content that is authentic rather than performative.</p>
+        <p>Wellness social lives or dies on how the space feels on screen. We handle the look, the timing and the response — so the calm comes through and the booking follows.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Industry Focus</h3>
-            <p>We work exclusively with wellness and health businesses in Singapore. This focus means we understand your audience, your competitors, and the specific content strategies that work for studios, clinics, and health practitioners — not just generic social media tactics.</p>
+            <h3>A Feel for Atmosphere</h3>
+            <p>We shoot and edit for calm — light, texture, sound and pace — so the feed reads as a preview of the room across Orchard, Dempsey, Bugis, Tampines and Novena.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Ethical &amp; Compliant Content</h3>
-            <p>Healthcare advertising regulations, PDPA compliance, and professional standards are non-negotiable. We ensure all content meets regulatory requirements while remaining engaging and effective. Your clinical team always has final approval on health-related claims.</p>
+            <h3>Booking-Focused, Not Vanity</h3>
+            <p>We build for saves and sends and tie content to real outcomes — retreats, workshops and sessions — not likes that never fill a room. No health claims, ever.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Full-Service Integration</h3>
-            <p>Social media, <a href="/services/website-development/" class="inline-link">website design</a>, <a href="/services/seo-performance/" class="inline-link">SEO</a>, and <a href="/google-ads-agency-singapore/" class="inline-link">paid advertising</a> — all handled by one team. Your brand messaging stays consistent across every channel without the delays of coordinating multiple vendors.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans with no long-term commitments. Stay because your bookings are growing and your community is thriving — not because of a binding contract. We earn your business every month.</p>
+            <h3>You Approve Before Publishing</h3>
+            <p>A full content calendar comes to you in advance. You sign off every post, caption and visual — and every member story is shared only with consent.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Social fits the wellness booking journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Journey</p>
+        <h2>Where <span class="highlight">Social</span> Fits the <span class="highlight">Booking Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Someone choosing a wellness space moves through five stages before booking. Social rarely wins the first search — its job is Feel and Compare, where the atmosphere and real practice content earn the desire to book and send it to a friend.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A Reel or a share puts your space on the radar</p></li>
+        <li class="funnel-stage"><h3>Feel</h3><p>Ambience content sells the calm on sight</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Saves, sends and reviews weigh the options</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>DMs and profile link turn desire into a session</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>A calm first visit, then rebook &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness social media marketing">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about wellness social media marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wellness Social Media Marketing — Questions Answered</h2>
+        <h2>Wellness <span class="highlight">Social Media</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does social media marketing cost for wellness businesses in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>Which social media platforms work best for wellness brands in Singapore?</summary>
+          <div class="faq-answer"><p>Instagram and TikTok carry a wellness brand. Both are visual-first, which suits a practice built on calm and atmosphere — meditation and breathwork clips, sound-bath moments, practitioner intros, and Stories that let people feel the space before they arrive. Instagram holds your grid and Stories audience across Orchard, Tanjong Pagar and Holland Village; TikTok reaches self-care and mindfulness viewers earlier in their search.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of wellness businesses do you work with?</summary>
-          <div class="faq-answer"><p>We work with the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry has unique audience dynamics, and we tailor content strategies accordingly.</p></div>
+          <summary>What kind of content do you create for wellness brands?</summary>
+          <div class="faq-answer"><p>Calming ambience and practice clips — meditation, breathwork and sound baths — wellness tips, practitioner intros, member and community stories shared with consent, and retreat and workshop announcements. Every post is built to convey the sensory calm of your space and prompt someone to book a session.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes wellness social media different from other industries?</summary>
-          <div class="faq-answer"><p>Wellness social media demands authenticity and trust above everything else. People making decisions about their physical or mental health are more cautious and discerning than typical consumers. Content must be genuinely helpful, avoid making unsubstantiated health claims, and build real credibility through education and transparency — not just polished visuals and aspirational messaging.</p></div>
+          <summary>Why does visual content matter so much for a wellness brand?</summary>
+          <div class="faq-answer"><p>A wellness brand sells a feeling, so people decide with their senses. A calm, consistent feed makes the space feel real before they book; a quiet or generic one reads as an afterthought. We treat the feed as a preview of the room — light, texture, pace and sound all working to make someone want to slow down and come in.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can social media help my wellness business stand out in Singapore?</summary>
-          <div class="faq-answer"><p>Yes. Singapore's wellness market is growing rapidly but is also increasingly competitive. Social media allows you to differentiate based on your practitioners' expertise, your unique approach, and the genuine results you deliver. Consistent, high-quality content builds the kind of trust and recognition that advertising alone cannot achieve.</p></div>
+          <summary>Do you measure saves and sends rather than likes?</summary>
+          <div class="faq-answer"><p>Yes. For a wellness brand, saves and sends are the signals that matter — someone bookmarking a workshop for later or sending a retreat to a friend is far closer to a booking than a like. We build content for that intent and report on profile-to-enquiry and sessions that mention social, not vanity counts.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Which platforms are most effective for wellness businesses in Singapore?</summary>
-          <div class="faq-answer"><p>Instagram is the primary platform for wellness businesses due to its visual nature and strong health-conscious community. TikTok is growing rapidly for short-form wellness content, particularly among younger audiences. Facebook remains effective for community building and reaching the 35+ demographic. LinkedIn is valuable for B2B wellness services like corporate wellness programmes and EAP partnerships.</p></div>
+          <summary>Can social media promote retreats and workshops?</summary>
+          <div class="faq-answer"><p>That is where social earns its keep. Retreats, workshops and seasonal programmes all move well when the content captures the feeling and the timing is planned in advance — so an announcement lands with an audience that already trusts the space and is ready to reserve a spot.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="social" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Wellness Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/wellness-marketing-agency-singapore/" class="related-service-link">Wellness Marketing</a>
+          <a href="/wellness-seo-singapore/" class="related-service-link">Wellness SEO</a>
+          <a href="/wellness-ai-search-optimisation-singapore/" class="related-service-link">Wellness GEO</a>
+          <a href="/wellness-google-ads-singapore/" class="related-service-link">Wellness Google Ads</a>
+          <a href="/wellness-branding-agency-singapore/" class="related-service-link">Wellness Branding</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness Google Ads Singapore",
-    "description": "Google Ads management for wellness businesses in Singapore — multi-vertical strategy across fitness, healthcare, beauty, and wellbeing. Plans",
+    "description": "Google Ads management for wellness centres in Singapore — target people searching for meditation classes, wellness coaching, holistic sessions, memberships, and wellness retreats near them. Class and membership lead campaigns with conversion tracking.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Google Ads Management for Wellness Businesses"
+    "serviceType": "Google Ads Management for Wellness Centres"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much should wellness businesses budget for Google Ads in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can one Google Ads agency manage campaigns across different wellness verticals?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — and there are advantages to working with one agency across verticals. We understand how fitness, healthcare, beauty, and wellbeing audiences overlap and differ, which prevents budget waste from cross-targeting. A single agency also enables consistent tracking, unified reporting, and strategic coordination across all your wellness marketing." } },
-      { "@type": "Question", "name": "Which wellness services convert best through Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "Services with high search intent and immediate need convert best — physiotherapy appointments, dental check-ups, spa treatments, gym memberships, and beauty treatments. We also see strong results from trial offers, first-visit promotions, and package deals that lower the barrier for new clients to try your service." } },
-      { "@type": "Question", "name": "Do you handle healthcare advertising compliance for wellness ads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. For any wellness service that falls under healthcare advertising regulations — physiotherapy, TCM, mental health, medical aesthetics — we ensure full compliance with Google's healthcare advertiser policies and Singapore's PHMC guidelines. Non-healthcare verticals like fitness and beauty follow standard ad policies." } },
-      { "@type": "Question", "name": "How do you measure success across different wellness services?", "acceptedAnswer": { "@type": "Answer", "text": "We set up vertical-specific tracking — appointment bookings for healthcare, trial sign-ups for fitness, treatment reservations for beauty, and consultation requests for holistic services. Each vertical has its own KPIs and benchmarks, so you see clear performance data for every part of your wellness business." } }
+      { "@type": "Question", "name": "How much do Google Ads cost for a wellness centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Which keywords should a wellness centre target on Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "High-intent keywords include searches like 'wellness centre Singapore', 'meditation class Orchard', 'wellness coach near me', and 'sound healing session'. We also target neighbourhood terms like 'wellness Tanjong Pagar', 'mindfulness class Holland Village', or 'breathwork Novena', plus 'wellness retreat Singapore' searches that rise around long weekends and year-end." } },
+      { "@type": "Question", "name": "Do you run class and membership lead ads on Google and Meta?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Search is the primary channel because it captures people actively looking for a class, session, or wellness centre in their area. Where it fits, we add Meta lead ads to fill quieter weekdays and promote intro offers, memberships, or retreats. Every enquiry lands in one place so your team can follow up fast." } },
+      { "@type": "Question", "name": "How do you track sign-ups from Google Ads?", "acceptedAnswer": { "@type": "Answer", "text": "We set up conversion tracking on class bookings, WhatsApp enquiries, membership sign-ups, and retreat registrations from ad traffic, and we pass the Google Click ID (GCLID) so every sign-up is attributed to the exact keyword and campaign that drove it. You see cost per booked session, not just clicks." } },
+      { "@type": "Question", "name": "When is the best time to run Google Ads for a wellness centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness demand climbs at the start of the year, around long weekends, and in the run-up to year-end when people look to reset. We keep a baseline campaign running year-round and scale budgets two to three weeks before those windows. Retreat and membership searches also lift in January and after major holidays." } }
     ]
   },
   {
@@ -47,82 +46,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Wellness Google Ads Singapore — Jraft Creative"
-  description="Google Ads management for wellness businesses in Singapore. Multi-vertical strategy across fitness, healthcare, beauty, and wellbeing. Plans"
+  title="Google Ads Agency for Wellness in Singapore"
+  description="Google Ads for wellness centres in Singapore — campaigns that fill meditation classes, coaching sessions, and retreats, tracked to cost per booking."
   canonical="https://jraftcreative.com/wellness-google-ads-singapore/"
-  ogTitle="Wellness Google Ads Singapore — Jraft Creative"
-  ogDescription="Google Ads for wellness businesses in Singapore. Multi-vertical campaigns across fitness, healthcare, beauty, and wellbeing. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="wellness google ads singapore, wellness advertising singapore, google ads for wellness businesses, ppc wellness singapore, wellness marketing singapore, health and wellness ads singapore, Jraft Creative"
+  ogTitle="Google Ads Agency for Wellness in Singapore"
+  ogDescription="Google Ads for wellness centres in Singapore — campaigns that fill classes, sessions, memberships, and retreats, tracked to cost per booked session."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness google ads singapore, wellness centre advertising singapore, google ads for wellness centre, ppc wellness singapore, meditation class ads singapore, wellness coach ads singapore, wellness marketing singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wellness Google Ads Singapore"
-  heroTitle='Google Ads for Wellness Businesses <span class="highlight">in Singapore</span>'
-  heroSubtitle="Whether you run a fitness studio, healthcare clinic, beauty spa, or holistic wellness centre — we build Google Ads campaigns that reach clients across every wellness vertical. Multi-service strategy, cross-channel targeting, and unified tracking that grows your entire wellness business."
+  heroLabel="Google Ads Agency for Wellness"
+  heroTitle='Google Ads Agency for <span class="highlight">Wellness in Singapore</span>'
+  heroSubtitle="People are searching for a meditation class, a wellness coach, or a weekend retreat right now. We build and manage Google Ads campaigns that put your wellness centre at the top of search results — filling classes and selling memberships, with every booking tracked back to the ad that earned it."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness and relaxation in Singapore"
   heroButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need Google Ads for my wellness business in Singapore."
-  ctaLabel="Grow Your Wellness Business"
-  ctaTitle="Get a Free Wellness Ad Strategy Session"
-  ctaDescription="Book a free consultation and we'll analyse your wellness verticals, review competitor ad activity, and map out a Google Ads strategy that covers every service in your business. We'll get back to you within 24 hours."
+  whatsappText="Hi Jraft Creative, I need Google Ads for my wellness centre in Singapore."
+  ctaLabel="Grow Your Bookings"
+  ctaTitle="Get a Free Wellness Ads Strategy Session"
+  ctaDescription="Book a free consultation and we'll review your current ad performance, analyse your local competition, and identify the highest-value class, coaching, and membership keywords for your wellness centre. We'll get back to you within 24 hours."
   ctaButtons={[
     { text: "Get a Free Ad Strategy", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20Google%20Ads%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="Google Ads challenges for wellness businesses">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Google Ads challenges for wellness centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Running a Multi-Service Wellness Business Without a Unified Ad Strategy?</h2>
+        <h2>Struggling to Keep Your <span class="highlight">Classes and Sessions Full</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry spans fitness, healthcare, beauty, and holistic wellbeing — and many businesses operate across multiple verticals. You might offer physiotherapy and pilates under one roof, or run a wellness centre that combines TCM, massage, and nutritional coaching. Each service has its own audience, its own keywords, and its own competitive landscape.</p>
-        <p>Without a coordinated Google Ads strategy, multi-service wellness businesses either spread their budget too thin across too many campaigns, or focus on one vertical while neglecting others. Generic wellness keywords attract broad but unfocused traffic, and without vertical-specific tracking, you can't tell which services generate the best return. The result is wasted ad spend and missed opportunities across your entire business.</p>
+        <p>Singapore's wellness market runs into the hundreds of millions a year, and the centres that appear at the moment someone searches "wellness centre near me" or "meditation class Orchard" are the ones that get booked. Our work sits inside Jraft Creative's wider <a href="/industries/healthcare/">healthcare and wellness marketing</a>, and we help holistic wellness centres capture that demand instead of losing it to whoever ranks first. If you're weighing search versus social, our guide on <a href="/blog/google-ads-vs-meta-ads-singapore/">choosing between Google Ads and Meta Ads in Singapore</a> walks through where each channel earns its place for a wellness brand.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Invisible When Intent Is Highest</h3>
+            <p>When someone searches "wellness coach near me" or "breathwork class Tampines", they book with whoever shows up — even if your practitioners and space are better.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Empty Weekday Slots</h3>
+            <p>Weekends fill on their own, but quiet weekday classes and off-peak sessions stay empty without ads timed to reach people planning their week ahead.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Budget Spent Without Bookings</h3>
+            <p>Broad keywords and an untended account burn spend on browsers who never book. Without proper tracking, you can't tell which classes or offers pay for themselves.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Google Ads services for wellness businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Google Ads services for wellness centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our Wellness Ad Services</p>
-        <h2>Multi-Vertical Google Ads for Wellness Businesses</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of Wellness <span class="highlight">Google Ads</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We build Google Ads campaigns that cover every vertical of your wellness business — fitness, healthcare, beauty, and holistic wellbeing — with separate strategies for each service and unified tracking across all of them. Whether you operate a single wellness centre with multiple services or manage several brands across the wellness spectrum, every campaign is designed to drive bookings.</p>
-        <p>Our approach covers vertical-specific keyword targeting, cross-service audience strategies, compliance handling for healthcare verticals, and landing pages tailored to each service. Budget allocation is optimised across verticals based on performance data — shifting spend towards the services generating the best return.</p>
-        <p>Explore our specialist pages for <a href="/yoga-studio-google-ads-singapore/">yoga studio</a>, <a href="/gym-google-ads-singapore/">gym</a>, <a href="/physiotherapy-google-ads-singapore/">physiotherapy</a>, <a href="/tcm-clinic-google-ads-singapore/">TCM clinic</a>, and <a href="/mental-health-google-ads-singapore/">mental health</a> Google Ads.</p>
+        <p>Every campaign is built around the classes and sessions your clients search for, the neighbourhoods your centre serves, and the seasons when booking intent peaks — and judged on confirmed bookings, not clicks. Pair your ads with ongoing <a href="/wellness-seo-singapore/">wellness SEO</a> for organic visibility, <a href="/wellness-social-media-marketing-singapore/">wellness social media</a> to keep classes full between campaigns, and <a href="/wellness-branding-agency-singapore/">wellness branding</a> that makes your centre memorable.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-google-ads.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-google-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Multi-Vertical Campaign Architecture</h3>
-            <p>Structured campaigns for each wellness vertical — fitness memberships, healthcare appointments, beauty treatments, and holistic services — with separate keyword strategies, budgets, and performance targets that prevent cross-vertical budget waste.</p>
+            <h3>Class &amp; Session Search Campaigns</h3>
+            <p>Keyword campaigns for what clients actually type — "meditation class Singapore", "sound healing session", "wellness coach near me" — high-intent searches ready to book.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-meta-ads.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-meta-ads.webp');">
           <div class="service-detail-card__content">
-            <h3>Cross-Service Audience Strategy</h3>
-            <p>Identify audience overlaps across your wellness services and build remarketing campaigns that cross-sell. A physiotherapy patient could become a pilates member. A gym-goer might book a sports massage. We structure campaigns to capture these cross-vertical opportunities.</p>
+            <h3>Membership &amp; Intro-Offer Campaigns</h3>
+            <p>Ads for first-visit offers, class passes, and monthly memberships that lower the barrier for new clients to try your centre and come back.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
           <div class="service-detail-card__content">
-            <h3>Unified Tracking &amp; Attribution</h3>
-            <p>A single tracking framework across all wellness verticals — each with its own conversion goals and KPIs. See which services drive the most revenue, which keywords have the lowest cost per acquisition, and where to shift budget for maximum return.</p>
+            <h3>Retreat &amp; Workshop Promotions</h3>
+            <p>Campaigns for wellness retreats, weekend workshops, and seasonal programmes — timed to fill seats before enrolment closes and steady the quieter weeks.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Vertical-Specific Landing Pages</h3>
-            <p>Dedicated landing pages for each service within your wellness business — tailored messaging, relevant imagery, and booking flows that match each vertical's audience expectations and conversion patterns.</p>
+            <h3>Lead Ads &amp; Landing Pages</h3>
+            <p>Google Search leads the way, with Meta lead ads added where they fit. Each class or programme gets a landing page built to turn a click into a booked session.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Neighbourhood &amp; Radius Targeting</h3>
+            <p>Ads focused on where your clients are — Orchard, Tanjong Pagar, Bugis, Dempsey, Holland Village, Tampines, and Novena — so budget follows people who can actually visit.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Conversion Tracking &amp; Cost-Per-Booking Reporting</h3>
+            <p>We track click to confirmed booking with GCLID attribution and report cost per booked session by class type — so you know which campaigns pay for themselves.</p>
           </div>
         </div>
       </div>
@@ -130,78 +190,106 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness Google Ads">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness Google Ads">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Wellness Advertising Across Every Vertical</h2>
+        <h2>A <span class="highlight">Google Ads Agency</span> That Understands <span class="highlight">Wellness</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We've managed ad campaigns across every wellness vertical in Singapore — fitness, healthcare, beauty, and holistic wellbeing. Here's why wellness businesses choose us:</p>
+        <p>We manage wellness ad accounts across Singapore and know the seasonal rhythm, the neighbourhood competition, and the copy that turns someone looking to reset into a booked session.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Cross-Vertical Expertise</h3>
-            <p>We understand how fitness, healthcare, beauty, and wellbeing audiences search, compare, and book differently. That knowledge shapes campaign architecture that works for each vertical while maintaining efficiency across your entire wellness business.</p>
+            <h3>Wellness Market Know-How</h3>
+            <p>We know which keywords convert for wellness centres, when to scale around new-year and long-weekend windows, and how to write copy that speaks to people seeking calm, balance, and self-care.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Transparent Ad Spend</h3>
-            <p>Your ad budget goes directly to Google — we never mark up media spend. You maintain full access to your Google Ads account and see exactly what each booking costs across every service vertical.</p>
+            <p>Your budget goes straight to Google, never marked up. The account stays in your name, so you see every dollar and exactly what each booking or membership sign-up costs.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>No Lock-in Contracts</h3>
-            <p>Month-to-month plans that scale with your business. Add new wellness verticals, shift budgets seasonally, launch new services — no penalties, no minimum terms, no rigid structures.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Compliance Where It Matters</h3>
-            <p>Healthcare verticals get full advertising compliance — Google certification, PHMC guidelines, proper disclaimers. Non-healthcare verticals run standard campaigns. We handle the complexity so you don't have to.</p>
+            <h3>Tracked to the Booking</h3>
+            <p>We report cost per confirmed booking, not clicks — and also run <a href="/wellness-seo-singapore/">wellness SEO</a> and <a href="/wellness-branding-agency-singapore/">wellness branding</a> to convert the traffic your ads bring in.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENT JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Google Ads fits the wellness client journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">Google Ads</span> Fits the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>A wellness client moves through five stages before booking. Google Ads owns the two highest-intent moments — Discover, when they first search a class or a nearby centre, and Book, when a remarketing ad brings a researcher back to confirm.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>An ad captures the first "wellness centre near me" search</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>They read classes, practitioners, and the space</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Photos and reviews weigh the nearby centres</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Remarketing brings them back to confirm</p></li>
+        <li class="funnel-stage"><h3>Rebook</h3><p>A first session, then membership &amp; referral</p></li>
+      </ol>
     </div>
   </section>
 
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about Google Ads for wellness businesses">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about Google Ads for wellness centres">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wellness Google Ads — Questions Answered</h2>
+        <h2>Wellness <span class="highlight">Google Ads</span> — Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much should wellness businesses budget for Google Ads in Singapore?</summary>
+          <summary>How much do Google Ads cost for a wellness centre in Singapore?</summary>
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can one Google Ads agency manage campaigns across different wellness verticals?</summary>
-          <div class="faq-answer"><p>Yes — and there are advantages to working with one agency across verticals. We understand how fitness, healthcare, beauty, and wellbeing audiences overlap and differ, which prevents budget waste from cross-targeting. A single agency also enables consistent tracking, unified reporting, and strategic coordination across all your wellness marketing.</p></div>
+          <summary>Which keywords should a wellness centre target on Google Ads?</summary>
+          <div class="faq-answer"><p>High-intent keywords include searches like "wellness centre Singapore", "meditation class Orchard", "wellness coach near me", and "sound healing session". We also target neighbourhood terms like "wellness Tanjong Pagar", "mindfulness class Holland Village", or "breathwork Novena", plus "wellness retreat Singapore" searches that rise around long weekends and year-end.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Which wellness services convert best through Google Ads?</summary>
-          <div class="faq-answer"><p>Services with high search intent and immediate need convert best — physiotherapy appointments, dental check-ups, spa treatments, gym memberships, and beauty treatments. We also see strong results from trial offers, first-visit promotions, and package deals that lower the barrier for new clients to try your service.</p></div>
+          <summary>Do you run class and membership lead ads on Google and Meta?</summary>
+          <div class="faq-answer"><p>Yes. Google Search is the primary channel because it captures people actively looking for a class, session, or wellness centre in their area. Where it fits, we add Meta lead ads to fill quieter weekdays and promote intro offers, memberships, or retreats. Every enquiry lands in one place so your team can follow up fast.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Do you handle healthcare advertising compliance for wellness ads?</summary>
-          <div class="faq-answer"><p>Yes. For any wellness service that falls under healthcare advertising regulations — physiotherapy, TCM, mental health, medical aesthetics — we ensure full compliance with Google's healthcare advertiser policies and Singapore's PHMC guidelines. Non-healthcare verticals like fitness and beauty follow standard ad policies.</p></div>
+          <summary>How do you track sign-ups from Google Ads?</summary>
+          <div class="faq-answer"><p>We set up conversion tracking on class bookings, WhatsApp enquiries, membership sign-ups, and retreat registrations from ad traffic, and we pass the Google Click ID (GCLID) so every sign-up is attributed to the exact keyword and campaign that drove it. You see cost per booked session, not just clicks.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How do you measure success across different wellness services?</summary>
-          <div class="faq-answer"><p>We set up vertical-specific tracking — appointment bookings for healthcare, trial sign-ups for fitness, treatment reservations for beauty, and consultation requests for holistic services. Each vertical has its own KPIs and benchmarks, so you see clear performance data for every part of your wellness business.</p></div>
+          <summary>When is the best time to run Google Ads for a wellness centre in Singapore?</summary>
+          <div class="faq-answer"><p>Wellness demand climbs at the start of the year, around long weekends, and in the run-up to year-end when people look to reset. We keep a baseline campaign running year-round and scale budgets two to three weeks before those windows. Retreat and membership searches also lift in January and after major holidays.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="ads" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Wellness Services</span></h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/wellness-marketing-agency-singapore/" class="related-service-link">Wellness Marketing</a>
+          <a href="/wellness-seo-singapore/" class="related-service-link">Wellness SEO</a>
+          <a href="/wellness-ai-search-optimisation-singapore/" class="related-service-link">Wellness GEO</a>
+          <a href="/wellness-social-media-marketing-singapore/" class="related-service-link">Wellness Social Media</a>
+          <a href="/wellness-branding-agency-singapore/" class="related-service-link">Wellness Branding</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

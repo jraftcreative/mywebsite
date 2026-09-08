@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness SEO Singapore",
-    "description": "SEO services for wellness businesses in Singapore — spas, yoga studios, pilates, gyms, physiotherapy, TCM clinics, and holistic health providers. Multi-service keyword strategy, local SEO, and content marketing",
+    "description": "SEO services for wellness centres in Singapore — holistic wellness, meditation, breathwork, sound healing, wellness coaching, and retreats. Service-specific SEO, 'wellness centre near me' ranking, and Google Maps optimisation.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -23,17 +22,17 @@ const schemaData = [
       }
     },
     "areaServed": { "@type": "Country", "name": "Singapore" },
-    "serviceType": "Wellness Business SEO"
+    "serviceType": "Wellness SEO"
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does SEO cost for a wellness business in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "How long does it take for wellness SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness businesses see measurable ranking improvements within 3 to 5 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Service-specific keywords like 'massage near Orchard' or 'wellness centre Bugis' often rank faster than broad competitive terms." } },
-      { "@type": "Question", "name": "What types of wellness businesses do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We work across the entire wellness spectrum — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM clinics, spas, massage centres, chiropractic clinics, mental health practices, nutrition consultancies, and holistic health providers. Our SEO strategies are tailored to each sub-sector's unique search patterns and customer behaviour." } },
-      { "@type": "Question", "name": "Can SEO help my wellness business rank in Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Local SEO is critical for wellness businesses because clients search by location and convenience. We optimise your Google Business Profile, build local citations, manage reviews, and create location-specific content so your business appears in the Maps 3-pack for relevant 'near me' searches in your area." } },
-      { "@type": "Question", "name": "Do you handle SEO for wellness businesses with multiple services or locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-service and multi-location SEO is a core capability. We create dedicated, optimised landing pages for each service you offer and each location you operate, ensuring your business ranks independently for every service-location combination rather than cannibalising itself with a single generic page." } }
+      { "@type": "Question", "name": "How long does it take for wellness SEO to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Service-specific keywords like 'meditation class Orchard' or 'sound healing near me' often rank faster than broad national terms like 'wellness centre Singapore'." } },
+      { "@type": "Question", "name": "Can SEO help my wellness centre rank for 'wellness centre near me' on Google Maps?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Google Business Profile optimisation and local SEO are central to our wellness SEO service. We optimise your listing with the correct wellness categories, upload space and studio photos, manage client reviews, and build local citations so your centre appears in the Maps 3-pack for 'wellness centre near me' and 'meditation class near me' searches in Orchard, Tanjong Pagar, Bugis, Tampines, or your own neighbourhood." } },
+      { "@type": "Question", "name": "What keywords do people search when looking for wellness in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Common searches include 'wellness centre Singapore', 'holistic wellness Orchard', 'meditation class near me', 'wellness coach Singapore', and 'wellness retreat Singapore', along with service-specific queries like 'breathwork class', 'sound healing Singapore', 'mindfulness workshop near me', and 'nutrition coaching Singapore'. We research the exact terms driving enquiries in your area and build your SEO around them." } },
+      { "@type": "Question", "name": "Do you work with wellness centres that have multiple locations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-outlet wellness SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and keep NAP data consistent across directories so each centre ranks independently in its own neighbourhood — from Holland Village to Novena." } },
+      { "@type": "Question", "name": "How is wellness SEO different from generic SEO?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness clients search by practice, by intention, by neighbourhood, and by mood — a search for 'wellness retreat Singapore' behaves nothing like a search for 'meditation class near me tonight'. Generic agencies build one broad 'wellness Singapore' page and stop there. Wellness SEO means a page for every practice, hyperlocal Google Maps work for each centre, and holistic wellness content that reaches people while they are still deciding where to book." } }
     ]
   },
   {
@@ -47,162 +46,279 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  .animated-bg__grid { display: none; }
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35); color: var(--text); font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6); color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .clinic-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  .funnel-stage--accent { border-color: rgba(73, 184, 137, 0.7); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.35); }
+  @media (max-width: 900px) { .clinic-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .clinic-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Wellness SEO Singapore — Jraft Creative"
-  description="SEO services for wellness businesses in Singapore — yoga, pilates, gyms, physio, TCM, spas, and holistic health. Local SEO."
+  title="Wellness SEO Singapore — SEO Agency"
+  description="SEO agency for wellness centres in Singapore. Rank for 'wellness centre near me', meditation, and coaching searches — service SEO, Google Maps, content."
   canonical="https://jraftcreative.com/wellness-seo-singapore/"
-  ogTitle="Wellness SEO Singapore — Jraft Creative"
-  ogDescription="SEO for wellness businesses in Singapore. Yoga, pilates, gyms, physiotherapy, TCM, spas, and holistic health. Local search and multi-service SEO. Plans"
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="wellness seo singapore, seo for wellness businesses, spa seo singapore, holistic health seo, wellness marketing singapore, health and wellness seo, wellness google ranking, wellness local seo, Jraft Creative"
+  ogTitle="Wellness SEO Singapore — SEO Agency"
+  ogDescription="SEO agency for wellness centres in Singapore. Rank for 'wellness centre near me', meditation, and coaching searches — service SEO, Google Maps, content."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness seo singapore, wellness seo, seo for wellness centres, holistic wellness seo, meditation seo singapore, wellness google ranking, wellness local seo, wellness coach seo, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wellness SEO"
-  heroTitle='SEO for <span class="highlight">Wellness Businesses in Singapore</span>'
-  heroSubtitle="Singapore's health and wellness industry spans yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, spas, and holistic health providers. Whether you offer a single service or run a multi-discipline wellness centre, the clients you need are searching on Google right now. We help wellness businesses across every sub-sector rank higher and turn search visibility into booked appointments."
+  heroLabel="SEO Agency for Wellness"
+  heroTitle='SEO Agency for <span class="highlight">Wellness Centres in Singapore</span>'
+  heroSubtitle="People searching 'wellness centre Singapore', 'meditation class near me', and 'holistic wellness Orchard' are ready to book a session soon. If your centre doesn't rank on page one for these terms, those clients book somewhere else instead. We build service-specific SEO and local search visibility that gets wellness centres found on Google."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness and relaxation in Singapore"
   heroButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need SEO for my wellness business in Singapore."
+  whatsappText="Hi Jraft Creative, I need SEO for my wellness centre in Singapore."
   ctaLabel="Ready to Rank Higher?"
-  ctaTitle="Get Your Wellness Business Found on Google"
-  ctaDescription="Book a free SEO audit and we'll show you exactly where your wellness business stands in local search compared to nearby competitors. We'll respond within 24 hours with a tailored action plan."
+  ctaTitle='Get Your <span class="highlight">Wellness Centre</span> Found on <span class="highlight">Google</span>'
+  ctaDescription="Book a free SEO audit and we'll show you exactly where your wellness centre stands for service and 'near me' searches compared to others in your area. We'll respond within 24 hours with a tailored wellness SEO plan."
   ctaButtons={[
     { text: "Get a Free SEO Audit", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20SEO%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== PROBLEM ========== -->
-  <section class="section" id="challenge" aria-label="SEO challenges for wellness businesses in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="SEO challenges for wellness centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>A Booming Wellness Industry — But Can Clients Find Your Business?</h2>
+        <h2>People Search for Wellness on <span class="highlight">Google</span> — Does Your Centre <span class="highlight">Appear</span>?</h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry has grown into a multi-billion dollar sector encompassing everything from boutique yoga studios and reformer pilates spaces to physiotherapy clinics, TCM practices, spas, chiropractic centres, and holistic health providers. Consumer demand for wellness services has surged — but so has competition. In nearly every neighbourhood, multiple wellness businesses now compete for the same pool of health-conscious clients who start their search on Google.</p>
-        <p>"Yoga near me", "spa Singapore", "physiotherapy near MRT", "wellness centre Bugis", "TCM clinic near me" — these searches happen tens of thousands of times each month across the wellness spectrum. The businesses appearing in the top three Google results and the Maps 3-pack capture the overwhelming majority of new client bookings. Everyone else is invisible to the people actively searching for the exact services they provide.</p>
-        <p>Wellness businesses face a unique SEO challenge: many offer multiple services that each require their own keyword strategy. A wellness centre offering yoga, pilates, and massage needs to rank independently for all three — not compete against itself with a single "services" page. Add the hyper-local nature of wellness searches (clients rarely travel more than 15 minutes), and the SEO challenge becomes both wide and deep. Without a structured, multi-service keyword strategy built around local search, most wellness businesses leave thousands of potential bookings on the table every month.</p>
+        <p>Choosing a wellness centre is a personal decision. Before booking a meditation class, a breathwork session, or a coaching programme, people search Google — comparing centres, reading what each practice involves, and checking reviews. Terms like "wellness centre Singapore", "meditation class near me", and "holistic wellness Orchard" are searched thousands of times a month, and if your centre doesn't rank, those clients book with the centres that do. Singapore's wellness scene is crowded, with new studios, coaches, and holistic spaces opening every month across Orchard, Tanjong Pagar, Bugis, and beyond.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Ready-to-Book Intent</h3>
+            <p>Someone searching "meditation class near me this weekend" has already decided they want the experience — they just need to pick a centre. SEO puts you in front of them at that moment, not days earlier when they were only browsing wellness ideas.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Marketplaces Eat Your Margin</h3>
+            <p>Class-booking platforms and deal sites bring clients, but at a cost — commissions that thin your margins and little loyalty from people who booked a discount, not your centre. SEO brings clients who find you directly and book at full rate.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>A Crowded Orchard &amp; CBD Field</h3>
+            <p>Wellness spaces cluster along Orchard, through Tanjong Pagar, and across Bugis, all competing for the same searches. Ranking here takes a practice-level strategy, not the single generic "wellness Singapore" page every other centre also targets.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Every Practice Is Its Own Search</h3>
+            <p>Meditation, mindfulness, breathwork, sound healing, wellness coaching, nutrition and lifestyle coaching, retreats, relaxation and recovery — each is a separate search with its own intent. One catch-all page can't rank for all of them; every practice needs its own optimised page.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Generic Agencies Get It Wrong</h3>
+            <p>Most SEO agencies apply the same template to a wellness centre that they'd use for a gym or a shop. They miss how wellness clients actually search — by practice, by intention, by neighbourhood, by mood — so the pages never reach the people ready to book.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Maps 3-Pack Wins the Click</h3>
+            <p>For "wellness centre near me" and "meditation class near me", the Google Maps 3-pack sits above every website. If your Google Business Profile isn't optimised with the right categories, photos, and reviews, you're invisible before the client even scrolls.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="SEO services for wellness businesses">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="SEO services we deliver for wellness centres">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">Our SEO Services</p>
-        <h2>SEO Strategies Built for the Wellness Industry</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">SEO Workstreams</span> Every Wellness Centre <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Wellness SEO isn't one-size-fits-all. A yoga studio, a physiotherapy clinic, and a day spa each have different client search patterns, different competitive landscapes, and different conversion triggers. We build SEO strategies tailored to each wellness sub-sector — and for multi-service businesses, we create structured keyword architectures that let every service rank independently without cannibalising itself.</p>
-        <p>From technical foundations to service-specific landing pages and Google Maps dominance, every element of our approach is designed to drive qualified bookings from clients actively searching for wellness services near them.</p>
-        <p>Pair SEO with a professionally designed <a href="/services/website-development/">wellness website</a>, <a href="/services/social-media/">social media marketing</a> to build community and trust, or <a href="/services/paid-ads/">Google Ads</a> to capture high-intent searches during peak demand periods like January, post-holidays, and major wellness awareness months.</p>
+        <p>We run wellness SEO as a six-workstream system — technical audit, practice-specific pages, local and Google Maps SEO, holistic wellness content, review and reputation building, and monthly reporting. Built for how Singapore clients research and choose a wellness centre. Pair it with <a href="/wellness-google-ads-singapore/">wellness Google Ads</a> to capture high-intent searches during peak seasons, <a href="/wellness-social-media-marketing-singapore/">wellness social media</a> for content that inspires bookings, or <a href="/wellness-branding-agency-singapore/">wellness branding</a> to make every touchpoint feel considered.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-seo-audit.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
             <h3>Technical SEO Audit</h3>
-            <p>Complete crawl of your wellness website to find indexing gaps, broken links, missing structured data, slow page loads, and mobile usability issues. We fix the technical barriers stopping Google from ranking your business for high-intent searches across every service you offer, in every neighbourhood you serve.</p>
+            <p>Full crawl of your wellness website to surface indexing gaps, broken links, missing structured data, slow load times, and mobile issues. We fix every technical barrier stopping Google from ranking you for terms like "wellness centre near me" and "meditation class Singapore".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-onpage-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>On-Page Optimisation</h3>
-            <p>Keyword-optimised landing pages for every service your wellness business offers — whether that's yoga, pilates, massage, physiotherapy, TCM, nutrition counselling, or mental health services. Meta titles, descriptions, heading structures, and internal links targeting the specific searches your ideal clients use in your area.</p>
+            <h3>Practice-Specific SEO</h3>
+            <p>Dedicated, keyword-optimised pages for every practice — meditation and mindfulness, breathwork, sound healing, wellness coaching, nutrition and lifestyle coaching, retreats, relaxation and recovery. Each page targets the exact terms clients use: "breathwork class Tanjong Pagar", "sound healing near me", "wellness retreat Singapore".</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Local SEO &amp; Google Business Profile</h3>
-            <p>Google Business Profile optimisation with correct wellness categories, service details, facility photos, client review management, and local citation building across Singapore directories. Designed to get your business into the Google Maps 3-pack for every "near me" search relevant to your services and location.</p>
+            <h3>Holistic Wellness Content</h3>
+            <p>Guides and articles answering what clients search before they book — "what to expect in your first meditation class", "breathwork vs meditation for stress", "how to choose a wellness coach". Content that builds your centre's authority, earns organic links, and reaches people during the research phase.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-speed-vitals.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
           <div class="service-detail-card__content">
-            <h3>Multi-Service Content Strategy</h3>
-            <p>Blog articles and guides answering the questions potential clients search — "best wellness centres in Singapore", "yoga vs pilates for beginners", "how often should you get a massage". Content that positions your brand as an authority across the wellness space, earns organic backlinks, and captures clients during their research and decision-making phase.</p>
+            <h3>Local SEO &amp; Google Maps</h3>
+            <p>Google Business Profile optimisation with the correct wellness categories, space photos, class hours, review management, and local citation building — engineered to get your centre into the Maps 3-pack for every "near me" search across Orchard, Bugis, Holland Village, Tampines, and Novena.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Reviews &amp; Reputation</h3>
+            <p>A steady base of genuine five-star reviews is one of the strongest local ranking signals for wellness centres. We set up simple, compliant systems to invite reviews after sessions, respond to them well, and turn a happy client base into higher Maps visibility.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Monthly Reporting</h3>
+            <p>Every month you get practice keyword rankings, organic traffic, Google Business Profile insights, and booking trends. We measure what matters — new client bookings and practice page visibility — not vanity metrics.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness SEO">
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness SEO">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>An SEO Agency That Understands the Wellness Industry</h2>
+        <h2>An SEO Agency That Understands the <span class="highlight">Wellness Industry</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We work with wellness businesses across Singapore — from single-service studios to multi-discipline wellness centres. We understand how clients search for different wellness services, seasonal demand patterns, and which search terms actually convert browsers into long-term paying clients.</p>
+        <p>We work with wellness businesses across Singapore, so we understand practice-based search patterns, seasonal demand spikes around the new year and school holidays, and which keywords turn searchers into loyal, repeat-booking clients. Wellness SEO sits inside our wider <a href="/industries/healthcare/">healthcare and wellness marketing</a> work, and if the Google Maps 3-pack is where you want to win, our guide on <a href="/blog/rank-google-maps-singapore/">how to rank in the Google Maps 3-pack in Singapore</a> shows exactly how we approach it.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Cross-Sector Wellness Expertise</h3>
-            <p>We've worked with yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, spas, and holistic health providers. We understand the unique search behaviour and conversion patterns for each sub-sector — and for multi-service businesses, we know how to structure SEO so every service ranks without competing against itself.</p>
+            <h3>Real Wellness Knowledge</h3>
+            <p>We know the difference between a drop-in meditation class and a booked coaching programme, between a sound healing session and a weekend retreat. Our keyword strategies reflect how real clients search — by practice, by intention, by neighbourhood, by budget — never a recycled generic template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Neighbourhood-Level Local SEO</h3>
-            <p>Wellness is hyper-local. Clients want a provider near their home or office — typically within a 10-to-15 minute journey. We optimise for neighbourhood-level searches across Singapore so your business ranks exactly where your potential clients live and work.</p>
+            <p>Wellness clients want somewhere nearby. We optimise for hyperlocal searches — Orchard, Tanjong Pagar, Bugis, Dempsey, Holland Village, Tampines, Novena — so your centre ranks precisely where your most likely clients are looking.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>Clear Monthly Reporting</h3>
-            <p>Every month you receive a report showing keyword rankings across all your services, organic traffic, Google Business Profile insights, and booking trends. We show you the numbers that matter — not vanity metrics, but data tied directly to client discovery and appointment bookings.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
             <h3>Full Digital Presence Under One Roof</h3>
-            <p>SEO is one piece of the puzzle. We also handle wellness website design, social media content, and paid ads — so your entire digital marketing works together as a single system to grow your client base across every service you offer.</p>
+            <p>SEO is one part of keeping sessions booked. We also handle wellness website design, social content, and paid ads — so every digital channel works together to drive bookings and build your centre's reputation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== CLIENT JOURNEY ========== -->
+  <section class="section" id="client-journey" style="background: var(--bg-alt);" aria-label="The client journey — and where SEO shows up">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Client Journey</p>
+        <h2>Where <span class="highlight">SEO</span> Shows Up in the <span class="highlight">Client Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Wellness clients move through five stages. SEO is the dominant channel in Research and Compare — when someone looks up a practice, weighs centres, and reads reviews — and it feeds the Maps 3-pack at the Book decision point. A strong review base then compounds back into rankings.</p>
+      </div>
+      <ol class="clinic-funnel reveal">
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Research</h3>
+          <p>Client Googles a practice or intention (SEO-led)</p>
+        </li>
+        <li class="funnel-stage funnel-stage--accent">
+          <h3>Compare</h3>
+          <p>Reads centre pages, class details &amp; reviews (SEO-led)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Books via Maps 3-pack or practice page (high intent)</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Experience</h3>
+          <p>The session experience earns the next positive review</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Advocate</h3>
+          <p>Reviews &amp; referrals compound back into rankings</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
   <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness SEO in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wellness SEO — Questions Answered</h2>
+        <h2><span class="highlight">Wellness SEO</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does SEO cost for a wellness business in Singapore?</summary>
-          <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
+          <summary>How long does it take for wellness SEO to show results?</summary>
+          <div class="faq-answer"><p>Most wellness centres see measurable ranking improvements within 3 to 4 months. Google Business Profile optimisation and technical fixes produce quick wins in weeks. Service-specific keywords like "meditation class Orchard" or "sound healing near me" often rank faster than broad national terms like "wellness centre Singapore".</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take for wellness SEO to show results?</summary>
-          <div class="faq-answer"><p>Most wellness businesses see measurable ranking improvements within 3 to 5 months. Google Business Profile optimisation and technical fixes can produce quick wins in weeks. Service-specific and location-specific keywords like "massage near Orchard" or "wellness centre Bugis" often rank faster than broad competitive terms.</p></div>
+          <summary>Can SEO help my wellness centre rank for "wellness centre near me" on Google Maps?</summary>
+          <div class="faq-answer"><p>Yes. Google Business Profile optimisation and local SEO are central to our wellness SEO service. We optimise your listing with the correct wellness categories, upload space and studio photos, manage client reviews, and build local citations so your centre appears in the Maps 3-pack for "wellness centre near me" and "meditation class near me" searches in Orchard, Tanjong Pagar, Bugis, Tampines, or your own neighbourhood.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What types of wellness businesses do you work with?</summary>
-          <div class="faq-answer"><p>We work across the entire wellness spectrum — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM clinics, spas, massage centres, chiropractic clinics, mental health practices, nutrition consultancies, and holistic health providers. Our SEO strategies are tailored to each sub-sector's unique search patterns and client acquisition behaviour.</p></div>
+          <summary>What keywords do people search when looking for wellness in Singapore?</summary>
+          <div class="faq-answer"><p>Common searches include "wellness centre Singapore", "holistic wellness Orchard", "meditation class near me", "wellness coach Singapore", and "wellness retreat Singapore", along with service-specific queries like "breathwork class", "sound healing Singapore", "mindfulness workshop near me", and "nutrition coaching Singapore". We research the exact terms driving enquiries in your area and build your SEO around them.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can SEO help my wellness business rank in Google Maps?</summary>
-          <div class="faq-answer"><p>Yes. Local SEO is critical for wellness businesses because clients search by location and convenience. We optimise your Google Business Profile, build local citations, manage reviews, and create location-specific content so your business appears in the Maps 3-pack for relevant "near me" searches in your area.</p></div>
+          <summary>Do you work with wellness centres that have multiple locations?</summary>
+          <div class="faq-answer"><p>Yes. Multi-outlet wellness SEO is a core capability. We create unique, optimised location pages for each branch, manage individual Google Business Profiles, build location-specific citations, and keep NAP data consistent across directories so each centre ranks independently in its own neighbourhood — from Holland Village to Novena.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Do you handle SEO for wellness businesses with multiple services or locations?</summary>
-          <div class="faq-answer"><p>Yes. Multi-service and multi-location SEO is a core capability. We create dedicated, optimised landing pages for each service you offer and each location you operate, ensuring your business ranks independently for every service-location combination rather than diluting your SEO with a single generic page.</p></div>
+          <summary>How is wellness SEO different from generic SEO?</summary>
+          <div class="faq-answer"><p>Wellness clients search by practice, by intention, by neighbourhood, and by mood — a search for "wellness retreat Singapore" behaves nothing like a search for "meditation class near me tonight". Generic agencies build one broad "wellness Singapore" page and stop there. Wellness SEO means a page for every practice, hyperlocal Google Maps work for each centre, and holistic wellness content that reaches people while they are still deciding where to book.</p></div>
         </details>
       </div>
     </div>
   </section>
 
-
-  <RelatedServices topic="seo" />
-
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="section" id="related-services" aria-label="Related services for wellness centres">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Wellness</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/wellness-marketing-agency-singapore/" class="related-service-link">Wellness Marketing</a>
+          <a href="/wellness-ai-search-optimisation-singapore/" class="related-service-link">Wellness GEO</a>
+          <a href="/wellness-google-ads-singapore/" class="related-service-link">Wellness Google Ads</a>
+          <a href="/wellness-social-media-marketing-singapore/" class="related-service-link">Wellness Social Media</a>
+          <a href="/wellness-branding-agency-singapore/" class="related-service-link">Wellness Branding</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

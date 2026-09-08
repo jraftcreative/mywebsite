@@ -1,13 +1,12 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness Branding Agency Singapore",
-    "description": "Professional branding for wellness businesses in Singapore — logo design, brand identity, marketing materials, and visual systems for yoga studios, gyms, clinics, and health brands.",
+    "description": "Branding for wellness centres in Singapore — logo and identity, calming colour and type systems, interior and sensory direction, photography direction, tone of voice, and collateral. Build a serene, premium identity that commands full price.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +28,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does wellness branding cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What types of wellness businesses do you brand?", "acceptedAnswer": { "@type": "Answer", "text": "We brand the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry requires a different visual approach, and we tailor our branding process to match the specific audience and competitive landscape of your niche." } },
-      { "@type": "Question", "name": "What makes wellness branding different from regular branding?", "acceptedAnswer": { "@type": "Answer", "text": "Wellness branding must build trust and emotional connection in ways that other industries do not require. People choosing a healthcare provider, fitness studio, or mental health professional are making deeply personal decisions. The brand must project competence and credibility while feeling approachable, warm, and human. Generic branding agencies often miss these nuances because they do not understand the specific trust dynamics of wellness markets." } },
-      { "@type": "Question", "name": "How long does the wellness branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and marketing materials take 4 to 6 weeks. We can align deliverables with your business launch, renovation, or rebrand timeline." } },
-      { "@type": "Question", "name": "Can you help with both branding and ongoing marketing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Branding is often the starting point for a longer relationship. Once your brand identity is established, we can implement it across your website, social media, SEO, and paid advertising — all managed by the same team that built your brand. This ensures complete consistency across every channel and eliminates the miscommunication that happens when multiple agencies are involved." } }
+      { "@type": "Question", "name": "How much does branding cost for a wellness centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Why does branding matter for a wellness centre in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness centres reach for the same visual cues — soft greens, lotus icons, muted neutrals and airy script fonts — so visitors cannot tell them apart and default to whichever has the cheapest intro offer. A distinct, calming identity lets your centre stand for a specific feeling, which earns loyalty and lets you hold full price instead of discounting to fill the schedule." } },
+      { "@type": "Question", "name": "What makes wellness branding different from ordinary branding?", "acceptedAnswer": { "@type": "Answer", "text": "A wellness brand has to make a sensory promise before a visitor ever arrives. The identity should feel serene and premium the moment someone sees it, then carry through to touchpoints most brands never think about — the scent and light at reception, the texture of the welcome pack, the calm of the waiting area, the music in the treatment room, and the tone of a reminder message. Every one of those details is part of the brand." } },
+      { "@type": "Question", "name": "How long does the wellness branding process take?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness branding projects run 3 to 6 weeks from discovery to final delivery. A logo and a short set of guidelines can be ready in 2 to 3 weeks. A full identity system with a colour and type system, welcome packs and collateral takes 4 to 6 weeks. Larger scopes that include interior, sensory and photography direction take 6 to 8 weeks. We can align the timeline with your opening or renovation." } },
+      { "@type": "Question", "name": "Do you design welcome packs and printed collateral?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Welcome packs, service menus and gift cards are among the highest-value items a wellness centre produces, and their design has a real effect on how much a visitor feels the experience is worth. We can include menu design, gift-card collateral, membership and welcome packs, loyalty materials, and seasonal templates — all built to feel worth a premium price rather than a discount." } }
     ]
   },
   {
@@ -48,80 +47,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Wellness Branding Agency Singapore — Jraft Creative"
-  description="Branding for wellness businesses in Singapore — logo design, brand identity, and marketing materials for yoga studios, gyms, clinics, and health brands."
+  title="Wellness Branding Agency Singapore"
+  description="Branding for wellness centres in Singapore — logo and identity, calming colour and type, interior and sensory direction, and welcome-pack collateral."
   canonical="https://jraftcreative.com/wellness-branding-agency-singapore/"
-  ogTitle="Wellness Branding Agency Singapore — Jraft Creative"
-  ogDescription="Logo design, brand identity, and visual systems for wellness businesses in Singapore. Build a brand that clients trust and competitors envy."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="wellness branding singapore, health and wellness branding, wellness brand identity, fitness branding singapore, healthcare branding agency, yoga studio branding, gym branding singapore, Jraft Creative"
+  ogTitle="Wellness Branding Agency Singapore"
+  ogDescription="A serene, premium identity for your wellness centre — logo, colour and type, interior and sensory direction, photography, tone of voice, and collateral. Stand out and hold full price."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness branding singapore, wellness centre logo design, holistic wellness brand identity, wellness interior branding, wellness collateral design, wellness gift card design, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wellness Branding Agency"
-  heroTitle='Professional <span class="highlight">Branding for Wellness Businesses</span> in Singapore'
-  heroSubtitle="From yoga studios and gyms to clinics and therapists, wellness businesses need brands that build trust at first glance. We create visual identities that capture the expertise, warmth, and credibility behind your practice — and make you the obvious choice in a crowded market."
+  heroLabel="Branding Agency for Wellness"
+  heroTitle='Wellness Branding Agency in <span class="highlight">Singapore</span>'
+  heroSubtitle="A wellness visit begins the moment a visitor meets your brand. We build serene, premium identities that carry a single feeling from the first glance online to the calm at the door — so your centre stands for something, and can hold full price instead of discounting to fill the schedule."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness and relaxation in Singapore"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need branding for my wellness business in Singapore."
-  ctaLabel="Ready to Build Your Wellness Brand?"
-  ctaTitle="Get a Brand That Builds Trust"
-  ctaDescription="Book a free consultation and tell us about your wellness business. We will put together a tailored branding proposal — no obligations, no hard sell."
+  whatsappText="Hi Jraft Creative, I need branding for my wellness centre in Singapore."
+  ctaLabel="Ready to Set Your Wellness Centre Apart?"
+  ctaTitle="Get a Brand That Feels as Calm as Your Space"
+  ctaDescription="Book a free consultation and tell us about your wellness centre. We will put together a tailored branding proposal — no obligations, no hard sell."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20branding%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Branding challenges for wellness businesses in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Branding challenges for wellness centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>In Wellness, Your Brand Is the First Treatment Your Client Experiences</h2>
+        <h2>Visitors Can't Tell a <span class="highlight">Premium Wellness Centre</span> from a <span class="highlight">Discount Deal</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Whether someone is searching for a yoga studio in Tanjong Pagar, a physiotherapist in Novena, a mental health counsellor in the CBD, or a gym in Jurong East — they are making a deeply personal decision about their body, mind, or health. They are not choosing a commodity. They are choosing someone to trust. And that evaluation starts long before they walk through your door. It starts with your brand.</p>
-        <p>Singapore's wellness industry is growing rapidly, but so is the competition. Every neighbourhood has multiple options for nearly every wellness service. When a potential client compares you to the three other providers they have shortlisted, your brand identity often determines whether they book with you or move on. A clinic with a cohesive, professional brand looks more established and trustworthy. A studio with a distinctive visual presence is more memorable. A gym with a strong brand identity creates the sense of community that turns casual members into loyal advocates. Your brand is not decoration — it is the first signal of the quality, care, and professionalism that clients will experience when they work with you.</p>
+        <p>From Orchard and Tanjong Pagar to Dempsey, Holland Village, Bugis, Tampines and Novena, most wellness centres reach for the same visual cues. When everyone looks the same, the visitor picks on price.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Every Centre Looks the Same</h3>
+            <p>Soft greens, lotus icons, muted neutrals and airy script fonts. The sameness makes a thoughtful, well-run centre read like any other room with a treatment table.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Deals Train Visitors to Discount</h3>
+            <p>When the only thing setting centres apart is the intro price, you compete on the cheapest first session — a race that erodes margin and draws one-time deal seekers, not regulars.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Distinct Brands Earn Loyalty</h3>
+            <p>The centres with a waiting list share one thing: an identity that stands for a specific feeling, so visitors return and refer at full price instead of chasing the next promotion.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Wellness branding services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Wellness branding services overview">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Branding Services for Wellness Businesses</h2>
+        <h2>Six <span class="highlight">Branding Workstreams</span> for <span class="highlight">Wellness Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We create brand identities for the full spectrum of wellness businesses in Singapore. Whether you run a <a href="/yoga-studio-branding-singapore/" class="inline-link">yoga studio</a>, a <a href="/gym-branding-singapore/" class="inline-link">gym</a>, a <a href="/physiotherapy-branding-singapore/" class="inline-link">physiotherapy clinic</a>, or a <a href="/veterinary-clinic-branding-singapore/" class="inline-link">veterinary clinic</a>, our team builds visual systems that project the trust, warmth, and expertise your clients expect — across every touchpoint from your shopfront to your social feed.</p>
+        <p>One sensory identity that runs from the first glance to the last touchpoint — and carries through to your <a href="/wellness-marketing-agency-singapore/">wellness marketing</a>, <a href="/wellness-social-media-marketing-singapore/">social media</a>, and <a href="/wellness-seo-singapore/">search presence</a> so nothing feels borrowed from a different centre.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Logo &amp; Visual Identity</h3>
-            <p>A custom logo designed specifically for your wellness niche — capturing the energy of a gym, the calm of a yoga studio, the credibility of a healthcare clinic, or the warmth of a veterinary practice. Includes full logo suite, colour palette, typography, and brand guidelines.</p>
+            <h3>Brand Identity &amp; Logo System</h3>
+            <p>A refined logo and mark built for signage, embossed stationery, staff uniforms and every screen — with primary, stacked, icon and monochrome versions so the brand holds up wherever it lands.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Space &amp; Signage Design</h3>
-            <p>Exterior signage, reception area branding, treatment room or studio signage, and environmental graphics — designed to create a cohesive physical brand experience that clients feel the moment they arrive at your location.</p>
+            <h3>Calming Colour &amp; Type System</h3>
+            <p>A serene, premium palette and typeface pairing chosen for your specific feeling — grounding, natural, contemporary or traditional — instead of the default soft-green-and-neutral every other centre reaches for.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-copywriting.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>Client-Facing Materials</h3>
-            <p>Brochures, welcome packs, appointment cards, treatment guides, class schedule cards, and referral materials — professionally designed collateral that reinforces your brand at every client interaction and sets you apart from competitors using basic printouts.</p>
+            <h3>Interior, Ambience &amp; Sensory Direction</h3>
+            <p>Direction for reception, treatment rooms, the waiting area and wayfinding — plus the signature scent, light and sound that greet a visitor — so the space feels like one continuous experience.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Merchandise &amp; Professional Collateral</h3>
-            <p>Branded uniforms, merchandise, business cards, presentation decks, and partnership materials — extending your brand into every professional interaction and turning your team and clients into brand ambassadors.</p>
+            <h3>Photography &amp; Art Direction</h3>
+            <p>A shot list and styling guide for your own space, sessions and products — so your imagery looks like your centre, not a stock library shared with every competitor.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-local-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Menus &amp; Welcome-Pack Collateral</h3>
+            <p>Service menus that read as curated experiences rather than a price list, plus gift cards, membership and welcome packs designed to feel worth a premium the moment they are handed over.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Tone of Voice &amp; Brand Guidelines</h3>
+            <p>How your centre sounds in a caption, a menu and a reply — written down alongside a simple rulebook your front desk and any freelancer can follow, so the brand holds together after we hand it over.</p>
           </div>
         </div>
       </div>
@@ -129,78 +191,105 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness branding">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness branding">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Singapore's Wellness Branding Specialists</h2>
+        <h2>A <span class="highlight">Branding Agency</span> That Designs for the <span class="highlight">Senses</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in branding for health and wellness businesses. We understand the unique trust dynamics, the regulatory considerations, and the emotional decision-making processes that define how people choose wellness providers in Singapore.</p>
+        <p>Wellness branding is a sensory promise — the identity has to start the feeling of calm before a visitor steps through the door. We handle this as part of full <a href="/industries/healthcare/">healthcare and wellness marketing</a>, and if you are still weighing up partners, our guide on <a href="/blog/how-to-choose-digital-marketing-agency-singapore/">how to choose a digital marketing agency in Singapore</a> is a useful place to start.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Industry Focus</h3>
-            <p>We work extensively with wellness businesses in Singapore. This focus means we understand the competitive landscape, the audience psychology, and the visual language that builds trust across different wellness sub-industries — from high-energy fitness to calming therapeutic environments.</p>
+            <h3>Wellness &amp; Hospitality Craft</h3>
+            <p>We design for wellness and hospitality, so the brand feels genuinely premium without turning cold or pretentious — calm, considered and worth the price, drawing visitors who value the experience.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>Full-Service Integration</h3>
-            <p>Branding, <a href="/services/website-development/" class="inline-link">website design</a>, <a href="/wellness-social-media-marketing-singapore/" class="inline-link">social media marketing</a>, and <a href="/services/seo-performance/" class="inline-link">SEO</a> — all handled by one team. Your brand identity is implemented consistently across every channel from day one, with no delays from vendor coordination.</p>
+            <p>The identity is applied across your <a href="/wellness-marketing-agency-singapore/">marketing</a>, <a href="/wellness-social-media-marketing-singapore/">social</a> and every piece of collateral by one team, so nothing drifts from space to screen.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Pricing &amp; Full Ownership</h3>
-            <p>Transparent, agreed scope with no hidden fees. You own every asset we create — logos, guidelines, templates, source files. No monthly retainers and no ongoing fees for the branding project itself.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Local Market Expertise</h3>
-            <p>We know what Singapore wellness consumers respond to. Every brand we create is informed by local market research — your area, your competitors, and your target demographic. No cookie-cutter templates or generic designs.</p>
+            <h3>Transparent, You Own It</h3>
+            <p>Custom-quoted, no hidden fees, and you own every asset — logo, guidelines, menu and gift-card templates, and source files.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== VISITOR JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where Brand fits the visitor journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Visitor Journey</p>
+        <h2>Where <span class="highlight">Brand</span> Fits the <span class="highlight">Visitor Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Brand is the layer over every stage. It decides whether a visitor takes you seriously in the first scroll, believes you at the comparison, and feels the price is fair enough to book instead of hunting for a deal.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A calm first impression earns the click</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>A consistent look signals a real, cared-for centre</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>A distinct identity lifts you above price alone</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>Feeling the calm early makes the price feel fair</p></li>
+        <li class="funnel-stage"><h3>Return</h3><p>Visitors rebook, gift &amp; refer with pride</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness branding in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about wellness branding in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wellness Branding — Questions Answered</h2>
+        <h2>Wellness <span class="highlight">Branding</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does wellness branding cost in Singapore?</summary>
+          <summary>How much does branding cost for a wellness centre in Singapore?</summary>
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of wellness businesses do you brand?</summary>
-          <div class="faq-answer"><p>We brand the full spectrum of wellness businesses in Singapore — yoga studios, pilates centres, gyms, physiotherapy clinics, mental health practices, TCM clinics, veterinary clinics, spa and beauty businesses, and holistic health brands. Each sub-industry requires a different visual approach, and we tailor our branding process to match the specific audience and competitive landscape of your niche.</p></div>
+          <summary>Why does branding matter for a wellness centre in Singapore?</summary>
+          <div class="faq-answer"><p>Most wellness centres reach for the same visual cues — soft greens, lotus icons, muted neutrals and airy script fonts — so visitors cannot tell them apart and default to whichever has the cheapest intro offer. A distinct, calming identity lets your centre stand for a specific feeling, which earns loyalty and lets you hold full price instead of discounting to fill the schedule.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What makes wellness branding different from regular branding?</summary>
-          <div class="faq-answer"><p>Wellness branding must build trust and emotional connection in ways that other industries do not require. People choosing a healthcare provider, fitness studio, or mental health professional are making deeply personal decisions. The brand must project competence and credibility while feeling approachable, warm, and human. Generic branding agencies often miss these nuances because they do not understand the specific trust dynamics of wellness markets.</p></div>
+          <summary>What makes wellness branding different from ordinary branding?</summary>
+          <div class="faq-answer"><p>A wellness brand has to make a sensory promise before a visitor ever arrives. The identity should feel serene and premium the moment someone sees it, then carry through to touchpoints most brands never think about — the scent and light at reception, the texture of the welcome pack, the calm of the waiting area, the music in the treatment room, and the tone of a reminder message. Every one of those details is part of the brand.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>How long does the wellness branding process take?</summary>
-          <div class="faq-answer"><p>Most wellness branding projects take 3 to 6 weeks from discovery to final delivery. Starter packages with logo and basic guidelines can be completed in 2 to 3 weeks. Full brand identity systems with collateral, signage, and marketing materials take 4 to 6 weeks. We can align deliverables with your business launch, renovation, or rebrand timeline.</p></div>
+          <div class="faq-answer"><p>Most wellness branding projects run 3 to 6 weeks from discovery to final delivery. A logo and a short set of guidelines can be ready in 2 to 3 weeks. A full identity system with a colour and type system, welcome packs and collateral takes 4 to 6 weeks. Larger scopes that include interior, sensory and photography direction take 6 to 8 weeks. We can align the timeline with your opening or renovation.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you help with both branding and ongoing marketing?</summary>
-          <div class="faq-answer"><p>Yes. Branding is often the starting point for a longer relationship. Once your brand identity is established, we can implement it across your website, social media, SEO, and paid advertising — all managed by the same team that built your brand. This ensures complete consistency across every channel and eliminates the miscommunication that happens when multiple agencies are involved.</p></div>
+          <summary>Do you design welcome packs and printed collateral?</summary>
+          <div class="faq-answer"><p>Yes. Welcome packs, service menus and gift cards are among the highest-value items a wellness centre produces, and their design has a real effect on how much a visitor feels the experience is worth. We can include menu design, gift-card collateral, membership and welcome packs, loyalty materials, and seasonal templates — all built to feel worth a premium price rather than a discount.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="branding" />
-
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Wellness Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/wellness-marketing-agency-singapore/" class="related-service-link">Wellness Marketing</a>
+          <a href="/wellness-seo-singapore/" class="related-service-link">Wellness SEO</a>
+          <a href="/wellness-ai-search-optimisation-singapore/" class="related-service-link">Wellness GEO</a>
+          <a href="/wellness-google-ads-singapore/" class="related-service-link">Wellness Google Ads</a>
+          <a href="/wellness-social-media-marketing-singapore/" class="related-service-link">Wellness Social Media</a>
+      </div>
+    </div>
+  </section>
 </ServiceLayout>

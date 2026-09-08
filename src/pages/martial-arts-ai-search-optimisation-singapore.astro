@@ -1,0 +1,338 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Martial Arts AI Search Optimisation Singapore",
+    "description": "Generative Engine Optimisation (GEO) for martial arts schools in Singapore — get your school named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Jraft Creative",
+      "url": "https://jraftcreative.com/",
+      "logo": "https://jraftcreative.com/images/logo.png",
+      "telephone": "+6582234578",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60 Paya Lebar Road, Paya Lebar Square",
+        "postalCode": "409051",
+        "addressLocality": "Singapore",
+        "addressCountry": "SG"
+      }
+    },
+    "areaServed": { "@type": "Country", "name": "Singapore" },
+    "serviceType": "Martial Arts School GEO / AI Search Optimisation"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is GEO and how is it different from SEO for a martial arts school?", "acceptedAnswer": { "@type": "Answer", "text": "SEO gets your school ranked in Google's blue links. GEO (generative engine optimisation) gets your school named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party mentions differently. We do both." } },
+      { "@type": "Question", "name": "Can AI search really send my martial arts school new students?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A growing share of parents and adults ask AI for a recommendation before they search or book a trial. Being the named school in that answer — for a query like 'best martial arts school near Tampines' or 'taekwondo for kids Singapore' — puts you on the shortlist before they ever open Google Maps." } },
+      { "@type": "Question", "name": "How long does GEO take to show results for a martial arts school?", "acceptedAnswer": { "@type": "Answer", "text": "Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority builds across directories and review sites. We track it monthly so you see the movement." } },
+      { "@type": "Question", "name": "How do you measure GEO success for a martial arts school?", "acceptedAnswer": { "@type": "Answer", "text": "We re-run the same question bank each month — prompts like 'good BJJ gym near me' and 'muay thai classes Singapore' — and track how often your school is mentioned, how often it's cited with a link, your share of voice versus competitors, and AI-referral traffic." } },
+      { "@type": "Question", "name": "Does GEO work for schools that teach several disciplines?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We give each art its own clear entity and answer-first content — karate, taekwondo, BJJ, muay thai, judo, wing chun, plus kids and adult programmes — so AI engines can name your school for the specific discipline someone asks about, not just a generic 'martial arts' query." } }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jraftcreative.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Martial Arts AI Search Optimisation Singapore", "item": "https://jraftcreative.com/martial-arts-ai-search-optimisation-singapore/" }
+    ]
+  }
+];
+---
+
+<style is:global>
+  .animated-bg__grid { display: none; }
+
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  .service-cta-section { background: var(--bg-alt) !important; }
+
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { #sub-services .deliver-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { #sub-services .deliver-grid { grid-template-columns: 1fr; } }
+
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; }
+    .funnel-stage:nth-child(2n-1)::after { right: -22px; }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel { grid-template-columns: 1fr; gap: 20px; }
+    .funnel-stage::after { display: none; }
+  }
+</style>
+
+<ServiceLayout
+  title="Martial Arts GEO & AI Search Singapore — Jraft Creative"
+  description="GEO for martial arts schools in Singapore — get named and cited inside ChatGPT, Gemini, Perplexity, and Google AI Overviews."
+  canonical="https://jraftcreative.com/martial-arts-ai-search-optimisation-singapore/"
+  ogTitle="Martial Arts GEO & AI Search Singapore — Jraft Creative"
+  ogDescription="Get your martial arts school named in AI search. GEO that makes ChatGPT, Gemini, Perplexity, and Google's AI recommend your school."
+  ogImage="https://jraftcreative.com/images/og-martialarts.jpg"
+  keywords="martial arts ai search optimisation singapore, martial arts geo singapore, bjj chatgpt optimisation, taekwondo ai visibility, muay thai geo singapore, generative engine optimisation martial arts, Jraft Creative"
+  schemaData={schemaData}
+  heroLabel="Martial Arts GEO / AI Search"
+  heroTitle='Get Your <span class="highlight">Martial Arts School</span> Named in <span class="highlight">AI Search</span>'
+  heroSubtitle="When someone asks ChatGPT, Gemini, or Google's AI for the best martial arts school near Tampines or good BJJ gym near me, one school gets named — and it takes the trial booking. GEO is how we make that school yours."
+  heroImage="/images/service-martialarts.webp"
+  heroImageAlt="Martial artist training at sunset in Singapore"
+  heroButtons={[
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
+  ]}
+  whatsappText="Hi Jraft Creative, I want my martial arts school cited in AI search (GEO)."
+  ctaLabel="Ready to Be the AI's Answer?"
+  ctaTitle='Get Your <span class="highlight">Martial Arts School</span> Cited in AI Search'
+  ctaDescription="Book a free AI visibility check and we'll show you exactly what ChatGPT, Gemini, and Google's AI say about your school today — and who's getting named instead. No obligations."
+  ctaButtons={[
+    { text: "Get a Free AI Visibility Check", href: "/contact/", class: "btn btn-primary" },
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20want%20my%20martial%20arts%20school%20cited%20in%20AI%20search%20%28GEO%29.", class: "btn btn-secondary" }
+  ]}
+>
+
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Why martial arts schools need GEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Challenge</p>
+        <h2>Search Has <span class="highlight">Split in Two</span> — and AI Is Naming <span class="highlight">Someone Else</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>More parents and adults now ask ChatGPT, Gemini, or Google's AI for a martial arts recommendation than scroll ten blue links. If the answer names three schools and yours isn't one, you never enter the shortlist.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Answer, Not the List</h3>
+            <p>People ask AI "best martial arts school near Tampines" or "taekwondo for kids Singapore" and get a named recommendation, not a page of links. If your school isn't in that answer, the parent or student never sees you at the moment they decide.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Ranking on Google Isn't Enough</h3>
+            <p>AI engines choose who to cite differently — on entity clarity, structured data, and trusted third-party mentions, not just backlinks. A school that ranks on Google can still be invisible in AI answers.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Your Competitor Is Getting Cited</h3>
+            <p>Right now, an AI query for a BJJ or muay thai gym in your area is naming someone. Every week you're not the one cited, that school compounds the trust and takes the trial bookings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="GEO services for martial arts schools">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">What We Deliver</p>
+        <h2>How We Get Your School <span class="highlight">Cited</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>GEO is an additive layer on strong SEO. We make your school legible to the engines, worth citing, and easy to verify — then track it every month. It pairs with your <a href="/martial-arts-seo-singapore/">martial arts SEO</a> and your <a href="/martial-arts-website-singapore/">martial arts website</a> so every signal points the same way.</p>
+      </div>
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>AI Visibility Audit</h3>
+            <p>We run the real questions your prospects ask ChatGPT, Perplexity, Gemini, and Google AI Mode — "good BJJ gym near me", "muay thai classes Singapore" — and map who gets cited, so you see where you stand and who to overtake.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Schema &amp; Entity Layer</h3>
+            <p>Structured data — LocalBusiness, FAQ, class, instructor and opening-hours info — plus consistent entity signals across directories and review sites that make your school legible and verifiable to the engines.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-content-strategy.webp');">
+          <div class="service-detail-card__content">
+            <h3>Answer-First Content</h3>
+            <p>Discipline pages, class FAQs, and an llms.txt file written to answer the exact questions AI pulls from — clear, extractable, and specific to your arts, neighbourhood, and class times across karate, taekwondo, BJJ, muay thai, judo, and wing chun.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-analytics-reporting.webp');">
+          <div class="service-detail-card__content">
+            <h3>Citation &amp; Monitoring</h3>
+            <p>Building mentions on the review sites and directories AI trusts, then tracking your AI visibility month over month against competitors — mention rate, citation rate, and share of voice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for martial arts GEO">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Why Jraft Creative</p>
+        <h2>We Don't Just Sell GEO — <span class="highlight">We Practise It</span></h2>
+      </div>
+      <div class="section-content reveal">
+        <p>GEO is new, and most agencies are still guessing at it. We run the same playbook on our own martial arts work and on Jraft Creative itself — and report what actually moves citations. GEO sits within our wider <a href="/industries/fitness/">fitness marketing in Singapore</a>.</p>
+      </div>
+      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Cited in AI Ourselves</h3>
+            <p>Jraft Creative got its own site cited in Google's AI Overview. We run the same citation playbook for your martial arts school — receipts, not a slide deck of theory.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Built for Local Martial Arts</h3>
+            <p>GEO tuned to neighbourhood, discipline, and the way parents and students actually phrase questions to AI — from "taekwondo for kids near Bishan" to "BJJ near Tanjong Pagar" — not a generic B2B approach.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>One Agency, All Channels</h3>
+            <p>GEO sits alongside your SEO, social, ads, and website — so every signal reinforces the same authority, and the engines see one consistent, trusted school.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GEO FLOW ========== -->
+  <section class="section" id="geo-flow" style="background: var(--bg-alt);" aria-label="How martial arts GEO works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">How It Works</p>
+        <h2>From <span class="highlight">Invisible</span> to <span class="highlight">the Answer</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>We run the same four-step system on every martial arts school — and re-test the AI answers monthly so you can watch your visibility climb. New to this? Our guide on <a href="/blog/what-is-geo-ai-search-optimisation/">what GEO (AI search optimisation) actually is</a> explains the fundamentals.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Audit</h3>
+          <p>Map what AI says about your school today</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Structure</h3>
+          <p>Schema and entity signals put in place</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Answer</h3>
+          <p>Content rewritten for AI extraction</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Monitor</h3>
+          <p>Citations and visibility tracked monthly</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about martial arts GEO in Singapore">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">FAQ</p>
+        <h2><span class="highlight">Martial Arts GEO</span> — Questions <span class="highlight">Answered</span></h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-d1">
+          <summary>What is GEO and how is it different from SEO for a martial arts school?</summary>
+          <div class="faq-answer"><p>SEO gets your school ranked in Google's blue links. GEO (generative engine optimisation) gets your school named and cited inside AI answers — ChatGPT, Gemini, Perplexity, and Google AI Overviews. They share foundations, but AI engines weigh structured data, entity clarity, and third-party mentions differently. We do both.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Can AI search really send my martial arts school new students?</summary>
+          <div class="faq-answer"><p>Yes. A growing share of parents and adults ask AI for a recommendation before they search or book a trial. Being the named school in that answer — for a query like "best martial arts school near Tampines" or "taekwondo for kids Singapore" — puts you on the shortlist before they ever open Google Maps.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d3">
+          <summary>How long does GEO take to show results for a martial arts school?</summary>
+          <div class="faq-answer"><p>Perplexity and Google AI Overviews pull live data and can move within about 4 to 8 weeks. ChatGPT and Gemini shift more slowly as your entity authority builds across directories and review sites. We track it monthly so you see the movement.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d1">
+          <summary>How do you measure GEO success for a martial arts school?</summary>
+          <div class="faq-answer"><p>We re-run the same question bank each month — prompts like "good BJJ gym near me" and "muay thai classes Singapore" — and track how often your school is mentioned, how often it's cited with a link, your share of voice versus competitors, and AI-referral traffic.</p></div>
+        </details>
+        <details class="faq-item reveal reveal-d2">
+          <summary>Does GEO work for schools that teach several disciplines?</summary>
+          <div class="faq-answer"><p>Yes. We give each art its own clear entity and answer-first content — karate, taekwondo, BJJ, muay thai, judo, wing chun, plus kids and adult programmes — so AI engines can name your school for the specific discipline someone asks about, not just a generic "martial arts" query.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More Martial Arts Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/martial-arts-marketing-singapore/" class="related-service-link">Martial Arts Marketing</a>
+          <a href="/martial-arts-seo-singapore/" class="related-service-link">Martial Arts SEO</a>
+          <a href="/martial-arts-website-singapore/" class="related-service-link">Martial Arts Websites</a>
+      </div>
+    </div>
+  </section>
+</ServiceLayout>
