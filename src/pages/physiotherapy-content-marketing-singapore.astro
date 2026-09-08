@@ -6,7 +6,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Physiotherapy Content Marketing Singapore",
-    "description": "Content marketing for physiotherapy clinics in Singapore — patient education blogs, exercise guides, injury prevention articles, and treatment explainers. Build authority and attract patients",
+    "description": "Content marketing for physiotherapy clinics in Singapore — SEO blog articles, condition explainers, exercise and rehab guides, physiotherapist thought leadership, and email newsletters that feed search, social, and bookings.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,10 +29,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does content marketing cost for a physiotherapy clinic in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What type of content should a physiotherapy clinic publish?", "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapy clinics benefit most from patient education content — injury prevention guides, exercise tutorials, treatment explainers, recovery timelines, and condition-specific articles. Content answering questions like 'how to recover from an ACL tear' or 'best exercises for lower back pain' captures patients at the moment they are searching for help. This positions your clinic as the trusted expert before they even book an appointment." } },
-      { "@type": "Question", "name": "How does content marketing help a physiotherapy clinic get more patients?", "acceptedAnswer": { "@type": "Answer", "text": "Content marketing drives patient bookings through three mechanisms. First, SEO-optimised articles rank on Google for terms patients search — 'physiotherapy for frozen shoulder Singapore' or 'sports injury clinic near me' — bringing qualified traffic to your website. Second, expert content builds trust and positions your physiotherapists as credible authorities. Third, downloadable guides and newsletters capture contact details and nurture prospective patients until they are ready to book." } },
-      { "@type": "Question", "name": "How long does it take for physiotherapy content marketing to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most physiotherapy clinics see measurable increases in organic traffic within 3 to 4 months. SEO content compounds over time — a well-written article on knee rehabilitation can drive traffic for years without ongoing cost. Patient enquiries typically follow once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track progress against your patient acquisition goals." } },
-      { "@type": "Question", "name": "Can you write medically accurate content for physiotherapy?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We research every article thoroughly using peer-reviewed sources and clinical guidelines. All content is written for a patient audience — clear, accessible, and actionable — while maintaining clinical accuracy. We also provide drafts for your physiotherapists to review before publication, ensuring everything aligns with your clinical expertise and professional standards." } }
+      { "@type": "Question", "name": "What type of content should a physiotherapy clinic publish?", "acceptedAnswer": { "@type": "Answer", "text": "Physiotherapy clinics benefit most from patient education content — condition explainers for back and neck pain, sports injury and post-op rehab guides, exercise and stretching routines, and explainers on approaches like dry needling and manual therapy. Content that answers what patients type into Google, such as how physiotherapy can help a frozen shoulder or which exercises support lower back pain, reaches people at the moment they are looking for help and positions your physiotherapists as the ones they trust." } },
+      { "@type": "Question", "name": "How does content marketing help a physiotherapy clinic get more patients?", "acceptedAnswer": { "@type": "Answer", "text": "Content marketing supports patient bookings through three mechanisms. First, SEO-optimised articles rank on Google for terms patients search, such as physiotherapy for sciatica in Singapore or sports injury clinic near me, bringing qualified traffic to your website. Second, expert content builds trust and positions your physiotherapists as credible, registered practitioners. Third, downloadable exercise guides and newsletters capture contact details and keep your clinic front of mind until a patient is ready to book. These are marketing outcomes — we never promise a specific recovery." } },
+      { "@type": "Question", "name": "How long does it take for physiotherapy content marketing to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most physiotherapy clinics see measurable increases in organic traffic within 3 to 4 months. SEO content compounds over time — a well-researched article on knee rehabilitation can keep drawing traffic for years without ongoing cost. Enquiries typically follow once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track progress against your patient acquisition goals." } },
+      { "@type": "Question", "name": "Can you write clinically accurate content for physiotherapy?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We research every article using peer-reviewed sources and clinical guidelines, and write for a patient audience — clear, accessible, and practical. Every draft goes to your AHPC-registered physiotherapists for review before publication, so it aligns with your clinical judgement and professional standards. We describe how treatment approaches work and who they may suit, and we never make guaranteed recovery, cure, or outcome claims." } }
     ]
   },
   {
@@ -46,19 +46,120 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Physiotherapy Content Marketing — Jraft Creative"
-  description="Content marketing for physiotherapy clinics in Singapore — patient education blogs, exercise guides, injury prevention articles, and treatment explainers."
+  title="Physiotherapy Content Marketing Agency Singapore"
+  description="Content marketing for physiotherapy clinics in Singapore — SEO blog articles, condition explainers, exercise guides, and email newsletters."
   canonical="https://jraftcreative.com/physiotherapy-content-marketing-singapore/"
-  ogTitle="Physiotherapy Content Marketing — Jraft Creative"
-  ogDescription="Patient education blogs, exercise guides, injury prevention content, and treatment explainers for physiotherapy clinics in Singapore. Build authority and attract patients organically."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="physiotherapy content marketing singapore, physio blog writing, physiotherapy SEO content, patient education content, physiotherapy article writing, exercise guide content, Jraft Creative"
+  ogTitle="Physiotherapy Content Marketing Agency Singapore"
+  ogDescription="SEO blog articles, condition explainers, exercise and rehab guides, and email newsletters for physiotherapy clinics in Singapore. Build authority and attract patients organically."
+  ogImage="https://jraftcreative.com/images/og-physiotherapy.jpg"
+  keywords="physiotherapy content marketing singapore, physio blog writing, physiotherapy SEO content, patient education content, condition explainer content, exercise guide content, physiotherapy thought leadership, physiotherapy newsletter content, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Physiotherapy Content Marketing"
-  heroTitle='Content Marketing for <span class="highlight">Physiotherapy Clinics</span> in Singapore'
-  heroSubtitle="Patients searching for answers to pain, injury, and recovery questions are your warmest leads. When your clinic publishes the expert content they find on Google, you become the physiotherapist they trust and book."
-  heroImage="/images/service-physiotherapy.webp"
+  heroTitle='Content Marketing for <span class="highlight">Physiotherapy Clinics in Singapore</span>'
+  heroSubtitle="Patients searching for answers to pain, injury, and recovery questions are your warmest leads. When your clinic consistently publishes the expert content they find on Google, you become the physiotherapist they trust and book — from Novena and Orchard to Tampines and Jurong."
+  heroImage="/images/hero-physiotherapy-poster.jpg"
+  heroImageAlt="Physiotherapy content marketing in Singapore"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
@@ -66,61 +167,92 @@ const schemaData = [
   whatsappText="Hi Jraft Creative, I need content marketing for my physiotherapy clinic in Singapore."
   ctaLabel="Ready to Become the Authority in Physiotherapy?"
   ctaTitle="Get a Content Strategy That Drives Patient Bookings"
-  ctaDescription="Book a free consultation and tell us about your physiotherapy clinic. We will put together a tailored content marketing proposal covering patient education, SEO articles, and lead generation — no obligations."
+  ctaDescription="Book a free consultation and tell us about your physiotherapy clinic. We will put together a tailored content marketing proposal covering patient education, SEO articles, and lead generation — no obligations, no hard sell."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20physiotherapy%20clinic%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
-  <!-- ========== CHALLENGE ========== -->
+  <!-- ========== THE CHALLENGE ========== -->
   <section class="section" id="challenge" aria-label="Content marketing challenges for physiotherapy clinics in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Your Patients Are Searching — But Finding Your Competitors</h2>
+        <h2>Your Patients Are <span class="highlight">Searching</span> — and Booking Whoever <span class="highlight">Answered First</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every day, thousands of people in Singapore search Google for answers to their pain and injury questions. "How to fix lower back pain," "ACL recovery timeline," "best exercises for tennis elbow," "physiotherapy for sciatica Singapore." These are people actively looking for the expertise your clinic provides. The question is whether they find your clinic — or a competitor who publishes the content that ranks.</p>
-        <p>Most physiotherapy clinics in Singapore treat their website as a static brochure — a list of services, a few practitioner bios, and a contact form. There is no blog, no patient education resources, no exercise guides. The result is a website invisible to the thousands of potential patients searching for exactly what your physiotherapists specialise in. Meanwhile, clinics that publish consistent, expert content are capturing this traffic, building trust, and converting readers into booked appointments.</p>
-        <p>Strategic content marketing changes this. By publishing well-researched, SEO-optimised patient education content — injury prevention guides, exercise tutorials, treatment explainers, recovery roadmaps — your clinic appears in search results at the exact moment patients need help. Over time, this content compounds. Each article continues driving traffic for months or years, building a growing pipeline of organic patient enquiries that reduces your dependence on paid advertising and referral networks.</p>
+        <p>Every day, thousands of people across Singapore search Google for answers to their pain and injury questions — "how to fix lower back pain", "sports injury clinic Novena", "does dry needling help neck pain", "physiotherapy for sciatica Tanjong Pagar". These are people actively looking for the expertise your clinic already provides. Whether they find you or a competitor in Orchard, Tampines, Jurong, Katong, or Bishan comes down to who publishes the content that ranks.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>Patients Research Before They Book</h3>
+            <p>Someone with a nagging shoulder or a post-op knee doesn't book on a whim. They read, self-diagnose, and compare clinics over days or weeks — checking conditions treated, approach, and reputation. Every question they Google is a chance for a competitor's article to earn their trust before your clinic is even in the running.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Clinical Expertise That Stays Unpublished</h3>
+            <p>Your physiotherapists know exactly how manual therapy eases a stiff neck, what post-op rehab looks like week by week, and when dry needling is worth considering. But if that knowledge lives only in the treatment room, patients never see it — and your website stays a static brochure that only converts people who already know your name.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Content Compounds — Ads Don't</h3>
+            <p>Paid ads stop the moment the budget does. A well-researched article on rehab after an ACL injury keeps ranking, keeps drawing patients, and keeps building authority for months or years. Content is the one channel that compounds — feeding your SEO and your trust signals at once, instead of renting attention by the click.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Physiotherapy content marketing services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Physiotherapy content marketing deliverables">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Content Marketing Services for Physiotherapy Clinics</h2>
+        <h2>Six <span class="highlight">Pillars</span> of Physiotherapy <span class="highlight">Content</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We produce content specifically for physiotherapy clinics in Singapore — clinically informed, patient-friendly, and optimised to rank on Google. Every article is researched for search demand, written for readability, and designed to position your clinic as the trusted authority patients choose when they are ready to book.</p>
+        <p>Physiotherapy content marketing isn't generic blogging. Patients search by condition, body part, sport, and life stage — and they reward the clinic that answers clearly and credibly. We build every piece around how Singapore patients actually research treatment, then wire each article into your <a href="/physiotherapy-seo-singapore/">physiotherapy SEO</a> and your <a href="/physiotherapy-social-media-singapore/">social media</a> so one piece of work pulls in three directions at once.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Patient Education Blog Articles</h3>
-            <p>SEO-optimised articles that answer the questions your patients ask — "What causes frozen shoulder?", "How long does ACL rehab take?", "When should I see a physiotherapist for back pain?" Each article is researched using clinical sources, written for a patient audience, and structured to rank on Google for high-intent search terms in Singapore.</p>
+            <h3>Content Strategy &amp; Topic Mapping</h3>
+            <p>We map the pain, injury, and rehab questions patients actually search across your specialties and catchment, then build a data-driven editorial calendar around them. Every topic is tied to real search demand and a stage of the booking journey — so nothing is published for the sake of it.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Exercise Guides &amp; Recovery Resources</h3>
-            <p>Comprehensive exercise guides, stretching routines, and post-treatment recovery plans that patients can follow at home. These downloadable resources serve as lead magnets — capturing patient email addresses while demonstrating your clinic's depth of knowledge. Ideal for conditions like rotator cuff injuries, knee replacements, and chronic back pain.</p>
+            <h3>Condition &amp; Injury Explainers</h3>
+            <p>The articles patients bookmark and share — clear explainers on lower back and neck pain, sports injuries, sciatica, frozen shoulder, and post-op recovery. Genuinely useful, clinically reviewed pieces that describe how physiotherapy can help, without ever promising a guaranteed outcome, and rank for high-intent condition searches.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
           <div class="service-detail-card__content">
-            <h3>Injury Prevention &amp; Wellness Content</h3>
-            <p>Proactive content targeting active Singaporeans — runners, gym-goers, office workers, weekend warriors. Articles on preventing common injuries, improving posture, managing desk-related pain, and preparing for events like the Standard Chartered Marathon. This content captures patients before they are injured, positioning your clinic as their go-to when issues arise.</p>
+            <h3>Exercise &amp; Rehab Guides</h3>
+            <p>Step-by-step exercise guides, stretching routines, and post-treatment recovery plans patients can follow at home — for rotator cuff strains, knee rehab, chronic back pain, and more. These double as lead magnets, capturing patient emails while showing the depth of knowledge behind your clinic.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-reels-video.webp');">
           <div class="service-detail-card__content">
-            <h3>Treatment Explainers &amp; Condition Pages</h3>
-            <p>Detailed pages explaining your treatment approaches — dry needling, manual therapy, shockwave therapy, sports rehabilitation, post-surgical recovery. These pages target patients searching for specific treatments in Singapore and convert them into appointment bookings by clearly explaining what to expect, who benefits, and what outcomes are achievable.</p>
+            <h3>Treatment Explainers &amp; Thought Leadership</h3>
+            <p>Content that turns your physiotherapists' expertise into pages patients understand — how dry needling, manual therapy, and sports rehabilitation actually work, who each approach may suit, and what to expect at a first session. Practitioner-led thought leadership that makes your clinic feel like the safe, credible choice.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-graphic-design.webp');">
+          <div class="service-detail-card__content">
+            <h3>Lead Magnets &amp; Email Newsletters</h3>
+            <p>Downloadable resources — desk-posture checklists, marathon-prep guides, return-to-sport plans — that capture patient emails, plus the newsletters that keep you front of mind. Content that doesn't just attract traffic, but turns anonymous readers into a list of prospective patients you can stay in touch with.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Content Distribution &amp; Repurposing</h3>
+            <p>One article becomes a social carousel, a newsletter feature, and a snippet for your Google Business Profile. We repurpose every piece across channels and report on traffic, rankings, and enquiries — so you see exactly which content is bringing patients through the door.</p>
           </div>
         </div>
       </div>
@@ -128,51 +260,80 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for physiotherapy content marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for physiotherapy content marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Physiotherapy Clinics Choose Us for Content</h2>
+        <h2>A <span class="highlight">Content Team</span> Built for <span class="highlight">Physiotherapy Clinics</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in content marketing for healthcare and wellness businesses in Singapore. Our team understands the patient journey, local search behaviour, and clinical sensitivity required for physiotherapy content. Here is what sets us apart:</p>
+        <p>We write for physiotherapy, allied health, and wellness clinics across Singapore — and we understand the patient audience, the booking cycle, and the clinical sensitivity physiotherapy content demands. It sits within our wider <a href="/industries/healthcare/">healthcare marketing in Singapore</a> practice, and pairs naturally with the fundamentals in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a>.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Healthcare Content Expertise</h3>
-            <p>We write for physiotherapy clinics, medical practices, and wellness businesses across Singapore. We understand clinical terminology, patient concerns, and the balance between accessible language and professional accuracy that healthcare content demands.</p>
+            <h3>Deep Allied-Health Expertise</h3>
+            <p>We know a runner with knee pain reads differently from an office worker with a stiff neck or a patient six weeks post-surgery. Content tailored to the concerns of each patient group — the worries, the language, and the terms that actually drive appointment enquiries in Singapore — written to sit comfortably beside AHPC-registered practice.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>SEO-First Content Approach</h3>
-            <p>Every article starts with keyword research and search intent analysis. We target the exact terms patients search when looking for physiotherapy in Singapore — condition-specific queries, treatment searches, and location-based terms that drive appointment bookings.</p>
+            <h3>SEO-First, Not Blog-for-Blog's-Sake</h3>
+            <p>Every piece begins with keyword research and search-intent analysis. We target the exact terms patients search when choosing a clinic, so your content marketing feeds your <a href="/physiotherapy-seo-singapore/">physiotherapy SEO</a> directly — compounding rankings instead of producing posts nobody finds.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Clinical Review Process</h3>
-            <p>All content is drafted, reviewed against clinical sources, and sent to your physiotherapists for approval before publication. This ensures every article meets your professional standards while remaining optimised for search engines and patient readability.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Transparent Reporting &amp; No Lock-ins</h3>
-            <p>Monthly performance reports showing traffic, rankings, engagement, and patient enquiries generated by your content. No long-term contracts — you see exactly what your content investment delivers and can adjust or cancel at any time.</p>
+            <h3>Clinical Review, One Team, All Channels</h3>
+            <p>Every draft is checked against clinical sources and sent to your physiotherapists for sign-off before it goes live. And because we also handle your <a href="/physiotherapy-seo-singapore/">SEO</a> and <a href="/physiotherapy-social-media-singapore/">social media</a> in-house, your articles feed search rankings and amplify across social under a single unified plan.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== BOOKING FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Patient Journey — where content fits">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Patient Journey</p>
+        <h2>Where <span class="highlight">Content</span> Fits the <span class="highlight">Patient Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Most patients move through the same five stages before booking. Content does its heaviest lifting in the first three — Discover, Validate, and Compare — answering questions and building trust long before someone is ready to enquire.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Articles rank for patient search queries</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Expert guides prove clinical credibility</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Compare</h3>
+          <p>Content tips the shortlist your way</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Consultation or first-session enquiry</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Start rehab, return &amp; refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about physiotherapy content marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about physiotherapy content marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Physiotherapy Content Marketing Questions Answered</h2>
+        <h2>Physiotherapy Content Marketing <span class="highlight">Questions Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
@@ -181,19 +342,19 @@ const schemaData = [
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>What type of content should a physiotherapy clinic publish?</summary>
-          <div class="faq-answer"><p>Physiotherapy clinics benefit most from patient education content — injury prevention guides, exercise tutorials, treatment explainers, recovery timelines, and condition-specific articles. Content answering questions like "how to recover from an ACL tear" or "best exercises for lower back pain" captures patients at the moment they are searching for help. This positions your clinic as the trusted expert before they even book an appointment.</p></div>
+          <div class="faq-answer"><p>Physiotherapy clinics benefit most from patient education content — condition explainers for back and neck pain, sports injury and post-op rehab guides, exercise and stretching routines, and explainers on approaches like dry needling and manual therapy. Content that answers what patients type into Google, such as how physiotherapy can help a frozen shoulder or which exercises support lower back pain, reaches people at the moment they are looking for help and positions your physiotherapists as the ones they trust.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>How does content marketing help a physiotherapy clinic get more patients?</summary>
-          <div class="faq-answer"><p>Content marketing drives patient bookings through three mechanisms. First, SEO-optimised articles rank on Google for terms patients search — "physiotherapy for frozen shoulder Singapore" or "sports injury clinic near me" — bringing qualified traffic to your website. Second, expert content builds trust and positions your physiotherapists as credible authorities. Third, downloadable exercise guides and newsletters capture contact details and nurture prospective patients until they are ready to book.</p></div>
+          <div class="faq-answer"><p>Content marketing supports patient bookings through three mechanisms. First, SEO-optimised articles rank on Google for terms patients search — "physiotherapy for sciatica Singapore" or "sports injury clinic near me" — bringing qualified traffic to your website. Second, expert content builds trust and positions your physiotherapists as credible, registered practitioners. Third, downloadable exercise guides and newsletters capture contact details and keep your clinic front of mind until a patient is ready to book. These are marketing outcomes — we never promise a specific recovery.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
           <summary>How long does it take for physiotherapy content marketing to show results?</summary>
-          <div class="faq-answer"><p>Most physiotherapy clinics see measurable increases in organic traffic within 3 to 4 months. SEO content compounds over time — a well-written article on knee rehabilitation can drive traffic for years without ongoing cost. Patient enquiries typically follow once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track progress against your patient acquisition goals.</p></div>
+          <div class="faq-answer"><p>Most physiotherapy clinics see measurable increases in organic traffic within 3 to 4 months. SEO content compounds over time — a well-researched article on knee rehabilitation can keep drawing traffic for years without ongoing cost. Enquiries typically follow once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track progress against your patient acquisition goals.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you write medically accurate content for physiotherapy?</summary>
-          <div class="faq-answer"><p>Yes. We research every article thoroughly using peer-reviewed sources and clinical guidelines. All content is written for a patient audience — clear, accessible, and actionable — while maintaining clinical accuracy. We also provide drafts for your physiotherapists to review before publication, ensuring everything aligns with your clinical expertise and professional standards.</p></div>
+          <summary>Can you write clinically accurate content for physiotherapy?</summary>
+          <div class="faq-answer"><p>Yes. We research every article using peer-reviewed sources and clinical guidelines, and write for a patient audience — clear, accessible, and practical. Every draft goes to your AHPC-registered physiotherapists for review before publication, so it aligns with your clinical judgement and professional standards. We describe how treatment approaches work and who they may suit, and we never make guaranteed recovery, cure, or outcome claims.</p></div>
         </details>
       </div>
     </div>
@@ -208,12 +369,10 @@ const schemaData = [
         <h2>More Physiotherapy Services</h2>
       </div>
       <div class="related-services-grid reveal">
-          <a href="/physiotherapy-website-singapore/" class="related-service-link">Physiotherapy Website Design</a>
-          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
           <a href="/physiotherapy-marketing-singapore/" class="related-service-link">Physiotherapy Marketing</a>
+          <a href="/physiotherapy-seo-singapore/" class="related-service-link">Physiotherapy SEO</a>
           <a href="/physiotherapy-social-media-singapore/" class="related-service-link">Physiotherapy Social Media</a>
-          <a href="/physiotherapy-google-ads-singapore/" class="related-service-link">Physiotherapy Google Ads</a>
-          <a href="/physiotherapy-branding-singapore/" class="related-service-link">Physiotherapy Branding</a>
+          <a href="/physiotherapy-ai-search-optimisation-singapore/" class="related-service-link">Physiotherapy GEO</a>
       </div>
     </div>
   </section>

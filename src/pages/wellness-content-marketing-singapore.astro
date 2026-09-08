@@ -7,7 +7,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wellness Content Marketing Singapore",
-    "description": "Content marketing for wellness businesses in Singapore — health blogs, fitness guides, nutrition articles, and holistic wellness content. Build authority and attract clients",
+    "description": "Content marketing for wellness centres in Singapore — educational articles, wellness guides, practitioner thought leadership, and SEO blog content. Build authority and attract bookings",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +29,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does content marketing cost for wellness businesses in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "What types of wellness businesses benefit from content marketing?", "acceptedAnswer": { "@type": "Answer", "text": "All segments of Singapore's wellness industry benefit from content marketing — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, mental health clinics, spas, nutrition consultancies, fitness trainers, and holistic health practitioners. Any wellness business that wants to attract clients through search engines and build authority in their niche needs content that targets what potential clients are actively searching for." } },
-      { "@type": "Question", "name": "What kind of content works best for wellness businesses?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective wellness content answers the questions your potential clients are already searching for on Google. This includes condition-specific guides, exercise tutorials, nutrition tips, treatment explainers, wellness routine recommendations, and comparison articles. For Singapore specifically, content addressing local concerns — humidity-related skin issues, desk-worker posture problems, stress management for professionals — performs particularly well." } },
-      { "@type": "Question", "name": "How long does it take for wellness content marketing to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness businesses see measurable increases in organic traffic within 3 to 4 months. SEO content has a compounding effect — articles that rank well continue driving traffic for years without ongoing cost. Client enquiries and bookings typically increase once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track the return on your content investment." } },
-      { "@type": "Question", "name": "Can content marketing work alongside my social media and ads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — and we strongly recommend integrating them. Blog content drives organic search rankings. Social media amplifies your content to wider audiences. Email newsletters nurture prospective clients. Paid ads can drive traffic to your best-performing content. We offer all these services in-house, which means your content strategy, SEO targets, social calendar, and ad campaigns are fully aligned under one plan." } }
+      { "@type": "Question", "name": "How much does content marketing cost for wellness centres in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "What kind of content works best for wellness centres?", "acceptedAnswer": { "@type": "Answer", "text": "The most effective wellness content answers the questions people search before they book — what a sound healing session feels like, how breathwork helps with stress, what to expect at a first meditation class, or how to choose a wellness retreat. Explainer guides, beginner articles, practitioner spotlights, and comparison pieces perform well. For Singapore specifically, content grounded in local context — a lunchtime meditation practice near the Tanjong Pagar offices, a weekend breathwork session in Dempsey, or a beginner's guide to studios around Orchard and Novena — tends to rank and resonate." } },
+      { "@type": "Question", "name": "How long does it take for wellness content marketing to show results?", "acceptedAnswer": { "@type": "Answer", "text": "Most wellness centres see measurable increases in organic traffic within 3 to 4 months. Content compounds — articles that rank keep drawing readers for years without ongoing ad spend. Booking enquiries typically rise once content begins ranking for terms like 'sound healing Singapore' or 'beginner breathwork class'. We provide monthly reporting from day one so you can see what the content delivers." } },
+      { "@type": "Question", "name": "Can content marketing work alongside my social media and ads?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — and we recommend integrating them. Blog content earns organic search rankings, social amplifies your best pieces to wider audiences, email newsletters nurture people who are still deciding, and paid ads can send traffic to content that already converts. We run all of these in-house, so your content plan, SEO targets, social calendar, and ad campaigns stay aligned under one strategy." } },
+      { "@type": "Question", "name": "Can you position our practitioners as thought leaders through content?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We produce practitioner-led content — authored guides, wellness trend commentary, teacher and coach spotlights, and in-depth explainers published under your practitioners' names. This builds individual authority, earns links from wellness communities and publications, and gives prospective clients confidence in the people behind your meditation, breathwork, sound healing, or coaching programmes." } }
     ]
   },
   {
@@ -47,81 +47,143 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+  .service-cta-section { background: var(--bg-alt) !important; }
+  .renovation-funnel { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 48px; }
+  .funnel-stage { position: relative; text-align: center; padding: 28px 20px; background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6); border: 1px solid rgba(73, 184, 137, 0.28); border-radius: 12px; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .funnel-stage:hover { transform: translateY(-4px); border-color: rgba(73, 184, 137, 0.55); box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3); }
+  .funnel-stage h3 { font-size: 1.05rem; font-weight: 600; color: var(--accent); margin: 0 0 8px 0; letter-spacing: -0.01em; }
+  .funnel-stage p { font-size: 0.82rem; color: var(--text); line-height: 1.5; margin: 0; }
+  .funnel-stage:not(:last-child)::after { content: '→'; position: absolute; right: -34px; top: 50%; transform: translateY(-50%); color: var(--accent); font-size: 1.6rem; font-weight: 500; z-index: 2; line-height: 1; opacity: 0.7; }
+  @media (max-width: 900px) { .renovation-funnel { grid-template-columns: repeat(2, 1fr); gap: 32px; } .funnel-stage:nth-child(2n)::after, .funnel-stage:last-child::after { display: none; } .funnel-stage:nth-child(2n-1)::after { right: -22px; } }
+  @media (max-width: 600px) { .renovation-funnel { grid-template-columns: 1fr; gap: 20px; } .funnel-stage::after { display: none; } }
+</style>
+
 <ServiceLayout
-  title="Wellness Content Marketing Singapore — Jraft Creative"
-  description="Content marketing for wellness businesses in Singapore — health blogs, fitness guides, nutrition articles, and holistic wellness content."
+  title="Content Marketing Agency for Wellness Centres"
+  description="Content marketing for wellness centres in Singapore — educational articles, wellness guides, practitioner thought leadership, and SEO blog content."
   canonical="https://jraftcreative.com/wellness-content-marketing-singapore/"
-  ogTitle="Wellness Content Marketing Singapore — Jraft Creative"
-  ogDescription="Health blogs, fitness guides, nutrition articles, and wellness content for health and fitness businesses in Singapore. Build authority and attract clients organically."
-  ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="wellness content marketing singapore, health content marketing, fitness blog writing, wellness SEO content, health article writing, wellness content strategy, Jraft Creative"
+  ogTitle="Content Marketing Agency for Wellness Centres"
+  ogDescription="Educational wellness articles, guides, and practitioner thought leadership for wellness centres in Singapore. Attract the right bookings organically."
+  ogImage="https://jraftcreative.com/images/og-wellness.jpg"
+  keywords="wellness content marketing singapore, wellness blog writing, meditation content strategy, breathwork content, wellness SEO content, wellness content agency, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wellness Content Marketing"
-  heroTitle='Content Marketing for <span class="highlight">Wellness Businesses</span> in Singapore'
-  heroSubtitle="Singaporeans spend over $2 billion annually on health and wellness. They research online before booking a class, choosing a clinic, or starting a programme. When your business publishes the expert content they find, you become the wellness provider they trust."
+  heroLabel="Content Marketing Agency for Wellness Centres"
+  heroTitle='Content Marketing Agency for <span class="highlight">Wellness Centres in Singapore</span>'
+  heroSubtitle="People read for weeks before they book a class, a session, or a retreat. When your centre publishes the calm, expert content they find on Google, you become the wellness space they trust — and the one they choose."
   heroImage="/images/service-wellness.webp"
+  heroImageAlt="Wellness content marketing in Singapore"
   heroButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See How We Work", href: "/process/", class: "btn btn-secondary" }
   ]}
-  whatsappText="Hi Jraft Creative, I need content marketing for my wellness business in Singapore."
+  whatsappText="Hi Jraft Creative, I need content marketing for my wellness centre in Singapore."
   ctaLabel="Ready to Build Authority in Wellness?"
-  ctaTitle="Get a Content Strategy That Drives Client Bookings"
-  ctaDescription="Book a free consultation and tell us about your wellness business. We will design a tailored content marketing strategy covering SEO articles, client guides, and lead generation — no obligations."
+  ctaTitle="Get a Content Strategy That Drives Bookings"
+  ctaDescription="Book a free consultation and tell us about your wellness centre. We will design a tailored content marketing strategy covering educational articles, SEO, and lead generation — no obligations."
   ctaButtons={[
     { text: "Get a Free Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20wellness%20business%20in%20Singapore.", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20content%20marketing%20for%20my%20wellness%20centre%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
 >
 
-  <!-- ========== CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Content marketing challenges for wellness businesses in Singapore">
+  <!-- ========== THE CHALLENGE ========== -->
+  <section class="section" id="challenge" aria-label="Content marketing challenges for wellness centres in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>A Crowded Market Where Visibility Decides Who Wins</h2>
+        <h2>People Research a <span class="highlight">Practice</span> Long Before They Ever <span class="highlight">Book</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore's wellness industry is booming — yoga studios, pilates centres, physiotherapy clinics, TCM practices, gyms, mental health services, and holistic health providers are all competing for the same health-conscious audience. Potential clients research extensively online before committing. They search for "best yoga studio in Singapore," "how to relieve neck pain from desk work," "benefits of acupuncture for anxiety," and "strength training for beginners." The wellness businesses that answer these questions are the ones capturing organic traffic and converting searchers into paying clients.</p>
-        <p>Most wellness businesses in Singapore rely on Instagram posts and word-of-mouth alone. While social media has its place, it does not capture search traffic. A beautifully curated Instagram feed will not appear when someone searches Google for "physiotherapy for runner's knee" or "prenatal yoga classes Bukit Timah." That traffic goes to whoever publishes the SEO-optimised content that ranks — and if you are not publishing, it goes to your competitors.</p>
-        <p>Strategic content marketing fills this gap. By consistently publishing expert articles, wellness guides, and educational resources optimised for search engines, your business becomes visible to potential clients at the exact moment they are looking for help. This content works around the clock, compounds over time, and builds a growing pipeline of organic enquiries that reduces your dependence on paid advertising and social media algorithms.</p>
+        <p>Someone curious about meditation, breathwork or sound healing spends weeks reading first. The centre that published the answer earns the booking.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Research Happens on Google</h3>
+            <p>"What is sound healing", "breathwork for stress", "beginner meditation class Singapore" — searches your Instagram grid will never appear for.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>Social &amp; Ads Miss This Traffic</h3>
+            <p>A serene feed doesn't rank for "wellness retreat near Dempsey" or "lunchtime meditation Tanjong Pagar". That intent goes to whoever ranks.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Content Compounds, Ads Don't</h3>
+            <p>Published guides keep earning enquiries for years and pre-qualify visitors — easing your reliance on paid ads and the algorithm.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== SUB-SERVICES ========== -->
-  <section class="section" id="sub-services" aria-label="Wellness content marketing services overview">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Wellness content marketing services overview">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Deliver</p>
-        <h2>Content Marketing Services for Wellness Businesses</h2>
+        <h2>Six <span class="highlight">Content Workstreams</span> for Wellness <span class="highlight">Centres</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We produce content for every segment of Singapore's wellness industry — from fitness studios and physiotherapy clinics to mental health practices and holistic health providers. Every piece is researched for search demand, optimised for Google rankings, and written to build the trust that converts readers into booked clients.</p>
+        <p>Warm, accurate, and built to rank — content that earns the right visitors from search and feeds your <a href="/wellness-seo-singapore/">wellness SEO</a> and <a href="/wellness-social-media-marketing-singapore/">social media</a>.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-copywriting.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-copywriting.webp');">
           <div class="service-detail-card__content">
-            <h3>SEO Blog Articles &amp; Health Guides</h3>
-            <p>A data-driven editorial calendar built around the keywords your target audience searches. We plan topics mapped to the client decision journey — from early research through to comparison and booking — and produce SEO-optimised articles that rank on Google and drive qualified traffic to your wellness business month after month.</p>
+            <h3>Educational Wellness Articles</h3>
+            <p>Clear guides on meditation, breathwork, sound healing and coaching — how a session works, what to expect, and how to begin — answering the exact questions people ask before booking.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-business-website.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-content-strategy.webp');">
           <div class="service-detail-card__content">
-            <h3>Downloadable Wellness Resources</h3>
-            <p>Comprehensive guides, checklists, and resource packs — beginner workout plans, meal prep guides, stress management toolkits, and condition-specific recovery resources. These downloadable assets capture email addresses, demonstrate your expertise, and serve as lead magnets for advertising campaigns targeting health-conscious Singaporeans.</p>
+            <h3>Practitioner Thought Leadership</h3>
+            <p>Authored articles under your teachers' and coaches' names — perspective and practice-led commentary that builds individual authority and trust.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-seo-audit.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-seo-audit.webp');">
           <div class="service-detail-card__content">
-            <h3>Thought Leadership &amp; Expert Content</h3>
-            <p>Position your founders, practitioners, and trainers as industry authorities. We produce expert opinion pieces, wellness trend commentary, practitioner spotlights, and in-depth guides that build credibility with potential clients and earn backlinks from health publications and wellness communities in Singapore.</p>
+            <h3>SEO Blog &amp; FAQ</h3>
+            <p>Search-optimised blog posts plus structured FAQ built to win featured snippets for the questions newcomers ask about your practices.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-campaign-analytics.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Email Newsletter &amp; Nurture Content</h3>
-            <p>Regular newsletters featuring wellness tips, programme updates, success stories, and seasonal health content. Keeps your business top-of-mind with existing clients and nurtures prospective clients through their decision-making process — from initial interest to booked appointment or class registration.</p>
+            <h3>Wellness Guides &amp; Resources</h3>
+            <p>Downloadable guides and toolkits — a beginner's breathwork guide, a retreat prep checklist, a home meditation starter — that capture emails and show your depth.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>Search-Intent Keyword Strategy</h3>
+            <p>Every piece starts from what people actually search, mapped to the classes, sessions and retreats you most want to fill across Orchard, Bugis, Holland Village and beyond.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-campaign-analytics.webp');">
+          <div class="service-detail-card__content">
+            <h3>Email Newsletters</h3>
+            <p>Warm, useful newsletters — seasonal wellness tips, programme updates, member stories — that keep your centre top of mind and turn readers into bookings.</p>
           </div>
         </div>
       </div>
@@ -129,78 +191,96 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wellness content marketing">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wellness content marketing">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Wellness Businesses Choose Us for Content</h2>
+        <h2>A <span class="highlight">Content Agency</span> That Understands <span class="highlight">Holistic Wellness</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We specialise in content marketing for Singapore's health and wellness sector. Our team understands the client journey, local search behaviour, and industry nuances that make wellness content effective. Here is what sets us apart:</p>
+        <p>Effective wellness content holds the reader's journey, a calm brand voice, and honest, non-hyped substance all at once.</p>
       </div>
-      <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wellness Industry Specialisation</h3>
-            <p>We write for yoga studios, gyms, physiotherapy clinics, TCM practices, mental health services, and wellness providers across Singapore. We understand each segment's unique audience — the concerns, the decision triggers, and the search terms that actually drive client acquisition in this market.</p>
+            <h3>Wellness Specialisation</h3>
+            <p>We write for meditation studios, breathwork and sound healing spaces, wellness coaches and retreats — we know the language that draws newcomers without overclaiming.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
             <h3>SEO-First Content Strategy</h3>
-            <p>Every piece of content starts with keyword research and search intent analysis. We do not write blog posts for the sake of it — we target the exact terms potential clients search when making wellness decisions. Content marketing integrates directly with your broader SEO and digital marketing strategy for compounding results.</p>
+            <p>Every piece starts with keyword and intent research and feeds your <a href="/wellness-seo-singapore/">wellness SEO</a> for compounding results.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Transparent Reporting &amp; No Lock-ins</h3>
-            <p>Monthly performance reports showing traffic, rankings, engagement, and client enquiries generated by your content. No long-term contracts — you see exactly what your content investment delivers each month, and you can adjust or cancel at any time.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full-Service Digital Marketing</h3>
-            <p>Content marketing is most effective alongside SEO, social media, and paid ads. We offer all services in-house, so your content feeds your search rankings, amplifies through social channels, and provides landing pages for your paid campaigns — all under a single unified strategy.</p>
+            <h3>Reported on Bookings</h3>
+            <p>Monthly reporting on traffic, rankings and booking enquiries generated — you see exactly what the content delivers.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== BOOKING JOURNEY FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="Where content fits the wellness booking journey">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Booking Journey</p>
+        <h2>Where <span class="highlight">Content</span> Fits the <span class="highlight">Booking Journey</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Content owns the earliest and longest part of the journey — where a curious reader first discovers you through a search, then reads enough to trust your centre before comparing options. It is one channel within full-service <a href="/industries/healthcare/">healthcare and wellness marketing</a>, and it pairs naturally with the ideas in our guide to <a href="/blog/social-media-marketing-singapore/">social media marketing in Singapore</a>.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage"><h3>Discover</h3><p>A wellness search finds your article</p></li>
+        <li class="funnel-stage"><h3>Research</h3><p>Guides answer the detail and build trust</p></li>
+        <li class="funnel-stage"><h3>Compare</h3><p>Authority content weighs you above others</p></li>
+        <li class="funnel-stage"><h3>Book</h3><p>A settled reader books, already convinced</p></li>
+        <li class="funnel-stage"><h3>Attend</h3><p>A confident first visit, then return &amp; referral</p></li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wellness content marketing in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about wellness content marketing in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wellness Content Marketing Questions Answered</h2>
+        <h2>Wellness <span class="highlight">Content Marketing</span> Questions Answered</h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does content marketing cost for wellness businesses in Singapore?</summary>
+          <summary>How much does content marketing cost for wellness centres in Singapore?</summary>
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>What types of wellness businesses benefit from content marketing?</summary>
-          <div class="faq-answer"><p>All segments of Singapore's wellness industry benefit from content marketing — yoga studios, pilates studios, gyms, physiotherapy clinics, TCM practices, mental health clinics, spas, nutrition consultancies, fitness trainers, and holistic health practitioners. Any wellness business that wants to attract clients through search engines and build authority in their niche needs content that targets what potential clients are actively searching for.</p></div>
+          <summary>What kind of content works best for wellness centres?</summary>
+          <div class="faq-answer"><p>The most effective wellness content answers the questions people search before they book — what a sound healing session feels like, how breathwork helps with stress, what to expect at a first meditation class, or how to choose a wellness retreat. Explainer guides, beginner articles, practitioner spotlights, and comparison pieces perform well. For Singapore specifically, content grounded in local context — a lunchtime meditation practice near the Tanjong Pagar offices, a weekend breathwork session in Dempsey, or a beginner's guide to studios around Orchard and Novena — tends to rank and resonate.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>What kind of content works best for wellness businesses?</summary>
-          <div class="faq-answer"><p>The most effective wellness content answers the questions your potential clients are already searching for on Google. This includes condition-specific guides, exercise tutorials, nutrition tips, treatment explainers, wellness routine recommendations, and comparison articles. For Singapore specifically, content addressing local concerns — humidity-related issues, desk-worker health problems, stress management for professionals — performs particularly well.</p></div>
+          <summary>How long does it take for wellness content marketing to show results?</summary>
+          <div class="faq-answer"><p>Most wellness centres see measurable increases in organic traffic within 3 to 4 months. Content compounds — articles that rank keep drawing readers for years without ongoing ad spend. Booking enquiries typically rise once content begins ranking for terms like "sound healing Singapore" or "beginner breathwork class". We provide monthly reporting from day one so you can see what the content delivers.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How long does it take for wellness content marketing to show results?</summary>
-          <div class="faq-answer"><p>Most wellness businesses see measurable increases in organic traffic within 3 to 4 months. SEO content has a compounding effect — articles that rank well continue driving traffic for years without ongoing cost. Client enquiries and bookings typically increase once content begins ranking for high-intent keywords. We provide monthly reporting from day one so you can track the return on your content investment.</p></div>
+          <summary>Can content marketing work alongside my social media and ads?</summary>
+          <div class="faq-answer"><p>Yes — and we recommend integrating them. Blog content earns organic search rankings, social amplifies your best pieces to wider audiences, email newsletters nurture people who are still deciding, and paid ads can send traffic to content that already converts. We run all of these in-house, so your content plan, SEO targets, social calendar, and ad campaigns stay aligned under one strategy.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can content marketing work alongside my social media and ads?</summary>
-          <div class="faq-answer"><p>Yes — and we strongly recommend integrating them. Blog content drives organic search rankings. Social media amplifies your content to wider audiences. Email newsletters nurture prospective clients. Paid ads can drive traffic to your best-performing content. We offer all these services in-house, which means your content strategy, SEO targets, social calendar, and ad campaigns are fully aligned under one plan.</p></div>
+          <summary>Can you position our practitioners as thought leaders through content?</summary>
+          <div class="faq-answer"><p>Yes. We produce practitioner-led content — authored guides, wellness trend commentary, teacher and coach spotlights, and in-depth explainers published under your practitioners' names. This builds individual authority, earns links from wellness communities and publications, and gives prospective clients confidence in the people behind your meditation, breathwork, sound healing, or coaching programmes.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="content" />
+  <RelatedServices heading="Explore More Wellness Services" links={[
+    { href: '/wellness-marketing-agency-singapore/', label: 'Wellness Marketing' },
+    { href: '/wellness-seo-singapore/', label: 'Wellness SEO' },
+    { href: '/wellness-social-media-marketing-singapore/', label: 'Wellness Social Media' },
+    { href: '/wellness-ai-search-optimisation-singapore/', label: 'Wellness GEO' },
+  ]} />
 
 </ServiceLayout>
