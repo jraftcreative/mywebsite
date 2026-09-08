@@ -1,13 +1,13 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import RelatedServices from '../components/RelatedServices.astro';
+import MarketingFunnelBlock from '../components/MarketingFunnelBlock.astro';
 
 const schemaData = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Wedding Website Design Singapore",
-    "description": "Professional website design for wedding planners, bridal studios, venues, and photographers in Singapore. Portfolio galleries, package pages, enquiry forms, and vendor showcase.",
+    "description": "Website design for wedding planners, bridal studios, venues, and photographers in Singapore. Portfolio galleries, package pages, and enquiry and consultation booking.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -29,11 +29,11 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "How much does a wedding website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you build a website for a bridal studio or wedding venue?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build websites for all wedding industry businesses in Singapore — bridal studios, wedding venues, planners, photographers, florists, and caterers. Each site is tailored to showcase your services, past events, and pricing packages in a way that converts browsing couples into confirmed bookings." } },
-      { "@type": "Question", "name": "Will the website include a portfolio gallery for past weddings?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every wedding website we build features full-width, high-resolution portfolio galleries organised by event or style. We optimise all images for fast loading without compromising visual quality — critical for photography-heavy wedding businesses where visuals drive buying decisions." } },
-      { "@type": "Question", "name": "Can couples submit enquiry forms or book consultations through the website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build custom enquiry forms that capture event date, guest count, preferred package, and budget range. Couples can request quotes or book consultations directly from your website, with automated confirmation emails sent to both you and the client." } },
-      { "@type": "Question", "name": "How long does it take to build a wedding business website?", "acceptedAnswer": { "@type": "Answer", "text": "Most wedding business websites go live within 2-3 weeks. A simple 5-page site can be ready in 2 weeks, while larger projects with client portals or vendor directories may take 3-4 weeks. We provide a clear timeline before starting." } }
+      { "@type": "Question", "name": "How much does a wedding business website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
+      { "@type": "Question", "name": "Can you build a website for a bridal studio or wedding venue?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build websites for every kind of wedding business in Singapore — bridal studios, venues, planners, photographers, and florists. Each site is tailored to showcase your work, your packages, and your past events in a way that turns browsing couples into confirmed enquiries." } },
+      { "@type": "Question", "name": "Will the website include a portfolio gallery for past weddings?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every wedding website we build features full-width, high-resolution portfolio galleries organised by event or style. We optimise all images for fast loading without compromising visual quality — critical for photography-heavy wedding businesses where visuals drive the decision." } },
+      { "@type": "Question", "name": "Can couples submit enquiries or book consultations through the website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build custom enquiry forms that capture event date, guest count, preferred package, and venue, plus consultation booking so couples can pick a time and describe their day. Automated confirmations go to both you and the couple, so no enquiry is lost overnight." } },
+      { "@type": "Question", "name": "How long does it take to build a wedding business website?", "acceptedAnswer": { "@type": "Answer", "text": "Most wedding business websites go live within 2-3 weeks. A simple portfolio and enquiry site can be ready in 2 weeks, while larger projects with package microsites or vendor directories may take 3-4 weeks. We provide a clear timeline before starting." } }
     ]
   },
   {
@@ -47,26 +47,148 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Force 3x2 grid on desktop for the deliver section per locked landing-page pattern */
+  #sub-services .deliver-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  #sub-services {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+  @media (max-width: 900px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    #sub-services .deliver-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Renovation Buyer Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
-  title="Wedding Website Design Singapore — Show Your Best Work"
-  description="Websites for Singapore wedding planners, venues, bridal studios and photographers — portfolio galleries, package pages and enquiry forms that book."
+  title="Wedding Website Design Singapore — Jraft Creative"
+  description="Website design for Singapore wedding planners, venues, bridal studios and photographers — portfolio galleries, package pages and enquiry booking."
   canonical="https://jraftcreative.com/wedding-website-design-singapore/"
-  ogTitle="Wedding Website Design Singapore — Show Your Best Work"
-  ogDescription="Websites for Singapore wedding planners, venues, bridal studios and photographers — portfolio galleries, package pages and enquiry forms that book."
+  ogTitle="Wedding Website Design Singapore — Jraft Creative"
+  ogDescription="Website design for Singapore wedding planners, venues, bridal studios and photographers — portfolio galleries, package pages and enquiry booking."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
   keywords="wedding website design singapore, bridal studio website design, wedding planner website, wedding venue website singapore, wedding photographer website, wedding web design singapore, Jraft Creative"
   schemaData={schemaData}
-  heroLabel="Wedding Website Design"
-  heroTitle='Website Design for <span class="highlight">Wedding Businesses</span>'
-  heroSubtitle="Couples plan their entire wedding online — comparing venues, shortlisting photographers, and requesting quotes before they ever pick up the phone. We build stunning, conversion-focused websites for wedding planners, bridal studios, venues, and photographers across Singapore."
+  heroLabel="Wedding Business Websites"
+  heroTitle='Website Design for <span class="highlight">Wedding Businesses in Singapore</span>'
+  heroSubtitle="Couples plan the whole wedding online — comparing venues, shortlisting photographers, and requesting quotes before they ever pick up the phone. We build stunning, mobile-first websites for wedding planners, bridal studios, venues, and photographers across Singapore — with portfolio galleries, package pages, and enquiry booking built in."
   heroImage="/images/service-wedding.webp"
+  heroImageAlt="Wedding business website in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
-    { text: "See Our Work", href: "/about/", class: "btn btn-secondary" }
+    { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20website%20for%20my%20wedding%20business%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
   whatsappText="Hi Jraft Creative, I need a website for my wedding business in Singapore."
   ctaLabel="Ready to Get Started?"
-  ctaTitle="Get Your Wedding Business Online"
+  ctaTitle='Show Your <span class="highlight">Best Weddings</span> Online'
   ctaDescription="Book a free consultation and tell us about your wedding business. We'll get back to you within 24 hours with a tailored proposal."
   ctaButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
@@ -79,50 +201,79 @@ const schemaData = [
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Couples Are Choosing Wedding Vendors Based on What They Find Online</h2>
+        <h2>Couples Plan on <span class="highlight">Instagram</span> — Then They <span class="highlight">Google You</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Singapore couples plan their weddings digitally. Before they walk into a bridal studio or schedule a venue tour, they've already scrolled through dozens of portfolios, compared package prices, and read reviews on Google and social media. If your wedding business doesn't show up in search results — or your website looks dated and disorganised — couples move on to the next vendor on their shortlist. Your portfolio and pricing need to speak for you before you ever meet a client face to face.</p>
-        <p>An Instagram feed or listing on a wedding directory isn't enough. Couples want a single destination where they can browse your full portfolio by style and venue, compare packages at their own pace, and submit an enquiry at midnight without waiting for a reply the next business day. They want to picture their own wedding through your past work — and your website is where that emotional connection starts.</p>
-        <p>The Singapore wedding industry is competitive. From Raffles Hotel to boutique garden venues in Dempsey, from luxury bridal ateliers on Orchard Road to independent planners working HDB solemnisations, every wedding vendor is fighting for the same pool of engaged couples. Whether you're a photographer, planner, florist, or venue operator, your website is the storefront that determines whether couples enquire or keep scrolling.</p>
+        <p>Engaged couples discover vendors on Instagram, Pinterest, and wedding directories, then do what every serious buyer does — they Google your name. If your site does not back up the feed, you lose the enquiry to a vendor whose site does.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>The Directory-to-Google Handoff</h3>
+            <p>Couples find you on a wedding directory or a friend's tagged photo, then Google your business to vet you. A dated site with a scattered gallery and a bare contact form does not give them the confidence to enquire — they bounce back and pick the vendor whose site closed the loop.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>The Gallery-as-Dump Trap</h3>
+            <p>Most wedding sites treat the portfolio as an afterthought — one giant unsorted image grid, no styling context, no way to filter by venue or event type. Couples want to browse by look and location, picture their own day, and see the packages that come with the work.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>The Mobile-Last Mistake</h3>
+            <p>Couples research on their phones — late-night scrolls, lunch-break shortlisting, side-by-side comparisons in bed. A desktop-first site with heavy images, tiny tap targets, and galleries that break on mobile loses enquiries the vendor never sees.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Wedding website design services">
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Wedding website design services">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">What We Build</p>
-        <h2>What We Build for Wedding Businesses</h2>
+        <h2>Six <span class="highlight">Conversion Features</span> Every Wedding Site <span class="highlight">Needs</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every wedding website we deliver is purpose-built for the bridal and events industry. We go beyond generic templates — your site will feature full-resolution portfolio galleries, structured package pages, client testimonials, and local SEO so couples searching "wedding planner Singapore" or "bridal studio near me" find your business first.</p>
-        <p>We understand that wedding businesses need more than just a website. That's why we offer a full digital package: pair your new site with <a href="/services/seo-performance/">SEO services</a> to dominate wedding-related searches, <a href="/services/social-media/">social media marketing</a> to showcase real weddings and build engagement, and <a href="/services/paid-ads/">paid ads management</a> to drive enquiries from Google and social platforms.</p>
+        <p>Every wedding website we deliver is purpose-built for the bridal and events industry — full-resolution portfolio galleries, structured package pages, enquiry and consultation booking, and pages Google can index. It is <a href="/services/website-development/">website development</a> built around how couples actually shop, and it plugs into our wider <a href="/industries/creative-events/">creative and events marketing</a> so every enquiry has somewhere to land.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
             <h3>Portfolio &amp; Gallery Pages</h3>
-            <p>Full-width, high-resolution galleries organised by wedding style, venue, or event type. We optimise every image for fast loading without sacrificing visual quality — so couples can browse your best work on any device and immediately picture what you can do for their special day.</p>
+            <p>Full-width, high-resolution galleries organised by style, venue, or event type. Every image is optimised for fast loading without sacrificing quality — so couples can browse your best work on any device and immediately picture what you would do for their day.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-landing-page.webp');">
           <div class="service-detail-card__content">
-            <h3>Package &amp; Pricing Pages</h3>
-            <p>Clearly structured pages that lay out your service tiers, inclusions, add-ons, and starting prices. Couples want to self-qualify before they reach out — transparent pricing pages reduce unqualified enquiries and attract clients whose budget matches your services.</p>
+            <h3>Package Pages</h3>
+            <p>Clearly structured pages that lay out your service tiers, inclusions, and add-ons so couples can self-qualify before they reach out. Package pages set expectations early, cut down unqualified enquiries, and attract the couples whose plans match your work.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Enquiry &amp; Booking Forms</h3>
-            <p>Custom forms that capture event date, guest count, preferred package, venue, and budget range. Couples can request a quote or book a consultation directly from your website, with automated confirmation emails sent to both you and the client — no leads lost overnight.</p>
+            <h3>Enquiry &amp; Consultation Booking</h3>
+            <p>Custom forms that capture event date, guest count, preferred package, and venue, plus consultation booking so couples can pick a time and describe their day. Automated confirmations reach both you and the couple — no enquiry lost overnight.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
             <h3>Testimonials &amp; Vendor Showcase</h3>
-            <p>Dedicated sections for client testimonials, real wedding features, and preferred vendor partnerships. Social proof from past couples and cross-links to collaborating vendors build trust and position your business as a connected, established name in the Singapore wedding scene.</p>
+            <p>Dedicated sections for couple testimonials, real wedding features, and preferred vendor partnerships. Social proof from past clients and cross-links to collaborating vendors build trust and position you as an established name in the Singapore wedding scene.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
+          <div class="service-detail-card__content">
+            <h3>SEO &amp; Neighbourhood Pages</h3>
+            <p>Built on a structure Google can index — clean schema, sitemap, fast mobile loads, and optional area pages for Orchard, Tanjong Pagar, Bugis, Tampines, Katong, and Sentosa, where couples search for venues, studios, and photographers near them.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile Speed &amp; Core Web Vitals</h3>
+            <p>Every site we build is mobile-first with fast load times, thumb-friendly navigation, and image optimisation. Couples research on their phones — a gallery that lags on a phone loses the enquiry before it ever lands in your inbox.</p>
           </div>
         </div>
       </div>
@@ -130,83 +281,126 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for wedding website design">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for wedding website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Wedding Website Design</h2>
+        <h2><span class="highlight">Websites</span> Built for How <span class="highlight">Couples</span> Actually Book</h2>
       </div>
       <div class="section-content reveal">
-        <p>We've built websites for creative and service-based businesses across Singapore. We know what makes couples trust a wedding vendor online — and we design every element of your website to convert browsing visitors into confirmed consultation bookings and signed contracts.</p>
+        <p>We have built websites for creative and service-based businesses across Singapore. We know what makes couples trust a wedding vendor online — and we design every element of your site around turning browsers into booked consultations.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Wedding Industry Knowledge</h3>
-            <p>We understand the Singapore wedding market — seasonal booking cycles, ROM and solemnisation workflows, vendor collaboration dynamics, and the decision-making journey of engaged couples. Your website will be built around how the wedding industry actually works.</p>
+            <h3>Wedding-Industry Experience</h3>
+            <p>We understand the Singapore wedding market — seasonal booking cycles, ROM and solemnisation workflows, vendor collaboration, and the way engaged couples decide. Your site is built around how the industry actually works, not a generic template.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Fast Turnaround — 2 Weeks</h3>
-            <p>Most wedding business websites go live within 2 weeks of kickoff. We know timing matters when you're preparing for peak wedding season or launching a new venue or service offering.</p>
+            <h3>Visual-First, Fast Build</h3>
+            <p>Wedding businesses sell through imagery, and most sites go live within two weeks of kickoff. We put large-format visuals and smooth galleries front and centre, so your photography takes the spotlight on desktop and mobile — right when you need it for peak season.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
-          <div class="service-detail-card__content">
-            <h3>Visual-First Design</h3>
-            <p>Wedding businesses sell through imagery. Every site we build prioritises large-format visuals, smooth gallery navigation, and fast image loading — so your photography and styling work takes centre stage on desktop and mobile.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
             <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on delivering unforgettable weddings for your clients.</p>
+            <p>Website, SEO, social media, and paid ads under one roof. We can handle your entire online presence so you can focus on delivering unforgettable weddings — not coordinating three separate vendors.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== WEDDING BUYER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The wedding buyer funnel — how Singapore couples choose a vendor">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Buyer Funnel</p>
+        <h2>How <span class="highlight">Couples</span> Actually <span class="highlight">Choose a Vendor</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>From engagement to a signed contract, every couple in Singapore moves through the same five stages — and your website is the asset that wins the enquiry at each one. It is worth knowing what separates a site that books from one that just sits there; here is what makes a <a href="/blog/good-business-website-singapore/">good business website</a>.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Inspiration</h3>
+          <p>Pinterest, IG Reels, TikTok, real-wedding features</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Shortlist</h3>
+          <p>Google, directories, reviews, tagged photos</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Quote requests to 3–5 vendors</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Consult</h3>
+          <p>Venue tours and vendor meetings</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Book</h3>
+          <p>Deposit paid, contract signed</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about wedding website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about wedding website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
-        <h2>Wedding Website Design Questions Answered</h2>
+        <h2><span class="highlight">Wedding Website Design</span> — Questions <span class="highlight">Answered</span></h2>
       </div>
       <div class="faq-list">
         <details class="faq-item reveal reveal-d1">
-          <summary>How much does a wedding website cost in Singapore?</summary>
+          <summary>How much does a wedding business website cost in Singapore?</summary>
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>Can you build a website for a bridal studio or wedding venue?</summary>
-          <div class="faq-answer"><p>Yes. We build websites for all wedding industry businesses in Singapore — bridal studios, wedding venues, planners, photographers, florists, and caterers. Each site is tailored to showcase your services, past events, and pricing packages in a way that converts browsing couples into confirmed bookings.</p></div>
+          <div class="faq-answer"><p>Yes. We build websites for every kind of wedding business in Singapore — bridal studios, venues, planners, photographers, and florists. Each site is tailored to showcase your work, your packages, and your past events in a way that turns browsing couples into confirmed enquiries.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
           <summary>Will the website include a portfolio gallery for past weddings?</summary>
-          <div class="faq-answer"><p>Absolutely. Every wedding website we build features full-width, high-resolution portfolio galleries organised by event or style. We optimise all images for fast loading without compromising visual quality — critical for photography-heavy wedding businesses where visuals drive buying decisions.</p></div>
+          <div class="faq-answer"><p>Absolutely. Every wedding website we build features full-width, high-resolution portfolio galleries organised by event or style. We optimise all images for fast loading without compromising visual quality — critical for photography-heavy wedding businesses where visuals drive the decision.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>Can couples submit enquiry forms or book consultations through the website?</summary>
-          <div class="faq-answer"><p>Yes. We build custom enquiry forms that capture event date, guest count, preferred package, and budget range. Couples can request quotes or book consultations directly from your website, with automated confirmation emails sent to both you and the client.</p></div>
+          <summary>Can couples submit enquiries or book consultations through the website?</summary>
+          <div class="faq-answer"><p>Yes. We build custom enquiry forms that capture event date, guest count, preferred package, and venue, plus consultation booking so couples can pick a time and describe their day. Automated confirmations go to both you and the couple, so no enquiry is lost overnight.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
           <summary>How long does it take to build a wedding business website?</summary>
-          <div class="faq-answer"><p>Most wedding business websites go live within 2-3 weeks. A simple 5-page site can be ready in 2 weeks, while larger projects with client portals or vendor directories may take 3-4 weeks. We provide a clear timeline before starting.</p></div>
+          <div class="faq-answer"><p>Most wedding business websites go live within 2-3 weeks. A simple portfolio and enquiry site can be ready in 2 weeks, while larger projects with package microsites or vendor directories may take 3-4 weeks. We provide a clear timeline before starting.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices links={[
-    { href: '/wedding-marketing-singapore/', label: 'Wedding Marketing' },
-    { href: '/event-company-marketing-singapore/', label: 'Event Company Marketing' },
-    { href: '/branding-agency-singapore/', label: 'Branding Agency' },
-    { href: '/services/social-media/', label: 'Social Media Marketing' },
-  ]} />
+  <!-- Related Services -->
+  <section class="section" id="related-services" aria-label="Related services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Explore More</p>
+        <h2>More <span class="highlight">Wedding Business</span> Services</h2>
+      </div>
+      <div class="related-services-grid reveal">
+          <a href="/industries/creative-events/" class="related-service-link">Creative &amp; Events Marketing</a>
+          <a href="/services/website-development/" class="related-service-link">Website Development</a>
+          <a href="/services/seo-performance/" class="related-service-link">SEO &amp; Performance</a>
+          <a href="/services/social-media/" class="related-service-link">Social Media</a>
+      </div>
+    </div>
+  </section>
 
+  <MarketingFunnelBlock
+    industry="wedding business"
+    marketingHref="/wedding-marketing-singapore/"
+    outcomeLine="See how we'd fill your enquiry pipeline"
+    ctaText="Wedding Marketing Singapore"
+  />
 </ServiceLayout>

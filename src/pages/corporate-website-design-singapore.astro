@@ -7,7 +7,7 @@ const schemaData = [
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Corporate Website Design Singapore",
-    "description": "Professional corporate website design in Singapore. Enterprise sites, investor relations pages, careers portals, and multi-department architectures that project brand authority — custom-quoted to your scope.",
+    "description": "Professional corporate website design in Singapore for SMEs and enterprises. Company profile, investor and careers pages, multi-language, and CMS builds that project credibility.",
     "provider": {
       "@type": "Organization",
       "name": "Jraft Creative",
@@ -30,10 +30,10 @@ const schemaData = [
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "How much does a corporate website cost in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote." } },
-      { "@type": "Question", "name": "Can you build an investor relations section on our corporate website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build dedicated investor relations pages with annual report hosting, financial highlights, corporate governance disclosures, and shareholder information. We structure these sections for clarity and compliance with SGX listing requirements where applicable." } },
-      { "@type": "Question", "name": "Do you build careers portals for corporate websites?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design recruitment pages and careers portals that showcase your company culture, list open positions, and integrate with applicant tracking systems. The goal is to attract top talent while reinforcing your employer brand across every touchpoint." } },
-      { "@type": "Question", "name": "How do you handle multi-department content on a corporate website?", "acceptedAnswer": { "@type": "Answer", "text": "We design scalable site architectures with clear navigation hierarchies, department-specific landing pages, and consistent branding across all sections. Each department gets its own content area while the overarching corporate identity stays unified throughout the site." } },
-      { "@type": "Question", "name": "How long does it take to build a corporate website?", "acceptedAnswer": { "@type": "Answer", "text": "Most corporate websites go live within 3-4 weeks. A 5-page site can be ready in 2 weeks, while larger projects with investor relations sections, careers portals, or multi-language support may take 4-6 weeks. We provide a detailed timeline and milestones before starting." } }
+      { "@type": "Question", "name": "Can you build a company profile and investor pages for our corporate website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build structured company profile, leadership, and capability pages, plus dedicated investor sections with financial highlights, annual report hosting, and corporate governance disclosures. Each section is laid out for clarity and easy access for the stakeholders who need it." } },
+      { "@type": "Question", "name": "Do you build careers pages for corporate websites?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design careers pages that present your culture, employee stories, and open roles clearly, with a simple application path. The goal is to attract the right candidates while reinforcing how your company is perceived as an employer." } },
+      { "@type": "Question", "name": "Can the corporate website support multiple languages and a CMS?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build multi-language sites — commonly English with Chinese, Malay, or Tamil — and hand over a content management system so your team can update pages, news, and announcements without a developer. We set up clear editing roles so the right people manage the right sections." } },
+      { "@type": "Question", "name": "How long does it take to build a corporate website in Singapore?", "acceptedAnswer": { "@type": "Answer", "text": "Most corporate websites go live within 3-4 weeks. A focused site can be ready sooner, while larger projects with investor sections, careers pages, or multi-language support may take 4-6 weeks. We agree a clear timeline and milestones before starting." } }
     ]
   },
   {
@@ -47,19 +47,120 @@ const schemaData = [
 ];
 ---
 
+<style is:global>
+  /* Hide the global background grid pattern on this page only */
+  .animated-bg__grid { display: none; }
+
+  /* More-prominent related-service pills — match challenge-card-v2 green treatment */
+  #related-services .related-service-link {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.35);
+    color: var(--text);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  }
+  #related-services .related-service-link:hover {
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.22) 0%, rgba(73, 184, 137, 0.1) 100%), rgba(20, 28, 32, 0.7);
+    border-color: rgba(73, 184, 137, 0.6);
+    color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px rgba(73, 184, 137, 0.3);
+  }
+
+  /* Separate the CTA section from related-services with bg-alt */
+  .service-cta-section {
+    background: var(--bg-alt) !important;
+  }
+
+  /* Enrolment Funnel — 5-stage horizontal flow with green accents */
+  .renovation-funnel {
+    list-style: none;
+    padding: 0;
+    margin: 56px 0 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 48px;
+    counter-reset: funnel;
+  }
+  .funnel-stage {
+    position: relative;
+    text-align: center;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, rgba(73, 184, 137, 0.14) 0%, rgba(73, 184, 137, 0.06) 100%), rgba(20, 28, 32, 0.6);
+    border: 1px solid rgba(73, 184, 137, 0.28);
+    border-radius: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .funnel-stage:hover {
+    transform: translateY(-4px);
+    border-color: rgba(73, 184, 137, 0.55);
+    box-shadow: 0 16px 40px -16px rgba(73, 184, 137, 0.3);
+  }
+  .funnel-stage h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.01em;
+  }
+  .funnel-stage p {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .funnel-stage:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 500;
+    z-index: 2;
+    line-height: 1;
+    opacity: 0.7;
+  }
+  @media (max-width: 900px) {
+    .renovation-funnel {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .funnel-stage:nth-child(2n)::after,
+    .funnel-stage:last-child::after {
+      display: none;
+    }
+    .funnel-stage:nth-child(2n-1)::after {
+      right: -22px;
+    }
+  }
+  @media (max-width: 600px) {
+    .renovation-funnel {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .funnel-stage::after {
+      display: none;
+    }
+  }
+</style>
+
 <ServiceLayout
   title="Corporate Website Design Singapore — Jraft Creative"
-  description="Professional corporate website design in Singapore. Enterprise sites, investor relations pages, careers portals, and multi-department architectures that."
+  description="Professional corporate website design in Singapore for SMEs and enterprises — company profiles, investor and careers pages, multi-language and CMS builds."
   canonical="https://jraftcreative.com/corporate-website-design-singapore/"
   ogTitle="Corporate Website Design Singapore — Jraft Creative"
-  ogDescription="Corporate website design for enterprises in Singapore. Investor relations, careers portals, and multi-department sites that project authority — custom-quoted to your scope."
+  ogDescription="Corporate website design in Singapore for SMEs and enterprises. Company profile, investor and careers pages, multi-language and CMS builds that project credibility."
   ogImage="https://jraftcreative.com/images/og-webdev.jpg"
-  keywords="corporate website design singapore, corporate web design singapore, enterprise website singapore, business website singapore, investor relations website, careers page design, multi-department website, Jraft Creative"
+  keywords="corporate website design singapore, corporate web design singapore, enterprise website singapore, company profile website, careers page design singapore, multi-language website singapore, Jraft Creative"
   schemaData={schemaData}
   heroLabel="Corporate Websites"
-  heroTitle='Corporate Website Design for <span class="highlight">Enterprises in Singapore</span>'
-  heroSubtitle="Your company needs a website that matches its stature. We build authoritative, mobile-first corporate websites — with investor relations sections, careers portals, and scalable multi-department architectures that project credibility to every stakeholder."
-  heroImage="/images/service-corporate.webp"
+  heroTitle='Corporate Website Design for <span class="highlight">SMEs and Enterprises in Singapore</span>'
+  heroSubtitle="Your company needs a website that matches its stature. We build polished, mobile-first corporate websites — company profile, investor and careers pages, multi-language support and an easy-to-run CMS — that project credibility to every stakeholder."
+  heroImage="/images/corporate-secretary-boardroom.webp"
+  heroImageAlt="Corporate website design in Singapore"
   heroButtons={[
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "See Our Work", href: "/about/", class: "btn btn-secondary" }
@@ -72,57 +173,87 @@ const schemaData = [
     { text: "Book Your Consultation", href: "/contact/", class: "btn btn-primary" },
     { text: "Chat on WhatsApp", href: "https://wa.me/6582234578?text=Hi%20Jraft%20Creative%2C%20I%20need%20a%20corporate%20website%20for%20my%20company%20in%20Singapore.", class: "btn btn-secondary" }
   ]}
+  hideDefaultCta={false}
 >
 
   <!-- ========== THE CHALLENGE ========== -->
-  <section class="section" id="challenge" aria-label="Why corporates need a professional website">
+  <section class="section" id="challenge" aria-label="Why companies need a professional corporate website in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">The Challenge</p>
-        <h2>Outdated Websites Undermine Corporate Authority</h2>
+        <h2>Stakeholders <span class="highlight">Judge Your Company</span> Long Before They <span class="highlight">Reach Out</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Investors, partners, job seekers, and regulators all form impressions of your company within seconds of landing on your website. An outdated design, inconsistent branding, or clunky navigation tells stakeholders that your organisation is behind the times — regardless of how strong your actual operations are.</p>
-        <p>Many corporate websites in Singapore were built years ago and never updated to reflect the company's current size, capabilities, or market positioning. Key pages are buried. Investor information is hard to find. Careers sections look like afterthoughts. The result is a poor stakeholder experience that erodes confidence and costs you talent, partnerships, and deal flow.</p>
-        <p>A modern corporate website needs to serve multiple audiences simultaneously — shareholders reviewing financials, prospective employees evaluating culture, clients assessing capability, and media seeking company information. Generic templates cannot handle this complexity. You need a purpose-built site architecture designed around your organisation's structure and stakeholder priorities.</p>
+        <p>Investors, partners, prospective hires, and the media all form an impression of your company within seconds of opening your website. An outdated design, inconsistent branding, or a page that is slow on mobile signals that the organisation behind it is behind the times — no matter how strong your actual operations are. From Raffles Place and Marina Bay to Orchard and one-north, the companies that look credible online are the ones that get the meeting.</p>
+      </div>
+      <div class="service-details-grid challenge-grid-v2" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
+          <div class="service-detail-card__content">
+            <h3>First Impressions Set the Standard</h3>
+            <p>A dated homepage, mismatched fonts, or a layout that breaks on a phone quietly tells a stakeholder your company has not kept pace. Credibility is decided in the first few seconds, and a polished, current design is what earns you the benefit of the doubt on everything that follows.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
+          <div class="service-detail-card__content">
+            <h3>One Site, Many Audiences</h3>
+            <p>A corporate website has to serve several people at once — shareholders reviewing financials, candidates weighing up your culture, clients checking capability, and journalists after company facts. A generic template cannot carry all of that, so the important pages get buried and each audience leaves half-served.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
+          <div class="service-detail-card__content">
+            <h3>Traffic That Never Makes Contact</h3>
+            <p>A brochure site that simply sits there is a missed opportunity. The job of the website is to turn a considered visitor into an enquiry, a shortlisted supplier, or a job applicant — with clear paths to contact your team. Most corporate sites leave visitors with no obvious next step, so the interest quietly fades.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== WHAT WE BUILD ========== -->
-  <section class="section" id="sub-services" aria-label="Corporate website design services">
+  <!-- ========== WHAT WE DELIVER ========== -->
+  <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Corporate website design deliverables">
     <div class="container">
       <div class="section-header reveal">
-        <p class="section-label">What We Build</p>
-        <h2>What We Build for Corporates</h2>
+        <p class="section-label">What We Deliver</p>
+        <h2>Six <span class="highlight">Pillars</span> of a Corporate <span class="highlight">Website</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>Every corporate website we deliver is engineered for enterprise-level credibility. We go beyond surface-level design to build structured, scalable sites that serve investors, employees, clients, and media — all from a single unified platform.</p>
-        <p>A website is only one part of your corporate digital strategy. Pair your new site with <a href="/services/seo-performance/" class="inline-link">SEO services</a> to dominate branded and industry searches, <a href="/services/social-media/" class="inline-link">social media marketing</a> to amplify your corporate communications, and <a href="/services/paid-ads/" class="inline-link">paid ads management</a> to drive targeted campaigns for recruitment or lead generation.</p>
+        <p>A corporate website is not a shopfront or a one-page brochure. Different stakeholders arrive with different questions, and each needs to find what matters to them quickly, then know how to get in touch. We build every element around how a Singapore company is actually researched and judged. See our <a href="/services/website-development/" class="inline-link">website development service</a> for how we work, and our <a href="/industries/professional-services/" class="inline-link">professional services marketing</a> approach for the wider picture.</p>
       </div>
-      <div class="service-details-grid">
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-business-website.webp">
+      <div class="service-details-grid deliver-grid">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-business-website.webp');">
           <div class="service-detail-card__content">
-            <h3>Brand-Led Design &amp; Visual Identity</h3>
-            <p>We translate your corporate brand guidelines into a digital experience that feels authoritative and polished. Consistent typography, colour systems, and imagery standards ensure every page reinforces your brand positioning across all touchpoints.</p>
+            <h3>Credibility-Led Corporate Design</h3>
+            <p>A clean, authoritative layout that signals competence the moment the page loads. Considered typography, a disciplined colour system, and imagery standards applied to every page — so the instinctive question of whether your company is the real deal is answered before a visitor reads a word.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d2" data-bg="/images/detail-landing-page.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-onpage-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Investor Relations &amp; Annual Reports</h3>
-            <p>Dedicated IR sections with financial highlights, annual report downloads, corporate governance disclosures, and shareholder information. Structured for clarity and designed to meet stakeholder expectations for transparency and accessibility.</p>
+            <h3>Company Profile &amp; Capability Pages</h3>
+            <p>Structured pages for your story, leadership, milestones, and what you actually do. Each one explains scope and positioning clearly, so partners and clients understand your company before the first call — and arrive already confident in who they are dealing with.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d3" data-bg="/images/detail-local-seo.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-graphic-design.webp');">
           <div class="service-detail-card__content">
-            <h3>Careers &amp; Recruitment Pages</h3>
-            <p>Attract top talent with recruitment pages that showcase your company culture, highlight employee stories, and present open positions clearly. Integration with applicant tracking systems keeps your hiring pipeline organised and efficient.</p>
+            <h3>Investor &amp; Careers Sections</h3>
+            <p>Dedicated investor pages with financial highlights, annual report downloads, and governance disclosures, alongside careers pages that present your culture and open roles with a simple application path. The sections that win talent and trust, given their own proper space.</p>
           </div>
         </div>
-        <div class="service-detail-card service-detail-card--overlay reveal reveal-d1" data-bg="/images/detail-graphic-design.webp">
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d1" style="background-image: url('/images/detail-local-seo.webp');">
           <div class="service-detail-card__content">
-            <h3>Multi-Department Site Architecture</h3>
-            <p>Scalable navigation and content structures that give each business unit its own space while maintaining a unified corporate identity. Clear information hierarchy ensures stakeholders find what they need without getting lost in organisational complexity.</p>
+            <h3>Lead &amp; Contact Capture</h3>
+            <p>Clear, low-friction enquiry and contact forms with spam protection and SSL encryption, plus tap-to-call and WhatsApp options for people researching on their phones. Every audience gets an obvious, single-tap way to reach the right part of your team.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d2" style="background-image: url('/images/detail-speed-vitals.webp');">
+          <div class="service-detail-card__content">
+            <h3>Mobile-First Speed &amp; Core Web Vitals</h3>
+            <p>Stakeholders open your site from boardrooms, airports, and phones between meetings. Every page is built mobile-first and tuned for fast load times and strong Core Web Vitals, so it is ready the moment someone arrives and Google rewards the performance.</p>
+          </div>
+        </div>
+        <div class="service-detail-card challenge-card-v2 deliver-card-with-bg reveal reveal-d3" style="background-image: url('/images/detail-ai.webp');">
+          <div class="service-detail-card__content">
+            <h3>Multi-Language &amp; CMS Control</h3>
+            <p>Build in English with Chinese, Malay, or Tamil where your market calls for it, and hand your team a content management system to update pages, news, and announcements without a developer. Clear editing roles keep the right people managing the right sections.</p>
           </div>
         </div>
       </div>
@@ -130,47 +261,76 @@ const schemaData = [
   </section>
 
   <!-- ========== WHY CHOOSE US ========== -->
-  <section class="section" id="why-us" style="background: var(--bg-alt);" aria-label="Why choose Jraft Creative for corporate website design">
+  <section class="section" id="why-us" aria-label="Why choose Jraft Creative for corporate website design">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">Why Jraft Creative</p>
-        <h2>Why Choose Us for Corporate Website Design</h2>
+        <h2>A <span class="highlight">Web Design Partner</span> Built for <span class="highlight">Corporate Credibility</span></h2>
       </div>
       <div class="section-content reveal">
-        <p>We have built websites for companies across Singapore that need more than a brochure site. We understand corporate communications, stakeholder management, and the level of polish that enterprise organisations demand from their digital presence.</p>
+        <p>We have built websites for companies across Singapore that need far more than a brochure site. We understand corporate communications, the polish that enterprise stakeholders expect, and what turns a considered visitor into an enquiry. If you want the fundamentals first, our guide to what makes a <a href="/blog/good-business-website-singapore/" class="inline-link">good business website in Singapore</a> covers the essentials we build to on every project.</p>
       </div>
       <div class="service-details-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
-        <div class="service-detail-card reveal reveal-d1">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d1">
           <div class="service-detail-card__content">
-            <h3>Enterprise-Grade Quality</h3>
-            <p>We build to the standard that corporate stakeholders expect — clean code, fast load times, accessibility compliance, and a design language that holds up alongside the biggest brands in your industry.</p>
+            <h3>Enterprise-Grade Craft</h3>
+            <p>We build to the standard corporate stakeholders expect — clean code, fast load times, accessibility, and a design language that holds its own next to the biggest names in your industry. The site should look as established as your company already is.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d2">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d2">
           <div class="service-detail-card__content">
-            <h3>Scalable Architecture</h3>
-            <p>Your website is built to grow with your organisation. Adding new departments, subsidiaries, or regional offices is straightforward because the site architecture is designed for expansion from day one.</p>
+            <h3>Built to Convert, Not Just Impress</h3>
+            <p>A handsome site that produces no enquiries is a wasted investment. We structure pages around the questions each audience is asking, with trust signals and clear calls to action placed exactly where they turn a visitor into a contact, an applicant, or a shortlisted supplier.</p>
           </div>
         </div>
-        <div class="service-detail-card reveal reveal-d3">
+        <div class="service-detail-card challenge-card-v2 reveal reveal-d3">
           <div class="service-detail-card__content">
-            <h3>Mobile-First &amp; Performance-Tuned</h3>
-            <p>Every corporate site we deliver is optimised for mobile devices and fast load times. Stakeholders access your site from boardrooms, airports, and mobile screens — it needs to perform everywhere.</p>
-          </div>
-        </div>
-        <div class="service-detail-card reveal reveal-d1">
-          <div class="service-detail-card__content">
-            <h3>Full Digital Package</h3>
-            <p>Website, SEO, social media, and paid ads under one roof. We handle your entire corporate digital presence so your communications team can focus on strategy rather than vendor management.</p>
+            <h3>One Agency, All Channels</h3>
+            <p>A website is the foundation, but visibility and lead flow depend on more. We handle SEO, social, and paid ads on Google and LinkedIn in-house — one team keeping your corporate presence consistent so your communications people can focus on strategy, not vendor wrangling.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ========== THE STAKEHOLDER FUNNEL ========== -->
+  <section class="section" id="buyer-funnel" style="background: var(--bg-alt);" aria-label="The Stakeholder Journey — where your website fits">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">The Stakeholder Journey</p>
+        <h2>Where Your <span class="highlight">Website</span> Fits the <span class="highlight">Decision</span></h2>
+      </div>
+      <div class="section-content reveal" style="margin-bottom: 24px;">
+        <p>Whether it is an investor, a client, or a candidate, most people move through the same five stages before they act. Your website carries them from the first look to a booked meeting or a submitted enquiry — and feeds credibility into every stage along the way.</p>
+      </div>
+      <ol class="renovation-funnel reveal">
+        <li class="funnel-stage">
+          <h3>Discover</h3>
+          <p>Search, referral or media mention</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Evaluate</h3>
+          <p>Scan brand, scope &amp; capability</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Validate</h3>
+          <p>Leadership, track record &amp; proof</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Enquire</h3>
+          <p>Contact, apply or request info</p>
+        </li>
+        <li class="funnel-stage">
+          <h3>Engage</h3>
+          <p>Partner, invest, join or refer</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ========== PRICING ========== -->
   <!-- ========== FAQ ========== -->
-  <section class="section faq-section" id="faq" aria-label="Frequently asked questions about corporate website design in Singapore">
+  <section class="section faq-section" id="faq" style="background: var(--bg-alt);" aria-label="Frequently asked questions about corporate website design in Singapore">
     <div class="container">
       <div class="section-header reveal">
         <p class="section-label">FAQ</p>
@@ -182,26 +342,34 @@ const schemaData = [
           <div class="faq-answer"><p>Pricing depends on your goals, your market, and the scope of work — there's no one-size package. Book a quick consultation and we'll scope exactly what you need and give you a transparent quote.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>Can you build an investor relations section on our corporate website?</summary>
-          <div class="faq-answer"><p>Yes. We build dedicated investor relations pages with annual report hosting, financial highlights, corporate governance disclosures, and shareholder information. We structure these sections for clarity and compliance with SGX listing requirements where applicable.</p></div>
+          <summary>Can you build a company profile and investor pages for our corporate website?</summary>
+          <div class="faq-answer"><p>Yes. We build structured company profile, leadership, and capability pages, plus dedicated investor sections with financial highlights, annual report hosting, and corporate governance disclosures. Each section is laid out for clarity and easy access for the stakeholders who need it.</p></div>
         </details>
         <details class="faq-item reveal reveal-d3">
-          <summary>Do you build careers portals for corporate websites?</summary>
-          <div class="faq-answer"><p>Yes. We design recruitment pages and careers portals that showcase your company culture, list open positions, and integrate with applicant tracking systems. The goal is to attract top talent while reinforcing your employer brand across every touchpoint.</p></div>
+          <summary>Do you build careers pages for corporate websites?</summary>
+          <div class="faq-answer"><p>Yes. We design careers pages that present your culture, employee stories, and open roles clearly, with a simple application path. The goal is to attract the right candidates while reinforcing how your company is perceived as an employer.</p></div>
         </details>
         <details class="faq-item reveal reveal-d1">
-          <summary>How do you handle multi-department content on a corporate website?</summary>
-          <div class="faq-answer"><p>We design scalable site architectures with clear navigation hierarchies, department-specific landing pages, and consistent branding across all sections. Each department gets its own content area while the overarching corporate identity stays unified throughout the site.</p></div>
+          <summary>Can the corporate website support multiple languages and a CMS?</summary>
+          <div class="faq-answer"><p>Yes. We build multi-language sites — commonly English with Chinese, Malay, or Tamil — and hand over a content management system so your team can update pages, news, and announcements without a developer. We set up clear editing roles so the right people manage the right sections.</p></div>
         </details>
         <details class="faq-item reveal reveal-d2">
-          <summary>How long does it take to build a corporate website?</summary>
-          <div class="faq-answer"><p>Most corporate websites go live within 3-4 weeks. A 5-page site can be ready in 2 weeks, while larger projects with investor relations sections, careers portals, or multi-language support may take 4-6 weeks. We provide a detailed timeline and milestones before starting.</p></div>
+          <summary>How long does it take to build a corporate website in Singapore?</summary>
+          <div class="faq-answer"><p>Most corporate websites go live within 3-4 weeks. A focused site can be ready sooner, while larger projects with investor sections, careers pages, or multi-language support may take 4-6 weeks. We agree a clear timeline and milestones before starting.</p></div>
         </details>
       </div>
     </div>
   </section>
 
 
-  <RelatedServices topic="website" />
+  <RelatedServices
+    topic="website"
+    links={[
+      { href: '/industries/professional-services/', label: 'Professional Services Marketing' },
+      { href: '/services/website-development/', label: 'Website Development' },
+      { href: '/services/seo-performance/', label: 'SEO &amp; Performance' },
+      { href: '/services/ai-search-optimisation/', label: 'AI Search (GEO)' }
+    ]}
+  />
 
 </ServiceLayout>
