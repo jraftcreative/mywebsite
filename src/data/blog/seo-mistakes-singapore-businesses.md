@@ -30,7 +30,7 @@ draft: false
 
 ## Why SEO Matters for Singapore Businesses
 
-Over 90% of online experiences start with a search engine. For Singapore businesses, ranking on the first page of Google for relevant local searches can mean the difference between a steady stream of enquiries and complete invisibility online.
+Over 90% of online experiences start with a search engine. For Singapore businesses, ranking on the first page of Google for relevant local searches can mean the difference between a steady stream of enquiries and [complete invisibility online](/blog/why-not-showing-up-on-google-singapore/).
 
 Yet many Singapore SMEs make fundamental SEO mistakes that keep them buried on page 3 or beyond. Here are the five most common errors we see — and exactly how to fix them.
 

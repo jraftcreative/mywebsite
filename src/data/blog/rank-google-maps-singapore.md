@@ -45,7 +45,7 @@ There are two places your business can show up when someone searches locally, an
 
 **Google Maps itself** is the app people open to search directly — *"orthodontist Serangoon"* — and scroll a longer ranked list.
 
-Both are powered by the same thing: your **Google Business Profile** (the free listing you claim for your business). Optimise the profile well, and you improve your standing in both at once. Ignore it, and you're invisible in the exact place local customers decide.
+Both are powered by the same thing: your **Google Business Profile** (the free listing you claim for your business). Optimise the profile well, and you improve your standing in both at once. Ignore it, and you're [invisible in the exact place local customers decide](/blog/why-not-showing-up-on-google-singapore/).
 
 ## Why this is the highest-ROI ranking a local business can chase
 
