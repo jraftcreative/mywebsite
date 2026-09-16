@@ -64,7 +64,7 @@ Sometimes there's nothing wrong with your site at all. You've just been outworke
 
 Google weighs trust. A competitor who's been publishing useful content for three years, has fifty genuine reviews, and gets mentioned across local directories and news sites has built something you can't leapfrog overnight. For competitive Singapore industries — aesthetics, property, legal, finance — the top spots are held by whoever invested earliest and kept going.
 
-That's not a reason to give up. It's a reason to be realistic about the timeline and to pick your battles. You may not outrank the biggest player for "dentist Singapore," but "invisalign Bishan" or "emergency dentist Toa Payoh" is a different, winnable fight.
+That's not a reason to give up. It's a reason to be realistic about [how long SEO takes to work](/blog/how-long-does-seo-take-singapore/) and to pick your battles. You may not outrank the biggest player for "dentist Singapore," but "invisalign Bishan" or "emergency dentist Toa Payoh" is a different, winnable fight.
 
 ## Reason 5: You're Searching Like an Owner, Not a Customer
 
