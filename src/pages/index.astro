@@ -277,6 +277,14 @@ const socialSubItems = [
     </div>
   </section>
 
+  <!-- ========== AS FEATURED IN — press ========== -->
+  <section class="featured-in" aria-label="As featured in the press">
+    <div class="container">
+      <p class="fi-label">As Featured In</p>
+      <img class="fi-logo" src="/images/as-featured-straits-times.webp" alt="The Straits Times" width="285" height="22" loading="lazy" decoding="async" />
+    </div>
+  </section>
+
   <!-- ========== TRUSTED BY — client-logo conveyor (naming cleared by Jeremy) ========== -->
   <section class="trust-by" aria-label="Trusted by businesses in Singapore">
     <div class="container">
@@ -372,7 +380,12 @@ const socialSubItems = [
     .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
     /* Trusted-by conveyor */
-    .trust-by { padding: 46px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
+    .featured-in { padding: 42px 0 18px; border-top: 1px solid rgba(255,255,255,0.06); background: #0d0d12; text-align: center; }
+    .featured-in .container { text-align: center; }
+    .fi-label { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 20px; }
+    .fi-logo { height: 26px; width: auto; margin: 0 auto; background: #fff; padding: 13px 24px; border-radius: 6px; box-sizing: content-box; }
+    @media (max-width: 640px) { .fi-logo { height: 20px; } }
+    .trust-by { padding: 22px 0 46px; border-bottom: 1px solid rgba(255,255,255,0.06); background: #0d0d12; overflow: hidden; }
     .trust-by .container { text-align: center; }
     .tb-label { font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6; margin-bottom: 30px; }
     .tb-static { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 24px; --tb-h: 38px; }
