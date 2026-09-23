@@ -141,4 +141,6 @@ For most Singapore small businesses, budget around **S$1,500 to S$5,000 a month*
 
 Remember the split: one part goes to the platform for reach, the other pays for the skill to spend it well. Cheap-out on the second and the first gets wasted. And whatever your budget, the landing page and the tracking decide whether that money comes back.
 
+If you're also budgeting for organic content alongside your ads, our companion guide on [how much social media marketing costs in Singapore](/blog/social-media-marketing-cost-singapore-2026/) breaks that down the same way.
+
 If you're trying to work out a sensible starting budget — or you suspect your current ads are quietly burning cash — [talk to Jraft Creative](/contact/). We'll give you a straight read on what your business actually needs to spend, and what to expect back, with no jargon and no hard sell.
