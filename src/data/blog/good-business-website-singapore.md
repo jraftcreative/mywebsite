@@ -186,4 +186,4 @@ Use this to audit your current website:
 
 Think of your website as a salesperson who works 24/7, never takes leave, and can handle unlimited visitors simultaneously. Investing in making that salesperson professional, knowledgeable, and approachable pays dividends.
 
-If your current website isn't meeting these 7 expectations, it's likely costing you customers. [Let's talk about upgrading it](/contact/) — explore our [website development services](/services/website-development) to see how we build websites that Singapore customers trust and engage with.
+If your current website isn't meeting these 7 expectations, it's likely costing you customers. And if you're wondering whether you even need one when you're already active on social, we answer that directly in [do you still need a website if you have Instagram?](/blog/do-you-need-a-website-with-instagram-singapore/). [Let's talk about upgrading it](/contact/) — explore our [website development services](/services/website-development) to see how we build websites that Singapore customers trust and engage with.
