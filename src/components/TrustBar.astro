@@ -1,0 +1,72 @@
+---
+/**
+ * TrustBar.astro
+ * Social-proof band for conversion pages: client logos ("Trusted by…") +
+ * "As Featured In: The Straits Times". Dropped into ServiceLayout below the hero
+ * so every landing/service page carries proof next to the decision.
+ * Client-logo naming cleared by Jeremy. Not used on homepage (it has its own),
+ * blog, or legal pages.
+ */
+const clientLogos = [
+  { src: '/images/clients/maplebear-jg.webp', alt: 'Maple Bear Jurong Gateway', s: 1.35 },
+  { src: '/images/clients/pike-six.webp', alt: 'PIKE SIX', s: 1.15 },
+  { src: '/images/clients/ax-beauty.webp', alt: 'AX Beauty', s: 1.25 },
+  { src: '/images/clients/kairos.webp', alt: 'Kairos Advisory', s: 0.9 },
+  { src: '/images/clients/mbjc-sengkang.webp', alt: 'Maple Bear Junior Club, Sengkang Campus', s: 1.35 },
+  { src: '/images/clients/music-with-pat.webp', alt: 'Music with Pat', s: 1.35 },
+  { src: '/images/clients/translatr.webp', alt: 'Translatr', s: 1.15 },
+  { src: '/images/clients/root-reverie.webp', alt: 'Root & Reverie', s: 1.3 },
+];
+---
+<section class="trustbar" aria-label="Trusted by and featured in">
+  <div class="container">
+    <div class="trustbar-featured">
+      <span class="trustbar-fi-label">As Featured In</span>
+      <a href="https://www.straitstimes.com/life/food/can-tiktok-skits-reverse-the-fortunes-of-an-elderly-hawker-couple" target="_blank" rel="noopener" class="trustbar-fi-link" aria-label="Read our feature in The Straits Times">
+        <img class="trustbar-fi-logo" src="/images/as-featured-straits-times.webp" alt="The Straits Times" width="200" height="15" loading="lazy" decoding="async" />
+      </a>
+    </div>
+    <p class="trustbar-label">Trusted by businesses in Singapore</p>
+    <div class="trustbar-logos">
+      {clientLogos.map((logo) => (
+        <img class="trustbar-logo" src={logo.src} alt={logo.alt} style={`--s:${logo.s}`} width="150" height="46" loading="lazy" decoding="async" />
+      ))}
+      <span class="trustbar-more">…and many more</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trustbar {
+    padding: 30px 0;
+    background: #0d0d12;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+  .trustbar-label, .trustbar-fi-label {
+    font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9aa0a6;
+  }
+  .trustbar-label { margin-bottom: 22px; }
+  .trustbar-logos {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 20px 34px; --tb-h: 34px;
+  }
+  .trustbar-logo {
+    height: calc(var(--tb-h) * var(--s, 1)); width: auto; max-width: 150px;
+    object-fit: contain; opacity: 0.82; transition: opacity 0.25s ease;
+  }
+  .trustbar-logo:hover { opacity: 1; }
+  .trustbar-more { color: var(--accent); font-weight: 600; font-size: 0.95rem; white-space: nowrap; }
+  .trustbar-featured { margin-bottom: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .trustbar-fi-link { display: inline-block; max-width: 100%; transition: opacity 0.15s ease; }
+  .trustbar-fi-link:hover { opacity: 0.85; }
+  .trustbar-fi-logo {
+    display: block; width: 220px; height: auto; max-width: 100%;
+    background: #fff; padding: 9px 16px; border-radius: 6px; box-sizing: border-box;
+  }
+  @media (max-width: 640px) {
+    .trustbar-logos { --tb-h: 26px; gap: 16px 24px; }
+    .trustbar-fi-logo { width: 190px; }
+  }
+</style>

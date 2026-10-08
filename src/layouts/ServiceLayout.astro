@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
 
 interface Props {
   title: string;
@@ -29,6 +30,7 @@ interface Props {
    * responsible for placing their own mid-page CTA inside the slot.
    */
   hideDefaultCta?: boolean;
+  hideTrustBar?: boolean;
 }
 
 const {
@@ -53,6 +55,7 @@ const {
   ctaDescription,
   ctaButtons,
   hideDefaultCta = false,
+  hideTrustBar = false,
 } = Astro.props;
 ---
 
@@ -77,6 +80,8 @@ const {
     heroClass="service-hero"
     buttons={heroButtons}
   />
+
+  {!hideTrustBar && <TrustBar />}
 
   <slot />
 
