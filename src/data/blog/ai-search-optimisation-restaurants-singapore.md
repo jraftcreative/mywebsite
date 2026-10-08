@@ -2,7 +2,7 @@
 title: "AI Search Optimisation for Restaurants in Singapore: A Practical Guide"
 description: "How Singapore restaurants can get recommended by ChatGPT, Gemini, and Perplexity. Structured data, review strategy, Google Business Profile."
 date: 2026-03-19
-lastModified: 2026-03-19
+lastModified: 2026-10-08
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "AI & SEO"
@@ -37,6 +37,8 @@ The way Singapore diners choose where to eat has shifted. Five years ago, the pa
 "Best laksa near Joo Chiat." "Quiet Italian restaurant for a date night in Tanjong Pagar." "Halal restaurant with private dining room Singapore."
 
 These prompts are happening millions of times a month across ChatGPT, Gemini, and Perplexity. And the restaurants that get recommended aren't necessarily the ones with the biggest marketing budgets — they're the ones whose digital presence is structured in a way AI can understand and trust.
+
+This is mainstream behaviour now, not an early-adopter edge case: Singapore sits among the world's highest AI-adoption markets, and Google's AI Overviews now appear on roughly half of all searches. "Ask the AI where to eat" is simply how a large share of diners decide in 2026.
 
 ## How Singapore Diners Use AI to Find Restaurants
 

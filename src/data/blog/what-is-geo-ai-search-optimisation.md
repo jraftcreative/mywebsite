@@ -2,7 +2,7 @@
 title: "What Is GEO? The New Way Customers Find Businesses"
 description: "GEO (Generative Engine Optimisation) is how brands get recommended by ChatGPT, Gemini, and Perplexity. What it is, how it differs from SEO, why it matters."
 date: 2026-03-17
-lastModified: 2026-03-17
+lastModified: 2026-10-08
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "AI & SEO"
@@ -45,6 +45,8 @@ GEO stands for **Generative Engine Optimisation**. It's the practice of optimisi
 Here's the key difference from traditional search: when someone Googles a question, they see 10 blue links and choose which to click. When someone asks ChatGPT the same question, they get a direct answer that names **3-4 specific brands**. No list of 10. No page 2. Just a handful of recommended businesses.
 
 GEO is how you become one of those 3-4 brands.
+
+And this isn't a someday shift — it's already here. As of late 2026, Google's AI Overviews appear on roughly **half of all searches**, and the data now shows a page cited *inside* an AI answer earns materially more clicks than the number-one blue link sitting below it. Being **named in the answer** is worth more than ranking first beneath it — which is exactly what GEO optimises for.
 
 ## The Terminology — GEO, LLMO, AEO, AIO
 

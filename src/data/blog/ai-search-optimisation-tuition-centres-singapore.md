@@ -2,7 +2,7 @@
 title: "AI Search Optimisation for Tuition Centres in Singapore: What You Need to Know"
 description: "Singapore parents use ChatGPT and Gemini to find tuition. How tuition centres can get recommended by AI — strategies for the Singapore education market."
 date: 2026-03-19
-lastModified: 2026-03-19
+lastModified: 2026-10-08
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "AI & SEO"
@@ -37,6 +37,8 @@ Singapore parents are among the most research-intensive in the world when it com
 "Best PSLE math tuition in Bukit Timah." "O-level chemistry tutor Singapore with good results." "IP programme tuition centre near Bishan."
 
 These are not hypothetical prompts. They're the kinds of queries Singapore parents are typing into ChatGPT, Gemini, and Perplexity right now. And the tuition centres that appear in those AI-generated recommendations are capturing high-intent leads that never even visit a search engine results page.
+
+This is accelerating fast. Singapore sits among the world's top markets for AI adoption, and Google's AI Overviews now appear on roughly half of all searches — so for a growing share of parents, the AI's shortlist *is* the shortlist, and a centre that isn't named simply isn't in the running.
 
 If you run a tuition centre in Singapore and you're not thinking about AI search visibility, this guide is for you.
 

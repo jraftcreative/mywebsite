@@ -2,7 +2,7 @@
 title: "Why AI Search Matters for Singapore Businesses"
 description: "Singapore has the world's second highest AI adoption rate. How AI search is reshaping how customers find businesses — and which industries are hit hardest."
 date: 2026-03-17
-lastModified: 2026-03-17
+lastModified: 2026-10-08
 author: "Jraft Creative"
 authorUrl: "/about/"
 category: "AI & SEO"
@@ -66,6 +66,8 @@ When Google shows an AI Overview at the top of search results, the impact on tra
 - On mobile, **77% of searches** end without a click
 
 For businesses that depend on organic search traffic, this is a fundamental shift in how customers find them.
+
+But here's the flip side — and it's the whole opportunity. The pages cited *inside* the AI Overview don't lose clicks; they gain them. More recent 2026 data shows a site cited within an AI answer earns materially more clicks than it would from the number-one organic result sitting below it. The traffic isn't vanishing — it's consolidating onto the handful of brands the AI actually names. The job is simply to be one of them.
 
 ## Which Industries Are Getting Hit?
 
