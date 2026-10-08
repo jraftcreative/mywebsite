@@ -1,6 +1,6 @@
 ---
-title: "How to Get Your Business Cited in Google's AI Overview (Singapore)"
-description: "A practical how-to for Singapore owners who want AI to name their brand — the signals Google's AI Overview weighs, and how to earn a citation."
+title: "How to Get Your Business Cited in Google's AI Overview (SG)"
+description: "The exact signals Google's AI Overview weighs when it decides which businesses to name — and how a Singapore brand earns a citation. A practical, no-jargon how-to."
 date: 2026-07-03
 lastModified: 2026-07-03
 author: "Jraft Creative"
