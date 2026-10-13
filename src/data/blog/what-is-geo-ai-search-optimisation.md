@@ -132,4 +132,6 @@ These three checks will tell you exactly where you stand.
 
 *Looking for a [GEO agency in Singapore](/geo-agency-singapore/)? Or want to understand how [ChatGPT optimisation](/chatgpt-optimisation-singapore/) works for your business? We've built dedicated service pages for each.*
 
+Wondering what it costs? We break it down in [how much GEO / AI search optimisation costs in Singapore](/blog/geo-ai-search-optimisation-cost-singapore-2026/).
+
 *Want to know where your brand stands? [Book a free AI visibility audit](/contact/) — we'll show you exactly where you appear (and don't) across ChatGPT, Gemini, Perplexity, and Google AI Overviews.*

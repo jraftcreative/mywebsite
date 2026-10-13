@@ -81,7 +81,7 @@ So the first slice of budget isn't labelled SEO or GEO. It's *foundations* — t
 
 **2. Business type.** A local service business living or dying on the Google map pack should nail SEO and Google Business Profile first. A considered-purchase or reputation-led business — where being *recommended* matters more than being *found in a list* — should weight GEO more heavily.
 
-**3. Budget.** On a tight budget, don't split thin across both. Fund foundations, then the one channel your buyers actually use. Spreading a small budget across two disciplines usually means neither reaches the threshold that produces results.
+**3. Budget.** On a tight budget, don't split thin across both. Fund foundations, then the one channel your buyers actually use. Spreading a small budget across two disciplines usually means neither reaches the threshold that produces results. (For what the GEO layer actually costs, see [how much GEO / AI search optimisation costs in Singapore](/blog/geo-ai-search-optimisation-cost-singapore-2026/).)
 
 **4. Timeline.** Both are slow-burn — neither is a two-week fix. If you need enquiries *this month*, that's a paid-ads conversation, not SEO or GEO. Set the expectation honestly: earning your way into either classic rankings or AI answers is a multi-quarter effort.
 
