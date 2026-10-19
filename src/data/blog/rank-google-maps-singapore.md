@@ -115,6 +115,8 @@ Most Singapore businesses we look at sit in one of three places:
 
 Knowing which one you're in is the whole decision.
 
+Timing is worth noting too: "near me" and gift-related searches spike through the year-end season, so a well-tuned profile captures more of that demand — one of the moves in [getting ready for the year-end marketing rush](/blog/year-end-marketing-singapore/).
+
 ## The one thing worth doing this month
 
 You don't need to overhaul everything at once. You need to know where you actually rank in the map pack for the searches your customers use — and which single fix would move you up fastest.
