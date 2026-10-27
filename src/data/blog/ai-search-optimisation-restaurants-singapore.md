@@ -187,4 +187,6 @@ A hawker stall with 500 genuine Google reviews, a well-maintained Google Busines
 
 This is a genuine levelling of the playing field — and Singapore's restaurant industry, with its density, diversity, and tech-savvy diners, is one of the markets where AI search optimisation will matter most.
 
+The same playbook applies well beyond F&B — see it mapped to another high-value vertical in [AI search optimisation for home services and renovation](/blog/ai-search-optimisation-home-services-renovation-singapore/).
+
 If you want help getting your restaurant recommended by AI platforms, take a look at our [Restaurant AI Search Optimisation](/restaurant-ai-search-optimisation-singapore/) service. We also offer broader [restaurant SEO](/restaurant-seo-singapore/) and work with F&B businesses across Singapore through our [GEO agency](/geo-agency-singapore/) services. [Get in touch](/contact/) to discuss what makes sense for your restaurant.

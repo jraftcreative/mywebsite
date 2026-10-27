@@ -130,7 +130,7 @@ These three checks will tell you exactly where you stand.
 
 *This is Part 1 of our AI Search Optimisation series. Next up: [Why AI Search Matters for Singapore Businesses](/blog/why-ai-search-matters-singapore/) — the specific data on how AI is reshaping search in Singapore and which industries are most affected.*
 
-*Looking for a [GEO agency in Singapore](/geo-agency-singapore/)? Or want to understand how [ChatGPT optimisation](/chatgpt-optimisation-singapore/) works for your business? We've built dedicated service pages for each.*
+*Looking for a [GEO agency in Singapore](/geo-agency-singapore/)? Or want to understand how [ChatGPT optimisation](/chatgpt-optimisation-singapore/) works for your business? We've built dedicated service pages for each. For a worked vertical example, see [AI search optimisation for home services and renovation](/blog/ai-search-optimisation-home-services-renovation-singapore/).*
 
 Wondering what it costs? We break it down in [how much GEO / AI search optimisation costs in Singapore](/blog/geo-ai-search-optimisation-cost-singapore-2026/).
 

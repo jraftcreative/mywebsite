@@ -207,4 +207,6 @@ The centres that will consistently get recommended by AI are the ones that make 
 
 This isn't about gaming a system. It's about presenting your centre's genuine strengths in a format that modern technology can understand and share.
 
+The same approach works across sectors — here it is applied to [home services and renovation firms](/blog/ai-search-optimisation-home-services-renovation-singapore/).
+
 If you'd like help making your tuition centre visible in AI search, explore our [Tuition Centre AI Search Optimisation](/tuition-centre-ai-search-optimisation-singapore/) service. We also offer broader [tuition centre marketing](/tuition-centre-marketing-singapore/) and can work with you on a complete AI visibility strategy through our [GEO agency](/geo-agency-singapore/) services. [Reach out](/contact/) to discuss what would work best for your centre.
