@@ -266,61 +266,6 @@ const schemaData = [
   </section>
 
   <!-- ========== CASE STUDY ========== -->
-  <section class="section" id="case-study" aria-label="PIKE SIX pilates studio case study">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-label">Case Study</p>
-        <h2>How We Launched <span class="highlight">PIKE SIX</span> Before <span class="highlight">Opening Day</span></h2>
-      </div>
-      <div class="section-content reveal">
-        <p>A new reformer pilates studio came to us before opening with one goal — fill its founding presale. We built a <a href="https://joinpikesix.com/" target="_blank" rel="noopener">high-converting landing page</a> and ran Meta and Google ads to it. In the first 19 days, here's what it returned.</p>
-      </div>
-      <div class="case-stats reveal">
-        <div class="case-stat"><span class="num" data-target="269">0</span><span class="lbl">Registrations captured</span></div>
-        <div class="case-stat"><span class="num" data-target="89">0</span><span class="lbl">Paying members</span></div>
-        <div class="case-stat"><span class="num" data-prefix="S$" data-target="3.85" data-decimals="2">0</span><span class="lbl">Cost per lead</span></div>
-        <div class="case-stat"><span class="num" data-prefix="~S$" data-target="17">0</span><span class="lbl">Ad cost per member</span></div>
-        <div class="case-stat"><span class="num" data-target="2.9" data-decimals="1" data-suffix="×">0</span><span class="lbl">Return on ad spend</span></div>
-      </div>
-      <div class="section-content reveal" style="margin-top: 32px;">
-        <p>The standout: that cost-per-lead sits three to nine times below the S$13–33 boutique-fitness norm — the kind of efficiency that fills a studio before it opens. This is the same playbook we bring to every studio launch.</p>
-      </div>
-    </div>
-  </section>
-
-  <script is:inline>
-    (function () {
-      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function format(el, val) {
-        var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-        var prefix = el.getAttribute('data-prefix') || '';
-        var suffix = el.getAttribute('data-suffix') || '';
-        return prefix + val.toFixed(decimals) + suffix;
-      }
-      function run(el) {
-        var target = parseFloat(el.getAttribute('data-target')) || 0;
-        if (reduce) { el.textContent = format(el, target); return; }
-        var dur = 1600, start = null;
-        function step(ts) {
-          if (!start) start = ts;
-          var p = Math.min((ts - start) / dur, 1);
-          el.textContent = format(el, easeOut(p) * target);
-          if (p < 1) requestAnimationFrame(step);
-          else el.textContent = format(el, target);
-        }
-        requestAnimationFrame(step);
-      }
-      var nums = document.querySelectorAll('#case-study .num[data-target]');
-      if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.5 });
-      nums.forEach(function (n) { io.observe(n); });
-    })();
-  </script>
 
   <!-- ========== WHAT WE DELIVER ========== -->
   <section class="section" id="sub-services" style="background: var(--bg-alt);" aria-label="Marketing services for gyms in Singapore">
@@ -477,8 +422,6 @@ const schemaData = [
       </div>
     </div>
   </section>
-
-
 
   <!-- Related Services -->
   <section class="section" id="related-services" aria-label="Related services">
