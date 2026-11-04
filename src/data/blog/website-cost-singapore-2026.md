@@ -137,4 +137,6 @@ For most Singapore small businesses, a professional website costs between **S$2,
 
 Still weighing whether a website is even worth it when you're already active on social? See [do you still need a website if you have Instagram?](/blog/do-you-need-a-website-with-instagram-singapore/).
 
+Just getting started? Our guide on [how to market a new business in Singapore on a small budget](/blog/market-new-business-singapore/) shows where a website fits in the lean sequence.
+
 If you're ready to discuss your project, [get a free quote from Jraft Creative](/contact/). We build fast, SEO-optimised websites for Singapore businesses. Learn more about our [website development services](/services/website-development).

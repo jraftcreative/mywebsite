@@ -145,4 +145,6 @@ If you're also budgeting for organic content alongside your ads, our companion g
 
 And if you're planning ads for the festive stretch, timing matters as much as budget — [getting ready for the year-end marketing rush](/blog/year-end-marketing-singapore/) covers why to warm campaigns up before ad costs climb in November and December.
 
+New business weighing where ads fit? Our [lean playbook for marketing a new business on a small budget](/blog/market-new-business-singapore/) puts paid ads in the right order — after the free foundations can convert the clicks.
+
 If you're trying to work out a sensible starting budget — or you suspect your current ads are quietly burning cash — [talk to Jraft Creative](/contact/). We'll give you a straight read on what your business actually needs to spend, and what to expect back, with no jargon and no hard sell.
