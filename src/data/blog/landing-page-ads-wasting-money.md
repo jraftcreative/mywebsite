@@ -171,6 +171,6 @@ If you're spending money on ads without a dedicated landing page, you're not mar
 
 ### Want this handled for you?
 
-Fixing the landing-page + ad-account combination so your ad spend actually converts takes coordinated work on both sides — our Google Ads agency Singapore service is built for exactly this. **[Google Ads Agency Singapore →](/google-ads-agency-singapore/)**
+If the page gets clicks but no enquiries, the leak is usually one of a handful of conversion gaps — we break them all down in [why your website gets traffic but no leads](/blog/website-traffic-no-leads-singapore/). Fixing the landing-page + ad-account combination so your ad spend actually converts takes coordinated work on both sides — our Google Ads agency Singapore service is built for exactly this. **[Google Ads Agency Singapore →](/google-ads-agency-singapore/)**
 
 ---
