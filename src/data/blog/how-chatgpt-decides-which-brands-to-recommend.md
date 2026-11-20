@@ -183,7 +183,7 @@ The cost of inaction is measurable. Every day that a competitor appears in AI re
 
 ---
 
-If you want to understand exactly how your brand currently performs across ChatGPT and other AI platforms, our [ChatGPT optimisation service](/chatgpt-optimisation-singapore/) includes a full visibility audit and implementation plan. For a broader strategy covering all AI search engines, see our [LLMO services](/llmo-services-singapore/) or explore working with a dedicated [GEO agency](/geo-agency-singapore/) that handles everything from schema markup to review strategy and content restructuring.
+If you want to understand exactly how your brand currently performs across ChatGPT and other AI platforms, our [ChatGPT optimisation service](/services/ai-search-optimisation/) includes a full visibility audit and implementation plan. For a broader strategy covering all AI search engines, see our [LLMO services](/llmo-services-singapore/) or explore working with a dedicated [GEO agency](/geo-agency-singapore/) that handles everything from schema markup to review strategy and content restructuring.
 
 *Want a free check? [Get in touch](/contact/) — we'll test your brand across ChatGPT, Gemini, Perplexity, and Google AI Overviews and show you exactly where you stand.*
 
@@ -193,6 +193,6 @@ If you want to understand exactly how your brand currently performs across ChatG
 
 Getting recommended across ChatGPT, Gemini, Claude, and Perplexity requires the brand-signal architecture, content depth, and authority footprint this post walks through — built across your site and the wider web. Our service is built for exactly that.
 
-**[ChatGPT Optimisation — Singapore →](/chatgpt-optimisation-singapore/)**
+**[ChatGPT Optimisation — Singapore →](/services/ai-search-optimisation/)**
 
 ---

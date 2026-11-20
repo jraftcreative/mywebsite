@@ -194,9 +194,9 @@ At Jraft Creative, we work with beauty salons, hair salons, nail studios, spas, 
 
 - **[Website design](/beauty-salon-website-singapore/)** that showcases your work and converts visitors into bookings
 - **[SEO](/beauty-salon-seo-singapore/)** so you rank for local searches like "hair salon Tanjong Pagar"
-- **[Google Ads](/beauty-salon-google-ads-singapore/)** for high-intent lead generation
-- **[Social media content](/beauty-salon-social-media-singapore/)** — Instagram strategy, content creation, and community management
-- **[Branding](/beauty-salon-branding-singapore/)** that positions your salon as premium
+- **[Google Ads](/beauty-salon-marketing-singapore/)** for high-intent lead generation
+- **[Social media content](/beauty-salon-marketing-singapore/)** — Instagram strategy, content creation, and community management
+- **[Branding](/beauty-salon-marketing-singapore/)** that positions your salon as premium
 - **[Full-service marketing](/beauty-marketing-agency-singapore/)** — everything above, under one roof
 
 Every salon is different. We start every engagement with an honest assessment of where you are and what'll give you the fastest path to more bookings.

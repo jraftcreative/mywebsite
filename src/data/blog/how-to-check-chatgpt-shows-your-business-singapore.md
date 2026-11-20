@@ -172,7 +172,7 @@ The goal isn't volume; it's *quality and consistency* of mentions. AI models dis
 
 Rewrite your homepage, About page, and service pages to be unambiguous about who you are, what you do, where you operate, and who you serve. Plain language. Fact-dense paragraphs the AI can extract verbatim. Drop the mission-statement copy that says nothing.
 
-Part content exercise, part positioning. Our [ChatGPT optimisation services](/chatgpt-optimisation-singapore/) page outlines how we approach entity sharpening for Singapore businesses.
+Part content exercise, part positioning. Our [ChatGPT optimisation services](/services/ai-search-optimisation/) page outlines how we approach entity sharpening for Singapore businesses.
 
 ### Step 4 — Monitor and re-test monthly
 
@@ -186,7 +186,7 @@ First: AI answers vary. The same prompt can return different brand lists each ti
 
 Second: appearing in AI answers is the *floor*, not the ceiling. The deeper goal is to be described with the most *specific, accurate* reasoning. "Jraft Creative — a Singapore digital marketing agency that handles paid ads, SEO and GEO in-house" is a better placement than "Jraft Creative is a marketing agency." The first is recommendation-quality. The second is just a name in a list.
 
-To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the biggest fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [ChatGPT optimisation in Singapore](/chatgpt-optimisation-singapore/).
+To see how your brand is currently being described across ChatGPT, Gemini, and Perplexity — and where the biggest fix is — our [AI visibility audit](/ai-visibility-singapore/) covers exactly that. If ChatGPT specifically is the channel you're prioritising, we have a focused page on [ChatGPT optimisation in Singapore](/services/ai-search-optimisation/).
 
 ## TL;DR — run this today
 

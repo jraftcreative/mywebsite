@@ -203,7 +203,7 @@ We work with tuition centres across Singapore on:
 - **[SEO](/tuition-centre-seo-singapore/)** to rank for the searches parents actually make
 - **[Google Ads](/tuition-centre-google-ads-singapore/)** to appear at the top of search results immediately
 - **[Facebook Ads](/tuition-centre-facebook-ads-singapore/)** to reach parents in specific neighbourhoods
-- **[Branding](/tuition-centre-branding-singapore/)** that builds trust and differentiates your centre
+- **[Branding](/tuition-centre-marketing-singapore/)** that builds trust and differentiates your centre
 
 Every tuition centre is different — different subjects, different audiences, different budgets. We'll give you an honest assessment of where to start based on your specific situation.
 
