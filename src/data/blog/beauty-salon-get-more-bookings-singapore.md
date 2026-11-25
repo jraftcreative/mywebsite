@@ -161,6 +161,8 @@ Once the foundations are in place, paid ads let you scale fast:
 
 Budget: **$500–$2,000/month** is a reasonable starting point for a single-location salon.
 
+For a real example, see our [case study of a brow studio that tripled its leads with paid ads](/blog/brow-studio-paid-ads-case-study-singapore/).
+
 ## Industry-Specific Tips
 
 ### Hair salons
